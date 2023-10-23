@@ -1,0 +1,450 @@
+syntax = "proto2";
+import "dccl/option_extensions.proto";
+
+message Pose
+{
+    option (dccl.msg).codec_version = 4;
+    option (dccl.msg).id = 88;
+    option (dccl.msg).max_bytes = 31;
+    required int32 destination = 1 [
+        (dccl.field).max = 31,
+        (dccl.field).min = 0,
+        (dccl.field).precision = 0
+    ];
+
+    required bool cmd_resp = 2;
+
+    //time since epoch (including miliseconds)
+    //max time is Jan 1 2030, please update future soslab member
+    optional double time = 3 [
+        (dccl.field).min =  1672531200,
+        (dccl.field).max =  1893456000,
+        (dccl.field).precision = 3
+    ];
+    //nav solution from global robot localization
+    optional double latitude = 4 [
+        (dccl.field).min = 40.491621,
+        (dccl.field).max = 42.491621,
+        (dccl.field).precision = 6
+    ];
+    optional double longitude = 5 [
+        (dccl.field).min = -72.422134,
+        (dccl.field).max = -70.422134,
+        (dccl.field).precision = 6
+    ];
+    //nav solution from local robot localization
+    optional int32 local_x = 6 [
+        (dccl.field).max = 10000,
+        (dccl.field).min = -10000,
+        (dccl.field).precision = 2
+    ];
+    optional int32 local_y = 7 [
+        (dccl.field).max = 10000,
+        (dccl.field).min = -10000,
+        (dccl.field).precision = 2
+    ];
+    optional int32 local_z = 8 [
+        (dccl.field).max = 10000,
+        (dccl.field).min = -10000,
+        (dccl.field).precision = 2
+    ];
+    //quaternion rotation
+    optional float x_rot = 9 [
+        (dccl.field).max = 1,
+        (dccl.field).min = -1,
+        (dccl.field).precision = 4
+    ];
+    optional int32 y_rot = 10 [
+        (dccl.field).max = 1,
+        (dccl.field).min = -1,
+        (dccl.field).precision = 4
+    ];
+    optional int32 z_rot = 11 [
+        (dccl.field).max = 1,
+        (dccl.field).min = -1,
+        (dccl.field).precision = 4
+    ];
+    optional int32 w_rot = 12 [
+        (dccl.field).max = 1,
+        (dccl.field).min = -1,
+        (dccl.field).precision = 4
+    ];
+}
+
+message Health {
+    option (dccl.msg).codec_version = 4;
+    option (dccl.msg).id = 89;
+    option (dccl.msg).max_bytes = 31;
+    required int32 destination = 1 [
+        (dccl.field).max = 31,
+        (dccl.field).min = 0,
+        (dccl.field).precision = 0
+    ];
+
+    optional bool cmd_resp = 2;
+
+    //time since epoch (including miliseconds)
+    //max time is Jan 1 2030, please update future soslab member
+    optional double time = 3 [
+        (dccl.field).min =  1672531200,
+        (dccl.field).max =  1893456000,
+        (dccl.field).precision = 3
+    ];
+
+    //battery voltage
+    optional float batt_volt = 4[
+        (dccl.field).min = 12,
+        (dccl.field).max = 22,
+        (dccl.field).precision = 1
+    ];
+
+    //battery current
+    optional float coulumb = 5[
+        (dccl.field).min = 0,
+        (dccl.field).max = 10000,
+        (dccl.field).precision = 1 
+    ];
+}
+
+message RelativePose {
+    option (dccl.msg).codec_version = 4;
+    option (dccl.msg).id = 90;
+    option (dccl.msg).max_bytes = 31;
+    required int32 destination = 1 [
+        (dccl.field).max = 31,
+        (dccl.field).min = 0,
+        (dccl.field).precision = 0
+    ];
+    
+    required bool cmd_resp = 2;
+
+    //time since epoch (including miliseconds)
+    //max time is Jan 1 2030, please update future soslab member
+    optional double time = 3 [
+        (dccl.field).min =  1672531200,
+        (dccl.field).max =  1893456000,
+        (dccl.field).precision = 3
+    ];
+    //
+    optional Frame parent = 4;
+    optional Frame child = 5;
+    enum Frame
+    {
+        BASE_LINK = 0;
+        ODOM = 1;
+        WORLD = 2;
+        USBL = 3;
+    }
+    //nav solution from local robot localization
+    optional float local_x = 6 [
+        (dccl.field).max = 10000,
+        (dccl.field).min = -10000,
+        (dccl.field).precision = 2
+    ];
+    optional float local_y = 7 [
+        (dccl.field).max = 10000,
+        (dccl.field).min = -10000,
+        (dccl.field).precision = 2
+    ];
+    optional float local_z = 8 [
+        (dccl.field).max = 10000,
+        (dccl.field).min = -10000,
+        (dccl.field).precision = 2
+    ];
+    //quaternion rotation
+    optional float x_rot = 9 [
+        (dccl.field).max = 1,
+        (dccl.field).min = -1,
+        (dccl.field).precision = 4
+    ];
+    optional int32 y_rot = 10 [
+        (dccl.field).max = 1,
+        (dccl.field).min = -1,
+        (dccl.field).precision = 4
+    ];
+    optional int32 z_rot = 11 [
+        (dccl.field).max = 1,
+        (dccl.field).min = -1,
+        (dccl.field).precision = 4
+    ];
+    optional int32 w_rot = 12 [
+        (dccl.field).max = 1,
+        (dccl.field).min = -1,
+        (dccl.field).precision = 4
+    ];
+}
+
+message ControllerInfo {
+    option (dccl.msg).codec_version = 4;
+    option (dccl.msg).id = 91;
+    option (dccl.msg).max_bytes = 31;
+    required int32 destination = 1 [
+        (dccl.field).max = 31,
+        (dccl.field).min = 0,
+        (dccl.field).precision = 0
+    ];
+    //time since epoch (including miliseconds)
+    //max time is Jan 1 2030, please update future soslab member
+    required double time = 2 [
+        (dccl.field).min =  1672531200,
+        (dccl.field).max =  1893456000,
+        (dccl.field).precision = 3
+    ];
+    //true for set, false for get
+    required bool setget = 3;
+    optional bool state = 4;
+}
+
+message DirectControl {
+    option (dccl.msg).codec_version = 4;
+    option (dccl.msg).id = 92;
+    option (dccl.msg).max_bytes = 31;
+    required int32 destination = 1 [
+        (dccl.field).max = 31,
+        (dccl.field).min = 0,
+        (dccl.field).precision = 0
+    ];
+    //time since epoch (including miliseconds)
+    //max time is Jan 1 2030, please update future soslab member
+    required double time = 2 [
+        (dccl.field).min =  1672531200,
+        (dccl.field).max =  1893456000,
+        (dccl.field).precision = 3
+    ];
+    //true for set, false for get
+    required bool setget = 3;
+    optional Frame frame = 4;
+    enum Frame
+    {
+        BASE_LINK = 0;
+        ODOM = 1;
+        WORLD = 2;
+        USBL = 3;
+    };
+    optional float set_x = 6 [
+        (dccl.field).max = 10000,
+        (dccl.field).min = -10000,
+        (dccl.field).precision = 2
+    ];
+    optional float set_y = 7 [
+        (dccl.field).max = 10000,
+        (dccl.field).min = -10000,
+        (dccl.field).precision = 2
+    ];
+    optional float set_z = 8 [
+        (dccl.field).max = 10000,
+        (dccl.field).min = -10000,
+        (dccl.field).precision = 2
+    ];
+    optional float set_roll = 9 [
+        (dccl.field).max = 1.57,
+        (dccl.field).min = -1.57,
+        (dccl.field).precision = 2
+    ];
+    optional float set_pitch = 10 [
+        (dccl.field).max = 1.57,
+        (dccl.field).min = -1.57,
+        (dccl.field).precision = 2
+    ];
+    optional float set_yaw = 11 [
+        (dccl.field).max = 3.14,
+        (dccl.field).min = 0,
+        (dccl.field).precision = 2
+    ];
+    optional float set_u = 12 [
+        (dccl.field).max = 2,
+        (dccl.field).min = -2,
+        (dccl.field).precision = 2
+    ];
+    optional float set_v = 13 [
+        (dccl.field).max = 2,
+        (dccl.field).min = -2,
+        (dccl.field).precision = 2
+    ];
+    optional float set_w = 14 [
+        (dccl.field).max = 2,
+        (dccl.field).min = -2,
+        (dccl.field).precision = 2
+    ];
+    optional float set_p = 15 [
+        (dccl.field).max = 2,
+        (dccl.field).min = -2,
+        (dccl.field).precision = 2
+    ];
+    optional float set_q = 16 [
+        (dccl.field).max = 2,
+        (dccl.field).min = -2,
+        (dccl.field).precision = 2
+    ];
+    optional float set_r = 17 [
+        (dccl.field).max = 2,
+        (dccl.field).min = -2,
+        (dccl.field).precision = 2
+    ];
+}
+
+message StateInfo {
+    option (dccl.msg).codec_version = 4;
+    option (dccl.msg).id = 93;
+    option (dccl.msg).max_bytes = 31;
+    required int32 destination = 1 [
+        (dccl.field).max = 31,
+        (dccl.field).min = 0,
+        (dccl.field).precision = 0
+    ];
+    //time since epoch (including miliseconds)
+    //max time is Jan 1 2030, please update future soslab member
+    required double time = 2 [
+        (dccl.field).min =  1672531200.0,
+        (dccl.field).max =  1893456000.0,
+        (dccl.field).precision = 3
+    ];
+    //true for set, false for get
+    required bool setget = 3;
+    optional State state = 4;
+    enum State
+    {
+        KILL = 0;
+        START = 1;
+        LOCAL = 2;
+        GLOBAL = 3;
+        DIRECT = 4;
+    };
+}
+
+message SingleWaypoint {
+    option (dccl.msg).codec_version = 4;
+    option (dccl.msg).id = 94;
+    option (dccl.msg).max_bytes = 31;
+    required int32 destination = 1 [
+        (dccl.field).max = 31,
+        (dccl.field).min = 0,
+        (dccl.field).precision = 0
+    ];
+    //time since epoch (including miliseconds)
+    //max time is Jan 1 2030, please update future soslab member
+    required double time = 2 [
+        (dccl.field).min =  1672531200,
+        (dccl.field).max =  1893456000,
+        (dccl.field).precision = 3
+    ];
+    //true for set, false for get
+    required bool setget = 3;
+    //global waypoint
+    optional double latitude = 4 [
+        (dccl.field).min = 40.491621,
+        (dccl.field).max = 42.491621,
+        (dccl.field).precision = 6
+    ];
+    optional double longitude = 5 [
+        (dccl.field).min = -72.422134,
+        (dccl.field).max = -70.422134,
+        (dccl.field).precision = 6
+    ];
+    //local waypoint
+    optional int32 local_x = 6 [
+        (dccl.field).max = 10000,
+        (dccl.field).min = -10000,
+        (dccl.field).precision = 0
+    ];
+    optional int32 local_y = 7 [
+        (dccl.field).max = 10000,
+        (dccl.field).min = -10000,
+        (dccl.field).precision = 0
+    ];
+    required int32 depth = 8 [
+        (dccl.field).max = 300,
+        (dccl.field).min = 0,
+        (dccl.field).precision = 0
+    ];
+}
+
+message MultiWaypoint {
+    option (dccl.msg).codec_version = 4;
+    option (dccl.msg).id = 95;
+    option (dccl.msg).max_bytes = 31;
+    required int32 destination = 1 [
+        (dccl.field).max = 31,
+        (dccl.field).min = 0,
+        (dccl.field).precision = 0
+    ];
+    //time since epoch (including miliseconds)
+    //max time is Jan 1 2030, please update future soslab member
+    required double time = 2 [
+        (dccl.field).min =  1672531200,
+        (dccl.field).max =  1893456000,
+        (dccl.field).precision = 3
+    ];
+    //true for set, false for get
+    required int32 wpt_num = 3 [
+        (dccl.field).min =  0,
+        (dccl.field).max =  32,
+        (dccl.field).precision = 0
+    ];
+    //global waypoint
+    optional double latitude_1 = 4 [
+        (dccl.field).min = 40.491621,
+        (dccl.field).max = 42.491621,
+        (dccl.field).precision = 6
+    ];
+    optional double longitude_1 = 5 [
+        (dccl.field).min = -72.422134,
+        (dccl.field).max = -70.422134,
+        (dccl.field).precision = 6
+    ];
+    optional int32 depth_1 = 6 [
+        (dccl.field).max = 300,
+        (dccl.field).min = 0,
+        (dccl.field).precision = 0
+    ];
+    optional double latitude_2 = 7 [
+        (dccl.field).min = 40.491621,
+        (dccl.field).max = 42.491621,
+        (dccl.field).precision = 6
+    ];
+    optional double longitude_2 = 8 [
+        (dccl.field).min = -72.422134,
+        (dccl.field).max = -70.422134,
+        (dccl.field).precision = 6
+    ];
+    optional int32 depth_2 = 9 [
+        (dccl.field).max = 300,
+        (dccl.field).min = 0,
+        (dccl.field).precision = 0
+    ];
+    optional double latitude_3 = 10 [
+        (dccl.field).min = 40.491621,
+        (dccl.field).max = 42.491621,
+        (dccl.field).precision = 6
+    ];
+    optional double longitude_3 = 11 [
+        (dccl.field).min = -72.422134,
+        (dccl.field).max = -70.422134,
+        (dccl.field).precision = 6
+    ];
+    optional int32 depth_3 = 12 [
+        (dccl.field).max = 300,
+        (dccl.field).min = 0,
+        (dccl.field).precision = 0
+    ];
+    required bool end = 13;
+}
+
+message ExecuteWaypoints {
+    option (dccl.msg).codec_version = 4;
+    option (dccl.msg).id = 96;
+    option (dccl.msg).max_bytes = 31;
+    required int32 destination = 1 [
+        (dccl.field).max = 31,
+        (dccl.field).min = 0,
+        (dccl.field).precision = 0
+    ];
+    //time since epoch (including miliseconds)
+    //max time is Jan 1 2030, please update future soslab member
+    required double time = 2 [
+        (dccl.field).min =  1672531200,
+        (dccl.field).max =  1893456000,
+        (dccl.field).precision = 3
+    ];
+    required bool end = 13;
+}

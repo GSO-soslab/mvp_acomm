@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>seatrac</name>
+  <version>0.0.0</version>
+  <description>The seatrac acoustic modem package</description>
+
+  <maintainer email="jason_miller@uri.edu">jason_miller</maintainer>
+  <author email="jason_miller@uri.edu">jason_miller</author>
+
+  <license>GPLv3</license>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>mvp_msgs</depend>
+  <depend>serial</depend>
+  <depend>dccl</depend>
+  <depend>proto</depend>
+  <depend>goby</depend>
+  <depend>seatrac_driver</depend>
+
+  <export>
+
+  </export>
+</package>

@@ -1,0 +1,8 @@
+port: /dev/ttyUSB0
+baud: 115200
+parity: 0
+databits: 8
+stopbits: 1
+timeout: 1000
+consule_debug: false
+beacon_id: 1
