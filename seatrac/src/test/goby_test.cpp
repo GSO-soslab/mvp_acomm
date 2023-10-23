@@ -28,7 +28,7 @@
 #include <goby/util/binary.h>
 #include <goby/acomms/protobuf/modem_message.pb.h>
 
-#include "proto/goby_msgs.pb.h"
+#include "../proto/goby_msgs.pb.h"
 
 void received_data(const google::protobuf::Message& msg);
 
@@ -55,10 +55,9 @@ int main()
     //
 
     // let's make a message to store in the queue
-    VehicleStatus msg;
-    msg.set_nav_x(100);
-    msg.set_nav_y(250);
-    msg.set_health(VehicleStatus::HEALTH_GOOD);
+    Health msg;
+    msg.set_destination(1);
+    msg.set_cmd_resp(true);
     q_manager.push_message(msg);
 
     //std::cout << "1. pushing message to queue 1: " << msg << std::endl;

@@ -68,7 +68,7 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(seatrac_modem src/seatrac_modem.cpp)
 add_executable(seatrac_usbl src/seatrac_usbl.cpp)
-add_executable(seatrac_test_driver src/test_driver.cpp)
+add_executable(seatrac_test_driver src/test/test_driver.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the

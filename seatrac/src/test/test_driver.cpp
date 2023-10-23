@@ -43,10 +43,10 @@
 #include <goby/acomms/modem_driver.h>
 #include <goby/util/binary.h>
 #include <goby/util/debug_logger.h>
-#include "proto/goby_msgs.pb.h"
+#include "../proto/goby_msgs.pb.h"
 #include "seatrac_driver.h"
 
-#include "io.h"
+#include "../io.h"
 
 void handle_data_receive(const goby::acomms::protobuf::ModemTransmission& data_msg);
 
