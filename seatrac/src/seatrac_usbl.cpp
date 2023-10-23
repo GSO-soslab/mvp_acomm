@@ -41,6 +41,8 @@ SeaTracUSBL::SeaTracUSBL()
         msg.set_destination(1);
         msg.set_cmd_resp(true);
         q_manager.push_message(msg);
+
+        rate.sleep();
     }
 }
 

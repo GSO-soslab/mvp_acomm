@@ -68,6 +68,7 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(seatrac_modem src/seatrac_modem.cpp)
 add_executable(seatrac_usbl src/seatrac_usbl.cpp)
+add_executable(seatrac_modem src/seatrac_modem.cpp)
 add_executable(seatrac_test_driver src/test/test_driver.cpp)
 
 ## Rename C++ executable without prefix
@@ -80,10 +81,17 @@ add_executable(seatrac_test_driver src/test/test_driver.cpp)
 ## same as for the library above
 # add_dependencies(seatrac_modem ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(seatrac_usbl ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(seatrac_modem ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(seatrac_test_driver ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(seatrac_usbl
+  ${catkin_LIBRARIES}
+  dccl
+  proto
+  goby
+)
+target_link_libraries(seatrac_modem
   ${catkin_LIBRARIES}
   dccl
   proto
