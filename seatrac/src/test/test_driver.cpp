@@ -40,6 +40,7 @@
 #include <goby/acomms/amac.h>
 #include <goby/acomms/connect.h>
 #include <goby/acomms/queue.h>
+#include <goby/acomms/dccl.h>
 #include <goby/acomms/modem_driver.h>
 #include <goby/util/binary.h>
 #include <goby/util/debug_logger.h>
@@ -48,7 +49,7 @@
 
 #include "../io.h"
 
-void handle_data_receive(const goby::acomms::protobuf::ModemTransmission& data_msg);
+void handle_data_receive(const google::protobuf::Message& data_msg);
 
 int main(int argc, char* argv[])
 {
@@ -56,107 +57,114 @@ int main(int argc, char* argv[])
     //
     // 1. Create and initialize the driver we want
     //
-    goby::acomms::ModemDriverBase* driver = 0;
-    goby::acomms::protobuf::DriverConfig cfg;
-    goby::acomms::protobuf::QueueManagerConfig qcfg;
+    goby::acomms::DCCLCodec* dccl_ = goby::acomms::DCCLCodec::get();
     goby::acomms::QueueManager q_manager;
-    goby::acomms::protobuf::ModemTransmission request_msg;
+    goby::acomms::SeatracDriver st_driver;
     goby::acomms::MACManager mac;
-    goby::acomms::protobuf::MACConfig mcfg;
 
-    
-
-    // set the serial port given on the command line
-    cfg.set_serial_port("/dev/ttyUSB0");
-    cfg.set_connection_type(goby::acomms::protobuf::DriverConfig_ConnectionType_CONNECTION_SERIAL);
+    goby::acomms::bind(st_driver, q_manager, mac);
 
     // set the source id of this modem
-    uint32_t our_id = goby::util::as<uint32_t>(15);
-    uint32_t dest_id = goby::util::as<uint32_t>(1);
+    uint32_t our_id = 15;
+    uint32_t dest_id = 1;
 
-    cfg.set_modem_id(our_id);
-    qcfg.set_modem_id(our_id);
-    mcfg.set_modem_id(our_id);
+    //Initiate DCCL
+    goby::acomms::protobuf::DCCLConfig dccl_cfg;
+
+    dccl_->validate<Pose>();
+
+    //Initiate queue manager
+    goby::acomms::protobuf::QueueManagerConfig q_manager_cfg;
+    q_manager_cfg.set_modem_id(our_id);
+
+
+    goby::acomms::connect(&q_manager.signal_receive, &handle_data_receive);
+
+    //Initiate modem driver
+    goby::acomms::protobuf::DriverConfig driver_cfg;
+    driver_cfg.set_modem_id(our_id);
+    driver_cfg.set_serial_port("/dev/ttyUSB0");
+    driver_cfg.set_connection_type(goby::acomms::protobuf::DriverConfig_ConnectionType_CONNECTION_SERIAL);
+
+    //Initiate medium access control
+    goby::acomms::protobuf::MACConfig mac_cfg;
+    mac_cfg.set_type(goby::acomms::protobuf::MAC_FIXED_DECENTRALIZED);
+    mac_cfg.set_modem_id(our_id);
+
+    goby::acomms::protobuf::ModemTransmission my_slot;
+    my_slot.set_src(our_id);
+    my_slot.set_dest(dest_id);
+    my_slot.set_rate(0);
+    my_slot.set_type(goby::acomms::protobuf::ModemTransmission::DATA);
+    my_slot.set_slot_seconds(5);
+
+    goby::acomms::protobuf::ModemTransmission buddy_slot;
+    buddy_slot.set_src(dest_id);
+    buddy_slot.set_dest(our_id);
+    buddy_slot.set_rate(0);
+    buddy_slot.set_type(goby::acomms::protobuf::ModemTransmission::DATA);
+    buddy_slot.set_slot_seconds(5);
+
+    if (our_id < dest_id)
+    {
+        mac_cfg.add_slot()->CopyFrom(my_slot);
+        mac_cfg.add_slot()->CopyFrom(buddy_slot);
+    }
+    else
+    {
+        mac_cfg.add_slot()->CopyFrom(buddy_slot);
+        mac_cfg.add_slot()->CopyFrom(my_slot);
+    }
 
     //init protobuf messages to the queue
-    qcfg.add_message_entry()->set_protobuf_name("Pose");
-    qcfg.add_message_entry()->set_protobuf_name("Health");
-    qcfg.add_message_entry()->set_protobuf_name("RelativePose");
-    qcfg.add_message_entry()->set_protobuf_name("ControllerInfo");
-    qcfg.add_message_entry()->set_protobuf_name("DirectControl");
-    qcfg.add_message_entry()->set_protobuf_name("StateInfo");
-    qcfg.add_message_entry()->set_protobuf_name("SingleWaypoint");
-    qcfg.add_message_entry()->set_protobuf_name("MultiWaypoint");
-    qcfg.add_message_entry()->set_protobuf_name("ExecuteWaypoint");
-
-    q_manager.set_cfg(qcfg);
-
-    //configure mac slots
-    mcfg.set_type(goby::acomms::protobuf::MAC_FIXED_DECENTRALIZED);
-    goby::acomms::protobuf::ModemTransmission* slot = mcfg.add_slot();
-    slot->set_src(our_id);
-    slot->set_rate(0);
-    slot->set_type(goby::acomms::protobuf::ModemTransmission::DATA);
-    slot->set_slot_seconds(10);
+    q_manager_cfg.add_message_entry()->set_protobuf_name("Pose");
+    q_manager_cfg.add_message_entry()->set_protobuf_name("Health");
+    q_manager_cfg.add_message_entry()->set_protobuf_name("RelativePose");
+    q_manager_cfg.add_message_entry()->set_protobuf_name("ControllerInfo");
+    q_manager_cfg.add_message_entry()->set_protobuf_name("DirectControl");
+    q_manager_cfg.add_message_entry()->set_protobuf_name("StateInfo");
+    q_manager_cfg.add_message_entry()->set_protobuf_name("SingleWaypoint");
+    q_manager_cfg.add_message_entry()->set_protobuf_name("MultiWaypoint");
+    q_manager_cfg.add_message_entry()->set_protobuf_name("ExecuteWaypoint");
 
 
     goby::glog.set_name("usbl");
     goby::glog.add_stream(goby::util::logger::DEBUG2, &std::clog);
 
-    std::cout << "Starting seatrac driver: " << std::endl;
-    driver = new goby::acomms::SeatracDriver;
+    dccl_->set_cfg(dccl_cfg);
+    q_manager.set_cfg(q_manager_cfg);   
+    mac.startup(mac_cfg);
+    st_driver.startup(driver_cfg);
 
-    goby::acomms::connect(&driver->signal_receive, &handle_data_receive);
-    //goby::acomms::connect(&mac.signal_initiate_transmission, &driver->handle_initiate_transmission);
-    goby::acomms::bind(*driver, q_manager, mac);
+    Pose p_msg;
+    p_msg.set_destination(1);
+    p_msg.set_cmd_resp(true);
+    q_manager.push_message(p_msg);
+
+    Health h_msg;
+    h_msg.set_destination(1);
+    h_msg.set_cmd_resp(true);
+    q_manager.push_message(h_msg);
     
-    StateInfo r_out;
-    r_out.set_destination(1);
-    r_out.set_time(1682531200);
-    r_out.set_setget(false);
-
-
-    q_manager.push_message(r_out);
-    //
-    // 2. Startup the driver
-    //
-    driver->startup(cfg);
-    mac.startup(mcfg);
-
-
-    //
-    // 3. Initiate a transmission cycle with some data
-    //
-
-    // request_msg.set_max_frame_bytes(31);
-    // request_msg.set_max_num_frames(1);
-    // request_msg.set_dest(1);
-
-    // q_manager.handle_modem_data_request(&request_msg);
-
-    // driver->handle_initiate_transmission(request_msg);
-
-    //
     // 4. Run the driver
     // 10 hz is good
     int i = 0;
     while (1)
     {
-        // ++i;
-        // driver->do_work();
+        ++i;
+        st_driver.do_work();
+        q_manager.do_work();
+        mac.do_work();
 
         // // send another transmission every 10 seconds
-        // if (!(i % 10))
-        //     driver->handle_initiate_transmission(request_msg);
+        if (!(i % 500))
+            q_manager.push_message(p_msg);
+            q_manager.push_message(h_msg);
 
-        // // in here you can initiate more transmissions as you want
-        // usleep(100000);
-
-        mac.do_work();
+        //mac.do_work();
         usleep(100000);
     }
 
-    delete driver;
     return 0;
 }
 
@@ -164,7 +172,7 @@ int main(int argc, char* argv[])
 // 5. Post the received data
 //
 
-void handle_data_receive(const goby::acomms::protobuf::ModemTransmission& data_msg)
+void handle_data_receive(const google::protobuf::Message& data_msg)
 {
     std::cout << "got a message: " << data_msg << std::endl;
 }
