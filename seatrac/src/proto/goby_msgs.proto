@@ -6,8 +6,9 @@ message Pose
     option (dccl.msg).codec_version = 4;
     option (dccl.msg).id = 88;
     option (dccl.msg).max_bytes = 31;
+
     required int32 destination = 1 [
-        (dccl.field).max = 31,
+        (dccl.field).max = 15,
         (dccl.field).min = 0,
         (dccl.field).precision = 0
     ];
@@ -54,17 +55,17 @@ message Pose
         (dccl.field).min = -1,
         (dccl.field).precision = 4
     ];
-    optional int32 y_rot = 10 [
+    optional float y_rot = 10 [
         (dccl.field).max = 1,
         (dccl.field).min = -1,
         (dccl.field).precision = 4
     ];
-    optional int32 z_rot = 11 [
+    optional float z_rot = 11 [
         (dccl.field).max = 1,
         (dccl.field).min = -1,
         (dccl.field).precision = 4
     ];
-    optional int32 w_rot = 12 [
+    optional float w_rot = 12 [
         (dccl.field).max = 1,
         (dccl.field).min = -1,
         (dccl.field).precision = 4
@@ -99,9 +100,9 @@ message Health {
     ];
 
     //battery current
-    optional float coulumb = 5[
-        (dccl.field).min = 0,
-        (dccl.field).max = 10000,
+    optional float current = 5[
+        (dccl.field).min = -50,
+        (dccl.field).max = 50,
         (dccl.field).precision = 1 
     ];
 }

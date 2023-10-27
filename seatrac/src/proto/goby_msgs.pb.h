@@ -311,26 +311,26 @@ class Pose : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
   float x_rot() const;
   void set_x_rot(float value);
 
-  // optional int32 y_rot = 10 [(.dccl.field) = {
+  // optional float y_rot = 10 [(.dccl.field) = {
   bool has_y_rot() const;
   void clear_y_rot();
   static const int kYRotFieldNumber = 10;
-  ::google::protobuf::int32 y_rot() const;
-  void set_y_rot(::google::protobuf::int32 value);
+  float y_rot() const;
+  void set_y_rot(float value);
 
-  // optional int32 z_rot = 11 [(.dccl.field) = {
+  // optional float z_rot = 11 [(.dccl.field) = {
   bool has_z_rot() const;
   void clear_z_rot();
   static const int kZRotFieldNumber = 11;
-  ::google::protobuf::int32 z_rot() const;
-  void set_z_rot(::google::protobuf::int32 value);
+  float z_rot() const;
+  void set_z_rot(float value);
 
-  // optional int32 w_rot = 12 [(.dccl.field) = {
+  // optional float w_rot = 12 [(.dccl.field) = {
   bool has_w_rot() const;
   void clear_w_rot();
   static const int kWRotFieldNumber = 12;
-  ::google::protobuf::int32 w_rot() const;
-  void set_w_rot(::google::protobuf::int32 value);
+  float w_rot() const;
+  void set_w_rot(float value);
 
   // @@protoc_insertion_point(class_scope:Pose)
  private:
@@ -374,9 +374,9 @@ class Pose : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
   ::google::protobuf::int32 local_y_;
   ::google::protobuf::int32 local_z_;
   float x_rot_;
-  ::google::protobuf::int32 y_rot_;
-  ::google::protobuf::int32 z_rot_;
-  ::google::protobuf::int32 w_rot_;
+  float y_rot_;
+  float z_rot_;
+  float w_rot_;
   friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -503,12 +503,12 @@ class Health : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   float batt_volt() const;
   void set_batt_volt(float value);
 
-  // optional float coulumb = 5 [(.dccl.field) = {
-  bool has_coulumb() const;
-  void clear_coulumb();
-  static const int kCoulumbFieldNumber = 5;
-  float coulumb() const;
-  void set_coulumb(float value);
+  // optional float current = 5 [(.dccl.field) = {
+  bool has_current() const;
+  void clear_current();
+  static const int kCurrentFieldNumber = 5;
+  float current() const;
+  void set_current(float value);
 
   // @@protoc_insertion_point(class_scope:Health)
  private:
@@ -520,8 +520,8 @@ class Health : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   void clear_has_time();
   void set_has_batt_volt();
   void clear_has_batt_volt();
-  void set_has_coulumb();
-  void clear_has_coulumb();
+  void set_has_current();
+  void clear_has_current();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
@@ -530,7 +530,7 @@ class Health : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   bool cmd_resp_;
   double time_;
   float batt_volt_;
-  float coulumb_;
+  float current_;
   friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -2201,7 +2201,7 @@ inline void Pose::set_x_rot(float value) {
   // @@protoc_insertion_point(field_set:Pose.x_rot)
 }
 
-// optional int32 y_rot = 10 [(.dccl.field) = {
+// optional float y_rot = 10 [(.dccl.field) = {
 inline bool Pose::has_y_rot() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -2215,17 +2215,17 @@ inline void Pose::clear_y_rot() {
   y_rot_ = 0;
   clear_has_y_rot();
 }
-inline ::google::protobuf::int32 Pose::y_rot() const {
+inline float Pose::y_rot() const {
   // @@protoc_insertion_point(field_get:Pose.y_rot)
   return y_rot_;
 }
-inline void Pose::set_y_rot(::google::protobuf::int32 value) {
+inline void Pose::set_y_rot(float value) {
   set_has_y_rot();
   y_rot_ = value;
   // @@protoc_insertion_point(field_set:Pose.y_rot)
 }
 
-// optional int32 z_rot = 11 [(.dccl.field) = {
+// optional float z_rot = 11 [(.dccl.field) = {
 inline bool Pose::has_z_rot() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -2239,17 +2239,17 @@ inline void Pose::clear_z_rot() {
   z_rot_ = 0;
   clear_has_z_rot();
 }
-inline ::google::protobuf::int32 Pose::z_rot() const {
+inline float Pose::z_rot() const {
   // @@protoc_insertion_point(field_get:Pose.z_rot)
   return z_rot_;
 }
-inline void Pose::set_z_rot(::google::protobuf::int32 value) {
+inline void Pose::set_z_rot(float value) {
   set_has_z_rot();
   z_rot_ = value;
   // @@protoc_insertion_point(field_set:Pose.z_rot)
 }
 
-// optional int32 w_rot = 12 [(.dccl.field) = {
+// optional float w_rot = 12 [(.dccl.field) = {
 inline bool Pose::has_w_rot() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -2263,11 +2263,11 @@ inline void Pose::clear_w_rot() {
   w_rot_ = 0;
   clear_has_w_rot();
 }
-inline ::google::protobuf::int32 Pose::w_rot() const {
+inline float Pose::w_rot() const {
   // @@protoc_insertion_point(field_get:Pose.w_rot)
   return w_rot_;
 }
-inline void Pose::set_w_rot(::google::protobuf::int32 value) {
+inline void Pose::set_w_rot(float value) {
   set_has_w_rot();
   w_rot_ = value;
   // @@protoc_insertion_point(field_set:Pose.w_rot)
@@ -2373,28 +2373,28 @@ inline void Health::set_batt_volt(float value) {
   // @@protoc_insertion_point(field_set:Health.batt_volt)
 }
 
-// optional float coulumb = 5 [(.dccl.field) = {
-inline bool Health::has_coulumb() const {
+// optional float current = 5 [(.dccl.field) = {
+inline bool Health::has_current() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void Health::set_has_coulumb() {
+inline void Health::set_has_current() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void Health::clear_has_coulumb() {
+inline void Health::clear_has_current() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void Health::clear_coulumb() {
-  coulumb_ = 0;
-  clear_has_coulumb();
+inline void Health::clear_current() {
+  current_ = 0;
+  clear_has_current();
 }
-inline float Health::coulumb() const {
-  // @@protoc_insertion_point(field_get:Health.coulumb)
-  return coulumb_;
+inline float Health::current() const {
+  // @@protoc_insertion_point(field_get:Health.current)
+  return current_;
 }
-inline void Health::set_coulumb(float value) {
-  set_has_coulumb();
-  coulumb_ = value;
-  // @@protoc_insertion_point(field_set:Health.coulumb)
+inline void Health::set_current(float value) {
+  set_has_current();
+  current_ = value;
+  // @@protoc_insertion_point(field_set:Health.current)
 }
 
 // -------------------------------------------------------------------

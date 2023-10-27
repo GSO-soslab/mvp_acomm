@@ -245,7 +245,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, cmd_resp_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, time_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, batt_volt_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, coulumb_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, current_),
   0,
   1,
   2,
@@ -454,7 +454,7 @@ void AddDescriptorsImpl() {
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\017goby_msgs.proto\032\034dccl/option_extension"
       "s.proto\"\265\004\n\004Pose\0222\n\013destination\030\001 \002(\005B\035\242"
-      "\?\t1\000\000\000\000\000\000\?@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022\020\n\010cmd_resp"
+      "\?\t1\000\000\000\000\000\000.@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022\020\n\010cmd_resp"
       "\030\002 \002(\010\022+\n\004time\030\003 \001(\001B\035\242\?\t)\000\000\000@3\354\330A\242\?\t1\000\000"
       "\000 \3666\334A\242\?\002 \003\022/\n\010latitude\030\004 \001(\001B\035\242\?\t)o\203\332o\355"
       ">D@\242\?\t1o\203\332o\355>E@\242\?\002 \006\0220\n\tlongitude\030\005 \001(\001B"
@@ -463,16 +463,16 @@ void AddDescriptorsImpl() {
       "\n\007local_y\030\007 \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303"
       "\300\242\?\002 \002\022.\n\007local_z\030\010 \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t"
       ")\000\000\000\000\000\210\303\300\242\?\002 \002\022,\n\005x_rot\030\t \001(\002B\035\242\?\t1\000\000\000\000\000"
-      "\000\360\?\242\?\t)\000\000\000\000\000\000\360\277\242\?\002 \004\022,\n\005y_rot\030\n \001(\005B\035\242\?\t"
+      "\000\360\?\242\?\t)\000\000\000\000\000\000\360\277\242\?\002 \004\022,\n\005y_rot\030\n \001(\002B\035\242\?\t"
       "1\000\000\000\000\000\000\360\?\242\?\t)\000\000\000\000\000\000\360\277\242\?\002 \004\022,\n\005z_rot\030\013 \001("
-      "\005B\035\242\?\t1\000\000\000\000\000\000\360\?\242\?\t)\000\000\000\000\000\000\360\277\242\?\002 \004\022,\n\005w_ro"
-      "t\030\014 \001(\005B\035\242\?\t1\000\000\000\000\000\000\360\?\242\?\t)\000\000\000\000\000\000\360\277\242\?\002 \004:\017"
+      "\002B\035\242\?\t1\000\000\000\000\000\000\360\?\242\?\t)\000\000\000\000\000\000\360\277\242\?\002 \004\022,\n\005w_ro"
+      "t\030\014 \001(\002B\035\242\?\t1\000\000\000\000\000\000\360\?\242\?\t)\000\000\000\000\000\000\360\277\242\?\002 \004:\017"
       "\242\?\002(\004\242\?\002\010X\242\?\002\020\037\"\356\001\n\006Health\0222\n\013destinatio"
       "n\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022\020"
       "\n\010cmd_resp\030\002 \001(\010\022+\n\004time\030\003 \001(\001B\035\242\?\t)\000\000\000@"
       "3\354\330A\242\?\t1\000\000\000 \3666\334A\242\?\002 \003\0220\n\tbatt_volt\030\004 \001(\002"
-      "B\035\242\?\t)\000\000\000\000\000\000(@\242\?\t1\000\000\000\000\000\0006@\242\?\002 \001\022.\n\007coulu"
-      "mb\030\005 \001(\002B\035\242\?\t)\000\000\000\000\000\000\000\000\242\?\t1\000\000\000\000\000\210\303@\242\?\002 \001:"
+      "B\035\242\?\t)\000\000\000\000\000\000(@\242\?\t1\000\000\000\000\000\0006@\242\?\002 \001\022.\n\007curre"
+      "nt\030\005 \001(\002B\035\242\?\t)\000\000\000\000\000\000I\300\242\?\t1\000\000\000\000\000\000I@\242\?\002 \001:"
       "\017\242\?\002(\004\242\?\002\010Y\242\?\002\020\037\"\332\004\n\014RelativePose\0222\n\013des"
       "tination\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242\?\t)\000\000\000\000\000\000\000\000"
       "\242\?\002 \000\022\020\n\010cmd_resp\030\002 \002(\010\022+\n\004time\030\003 \001(\001B\035\242"
@@ -868,13 +868,13 @@ bool Pose::MergePartialFromCodedStream(
         break;
       }
 
-      // optional int32 y_rot = 10 [(.dccl.field) = {
+      // optional float y_rot = 10 [(.dccl.field) = {
       case 10: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(80u /* 80 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(85u /* 85 & 0xFF */)) {
           set_has_y_rot();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &y_rot_)));
         } else {
           goto handle_unusual;
@@ -882,13 +882,13 @@ bool Pose::MergePartialFromCodedStream(
         break;
       }
 
-      // optional int32 z_rot = 11 [(.dccl.field) = {
+      // optional float z_rot = 11 [(.dccl.field) = {
       case 11: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(88u /* 88 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(93u /* 93 & 0xFF */)) {
           set_has_z_rot();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &z_rot_)));
         } else {
           goto handle_unusual;
@@ -896,13 +896,13 @@ bool Pose::MergePartialFromCodedStream(
         break;
       }
 
-      // optional int32 w_rot = 12 [(.dccl.field) = {
+      // optional float w_rot = 12 [(.dccl.field) = {
       case 12: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(96u /* 96 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(101u /* 101 & 0xFF */)) {
           set_has_w_rot();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &w_rot_)));
         } else {
           goto handle_unusual;
@@ -982,19 +982,19 @@ void Pose::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteFloat(9, this->x_rot(), output);
   }
 
-  // optional int32 y_rot = 10 [(.dccl.field) = {
+  // optional float y_rot = 10 [(.dccl.field) = {
   if (cached_has_bits & 0x00000200u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->y_rot(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(10, this->y_rot(), output);
   }
 
-  // optional int32 z_rot = 11 [(.dccl.field) = {
+  // optional float z_rot = 11 [(.dccl.field) = {
   if (cached_has_bits & 0x00000400u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->z_rot(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(11, this->z_rot(), output);
   }
 
-  // optional int32 w_rot = 12 [(.dccl.field) = {
+  // optional float w_rot = 12 [(.dccl.field) = {
   if (cached_has_bits & 0x00000800u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->w_rot(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(12, this->w_rot(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1057,19 +1057,19 @@ void Pose::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(9, this->x_rot(), target);
   }
 
-  // optional int32 y_rot = 10 [(.dccl.field) = {
+  // optional float y_rot = 10 [(.dccl.field) = {
   if (cached_has_bits & 0x00000200u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->y_rot(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(10, this->y_rot(), target);
   }
 
-  // optional int32 z_rot = 11 [(.dccl.field) = {
+  // optional float z_rot = 11 [(.dccl.field) = {
   if (cached_has_bits & 0x00000400u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->z_rot(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(11, this->z_rot(), target);
   }
 
-  // optional int32 w_rot = 12 [(.dccl.field) = {
+  // optional float w_rot = 12 [(.dccl.field) = {
   if (cached_has_bits & 0x00000800u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->w_rot(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(12, this->w_rot(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1163,25 +1163,19 @@ size_t Pose::ByteSizeLong() const {
       total_size += 1 + 4;
     }
 
-    // optional int32 y_rot = 10 [(.dccl.field) = {
+    // optional float y_rot = 10 [(.dccl.field) = {
     if (has_y_rot()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->y_rot());
+      total_size += 1 + 4;
     }
 
-    // optional int32 z_rot = 11 [(.dccl.field) = {
+    // optional float z_rot = 11 [(.dccl.field) = {
     if (has_z_rot()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->z_rot());
+      total_size += 1 + 4;
     }
 
-    // optional int32 w_rot = 12 [(.dccl.field) = {
+    // optional float w_rot = 12 [(.dccl.field) = {
     if (has_w_rot()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->w_rot());
+      total_size += 1 + 4;
     }
 
   }
@@ -1313,7 +1307,7 @@ const int Health::kDestinationFieldNumber;
 const int Health::kCmdRespFieldNumber;
 const int Health::kTimeFieldNumber;
 const int Health::kBattVoltFieldNumber;
-const int Health::kCoulumbFieldNumber;
+const int Health::kCurrentFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Health::Health()
@@ -1329,15 +1323,15 @@ Health::Health(const Health& from)
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&destination_, &from.destination_,
-    static_cast<size_t>(reinterpret_cast<char*>(&coulumb_) -
-    reinterpret_cast<char*>(&destination_)) + sizeof(coulumb_));
+    static_cast<size_t>(reinterpret_cast<char*>(&current_) -
+    reinterpret_cast<char*>(&destination_)) + sizeof(current_));
   // @@protoc_insertion_point(copy_constructor:Health)
 }
 
 void Health::SharedCtor() {
   ::memset(&destination_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&coulumb_) -
-      reinterpret_cast<char*>(&destination_)) + sizeof(coulumb_));
+      reinterpret_cast<char*>(&current_) -
+      reinterpret_cast<char*>(&destination_)) + sizeof(current_));
 }
 
 Health::~Health() {
@@ -1371,8 +1365,8 @@ void Health::Clear() {
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 31u) {
     ::memset(&destination_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&coulumb_) -
-        reinterpret_cast<char*>(&destination_)) + sizeof(coulumb_));
+        reinterpret_cast<char*>(&current_) -
+        reinterpret_cast<char*>(&destination_)) + sizeof(current_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
@@ -1444,14 +1438,14 @@ bool Health::MergePartialFromCodedStream(
         break;
       }
 
-      // optional float coulumb = 5 [(.dccl.field) = {
+      // optional float current = 5 [(.dccl.field) = {
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(45u /* 45 & 0xFF */)) {
-          set_has_coulumb();
+          set_has_current();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &coulumb_)));
+                 input, &current_)));
         } else {
           goto handle_unusual;
         }
@@ -1505,9 +1499,9 @@ void Health::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteFloat(4, this->batt_volt(), output);
   }
 
-  // optional float coulumb = 5 [(.dccl.field) = {
+  // optional float current = 5 [(.dccl.field) = {
   if (cached_has_bits & 0x00000010u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(5, this->coulumb(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(5, this->current(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1545,9 +1539,9 @@ void Health::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(4, this->batt_volt(), target);
   }
 
-  // optional float coulumb = 5 [(.dccl.field) = {
+  // optional float current = 5 [(.dccl.field) = {
   if (cached_has_bits & 0x00000010u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(5, this->coulumb(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(5, this->current(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1589,8 +1583,8 @@ size_t Health::ByteSizeLong() const {
       total_size += 1 + 4;
     }
 
-    // optional float coulumb = 5 [(.dccl.field) = {
-    if (has_coulumb()) {
+    // optional float current = 5 [(.dccl.field) = {
+    if (has_current()) {
       total_size += 1 + 4;
     }
 
@@ -1637,7 +1631,7 @@ void Health::MergeFrom(const Health& from) {
       batt_volt_ = from.batt_volt_;
     }
     if (cached_has_bits & 0x00000010u) {
-      coulumb_ = from.coulumb_;
+      current_ = from.current_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -1672,7 +1666,7 @@ void Health::InternalSwap(Health* other) {
   swap(cmd_resp_, other->cmd_resp_);
   swap(time_, other->time_);
   swap(batt_volt_, other->batt_volt_);
-  swap(coulumb_, other->coulumb_);
+  swap(current_, other->current_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
