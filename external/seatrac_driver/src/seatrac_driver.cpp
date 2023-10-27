@@ -171,17 +171,17 @@ void goby::acomms::SeatracDriver::do_work()
                     msg.set_dest(dat_rx.aco_fix.local.dest_id);
                     msg.set_time_with_units(time::SystemClock::now<time::MicroTime>());
                     msg.set_type(protobuf::ModemTransmission::DATA);
-                    std::string rx_string((char *)dat_rx.packet_data);
+                    std::ostringstream rx;
+                    convert_to_hex_string(rx, reinterpret_cast<const unsigned char*>(dat_rx.packet_data), dat_rx.packet_len);
+                    std::string rx_string = rx.str();
                     msg.add_frame(hex_decode(rx_string));
-
                     ModemDriverBase::signal_receive(msg);
-
                 }
                 else if(cid == ST_CID_DAT_SEND)
                 {
 
-                    printf("sent message confirmed\n");
-    
+                    printf("sent message\n");
+
                 }
             }
         }
@@ -200,7 +200,7 @@ void goby::acomms::SeatracDriver::signal_and_write(const std::string& raw)
     raw_msg.set_raw(raw);
     ModemDriverBase::signal_raw_outgoing(raw_msg);
 
-    glog.is(DEBUG1) && glog << group(glog_out_group()) << boost::trim_copy(raw) << std::endl;
+    glog.is(QUIET) && glog << group(glog_out_group()) << boost::trim_copy(raw) << std::endl;
 
     ModemDriverBase::modem_write(raw);
 }
@@ -266,29 +266,29 @@ void goby::acomms::SeatracDriver::read_dat_msg(unsigned char* buffer, struct CID
     memcpy(&msg->aco_fix.local, buffer + offset, size);
     offset += size;
 
-    if(msg->aco_fix.local.flags && RANGE_VALID)
+    if(msg->aco_fix.local.flags & RANGE_VALID)
     {
         size = sizeof(msg->aco_fix.range);
         memcpy(&msg->aco_fix.range, buffer+offset, size);
         offset += size;
     }
-    if(msg->aco_fix.local.flags && USBL_VALID)
+    if(msg->aco_fix.local.flags & USBL_VALID)
     {
         size = sizeof(msg->aco_fix.usbl);
         memcpy(&msg->aco_fix.usbl, buffer+offset, size);
         offset += size;
     }
-    if(msg->aco_fix.local.flags && POSITION_VALID)
+    if(msg->aco_fix.local.flags & POSITION_VALID)
     {
         size = sizeof(msg->aco_fix.position);
         memcpy(&msg->aco_fix.position, buffer+offset, size);
         offset += size;
     }
-    if(msg->aco_fix.local.flags && POSITION_ENHANCED)
+    if(msg->aco_fix.local.flags & POSITION_ENHANCED)
     {
         //TODO add something to indicate depth is true from the modem
     }
-    if(msg->aco_fix.local.flags && POSITION_FLT_ERR)
+    if(msg->aco_fix.local.flags & POSITION_FLT_ERR)
     {
         //TODO add something to indicate that there could be an error in the position fix calculation
     }
@@ -302,13 +302,9 @@ void goby::acomms::SeatracDriver::read_dat_msg(unsigned char* buffer, struct CID
     offset += size;
 
     size = msg->packet_len;
-    if(size)
-    {
-        memcpy(&msg->packet_data, buffer+offset, size);
-        offset += sizeof(msg->packet_data);
-    }
-
-
+    memcpy(&msg->packet_data, buffer+offset, size);
+    offset += size;
+    
     size = sizeof(msg->local_flag);
     memcpy(&msg->local_flag, buffer+offset, size);
 
