@@ -10,9 +10,6 @@
 -->
 <launch>
 
-    <node ns="topside" name="seatrac_usbl" pkg="seatrac" type="seatrac_usbl"  output="screen">
-        <rosparam command="load" file="$(find seatrac)/config/usbl_config.yaml"/>
-        <param name="port" value="/dev/ttyUSB0" type="str" />
-    </node>
+    <node ns="topside" name="seatrac_usbl" pkg="seatrac" type="seatrac_usbl"  output="screen"></node>
 
 </launch>
