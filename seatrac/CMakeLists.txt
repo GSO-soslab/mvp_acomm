@@ -10,8 +10,6 @@ find_package(catkin REQUIRED COMPONENTS
   seatrac_driver
 )
 
-find_package(dccl REQUIRED)
-
 find_package(Protobuf REQUIRED)
 
 find_package(goby 3.0 REQUIRED)
@@ -19,16 +17,6 @@ find_package(goby 3.0 REQUIRED)
 # include_directories("${GOBY_INCLUDE_DIR}")
 # protobuf_include_dirs("${GOBY_INCLUDE_DIR}")
 
-if(NOT DEFINED DCCL_INCLUDE_DIR)
-  #for DCCL 3.0.3 and newer
-  get_target_property(DCCL_INCLUDE_DIR dccl INTERFACE_INCLUDE_DIRECTORIES)
-endif()
-
-if(DCCL_INCLUDE_DIR)
-  message(STATUS "\tIncluding DCCL protobuf dir: ${DCCL_INCLUDE_DIR}")
-  include_directories("${DCCL_INCLUDE_DIR}")
-  #protobuf_include_dirs("${DCCL_INCLUDE_DIR}")
-endif()
 
 # build the protobuf messages
 file(GLOB ProtoFiles "${CMAKE_CURRENT_SOURCE_DIR}/src/proto/*.proto")
@@ -87,19 +75,16 @@ add_dependencies(seatrac_test_driver ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catki
 ## Specify libraries to link a library or executable target against
 target_link_libraries(seatrac_usbl
   ${catkin_LIBRARIES}
-  dccl
   proto
   goby
 )
 target_link_libraries(seatrac_modem
   ${catkin_LIBRARIES}
-  dccl
   proto
   goby
 )
 target_link_libraries(seatrac_test_driver
   ${catkin_LIBRARIES}
-  dccl
   proto
   goby
 )
