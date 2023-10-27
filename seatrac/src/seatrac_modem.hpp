@@ -24,32 +24,45 @@
 
 #include <thread>
 #include <stdlib.h>
-#include <std_msgs/Header.h>
-#include <mvp_msgs/ModemHealth.h>
-#include <mvp_msgs/ModemPose.h>
-#include <std_msgs/Header.h>
 #include "ros/ros.h"
 #include "unistd.h"
 #include <iostream>
 
+//ros msg includes for pose
 #include "nav_msgs/Odometry.h"
-#include "robot_localization/ToLL.h"
 #include "geometry_msgs/Point.h"
 #include "geographic_msgs/GeoPoint.h"
+//ros msg includes for health
+#include "mvp_msgs/Float64Stamped.h"
+//ros service includes for controller info
+#include "std_srvs/Empty.h"
+//ros msg includes for direct control
+#include "mvp_msgs/ControlProcess.h"
 
+
+
+
+//robot localization include to transform local x,y to lat and long
+#include "robot_localization/ToLL.h"
+
+//goby includes
 #include <goby/acomms/connect.h>
 #include <goby/acomms/queue.h>
+#include <goby/acomms/bind.h>
 #include <goby/acomms/modem_driver.h>
 #include <goby/util/binary.h>
 #include <goby/util/debug_logger.h>
-#include "proto/goby_msgs.pb.h"
-#include "seatrac_driver.h"
 
+//goby util for cout protobuf messages
 #include "io.h"
 
-#include <vector>
+//protobuf msg includes
+#include "proto/goby_msgs.pb.h"
 
-class CSeatrac;
+//driver includes
+#include "seatrac_driver.h"
+
+
 
 class SeaTracModem{
 
@@ -59,28 +72,39 @@ private:
 
     ros::Publisher health_publisher;
     ros::Publisher pose_publisher;
+    ros::Publisher direct_control_pub;
     
     ros::Subscriber local_odom_subscriber;
+    ros::Subscriber voltage_sub;
+    ros::Subscriber current_sub;
+
+    ros::ServiceClient controller_enable_client;
+    ros::ServiceClient controller_disable_client;
 
     bool console_debug;
     int beacon_id;
 
     std::string buffer;
 
-    goby::acomms::ModemDriverBase* driver = 0;
-    goby::acomms::protobuf::DriverConfig cfg;
-    goby::acomms::protobuf::QueueManagerConfig qcfg;
+    goby::acomms::DCCLCodec* dccl_ = goby::acomms::DCCLCodec::get();
     goby::acomms::QueueManager q_manager;
-    goby::acomms::protobuf::ModemTransmission request_msg;
+    goby::acomms::SeatracDriver st_driver;
+    goby::acomms::MACManager mac;
 
-    void setup_seatrac();
+    goby::acomms::protobuf::QueueManagerConfig q_manager_cfg;
+
     void setup_goby();
-    void handle_data_receive(const goby::acomms::protobuf::ModemTransmission& data_msg);
+    void setup_msgs();
+    void received_data(const google::protobuf::Message& data_msg);
+    void received_ack(const goby::acomms::protobuf::ModemTransmission& ack_message, const google::protobuf::Message& original_message);
     void f_local_odom_callback(const nav_msgs::OdometryPtr &msg);
+    void f_voltage_callback(const mvp_msgs::Float64Stamped &msg);
+    void f_current_callback(const mvp_msgs::Float64Stamped &msg);
     ros::Timer timer;
     
-    double local_x, local_y, local_z, local_p, local_q, local_r, global_lat, global_long;
-
+    double local_p, local_q, local_r, global_lat, global_long;
+    int local_x, local_y, local_z;
+    float x_rot, y_rot, z_rot, w_rot, voltage, current;
 public:
 
     SeaTracModem();
