@@ -33,7 +33,10 @@
 #include <iostream>
 
 #include <goby/acomms/connect.h>
+#include <goby/acomms/bind.h>
 #include <goby/acomms/queue.h>
+#include <goby/acomms/amac.h>
+#include <goby/acomms/dccl.h>
 #include <goby/acomms/modem_driver.h>
 #include <goby/util/binary.h>
 #include <goby/util/debug_logger.h>
@@ -60,15 +63,17 @@ private:
 
     std::string buffer;
 
-    goby::acomms::ModemDriverBase* driver = 0;
-    goby::acomms::protobuf::DriverConfig cfg;
-    goby::acomms::protobuf::QueueManagerConfig qcfg;
+    goby::acomms::DCCLCodec* dccl_ = goby::acomms::DCCLCodec::get();
     goby::acomms::QueueManager q_manager;
-    goby::acomms::protobuf::ModemTransmission request_msg;
+    goby::acomms::SeatracDriver st_driver;
+    goby::acomms::MACManager mac;
 
-    void setup_seatrac();
+    goby::acomms::protobuf::QueueManagerConfig q_manager_cfg;
+
     void setup_goby();
-    void handle_data_receive(const goby::acomms::protobuf::ModemTransmission& data_msg);
+    void setup_msgs();
+    void received_data(const google::protobuf::Message& message_in);
+    void received_ack(const goby::acomms::protobuf::ModemTransmission& ack_message, const google::protobuf::Message& original_message);
     ros::Timer timer;
     
 
