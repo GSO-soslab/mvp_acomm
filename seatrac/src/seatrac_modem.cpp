@@ -33,7 +33,8 @@ SeaTracModem::SeaTracModem()
     controller_enable_client = m_nh->serviceClient<std_srvs::Empty>("controller/enable");
     controller_disable_client = m_nh->serviceClient<std_srvs::Empty>("controller/disable");
     direct_control_pub = m_nh->advertise<mvp_msgs::ControlProcess>("continuous_command_topic", 10);
-
+    set_state_client = m_nh->serviceClient<mvp_msgs::ChangeState>("helm/change_state");
+    get_state_client = m_nh->serviceClient<mvp_msgs::ChangeState>("helm/get_state");
     setup_goby();
 
     while(ros::ok())
@@ -269,7 +270,7 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
             control_info_out.set_setget(false);
             //TODO: Currently no way to ask the controller service for its enable/disable state
             // control_info_out.set_state(state);
-        }
+        }     
     }
     else if(msg_type == "DirectControl")
     {
@@ -330,13 +331,72 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
         StateInfo state_info;
         state_info.CopyFrom(data_msg);
 
+
+        //Need to take eligible transitions into account.
+        mvp_msgs::ChangeState get_state;
+        get_state_client.call(get_state);
+        std::string current_state = get_state.response.state.name;
+        ros::V_string eligible_transitions = get_state.response.state.transitions;
+        bool valid_transition = false;
+
+
         if(state_info.setget())
         {
-            
+            std::string cmd_state;
+
+            switch(state_info.state())
+            {
+            case(StateInfo_State_KILL):
+                cmd_state = "kill";
+                break;
+            case(StateInfo_State_START):
+                cmd_state = "start";
+                break;  
+            case(StateInfo_State_LOCAL):
+                cmd_state = "survey_local";
+                break;
+            case(StateInfo_State_GLOBAL):
+                cmd_state = "survey_global";
+                break;
+            case(StateInfo_State_DIRECT):
+                cmd_state = "direct_control";
+                break;
+            default:
+                cmd_state = "kill";
+            }
+
+            for(ros::V_string::iterator t = eligible_transitions.begin(); t != eligible_transitions.end(); t++)
+            {
+                if(*t == cmd_state)
+                {
+                    valid_transition = true; 
+                    break;
+                }
+            }
+
+            if(valid_transition)
+            {
+                mvp_msgs::ChangeState set_state;
+                set_state.request.state == cmd_state;
+                set_state_client.call(set_state);
+            }
+
         }
         else
         {
-            
+            StateInfo state_info_out;
+            state_info_out.set_destination(15);
+            state_info_out.set_time(ros::Time::now().toSec());
+
+            for(int i=0;i<sizeof(StateInfo_State); i++)
+            {
+                if(current_state == StateInfo_State_Name(StateInfo_State(i)))
+                {
+                    state_info_out.set_state(StateInfo_State(i));
+                    q_manager.push_message(state_info_out);
+                    break;
+                }
+            }
         }
     }
     else if(msg_type == "SingleWaypoint")

@@ -38,9 +38,8 @@
 #include "std_srvs/Empty.h"
 //ros msg includes for direct control
 #include "mvp_msgs/ControlProcess.h"
-
-
-
+//ros msg for change state service
+#include "mvp_msgs/ChangeState.h"
 
 //robot localization include to transform local x,y to lat and long
 #include "robot_localization/ToLL.h"
@@ -80,6 +79,8 @@ private:
 
     ros::ServiceClient controller_enable_client;
     ros::ServiceClient controller_disable_client;
+    ros::ServiceClient set_state_client;
+    ros::ServiceClient get_state_client;
 
     bool console_debug;
     int beacon_id;
