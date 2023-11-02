@@ -307,9 +307,9 @@ message StateInfo {
     {
         KILL = 0;
         START = 1;
-        LOCAL = 2;
-        GLOBAL = 3;
-        DIRECT = 4;
+        LOCAL_SURVEY = 2;
+        GLOBAL_SURVEY = 3;
+        DIRECT_CONTROL = 4;
     };
 }
 
