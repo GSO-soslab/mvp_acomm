@@ -35,7 +35,7 @@ SeaTracModem::SeaTracModem()
     direct_control_pub = m_nh->advertise<mvp_msgs::ControlProcess>("continuous_command_topic", 10);
     set_state_client = m_nh->serviceClient<mvp_msgs::ChangeState>("helm/change_state");
     get_state_client = m_nh->serviceClient<mvp_msgs::ChangeState>("helm/get_state");
-    waypoint_pub = m_nh->advertise<geometry_msgs::PolygonStamped>("helm/path_local/update_waypoints", 10);
+    waypoint_pub = m_nh->advertise<geometry_msgs::PolygonStamped>("helm/path_global/update_waypoints", 10);
     cmd_depth_pub = m_nh->advertise<std_msgs::Float64>("helm/depth_tracking/desired_depth", 10);
     setup_goby();
 
@@ -74,7 +74,8 @@ void SeaTracModem::setup_goby()
     dccl_->validate<DirectControl>();
     dccl_->validate<StateInfo>();
     dccl_->validate<SingleWaypoint>();
-    dccl_->validate<MultiWaypoint>();
+    dccl_->validate<MultiWaypointGPS>();
+    dccl_->validate<MultiWaypointXYZ>();
     dccl_->validate<ExecuteWaypoints>();
 
 
@@ -299,7 +300,7 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
                 frame_id = "usbl";
                 break;
             default:
-                frame_id = "base_link";
+                frame_id = "world_ned";
             }
             //set header
             control_process.header.frame_id = frame_id;
@@ -355,13 +356,13 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
             case(StateInfo_State_START):
                 cmd_state = "start";
                 break;  
-            case(StateInfo_State_LOCAL):
+            case(StateInfo_State_SURVEY_LOCAL):
                 cmd_state = "survey_local";
                 break;
-            case(StateInfo_State_GLOBAL):
+            case(StateInfo_State_SURVEY_GLOBAL):
                 cmd_state = "survey_global";
                 break;
-            case(StateInfo_State_DIRECT):
+            case(StateInfo_State_DIRECT_CONTROL):
                 cmd_state = "direct_control";
                 break;
             default:
@@ -409,14 +410,11 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
 
         if(single_waypoint.setget())
         {
-            geometry_msgs::PolygonStamped waypoint_array;
+            
             geometry_msgs::Point32 waypoint;
-            std_msgs::Float64 cmd_depth;
-
-            waypoint_array.header.stamp = ros::Time::now();
 
             //if given lat long waypoint, convert to xyz using robot localization
-            if(single_waypoint.latitude() && single_waypoint.longitude())
+            if(single_waypoint.has_latitude() && single_waypoint.has_longitude())
             {
                     robot_localization::FromLL ser;
                     ser.request.ll_point.latitude = single_waypoint.latitude();
@@ -425,13 +423,11 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
 
                     ros::service::call("fromll", ser);
 
-                    waypoint_array.header.frame_id = "world";
                     waypoint.x = ser.response.map_point.x;
                     waypoint.y = ser.response.map_point.y;
             }
             else
             {
-                waypoint_array.header.frame_id = "body_link";
                 waypoint.x = single_waypoint.local_x();
                 waypoint.y = single_waypoint.local_y();
             }
@@ -439,24 +435,122 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
             //x and y go to waypoint pub, z goes to depth setpoint pub
             waypoint_array.polygon.points.push_back(waypoint);
             cmd_depth.data = single_waypoint.depth();
-
-            waypoint_pub.publish(waypoint_array);
-            cmd_depth_pub.publish(cmd_depth);
-
         }
 
     }
-    else if(msg_type == "MultiWaypoint")
+    else if(msg_type == "MultiWaypointGPS")
     {
-        MultiWaypoint multi_waypoint;
-        multi_waypoint.CopyFrom(data_msg);
+        MultiWaypointGPS multi_waypoint_gps;
+        multi_waypoint_gps.CopyFrom(data_msg);
+
+        robot_localization::FromLL ser;
+        geometry_msgs::Point32 waypoint;
+
+        int i = 0;
+        int idx = multi_waypoint_gps.wpt_num();
+
+
+        if(multi_waypoint_gps.has_depth_1() && multi_waypoint_gps.has_latitude_1() && multi_waypoint_gps.has_longitude_1())
+        {
+            
+            ser.request.ll_point.latitude = multi_waypoint_gps.latitude_1();
+            ser.request.ll_point.longitude = multi_waypoint_gps.longitude_1();
+            ser.request.ll_point.altitude = 0;
+            ros::service::call("fromll", ser);
+
+            waypoint.x = ser.response.map_point.x;
+            waypoint.y = ser.response.map_point.y;
+            waypoint.z = 0;
+
+            waypoint_array.polygon.points[idx+i] = waypoint;
+            i++;
+        }
+        if(multi_waypoint_gps.has_depth_2() && multi_waypoint_gps.has_latitude_2() && multi_waypoint_gps.has_longitude_2())
+        {
+            ser.request.ll_point.latitude = multi_waypoint_gps.latitude_2();
+            ser.request.ll_point.longitude = multi_waypoint_gps.longitude_2();
+            ser.request.ll_point.altitude = 0;
+            ros::service::call("fromll", ser);
+
+            waypoint.x = ser.response.map_point.x;
+            waypoint.y = ser.response.map_point.y;
+            waypoint.z = 0;
+
+            waypoint_array.polygon.points[idx+i] = waypoint;
+            i++;
+        }
+        if(multi_waypoint_gps.has_depth_3() && multi_waypoint_gps.has_latitude_3() && multi_waypoint_gps.has_longitude_3())
+        {
+            ser.request.ll_point.latitude = multi_waypoint_gps.latitude_3();
+            ser.request.ll_point.longitude = multi_waypoint_gps.longitude_3();
+            ser.request.ll_point.altitude = 0;
+            ros::service::call("fromll", ser);
+
+            waypoint.x = ser.response.map_point.x;
+            waypoint.y = ser.response.map_point.y;
+            waypoint.z = 0;
+
+            waypoint_array.polygon.points[idx+i] = waypoint;
+            i++;
+        }
+    }
+    else if(msg_type == "MultiWaypointXYZ")
+    {
+        MultiWaypointXYZ multi_waypoint_xyz;
+        multi_waypoint_xyz.CopyFrom(data_msg);
+
+
+        geometry_msgs::Point32 waypoint;
+
+        int i = 0;
+        int idx = multi_waypoint_xyz.wpt_num();
+
+
+        if(multi_waypoint_xyz.has_depth_1() && multi_waypoint_xyz.has_x_1() && multi_waypoint_xyz.has_y_1())
+        {
+            waypoint.x = multi_waypoint_xyz.x_1();
+            waypoint.y = multi_waypoint_xyz.y_1();
+            waypoint.z = 0;
+
+            waypoint_array.polygon.points[idx+i] = waypoint;
+            i++;
+        }
+        if(multi_waypoint_xyz.has_depth_2() && multi_waypoint_xyz.has_x_2() && multi_waypoint_xyz.has_y_2())
+        {
+            waypoint.x = multi_waypoint_xyz.x_2();
+            waypoint.y = multi_waypoint_xyz.y_2();
+            waypoint.z = 0;
+
+            waypoint_array.polygon.points[idx+i] = waypoint;
+            i++;
+        }
+        if(multi_waypoint_xyz.has_depth_3() && multi_waypoint_xyz.has_x_3() && multi_waypoint_xyz.has_y_3())
+        {
+            waypoint.x = multi_waypoint_xyz.x_3();
+            waypoint.y = multi_waypoint_xyz.y_3();
+            waypoint.z = 0;
+
+            waypoint_array.polygon.points[idx+i] = waypoint;
+            i++;
+        }
+
     }
     else if(msg_type == "ExecuteWaypoints")
     {
         ExecuteWaypoints exec_waypoints;
         exec_waypoints.CopyFrom(data_msg);
-    }
-    
+
+        if(exec_waypoints.execute())
+        {
+            waypoint_array.header.frame_id = "world_ned";
+            waypoint_array.header.stamp = ros::Time::now();
+            waypoint_pub.publish(waypoint_array);
+            cmd_depth_pub.publish(cmd_depth);
+            waypoint_array.polygon.points.erase(waypoint_array.polygon.points.begin(), waypoint_array.polygon.points.end());
+            cmd_depth.data = 0;
+
+        }
+    }    
 }
 
 void SeaTracModem::received_ack(const goby::acomms::protobuf::ModemTransmission& ack_message,

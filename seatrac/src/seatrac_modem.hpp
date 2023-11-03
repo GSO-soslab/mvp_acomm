@@ -94,7 +94,9 @@ private:
     uint32_t our_id;
     uint32_t dest_id;
     uint32_t slot_time;
-
+    geometry_msgs::PolygonStamped waypoint_array;
+    std_msgs::Float64 cmd_depth;
+    
     std::string buffer;
 
     goby::acomms::DCCLCodec* dccl_ = goby::acomms::DCCLCodec::get();
