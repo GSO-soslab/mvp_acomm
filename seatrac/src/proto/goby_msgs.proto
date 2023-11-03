@@ -307,8 +307,8 @@ message StateInfo {
     {
         KILL = 0;
         START = 1;
-        LOCAL_SURVEY = 2;
-        GLOBAL_SURVEY = 3;
+        SURVEY_LOCAL = 2;
+        SURVEY_GLOBAL = 3;
         DIRECT_CONTROL = 4;
     };
 }
@@ -360,7 +360,7 @@ message SingleWaypoint {
     ];
 }
 
-message MultiWaypoint {
+message MultiWaypointGPS {
     option (dccl.msg).codec_version = 4;
     option (dccl.msg).id = 95;
     option (dccl.msg).max_bytes = 31;
@@ -431,7 +431,7 @@ message MultiWaypoint {
     required bool end = 13;
 }
 
-message ExecuteWaypoints {
+message MultiWaypointXYZ {
     option (dccl.msg).codec_version = 4;
     option (dccl.msg).id = 96;
     option (dccl.msg).max_bytes = 31;
@@ -447,5 +447,76 @@ message ExecuteWaypoints {
         (dccl.field).max =  1893456000,
         (dccl.field).precision = 3
     ];
+    //true for set, false for get
+    required int32 wpt_num = 3 [
+        (dccl.field).min =  0,
+        (dccl.field).max =  32,
+        (dccl.field).precision = 0
+    ];
+    //xyz waypoint
+    optional int32 x_1 = 4 [
+        (dccl.field).max = 10000,
+        (dccl.field).min = -10000,
+        (dccl.field).precision = 0
+    ];
+    optional int32 y_1 = 5 [
+        (dccl.field).max = 10000,
+        (dccl.field).min = -10000,
+        (dccl.field).precision = 0
+    ];
+    optional int32 depth_1 = 6 [
+        (dccl.field).max = 300,
+        (dccl.field).min = 0,
+        (dccl.field).precision = 0
+    ];
+    optional int32 x_2 = 7 [
+        (dccl.field).max = 10000,
+        (dccl.field).min = -10000,
+        (dccl.field).precision = 0
+    ];
+    optional int32 y_2 = 8 [
+        (dccl.field).max = 10000,
+        (dccl.field).min = -10000,
+        (dccl.field).precision = 0
+    ];
+    optional int32 depth_2 = 9 [
+        (dccl.field).max = 300,
+        (dccl.field).min = 0,
+        (dccl.field).precision = 0
+    ];
+    optional int32 x_3 = 10 [
+        (dccl.field).max = 10000,
+        (dccl.field).min = -10000,
+        (dccl.field).precision = 0
+    ];
+    optional int32 y_3 = 11 [
+        (dccl.field).max = 10000,
+        (dccl.field).min = -10000,
+        (dccl.field).precision = 0
+    ];
+    optional int32 depth_3 = 12 [
+        (dccl.field).max = 300,
+        (dccl.field).min = 0,
+        (dccl.field).precision = 0
+    ];
     required bool end = 13;
+}
+
+message ExecuteWaypoints {
+    option (dccl.msg).codec_version = 4;
+    option (dccl.msg).id = 97;
+    option (dccl.msg).max_bytes = 31;
+    required int32 destination = 1 [
+        (dccl.field).max = 31,
+        (dccl.field).min = 0,
+        (dccl.field).precision = 0
+    ];
+    //time since epoch (including miliseconds)
+    //max time is Jan 1 2030, please update future soslab member
+    required double time = 2 [
+        (dccl.field).min =  1672531200,
+        (dccl.field).max =  1893456000,
+        (dccl.field).precision = 3
+    ];
+    required bool execute = 3;
 }

@@ -54,11 +54,16 @@ class SingleWaypointDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<SingleWaypoint>
       _instance;
 } _SingleWaypoint_default_instance_;
-class MultiWaypointDefaultTypeInternal {
+class MultiWaypointGPSDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<MultiWaypoint>
+  ::google::protobuf::internal::ExplicitlyConstructed<MultiWaypointGPS>
       _instance;
-} _MultiWaypoint_default_instance_;
+} _MultiWaypointGPS_default_instance_;
+class MultiWaypointXYZDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<MultiWaypointXYZ>
+      _instance;
+} _MultiWaypointXYZ_default_instance_;
 class ExecuteWaypointsDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<ExecuteWaypoints>
@@ -163,19 +168,33 @@ static void InitDefaultsSingleWaypoint() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_SingleWaypoint =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsSingleWaypoint}, {}};
 
-static void InitDefaultsMultiWaypoint() {
+static void InitDefaultsMultiWaypointGPS() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_MultiWaypoint_default_instance_;
-    new (ptr) ::MultiWaypoint();
+    void* ptr = &::_MultiWaypointGPS_default_instance_;
+    new (ptr) ::MultiWaypointGPS();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MultiWaypoint::InitAsDefaultInstance();
+  ::MultiWaypointGPS::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_MultiWaypoint =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMultiWaypoint}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_MultiWaypointGPS =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMultiWaypointGPS}, {}};
+
+static void InitDefaultsMultiWaypointXYZ() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::_MultiWaypointXYZ_default_instance_;
+    new (ptr) ::MultiWaypointXYZ();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::MultiWaypointXYZ::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_MultiWaypointXYZ =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMultiWaypointXYZ}, {}};
 
 static void InitDefaultsExecuteWaypoints() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -199,11 +218,12 @@ void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_DirectControl.base);
   ::google::protobuf::internal::InitSCC(&scc_info_StateInfo.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SingleWaypoint.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_MultiWaypoint.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_MultiWaypointGPS.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_MultiWaypointXYZ.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ExecuteWaypoints.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[9];
+::google::protobuf::Metadata file_level_metadata[10];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[3];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
@@ -364,24 +384,24 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   5,
   6,
   7,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypoint, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypoint, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypoint, destination_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypoint, time_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypoint, wpt_num_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypoint, latitude_1_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypoint, longitude_1_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypoint, depth_1_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypoint, latitude_2_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypoint, longitude_2_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypoint, depth_2_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypoint, latitude_3_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypoint, longitude_3_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypoint, depth_3_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypoint, end_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, wpt_num_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, latitude_1_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, longitude_1_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, depth_1_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, latitude_2_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, longitude_2_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, depth_2_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, latitude_3_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, longitude_3_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, depth_3_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, end_),
   1,
   0,
   2,
@@ -395,6 +415,37 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   10,
   11,
   12,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, wpt_num_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, x_1_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, y_1_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, depth_1_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, x_2_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, y_2_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, depth_2_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, x_3_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, y_3_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, depth_3_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, end_),
+  1,
+  0,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -402,7 +453,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, destination_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, time_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, end_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, execute_),
   1,
   0,
   2,
@@ -415,8 +466,9 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 86, 107, sizeof(::DirectControl)},
   { 123, 132, sizeof(::StateInfo)},
   { 136, 149, sizeof(::SingleWaypoint)},
-  { 157, 175, sizeof(::MultiWaypoint)},
-  { 188, 196, sizeof(::ExecuteWaypoints)},
+  { 157, 175, sizeof(::MultiWaypointGPS)},
+  { 188, 206, sizeof(::MultiWaypointXYZ)},
+  { 219, 227, sizeof(::ExecuteWaypoints)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -427,7 +479,8 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::_DirectControl_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::_StateInfo_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::_SingleWaypoint_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::_MultiWaypoint_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_MultiWaypointGPS_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_MultiWaypointXYZ_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::_ExecuteWaypoints_default_instance_),
 };
 
@@ -446,7 +499,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 9);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 10);
 }
 
 void AddDescriptorsImpl() {
@@ -512,46 +565,62 @@ void AddDescriptorsImpl() {
       "\?\t1\000\000\000\000\000\000\000@\242\?\t)\000\000\000\000\000\000\000\300\242\?\002 \002\022,\n\005set_r\030\021 "
       "\001(\002B\035\242\?\t1\000\000\000\000\000\000\000@\242\?\t)\000\000\000\000\000\000\000\300\242\?\002 \002\"5\n\005Fr"
       "ame\022\r\n\tBASE_LINK\020\000\022\010\n\004ODOM\020\001\022\t\n\005WORLD\020\002\022"
-      "\010\n\004USBL\020\003:\017\242\?\002(\004\242\?\002\010\\\242\?\002\020\037\"\357\001\n\tStateInfo"
+      "\010\n\004USBL\020\003:\017\242\?\002(\004\242\?\002\010\\\242\?\002\020\037\"\205\002\n\tStateInfo"
       "\0222\n\013destination\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242\?\t)\000"
       "\000\000\000\000\000\000\000\242\?\002 \000\022+\n\004time\030\002 \002(\001B\035\242\?\t)\000\000\000@3\354\330A"
       "\242\?\t1\000\000\000 \3666\334A\242\?\002 \003\022\016\n\006setget\030\003 \002(\010\022\037\n\005sta"
-      "te\030\004 \001(\0162\020.StateInfo.State\"\?\n\005State\022\010\n\004K"
-      "ILL\020\000\022\t\n\005START\020\001\022\t\n\005LOCAL\020\002\022\n\n\006GLOBAL\020\003\022"
-      "\n\n\006DIRECT\020\004:\017\242\?\002(\004\242\?\002\010]\242\?\002\020\037\"\203\003\n\016SingleW"
-      "aypoint\0222\n\013destination\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000"
-      "\?@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022+\n\004time\030\002 \002(\001B\035\242\?\t)\000"
-      "\000\000@3\354\330A\242\?\t1\000\000\000 \3666\334A\242\?\002 \003\022\016\n\006setget\030\003 \002(\010"
-      "\022/\n\010latitude\030\004 \001(\001B\035\242\?\t)o\203\332o\355>D@\242\?\t1o\203\332o"
-      "\355>E@\242\?\002 \006\0220\n\tlongitude\030\005 \001(\001B\035\242\?\t)\346!S>\004\033"
-      "R\300\242\?\t1\346!S>\004\233Q\300\242\?\002 \006\022.\n\007local_x\030\006 \001(\005B\035\242\?"
-      "\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022.\n\007local_y\030\007"
-      " \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022,\n\005d"
-      "epth\030\010 \002(\005B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 "
-      "\000:\017\242\?\002(\004\242\?\002\010^\242\?\002\020\037\"\203\005\n\rMultiWaypoint\0222\n\013"
-      "destination\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242\?\t)\000\000\000\000\000"
-      "\000\000\000\242\?\002 \000\022+\n\004time\030\002 \002(\001B\035\242\?\t)\000\000\000@3\354\330A\242\?\t1"
-      "\000\000\000 \3666\334A\242\?\002 \003\022.\n\007wpt_num\030\003 \002(\005B\035\242\?\t)\000\000\000\000"
-      "\000\000\000\000\242\?\t1\000\000\000\000\000\000@@\242\?\002 \000\0221\n\nlatitude_1\030\004 \001("
-      "\001B\035\242\?\t)o\203\332o\355>D@\242\?\t1o\203\332o\355>E@\242\?\002 \006\0222\n\013long"
-      "itude_1\030\005 \001(\001B\035\242\?\t)\346!S>\004\033R\300\242\?\t1\346!S>\004\233Q\300\242"
-      "\?\002 \006\022.\n\007depth_1\030\006 \001(\005B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000"
-      "\000\000\000\000\000\000\000\242\?\002 \000\0221\n\nlatitude_2\030\007 \001(\001B\035\242\?\t)o\203"
-      "\332o\355>D@\242\?\t1o\203\332o\355>E@\242\?\002 \006\0222\n\013longitude_2\030\010"
-      " \001(\001B\035\242\?\t)\346!S>\004\033R\300\242\?\t1\346!S>\004\233Q\300\242\?\002 \006\022.\n\007d"
-      "epth_2\030\t \001(\005B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?"
-      "\002 \000\0221\n\nlatitude_3\030\n \001(\001B\035\242\?\t)o\203\332o\355>D@\242\?\t"
-      "1o\203\332o\355>E@\242\?\002 \006\0222\n\013longitude_3\030\013 \001(\001B\035\242\?\t"
-      ")\346!S>\004\033R\300\242\?\t1\346!S>\004\233Q\300\242\?\002 \006\022.\n\007depth_3\030\014 "
-      "\001(\005B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022\013\n\003en"
-      "d\030\r \002(\010:\017\242\?\002(\004\242\?\002\010_\242\?\002\020\037\"\221\001\n\020ExecuteWayp"
-      "oints\0222\n\013destination\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@"
-      "\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022+\n\004time\030\002 \002(\001B\035\242\?\t)\000\000\000"
-      "@3\354\330A\242\?\t1\000\000\000 \3666\334A\242\?\002 \003\022\013\n\003end\030\r \002(\010:\017\242\?\002"
-      "(\004\242\?\002\010`\242\?\002\020\037"
+      "te\030\004 \001(\0162\020.StateInfo.State\"U\n\005State\022\010\n\004K"
+      "ILL\020\000\022\t\n\005START\020\001\022\020\n\014SURVEY_LOCAL\020\002\022\021\n\rSU"
+      "RVEY_GLOBAL\020\003\022\022\n\016DIRECT_CONTROL\020\004:\017\242\?\002(\004"
+      "\242\?\002\010]\242\?\002\020\037\"\203\003\n\016SingleWaypoint\0222\n\013destina"
+      "tion\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 "
+      "\000\022+\n\004time\030\002 \002(\001B\035\242\?\t)\000\000\000@3\354\330A\242\?\t1\000\000\000 \3666\334"
+      "A\242\?\002 \003\022\016\n\006setget\030\003 \002(\010\022/\n\010latitude\030\004 \001(\001"
+      "B\035\242\?\t)o\203\332o\355>D@\242\?\t1o\203\332o\355>E@\242\?\002 \006\0220\n\tlongi"
+      "tude\030\005 \001(\001B\035\242\?\t)\346!S>\004\033R\300\242\?\t1\346!S>\004\233Q\300\242\?\002 "
+      "\006\022.\n\007local_x\030\006 \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000"
+      "\000\210\303\300\242\?\002 \000\022.\n\007local_y\030\007 \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@"
+      "\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022,\n\005depth\030\010 \002(\005B\035\242\?\t1\000\000"
+      "\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000:\017\242\?\002(\004\242\?\002\010^\242\?\002\020\037"
+      "\"\206\005\n\020MultiWaypointGPS\0222\n\013destination\030\001 \002"
+      "(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022+\n\004tim"
+      "e\030\002 \002(\001B\035\242\?\t)\000\000\000@3\354\330A\242\?\t1\000\000\000 \3666\334A\242\?\002 \003\022."
+      "\n\007wpt_num\030\003 \002(\005B\035\242\?\t)\000\000\000\000\000\000\000\000\242\?\t1\000\000\000\000\000\000@"
+      "@\242\?\002 \000\0221\n\nlatitude_1\030\004 \001(\001B\035\242\?\t)o\203\332o\355>D@"
+      "\242\?\t1o\203\332o\355>E@\242\?\002 \006\0222\n\013longitude_1\030\005 \001(\001B\035"
+      "\242\?\t)\346!S>\004\033R\300\242\?\t1\346!S>\004\233Q\300\242\?\002 \006\022.\n\007depth_1"
+      "\030\006 \001(\005B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\0221\n"
+      "\nlatitude_2\030\007 \001(\001B\035\242\?\t)o\203\332o\355>D@\242\?\t1o\203\332o\355"
+      ">E@\242\?\002 \006\0222\n\013longitude_2\030\010 \001(\001B\035\242\?\t)\346!S>\004"
+      "\033R\300\242\?\t1\346!S>\004\233Q\300\242\?\002 \006\022.\n\007depth_2\030\t \001(\005B\035\242"
+      "\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\0221\n\nlatitude"
+      "_3\030\n \001(\001B\035\242\?\t)o\203\332o\355>D@\242\?\t1o\203\332o\355>E@\242\?\002 \006\022"
+      "2\n\013longitude_3\030\013 \001(\001B\035\242\?\t)\346!S>\004\033R\300\242\?\t1\346!"
+      "S>\004\233Q\300\242\?\002 \006\022.\n\007depth_3\030\014 \001(\005B\035\242\?\t1\000\000\000\000\000\300"
+      "r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022\013\n\003end\030\r \002(\010:\017\242\?\002(\004\242"
+      "\?\002\010_\242\?\002\020\037\"\331\004\n\020MultiWaypointXYZ\0222\n\013destin"
+      "ation\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002"
+      " \000\022+\n\004time\030\002 \002(\001B\035\242\?\t)\000\000\000@3\354\330A\242\?\t1\000\000\000 \3666"
+      "\334A\242\?\002 \003\022.\n\007wpt_num\030\003 \002(\005B\035\242\?\t)\000\000\000\000\000\000\000\000\242\?"
+      "\t1\000\000\000\000\000\000@@\242\?\002 \000\022*\n\003x_1\030\004 \001(\005B\035\242\?\t1\000\000\000\000\000\210"
+      "\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022*\n\003y_1\030\005 \001(\005B\035\242\?\t1\000\000"
+      "\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022.\n\007depth_1\030\006 \001(\005"
+      "B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022*\n\003x_2\030\007"
+      " \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022*\n\003y"
+      "_2\030\010 \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022"
+      ".\n\007depth_2\030\t \001(\005B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000"
+      "\000\000\242\?\002 \000\022*\n\003x_3\030\n \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000"
+      "\000\000\000\210\303\300\242\?\002 \000\022*\n\003y_3\030\013 \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?"
+      "\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022.\n\007depth_3\030\014 \001(\005B\035\242\?\t1\000\000"
+      "\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022\013\n\003end\030\r \002(\010:\017\242\?"
+      "\002(\004\242\?\002\010`\242\?\002\020\037\"\225\001\n\020ExecuteWaypoints\0222\n\013de"
+      "stination\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242\?\t)\000\000\000\000\000\000\000"
+      "\000\242\?\002 \000\022+\n\004time\030\002 \002(\001B\035\242\?\t)\000\000\000@3\354\330A\242\?\t1\000\000"
+      "\000 \3666\334A\242\?\002 \003\022\017\n\007execute\030\003 \002(\010:\017\242\?\002(\004\242\?\002\010a"
+      "\242\?\002\020\037"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 3852);
+      descriptor, 4485);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "goby_msgs.proto", &protobuf_RegisterTypes);
   ::protobuf_dccl_2foption_5fextensions_2eproto::AddDescriptors();
@@ -638,9 +707,9 @@ bool StateInfo_State_IsValid(int value) {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const StateInfo_State StateInfo::KILL;
 const StateInfo_State StateInfo::START;
-const StateInfo_State StateInfo::LOCAL;
-const StateInfo_State StateInfo::GLOBAL;
-const StateInfo_State StateInfo::DIRECT;
+const StateInfo_State StateInfo::SURVEY_LOCAL;
+const StateInfo_State StateInfo::SURVEY_GLOBAL;
+const StateInfo_State StateInfo::DIRECT_CONTROL;
 const StateInfo_State StateInfo::State_MIN;
 const StateInfo_State StateInfo::State_MAX;
 const int StateInfo::State_ARRAYSIZE;
@@ -4396,32 +4465,32 @@ void SingleWaypoint::InternalSwap(SingleWaypoint* other) {
 
 // ===================================================================
 
-void MultiWaypoint::InitAsDefaultInstance() {
+void MultiWaypointGPS::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int MultiWaypoint::kDestinationFieldNumber;
-const int MultiWaypoint::kTimeFieldNumber;
-const int MultiWaypoint::kWptNumFieldNumber;
-const int MultiWaypoint::kLatitude1FieldNumber;
-const int MultiWaypoint::kLongitude1FieldNumber;
-const int MultiWaypoint::kDepth1FieldNumber;
-const int MultiWaypoint::kLatitude2FieldNumber;
-const int MultiWaypoint::kLongitude2FieldNumber;
-const int MultiWaypoint::kDepth2FieldNumber;
-const int MultiWaypoint::kLatitude3FieldNumber;
-const int MultiWaypoint::kLongitude3FieldNumber;
-const int MultiWaypoint::kDepth3FieldNumber;
-const int MultiWaypoint::kEndFieldNumber;
+const int MultiWaypointGPS::kDestinationFieldNumber;
+const int MultiWaypointGPS::kTimeFieldNumber;
+const int MultiWaypointGPS::kWptNumFieldNumber;
+const int MultiWaypointGPS::kLatitude1FieldNumber;
+const int MultiWaypointGPS::kLongitude1FieldNumber;
+const int MultiWaypointGPS::kDepth1FieldNumber;
+const int MultiWaypointGPS::kLatitude2FieldNumber;
+const int MultiWaypointGPS::kLongitude2FieldNumber;
+const int MultiWaypointGPS::kDepth2FieldNumber;
+const int MultiWaypointGPS::kLatitude3FieldNumber;
+const int MultiWaypointGPS::kLongitude3FieldNumber;
+const int MultiWaypointGPS::kDepth3FieldNumber;
+const int MultiWaypointGPS::kEndFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-MultiWaypoint::MultiWaypoint()
+MultiWaypointGPS::MultiWaypointGPS()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_goby_5fmsgs_2eproto::scc_info_MultiWaypoint.base);
+      &protobuf_goby_5fmsgs_2eproto::scc_info_MultiWaypointGPS.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:MultiWaypoint)
+  // @@protoc_insertion_point(constructor:MultiWaypointGPS)
 }
-MultiWaypoint::MultiWaypoint(const MultiWaypoint& from)
+MultiWaypointGPS::MultiWaypointGPS(const MultiWaypointGPS& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_) {
@@ -4429,39 +4498,39 @@ MultiWaypoint::MultiWaypoint(const MultiWaypoint& from)
   ::memcpy(&time_, &from.time_,
     static_cast<size_t>(reinterpret_cast<char*>(&end_) -
     reinterpret_cast<char*>(&time_)) + sizeof(end_));
-  // @@protoc_insertion_point(copy_constructor:MultiWaypoint)
+  // @@protoc_insertion_point(copy_constructor:MultiWaypointGPS)
 }
 
-void MultiWaypoint::SharedCtor() {
+void MultiWaypointGPS::SharedCtor() {
   ::memset(&time_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&end_) -
       reinterpret_cast<char*>(&time_)) + sizeof(end_));
 }
 
-MultiWaypoint::~MultiWaypoint() {
-  // @@protoc_insertion_point(destructor:MultiWaypoint)
+MultiWaypointGPS::~MultiWaypointGPS() {
+  // @@protoc_insertion_point(destructor:MultiWaypointGPS)
   SharedDtor();
 }
 
-void MultiWaypoint::SharedDtor() {
+void MultiWaypointGPS::SharedDtor() {
 }
 
-void MultiWaypoint::SetCachedSize(int size) const {
+void MultiWaypointGPS::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* MultiWaypoint::descriptor() {
+const ::google::protobuf::Descriptor* MultiWaypointGPS::descriptor() {
   ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const MultiWaypoint& MultiWaypoint::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_MultiWaypoint.base);
+const MultiWaypointGPS& MultiWaypointGPS::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_MultiWaypointGPS.base);
   return *internal_default_instance();
 }
 
 
-void MultiWaypoint::Clear() {
-// @@protoc_insertion_point(message_clear_start:MultiWaypoint)
+void MultiWaypointGPS::Clear() {
+// @@protoc_insertion_point(message_clear_start:MultiWaypointGPS)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -4481,11 +4550,11 @@ void MultiWaypoint::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool MultiWaypoint::MergePartialFromCodedStream(
+bool MultiWaypointGPS::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:MultiWaypoint)
+  // @@protoc_insertion_point(parse_start:MultiWaypointGPS)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -4685,17 +4754,17 @@ bool MultiWaypoint::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:MultiWaypoint)
+  // @@protoc_insertion_point(parse_success:MultiWaypointGPS)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:MultiWaypoint)
+  // @@protoc_insertion_point(parse_failure:MultiWaypointGPS)
   return false;
 #undef DO_
 }
 
-void MultiWaypoint::SerializeWithCachedSizes(
+void MultiWaypointGPS::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:MultiWaypoint)
+  // @@protoc_insertion_point(serialize_start:MultiWaypointGPS)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -4769,13 +4838,13 @@ void MultiWaypoint::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:MultiWaypoint)
+  // @@protoc_insertion_point(serialize_end:MultiWaypointGPS)
 }
 
-::google::protobuf::uint8* MultiWaypoint::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* MultiWaypointGPS::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:MultiWaypoint)
+  // @@protoc_insertion_point(serialize_to_array_start:MultiWaypointGPS)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -4849,12 +4918,12 @@ void MultiWaypoint::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:MultiWaypoint)
+  // @@protoc_insertion_point(serialize_to_array_end:MultiWaypointGPS)
   return target;
 }
 
-size_t MultiWaypoint::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MultiWaypoint)
+size_t MultiWaypointGPS::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MultiWaypointGPS)
   size_t total_size = 0;
 
   if (has_time()) {
@@ -4883,8 +4952,8 @@ size_t MultiWaypoint::RequiredFieldsByteSizeFallback() const {
 
   return total_size;
 }
-size_t MultiWaypoint::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:MultiWaypoint)
+size_t MultiWaypointGPS::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:MultiWaypointGPS)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4972,23 +5041,23 @@ size_t MultiWaypoint::ByteSizeLong() const {
   return total_size;
 }
 
-void MultiWaypoint::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:MultiWaypoint)
+void MultiWaypointGPS::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:MultiWaypointGPS)
   GOOGLE_DCHECK_NE(&from, this);
-  const MultiWaypoint* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const MultiWaypoint>(
+  const MultiWaypointGPS* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const MultiWaypointGPS>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MultiWaypoint)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MultiWaypointGPS)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:MultiWaypoint)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:MultiWaypointGPS)
     MergeFrom(*source);
   }
 }
 
-void MultiWaypoint::MergeFrom(const MultiWaypoint& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:MultiWaypoint)
+void MultiWaypointGPS::MergeFrom(const MultiWaypointGPS& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:MultiWaypointGPS)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -5042,30 +5111,30 @@ void MultiWaypoint::MergeFrom(const MultiWaypoint& from) {
   }
 }
 
-void MultiWaypoint::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:MultiWaypoint)
+void MultiWaypointGPS::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:MultiWaypointGPS)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void MultiWaypoint::CopyFrom(const MultiWaypoint& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:MultiWaypoint)
+void MultiWaypointGPS::CopyFrom(const MultiWaypointGPS& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:MultiWaypointGPS)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool MultiWaypoint::IsInitialized() const {
+bool MultiWaypointGPS::IsInitialized() const {
   if ((_has_bits_[0] & 0x00001007) != 0x00001007) return false;
   return true;
 }
 
-void MultiWaypoint::Swap(MultiWaypoint* other) {
+void MultiWaypointGPS::Swap(MultiWaypointGPS* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void MultiWaypoint::InternalSwap(MultiWaypoint* other) {
+void MultiWaypointGPS::InternalSwap(MultiWaypointGPS* other) {
   using std::swap;
   swap(time_, other->time_);
   swap(destination_, other->destination_);
@@ -5084,7 +5153,715 @@ void MultiWaypoint::InternalSwap(MultiWaypoint* other) {
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata MultiWaypoint::GetMetadata() const {
+::google::protobuf::Metadata MultiWaypointGPS::GetMetadata() const {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void MultiWaypointXYZ::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int MultiWaypointXYZ::kDestinationFieldNumber;
+const int MultiWaypointXYZ::kTimeFieldNumber;
+const int MultiWaypointXYZ::kWptNumFieldNumber;
+const int MultiWaypointXYZ::kX1FieldNumber;
+const int MultiWaypointXYZ::kY1FieldNumber;
+const int MultiWaypointXYZ::kDepth1FieldNumber;
+const int MultiWaypointXYZ::kX2FieldNumber;
+const int MultiWaypointXYZ::kY2FieldNumber;
+const int MultiWaypointXYZ::kDepth2FieldNumber;
+const int MultiWaypointXYZ::kX3FieldNumber;
+const int MultiWaypointXYZ::kY3FieldNumber;
+const int MultiWaypointXYZ::kDepth3FieldNumber;
+const int MultiWaypointXYZ::kEndFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+MultiWaypointXYZ::MultiWaypointXYZ()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_goby_5fmsgs_2eproto::scc_info_MultiWaypointXYZ.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:MultiWaypointXYZ)
+}
+MultiWaypointXYZ::MultiWaypointXYZ(const MultiWaypointXYZ& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&time_, &from.time_,
+    static_cast<size_t>(reinterpret_cast<char*>(&end_) -
+    reinterpret_cast<char*>(&time_)) + sizeof(end_));
+  // @@protoc_insertion_point(copy_constructor:MultiWaypointXYZ)
+}
+
+void MultiWaypointXYZ::SharedCtor() {
+  ::memset(&time_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&end_) -
+      reinterpret_cast<char*>(&time_)) + sizeof(end_));
+}
+
+MultiWaypointXYZ::~MultiWaypointXYZ() {
+  // @@protoc_insertion_point(destructor:MultiWaypointXYZ)
+  SharedDtor();
+}
+
+void MultiWaypointXYZ::SharedDtor() {
+}
+
+void MultiWaypointXYZ::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* MultiWaypointXYZ::descriptor() {
+  ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const MultiWaypointXYZ& MultiWaypointXYZ::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_MultiWaypointXYZ.base);
+  return *internal_default_instance();
+}
+
+
+void MultiWaypointXYZ::Clear() {
+// @@protoc_insertion_point(message_clear_start:MultiWaypointXYZ)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 255u) {
+    ::memset(&time_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&y_2_) -
+        reinterpret_cast<char*>(&time_)) + sizeof(y_2_));
+  }
+  if (cached_has_bits & 7936u) {
+    ::memset(&depth_2_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&end_) -
+        reinterpret_cast<char*>(&depth_2_)) + sizeof(end_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool MultiWaypointXYZ::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:MultiWaypointXYZ)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 destination = 1 [(.dccl.field) = {
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_destination();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &destination_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double time = 2 [(.dccl.field) = {
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(17u /* 17 & 0xFF */)) {
+          set_has_time();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &time_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required int32 wpt_num = 3 [(.dccl.field) = {
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+          set_has_wpt_num();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &wpt_num_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional int32 x_1 = 4 [(.dccl.field) = {
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+          set_has_x_1();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &x_1_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional int32 y_1 = 5 [(.dccl.field) = {
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
+          set_has_y_1();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &y_1_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional int32 depth_1 = 6 [(.dccl.field) = {
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(48u /* 48 & 0xFF */)) {
+          set_has_depth_1();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &depth_1_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional int32 x_2 = 7 [(.dccl.field) = {
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(56u /* 56 & 0xFF */)) {
+          set_has_x_2();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &x_2_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional int32 y_2 = 8 [(.dccl.field) = {
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(64u /* 64 & 0xFF */)) {
+          set_has_y_2();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &y_2_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional int32 depth_2 = 9 [(.dccl.field) = {
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(72u /* 72 & 0xFF */)) {
+          set_has_depth_2();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &depth_2_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional int32 x_3 = 10 [(.dccl.field) = {
+      case 10: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(80u /* 80 & 0xFF */)) {
+          set_has_x_3();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &x_3_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional int32 y_3 = 11 [(.dccl.field) = {
+      case 11: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(88u /* 88 & 0xFF */)) {
+          set_has_y_3();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &y_3_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional int32 depth_3 = 12 [(.dccl.field) = {
+      case 12: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(96u /* 96 & 0xFF */)) {
+          set_has_depth_3();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &depth_3_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bool end = 13;
+      case 13: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(104u /* 104 & 0xFF */)) {
+          set_has_end();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &end_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:MultiWaypointXYZ)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:MultiWaypointXYZ)
+  return false;
+#undef DO_
+}
+
+void MultiWaypointXYZ::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:MultiWaypointXYZ)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 destination = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->destination(), output);
+  }
+
+  // required double time = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->time(), output);
+  }
+
+  // required int32 wpt_num = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->wpt_num(), output);
+  }
+
+  // optional int32 x_1 = 4 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->x_1(), output);
+  }
+
+  // optional int32 y_1 = 5 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->y_1(), output);
+  }
+
+  // optional int32 depth_1 = 6 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->depth_1(), output);
+  }
+
+  // optional int32 x_2 = 7 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000040u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->x_2(), output);
+  }
+
+  // optional int32 y_2 = 8 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000080u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->y_2(), output);
+  }
+
+  // optional int32 depth_2 = 9 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000100u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->depth_2(), output);
+  }
+
+  // optional int32 x_3 = 10 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000200u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->x_3(), output);
+  }
+
+  // optional int32 y_3 = 11 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000400u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->y_3(), output);
+  }
+
+  // optional int32 depth_3 = 12 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000800u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->depth_3(), output);
+  }
+
+  // required bool end = 13;
+  if (cached_has_bits & 0x00001000u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(13, this->end(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:MultiWaypointXYZ)
+}
+
+::google::protobuf::uint8* MultiWaypointXYZ::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:MultiWaypointXYZ)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 destination = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->destination(), target);
+  }
+
+  // required double time = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->time(), target);
+  }
+
+  // required int32 wpt_num = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->wpt_num(), target);
+  }
+
+  // optional int32 x_1 = 4 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->x_1(), target);
+  }
+
+  // optional int32 y_1 = 5 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->y_1(), target);
+  }
+
+  // optional int32 depth_1 = 6 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->depth_1(), target);
+  }
+
+  // optional int32 x_2 = 7 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000040u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->x_2(), target);
+  }
+
+  // optional int32 y_2 = 8 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000080u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->y_2(), target);
+  }
+
+  // optional int32 depth_2 = 9 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000100u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->depth_2(), target);
+  }
+
+  // optional int32 x_3 = 10 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000200u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->x_3(), target);
+  }
+
+  // optional int32 y_3 = 11 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000400u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->y_3(), target);
+  }
+
+  // optional int32 depth_3 = 12 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000800u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->depth_3(), target);
+  }
+
+  // required bool end = 13;
+  if (cached_has_bits & 0x00001000u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(13, this->end(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:MultiWaypointXYZ)
+  return target;
+}
+
+size_t MultiWaypointXYZ::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MultiWaypointXYZ)
+  size_t total_size = 0;
+
+  if (has_time()) {
+    // required double time = 2 [(.dccl.field) = {
+    total_size += 1 + 8;
+  }
+
+  if (has_destination()) {
+    // required int32 destination = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+  }
+
+  if (has_wpt_num()) {
+    // required int32 wpt_num = 3 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->wpt_num());
+  }
+
+  if (has_end()) {
+    // required bool end = 13;
+    total_size += 1 + 1;
+  }
+
+  return total_size;
+}
+size_t MultiWaypointXYZ::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:MultiWaypointXYZ)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00001007) ^ 0x00001007) == 0) {  // All required fields are present.
+    // required double time = 2 [(.dccl.field) = {
+    total_size += 1 + 8;
+
+    // required int32 destination = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+
+    // required int32 wpt_num = 3 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->wpt_num());
+
+    // required bool end = 13;
+    total_size += 1 + 1;
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_has_bits_[0 / 32] & 248u) {
+    // optional int32 x_1 = 4 [(.dccl.field) = {
+    if (has_x_1()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->x_1());
+    }
+
+    // optional int32 y_1 = 5 [(.dccl.field) = {
+    if (has_y_1()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->y_1());
+    }
+
+    // optional int32 depth_1 = 6 [(.dccl.field) = {
+    if (has_depth_1()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->depth_1());
+    }
+
+    // optional int32 x_2 = 7 [(.dccl.field) = {
+    if (has_x_2()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->x_2());
+    }
+
+    // optional int32 y_2 = 8 [(.dccl.field) = {
+    if (has_y_2()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->y_2());
+    }
+
+  }
+  if (_has_bits_[8 / 32] & 3840u) {
+    // optional int32 depth_2 = 9 [(.dccl.field) = {
+    if (has_depth_2()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->depth_2());
+    }
+
+    // optional int32 x_3 = 10 [(.dccl.field) = {
+    if (has_x_3()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->x_3());
+    }
+
+    // optional int32 y_3 = 11 [(.dccl.field) = {
+    if (has_y_3()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->y_3());
+    }
+
+    // optional int32 depth_3 = 12 [(.dccl.field) = {
+    if (has_depth_3()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->depth_3());
+    }
+
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void MultiWaypointXYZ::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:MultiWaypointXYZ)
+  GOOGLE_DCHECK_NE(&from, this);
+  const MultiWaypointXYZ* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const MultiWaypointXYZ>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MultiWaypointXYZ)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:MultiWaypointXYZ)
+    MergeFrom(*source);
+  }
+}
+
+void MultiWaypointXYZ::MergeFrom(const MultiWaypointXYZ& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:MultiWaypointXYZ)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 255u) {
+    if (cached_has_bits & 0x00000001u) {
+      time_ = from.time_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      destination_ = from.destination_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      wpt_num_ = from.wpt_num_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      x_1_ = from.x_1_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      y_1_ = from.y_1_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      depth_1_ = from.depth_1_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      x_2_ = from.x_2_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      y_2_ = from.y_2_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 7936u) {
+    if (cached_has_bits & 0x00000100u) {
+      depth_2_ = from.depth_2_;
+    }
+    if (cached_has_bits & 0x00000200u) {
+      x_3_ = from.x_3_;
+    }
+    if (cached_has_bits & 0x00000400u) {
+      y_3_ = from.y_3_;
+    }
+    if (cached_has_bits & 0x00000800u) {
+      depth_3_ = from.depth_3_;
+    }
+    if (cached_has_bits & 0x00001000u) {
+      end_ = from.end_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void MultiWaypointXYZ::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:MultiWaypointXYZ)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MultiWaypointXYZ::CopyFrom(const MultiWaypointXYZ& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:MultiWaypointXYZ)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MultiWaypointXYZ::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00001007) != 0x00001007) return false;
+  return true;
+}
+
+void MultiWaypointXYZ::Swap(MultiWaypointXYZ* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MultiWaypointXYZ::InternalSwap(MultiWaypointXYZ* other) {
+  using std::swap;
+  swap(time_, other->time_);
+  swap(destination_, other->destination_);
+  swap(wpt_num_, other->wpt_num_);
+  swap(x_1_, other->x_1_);
+  swap(y_1_, other->y_1_);
+  swap(depth_1_, other->depth_1_);
+  swap(x_2_, other->x_2_);
+  swap(y_2_, other->y_2_);
+  swap(depth_2_, other->depth_2_);
+  swap(x_3_, other->x_3_);
+  swap(y_3_, other->y_3_);
+  swap(depth_3_, other->depth_3_);
+  swap(end_, other->end_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata MultiWaypointXYZ::GetMetadata() const {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -5097,7 +5874,7 @@ void ExecuteWaypoints::InitAsDefaultInstance() {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int ExecuteWaypoints::kDestinationFieldNumber;
 const int ExecuteWaypoints::kTimeFieldNumber;
-const int ExecuteWaypoints::kEndFieldNumber;
+const int ExecuteWaypoints::kExecuteFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ExecuteWaypoints::ExecuteWaypoints()
@@ -5113,15 +5890,15 @@ ExecuteWaypoints::ExecuteWaypoints(const ExecuteWaypoints& from)
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&time_, &from.time_,
-    static_cast<size_t>(reinterpret_cast<char*>(&end_) -
-    reinterpret_cast<char*>(&time_)) + sizeof(end_));
+    static_cast<size_t>(reinterpret_cast<char*>(&execute_) -
+    reinterpret_cast<char*>(&time_)) + sizeof(execute_));
   // @@protoc_insertion_point(copy_constructor:ExecuteWaypoints)
 }
 
 void ExecuteWaypoints::SharedCtor() {
   ::memset(&time_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&end_) -
-      reinterpret_cast<char*>(&time_)) + sizeof(end_));
+      reinterpret_cast<char*>(&execute_) -
+      reinterpret_cast<char*>(&time_)) + sizeof(execute_));
 }
 
 ExecuteWaypoints::~ExecuteWaypoints() {
@@ -5155,8 +5932,8 @@ void ExecuteWaypoints::Clear() {
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 7u) {
     ::memset(&time_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&end_) -
-        reinterpret_cast<char*>(&time_)) + sizeof(end_));
+        reinterpret_cast<char*>(&execute_) -
+        reinterpret_cast<char*>(&time_)) + sizeof(execute_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
@@ -5200,14 +5977,14 @@ bool ExecuteWaypoints::MergePartialFromCodedStream(
         break;
       }
 
-      // required bool end = 13;
-      case 13: {
+      // required bool execute = 3;
+      case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(104u /* 104 & 0xFF */)) {
-          set_has_end();
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+          set_has_execute();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &end_)));
+                 input, &execute_)));
         } else {
           goto handle_unusual;
         }
@@ -5251,9 +6028,9 @@ void ExecuteWaypoints::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->time(), output);
   }
 
-  // required bool end = 13;
+  // required bool execute = 3;
   if (cached_has_bits & 0x00000004u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(13, this->end(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->execute(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -5281,9 +6058,9 @@ void ExecuteWaypoints::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->time(), target);
   }
 
-  // required bool end = 13;
+  // required bool execute = 3;
   if (cached_has_bits & 0x00000004u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(13, this->end(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->execute(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -5310,8 +6087,8 @@ size_t ExecuteWaypoints::RequiredFieldsByteSizeFallback() const {
         this->destination());
   }
 
-  if (has_end()) {
-    // required bool end = 13;
+  if (has_execute()) {
+    // required bool execute = 3;
     total_size += 1 + 1;
   }
 
@@ -5335,7 +6112,7 @@ size_t ExecuteWaypoints::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
 
-    // required bool end = 13;
+    // required bool execute = 3;
     total_size += 1 + 1;
 
   } else {
@@ -5377,7 +6154,7 @@ void ExecuteWaypoints::MergeFrom(const ExecuteWaypoints& from) {
       destination_ = from.destination_;
     }
     if (cached_has_bits & 0x00000004u) {
-      end_ = from.end_;
+      execute_ = from.execute_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -5410,7 +6187,7 @@ void ExecuteWaypoints::InternalSwap(ExecuteWaypoints* other) {
   using std::swap;
   swap(time_, other->time_);
   swap(destination_, other->destination_);
-  swap(end_, other->end_);
+  swap(execute_, other->execute_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
@@ -5445,8 +6222,11 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::StateInfo* Arena::CreateMaybeMes
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::SingleWaypoint* Arena::CreateMaybeMessage< ::SingleWaypoint >(Arena* arena) {
   return Arena::CreateInternal< ::SingleWaypoint >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::MultiWaypoint* Arena::CreateMaybeMessage< ::MultiWaypoint >(Arena* arena) {
-  return Arena::CreateInternal< ::MultiWaypoint >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::MultiWaypointGPS* Arena::CreateMaybeMessage< ::MultiWaypointGPS >(Arena* arena) {
+  return Arena::CreateInternal< ::MultiWaypointGPS >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::MultiWaypointXYZ* Arena::CreateMaybeMessage< ::MultiWaypointXYZ >(Arena* arena) {
+  return Arena::CreateInternal< ::MultiWaypointXYZ >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::ExecuteWaypoints* Arena::CreateMaybeMessage< ::ExecuteWaypoints >(Arena* arena) {
   return Arena::CreateInternal< ::ExecuteWaypoints >(arena);
