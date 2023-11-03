@@ -40,7 +40,7 @@ SeaTracModem::SeaTracModem()
     direct_control_pub = m_nh->advertise<mvp_msgs::ControlProcess>("continuous_command_topic", 10);
     set_state_client = m_nh->serviceClient<mvp_msgs::ChangeState>("helm/change_state");
     get_state_client = m_nh->serviceClient<mvp_msgs::ChangeState>("helm/get_state");
-    waypoint_pub = m_nh->advertise<geometry_msgs::PolygonStamped>("helm/path_global/update_waypoints", 10);
+    waypoint_pub = m_nh->advertise<geometry_msgs::PolygonStamped>("helm/path_global/append_waypoints", 10);
     cmd_depth_pub = m_nh->advertise<std_msgs::Float64>("helm/depth_tracking/desired_depth", 10);
     setup_goby();
 
