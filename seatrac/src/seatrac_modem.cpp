@@ -35,6 +35,8 @@ SeaTracModem::SeaTracModem()
     direct_control_pub = m_nh->advertise<mvp_msgs::ControlProcess>("continuous_command_topic", 10);
     set_state_client = m_nh->serviceClient<mvp_msgs::ChangeState>("helm/change_state");
     get_state_client = m_nh->serviceClient<mvp_msgs::ChangeState>("helm/get_state");
+    waypoint_pub = m_nh->advertise<geometry_msgs::PolygonStamped>("helm/path_local/update_waypoints", 10);
+    cmd_depth_pub = m_nh->advertise<std_msgs::Float64>("helm/depth_tracking/desired_depth", 10);
     setup_goby();
 
     while(ros::ok())
@@ -403,6 +405,45 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
     {
         SingleWaypoint single_waypoint;
         single_waypoint.CopyFrom(data_msg);
+
+        if(single_waypoint.setget())
+        {
+            geometry_msgs::PolygonStamped waypoint_array;
+            geometry_msgs::Point32 waypoint;
+            std_msgs::Float64 cmd_depth;
+
+            waypoint_array.header.stamp = ros::Time::now();
+
+            //if given lat long waypoint, convert to xyz using robot localization
+            if(single_waypoint.latitude() && single_waypoint.longitude())
+            {
+                    robot_localization::FromLL ser;
+                    ser.request.ll_point.latitude = single_waypoint.latitude();
+                    ser.request.ll_point.longitude = single_waypoint.longitude();
+                    ser.request.ll_point.altitude = 0;
+
+                    ros::service::call("fromll", ser);
+
+                    waypoint_array.header.frame_id = "world";
+                    waypoint.x = ser.response.map_point.x;
+                    waypoint.y = ser.response.map_point.y;
+            }
+            else
+            {
+                waypoint_array.header.frame_id = "body_link";
+                waypoint.x = single_waypoint.local_x();
+                waypoint.y = single_waypoint.local_y();
+            }
+
+            //x and y go to waypoint pub, z goes to depth setpoint pub
+            waypoint_array.polygon.points.push_back(waypoint);
+            cmd_depth.data = single_waypoint.depth();
+
+            waypoint_pub.publish(waypoint_array);
+            cmd_depth_pub.publish(cmd_depth);
+
+        }
+
     }
     else if(msg_type == "MultiWaypoint")
     {

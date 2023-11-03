@@ -72,6 +72,8 @@ private:
     ros::Publisher health_publisher;
     ros::Publisher pose_publisher;
     ros::Publisher direct_control_pub;
+    ros::Publisher waypoint_pub;
+    ros::Publisher cmd_depth_pub;
     
     ros::Subscriber local_odom_subscriber;
     ros::Subscriber voltage_sub;
