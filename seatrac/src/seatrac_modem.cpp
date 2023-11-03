@@ -192,6 +192,16 @@ void SeaTracModem::setup_msgs()
     q_entry_single_wpt->set_ack(false);
     q_entry_single_wpt->set_max_queue(1);
 
+    goby::acomms::protobuf::QueuedMessageEntry* q_entry_multi_wpt_gps = q_manager_cfg.add_message_entry();
+    q_entry_multi_wpt_gps->set_protobuf_name("MultiWaypointGPS");;
+    q_entry_multi_wpt_gps->set_ack(false);
+    q_entry_multi_wpt_gps->set_max_queue(1);
+
+    goby::acomms::protobuf::QueuedMessageEntry* q_entry_multi_wpt_xyz = q_manager_cfg.add_message_entry();
+    q_entry_multi_wpt_xyz->set_protobuf_name("MultiWaypointXYZ");;
+    q_entry_multi_wpt_xyz->set_ack(false);
+    q_entry_multi_wpt_xyz->set_max_queue(1);
+
     //setup multi waypoint
     goby::acomms::protobuf::QueuedMessageEntry* q_entry_exe_wpt = q_manager_cfg.add_message_entry();
     q_entry_exe_wpt->set_protobuf_name("ExecuteWaypoints");;
