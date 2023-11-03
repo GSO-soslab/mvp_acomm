@@ -42,12 +42,10 @@
 #include <goby/acomms/queue.h>
 #include <goby/acomms/dccl.h>
 #include <goby/acomms/modem_driver.h>
-#include <goby/util/binary.h>
 #include <goby/util/debug_logger.h>
 #include "../proto/goby_msgs.pb.h"
 #include "seatrac_driver.h"
 
-#include "../io.h"
 
 void handle_data_receive(const google::protobuf::Message& data_msg);
 
@@ -119,13 +117,7 @@ int main(int argc, char* argv[])
     //init protobuf messages to the queue
     q_manager_cfg.add_message_entry()->set_protobuf_name("Pose");
     q_manager_cfg.add_message_entry()->set_protobuf_name("Health");
-    q_manager_cfg.add_message_entry()->set_protobuf_name("RelativePose");
-    q_manager_cfg.add_message_entry()->set_protobuf_name("ControllerInfo");
-    q_manager_cfg.add_message_entry()->set_protobuf_name("DirectControl");
-    q_manager_cfg.add_message_entry()->set_protobuf_name("StateInfo");
-    q_manager_cfg.add_message_entry()->set_protobuf_name("SingleWaypoint");
-    q_manager_cfg.add_message_entry()->set_protobuf_name("MultiWaypoint");
-    q_manager_cfg.add_message_entry()->set_protobuf_name("ExecuteWaypoint");
+
 
 
     goby::glog.set_name("usbl");
@@ -174,5 +166,5 @@ int main(int argc, char* argv[])
 
 void handle_data_receive(const google::protobuf::Message& data_msg)
 {
-    std::cout << "got a message: " << data_msg << std::endl;
+    //std::cout << "got a message: " << data_msg << std::endl;
 }

@@ -30,10 +30,10 @@ SeaTracModem::SeaTracModem()
 
     local_odom_sub = m_nh->subscribe("odometry/filtered/local", 10, &SeaTracModem::f_local_odom_callback, this);
     
-    message_filters::Subscriber<mvp_msgs::Float64Stamped> voltage_sub(*m_nh, "power/voltage", 10);
-    message_filters::Subscriber<mvp_msgs::Float64Stamped> current_sub(*m_nh, "power/current", 10);
-    message_filters::TimeSynchronizer<mvp_msgs::Float64Stamped, mvp_msgs::Float64Stamped> sync(voltage_sub, current_sub, 10);
-    sync.registerCallback(&SeaTracModem::f_power_callback, this);
+    // message_filters::Subscriber<mvp_msgs::Float64Stamped> voltage_sub(*m_nh, "power/voltage", 10);
+    // message_filters::Subscriber<mvp_msgs::Float64Stamped> current_sub(*m_nh, "power/current", 10);
+    // message_filters::TimeSynchronizer<mvp_msgs::Float64Stamped, mvp_msgs::Float64Stamped> sync(voltage_sub, current_sub, 10);
+    // sync.registerCallback(&SeaTracModem::f_power_callback, this);
 
     controller_enable_client = m_nh->serviceClient<std_srvs::Empty>("controller/enable");
     controller_disable_client = m_nh->serviceClient<std_srvs::Empty>("controller/disable");
@@ -547,7 +547,8 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
 void SeaTracModem::received_ack(const goby::acomms::protobuf::ModemTransmission& ack_message,
                   const google::protobuf::Message& original_message)
 {
-    std::cout << ack_message.src() << " acknowledged receiving message: " << original_message << std::endl;
+    
+    std::cout << ack_message.src() << " acknowledged receiving message: " << original_message.ShortDebugString() << std::endl;
 }
 
 void SeaTracModem::f_local_odom_callback(const nav_msgs::OdometryPtr &msg)

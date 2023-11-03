@@ -4,9 +4,16 @@ project(seatrac)
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules/")
 
 find_package(catkin REQUIRED COMPONENTS
+  pluginlib
   roscpp
   std_msgs
+  std_srvs
   mvp_msgs
+  nav_msgs
+  message_filters
+  geometry_msgs
+  geographic_msgs
+  robot_localization
   seatrac_driver
 )
 
@@ -55,7 +62,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(seatrac_modem src/seatrac_modem.cpp)
-add_executable(seatrac_usbl src/seatrac_usbl.cpp)
+# add_executable(seatrac_usbl src/seatrac_usbl.cpp)
 add_executable(seatrac_modem src/seatrac_modem.cpp)
 add_executable(seatrac_test_driver src/test/test_driver.cpp)
 
@@ -68,16 +75,16 @@ add_executable(seatrac_test_driver src/test/test_driver.cpp)
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 # add_dependencies(seatrac_modem ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(seatrac_usbl ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(seatrac_usbl ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(seatrac_modem ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(seatrac_test_driver ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(seatrac_usbl
-  ${catkin_LIBRARIES}
-  proto
-  goby
-)
+# target_link_libraries(seatrac_usbl
+#   ${catkin_LIBRARIES}
+#   proto
+#   goby
+# )
 target_link_libraries(seatrac_modem
   ${catkin_LIBRARIES}
   proto

@@ -44,7 +44,7 @@ void goby::acomms::SeatracDriver::startup(const protobuf::DriverConfig& cfg)
 
     glog.is(DEBUG1) && glog << group(glog_out_group())
                             << "SeatracDriver configuration good. Starting modem..." << std::endl;
-    ModemDriverBase::modem_start(driver_cfg_);
+    modem_start(driver_cfg_);
 
 } // startup
 

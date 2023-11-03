@@ -61,9 +61,6 @@
 #include <goby/util/binary.h>
 #include <goby/util/debug_logger.h>
 
-//goby util for cout protobuf messages
-#include "io.h"
-
 //protobuf msg includes
 #include "proto/goby_msgs.pb.h"
 

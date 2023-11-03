@@ -11,13 +11,17 @@
 
 
   <buildtool_depend>catkin</buildtool_depend>
+  <depend>pluginlib</depend>
   <depend>roscpp</depend>
   <depend>std_msgs</depend>
-  <depend>geometry_msgs</depend>
-  <depend>nav_msgs</depend>
+  <depend>std_srvs</depend>
   <depend>mvp_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>message_filters</depend>
+  <depend>geometry_msgs</depend>
+  <depend>geographic_msgs</depend>
+  <depend>robot_localization</depend>
   <depend>serial</depend>
-  <depend>dccl</depend>
   <depend>proto</depend>
   <depend>goby</depend>
   <depend>seatrac_driver</depend>
