@@ -38,11 +38,16 @@
 #include "std_srvs/Empty.h"
 //ros msg includes for direct control
 #include "mvp_msgs/ControlProcess.h"
-//ros msg for change state service
+//ros service for change state and get state
 #include "mvp_msgs/ChangeState.h"
+//ros msg include for waypoints
+#include "geometry_msgs/PolygonStamped.h"
+//ros msg include for depth setpoint
+#include "std_msgs/Float64.h"
 
-//robot localization include to transform local x,y to lat and long
+//robot localization include to transform local x,y and lat and long
 #include "robot_localization/ToLL.h"
+#include "robot_localization/FromLL.h"
 
 //goby includes
 #include <goby/acomms/connect.h>
@@ -69,13 +74,13 @@ private:
     ros::NodeHandlePtr m_nh;
     ros::NodeHandlePtr m_pnh;
 
-    ros::Publisher health_publisher;
-    ros::Publisher pose_publisher;
+    ros::Publisher health_pub;
+    ros::Publisher pose_pub;
     ros::Publisher direct_control_pub;
     ros::Publisher waypoint_pub;
     ros::Publisher cmd_depth_pub;
     
-    ros::Subscriber local_odom_subscriber;
+    ros::Subscriber local_odom_sub;
     ros::Subscriber voltage_sub;
     ros::Subscriber current_sub;
 
@@ -86,6 +91,9 @@ private:
 
     bool console_debug;
     int beacon_id;
+    uint32_t our_id;
+    uint32_t dest_id;
+    uint32_t slot_time;
 
     std::string buffer;
 

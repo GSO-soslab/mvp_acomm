@@ -28,7 +28,7 @@ SeaTracModem::SeaTracModem()
     m_nh.reset(new ros::NodeHandle(""));
     m_pnh.reset(new ros::NodeHandle("~"));
 
-    local_odom_subscriber = m_nh->subscribe("odometry/filtered/local", 1, &SeaTracModem::f_local_odom_callback, this);
+    local_odom_sub = m_nh->subscribe("odometry/filtered/local", 1, &SeaTracModem::f_local_odom_callback, this);
     voltage_sub = m_nh->subscribe("power/voltage", 1, &SeaTracModem::f_voltage_callback, this);
     controller_enable_client = m_nh->serviceClient<std_srvs::Empty>("controller/enable");
     controller_disable_client = m_nh->serviceClient<std_srvs::Empty>("controller/disable");
@@ -59,9 +59,9 @@ void SeaTracModem::setup_goby()
     goby::acomms::bind(st_driver, q_manager, mac);
 
     // set the source id of this modem
-    uint32_t our_id = 1;
-    uint32_t dest_id = 15;
-    uint32_t slot_time = 5;
+    our_id = 1;
+    dest_id = 15;
+    slot_time = 5;
 
     //Initiate DCCL
     goby::acomms::protobuf::DCCLConfig dccl_cfg;
@@ -202,7 +202,7 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
         if(pose.cmd_resp())
         {
             Pose pose_out;
-            pose_out.set_destination(15);
+            pose_out.set_destination(dest_id);
             pose_out.set_cmd_resp(false);
             pose_out.set_time(ros::Time::now().toSec());
             pose_out.set_latitude(global_lat);
@@ -225,7 +225,7 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
         if(health.cmd_resp())
         {
             Health health_out;
-            health_out.set_destination(15);
+            health_out.set_destination(dest_id);
             health_out.set_cmd_resp(false);
             health_out.set_time(ros::Time::now().toSec());
             health_out.set_batt_volt(voltage);
@@ -267,11 +267,12 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
         {
             ControllerInfo control_info_out;
 
-            control_info_out.set_destination(15);
+            control_info_out.set_destination(dest_id);
             control_info_out.set_time(ros::Time::now().toSec());
             control_info_out.set_setget(false);
             //TODO: Currently no way to ask the controller service for its enable/disable state
             // control_info_out.set_state(state);
+            // q_manager.push_message(control_info_out);
         }     
     }
     else if(msg_type == "DirectControl")
@@ -387,7 +388,7 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
         else
         {
             StateInfo state_info_out;
-            state_info_out.set_destination(15);
+            state_info_out.set_destination(dest_id);
             state_info_out.set_time(ros::Time::now().toSec());
 
             for(int i=0;i<sizeof(StateInfo_State); i++)
