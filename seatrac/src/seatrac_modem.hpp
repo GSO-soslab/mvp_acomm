@@ -28,6 +28,10 @@
 #include "unistd.h"
 #include <iostream>
 
+//ros includes for syncronizing voltage and current subscribers
+#include "message_filters/subscriber.h"
+#include "message_filters/time_synchronizer.h"
+
 //ros msg includes for pose
 #include "nav_msgs/Odometry.h"
 #include "geometry_msgs/Point.h"
@@ -81,8 +85,6 @@ private:
     ros::Publisher cmd_depth_pub;
     
     ros::Subscriber local_odom_sub;
-    ros::Subscriber voltage_sub;
-    ros::Subscriber current_sub;
 
     ros::ServiceClient controller_enable_client;
     ros::ServiceClient controller_disable_client;
@@ -111,13 +113,12 @@ private:
     void received_data(const google::protobuf::Message& data_msg);
     void received_ack(const goby::acomms::protobuf::ModemTransmission& ack_message, const google::protobuf::Message& original_message);
     void f_local_odom_callback(const nav_msgs::OdometryPtr &msg);
-    void f_voltage_callback(const mvp_msgs::Float64Stamped &msg);
-    void f_current_callback(const mvp_msgs::Float64Stamped &msg);
+    void f_power_callback(const mvp_msgs::Float64Stamped &voltage, const mvp_msgs::Float64Stamped &current);
     ros::Timer timer;
     
-    double local_p, local_q, local_r, global_lat, global_long;
-    int local_x, local_y, local_z;
-    float x_rot, y_rot, z_rot, w_rot, voltage, current;
+    Pose pose_out;
+    Health health_out;
+
 public:
 
     SeaTracModem();

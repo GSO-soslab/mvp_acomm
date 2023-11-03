@@ -28,8 +28,13 @@ SeaTracModem::SeaTracModem()
     m_nh.reset(new ros::NodeHandle(""));
     m_pnh.reset(new ros::NodeHandle("~"));
 
-    local_odom_sub = m_nh->subscribe("odometry/filtered/local", 1, &SeaTracModem::f_local_odom_callback, this);
-    voltage_sub = m_nh->subscribe("power/voltage", 1, &SeaTracModem::f_voltage_callback, this);
+    local_odom_sub = m_nh->subscribe("odometry/filtered/local", 10, &SeaTracModem::f_local_odom_callback, this);
+    
+    message_filters::Subscriber<mvp_msgs::Float64Stamped> voltage_sub(*m_nh, "power/voltage", 10);
+    message_filters::Subscriber<mvp_msgs::Float64Stamped> current_sub(*m_nh, "power/current", 10);
+    message_filters::TimeSynchronizer<mvp_msgs::Float64Stamped, mvp_msgs::Float64Stamped> sync(voltage_sub, current_sub, 10);
+    sync.registerCallback(&SeaTracModem::f_power_callback, this);
+
     controller_enable_client = m_nh->serviceClient<std_srvs::Empty>("controller/enable");
     controller_disable_client = m_nh->serviceClient<std_srvs::Empty>("controller/disable");
     direct_control_pub = m_nh->advertise<mvp_msgs::ControlProcess>("continuous_command_topic", 10);
@@ -39,11 +44,22 @@ SeaTracModem::SeaTracModem()
     cmd_depth_pub = m_nh->advertise<std_msgs::Float64>("helm/depth_tracking/desired_depth", 10);
     setup_goby();
 
+    int i = 0;
+
+    //loop at 10Hz 
     while(ros::ok())
     {
+        //every 30 seconds add pose and health to the queue
+        if(i%300)
+        {
+            q_manager.push_message(pose_out);
+            q_manager.push_message(health_out);
+        }
+
         st_driver.do_work();
         q_manager.do_work();
         mac.do_work();
+
         usleep(100000);
     }
     
@@ -177,12 +193,6 @@ void SeaTracModem::setup_msgs()
     q_entry_single_wpt->set_max_queue(1);
 
     //setup multi waypoint
-    goby::acomms::protobuf::QueuedMessageEntry* q_entry_multi_wpt = q_manager_cfg.add_message_entry();
-    q_entry_multi_wpt->set_protobuf_name("MultiWaypoint");;
-    q_entry_multi_wpt->set_ack(false);
-    q_entry_multi_wpt->set_max_queue(1);
-
-    //setup execute waypoints
     goby::acomms::protobuf::QueuedMessageEntry* q_entry_exe_wpt = q_manager_cfg.add_message_entry();
     q_entry_exe_wpt->set_protobuf_name("ExecuteWaypoints");;
     q_entry_exe_wpt->set_ack(false);
@@ -202,19 +212,6 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
         //if the received message is a pose command/request
         if(pose.cmd_resp())
         {
-            Pose pose_out;
-            pose_out.set_destination(dest_id);
-            pose_out.set_cmd_resp(false);
-            pose_out.set_time(ros::Time::now().toSec());
-            pose_out.set_latitude(global_lat);
-            pose_out.set_longitude(global_long);
-            pose_out.set_local_x(std::round(local_x));
-            pose_out.set_local_y(std::round(local_y));
-            pose_out.set_local_z(std::round(local_z));
-            pose_out.set_x_rot(x_rot);
-            pose_out.set_y_rot(y_rot);
-            pose_out.set_z_rot(z_rot);
-            pose_out.set_w_rot(w_rot);
             q_manager.push_message(pose_out);
 
         }
@@ -225,12 +222,6 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
         health.CopyFrom(data_msg);
         if(health.cmd_resp())
         {
-            Health health_out;
-            health_out.set_destination(dest_id);
-            health_out.set_cmd_resp(false);
-            health_out.set_time(ros::Time::now().toSec());
-            health_out.set_batt_volt(voltage);
-            health_out.set_current(current);
             q_manager.push_message(health_out);
         }
 
@@ -561,14 +552,14 @@ void SeaTracModem::received_ack(const goby::acomms::protobuf::ModemTransmission&
 
 void SeaTracModem::f_local_odom_callback(const nav_msgs::OdometryPtr &msg)
 {
-    local_x = msg->pose.pose.position.x;
-    local_y = msg->pose.pose.position.y;
-    local_z = msg->pose.pose.position.z;
+    double local_x = msg->pose.pose.position.x;
+    double local_y = msg->pose.pose.position.y;
+    double local_z = msg->pose.pose.position.z;
 
-    x_rot = msg->pose.pose.orientation.x;
-    y_rot = msg->pose.pose.orientation.y;
-    z_rot = msg->pose.pose.orientation.z;
-    w_rot = msg->pose.pose.orientation.w;
+    double x_rot = msg->pose.pose.orientation.x;
+    double y_rot = msg->pose.pose.orientation.y;
+    double z_rot = msg->pose.pose.orientation.z;
+    double w_rot = msg->pose.pose.orientation.w;
 
     robot_localization::ToLL ser;
     ser.request.map_point.x = local_x;
@@ -577,18 +568,31 @@ void SeaTracModem::f_local_odom_callback(const nav_msgs::OdometryPtr &msg)
 
     ros::service::call("toll", ser);
 
-    global_lat = ser.response.ll_point.latitude;
-    global_long = ser.response.ll_point.longitude;
+    double global_lat = ser.response.ll_point.latitude;
+    double global_long = ser.response.ll_point.longitude;
+
+        
+    pose_out.set_destination(dest_id);
+    pose_out.set_cmd_resp(false);
+    pose_out.set_time(ros::Time::now().toSec());
+    pose_out.set_latitude(global_lat);
+    pose_out.set_longitude(global_long);
+    pose_out.set_local_x(std::round(local_x));
+    pose_out.set_local_y(std::round(local_y));
+    pose_out.set_local_z(std::round(local_z));
+    pose_out.set_x_rot(x_rot);
+    pose_out.set_y_rot(y_rot);
+    pose_out.set_z_rot(z_rot);
+    pose_out.set_w_rot(w_rot);
 }
 
-void SeaTracModem::f_voltage_callback(const mvp_msgs::Float64Stamped &msg)
+void SeaTracModem::f_power_callback(const mvp_msgs::Float64Stamped &voltage, const mvp_msgs::Float64Stamped &current)
 {
-    voltage = msg.data;
-}
-
-void SeaTracModem::f_current_callback(const mvp_msgs::Float64Stamped &msg)
-{
-    current = msg.data;
+    health_out.set_destination(dest_id);
+    health_out.set_cmd_resp(false);
+    health_out.set_time(ros::Time::now().toSec());
+    health_out.set_batt_volt(voltage.data);
+    health_out.set_current(current.data);
 }
 
 int main(int argc, char* argv[])
