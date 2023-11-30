@@ -79,7 +79,6 @@ private:
     ros::Publisher pose_pub;
     ros::Publisher direct_control_pub;
     ros::Publisher waypoint_pub;
-    ros::Publisher cmd_depth_pub;
     
     ros::Subscriber local_odom_sub;
 
@@ -94,7 +93,6 @@ private:
     uint32_t dest_id;
     uint32_t slot_time;
     geometry_msgs::PolygonStamped waypoint_array;
-    std_msgs::Float64 cmd_depth;
 
     goby::acomms::DCCLCodec* dccl_ = goby::acomms::DCCLCodec::get();
     goby::acomms::QueueManager q_manager;

@@ -450,12 +450,13 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
             else
             {
                 waypoint.x = single_waypoint.local_x();
-                waypoint.y = single_waypoint.local_y();
+                waypoint.y = single_waypoint.local_y();     
             }
 
-            //x and y go to waypoint pub, z goes to depth setpoint pub
+            waypoint.z = single_waypoint.depth();
+
+            //store waypoint in internal buffer, waiting for execute waypoint command to publish
             waypoint_array.polygon.points.push_back(waypoint);
-            cmd_depth.data = single_waypoint.depth();
         }
 
     }
@@ -467,9 +468,7 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
         robot_localization::FromLL ser;
         geometry_msgs::Point32 waypoint;
 
-        int i = 0;
         int idx = multi_waypoint_gps.wpt_num();
-
 
         if(multi_waypoint_gps.has_depth_1() && multi_waypoint_gps.has_latitude_1() && multi_waypoint_gps.has_longitude_1())
         {
@@ -481,10 +480,9 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
 
             waypoint.x = ser.response.map_point.x;
             waypoint.y = ser.response.map_point.y;
-            waypoint.z = 0;
+            waypoint.z = multi_waypoint_gps.depth_1();
 
-            waypoint_array.polygon.points[idx+i] = waypoint;
-            i++;
+            waypoint_array.polygon.points[idx++] = waypoint;
         }
         if(multi_waypoint_gps.has_depth_2() && multi_waypoint_gps.has_latitude_2() && multi_waypoint_gps.has_longitude_2())
         {
@@ -495,10 +493,9 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
 
             waypoint.x = ser.response.map_point.x;
             waypoint.y = ser.response.map_point.y;
-            waypoint.z = 0;
+            waypoint.z = multi_waypoint_gps.depth_2();
 
-            waypoint_array.polygon.points[idx+i] = waypoint;
-            i++;
+            waypoint_array.polygon.points[idx++] = waypoint;
         }
         if(multi_waypoint_gps.has_depth_3() && multi_waypoint_gps.has_latitude_3() && multi_waypoint_gps.has_longitude_3())
         {
@@ -509,10 +506,9 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
 
             waypoint.x = ser.response.map_point.x;
             waypoint.y = ser.response.map_point.y;
-            waypoint.z = 0;
+            waypoint.z = multi_waypoint_gps.depth_3();
 
-            waypoint_array.polygon.points[idx+i] = waypoint;
-            i++;
+            waypoint_array.polygon.points[idx++] = waypoint;
         }
     }
     else if(msg_type == "MultiWaypointXYZ")
@@ -523,36 +519,31 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
 
         geometry_msgs::Point32 waypoint;
 
-        int i = 0;
         int idx = multi_waypoint_xyz.wpt_num();
-
 
         if(multi_waypoint_xyz.has_depth_1() && multi_waypoint_xyz.has_x_1() && multi_waypoint_xyz.has_y_1())
         {
             waypoint.x = multi_waypoint_xyz.x_1();
             waypoint.y = multi_waypoint_xyz.y_1();
-            waypoint.z = 0;
+            waypoint.z = multi_waypoint_xyz.depth_1();
 
-            waypoint_array.polygon.points[idx+i] = waypoint;
-            i++;
+            waypoint_array.polygon.points[idx++] = waypoint;
         }
         if(multi_waypoint_xyz.has_depth_2() && multi_waypoint_xyz.has_x_2() && multi_waypoint_xyz.has_y_2())
         {
             waypoint.x = multi_waypoint_xyz.x_2();
             waypoint.y = multi_waypoint_xyz.y_2();
-            waypoint.z = 0;
+            waypoint.z = multi_waypoint_xyz.depth_2();
 
-            waypoint_array.polygon.points[idx+i] = waypoint;
-            i++;
+            waypoint_array.polygon.points[idx++] = waypoint;
         }
         if(multi_waypoint_xyz.has_depth_3() && multi_waypoint_xyz.has_x_3() && multi_waypoint_xyz.has_y_3())
         {
             waypoint.x = multi_waypoint_xyz.x_3();
             waypoint.y = multi_waypoint_xyz.y_3();
-            waypoint.z = 0;
+            waypoint.z = multi_waypoint_xyz.depth_3();
 
-            waypoint_array.polygon.points[idx+i] = waypoint;
-            i++;
+            waypoint_array.polygon.points[idx++] = waypoint;
         }
 
     }
@@ -566,10 +557,7 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
             waypoint_array.header.frame_id = "world_ned";
             waypoint_array.header.stamp = ros::Time::now();
             waypoint_pub.publish(waypoint_array);
-            cmd_depth_pub.publish(cmd_depth);
             waypoint_array.polygon.points.erase(waypoint_array.polygon.points.begin(), waypoint_array.polygon.points.end());
-            cmd_depth.data = 0;
-
         }
     }    
 }
