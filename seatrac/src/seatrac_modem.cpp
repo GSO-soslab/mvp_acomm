@@ -23,6 +23,11 @@
 
 #include "seatrac_modem.hpp"
 
+
+/**
+ * @brief Construct a new Sea Trac Modem:: Sea Trac Modem object
+ * 
+ */
 SeaTracModem::SeaTracModem()
 {
     m_nh.reset(new ros::NodeHandle(""));
@@ -68,11 +73,19 @@ SeaTracModem::SeaTracModem()
     
 }
 
+/**
+ * @brief Destroy the Sea Trac Modem:: Sea Trac Modem object
+ * 
+ */
 SeaTracModem::~SeaTracModem()
 {
 
 }
 
+/**
+ * @brief the goby dccl, mac, queue, and driver are configured and initialized
+ * 
+ */
 void SeaTracModem::setup_goby()
 {
     goby::acomms::bind(st_driver, q_manager, mac);
@@ -98,8 +111,8 @@ void SeaTracModem::setup_goby()
     dccl_->validate<ExecuteWaypoints>();
 
 
-    //setup protobuf messages
-    setup_msgs();
+    //setup the goby queue manager
+    setup_queue();
     
     q_manager_cfg.set_modem_id(our_id);
 
@@ -151,7 +164,11 @@ void SeaTracModem::setup_goby()
     st_driver.startup(driver_cfg);
 }
 
-void SeaTracModem::setup_msgs()
+/**
+ * @brief messages from mvp_messages documentation are loaded and configured into the queue manager.
+ * 
+ */
+void SeaTracModem::setup_queue()
 {
     //setup pose msg
     goby::acomms::protobuf::QueuedMessageEntry* q_entry_pose = q_manager_cfg.add_message_entry();
@@ -214,6 +231,12 @@ void SeaTracModem::setup_msgs()
 
 }
 
+/**
+ * @brief the slot that is called back from seatrac_driver when a new message is received. the incoming 
+ * message is parsed acording to the mvp_messages documentation.
+ * 
+ * @param data_msg the incoming protobuf message
+ */
 void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
 {
     std::string msg_type =  data_msg.GetTypeName();
@@ -377,18 +400,12 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
             {
                 if(*t == cmd_state)
                 {
-                    valid_transition = true; 
+                    mvp_msgs::ChangeState set_state;
+                    set_state.request.state == cmd_state;
+                    set_state_client.call(set_state);
                     break;
                 }
             }
-
-            if(valid_transition)
-            {
-                mvp_msgs::ChangeState set_state;
-                set_state.request.state == cmd_state;
-                set_state_client.call(set_state);
-            }
-
         }
         else
         {
@@ -557,13 +574,12 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
     }    
 }
 
-void SeaTracModem::received_ack(const goby::acomms::protobuf::ModemTransmission& ack_message,
-                  const google::protobuf::Message& original_message)
-{
-    
-    std::cout << ack_message.src() << " acknowledged receiving message: " << original_message.ShortDebugString() << std::endl;
-}
-
+/**
+ * @brief subscriber to vehicles odometry. updating pose_out, a class variable, 
+ * to be sent over acomms asynchronously
+ * 
+ * @param msg the odometry msg
+ */
 void SeaTracModem::f_local_odom_callback(const nav_msgs::OdometryPtr &msg)
 {
     double local_x = msg->pose.pose.position.x;
@@ -600,6 +616,13 @@ void SeaTracModem::f_local_odom_callback(const nav_msgs::OdometryPtr &msg)
     pose_out.set_w_rot(w_rot);
 }
 
+/**
+ * @brief time synced subscriber to voltage and current. updating health_out, a class variable, 
+ * to be sent over acomms asynchronously
+ * 
+ * @param voltage the voltage msg
+ * @param current the current msg
+ */
 void SeaTracModem::f_power_callback(const mvp_msgs::Float64Stamped &voltage, const mvp_msgs::Float64Stamped &current)
 {
     health_out.set_destination(dest_id);
@@ -607,6 +630,19 @@ void SeaTracModem::f_power_callback(const mvp_msgs::Float64Stamped &voltage, con
     health_out.set_time(ros::Time::now().toSec());
     health_out.set_batt_volt(voltage.data);
     health_out.set_current(current.data);
+}
+
+/**
+ * @brief TODO: Enable the ack protocol to confirm messages are being routed correctly
+ * 
+ * @param ack_message 
+ * @param original_message 
+ */
+void SeaTracModem::received_ack(const goby::acomms::protobuf::ModemTransmission& ack_message,
+                  const google::protobuf::Message& original_message)
+{
+    
+    std::cout << ack_message.src() << " acknowledged receiving message: " << original_message.ShortDebugString() << std::endl;
 }
 
 int main(int argc, char* argv[])

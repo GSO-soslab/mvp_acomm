@@ -95,8 +95,6 @@ private:
     uint32_t slot_time;
     geometry_msgs::PolygonStamped waypoint_array;
     std_msgs::Float64 cmd_depth;
-    
-    std::string buffer;
 
     goby::acomms::DCCLCodec* dccl_ = goby::acomms::DCCLCodec::get();
     goby::acomms::QueueManager q_manager;
@@ -106,7 +104,7 @@ private:
     goby::acomms::protobuf::QueueManagerConfig q_manager_cfg;
 
     void setup_goby();
-    void setup_msgs();
+    void setup_queue();
     void received_data(const google::protobuf::Message& data_msg);
     void received_ack(const goby::acomms::protobuf::ModemTransmission& ack_message, const google::protobuf::Message& original_message);
     void f_local_odom_callback(const nav_msgs::OdometryPtr &msg);
