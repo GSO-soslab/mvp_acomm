@@ -42,7 +42,7 @@ SeaTracModem::SeaTracModem()
     get_state_client = m_nh->serviceClient<mvp_msgs::ChangeState>("helm/get_state");
     append_waypoint_pub = m_nh->advertise<geometry_msgs::PolygonStamped>("helm/path_3d/append_waypoints", 10);
     update_waypoint_pub = m_nh->advertise<geometry_msgs::PolygonStamped>("helm/path_3d/update_waypoints", 10);
-    
+
     setup_goby();
 
     int i = 0;
@@ -60,6 +60,8 @@ SeaTracModem::SeaTracModem()
         st_driver.do_work();
         q_manager.do_work();
         mac.do_work();
+
+        i++;
 
         usleep(100000);
     }

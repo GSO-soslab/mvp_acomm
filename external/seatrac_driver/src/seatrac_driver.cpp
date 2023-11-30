@@ -90,7 +90,9 @@ void goby::acomms::SeatracDriver::handle_initiate_transmission(
         tx.packet_len += 1;
     }
 
+    //the output string of hex
     std::ostringstream os;
+    
     convert_to_hex_string(os, reinterpret_cast<const unsigned char*>(&tx), sizeof(tx));
     os << hash;
 
