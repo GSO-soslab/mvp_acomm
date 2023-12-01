@@ -118,10 +118,11 @@ void SeaTracModem::setup_goby()
 
     goby::acomms::connect(&q_manager.signal_receive, this, &SeaTracModem::received_data);
     goby::acomms::connect(&q_manager.signal_ack, this, &SeaTracModem::received_ack);
+    
     //Initiate modem driver
     goby::acomms::protobuf::DriverConfig driver_cfg;
     driver_cfg.set_modem_id(our_id);
-    driver_cfg.set_serial_port("/dev/ttyUSB0");
+    driver_cfg.set_serial_port("/dev/ttySC2");
     driver_cfg.set_connection_type(goby::acomms::protobuf::DriverConfig_ConnectionType_CONNECTION_SERIAL);
 
     //Initiate medium access control
@@ -647,7 +648,7 @@ void SeaTracModem::received_ack(const goby::acomms::protobuf::ModemTransmission&
 int main(int argc, char* argv[])
 {
 
-    ros::init(argc, argv, "seatrac");
+    ros::init(argc, argv, "seatrac_modem");
 
     SeaTracModem d;
 
