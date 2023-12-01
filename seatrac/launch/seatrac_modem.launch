@@ -10,6 +10,6 @@
 -->
 <launch>
 
-    <node ns="topside" name="seatrac_modem" pkg="seatrac" type="seatrac_modem"  output="screen"></node>
+    <node ns="alpha_rise" name="seatrac_modem" pkg="seatrac" type="seatrac_modem"  output="screen"></node>
 
 </launch>
