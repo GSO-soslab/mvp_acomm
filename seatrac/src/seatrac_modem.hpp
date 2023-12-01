@@ -78,8 +78,9 @@ private:
     ros::Publisher health_pub;
     ros::Publisher pose_pub;
     ros::Publisher direct_control_pub;
-    ros::Publisher waypoint_pub;
-    
+    ros::Publisher update_waypoint_pub;
+    ros::Publisher append_waypoint_pub;
+
     ros::Subscriber local_odom_sub;
 
     ros::ServiceClient controller_enable_client;

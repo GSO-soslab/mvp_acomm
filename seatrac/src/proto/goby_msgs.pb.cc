@@ -224,7 +224,7 @@ void InitDefaults() {
 }
 
 ::google::protobuf::Metadata file_level_metadata[10];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[3];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[4];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Pose, _has_bits_),
@@ -454,9 +454,11 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, destination_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, time_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, execute_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, mode_),
   1,
   0,
   2,
+  3,
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 17, sizeof(::Pose)},
@@ -468,7 +470,7 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 136, 149, sizeof(::SingleWaypoint)},
   { 157, 175, sizeof(::MultiWaypointGPS)},
   { 188, 206, sizeof(::MultiWaypointXYZ)},
-  { 219, 227, sizeof(::ExecuteWaypoints)},
+  { 219, 228, sizeof(::ExecuteWaypoints)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -565,62 +567,64 @@ void AddDescriptorsImpl() {
       "\?\t1\000\000\000\000\000\000\000@\242\?\t)\000\000\000\000\000\000\000\300\242\?\002 \002\022,\n\005set_r\030\021 "
       "\001(\002B\035\242\?\t1\000\000\000\000\000\000\000@\242\?\t)\000\000\000\000\000\000\000\300\242\?\002 \002\"5\n\005Fr"
       "ame\022\r\n\tBASE_LINK\020\000\022\010\n\004ODOM\020\001\022\t\n\005WORLD\020\002\022"
-      "\010\n\004USBL\020\003:\017\242\?\002(\004\242\?\002\010\\\242\?\002\020\037\"\205\002\n\tStateInfo"
+      "\010\n\004USBL\020\003:\017\242\?\002(\004\242\?\002\010\\\242\?\002\020\037\"\224\002\n\tStateInfo"
       "\0222\n\013destination\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242\?\t)\000"
       "\000\000\000\000\000\000\000\242\?\002 \000\022+\n\004time\030\002 \002(\001B\035\242\?\t)\000\000\000@3\354\330A"
       "\242\?\t1\000\000\000 \3666\334A\242\?\002 \003\022\016\n\006setget\030\003 \002(\010\022\037\n\005sta"
-      "te\030\004 \001(\0162\020.StateInfo.State\"U\n\005State\022\010\n\004K"
+      "te\030\004 \001(\0162\020.StateInfo.State\"d\n\005State\022\010\n\004K"
       "ILL\020\000\022\t\n\005START\020\001\022\020\n\014SURVEY_LOCAL\020\002\022\021\n\rSU"
-      "RVEY_GLOBAL\020\003\022\022\n\016DIRECT_CONTROL\020\004:\017\242\?\002(\004"
-      "\242\?\002\010]\242\?\002\020\037\"\203\003\n\016SingleWaypoint\0222\n\013destina"
-      "tion\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 "
-      "\000\022+\n\004time\030\002 \002(\001B\035\242\?\t)\000\000\000@3\354\330A\242\?\t1\000\000\000 \3666\334"
-      "A\242\?\002 \003\022\016\n\006setget\030\003 \002(\010\022/\n\010latitude\030\004 \001(\001"
-      "B\035\242\?\t)o\203\332o\355>D@\242\?\t1o\203\332o\355>E@\242\?\002 \006\0220\n\tlongi"
-      "tude\030\005 \001(\001B\035\242\?\t)\346!S>\004\033R\300\242\?\t1\346!S>\004\233Q\300\242\?\002 "
-      "\006\022.\n\007local_x\030\006 \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000"
-      "\000\210\303\300\242\?\002 \000\022.\n\007local_y\030\007 \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@"
-      "\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022,\n\005depth\030\010 \002(\005B\035\242\?\t1\000\000"
-      "\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000:\017\242\?\002(\004\242\?\002\010^\242\?\002\020\037"
-      "\"\206\005\n\020MultiWaypointGPS\0222\n\013destination\030\001 \002"
-      "(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022+\n\004tim"
-      "e\030\002 \002(\001B\035\242\?\t)\000\000\000@3\354\330A\242\?\t1\000\000\000 \3666\334A\242\?\002 \003\022."
-      "\n\007wpt_num\030\003 \002(\005B\035\242\?\t)\000\000\000\000\000\000\000\000\242\?\t1\000\000\000\000\000\000@"
-      "@\242\?\002 \000\0221\n\nlatitude_1\030\004 \001(\001B\035\242\?\t)o\203\332o\355>D@"
-      "\242\?\t1o\203\332o\355>E@\242\?\002 \006\0222\n\013longitude_1\030\005 \001(\001B\035"
-      "\242\?\t)\346!S>\004\033R\300\242\?\t1\346!S>\004\233Q\300\242\?\002 \006\022.\n\007depth_1"
-      "\030\006 \001(\005B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\0221\n"
-      "\nlatitude_2\030\007 \001(\001B\035\242\?\t)o\203\332o\355>D@\242\?\t1o\203\332o\355"
-      ">E@\242\?\002 \006\0222\n\013longitude_2\030\010 \001(\001B\035\242\?\t)\346!S>\004"
-      "\033R\300\242\?\t1\346!S>\004\233Q\300\242\?\002 \006\022.\n\007depth_2\030\t \001(\005B\035\242"
-      "\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\0221\n\nlatitude"
-      "_3\030\n \001(\001B\035\242\?\t)o\203\332o\355>D@\242\?\t1o\203\332o\355>E@\242\?\002 \006\022"
-      "2\n\013longitude_3\030\013 \001(\001B\035\242\?\t)\346!S>\004\033R\300\242\?\t1\346!"
-      "S>\004\233Q\300\242\?\002 \006\022.\n\007depth_3\030\014 \001(\005B\035\242\?\t1\000\000\000\000\000\300"
-      "r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022\013\n\003end\030\r \002(\010:\017\242\?\002(\004\242"
-      "\?\002\010_\242\?\002\020\037\"\331\004\n\020MultiWaypointXYZ\0222\n\013destin"
-      "ation\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002"
-      " \000\022+\n\004time\030\002 \002(\001B\035\242\?\t)\000\000\000@3\354\330A\242\?\t1\000\000\000 \3666"
-      "\334A\242\?\002 \003\022.\n\007wpt_num\030\003 \002(\005B\035\242\?\t)\000\000\000\000\000\000\000\000\242\?"
-      "\t1\000\000\000\000\000\000@@\242\?\002 \000\022*\n\003x_1\030\004 \001(\005B\035\242\?\t1\000\000\000\000\000\210"
-      "\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022*\n\003y_1\030\005 \001(\005B\035\242\?\t1\000\000"
-      "\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022.\n\007depth_1\030\006 \001(\005"
-      "B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022*\n\003x_2\030\007"
-      " \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022*\n\003y"
-      "_2\030\010 \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022"
-      ".\n\007depth_2\030\t \001(\005B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000"
-      "\000\000\242\?\002 \000\022*\n\003x_3\030\n \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000"
-      "\000\000\000\210\303\300\242\?\002 \000\022*\n\003y_3\030\013 \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?"
-      "\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022.\n\007depth_3\030\014 \001(\005B\035\242\?\t1\000\000"
-      "\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022\013\n\003end\030\r \002(\010:\017\242\?"
-      "\002(\004\242\?\002\010`\242\?\002\020\037\"\225\001\n\020ExecuteWaypoints\0222\n\013de"
-      "stination\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242\?\t)\000\000\000\000\000\000\000"
-      "\000\242\?\002 \000\022+\n\004time\030\002 \002(\001B\035\242\?\t)\000\000\000@3\354\330A\242\?\t1\000\000"
-      "\000 \3666\334A\242\?\002 \003\022\017\n\007execute\030\003 \002(\010:\017\242\?\002(\004\242\?\002\010a"
-      "\242\?\002\020\037"
+      "RVEY_GLOBAL\020\003\022\022\n\016DIRECT_CONTROL\020\004\022\r\n\tSUR"
+      "VEY_3D\020\005:\017\242\?\002(\004\242\?\002\010]\242\?\002\020\037\"\203\003\n\016SingleWayp"
+      "oint\0222\n\013destination\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242"
+      "\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022+\n\004time\030\002 \002(\001B\035\242\?\t)\000\000\000@"
+      "3\354\330A\242\?\t1\000\000\000 \3666\334A\242\?\002 \003\022\016\n\006setget\030\003 \002(\010\022/\n"
+      "\010latitude\030\004 \001(\001B\035\242\?\t)o\203\332o\355>D@\242\?\t1o\203\332o\355>E"
+      "@\242\?\002 \006\0220\n\tlongitude\030\005 \001(\001B\035\242\?\t)\346!S>\004\033R\300\242"
+      "\?\t1\346!S>\004\233Q\300\242\?\002 \006\022.\n\007local_x\030\006 \001(\005B\035\242\?\t1\000"
+      "\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022.\n\007local_y\030\007 \001("
+      "\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022,\n\005dept"
+      "h\030\010 \002(\005B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000:\017"
+      "\242\?\002(\004\242\?\002\010^\242\?\002\020\037\"\206\005\n\020MultiWaypointGPS\0222\n\013"
+      "destination\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242\?\t)\000\000\000\000\000"
+      "\000\000\000\242\?\002 \000\022+\n\004time\030\002 \002(\001B\035\242\?\t)\000\000\000@3\354\330A\242\?\t1"
+      "\000\000\000 \3666\334A\242\?\002 \003\022.\n\007wpt_num\030\003 \002(\005B\035\242\?\t)\000\000\000\000"
+      "\000\000\000\000\242\?\t1\000\000\000\000\000\000@@\242\?\002 \000\0221\n\nlatitude_1\030\004 \001("
+      "\001B\035\242\?\t)o\203\332o\355>D@\242\?\t1o\203\332o\355>E@\242\?\002 \006\0222\n\013long"
+      "itude_1\030\005 \001(\001B\035\242\?\t)\346!S>\004\033R\300\242\?\t1\346!S>\004\233Q\300\242"
+      "\?\002 \006\022.\n\007depth_1\030\006 \001(\005B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000"
+      "\000\000\000\000\000\000\000\242\?\002 \000\0221\n\nlatitude_2\030\007 \001(\001B\035\242\?\t)o\203"
+      "\332o\355>D@\242\?\t1o\203\332o\355>E@\242\?\002 \006\0222\n\013longitude_2\030\010"
+      " \001(\001B\035\242\?\t)\346!S>\004\033R\300\242\?\t1\346!S>\004\233Q\300\242\?\002 \006\022.\n\007d"
+      "epth_2\030\t \001(\005B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?"
+      "\002 \000\0221\n\nlatitude_3\030\n \001(\001B\035\242\?\t)o\203\332o\355>D@\242\?\t"
+      "1o\203\332o\355>E@\242\?\002 \006\0222\n\013longitude_3\030\013 \001(\001B\035\242\?\t"
+      ")\346!S>\004\033R\300\242\?\t1\346!S>\004\233Q\300\242\?\002 \006\022.\n\007depth_3\030\014 "
+      "\001(\005B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022\013\n\003en"
+      "d\030\r \002(\010:\017\242\?\002(\004\242\?\002\010_\242\?\002\020\037\"\331\004\n\020MultiWaypoi"
+      "ntXYZ\0222\n\013destination\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@"
+      "\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022+\n\004time\030\002 \002(\001B\035\242\?\t)\000\000\000"
+      "@3\354\330A\242\?\t1\000\000\000 \3666\334A\242\?\002 \003\022.\n\007wpt_num\030\003 \002(\005B"
+      "\035\242\?\t)\000\000\000\000\000\000\000\000\242\?\t1\000\000\000\000\000\000@@\242\?\002 \000\022*\n\003x_1\030\004 "
+      "\001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022*\n\003y_"
+      "1\030\005 \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022."
+      "\n\007depth_1\030\006 \001(\005B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000"
+      "\000\242\?\002 \000\022*\n\003x_2\030\007 \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000"
+      "\000\000\210\303\300\242\?\002 \000\022*\n\003y_2\030\010 \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t"
+      ")\000\000\000\000\000\210\303\300\242\?\002 \000\022.\n\007depth_2\030\t \001(\005B\035\242\?\t1\000\000\000"
+      "\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022*\n\003x_3\030\n \001(\005B\035\242\?\t"
+      "1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022*\n\003y_3\030\013 \001(\005B"
+      "\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022.\n\007depth_"
+      "3\030\014 \001(\005B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022\013"
+      "\n\003end\030\r \002(\010:\017\242\?\002(\004\242\?\002\010`\242\?\002\020\037\"\353\001\n\020Execute"
+      "Waypoints\0222\n\013destination\030\001 \002(\005B\035\242\?\t1\000\000\000\000"
+      "\000\000\?@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022+\n\004time\030\002 \002(\001B\035\242\?\t"
+      ")\000\000\000@3\354\330A\242\?\t1\000\000\000 \3666\334A\242\?\002 \003\022\017\n\007execute\030\003 "
+      "\002(\010\022,\n\004mode\030\004 \002(\0162\036.ExecuteWaypoints.Way"
+      "pointMode\"&\n\014WaypointMode\022\n\n\006APPEND\020\000\022\n\n"
+      "\006UPDATE\020\001:\017\242\?\002(\004\242\?\002\010a\242\?\002\020\037"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 4485);
+      descriptor, 4586);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "goby_msgs.proto", &protobuf_RegisterTypes);
   ::protobuf_dccl_2foption_5fextensions_2eproto::AddDescriptors();
@@ -698,6 +702,7 @@ bool StateInfo_State_IsValid(int value) {
     case 2:
     case 3:
     case 4:
+    case 5:
       return true;
     default:
       return false;
@@ -710,9 +715,31 @@ const StateInfo_State StateInfo::START;
 const StateInfo_State StateInfo::SURVEY_LOCAL;
 const StateInfo_State StateInfo::SURVEY_GLOBAL;
 const StateInfo_State StateInfo::DIRECT_CONTROL;
+const StateInfo_State StateInfo::SURVEY_3D;
 const StateInfo_State StateInfo::State_MIN;
 const StateInfo_State StateInfo::State_MAX;
 const int StateInfo::State_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* ExecuteWaypoints_WaypointMode_descriptor() {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[3];
+}
+bool ExecuteWaypoints_WaypointMode_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const ExecuteWaypoints_WaypointMode ExecuteWaypoints::APPEND;
+const ExecuteWaypoints_WaypointMode ExecuteWaypoints::UPDATE;
+const ExecuteWaypoints_WaypointMode ExecuteWaypoints::WaypointMode_MIN;
+const ExecuteWaypoints_WaypointMode ExecuteWaypoints::WaypointMode_MAX;
+const int ExecuteWaypoints::WaypointMode_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 // ===================================================================
@@ -5875,6 +5902,7 @@ void ExecuteWaypoints::InitAsDefaultInstance() {
 const int ExecuteWaypoints::kDestinationFieldNumber;
 const int ExecuteWaypoints::kTimeFieldNumber;
 const int ExecuteWaypoints::kExecuteFieldNumber;
+const int ExecuteWaypoints::kModeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ExecuteWaypoints::ExecuteWaypoints()
@@ -5890,15 +5918,15 @@ ExecuteWaypoints::ExecuteWaypoints(const ExecuteWaypoints& from)
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&time_, &from.time_,
-    static_cast<size_t>(reinterpret_cast<char*>(&execute_) -
-    reinterpret_cast<char*>(&time_)) + sizeof(execute_));
+    static_cast<size_t>(reinterpret_cast<char*>(&mode_) -
+    reinterpret_cast<char*>(&time_)) + sizeof(mode_));
   // @@protoc_insertion_point(copy_constructor:ExecuteWaypoints)
 }
 
 void ExecuteWaypoints::SharedCtor() {
   ::memset(&time_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&execute_) -
-      reinterpret_cast<char*>(&time_)) + sizeof(execute_));
+      reinterpret_cast<char*>(&mode_) -
+      reinterpret_cast<char*>(&time_)) + sizeof(mode_));
 }
 
 ExecuteWaypoints::~ExecuteWaypoints() {
@@ -5930,10 +5958,10 @@ void ExecuteWaypoints::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 7u) {
+  if (cached_has_bits & 15u) {
     ::memset(&time_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&execute_) -
-        reinterpret_cast<char*>(&time_)) + sizeof(execute_));
+        reinterpret_cast<char*>(&mode_) -
+        reinterpret_cast<char*>(&time_)) + sizeof(mode_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
@@ -5991,6 +6019,26 @@ bool ExecuteWaypoints::MergePartialFromCodedStream(
         break;
       }
 
+      // required .ExecuteWaypoints.WaypointMode mode = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::ExecuteWaypoints_WaypointMode_IsValid(value)) {
+            set_mode(static_cast< ::ExecuteWaypoints_WaypointMode >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(
+                4, static_cast< ::google::protobuf::uint64>(value));
+          }
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -6033,6 +6081,12 @@ void ExecuteWaypoints::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->execute(), output);
   }
 
+  // required .ExecuteWaypoints.WaypointMode mode = 4;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      4, this->mode(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -6061,6 +6115,12 @@ void ExecuteWaypoints::SerializeWithCachedSizes(
   // required bool execute = 3;
   if (cached_has_bits & 0x00000004u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->execute(), target);
+  }
+
+  // required .ExecuteWaypoints.WaypointMode mode = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      4, this->mode(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6092,6 +6152,12 @@ size_t ExecuteWaypoints::RequiredFieldsByteSizeFallback() const {
     total_size += 1 + 1;
   }
 
+  if (has_mode()) {
+    // required .ExecuteWaypoints.WaypointMode mode = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
+  }
+
   return total_size;
 }
 size_t ExecuteWaypoints::ByteSizeLong() const {
@@ -6103,7 +6169,7 @@ size_t ExecuteWaypoints::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x0000000f) ^ 0x0000000f) == 0) {  // All required fields are present.
     // required double time = 2 [(.dccl.field) = {
     total_size += 1 + 8;
 
@@ -6114,6 +6180,10 @@ size_t ExecuteWaypoints::ByteSizeLong() const {
 
     // required bool execute = 3;
     total_size += 1 + 1;
+
+    // required .ExecuteWaypoints.WaypointMode mode = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -6146,7 +6216,7 @@ void ExecuteWaypoints::MergeFrom(const ExecuteWaypoints& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 7u) {
+  if (cached_has_bits & 15u) {
     if (cached_has_bits & 0x00000001u) {
       time_ = from.time_;
     }
@@ -6155,6 +6225,9 @@ void ExecuteWaypoints::MergeFrom(const ExecuteWaypoints& from) {
     }
     if (cached_has_bits & 0x00000004u) {
       execute_ = from.execute_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      mode_ = from.mode_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -6175,7 +6248,7 @@ void ExecuteWaypoints::CopyFrom(const ExecuteWaypoints& from) {
 }
 
 bool ExecuteWaypoints::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
   return true;
 }
 
@@ -6188,6 +6261,7 @@ void ExecuteWaypoints::InternalSwap(ExecuteWaypoints* other) {
   swap(time_, other->time_);
   swap(destination_, other->destination_);
   swap(execute_, other->execute_);
+  swap(mode_, other->mode_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }

@@ -392,6 +392,8 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
             case(StateInfo_State_DIRECT_CONTROL):
                 cmd_state = "direct_control";
                 break;
+            case(StateInfo_State_SURVEY_3D):
+                cmd_state = "survey_3d";
             default:
                 cmd_state = "kill";
             }
@@ -556,7 +558,16 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
         {
             waypoint_array.header.frame_id = "world_ned";
             waypoint_array.header.stamp = ros::Time::now();
-            waypoint_pub.publish(waypoint_array);
+            
+            if(exec_waypoints.mode() == ExecuteWaypoints_WaypointMode_APPEND)
+            {
+                append_waypoint_pub.publish(waypoint_array);
+            }
+            else if(exec_waypoints.mode() == ExecuteWaypoints_WaypointMode_UPDATE)
+            {
+                update_waypoint_pub.publish(waypoint_array);
+            }
+
             waypoint_array.polygon.points.erase(waypoint_array.polygon.points.begin(), waypoint_array.polygon.points.end());
         }
     }    

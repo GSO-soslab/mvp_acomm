@@ -139,11 +139,12 @@ enum StateInfo_State {
   StateInfo_State_START = 1,
   StateInfo_State_SURVEY_LOCAL = 2,
   StateInfo_State_SURVEY_GLOBAL = 3,
-  StateInfo_State_DIRECT_CONTROL = 4
+  StateInfo_State_DIRECT_CONTROL = 4,
+  StateInfo_State_SURVEY_3D = 5
 };
 bool StateInfo_State_IsValid(int value);
 const StateInfo_State StateInfo_State_State_MIN = StateInfo_State_KILL;
-const StateInfo_State StateInfo_State_State_MAX = StateInfo_State_DIRECT_CONTROL;
+const StateInfo_State StateInfo_State_State_MAX = StateInfo_State_SURVEY_3D;
 const int StateInfo_State_State_ARRAYSIZE = StateInfo_State_State_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* StateInfo_State_descriptor();
@@ -155,6 +156,25 @@ inline bool StateInfo_State_Parse(
     const ::std::string& name, StateInfo_State* value) {
   return ::google::protobuf::internal::ParseNamedEnum<StateInfo_State>(
     StateInfo_State_descriptor(), name, value);
+}
+enum ExecuteWaypoints_WaypointMode {
+  ExecuteWaypoints_WaypointMode_APPEND = 0,
+  ExecuteWaypoints_WaypointMode_UPDATE = 1
+};
+bool ExecuteWaypoints_WaypointMode_IsValid(int value);
+const ExecuteWaypoints_WaypointMode ExecuteWaypoints_WaypointMode_WaypointMode_MIN = ExecuteWaypoints_WaypointMode_APPEND;
+const ExecuteWaypoints_WaypointMode ExecuteWaypoints_WaypointMode_WaypointMode_MAX = ExecuteWaypoints_WaypointMode_UPDATE;
+const int ExecuteWaypoints_WaypointMode_WaypointMode_ARRAYSIZE = ExecuteWaypoints_WaypointMode_WaypointMode_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* ExecuteWaypoints_WaypointMode_descriptor();
+inline const ::std::string& ExecuteWaypoints_WaypointMode_Name(ExecuteWaypoints_WaypointMode value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    ExecuteWaypoints_WaypointMode_descriptor(), value);
+}
+inline bool ExecuteWaypoints_WaypointMode_Parse(
+    const ::std::string& name, ExecuteWaypoints_WaypointMode* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ExecuteWaypoints_WaypointMode>(
+    ExecuteWaypoints_WaypointMode_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -1343,6 +1363,8 @@ class StateInfo : public ::google::protobuf::Message /* @@protoc_insertion_point
     StateInfo_State_SURVEY_GLOBAL;
   static const State DIRECT_CONTROL =
     StateInfo_State_DIRECT_CONTROL;
+  static const State SURVEY_3D =
+    StateInfo_State_SURVEY_3D;
   static inline bool State_IsValid(int value) {
     return StateInfo_State_IsValid(value);
   }
@@ -2172,6 +2194,32 @@ class ExecuteWaypoints : public ::google::protobuf::Message /* @@protoc_insertio
 
   // nested types ----------------------------------------------------
 
+  typedef ExecuteWaypoints_WaypointMode WaypointMode;
+  static const WaypointMode APPEND =
+    ExecuteWaypoints_WaypointMode_APPEND;
+  static const WaypointMode UPDATE =
+    ExecuteWaypoints_WaypointMode_UPDATE;
+  static inline bool WaypointMode_IsValid(int value) {
+    return ExecuteWaypoints_WaypointMode_IsValid(value);
+  }
+  static const WaypointMode WaypointMode_MIN =
+    ExecuteWaypoints_WaypointMode_WaypointMode_MIN;
+  static const WaypointMode WaypointMode_MAX =
+    ExecuteWaypoints_WaypointMode_WaypointMode_MAX;
+  static const int WaypointMode_ARRAYSIZE =
+    ExecuteWaypoints_WaypointMode_WaypointMode_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  WaypointMode_descriptor() {
+    return ExecuteWaypoints_WaypointMode_descriptor();
+  }
+  static inline const ::std::string& WaypointMode_Name(WaypointMode value) {
+    return ExecuteWaypoints_WaypointMode_Name(value);
+  }
+  static inline bool WaypointMode_Parse(const ::std::string& name,
+      WaypointMode* value) {
+    return ExecuteWaypoints_WaypointMode_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
   // required double time = 2 [(.dccl.field) = {
@@ -2195,6 +2243,13 @@ class ExecuteWaypoints : public ::google::protobuf::Message /* @@protoc_insertio
   bool execute() const;
   void set_execute(bool value);
 
+  // required .ExecuteWaypoints.WaypointMode mode = 4;
+  bool has_mode() const;
+  void clear_mode();
+  static const int kModeFieldNumber = 4;
+  ::ExecuteWaypoints_WaypointMode mode() const;
+  void set_mode(::ExecuteWaypoints_WaypointMode value);
+
   // @@protoc_insertion_point(class_scope:ExecuteWaypoints)
  private:
   void set_has_destination();
@@ -2203,6 +2258,8 @@ class ExecuteWaypoints : public ::google::protobuf::Message /* @@protoc_insertio
   void clear_has_time();
   void set_has_execute();
   void clear_has_execute();
+  void set_has_mode();
+  void clear_has_mode();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -2213,6 +2270,7 @@ class ExecuteWaypoints : public ::google::protobuf::Message /* @@protoc_insertio
   double time_;
   ::google::protobuf::int32 destination_;
   bool execute_;
+  int mode_;
   friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
 };
 // ===================================================================
@@ -4426,6 +4484,31 @@ inline void ExecuteWaypoints::set_execute(bool value) {
   // @@protoc_insertion_point(field_set:ExecuteWaypoints.execute)
 }
 
+// required .ExecuteWaypoints.WaypointMode mode = 4;
+inline bool ExecuteWaypoints::has_mode() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void ExecuteWaypoints::set_has_mode() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void ExecuteWaypoints::clear_has_mode() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void ExecuteWaypoints::clear_mode() {
+  mode_ = 0;
+  clear_has_mode();
+}
+inline ::ExecuteWaypoints_WaypointMode ExecuteWaypoints::mode() const {
+  // @@protoc_insertion_point(field_get:ExecuteWaypoints.mode)
+  return static_cast< ::ExecuteWaypoints_WaypointMode >(mode_);
+}
+inline void ExecuteWaypoints::set_mode(::ExecuteWaypoints_WaypointMode value) {
+  assert(::ExecuteWaypoints_WaypointMode_IsValid(value));
+  set_has_mode();
+  mode_ = value;
+  // @@protoc_insertion_point(field_set:ExecuteWaypoints.mode)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
@@ -4468,6 +4551,11 @@ template <> struct is_proto_enum< ::StateInfo_State> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::StateInfo_State>() {
   return ::StateInfo_State_descriptor();
+}
+template <> struct is_proto_enum< ::ExecuteWaypoints_WaypointMode> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ExecuteWaypoints_WaypointMode>() {
+  return ::ExecuteWaypoints_WaypointMode_descriptor();
 }
 
 }  // namespace protobuf

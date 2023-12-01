@@ -310,6 +310,7 @@ message StateInfo {
         SURVEY_LOCAL = 2;
         SURVEY_GLOBAL = 3;
         DIRECT_CONTROL = 4;
+        SURVEY_3D = 5;
     };
 }
 
@@ -519,4 +520,12 @@ message ExecuteWaypoints {
         (dccl.field).precision = 3
     ];
     required bool execute = 3;
+
+    required WaypointMode mode = 4;
+
+    enum WaypointMode
+    {
+        APPEND = 0;
+        UPDATE = 1;
+    };
 }

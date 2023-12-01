@@ -19,7 +19,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 find_package(Protobuf REQUIRED)
 
-find_package(goby 3.0 REQUIRED)
+find_package(goby 3.1 REQUIRED)
 
 # include_directories("${GOBY_INCLUDE_DIR}")
 # protobuf_include_dirs("${GOBY_INCLUDE_DIR}")
