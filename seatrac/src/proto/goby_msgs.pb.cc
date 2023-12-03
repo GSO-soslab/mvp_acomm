@@ -19,182 +19,334 @@
 #endif
 // @@protoc_insertion_point(includes)
 
-class PoseDefaultTypeInternal {
+class PoseCommandDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<Pose>
+  ::google::protobuf::internal::ExplicitlyConstructed<PoseCommand>
       _instance;
-} _Pose_default_instance_;
-class HealthDefaultTypeInternal {
+} _PoseCommand_default_instance_;
+class PoseResponseDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<Health>
+  ::google::protobuf::internal::ExplicitlyConstructed<PoseResponse>
       _instance;
-} _Health_default_instance_;
-class RelativePoseDefaultTypeInternal {
+} _PoseResponse_default_instance_;
+class HealthCommandDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<RelativePose>
+  ::google::protobuf::internal::ExplicitlyConstructed<HealthCommand>
       _instance;
-} _RelativePose_default_instance_;
-class ControllerInfoDefaultTypeInternal {
+} _HealthCommand_default_instance_;
+class HealthResponseDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<ControllerInfo>
+  ::google::protobuf::internal::ExplicitlyConstructed<HealthResponse>
       _instance;
-} _ControllerInfo_default_instance_;
-class DirectControlDefaultTypeInternal {
+} _HealthResponse_default_instance_;
+class RelativePoseCommandDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<DirectControl>
+  ::google::protobuf::internal::ExplicitlyConstructed<RelativePoseCommand>
       _instance;
-} _DirectControl_default_instance_;
-class StateInfoDefaultTypeInternal {
+} _RelativePoseCommand_default_instance_;
+class RelativePoseResponseDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<StateInfo>
+  ::google::protobuf::internal::ExplicitlyConstructed<RelativePoseResponse>
       _instance;
-} _StateInfo_default_instance_;
-class SingleWaypointDefaultTypeInternal {
+} _RelativePoseResponse_default_instance_;
+class ControllerStateCommandDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<SingleWaypoint>
+  ::google::protobuf::internal::ExplicitlyConstructed<ControllerStateCommand>
       _instance;
-} _SingleWaypoint_default_instance_;
-class MultiWaypointGPSDefaultTypeInternal {
+} _ControllerStateCommand_default_instance_;
+class ControllerStateResponseDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<MultiWaypointGPS>
+  ::google::protobuf::internal::ExplicitlyConstructed<ControllerStateResponse>
       _instance;
-} _MultiWaypointGPS_default_instance_;
-class MultiWaypointXYZDefaultTypeInternal {
+} _ControllerStateResponse_default_instance_;
+class DirectControlCommandDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<MultiWaypointXYZ>
+  ::google::protobuf::internal::ExplicitlyConstructed<DirectControlCommand>
       _instance;
-} _MultiWaypointXYZ_default_instance_;
+} _DirectControlCommand_default_instance_;
+class StateCommandDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<StateCommand>
+      _instance;
+} _StateCommand_default_instance_;
+class StateResponseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<StateResponse>
+      _instance;
+} _StateResponse_default_instance_;
+class SingleWaypointCommandDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<SingleWaypointCommand>
+      _instance;
+} _SingleWaypointCommand_default_instance_;
+class SingleWaypointResponseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<SingleWaypointResponse>
+      _instance;
+} _SingleWaypointResponse_default_instance_;
+class MultiWaypointGPSCommandDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<MultiWaypointGPSCommand>
+      _instance;
+} _MultiWaypointGPSCommand_default_instance_;
+class MultiWaypointGPSResponseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<MultiWaypointGPSResponse>
+      _instance;
+} _MultiWaypointGPSResponse_default_instance_;
+class MultiWaypointXYZCommandDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<MultiWaypointXYZCommand>
+      _instance;
+} _MultiWaypointXYZCommand_default_instance_;
+class MultiWaypointXYZResponseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<MultiWaypointXYZResponse>
+      _instance;
+} _MultiWaypointXYZResponse_default_instance_;
 class ExecuteWaypointsDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<ExecuteWaypoints>
       _instance;
 } _ExecuteWaypoints_default_instance_;
 namespace protobuf_goby_5fmsgs_2eproto {
-static void InitDefaultsPose() {
+static void InitDefaultsPoseCommand() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_Pose_default_instance_;
-    new (ptr) ::Pose();
+    void* ptr = &::_PoseCommand_default_instance_;
+    new (ptr) ::PoseCommand();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::Pose::InitAsDefaultInstance();
+  ::PoseCommand::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_Pose =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsPose}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_PoseCommand =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsPoseCommand}, {}};
 
-static void InitDefaultsHealth() {
+static void InitDefaultsPoseResponse() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_Health_default_instance_;
-    new (ptr) ::Health();
+    void* ptr = &::_PoseResponse_default_instance_;
+    new (ptr) ::PoseResponse();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::Health::InitAsDefaultInstance();
+  ::PoseResponse::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_Health =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsHealth}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_PoseResponse =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsPoseResponse}, {}};
 
-static void InitDefaultsRelativePose() {
+static void InitDefaultsHealthCommand() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_RelativePose_default_instance_;
-    new (ptr) ::RelativePose();
+    void* ptr = &::_HealthCommand_default_instance_;
+    new (ptr) ::HealthCommand();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::RelativePose::InitAsDefaultInstance();
+  ::HealthCommand::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_RelativePose =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsRelativePose}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_HealthCommand =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsHealthCommand}, {}};
 
-static void InitDefaultsControllerInfo() {
+static void InitDefaultsHealthResponse() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_ControllerInfo_default_instance_;
-    new (ptr) ::ControllerInfo();
+    void* ptr = &::_HealthResponse_default_instance_;
+    new (ptr) ::HealthResponse();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ControllerInfo::InitAsDefaultInstance();
+  ::HealthResponse::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_ControllerInfo =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsControllerInfo}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_HealthResponse =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsHealthResponse}, {}};
 
-static void InitDefaultsDirectControl() {
+static void InitDefaultsRelativePoseCommand() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_DirectControl_default_instance_;
-    new (ptr) ::DirectControl();
+    void* ptr = &::_RelativePoseCommand_default_instance_;
+    new (ptr) ::RelativePoseCommand();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::DirectControl::InitAsDefaultInstance();
+  ::RelativePoseCommand::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_DirectControl =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsDirectControl}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_RelativePoseCommand =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsRelativePoseCommand}, {}};
 
-static void InitDefaultsStateInfo() {
+static void InitDefaultsRelativePoseResponse() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_StateInfo_default_instance_;
-    new (ptr) ::StateInfo();
+    void* ptr = &::_RelativePoseResponse_default_instance_;
+    new (ptr) ::RelativePoseResponse();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::StateInfo::InitAsDefaultInstance();
+  ::RelativePoseResponse::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_StateInfo =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsStateInfo}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_RelativePoseResponse =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsRelativePoseResponse}, {}};
 
-static void InitDefaultsSingleWaypoint() {
+static void InitDefaultsControllerStateCommand() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_SingleWaypoint_default_instance_;
-    new (ptr) ::SingleWaypoint();
+    void* ptr = &::_ControllerStateCommand_default_instance_;
+    new (ptr) ::ControllerStateCommand();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::SingleWaypoint::InitAsDefaultInstance();
+  ::ControllerStateCommand::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_SingleWaypoint =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsSingleWaypoint}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_ControllerStateCommand =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsControllerStateCommand}, {}};
 
-static void InitDefaultsMultiWaypointGPS() {
+static void InitDefaultsControllerStateResponse() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_MultiWaypointGPS_default_instance_;
-    new (ptr) ::MultiWaypointGPS();
+    void* ptr = &::_ControllerStateResponse_default_instance_;
+    new (ptr) ::ControllerStateResponse();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MultiWaypointGPS::InitAsDefaultInstance();
+  ::ControllerStateResponse::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_MultiWaypointGPS =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMultiWaypointGPS}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_ControllerStateResponse =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsControllerStateResponse}, {}};
 
-static void InitDefaultsMultiWaypointXYZ() {
+static void InitDefaultsDirectControlCommand() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_MultiWaypointXYZ_default_instance_;
-    new (ptr) ::MultiWaypointXYZ();
+    void* ptr = &::_DirectControlCommand_default_instance_;
+    new (ptr) ::DirectControlCommand();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::MultiWaypointXYZ::InitAsDefaultInstance();
+  ::DirectControlCommand::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_MultiWaypointXYZ =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMultiWaypointXYZ}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_DirectControlCommand =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsDirectControlCommand}, {}};
+
+static void InitDefaultsStateCommand() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::_StateCommand_default_instance_;
+    new (ptr) ::StateCommand();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::StateCommand::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_StateCommand =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsStateCommand}, {}};
+
+static void InitDefaultsStateResponse() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::_StateResponse_default_instance_;
+    new (ptr) ::StateResponse();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::StateResponse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_StateResponse =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsStateResponse}, {}};
+
+static void InitDefaultsSingleWaypointCommand() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::_SingleWaypointCommand_default_instance_;
+    new (ptr) ::SingleWaypointCommand();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::SingleWaypointCommand::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_SingleWaypointCommand =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsSingleWaypointCommand}, {}};
+
+static void InitDefaultsSingleWaypointResponse() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::_SingleWaypointResponse_default_instance_;
+    new (ptr) ::SingleWaypointResponse();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::SingleWaypointResponse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_SingleWaypointResponse =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsSingleWaypointResponse}, {}};
+
+static void InitDefaultsMultiWaypointGPSCommand() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::_MultiWaypointGPSCommand_default_instance_;
+    new (ptr) ::MultiWaypointGPSCommand();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::MultiWaypointGPSCommand::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_MultiWaypointGPSCommand =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMultiWaypointGPSCommand}, {}};
+
+static void InitDefaultsMultiWaypointGPSResponse() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::_MultiWaypointGPSResponse_default_instance_;
+    new (ptr) ::MultiWaypointGPSResponse();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::MultiWaypointGPSResponse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_MultiWaypointGPSResponse =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMultiWaypointGPSResponse}, {}};
+
+static void InitDefaultsMultiWaypointXYZCommand() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::_MultiWaypointXYZCommand_default_instance_;
+    new (ptr) ::MultiWaypointXYZCommand();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::MultiWaypointXYZCommand::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_MultiWaypointXYZCommand =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMultiWaypointXYZCommand}, {}};
+
+static void InitDefaultsMultiWaypointXYZResponse() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::_MultiWaypointXYZResponse_default_instance_;
+    new (ptr) ::MultiWaypointXYZResponse();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::MultiWaypointXYZResponse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_MultiWaypointXYZResponse =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMultiWaypointXYZResponse}, {}};
 
 static void InitDefaultsExecuteWaypoints() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -211,39 +363,58 @@ static void InitDefaultsExecuteWaypoints() {
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsExecuteWaypoints}, {}};
 
 void InitDefaults() {
-  ::google::protobuf::internal::InitSCC(&scc_info_Pose.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_Health.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_RelativePose.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_ControllerInfo.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_DirectControl.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_StateInfo.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_SingleWaypoint.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_MultiWaypointGPS.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_MultiWaypointXYZ.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_PoseCommand.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_PoseResponse.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_HealthCommand.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_HealthResponse.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_RelativePoseCommand.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_RelativePoseResponse.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_ControllerStateCommand.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_ControllerStateResponse.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_DirectControlCommand.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_StateCommand.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_StateResponse.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_SingleWaypointCommand.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_SingleWaypointResponse.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_MultiWaypointGPSCommand.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_MultiWaypointGPSResponse.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_MultiWaypointXYZCommand.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_MultiWaypointXYZResponse.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ExecuteWaypoints.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[10];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[4];
+::google::protobuf::Metadata file_level_metadata[18];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[13];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Pose, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Pose, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseCommand, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseCommand, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Pose, destination_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Pose, cmd_resp_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Pose, time_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Pose, latitude_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Pose, longitude_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Pose, local_x_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Pose, local_y_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Pose, local_z_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Pose, x_rot_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Pose, y_rot_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Pose, z_rot_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Pose, w_rot_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseCommand, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseCommand, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseCommand, time_),
+  0,
+  1,
+  2,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseResponse, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseResponse, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseResponse, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseResponse, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseResponse, latitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseResponse, longitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseResponse, x_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseResponse, y_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseResponse, z_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseResponse, quat_x_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseResponse, quat_y_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseResponse, quat_z_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseResponse, quat_w_),
   0,
   1,
   2,
@@ -256,38 +427,66 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   9,
   10,
   11,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthCommand, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthCommand, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, destination_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, cmd_resp_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, time_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, batt_volt_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, current_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthCommand, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthCommand, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthCommand, time_),
+  0,
+  1,
+  2,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthResponse, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthResponse, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthResponse, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthResponse, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthResponse, batt_volt_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthResponse, current_),
   0,
   1,
   2,
   3,
   4,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePose, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePose, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseCommand, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseCommand, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePose, destination_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePose, cmd_resp_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePose, time_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePose, parent_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePose, child_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePose, local_x_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePose, local_y_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePose, local_z_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePose, x_rot_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePose, y_rot_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePose, z_rot_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePose, w_rot_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseCommand, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseCommand, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseCommand, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseCommand, parent_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseCommand, child_),
+  0,
+  1,
+  2,
+  3,
+  4,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseResponse, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseResponse, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseResponse, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseResponse, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseResponse, parent_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseResponse, child_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseResponse, latitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseResponse, longitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseResponse, x_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseResponse, y_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseResponse, z_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseResponse, quat_x_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseResponse, quat_y_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseResponse, quat_z_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::RelativePoseResponse, quat_w_),
   0,
   1,
   2,
@@ -300,42 +499,57 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   9,
   10,
   11,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerInfo, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerInfo, _internal_metadata_),
+  12,
+  13,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateCommand, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateCommand, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerInfo, destination_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerInfo, time_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerInfo, setget_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerInfo, state_),
-  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateCommand, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateCommand, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateCommand, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateCommand, state_),
   0,
+  1,
   2,
   3,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControl, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControl, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateResponse, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControl, destination_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControl, time_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControl, setget_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControl, frame_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControl, set_x_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControl, set_y_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControl, set_z_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControl, set_roll_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControl, set_pitch_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControl, set_yaw_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControl, set_u_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControl, set_v_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControl, set_w_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControl, set_p_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControl, set_q_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControl, set_r_),
-  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateResponse, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateResponse, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateResponse, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateResponse, state_),
   0,
+  1,
+  2,
+  3,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, frame_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, x_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, y_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, z_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, roll_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, pitch_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, yaw_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, u_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, v_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, w_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, p_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, q_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, r_),
+  0,
+  1,
   2,
   3,
   4,
@@ -350,139 +564,221 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   13,
   14,
   15,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateInfo, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateInfo, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateCommand, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateCommand, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateInfo, destination_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateInfo, time_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateInfo, setget_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateInfo, state_),
-  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateCommand, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateCommand, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateCommand, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateCommand, mode_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateCommand, state_),
   0,
-  2,
-  3,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypoint, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypoint, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypoint, destination_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypoint, time_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypoint, setget_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypoint, latitude_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypoint, longitude_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypoint, local_x_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypoint, local_y_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypoint, depth_),
   1,
-  0,
   2,
   3,
   4,
-  5,
-  6,
-  7,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateResponse, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, destination_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, time_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, wpt_num_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, latitude_1_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, longitude_1_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, depth_1_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, latitude_2_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, longitude_2_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, depth_2_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, latitude_3_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, longitude_3_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, depth_3_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPS, end_),
-  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateResponse, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateResponse, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateResponse, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateResponse, state_),
   0,
+  1,
   2,
   3,
-  4,
-  6,
-  5,
-  8,
-  7,
-  9,
-  10,
-  11,
-  12,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointCommand, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointCommand, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, destination_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, time_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, wpt_num_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, x_1_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, y_1_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, depth_1_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, x_2_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, y_2_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, depth_2_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, x_3_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, y_3_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, depth_3_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZ, end_),
-  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointCommand, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointCommand, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointCommand, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointCommand, mode_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointCommand, latitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointCommand, longitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointCommand, x_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointCommand, y_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointCommand, z_),
   0,
+  1,
   2,
-  3,
   4,
-  5,
+  3,
   6,
+  5,
   7,
   8,
-  9,
-  10,
-  11,
-  12,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointResponse, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointResponse, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointResponse, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointResponse, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointResponse, latitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointResponse, longitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointResponse, x_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointResponse, y_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointResponse, z_),
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSCommand, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSCommand, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSCommand, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSCommand, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSCommand, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSCommand, mode_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSCommand, wpt_num_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSCommand, latitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSCommand, longitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSCommand, z_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSCommand, end_),
+  0,
+  1,
+  2,
+  3,
+  ~0u,
+  ~0u,
+  ~0u,
+  ~0u,
+  4,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSResponse, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSResponse, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSResponse, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSResponse, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSResponse, wpt_num_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSResponse, latitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSResponse, longitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSResponse, z_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointGPSResponse, end_),
+  0,
+  1,
+  2,
+  3,
+  ~0u,
+  ~0u,
+  ~0u,
+  4,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZCommand, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZCommand, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZCommand, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZCommand, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZCommand, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZCommand, mode_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZCommand, wpt_num_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZCommand, x_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZCommand, y_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZCommand, z_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZCommand, end_),
+  0,
+  1,
+  2,
+  3,
+  ~0u,
+  ~0u,
+  4,
+  5,
+  6,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZResponse, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZResponse, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZResponse, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZResponse, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZResponse, wpt_num_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZResponse, x_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZResponse, y_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZResponse, z_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZResponse, end_),
+  0,
+  1,
+  2,
+  ~0u,
+  ~0u,
+  3,
+  4,
+  5,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, source_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, destination_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, time_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, execute_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, mode_),
-  1,
   0,
+  1,
   2,
   3,
+  4,
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 17, sizeof(::Pose)},
-  { 29, 39, sizeof(::Health)},
-  { 44, 61, sizeof(::RelativePose)},
-  { 73, 82, sizeof(::ControllerInfo)},
-  { 86, 107, sizeof(::DirectControl)},
-  { 123, 132, sizeof(::StateInfo)},
-  { 136, 149, sizeof(::SingleWaypoint)},
-  { 157, 175, sizeof(::MultiWaypointGPS)},
-  { 188, 206, sizeof(::MultiWaypointXYZ)},
-  { 219, 228, sizeof(::ExecuteWaypoints)},
+  { 0, 8, sizeof(::PoseCommand)},
+  { 11, 28, sizeof(::PoseResponse)},
+  { 40, 48, sizeof(::HealthCommand)},
+  { 51, 61, sizeof(::HealthResponse)},
+  { 66, 76, sizeof(::RelativePoseCommand)},
+  { 81, 100, sizeof(::RelativePoseResponse)},
+  { 114, 123, sizeof(::ControllerStateCommand)},
+  { 127, 136, sizeof(::ControllerStateResponse)},
+  { 140, 161, sizeof(::DirectControlCommand)},
+  { 177, 187, sizeof(::StateCommand)},
+  { 192, 201, sizeof(::StateResponse)},
+  { 205, 219, sizeof(::SingleWaypointCommand)},
+  { 228, 241, sizeof(::SingleWaypointResponse)},
+  { 249, 263, sizeof(::MultiWaypointGPSCommand)},
+  { 272, 285, sizeof(::MultiWaypointGPSResponse)},
+  { 293, 307, sizeof(::MultiWaypointXYZCommand)},
+  { 316, 329, sizeof(::MultiWaypointXYZResponse)},
+  { 337, 347, sizeof(::ExecuteWaypoints)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::_Pose_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::_Health_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::_RelativePose_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::_ControllerInfo_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::_DirectControl_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::_StateInfo_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::_SingleWaypoint_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::_MultiWaypointGPS_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::_MultiWaypointXYZ_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_PoseCommand_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_PoseResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_HealthCommand_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_HealthResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_RelativePoseCommand_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_RelativePoseResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_ControllerStateCommand_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_ControllerStateResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_DirectControlCommand_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_StateCommand_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_StateResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_SingleWaypointCommand_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_SingleWaypointResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_MultiWaypointGPSCommand_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_MultiWaypointGPSResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_MultiWaypointXYZCommand_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_MultiWaypointXYZResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::_ExecuteWaypoints_default_instance_),
 };
 
@@ -501,130 +797,190 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 10);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 18);
 }
 
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\017goby_msgs.proto\032\034dccl/option_extension"
-      "s.proto\"\265\004\n\004Pose\0222\n\013destination\030\001 \002(\005B\035\242"
-      "\?\t1\000\000\000\000\000\000.@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022\020\n\010cmd_resp"
-      "\030\002 \002(\010\022+\n\004time\030\003 \001(\001B\035\242\?\t)\000\000\000@3\354\330A\242\?\t1\000\000"
-      "\000 \3666\334A\242\?\002 \003\022/\n\010latitude\030\004 \001(\001B\035\242\?\t)o\203\332o\355"
-      ">D@\242\?\t1o\203\332o\355>E@\242\?\002 \006\0220\n\tlongitude\030\005 \001(\001B"
-      "\035\242\?\t)\346!S>\004\033R\300\242\?\t1\346!S>\004\233Q\300\242\?\002 \006\022.\n\007local_"
-      "x\030\006 \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \002\022."
-      "\n\007local_y\030\007 \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303"
-      "\300\242\?\002 \002\022.\n\007local_z\030\010 \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t"
-      ")\000\000\000\000\000\210\303\300\242\?\002 \002\022,\n\005x_rot\030\t \001(\002B\035\242\?\t1\000\000\000\000\000"
-      "\000\360\?\242\?\t)\000\000\000\000\000\000\360\277\242\?\002 \004\022,\n\005y_rot\030\n \001(\002B\035\242\?\t"
-      "1\000\000\000\000\000\000\360\?\242\?\t)\000\000\000\000\000\000\360\277\242\?\002 \004\022,\n\005z_rot\030\013 \001("
-      "\002B\035\242\?\t1\000\000\000\000\000\000\360\?\242\?\t)\000\000\000\000\000\000\360\277\242\?\002 \004\022,\n\005w_ro"
-      "t\030\014 \001(\002B\035\242\?\t1\000\000\000\000\000\000\360\?\242\?\t)\000\000\000\000\000\000\360\277\242\?\002 \004:\017"
-      "\242\?\002(\004\242\?\002\010X\242\?\002\020\037\"\356\001\n\006Health\0222\n\013destinatio"
-      "n\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022\020"
-      "\n\010cmd_resp\030\002 \001(\010\022+\n\004time\030\003 \001(\001B\035\242\?\t)\000\000\000@"
-      "3\354\330A\242\?\t1\000\000\000 \3666\334A\242\?\002 \003\0220\n\tbatt_volt\030\004 \001(\002"
-      "B\035\242\?\t)\000\000\000\000\000\000(@\242\?\t1\000\000\000\000\000\0006@\242\?\002 \001\022.\n\007curre"
-      "nt\030\005 \001(\002B\035\242\?\t)\000\000\000\000\000\000I\300\242\?\t1\000\000\000\000\000\000I@\242\?\002 \001:"
-      "\017\242\?\002(\004\242\?\002\010Y\242\?\002\020\037\"\332\004\n\014RelativePose\0222\n\013des"
-      "tination\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242\?\t)\000\000\000\000\000\000\000\000"
-      "\242\?\002 \000\022\020\n\010cmd_resp\030\002 \002(\010\022+\n\004time\030\003 \001(\001B\035\242"
-      "\?\t)\000\000\000@3\354\330A\242\?\t1\000\000\000 \3666\334A\242\?\002 \003\022#\n\006parent\030\004"
-      " \001(\0162\023.RelativePose.Frame\022\"\n\005child\030\005 \001(\016"
-      "2\023.RelativePose.Frame\022.\n\007local_x\030\006 \001(\002B\035"
-      "\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \002\022.\n\007local_y"
-      "\030\007 \001(\002B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \002\022.\n"
-      "\007local_z\030\010 \001(\002B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300"
-      "\242\?\002 \002\022,\n\005x_rot\030\t \001(\002B\035\242\?\t1\000\000\000\000\000\000\360\?\242\?\t)\000\000"
-      "\000\000\000\000\360\277\242\?\002 \004\022,\n\005y_rot\030\n \001(\005B\035\242\?\t1\000\000\000\000\000\000\360\?"
-      "\242\?\t)\000\000\000\000\000\000\360\277\242\?\002 \004\022,\n\005z_rot\030\013 \001(\005B\035\242\?\t1\000\000"
-      "\000\000\000\000\360\?\242\?\t)\000\000\000\000\000\000\360\277\242\?\002 \004\022,\n\005w_rot\030\014 \001(\005B\035"
-      "\242\?\t1\000\000\000\000\000\000\360\?\242\?\t)\000\000\000\000\000\000\360\277\242\?\002 \004\"5\n\005Frame\022\r"
-      "\n\tBASE_LINK\020\000\022\010\n\004ODOM\020\001\022\t\n\005WORLD\020\002\022\010\n\004US"
-      "BL\020\003:\017\242\?\002(\004\242\?\002\010Z\242\?\002\020\037\"\241\001\n\016ControllerInfo"
-      "\0222\n\013destination\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242\?\t)\000"
-      "\000\000\000\000\000\000\000\242\?\002 \000\022+\n\004time\030\002 \002(\001B\035\242\?\t)\000\000\000@3\354\330A"
-      "\242\?\t1\000\000\000 \3666\334A\242\?\002 \003\022\016\n\006setget\030\003 \002(\010\022\r\n\005sta"
-      "te\030\004 \001(\010:\017\242\?\002(\004\242\?\002\010[\242\?\002\020\037\"\236\006\n\rDirectCont"
-      "rol\0222\n\013destination\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242\?"
-      "\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022+\n\004time\030\002 \002(\001B\035\242\?\t)\000\000\000@3"
-      "\354\330A\242\?\t1\000\000\000 \3666\334A\242\?\002 \003\022\016\n\006setget\030\003 \002(\010\022#\n\005"
-      "frame\030\004 \001(\0162\024.DirectControl.Frame\022,\n\005set"
-      "_x\030\006 \001(\002B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \002\022"
-      ",\n\005set_y\030\007 \001(\002B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300"
-      "\242\?\002 \002\022,\n\005set_z\030\010 \001(\002B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000"
-      "\000\000\000\210\303\300\242\?\002 \002\022/\n\010set_roll\030\t \001(\002B\035\242\?\t1\037\205\353Q\270"
-      "\036\371\?\242\?\t)\037\205\353Q\270\036\371\277\242\?\002 \002\0220\n\tset_pitch\030\n \001(\002B"
-      "\035\242\?\t1\037\205\353Q\270\036\371\?\242\?\t)\037\205\353Q\270\036\371\277\242\?\002 \002\022.\n\007set_ya"
-      "w\030\013 \001(\002B\035\242\?\t1\037\205\353Q\270\036\t@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \002\022,"
-      "\n\005set_u\030\014 \001(\002B\035\242\?\t1\000\000\000\000\000\000\000@\242\?\t)\000\000\000\000\000\000\000\300\242"
-      "\?\002 \002\022,\n\005set_v\030\r \001(\002B\035\242\?\t1\000\000\000\000\000\000\000@\242\?\t)\000\000\000"
-      "\000\000\000\000\300\242\?\002 \002\022,\n\005set_w\030\016 \001(\002B\035\242\?\t1\000\000\000\000\000\000\000@\242"
-      "\?\t)\000\000\000\000\000\000\000\300\242\?\002 \002\022,\n\005set_p\030\017 \001(\002B\035\242\?\t1\000\000\000"
-      "\000\000\000\000@\242\?\t)\000\000\000\000\000\000\000\300\242\?\002 \002\022,\n\005set_q\030\020 \001(\002B\035\242"
-      "\?\t1\000\000\000\000\000\000\000@\242\?\t)\000\000\000\000\000\000\000\300\242\?\002 \002\022,\n\005set_r\030\021 "
-      "\001(\002B\035\242\?\t1\000\000\000\000\000\000\000@\242\?\t)\000\000\000\000\000\000\000\300\242\?\002 \002\"5\n\005Fr"
-      "ame\022\r\n\tBASE_LINK\020\000\022\010\n\004ODOM\020\001\022\t\n\005WORLD\020\002\022"
-      "\010\n\004USBL\020\003:\017\242\?\002(\004\242\?\002\010\\\242\?\002\020\037\"\224\002\n\tStateInfo"
-      "\0222\n\013destination\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242\?\t)\000"
-      "\000\000\000\000\000\000\000\242\?\002 \000\022+\n\004time\030\002 \002(\001B\035\242\?\t)\000\000\000@3\354\330A"
-      "\242\?\t1\000\000\000 \3666\334A\242\?\002 \003\022\016\n\006setget\030\003 \002(\010\022\037\n\005sta"
-      "te\030\004 \001(\0162\020.StateInfo.State\"d\n\005State\022\010\n\004K"
-      "ILL\020\000\022\t\n\005START\020\001\022\020\n\014SURVEY_LOCAL\020\002\022\021\n\rSU"
-      "RVEY_GLOBAL\020\003\022\022\n\016DIRECT_CONTROL\020\004\022\r\n\tSUR"
-      "VEY_3D\020\005:\017\242\?\002(\004\242\?\002\010]\242\?\002\020\037\"\203\003\n\016SingleWayp"
-      "oint\0222\n\013destination\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242"
-      "\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022+\n\004time\030\002 \002(\001B\035\242\?\t)\000\000\000@"
-      "3\354\330A\242\?\t1\000\000\000 \3666\334A\242\?\002 \003\022\016\n\006setget\030\003 \002(\010\022/\n"
-      "\010latitude\030\004 \001(\001B\035\242\?\t)o\203\332o\355>D@\242\?\t1o\203\332o\355>E"
-      "@\242\?\002 \006\0220\n\tlongitude\030\005 \001(\001B\035\242\?\t)\346!S>\004\033R\300\242"
-      "\?\t1\346!S>\004\233Q\300\242\?\002 \006\022.\n\007local_x\030\006 \001(\005B\035\242\?\t1\000"
-      "\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022.\n\007local_y\030\007 \001("
-      "\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022,\n\005dept"
-      "h\030\010 \002(\005B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000:\017"
-      "\242\?\002(\004\242\?\002\010^\242\?\002\020\037\"\206\005\n\020MultiWaypointGPS\0222\n\013"
-      "destination\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@\242\?\t)\000\000\000\000\000"
-      "\000\000\000\242\?\002 \000\022+\n\004time\030\002 \002(\001B\035\242\?\t)\000\000\000@3\354\330A\242\?\t1"
-      "\000\000\000 \3666\334A\242\?\002 \003\022.\n\007wpt_num\030\003 \002(\005B\035\242\?\t)\000\000\000\000"
-      "\000\000\000\000\242\?\t1\000\000\000\000\000\000@@\242\?\002 \000\0221\n\nlatitude_1\030\004 \001("
-      "\001B\035\242\?\t)o\203\332o\355>D@\242\?\t1o\203\332o\355>E@\242\?\002 \006\0222\n\013long"
-      "itude_1\030\005 \001(\001B\035\242\?\t)\346!S>\004\033R\300\242\?\t1\346!S>\004\233Q\300\242"
-      "\?\002 \006\022.\n\007depth_1\030\006 \001(\005B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000"
-      "\000\000\000\000\000\000\000\242\?\002 \000\0221\n\nlatitude_2\030\007 \001(\001B\035\242\?\t)o\203"
-      "\332o\355>D@\242\?\t1o\203\332o\355>E@\242\?\002 \006\0222\n\013longitude_2\030\010"
-      " \001(\001B\035\242\?\t)\346!S>\004\033R\300\242\?\t1\346!S>\004\233Q\300\242\?\002 \006\022.\n\007d"
-      "epth_2\030\t \001(\005B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?"
-      "\002 \000\0221\n\nlatitude_3\030\n \001(\001B\035\242\?\t)o\203\332o\355>D@\242\?\t"
-      "1o\203\332o\355>E@\242\?\002 \006\0222\n\013longitude_3\030\013 \001(\001B\035\242\?\t"
-      ")\346!S>\004\033R\300\242\?\t1\346!S>\004\233Q\300\242\?\002 \006\022.\n\007depth_3\030\014 "
-      "\001(\005B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022\013\n\003en"
-      "d\030\r \002(\010:\017\242\?\002(\004\242\?\002\010_\242\?\002\020\037\"\331\004\n\020MultiWaypoi"
-      "ntXYZ\0222\n\013destination\030\001 \002(\005B\035\242\?\t1\000\000\000\000\000\000\?@"
-      "\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022+\n\004time\030\002 \002(\001B\035\242\?\t)\000\000\000"
-      "@3\354\330A\242\?\t1\000\000\000 \3666\334A\242\?\002 \003\022.\n\007wpt_num\030\003 \002(\005B"
-      "\035\242\?\t)\000\000\000\000\000\000\000\000\242\?\t1\000\000\000\000\000\000@@\242\?\002 \000\022*\n\003x_1\030\004 "
-      "\001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022*\n\003y_"
-      "1\030\005 \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022."
-      "\n\007depth_1\030\006 \001(\005B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000"
-      "\000\242\?\002 \000\022*\n\003x_2\030\007 \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000"
-      "\000\000\210\303\300\242\?\002 \000\022*\n\003y_2\030\010 \001(\005B\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t"
-      ")\000\000\000\000\000\210\303\300\242\?\002 \000\022.\n\007depth_2\030\t \001(\005B\035\242\?\t1\000\000\000"
-      "\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022*\n\003x_3\030\n \001(\005B\035\242\?\t"
-      "1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022*\n\003y_3\030\013 \001(\005B"
-      "\035\242\?\t1\000\000\000\000\000\210\303@\242\?\t)\000\000\000\000\000\210\303\300\242\?\002 \000\022.\n\007depth_"
-      "3\030\014 \001(\005B\035\242\?\t1\000\000\000\000\000\300r@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022\013"
-      "\n\003end\030\r \002(\010:\017\242\?\002(\004\242\?\002\010`\242\?\002\020\037\"\353\001\n\020Execute"
-      "Waypoints\0222\n\013destination\030\001 \002(\005B\035\242\?\t1\000\000\000\000"
-      "\000\000\?@\242\?\t)\000\000\000\000\000\000\000\000\242\?\002 \000\022+\n\004time\030\002 \002(\001B\035\242\?\t"
-      ")\000\000\000@3\354\330A\242\?\t1\000\000\000 \3666\334A\242\?\002 \003\022\017\n\007execute\030\003 "
-      "\002(\010\022,\n\004mode\030\004 \002(\0162\036.ExecuteWaypoints.Way"
-      "pointMode\"&\n\014WaypointMode\022\n\n\006APPEND\020\000\022\n\n"
-      "\006UPDATE\020\001:\017\242\?\002(\004\242\?\002\010a\242\?\002\020\037"
+      "s.proto\"\226\001\n\013PoseCommand\022\'\n\006source\030\001 \002(\005B"
+      "\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destination\030"
+      "\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003"
+      " \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A:\t\242\?\006\010\001\020\037(\004"
+      "\"\376\003\n\014PoseResponse\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000"
+      ")\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002(\005B"
+      "\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \002(\001B\027"
+      "\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022)\n\010latitude\030\004 \002("
+      "\001B\027\242\?\024 \006)o\203\332o\355>D@1o\203\332o\355>E@\022*\n\tlongitude\030"
+      "\005 \002(\001B\027\242\?\024 \006)\346!S>\004\033R\3001\346!S>\004\233Q\300\022\"\n\001x\030\006 \002("
+      "\002B\027\242\?\024 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@\022\"\n\001y\030\007 \002(\002B\027\242"
+      "\?\024 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@\022\"\n\001z\030\010 \002(\002B\027\242\?\024 \001"
+      ")\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@\022\'\n\006quat_x\030\t \002(\002B\027\242\?\024 "
+      "\004)\000\000\000\000\000\000\360\2771\000\000\000\000\000\000\360\?\022\'\n\006quat_y\030\n \002(\002B\027\242\?\024"
+      " \004)\000\000\000\000\000\000\360\2771\000\000\000\000\000\000\360\?\022\'\n\006quat_z\030\013 \002(\002B\027\242\?"
+      "\024 \004)\000\000\000\000\000\000\360\2771\000\000\000\000\000\000\360\?\022\'\n\006quat_w\030\014 \002(\002B\027\242"
+      "\?\024 \004)\000\000\000\000\000\000\360\2771\000\000\000\000\000\000\360\?:\t\242\?\006\010e\020\037(\004\"\230\001\n\rHe"
+      "althCommand\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000"
+      "\000\000\0001\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?\024 \000"
+      ")\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)"
+      "\000\000\000@3\354\330A1\000\000\000 \3666\334A:\t\242\?\006\010\002\020\037(\004\"\357\001\n\016HealthR"
+      "esponse\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001"
+      "\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000"
+      "\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@"
+      "3\354\330A1\000\000\000 \3666\334A\022*\n\tbatt_volt\030\004 \002(\002B\027\242\?\024 \001)"
+      "\000\000\000\000\000\000(@1\000\000\000\000\000\0006@\022(\n\007current\030\005 \002(\002B\027\242\?\024 "
+      "\001)\000\000\000\000\000\000I\3001\000\000\000\000\000\000I@:\t\242\?\006\010f\020\037(\004\"\254\002\n\023Relat"
+      "ivePoseCommand\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000"
+      "\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?"
+      "\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024"
+      " \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022*\n\006parent\030\004 \002(\0162\032.R"
+      "elativePoseCommand.Frame\022)\n\005child\030\005 \002(\0162"
+      "\032.RelativePoseCommand.Frame\"5\n\005Frame\022\r\n\t"
+      "BASE_LINK\020\000\022\010\n\004ODOM\020\001\022\t\n\005WORLD\020\002\022\010\n\004USBL"
+      "\020\003:\t\242\?\006\010\003\020\037(\004\"\226\005\n\024RelativePoseResponse\022\'"
+      "\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022"
+      ",\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000"
+      "\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 "
+      "\3666\334A\022+\n\006parent\030\004 \002(\0162\033.RelativePoseRespo"
+      "nse.Frame\022*\n\005child\030\005 \002(\0162\033.RelativePoseR"
+      "esponse.Frame\022)\n\010latitude\030\006 \002(\001B\027\242\?\024 \006)o"
+      "\203\332o\355>D@1o\203\332o\355>E@\022*\n\tlongitude\030\007 \002(\001B\027\242\?\024"
+      " \006)\346!S>\004\033R\3001\346!S>\004\233Q\300\022\"\n\001x\030\010 \002(\002B\027\242\?\024 \001)\000"
+      "\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@\022\"\n\001y\030\t \002(\002B\027\242\?\024 \001)\000\000\000\000\000"
+      "\210\303\3001\000\000\000\000\000\210\303@\022\"\n\001z\030\n \002(\002B\027\242\?\024 \001)\000\000\000\000\000\000\000\0001"
+      "\000\000\000\000\000\000Y@\022\'\n\006quat_x\030\013 \002(\002B\027\242\?\024 \004)\000\000\000\000\000\000\360\277"
+      "1\000\000\000\000\000\000\360\?\022\'\n\006quat_y\030\014 \002(\002B\027\242\?\024 \004)\000\000\000\000\000\000\360"
+      "\2771\000\000\000\000\000\000\360\?\022\'\n\006quat_z\030\r \002(\002B\027\242\?\024 \004)\000\000\000\000\000\000"
+      "\360\2771\000\000\000\000\000\000\360\?\022\'\n\006quat_w\030\016 \002(\002B\027\242\?\024 \004)\000\000\000\000\000"
+      "\000\360\2771\000\000\000\000\000\000\360\?\"5\n\005Frame\022\r\n\tBASE_LINK\020\000\022\010\n\004"
+      "ODOM\020\001\022\t\n\005WORLD\020\002\022\010\n\004USBL\020\003:\t\242\?\006\010g\020\037(\004\"\361"
+      "\001\n\026ControllerStateCommand\022\'\n\006source\030\001 \002("
+      "\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destinatio"
+      "n\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time"
+      "\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022,\n\005state"
+      "\030\004 \002(\0162\035.ControllerStateCommand.State\" \n"
+      "\005State\022\013\n\007DISABLE\020\000\022\n\n\006ENABLE\020\001:\t\242\?\006\010\004\020\037"
+      "(\004\"\363\001\n\027ControllerStateResponse\022\'\n\006source"
+      "\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013desti"
+      "nation\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n"
+      "\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022-\n\005"
+      "state\030\004 \002(\0162\036.ControllerStateResponse.St"
+      "ate\" \n\005State\022\013\n\007DISABLE\020\000\022\n\n\006ENABLE\020\001:\t\242"
+      "\?\006\010h\020\037(\004\"\273\005\n\024DirectControlCommand\022\'\n\006sou"
+      "rce\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013de"
+      "stination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@"
+      "\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022"
+      "*\n\005frame\030\004 \002(\0162\033.DirectControlCommand.Fr"
+      "ame\022\"\n\001x\030\005 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@\022"
+      "\"\n\001y\030\006 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@\022\"\n\001z"
+      "\030\007 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@\022%\n\004roll\030"
+      "\010 \002(\002B\027\242\?\024 \002)\037\205\353Q\270\036\371\2771\037\205\353Q\270\036\371\?\022&\n\005pitch\030"
+      "\t \002(\002B\027\242\?\024 \002)\037\205\353Q\270\036\371\2771\037\205\353Q\270\036\371\?\022$\n\003yaw\030\n "
+      "\002(\002B\027\242\?\024 \002)\000\000\000\000\000\000\000\0001\037\205\353Q\270\036\t@\022\"\n\001u\030\013 \002(\002B"
+      "\027\242\?\024 \002)\000\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@\022\"\n\001v\030\014 \002(\002B\027\242\?\024"
+      " \002)\000\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@\022\"\n\001w\030\r \002(\002B\027\242\?\024 \002)\000"
+      "\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@\022\"\n\001p\030\016 \002(\002B\027\242\?\024 \002)\000\000\000\000\000"
+      "\000\000\3001\000\000\000\000\000\000\000@\022\"\n\001q\030\017 \002(\002B\027\242\?\024 \002)\000\000\000\000\000\000\000\3001"
+      "\000\000\000\000\000\000\000@\022\"\n\001r\030\020 \002(\002B\027\242\?\024 \002)\000\000\000\000\000\000\000\3001\000\000\000\000"
+      "\000\000\000@\"5\n\005Frame\022\r\n\tBASE_LINK\020\000\022\010\n\004ODOM\020\001\022\t"
+      "\n\005WORLD\020\002\022\010\n\004USBL\020\003:\t\242\?\006\010\005\020\037(\004\"\203\003\n\014State"
+      "Command\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001"
+      "\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000"
+      "\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@"
+      "3\354\330A1\000\000\000 \3666\334A\022 \n\004mode\030\004 \002(\0162\022.StateComma"
+      "nd.Mode\022B\n\005state\030\005 \001(\0162\023.StateCommand.St"
+      "ateB\036\242\?\033\302\002\030\032\026this.mode == \'COMMAND\'\"\036\n\004M"
+      "ode\022\t\n\005QUERY\020\000\022\013\n\007COMMAND\020\001\"d\n\005State\022\010\n\004"
+      "KILL\020\000\022\t\n\005START\020\001\022\020\n\014SURVEY_LOCAL\020\002\022\021\n\rS"
+      "URVEY_GLOBAL\020\003\022\022\n\016DIRECT_CONTROL\020\004\022\r\n\tSU"
+      "RVEY_3D\020\005:\t\242\?\006\010\006\020\037(\004\"\243\002\n\rStateResponse\022\'"
+      "\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022"
+      ",\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000"
+      "\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 "
+      "\3666\334A\022#\n\005state\030\004 \002(\0162\024.StateResponse.Stat"
+      "e\"d\n\005State\022\010\n\004KILL\020\000\022\t\n\005START\020\001\022\020\n\014SURVE"
+      "Y_LOCAL\020\002\022\021\n\rSURVEY_GLOBAL\020\003\022\022\n\016DIRECT_C"
+      "ONTROL\020\004\022\r\n\tSURVEY_3D\020\005:\t\242\?\006\010j\020\037(\004\"\352\004\n\025S"
+      "ingleWaypointCommand\022\'\n\006source\030\001 \002(\005B\027\242\?"
+      "\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002"
+      "(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001("
+      "\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022)\n\004mode\030\004 \002(\016"
+      "2\033.SingleWaypointCommand.Mode\022L\n\010latitud"
+      "e\030\005 \001(\001B:\242\?7 \006)o\203\332o\355>D@1o\203\332o\355>E@\302\002 \032\036thi"
+      "s.mode == \'COMMAND_LATLONG\'\022M\n\tlongitude"
+      "\030\006 \001(\001B:\242\?7 \006)\346!S>\004\033R\3001\346!S>\004\233Q\300\302\002 \032\036this"
+      ".mode == \'COMMAND_LATLONG\'\022A\n\001x\030\007 \001(\002B6\242"
+      "\?3 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@\302\002\034\032\032this.mode == "
+      "\'COMMAND_XYZ\'\022A\n\001y\030\010 \001(\002B6\242\?3 \001)\000\000\000\000\000\210\303\300"
+      "1\000\000\000\000\000\210\303@\302\002\034\032\032this.mode == \'COMMAND_XYZ\'"
+      "\022A\n\001z\030\t \001(\002B6\242\?3 \003)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@\302\002\034\032"
+      "\032this.mode == \'COMMAND_XYZ\'\"7\n\004Mode\022\t\n\005Q"
+      "UERY\020\000\022\023\n\017COMMAND_LATLONG\020\001\022\017\n\013COMMAND_X"
+      "YZ\020\002:\t\242\?\006\010\007\020\037(\004\"\344\002\n\026SingleWaypointRespon"
+      "se\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000"
+      "\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\000"
+      "1\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1"
+      "\000\000\000 \3666\334A\022)\n\010latitude\030\004 \002(\001B\027\242\?\024 \006)o\203\332o\355>"
+      "D@1o\203\332o\355>E@\022*\n\tlongitude\030\005 \002(\001B\027\242\?\024 \006)\346!"
+      "S>\004\033R\3001\346!S>\004\233Q\300\022\"\n\001x\030\006 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\210"
+      "\303\3001\000\000\000\000\000\210\303@\022\"\n\001y\030\007 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\210\303\3001\000"
+      "\000\000\000\000\210\303@\022\"\n\001z\030\010 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\000\000\0001\000\000\000\000\000"
+      "\000Y@:\t\242\?\006\010k\020\037(\004\"\232\004\n\027MultiWaypointGPSComma"
+      "nd\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000"
+      "\000\360\?\022,\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\000"
+      "1\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1"
+      "\000\000\000 \3666\334A\022+\n\004mode\030\004 \002(\0162\035.MultiWaypointGP"
+      "SCommand.Mode\022*\n\007wpt_num\030\005 \003(\005B\031\242\?\026 \000)\000\000"
+      "\000\000\000\000\000\0001\000\000\000\000\000\000@@P\003\022F\n\010latitude\030\006 \003(\001B4\242\?1"
+      " \006)\346!S>\004\033R\3001\346!S>\004\233Q\300P\003\302\002\030\032\026this.mode == "
+      "\'COMMAND\'\022G\n\tlongitude\030\007 \003(\001B4\242\?1 \006)\346!S>"
+      "\004\033R\3001\346!S>\004\233Q\300P\003\302\002\030\032\026this.mode == \'COMMAN"
+      "D\'\022\?\n\001z\030\010 \003(\002B4\242\?1 \001)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@P\003"
+      "\302\002\030\032\026this.mode == \'COMMAND\'\022+\n\003end\030\t \001(\010"
+      "B\036\242\?\033\302\002\030\032\026this.mode == \'COMMAND\'\"\036\n\004Mode"
+      "\022\t\n\005QUERY\020\000\022\013\n\007COMMAND\020\001:\t\242\?\006\010\010\020\037(\004\"\373\002\n\030"
+      "MultiWaypointGPSResponse\022\'\n\006source\030\001 \002(\005"
+      "B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destination"
+      "\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030"
+      "\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022(\n\007wpt_nu"
+      "m\030\004 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000@@\022+\n\010lati"
+      "tude\030\005 \003(\001B\031\242\?\026 \006)\346!S>\004\033R\3001\346!S>\004\233Q\300P\003\022,\n"
+      "\tlongitude\030\006 \003(\001B\031\242\?\026 \006)\346!S>\004\033R\3001\346!S>\004\233Q"
+      "\300P\003\022$\n\001z\030\007 \003(\002B\031\242\?\026 \001)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@P"
+      "\003\022\013\n\003end\030\010 \001(\010\"\036\n\004Mode\022\t\n\005QUERY\020\000\022\013\n\007COM"
+      "MAND\020\001:\t\242\?\006\010l\020\037(\004\"\213\004\n\027MultiWaypointXYZCo"
+      "mmand\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000"
+      "\000\000\000\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000"
+      "\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354"
+      "\330A1\000\000\000 \3666\334A\022+\n\004mode\030\004 \002(\0162\035.MultiWaypoin"
+      "tXYZCommand.Mode\022*\n\007wpt_num\030\005 \003(\005B\031\242\?\026 \000"
+      ")\000\000\000\000\000\000\000\0001\000\000\000\000\000\000@@P\003\022\?\n\001x\030\006 \003(\002B4\242\?1 \001)\000"
+      "\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@P\003\302\002\030\032\026this.mode == \'COM"
+      "MAND\'\022\?\n\001y\030\007 \002(\002B4\242\?1 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303"
+      "@P\003\302\002\030\032\026this.mode == \'COMMAND\'\022\?\n\001z\030\010 \002("
+      "\002B4\242\?1 \001)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@P\003\302\002\030\032\026this.mo"
+      "de == \'COMMAND\'\022+\n\003end\030\t \002(\010B\036\242\?\033\302\002\030\032\026th"
+      "is.mode == \'COMMAND\'\"\036\n\004Mode\022\t\n\005QUERY\020\000\022"
+      "\013\n\007COMMAND\020\001:\t\242\?\006\010\t\020\037(\004\"\316\002\n\030MultiWaypoin"
+      "tXYZResponse\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000"
+      "\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?\024 "
+      "\000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003"
+      ")\000\000\000@3\354\330A1\000\000\000 \3666\334A\022*\n\007wpt_num\030\004 \003(\005B\031\242\?\026"
+      " \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000@@P\003\022$\n\001x\030\005 \003(\002B\031\242\?\026 \001"
+      ")\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@P\003\022$\n\001y\030\006 \002(\002B\031\242\?\026 \001)\000"
+      "\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@P\003\022$\n\001z\030\007 \002(\002B\031\242\?\026 \001)\000\000\000"
+      "\000\000\000\000\0001\000\000\000\000\000\000Y@P\003\022\013\n\003end\030\t \002(\010:\t\242\?\006\010m\020\037(\004"
+      "\"\202\002\n\020ExecuteWaypoints\022\'\n\006source\030\001 \002(\005B\027\242"
+      "\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destination\030\002 "
+      "\002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001"
+      "(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022\017\n\007execute\030\004"
+      " \002(\010\022,\n\004mode\030\005 \002(\0162\036.ExecuteWaypoints.Wa"
+      "ypointMode\"&\n\014WaypointMode\022\n\n\006APPEND\020\000\022\n"
+      "\n\006UPDATE\020\001:\t\242\?\006\010\n\020\037(\004"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 4586);
+      descriptor, 6981);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "goby_msgs.proto", &protobuf_RegisterTypes);
   ::protobuf_dccl_2foption_5fextensions_2eproto::AddDescriptors();
@@ -641,11 +997,11 @@ struct StaticDescriptorInitializer {
   }
 } static_descriptor_initializer;
 }  // namespace protobuf_goby_5fmsgs_2eproto
-const ::google::protobuf::EnumDescriptor* RelativePose_Frame_descriptor() {
+const ::google::protobuf::EnumDescriptor* RelativePoseCommand_Frame_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[0];
 }
-bool RelativePose_Frame_IsValid(int value) {
+bool RelativePoseCommand_Frame_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -658,19 +1014,19 @@ bool RelativePose_Frame_IsValid(int value) {
 }
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const RelativePose_Frame RelativePose::BASE_LINK;
-const RelativePose_Frame RelativePose::ODOM;
-const RelativePose_Frame RelativePose::WORLD;
-const RelativePose_Frame RelativePose::USBL;
-const RelativePose_Frame RelativePose::Frame_MIN;
-const RelativePose_Frame RelativePose::Frame_MAX;
-const int RelativePose::Frame_ARRAYSIZE;
+const RelativePoseCommand_Frame RelativePoseCommand::BASE_LINK;
+const RelativePoseCommand_Frame RelativePoseCommand::ODOM;
+const RelativePoseCommand_Frame RelativePoseCommand::WORLD;
+const RelativePoseCommand_Frame RelativePoseCommand::USBL;
+const RelativePoseCommand_Frame RelativePoseCommand::Frame_MIN;
+const RelativePoseCommand_Frame RelativePoseCommand::Frame_MAX;
+const int RelativePoseCommand::Frame_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* DirectControl_Frame_descriptor() {
+const ::google::protobuf::EnumDescriptor* RelativePoseResponse_Frame_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[1];
 }
-bool DirectControl_Frame_IsValid(int value) {
+bool RelativePoseResponse_Frame_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -683,19 +1039,107 @@ bool DirectControl_Frame_IsValid(int value) {
 }
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const DirectControl_Frame DirectControl::BASE_LINK;
-const DirectControl_Frame DirectControl::ODOM;
-const DirectControl_Frame DirectControl::WORLD;
-const DirectControl_Frame DirectControl::USBL;
-const DirectControl_Frame DirectControl::Frame_MIN;
-const DirectControl_Frame DirectControl::Frame_MAX;
-const int DirectControl::Frame_ARRAYSIZE;
+const RelativePoseResponse_Frame RelativePoseResponse::BASE_LINK;
+const RelativePoseResponse_Frame RelativePoseResponse::ODOM;
+const RelativePoseResponse_Frame RelativePoseResponse::WORLD;
+const RelativePoseResponse_Frame RelativePoseResponse::USBL;
+const RelativePoseResponse_Frame RelativePoseResponse::Frame_MIN;
+const RelativePoseResponse_Frame RelativePoseResponse::Frame_MAX;
+const int RelativePoseResponse::Frame_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* StateInfo_State_descriptor() {
+const ::google::protobuf::EnumDescriptor* ControllerStateCommand_State_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[2];
 }
-bool StateInfo_State_IsValid(int value) {
+bool ControllerStateCommand_State_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const ControllerStateCommand_State ControllerStateCommand::DISABLE;
+const ControllerStateCommand_State ControllerStateCommand::ENABLE;
+const ControllerStateCommand_State ControllerStateCommand::State_MIN;
+const ControllerStateCommand_State ControllerStateCommand::State_MAX;
+const int ControllerStateCommand::State_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* ControllerStateResponse_State_descriptor() {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[3];
+}
+bool ControllerStateResponse_State_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const ControllerStateResponse_State ControllerStateResponse::DISABLE;
+const ControllerStateResponse_State ControllerStateResponse::ENABLE;
+const ControllerStateResponse_State ControllerStateResponse::State_MIN;
+const ControllerStateResponse_State ControllerStateResponse::State_MAX;
+const int ControllerStateResponse::State_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* DirectControlCommand_Frame_descriptor() {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[4];
+}
+bool DirectControlCommand_Frame_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const DirectControlCommand_Frame DirectControlCommand::BASE_LINK;
+const DirectControlCommand_Frame DirectControlCommand::ODOM;
+const DirectControlCommand_Frame DirectControlCommand::WORLD;
+const DirectControlCommand_Frame DirectControlCommand::USBL;
+const DirectControlCommand_Frame DirectControlCommand::Frame_MIN;
+const DirectControlCommand_Frame DirectControlCommand::Frame_MAX;
+const int DirectControlCommand::Frame_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* StateCommand_Mode_descriptor() {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[5];
+}
+bool StateCommand_Mode_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const StateCommand_Mode StateCommand::QUERY;
+const StateCommand_Mode StateCommand::COMMAND;
+const StateCommand_Mode StateCommand::Mode_MIN;
+const StateCommand_Mode StateCommand::Mode_MAX;
+const int StateCommand::Mode_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* StateCommand_State_descriptor() {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[6];
+}
+bool StateCommand_State_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -710,19 +1154,134 @@ bool StateInfo_State_IsValid(int value) {
 }
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const StateInfo_State StateInfo::KILL;
-const StateInfo_State StateInfo::START;
-const StateInfo_State StateInfo::SURVEY_LOCAL;
-const StateInfo_State StateInfo::SURVEY_GLOBAL;
-const StateInfo_State StateInfo::DIRECT_CONTROL;
-const StateInfo_State StateInfo::SURVEY_3D;
-const StateInfo_State StateInfo::State_MIN;
-const StateInfo_State StateInfo::State_MAX;
-const int StateInfo::State_ARRAYSIZE;
+const StateCommand_State StateCommand::KILL;
+const StateCommand_State StateCommand::START;
+const StateCommand_State StateCommand::SURVEY_LOCAL;
+const StateCommand_State StateCommand::SURVEY_GLOBAL;
+const StateCommand_State StateCommand::DIRECT_CONTROL;
+const StateCommand_State StateCommand::SURVEY_3D;
+const StateCommand_State StateCommand::State_MIN;
+const StateCommand_State StateCommand::State_MAX;
+const int StateCommand::State_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* StateResponse_State_descriptor() {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[7];
+}
+bool StateResponse_State_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const StateResponse_State StateResponse::KILL;
+const StateResponse_State StateResponse::START;
+const StateResponse_State StateResponse::SURVEY_LOCAL;
+const StateResponse_State StateResponse::SURVEY_GLOBAL;
+const StateResponse_State StateResponse::DIRECT_CONTROL;
+const StateResponse_State StateResponse::SURVEY_3D;
+const StateResponse_State StateResponse::State_MIN;
+const StateResponse_State StateResponse::State_MAX;
+const int StateResponse::State_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* SingleWaypointCommand_Mode_descriptor() {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[8];
+}
+bool SingleWaypointCommand_Mode_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const SingleWaypointCommand_Mode SingleWaypointCommand::QUERY;
+const SingleWaypointCommand_Mode SingleWaypointCommand::COMMAND_LATLONG;
+const SingleWaypointCommand_Mode SingleWaypointCommand::COMMAND_XYZ;
+const SingleWaypointCommand_Mode SingleWaypointCommand::Mode_MIN;
+const SingleWaypointCommand_Mode SingleWaypointCommand::Mode_MAX;
+const int SingleWaypointCommand::Mode_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* MultiWaypointGPSCommand_Mode_descriptor() {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[9];
+}
+bool MultiWaypointGPSCommand_Mode_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const MultiWaypointGPSCommand_Mode MultiWaypointGPSCommand::QUERY;
+const MultiWaypointGPSCommand_Mode MultiWaypointGPSCommand::COMMAND;
+const MultiWaypointGPSCommand_Mode MultiWaypointGPSCommand::Mode_MIN;
+const MultiWaypointGPSCommand_Mode MultiWaypointGPSCommand::Mode_MAX;
+const int MultiWaypointGPSCommand::Mode_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* MultiWaypointGPSResponse_Mode_descriptor() {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[10];
+}
+bool MultiWaypointGPSResponse_Mode_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const MultiWaypointGPSResponse_Mode MultiWaypointGPSResponse::QUERY;
+const MultiWaypointGPSResponse_Mode MultiWaypointGPSResponse::COMMAND;
+const MultiWaypointGPSResponse_Mode MultiWaypointGPSResponse::Mode_MIN;
+const MultiWaypointGPSResponse_Mode MultiWaypointGPSResponse::Mode_MAX;
+const int MultiWaypointGPSResponse::Mode_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* MultiWaypointXYZCommand_Mode_descriptor() {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[11];
+}
+bool MultiWaypointXYZCommand_Mode_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const MultiWaypointXYZCommand_Mode MultiWaypointXYZCommand::QUERY;
+const MultiWaypointXYZCommand_Mode MultiWaypointXYZCommand::COMMAND;
+const MultiWaypointXYZCommand_Mode MultiWaypointXYZCommand::Mode_MIN;
+const MultiWaypointXYZCommand_Mode MultiWaypointXYZCommand::Mode_MAX;
+const int MultiWaypointXYZCommand::Mode_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 const ::google::protobuf::EnumDescriptor* ExecuteWaypoints_WaypointMode_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[3];
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[12];
 }
 bool ExecuteWaypoints_WaypointMode_IsValid(int value) {
   switch (value) {
@@ -744,122 +1303,108 @@ const int ExecuteWaypoints::WaypointMode_ARRAYSIZE;
 
 // ===================================================================
 
-void Pose::InitAsDefaultInstance() {
+void PoseCommand::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Pose::kDestinationFieldNumber;
-const int Pose::kCmdRespFieldNumber;
-const int Pose::kTimeFieldNumber;
-const int Pose::kLatitudeFieldNumber;
-const int Pose::kLongitudeFieldNumber;
-const int Pose::kLocalXFieldNumber;
-const int Pose::kLocalYFieldNumber;
-const int Pose::kLocalZFieldNumber;
-const int Pose::kXRotFieldNumber;
-const int Pose::kYRotFieldNumber;
-const int Pose::kZRotFieldNumber;
-const int Pose::kWRotFieldNumber;
+const int PoseCommand::kSourceFieldNumber;
+const int PoseCommand::kDestinationFieldNumber;
+const int PoseCommand::kTimeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-Pose::Pose()
+PoseCommand::PoseCommand()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_goby_5fmsgs_2eproto::scc_info_Pose.base);
+      &protobuf_goby_5fmsgs_2eproto::scc_info_PoseCommand.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Pose)
+  // @@protoc_insertion_point(constructor:PoseCommand)
 }
-Pose::Pose(const Pose& from)
+PoseCommand::PoseCommand(const PoseCommand& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&destination_, &from.destination_,
-    static_cast<size_t>(reinterpret_cast<char*>(&w_rot_) -
-    reinterpret_cast<char*>(&destination_)) + sizeof(w_rot_));
-  // @@protoc_insertion_point(copy_constructor:Pose)
+  ::memcpy(&source_, &from.source_,
+    static_cast<size_t>(reinterpret_cast<char*>(&time_) -
+    reinterpret_cast<char*>(&source_)) + sizeof(time_));
+  // @@protoc_insertion_point(copy_constructor:PoseCommand)
 }
 
-void Pose::SharedCtor() {
-  ::memset(&destination_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&w_rot_) -
-      reinterpret_cast<char*>(&destination_)) + sizeof(w_rot_));
+void PoseCommand::SharedCtor() {
+  ::memset(&source_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&time_) -
+      reinterpret_cast<char*>(&source_)) + sizeof(time_));
 }
 
-Pose::~Pose() {
-  // @@protoc_insertion_point(destructor:Pose)
+PoseCommand::~PoseCommand() {
+  // @@protoc_insertion_point(destructor:PoseCommand)
   SharedDtor();
 }
 
-void Pose::SharedDtor() {
+void PoseCommand::SharedDtor() {
 }
 
-void Pose::SetCachedSize(int size) const {
+void PoseCommand::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* Pose::descriptor() {
+const ::google::protobuf::Descriptor* PoseCommand::descriptor() {
   ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const Pose& Pose::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_Pose.base);
+const PoseCommand& PoseCommand::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_PoseCommand.base);
   return *internal_default_instance();
 }
 
 
-void Pose::Clear() {
-// @@protoc_insertion_point(message_clear_start:Pose)
+void PoseCommand::Clear() {
+// @@protoc_insertion_point(message_clear_start:PoseCommand)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 255u) {
-    ::memset(&destination_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&local_z_) -
-        reinterpret_cast<char*>(&destination_)) + sizeof(local_z_));
-  }
-  if (cached_has_bits & 3840u) {
-    ::memset(&x_rot_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&w_rot_) -
-        reinterpret_cast<char*>(&x_rot_)) + sizeof(w_rot_));
+  if (cached_has_bits & 7u) {
+    ::memset(&source_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&time_) -
+        reinterpret_cast<char*>(&source_)) + sizeof(time_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
 
-bool Pose::MergePartialFromCodedStream(
+bool PoseCommand::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Pose)
+  // @@protoc_insertion_point(parse_start:PoseCommand)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 destination = 1 [(.dccl.field) = {
+      // required int32 source = 1 [(.dccl.field) = {
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-          set_has_destination();
+          set_has_source();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &destination_)));
+                 input, &source_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // required bool cmd_resp = 2;
+      // required int32 destination = 2 [(.dccl.field) = {
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
-          set_has_cmd_resp();
+          set_has_destination();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &cmd_resp_)));
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &destination_)));
         } else {
           goto handle_unusual;
         }
@@ -874,132 +1419,6 @@ bool Pose::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
                  input, &time_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional double latitude = 4 [(.dccl.field) = {
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(33u /* 33 & 0xFF */)) {
-          set_has_latitude();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &latitude_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional double longitude = 5 [(.dccl.field) = {
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(41u /* 41 & 0xFF */)) {
-          set_has_longitude();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &longitude_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional int32 local_x = 6 [(.dccl.field) = {
-      case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(48u /* 48 & 0xFF */)) {
-          set_has_local_x();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &local_x_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional int32 local_y = 7 [(.dccl.field) = {
-      case 7: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(56u /* 56 & 0xFF */)) {
-          set_has_local_y();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &local_y_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional int32 local_z = 8 [(.dccl.field) = {
-      case 8: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(64u /* 64 & 0xFF */)) {
-          set_has_local_z();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &local_z_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional float x_rot = 9 [(.dccl.field) = {
-      case 9: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(77u /* 77 & 0xFF */)) {
-          set_has_x_rot();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &x_rot_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional float y_rot = 10 [(.dccl.field) = {
-      case 10: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(85u /* 85 & 0xFF */)) {
-          set_has_y_rot();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &y_rot_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional float z_rot = 11 [(.dccl.field) = {
-      case 11: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(93u /* 93 & 0xFF */)) {
-          set_has_z_rot();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &z_rot_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional float w_rot = 12 [(.dccl.field) = {
-      case 12: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(101u /* 101 & 0xFF */)) {
-          set_has_w_rot();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &w_rot_)));
         } else {
           goto handle_unusual;
         }
@@ -1018,29 +1437,29 @@ bool Pose::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Pose)
+  // @@protoc_insertion_point(parse_success:PoseCommand)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Pose)
+  // @@protoc_insertion_point(parse_failure:PoseCommand)
   return false;
 #undef DO_
 }
 
-void Pose::SerializeWithCachedSizes(
+void PoseCommand::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Pose)
+  // @@protoc_insertion_point(serialize_start:PoseCommand)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required int32 destination = 1 [(.dccl.field) = {
+  // required int32 source = 1 [(.dccl.field) = {
   if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->destination(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->source(), output);
   }
 
-  // required bool cmd_resp = 2;
+  // required int32 destination = 2 [(.dccl.field) = {
   if (cached_has_bits & 0x00000002u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->cmd_resp(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->destination(), output);
   }
 
   // optional double time = 3 [(.dccl.field) = {
@@ -1048,74 +1467,29 @@ void Pose::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
   }
 
-  // optional double latitude = 4 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000008u) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(4, this->latitude(), output);
-  }
-
-  // optional double longitude = 5 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000010u) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->longitude(), output);
-  }
-
-  // optional int32 local_x = 6 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000020u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->local_x(), output);
-  }
-
-  // optional int32 local_y = 7 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000040u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->local_y(), output);
-  }
-
-  // optional int32 local_z = 8 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000080u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->local_z(), output);
-  }
-
-  // optional float x_rot = 9 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000100u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(9, this->x_rot(), output);
-  }
-
-  // optional float y_rot = 10 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000200u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(10, this->y_rot(), output);
-  }
-
-  // optional float z_rot = 11 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000400u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(11, this->z_rot(), output);
-  }
-
-  // optional float w_rot = 12 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000800u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(12, this->w_rot(), output);
-  }
-
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:Pose)
+  // @@protoc_insertion_point(serialize_end:PoseCommand)
 }
 
-::google::protobuf::uint8* Pose::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* PoseCommand::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:Pose)
+  // @@protoc_insertion_point(serialize_to_array_start:PoseCommand)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required int32 destination = 1 [(.dccl.field) = {
+  // required int32 source = 1 [(.dccl.field) = {
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->destination(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->source(), target);
   }
 
-  // required bool cmd_resp = 2;
+  // required int32 destination = 2 [(.dccl.field) = {
   if (cached_has_bits & 0x00000002u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->cmd_resp(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->destination(), target);
   }
 
   // optional double time = 3 [(.dccl.field) = {
@@ -1123,79 +1497,36 @@ void Pose::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
   }
 
-  // optional double latitude = 4 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000008u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(4, this->latitude(), target);
-  }
-
-  // optional double longitude = 5 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000010u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->longitude(), target);
-  }
-
-  // optional int32 local_x = 6 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000020u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->local_x(), target);
-  }
-
-  // optional int32 local_y = 7 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000040u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->local_y(), target);
-  }
-
-  // optional int32 local_z = 8 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000080u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->local_z(), target);
-  }
-
-  // optional float x_rot = 9 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000100u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(9, this->x_rot(), target);
-  }
-
-  // optional float y_rot = 10 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000200u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(10, this->y_rot(), target);
-  }
-
-  // optional float z_rot = 11 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000400u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(11, this->z_rot(), target);
-  }
-
-  // optional float w_rot = 12 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000800u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(12, this->w_rot(), target);
-  }
-
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:Pose)
+  // @@protoc_insertion_point(serialize_to_array_end:PoseCommand)
   return target;
 }
 
-size_t Pose::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:Pose)
+size_t PoseCommand::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:PoseCommand)
   size_t total_size = 0;
 
+  if (has_source()) {
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+  }
+
   if (has_destination()) {
-    // required int32 destination = 1 [(.dccl.field) = {
+    // required int32 destination = 2 [(.dccl.field) = {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
   }
 
-  if (has_cmd_resp()) {
-    // required bool cmd_resp = 2;
-    total_size += 1 + 1;
-  }
-
   return total_size;
 }
-size_t Pose::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:Pose)
+size_t PoseCommand::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:PoseCommand)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1204,99 +1535,683 @@ size_t Pose::ByteSizeLong() const {
         _internal_metadata_.unknown_fields());
   }
   if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required int32 destination = 1 [(.dccl.field) = {
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+
+    // required int32 destination = 2 [(.dccl.field) = {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
 
-    // required bool cmd_resp = 2;
-    total_size += 1 + 1;
-
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
-  if (_has_bits_[0 / 32] & 252u) {
-    // optional double time = 3 [(.dccl.field) = {
-    if (has_time()) {
-      total_size += 1 + 8;
-    }
-
-    // optional double latitude = 4 [(.dccl.field) = {
-    if (has_latitude()) {
-      total_size += 1 + 8;
-    }
-
-    // optional double longitude = 5 [(.dccl.field) = {
-    if (has_longitude()) {
-      total_size += 1 + 8;
-    }
-
-    // optional int32 local_x = 6 [(.dccl.field) = {
-    if (has_local_x()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->local_x());
-    }
-
-    // optional int32 local_y = 7 [(.dccl.field) = {
-    if (has_local_y()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->local_y());
-    }
-
-    // optional int32 local_z = 8 [(.dccl.field) = {
-    if (has_local_z()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->local_z());
-    }
-
+  // optional double time = 3 [(.dccl.field) = {
+  if (has_time()) {
+    total_size += 1 + 8;
   }
-  if (_has_bits_[8 / 32] & 3840u) {
-    // optional float x_rot = 9 [(.dccl.field) = {
-    if (has_x_rot()) {
-      total_size += 1 + 4;
-    }
 
-    // optional float y_rot = 10 [(.dccl.field) = {
-    if (has_y_rot()) {
-      total_size += 1 + 4;
-    }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
 
-    // optional float z_rot = 11 [(.dccl.field) = {
-    if (has_z_rot()) {
-      total_size += 1 + 4;
-    }
+void PoseCommand::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:PoseCommand)
+  GOOGLE_DCHECK_NE(&from, this);
+  const PoseCommand* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const PoseCommand>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:PoseCommand)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:PoseCommand)
+    MergeFrom(*source);
+  }
+}
 
-    // optional float w_rot = 12 [(.dccl.field) = {
-    if (has_w_rot()) {
-      total_size += 1 + 4;
-    }
+void PoseCommand::MergeFrom(const PoseCommand& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:PoseCommand)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
 
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 7u) {
+    if (cached_has_bits & 0x00000001u) {
+      source_ = from.source_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      destination_ = from.destination_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      time_ = from.time_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void PoseCommand::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:PoseCommand)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PoseCommand::CopyFrom(const PoseCommand& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:PoseCommand)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PoseCommand::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  return true;
+}
+
+void PoseCommand::Swap(PoseCommand* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void PoseCommand::InternalSwap(PoseCommand* other) {
+  using std::swap;
+  swap(source_, other->source_);
+  swap(destination_, other->destination_);
+  swap(time_, other->time_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata PoseCommand::GetMetadata() const {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void PoseResponse::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int PoseResponse::kSourceFieldNumber;
+const int PoseResponse::kDestinationFieldNumber;
+const int PoseResponse::kTimeFieldNumber;
+const int PoseResponse::kLatitudeFieldNumber;
+const int PoseResponse::kLongitudeFieldNumber;
+const int PoseResponse::kXFieldNumber;
+const int PoseResponse::kYFieldNumber;
+const int PoseResponse::kZFieldNumber;
+const int PoseResponse::kQuatXFieldNumber;
+const int PoseResponse::kQuatYFieldNumber;
+const int PoseResponse::kQuatZFieldNumber;
+const int PoseResponse::kQuatWFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+PoseResponse::PoseResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_goby_5fmsgs_2eproto::scc_info_PoseResponse.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:PoseResponse)
+}
+PoseResponse::PoseResponse(const PoseResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&source_, &from.source_,
+    static_cast<size_t>(reinterpret_cast<char*>(&quat_w_) -
+    reinterpret_cast<char*>(&source_)) + sizeof(quat_w_));
+  // @@protoc_insertion_point(copy_constructor:PoseResponse)
+}
+
+void PoseResponse::SharedCtor() {
+  ::memset(&source_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&quat_w_) -
+      reinterpret_cast<char*>(&source_)) + sizeof(quat_w_));
+}
+
+PoseResponse::~PoseResponse() {
+  // @@protoc_insertion_point(destructor:PoseResponse)
+  SharedDtor();
+}
+
+void PoseResponse::SharedDtor() {
+}
+
+void PoseResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* PoseResponse::descriptor() {
+  ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const PoseResponse& PoseResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_PoseResponse.base);
+  return *internal_default_instance();
+}
+
+
+void PoseResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:PoseResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 255u) {
+    ::memset(&source_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&z_) -
+        reinterpret_cast<char*>(&source_)) + sizeof(z_));
+  }
+  if (cached_has_bits & 3840u) {
+    ::memset(&quat_x_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&quat_w_) -
+        reinterpret_cast<char*>(&quat_x_)) + sizeof(quat_w_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool PoseResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:PoseResponse)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 source = 1 [(.dccl.field) = {
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_source();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &source_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required int32 destination = 2 [(.dccl.field) = {
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+          set_has_destination();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &destination_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double time = 3 [(.dccl.field) = {
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(25u /* 25 & 0xFF */)) {
+          set_has_time();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &time_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double latitude = 4 [(.dccl.field) = {
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(33u /* 33 & 0xFF */)) {
+          set_has_latitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &latitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double longitude = 5 [(.dccl.field) = {
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(41u /* 41 & 0xFF */)) {
+          set_has_longitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &longitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float x = 6 [(.dccl.field) = {
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(53u /* 53 & 0xFF */)) {
+          set_has_x();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &x_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float y = 7 [(.dccl.field) = {
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(61u /* 61 & 0xFF */)) {
+          set_has_y();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &y_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float z = 8 [(.dccl.field) = {
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(69u /* 69 & 0xFF */)) {
+          set_has_z();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &z_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float quat_x = 9 [(.dccl.field) = {
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(77u /* 77 & 0xFF */)) {
+          set_has_quat_x();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &quat_x_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float quat_y = 10 [(.dccl.field) = {
+      case 10: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(85u /* 85 & 0xFF */)) {
+          set_has_quat_y();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &quat_y_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float quat_z = 11 [(.dccl.field) = {
+      case 11: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(93u /* 93 & 0xFF */)) {
+          set_has_quat_z();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &quat_z_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float quat_w = 12 [(.dccl.field) = {
+      case 12: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(101u /* 101 & 0xFF */)) {
+          set_has_quat_w();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &quat_w_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:PoseResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:PoseResponse)
+  return false;
+#undef DO_
+}
+
+void PoseResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:PoseResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->source(), output);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->destination(), output);
+  }
+
+  // required double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
+  }
+
+  // required double latitude = 4 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(4, this->latitude(), output);
+  }
+
+  // required double longitude = 5 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->longitude(), output);
+  }
+
+  // required float x = 6 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(6, this->x(), output);
+  }
+
+  // required float y = 7 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000040u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(7, this->y(), output);
+  }
+
+  // required float z = 8 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000080u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(8, this->z(), output);
+  }
+
+  // required float quat_x = 9 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000100u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(9, this->quat_x(), output);
+  }
+
+  // required float quat_y = 10 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000200u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(10, this->quat_y(), output);
+  }
+
+  // required float quat_z = 11 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000400u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(11, this->quat_z(), output);
+  }
+
+  // required float quat_w = 12 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000800u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(12, this->quat_w(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:PoseResponse)
+}
+
+::google::protobuf::uint8* PoseResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:PoseResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->source(), target);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->destination(), target);
+  }
+
+  // required double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
+  }
+
+  // required double latitude = 4 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(4, this->latitude(), target);
+  }
+
+  // required double longitude = 5 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->longitude(), target);
+  }
+
+  // required float x = 6 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(6, this->x(), target);
+  }
+
+  // required float y = 7 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000040u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(7, this->y(), target);
+  }
+
+  // required float z = 8 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000080u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(8, this->z(), target);
+  }
+
+  // required float quat_x = 9 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000100u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(9, this->quat_x(), target);
+  }
+
+  // required float quat_y = 10 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000200u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(10, this->quat_y(), target);
+  }
+
+  // required float quat_z = 11 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000400u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(11, this->quat_z(), target);
+  }
+
+  // required float quat_w = 12 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000800u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(12, this->quat_w(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:PoseResponse)
+  return target;
+}
+
+size_t PoseResponse::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:PoseResponse)
+  size_t total_size = 0;
+
+  if (has_source()) {
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+  }
+
+  if (has_destination()) {
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+  }
+
+  if (has_time()) {
+    // required double time = 3 [(.dccl.field) = {
+    total_size += 1 + 8;
+  }
+
+  if (has_latitude()) {
+    // required double latitude = 4 [(.dccl.field) = {
+    total_size += 1 + 8;
+  }
+
+  if (has_longitude()) {
+    // required double longitude = 5 [(.dccl.field) = {
+    total_size += 1 + 8;
+  }
+
+  if (has_x()) {
+    // required float x = 6 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_y()) {
+    // required float y = 7 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_z()) {
+    // required float z = 8 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_quat_x()) {
+    // required float quat_x = 9 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_quat_y()) {
+    // required float quat_y = 10 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_quat_z()) {
+    // required float quat_z = 11 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_quat_w()) {
+    // required float quat_w = 12 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  return total_size;
+}
+size_t PoseResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:PoseResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00000fff) ^ 0x00000fff) == 0) {  // All required fields are present.
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+
+    // required double time = 3 [(.dccl.field) = {
+    total_size += 1 + 8;
+
+    // required double latitude = 4 [(.dccl.field) = {
+    total_size += 1 + 8;
+
+    // required double longitude = 5 [(.dccl.field) = {
+    total_size += 1 + 8;
+
+    // required float x = 6 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float y = 7 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float z = 8 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float quat_x = 9 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float quat_y = 10 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float quat_z = 11 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float quat_w = 12 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
   }
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
-void Pose::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Pose)
+void PoseResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:PoseResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  const Pose* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const Pose>(
+  const PoseResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const PoseResponse>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Pose)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:PoseResponse)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Pose)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:PoseResponse)
     MergeFrom(*source);
   }
 }
 
-void Pose::MergeFrom(const Pose& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Pose)
+void PoseResponse::MergeFrom(const PoseResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:PoseResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -1305,10 +2220,10 @@ void Pose::MergeFrom(const Pose& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 255u) {
     if (cached_has_bits & 0x00000001u) {
-      destination_ = from.destination_;
+      source_ = from.source_;
     }
     if (cached_has_bits & 0x00000002u) {
-      cmd_resp_ = from.cmd_resp_;
+      destination_ = from.destination_;
     }
     if (cached_has_bits & 0x00000004u) {
       time_ = from.time_;
@@ -1320,75 +2235,75 @@ void Pose::MergeFrom(const Pose& from) {
       longitude_ = from.longitude_;
     }
     if (cached_has_bits & 0x00000020u) {
-      local_x_ = from.local_x_;
+      x_ = from.x_;
     }
     if (cached_has_bits & 0x00000040u) {
-      local_y_ = from.local_y_;
+      y_ = from.y_;
     }
     if (cached_has_bits & 0x00000080u) {
-      local_z_ = from.local_z_;
+      z_ = from.z_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 3840u) {
     if (cached_has_bits & 0x00000100u) {
-      x_rot_ = from.x_rot_;
+      quat_x_ = from.quat_x_;
     }
     if (cached_has_bits & 0x00000200u) {
-      y_rot_ = from.y_rot_;
+      quat_y_ = from.quat_y_;
     }
     if (cached_has_bits & 0x00000400u) {
-      z_rot_ = from.z_rot_;
+      quat_z_ = from.quat_z_;
     }
     if (cached_has_bits & 0x00000800u) {
-      w_rot_ = from.w_rot_;
+      quat_w_ = from.quat_w_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
 }
 
-void Pose::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Pose)
+void PoseResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:PoseResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Pose::CopyFrom(const Pose& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Pose)
+void PoseResponse::CopyFrom(const PoseResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:PoseResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Pose::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+bool PoseResponse::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000fff) != 0x00000fff) return false;
   return true;
 }
 
-void Pose::Swap(Pose* other) {
+void PoseResponse::Swap(PoseResponse* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void Pose::InternalSwap(Pose* other) {
+void PoseResponse::InternalSwap(PoseResponse* other) {
   using std::swap;
+  swap(source_, other->source_);
   swap(destination_, other->destination_);
-  swap(cmd_resp_, other->cmd_resp_);
   swap(time_, other->time_);
   swap(latitude_, other->latitude_);
   swap(longitude_, other->longitude_);
-  swap(local_x_, other->local_x_);
-  swap(local_y_, other->local_y_);
-  swap(local_z_, other->local_z_);
-  swap(x_rot_, other->x_rot_);
-  swap(y_rot_, other->y_rot_);
-  swap(z_rot_, other->z_rot_);
-  swap(w_rot_, other->w_rot_);
+  swap(x_, other->x_);
+  swap(y_, other->y_);
+  swap(z_, other->z_);
+  swap(quat_x_, other->quat_x_);
+  swap(quat_y_, other->quat_y_);
+  swap(quat_z_, other->quat_z_);
+  swap(quat_w_, other->quat_w_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata Pose::GetMetadata() const {
+::google::protobuf::Metadata PoseResponse::GetMetadata() const {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -1396,110 +2311,108 @@ void Pose::InternalSwap(Pose* other) {
 
 // ===================================================================
 
-void Health::InitAsDefaultInstance() {
+void HealthCommand::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Health::kDestinationFieldNumber;
-const int Health::kCmdRespFieldNumber;
-const int Health::kTimeFieldNumber;
-const int Health::kBattVoltFieldNumber;
-const int Health::kCurrentFieldNumber;
+const int HealthCommand::kSourceFieldNumber;
+const int HealthCommand::kDestinationFieldNumber;
+const int HealthCommand::kTimeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-Health::Health()
+HealthCommand::HealthCommand()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_goby_5fmsgs_2eproto::scc_info_Health.base);
+      &protobuf_goby_5fmsgs_2eproto::scc_info_HealthCommand.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Health)
+  // @@protoc_insertion_point(constructor:HealthCommand)
 }
-Health::Health(const Health& from)
+HealthCommand::HealthCommand(const HealthCommand& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&destination_, &from.destination_,
-    static_cast<size_t>(reinterpret_cast<char*>(&current_) -
-    reinterpret_cast<char*>(&destination_)) + sizeof(current_));
-  // @@protoc_insertion_point(copy_constructor:Health)
+  ::memcpy(&source_, &from.source_,
+    static_cast<size_t>(reinterpret_cast<char*>(&time_) -
+    reinterpret_cast<char*>(&source_)) + sizeof(time_));
+  // @@protoc_insertion_point(copy_constructor:HealthCommand)
 }
 
-void Health::SharedCtor() {
-  ::memset(&destination_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&current_) -
-      reinterpret_cast<char*>(&destination_)) + sizeof(current_));
+void HealthCommand::SharedCtor() {
+  ::memset(&source_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&time_) -
+      reinterpret_cast<char*>(&source_)) + sizeof(time_));
 }
 
-Health::~Health() {
-  // @@protoc_insertion_point(destructor:Health)
+HealthCommand::~HealthCommand() {
+  // @@protoc_insertion_point(destructor:HealthCommand)
   SharedDtor();
 }
 
-void Health::SharedDtor() {
+void HealthCommand::SharedDtor() {
 }
 
-void Health::SetCachedSize(int size) const {
+void HealthCommand::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* Health::descriptor() {
+const ::google::protobuf::Descriptor* HealthCommand::descriptor() {
   ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const Health& Health::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_Health.base);
+const HealthCommand& HealthCommand::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_HealthCommand.base);
   return *internal_default_instance();
 }
 
 
-void Health::Clear() {
-// @@protoc_insertion_point(message_clear_start:Health)
+void HealthCommand::Clear() {
+// @@protoc_insertion_point(message_clear_start:HealthCommand)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 31u) {
-    ::memset(&destination_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&current_) -
-        reinterpret_cast<char*>(&destination_)) + sizeof(current_));
+  if (cached_has_bits & 7u) {
+    ::memset(&source_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&time_) -
+        reinterpret_cast<char*>(&source_)) + sizeof(time_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
 
-bool Health::MergePartialFromCodedStream(
+bool HealthCommand::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Health)
+  // @@protoc_insertion_point(parse_start:HealthCommand)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 destination = 1 [(.dccl.field) = {
+      // required int32 source = 1 [(.dccl.field) = {
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-          set_has_destination();
+          set_has_source();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &destination_)));
+                 input, &source_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional bool cmd_resp = 2;
+      // required int32 destination = 2 [(.dccl.field) = {
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
-          set_has_cmd_resp();
+          set_has_destination();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &cmd_resp_)));
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &destination_)));
         } else {
           goto handle_unusual;
         }
@@ -1520,7 +2433,341 @@ bool Health::MergePartialFromCodedStream(
         break;
       }
 
-      // optional float batt_volt = 4 [(.dccl.field) = {
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:HealthCommand)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:HealthCommand)
+  return false;
+#undef DO_
+}
+
+void HealthCommand::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:HealthCommand)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->source(), output);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->destination(), output);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:HealthCommand)
+}
+
+::google::protobuf::uint8* HealthCommand::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:HealthCommand)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->source(), target);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->destination(), target);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:HealthCommand)
+  return target;
+}
+
+size_t HealthCommand::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:HealthCommand)
+  size_t total_size = 0;
+
+  if (has_source()) {
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+  }
+
+  if (has_destination()) {
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+  }
+
+  return total_size;
+}
+size_t HealthCommand::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:HealthCommand)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  // optional double time = 3 [(.dccl.field) = {
+  if (has_time()) {
+    total_size += 1 + 8;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void HealthCommand::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:HealthCommand)
+  GOOGLE_DCHECK_NE(&from, this);
+  const HealthCommand* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const HealthCommand>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:HealthCommand)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:HealthCommand)
+    MergeFrom(*source);
+  }
+}
+
+void HealthCommand::MergeFrom(const HealthCommand& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:HealthCommand)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 7u) {
+    if (cached_has_bits & 0x00000001u) {
+      source_ = from.source_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      destination_ = from.destination_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      time_ = from.time_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void HealthCommand::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:HealthCommand)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void HealthCommand::CopyFrom(const HealthCommand& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:HealthCommand)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool HealthCommand::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  return true;
+}
+
+void HealthCommand::Swap(HealthCommand* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void HealthCommand::InternalSwap(HealthCommand* other) {
+  using std::swap;
+  swap(source_, other->source_);
+  swap(destination_, other->destination_);
+  swap(time_, other->time_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata HealthCommand::GetMetadata() const {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void HealthResponse::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int HealthResponse::kSourceFieldNumber;
+const int HealthResponse::kDestinationFieldNumber;
+const int HealthResponse::kTimeFieldNumber;
+const int HealthResponse::kBattVoltFieldNumber;
+const int HealthResponse::kCurrentFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+HealthResponse::HealthResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_goby_5fmsgs_2eproto::scc_info_HealthResponse.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:HealthResponse)
+}
+HealthResponse::HealthResponse(const HealthResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&source_, &from.source_,
+    static_cast<size_t>(reinterpret_cast<char*>(&current_) -
+    reinterpret_cast<char*>(&source_)) + sizeof(current_));
+  // @@protoc_insertion_point(copy_constructor:HealthResponse)
+}
+
+void HealthResponse::SharedCtor() {
+  ::memset(&source_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&current_) -
+      reinterpret_cast<char*>(&source_)) + sizeof(current_));
+}
+
+HealthResponse::~HealthResponse() {
+  // @@protoc_insertion_point(destructor:HealthResponse)
+  SharedDtor();
+}
+
+void HealthResponse::SharedDtor() {
+}
+
+void HealthResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* HealthResponse::descriptor() {
+  ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const HealthResponse& HealthResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_HealthResponse.base);
+  return *internal_default_instance();
+}
+
+
+void HealthResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:HealthResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 31u) {
+    ::memset(&source_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&current_) -
+        reinterpret_cast<char*>(&source_)) + sizeof(current_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool HealthResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:HealthResponse)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 source = 1 [(.dccl.field) = {
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_source();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &source_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required int32 destination = 2 [(.dccl.field) = {
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+          set_has_destination();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &destination_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional double time = 3 [(.dccl.field) = {
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(25u /* 25 & 0xFF */)) {
+          set_has_time();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &time_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float batt_volt = 4 [(.dccl.field) = {
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(37u /* 37 & 0xFF */)) {
@@ -1534,7 +2781,7 @@ bool Health::MergePartialFromCodedStream(
         break;
       }
 
-      // optional float current = 5 [(.dccl.field) = {
+      // required float current = 5 [(.dccl.field) = {
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(45u /* 45 & 0xFF */)) {
@@ -1560,29 +2807,29 @@ bool Health::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Health)
+  // @@protoc_insertion_point(parse_success:HealthResponse)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Health)
+  // @@protoc_insertion_point(parse_failure:HealthResponse)
   return false;
 #undef DO_
 }
 
-void Health::SerializeWithCachedSizes(
+void HealthResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Health)
+  // @@protoc_insertion_point(serialize_start:HealthResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required int32 destination = 1 [(.dccl.field) = {
+  // required int32 source = 1 [(.dccl.field) = {
   if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->destination(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->source(), output);
   }
 
-  // optional bool cmd_resp = 2;
+  // required int32 destination = 2 [(.dccl.field) = {
   if (cached_has_bits & 0x00000002u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->cmd_resp(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->destination(), output);
   }
 
   // optional double time = 3 [(.dccl.field) = {
@@ -1590,12 +2837,12 @@ void Health::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
   }
 
-  // optional float batt_volt = 4 [(.dccl.field) = {
+  // required float batt_volt = 4 [(.dccl.field) = {
   if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(4, this->batt_volt(), output);
   }
 
-  // optional float current = 5 [(.dccl.field) = {
+  // required float current = 5 [(.dccl.field) = {
   if (cached_has_bits & 0x00000010u) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(5, this->current(), output);
   }
@@ -1604,25 +2851,25 @@ void Health::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:Health)
+  // @@protoc_insertion_point(serialize_end:HealthResponse)
 }
 
-::google::protobuf::uint8* Health::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* HealthResponse::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:Health)
+  // @@protoc_insertion_point(serialize_to_array_start:HealthResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required int32 destination = 1 [(.dccl.field) = {
+  // required int32 source = 1 [(.dccl.field) = {
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->destination(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->source(), target);
   }
 
-  // optional bool cmd_resp = 2;
+  // required int32 destination = 2 [(.dccl.field) = {
   if (cached_has_bits & 0x00000002u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->cmd_resp(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->destination(), target);
   }
 
   // optional double time = 3 [(.dccl.field) = {
@@ -1630,12 +2877,12 @@ void Health::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
   }
 
-  // optional float batt_volt = 4 [(.dccl.field) = {
+  // required float batt_volt = 4 [(.dccl.field) = {
   if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(4, this->batt_volt(), target);
   }
 
-  // optional float current = 5 [(.dccl.field) = {
+  // required float current = 5 [(.dccl.field) = {
   if (cached_has_bits & 0x00000010u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(5, this->current(), target);
   }
@@ -1644,12 +2891,42 @@ void Health::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:Health)
+  // @@protoc_insertion_point(serialize_to_array_end:HealthResponse)
   return target;
 }
 
-size_t Health::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:Health)
+size_t HealthResponse::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:HealthResponse)
+  size_t total_size = 0;
+
+  if (has_source()) {
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+  }
+
+  if (has_destination()) {
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+  }
+
+  if (has_batt_volt()) {
+    // required float batt_volt = 4 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_current()) {
+    // required float current = 5 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  return total_size;
+}
+size_t HealthResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:HealthResponse)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1657,56 +2934,53 @@ size_t Health::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  // required int32 destination = 1 [(.dccl.field) = {
-  if (has_destination()) {
+  if (((_has_bits_[0] & 0x0000001b) ^ 0x0000001b) == 0) {  // All required fields are present.
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+
+    // required int32 destination = 2 [(.dccl.field) = {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
+
+    // required float batt_volt = 4 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float current = 5 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
   }
-  if (_has_bits_[0 / 32] & 30u) {
-    // optional bool cmd_resp = 2;
-    if (has_cmd_resp()) {
-      total_size += 1 + 1;
-    }
-
-    // optional double time = 3 [(.dccl.field) = {
-    if (has_time()) {
-      total_size += 1 + 8;
-    }
-
-    // optional float batt_volt = 4 [(.dccl.field) = {
-    if (has_batt_volt()) {
-      total_size += 1 + 4;
-    }
-
-    // optional float current = 5 [(.dccl.field) = {
-    if (has_current()) {
-      total_size += 1 + 4;
-    }
-
+  // optional double time = 3 [(.dccl.field) = {
+  if (has_time()) {
+    total_size += 1 + 8;
   }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
-void Health::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Health)
+void HealthResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:HealthResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  const Health* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const Health>(
+  const HealthResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const HealthResponse>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Health)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:HealthResponse)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Health)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:HealthResponse)
     MergeFrom(*source);
   }
 }
 
-void Health::MergeFrom(const Health& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Health)
+void HealthResponse::MergeFrom(const HealthResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:HealthResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -1715,10 +2989,10 @@ void Health::MergeFrom(const Health& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 31u) {
     if (cached_has_bits & 0x00000001u) {
-      destination_ = from.destination_;
+      source_ = from.source_;
     }
     if (cached_has_bits & 0x00000002u) {
-      cmd_resp_ = from.cmd_resp_;
+      destination_ = from.destination_;
     }
     if (cached_has_bits & 0x00000004u) {
       time_ = from.time_;
@@ -1733,33 +3007,33 @@ void Health::MergeFrom(const Health& from) {
   }
 }
 
-void Health::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Health)
+void HealthResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:HealthResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Health::CopyFrom(const Health& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Health)
+void HealthResponse::CopyFrom(const HealthResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:HealthResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Health::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+bool HealthResponse::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000001b) != 0x0000001b) return false;
   return true;
 }
 
-void Health::Swap(Health* other) {
+void HealthResponse::Swap(HealthResponse* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void Health::InternalSwap(Health* other) {
+void HealthResponse::InternalSwap(HealthResponse* other) {
   using std::swap;
+  swap(source_, other->source_);
   swap(destination_, other->destination_);
-  swap(cmd_resp_, other->cmd_resp_);
   swap(time_, other->time_);
   swap(batt_volt_, other->batt_volt_);
   swap(current_, other->current_);
@@ -1767,7 +3041,7 @@ void Health::InternalSwap(Health* other) {
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata Health::GetMetadata() const {
+::google::protobuf::Metadata HealthResponse::GetMetadata() const {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -1775,122 +3049,110 @@ void Health::InternalSwap(Health* other) {
 
 // ===================================================================
 
-void RelativePose::InitAsDefaultInstance() {
+void RelativePoseCommand::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int RelativePose::kDestinationFieldNumber;
-const int RelativePose::kCmdRespFieldNumber;
-const int RelativePose::kTimeFieldNumber;
-const int RelativePose::kParentFieldNumber;
-const int RelativePose::kChildFieldNumber;
-const int RelativePose::kLocalXFieldNumber;
-const int RelativePose::kLocalYFieldNumber;
-const int RelativePose::kLocalZFieldNumber;
-const int RelativePose::kXRotFieldNumber;
-const int RelativePose::kYRotFieldNumber;
-const int RelativePose::kZRotFieldNumber;
-const int RelativePose::kWRotFieldNumber;
+const int RelativePoseCommand::kSourceFieldNumber;
+const int RelativePoseCommand::kDestinationFieldNumber;
+const int RelativePoseCommand::kTimeFieldNumber;
+const int RelativePoseCommand::kParentFieldNumber;
+const int RelativePoseCommand::kChildFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-RelativePose::RelativePose()
+RelativePoseCommand::RelativePoseCommand()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_goby_5fmsgs_2eproto::scc_info_RelativePose.base);
+      &protobuf_goby_5fmsgs_2eproto::scc_info_RelativePoseCommand.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:RelativePose)
+  // @@protoc_insertion_point(constructor:RelativePoseCommand)
 }
-RelativePose::RelativePose(const RelativePose& from)
+RelativePoseCommand::RelativePoseCommand(const RelativePoseCommand& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&destination_, &from.destination_,
-    static_cast<size_t>(reinterpret_cast<char*>(&w_rot_) -
-    reinterpret_cast<char*>(&destination_)) + sizeof(w_rot_));
-  // @@protoc_insertion_point(copy_constructor:RelativePose)
+  ::memcpy(&source_, &from.source_,
+    static_cast<size_t>(reinterpret_cast<char*>(&child_) -
+    reinterpret_cast<char*>(&source_)) + sizeof(child_));
+  // @@protoc_insertion_point(copy_constructor:RelativePoseCommand)
 }
 
-void RelativePose::SharedCtor() {
-  ::memset(&destination_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&w_rot_) -
-      reinterpret_cast<char*>(&destination_)) + sizeof(w_rot_));
+void RelativePoseCommand::SharedCtor() {
+  ::memset(&source_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&child_) -
+      reinterpret_cast<char*>(&source_)) + sizeof(child_));
 }
 
-RelativePose::~RelativePose() {
-  // @@protoc_insertion_point(destructor:RelativePose)
+RelativePoseCommand::~RelativePoseCommand() {
+  // @@protoc_insertion_point(destructor:RelativePoseCommand)
   SharedDtor();
 }
 
-void RelativePose::SharedDtor() {
+void RelativePoseCommand::SharedDtor() {
 }
 
-void RelativePose::SetCachedSize(int size) const {
+void RelativePoseCommand::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* RelativePose::descriptor() {
+const ::google::protobuf::Descriptor* RelativePoseCommand::descriptor() {
   ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const RelativePose& RelativePose::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_RelativePose.base);
+const RelativePoseCommand& RelativePoseCommand::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_RelativePoseCommand.base);
   return *internal_default_instance();
 }
 
 
-void RelativePose::Clear() {
-// @@protoc_insertion_point(message_clear_start:RelativePose)
+void RelativePoseCommand::Clear() {
+// @@protoc_insertion_point(message_clear_start:RelativePoseCommand)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 255u) {
-    ::memset(&destination_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&local_z_) -
-        reinterpret_cast<char*>(&destination_)) + sizeof(local_z_));
-  }
-  if (cached_has_bits & 3840u) {
-    ::memset(&x_rot_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&w_rot_) -
-        reinterpret_cast<char*>(&x_rot_)) + sizeof(w_rot_));
+  if (cached_has_bits & 31u) {
+    ::memset(&source_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&child_) -
+        reinterpret_cast<char*>(&source_)) + sizeof(child_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
 
-bool RelativePose::MergePartialFromCodedStream(
+bool RelativePoseCommand::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:RelativePose)
+  // @@protoc_insertion_point(parse_start:RelativePoseCommand)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 destination = 1 [(.dccl.field) = {
+      // required int32 source = 1 [(.dccl.field) = {
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-          set_has_destination();
+          set_has_source();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &destination_)));
+                 input, &source_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // required bool cmd_resp = 2;
+      // required int32 destination = 2 [(.dccl.field) = {
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
-          set_has_cmd_resp();
+          set_has_destination();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &cmd_resp_)));
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &destination_)));
         } else {
           goto handle_unusual;
         }
@@ -1911,7 +3173,7 @@ bool RelativePose::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .RelativePose.Frame parent = 4;
+      // required .RelativePoseCommand.Frame parent = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
@@ -1919,8 +3181,8 @@ bool RelativePose::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::RelativePose_Frame_IsValid(value)) {
-            set_parent(static_cast< ::RelativePose_Frame >(value));
+          if (::RelativePoseCommand_Frame_IsValid(value)) {
+            set_parent(static_cast< ::RelativePoseCommand_Frame >(value));
           } else {
             mutable_unknown_fields()->AddVarint(
                 4, static_cast< ::google::protobuf::uint64>(value));
@@ -1931,7 +3193,7 @@ bool RelativePose::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .RelativePose.Frame child = 5;
+      // required .RelativePoseCommand.Frame child = 5;
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
@@ -1939,110 +3201,12 @@ bool RelativePose::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::RelativePose_Frame_IsValid(value)) {
-            set_child(static_cast< ::RelativePose_Frame >(value));
+          if (::RelativePoseCommand_Frame_IsValid(value)) {
+            set_child(static_cast< ::RelativePoseCommand_Frame >(value));
           } else {
             mutable_unknown_fields()->AddVarint(
                 5, static_cast< ::google::protobuf::uint64>(value));
           }
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional float local_x = 6 [(.dccl.field) = {
-      case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(53u /* 53 & 0xFF */)) {
-          set_has_local_x();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &local_x_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional float local_y = 7 [(.dccl.field) = {
-      case 7: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(61u /* 61 & 0xFF */)) {
-          set_has_local_y();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &local_y_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional float local_z = 8 [(.dccl.field) = {
-      case 8: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(69u /* 69 & 0xFF */)) {
-          set_has_local_z();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &local_z_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional float x_rot = 9 [(.dccl.field) = {
-      case 9: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(77u /* 77 & 0xFF */)) {
-          set_has_x_rot();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &x_rot_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional int32 y_rot = 10 [(.dccl.field) = {
-      case 10: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(80u /* 80 & 0xFF */)) {
-          set_has_y_rot();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &y_rot_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional int32 z_rot = 11 [(.dccl.field) = {
-      case 11: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(88u /* 88 & 0xFF */)) {
-          set_has_z_rot();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &z_rot_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional int32 w_rot = 12 [(.dccl.field) = {
-      case 12: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(96u /* 96 & 0xFF */)) {
-          set_has_w_rot();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &w_rot_)));
         } else {
           goto handle_unusual;
         }
@@ -2061,29 +3225,29 @@ bool RelativePose::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:RelativePose)
+  // @@protoc_insertion_point(parse_success:RelativePoseCommand)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:RelativePose)
+  // @@protoc_insertion_point(parse_failure:RelativePoseCommand)
   return false;
 #undef DO_
 }
 
-void RelativePose::SerializeWithCachedSizes(
+void RelativePoseCommand::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:RelativePose)
+  // @@protoc_insertion_point(serialize_start:RelativePoseCommand)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required int32 destination = 1 [(.dccl.field) = {
+  // required int32 source = 1 [(.dccl.field) = {
   if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->destination(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->source(), output);
   }
 
-  // required bool cmd_resp = 2;
+  // required int32 destination = 2 [(.dccl.field) = {
   if (cached_has_bits & 0x00000002u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->cmd_resp(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->destination(), output);
   }
 
   // optional double time = 3 [(.dccl.field) = {
@@ -2091,76 +3255,41 @@ void RelativePose::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
   }
 
-  // optional .RelativePose.Frame parent = 4;
+  // required .RelativePoseCommand.Frame parent = 4;
   if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       4, this->parent(), output);
   }
 
-  // optional .RelativePose.Frame child = 5;
+  // required .RelativePoseCommand.Frame child = 5;
   if (cached_has_bits & 0x00000010u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       5, this->child(), output);
-  }
-
-  // optional float local_x = 6 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000020u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(6, this->local_x(), output);
-  }
-
-  // optional float local_y = 7 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000040u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(7, this->local_y(), output);
-  }
-
-  // optional float local_z = 8 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000080u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(8, this->local_z(), output);
-  }
-
-  // optional float x_rot = 9 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000100u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(9, this->x_rot(), output);
-  }
-
-  // optional int32 y_rot = 10 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000200u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->y_rot(), output);
-  }
-
-  // optional int32 z_rot = 11 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000400u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->z_rot(), output);
-  }
-
-  // optional int32 w_rot = 12 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000800u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->w_rot(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:RelativePose)
+  // @@protoc_insertion_point(serialize_end:RelativePoseCommand)
 }
 
-::google::protobuf::uint8* RelativePose::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* RelativePoseCommand::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:RelativePose)
+  // @@protoc_insertion_point(serialize_to_array_start:RelativePoseCommand)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required int32 destination = 1 [(.dccl.field) = {
+  // required int32 source = 1 [(.dccl.field) = {
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->destination(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->source(), target);
   }
 
-  // required bool cmd_resp = 2;
+  // required int32 destination = 2 [(.dccl.field) = {
   if (cached_has_bits & 0x00000002u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->cmd_resp(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->destination(), target);
   }
 
   // optional double time = 3 [(.dccl.field) = {
@@ -2168,81 +3297,60 @@ void RelativePose::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
   }
 
-  // optional .RelativePose.Frame parent = 4;
+  // required .RelativePoseCommand.Frame parent = 4;
   if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       4, this->parent(), target);
   }
 
-  // optional .RelativePose.Frame child = 5;
+  // required .RelativePoseCommand.Frame child = 5;
   if (cached_has_bits & 0x00000010u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       5, this->child(), target);
-  }
-
-  // optional float local_x = 6 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000020u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(6, this->local_x(), target);
-  }
-
-  // optional float local_y = 7 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000040u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(7, this->local_y(), target);
-  }
-
-  // optional float local_z = 8 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000080u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(8, this->local_z(), target);
-  }
-
-  // optional float x_rot = 9 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000100u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(9, this->x_rot(), target);
-  }
-
-  // optional int32 y_rot = 10 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000200u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->y_rot(), target);
-  }
-
-  // optional int32 z_rot = 11 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000400u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->z_rot(), target);
-  }
-
-  // optional int32 w_rot = 12 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000800u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->w_rot(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:RelativePose)
+  // @@protoc_insertion_point(serialize_to_array_end:RelativePoseCommand)
   return target;
 }
 
-size_t RelativePose::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:RelativePose)
+size_t RelativePoseCommand::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:RelativePoseCommand)
   size_t total_size = 0;
 
+  if (has_source()) {
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+  }
+
   if (has_destination()) {
-    // required int32 destination = 1 [(.dccl.field) = {
+    // required int32 destination = 2 [(.dccl.field) = {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
   }
 
-  if (has_cmd_resp()) {
-    // required bool cmd_resp = 2;
-    total_size += 1 + 1;
+  if (has_parent()) {
+    // required .RelativePoseCommand.Frame parent = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->parent());
+  }
+
+  if (has_child()) {
+    // required .RelativePoseCommand.Frame child = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->child());
   }
 
   return total_size;
 }
-size_t RelativePose::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:RelativePose)
+size_t RelativePoseCommand::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:RelativePoseCommand)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2250,102 +3358,783 @@ size_t RelativePose::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required int32 destination = 1 [(.dccl.field) = {
+  if (((_has_bits_[0] & 0x0000001b) ^ 0x0000001b) == 0) {  // All required fields are present.
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+
+    // required int32 destination = 2 [(.dccl.field) = {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
 
-    // required bool cmd_resp = 2;
-    total_size += 1 + 1;
+    // required .RelativePoseCommand.Frame parent = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->parent());
+
+    // required .RelativePoseCommand.Frame child = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->child());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
-  if (_has_bits_[0 / 32] & 252u) {
-    // optional double time = 3 [(.dccl.field) = {
-    if (has_time()) {
-      total_size += 1 + 8;
-    }
-
-    // optional .RelativePose.Frame parent = 4;
-    if (has_parent()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->parent());
-    }
-
-    // optional .RelativePose.Frame child = 5;
-    if (has_child()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->child());
-    }
-
-    // optional float local_x = 6 [(.dccl.field) = {
-    if (has_local_x()) {
-      total_size += 1 + 4;
-    }
-
-    // optional float local_y = 7 [(.dccl.field) = {
-    if (has_local_y()) {
-      total_size += 1 + 4;
-    }
-
-    // optional float local_z = 8 [(.dccl.field) = {
-    if (has_local_z()) {
-      total_size += 1 + 4;
-    }
-
+  // optional double time = 3 [(.dccl.field) = {
+  if (has_time()) {
+    total_size += 1 + 8;
   }
-  if (_has_bits_[8 / 32] & 3840u) {
-    // optional float x_rot = 9 [(.dccl.field) = {
-    if (has_x_rot()) {
-      total_size += 1 + 4;
-    }
 
-    // optional int32 y_rot = 10 [(.dccl.field) = {
-    if (has_y_rot()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->y_rot());
-    }
-
-    // optional int32 z_rot = 11 [(.dccl.field) = {
-    if (has_z_rot()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->z_rot());
-    }
-
-    // optional int32 w_rot = 12 [(.dccl.field) = {
-    if (has_w_rot()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->w_rot());
-    }
-
-  }
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
-void RelativePose::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:RelativePose)
+void RelativePoseCommand::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:RelativePoseCommand)
   GOOGLE_DCHECK_NE(&from, this);
-  const RelativePose* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const RelativePose>(
+  const RelativePoseCommand* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const RelativePoseCommand>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:RelativePose)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:RelativePoseCommand)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:RelativePose)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:RelativePoseCommand)
     MergeFrom(*source);
   }
 }
 
-void RelativePose::MergeFrom(const RelativePose& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:RelativePose)
+void RelativePoseCommand::MergeFrom(const RelativePoseCommand& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:RelativePoseCommand)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 31u) {
+    if (cached_has_bits & 0x00000001u) {
+      source_ = from.source_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      destination_ = from.destination_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      time_ = from.time_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      parent_ = from.parent_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      child_ = from.child_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void RelativePoseCommand::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:RelativePoseCommand)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void RelativePoseCommand::CopyFrom(const RelativePoseCommand& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:RelativePoseCommand)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RelativePoseCommand::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000001b) != 0x0000001b) return false;
+  return true;
+}
+
+void RelativePoseCommand::Swap(RelativePoseCommand* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void RelativePoseCommand::InternalSwap(RelativePoseCommand* other) {
+  using std::swap;
+  swap(source_, other->source_);
+  swap(destination_, other->destination_);
+  swap(time_, other->time_);
+  swap(parent_, other->parent_);
+  swap(child_, other->child_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata RelativePoseCommand::GetMetadata() const {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void RelativePoseResponse::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int RelativePoseResponse::kSourceFieldNumber;
+const int RelativePoseResponse::kDestinationFieldNumber;
+const int RelativePoseResponse::kTimeFieldNumber;
+const int RelativePoseResponse::kParentFieldNumber;
+const int RelativePoseResponse::kChildFieldNumber;
+const int RelativePoseResponse::kLatitudeFieldNumber;
+const int RelativePoseResponse::kLongitudeFieldNumber;
+const int RelativePoseResponse::kXFieldNumber;
+const int RelativePoseResponse::kYFieldNumber;
+const int RelativePoseResponse::kZFieldNumber;
+const int RelativePoseResponse::kQuatXFieldNumber;
+const int RelativePoseResponse::kQuatYFieldNumber;
+const int RelativePoseResponse::kQuatZFieldNumber;
+const int RelativePoseResponse::kQuatWFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+RelativePoseResponse::RelativePoseResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_goby_5fmsgs_2eproto::scc_info_RelativePoseResponse.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:RelativePoseResponse)
+}
+RelativePoseResponse::RelativePoseResponse(const RelativePoseResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&source_, &from.source_,
+    static_cast<size_t>(reinterpret_cast<char*>(&quat_w_) -
+    reinterpret_cast<char*>(&source_)) + sizeof(quat_w_));
+  // @@protoc_insertion_point(copy_constructor:RelativePoseResponse)
+}
+
+void RelativePoseResponse::SharedCtor() {
+  ::memset(&source_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&quat_w_) -
+      reinterpret_cast<char*>(&source_)) + sizeof(quat_w_));
+}
+
+RelativePoseResponse::~RelativePoseResponse() {
+  // @@protoc_insertion_point(destructor:RelativePoseResponse)
+  SharedDtor();
+}
+
+void RelativePoseResponse::SharedDtor() {
+}
+
+void RelativePoseResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* RelativePoseResponse::descriptor() {
+  ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const RelativePoseResponse& RelativePoseResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_RelativePoseResponse.base);
+  return *internal_default_instance();
+}
+
+
+void RelativePoseResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:RelativePoseResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 255u) {
+    ::memset(&source_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&x_) -
+        reinterpret_cast<char*>(&source_)) + sizeof(x_));
+  }
+  if (cached_has_bits & 16128u) {
+    ::memset(&y_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&quat_w_) -
+        reinterpret_cast<char*>(&y_)) + sizeof(quat_w_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool RelativePoseResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:RelativePoseResponse)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 source = 1 [(.dccl.field) = {
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_source();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &source_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required int32 destination = 2 [(.dccl.field) = {
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+          set_has_destination();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &destination_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional double time = 3 [(.dccl.field) = {
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(25u /* 25 & 0xFF */)) {
+          set_has_time();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &time_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required .RelativePoseResponse.Frame parent = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::RelativePoseResponse_Frame_IsValid(value)) {
+            set_parent(static_cast< ::RelativePoseResponse_Frame >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(
+                4, static_cast< ::google::protobuf::uint64>(value));
+          }
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required .RelativePoseResponse.Frame child = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::RelativePoseResponse_Frame_IsValid(value)) {
+            set_child(static_cast< ::RelativePoseResponse_Frame >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(
+                5, static_cast< ::google::protobuf::uint64>(value));
+          }
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double latitude = 6 [(.dccl.field) = {
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(49u /* 49 & 0xFF */)) {
+          set_has_latitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &latitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double longitude = 7 [(.dccl.field) = {
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(57u /* 57 & 0xFF */)) {
+          set_has_longitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &longitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float x = 8 [(.dccl.field) = {
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(69u /* 69 & 0xFF */)) {
+          set_has_x();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &x_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float y = 9 [(.dccl.field) = {
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(77u /* 77 & 0xFF */)) {
+          set_has_y();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &y_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float z = 10 [(.dccl.field) = {
+      case 10: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(85u /* 85 & 0xFF */)) {
+          set_has_z();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &z_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float quat_x = 11 [(.dccl.field) = {
+      case 11: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(93u /* 93 & 0xFF */)) {
+          set_has_quat_x();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &quat_x_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float quat_y = 12 [(.dccl.field) = {
+      case 12: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(101u /* 101 & 0xFF */)) {
+          set_has_quat_y();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &quat_y_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float quat_z = 13 [(.dccl.field) = {
+      case 13: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(109u /* 109 & 0xFF */)) {
+          set_has_quat_z();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &quat_z_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float quat_w = 14 [(.dccl.field) = {
+      case 14: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(117u /* 117 & 0xFF */)) {
+          set_has_quat_w();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &quat_w_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:RelativePoseResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:RelativePoseResponse)
+  return false;
+#undef DO_
+}
+
+void RelativePoseResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:RelativePoseResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->source(), output);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->destination(), output);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
+  }
+
+  // required .RelativePoseResponse.Frame parent = 4;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      4, this->parent(), output);
+  }
+
+  // required .RelativePoseResponse.Frame child = 5;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      5, this->child(), output);
+  }
+
+  // required double latitude = 6 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(6, this->latitude(), output);
+  }
+
+  // required double longitude = 7 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000040u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(7, this->longitude(), output);
+  }
+
+  // required float x = 8 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000080u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(8, this->x(), output);
+  }
+
+  // required float y = 9 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000100u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(9, this->y(), output);
+  }
+
+  // required float z = 10 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000200u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(10, this->z(), output);
+  }
+
+  // required float quat_x = 11 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000400u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(11, this->quat_x(), output);
+  }
+
+  // required float quat_y = 12 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000800u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(12, this->quat_y(), output);
+  }
+
+  // required float quat_z = 13 [(.dccl.field) = {
+  if (cached_has_bits & 0x00001000u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(13, this->quat_z(), output);
+  }
+
+  // required float quat_w = 14 [(.dccl.field) = {
+  if (cached_has_bits & 0x00002000u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(14, this->quat_w(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:RelativePoseResponse)
+}
+
+::google::protobuf::uint8* RelativePoseResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:RelativePoseResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->source(), target);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->destination(), target);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
+  }
+
+  // required .RelativePoseResponse.Frame parent = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      4, this->parent(), target);
+  }
+
+  // required .RelativePoseResponse.Frame child = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      5, this->child(), target);
+  }
+
+  // required double latitude = 6 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(6, this->latitude(), target);
+  }
+
+  // required double longitude = 7 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000040u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(7, this->longitude(), target);
+  }
+
+  // required float x = 8 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000080u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(8, this->x(), target);
+  }
+
+  // required float y = 9 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000100u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(9, this->y(), target);
+  }
+
+  // required float z = 10 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000200u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(10, this->z(), target);
+  }
+
+  // required float quat_x = 11 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000400u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(11, this->quat_x(), target);
+  }
+
+  // required float quat_y = 12 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000800u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(12, this->quat_y(), target);
+  }
+
+  // required float quat_z = 13 [(.dccl.field) = {
+  if (cached_has_bits & 0x00001000u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(13, this->quat_z(), target);
+  }
+
+  // required float quat_w = 14 [(.dccl.field) = {
+  if (cached_has_bits & 0x00002000u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(14, this->quat_w(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:RelativePoseResponse)
+  return target;
+}
+
+size_t RelativePoseResponse::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:RelativePoseResponse)
+  size_t total_size = 0;
+
+  if (has_source()) {
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+  }
+
+  if (has_destination()) {
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+  }
+
+  if (has_parent()) {
+    // required .RelativePoseResponse.Frame parent = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->parent());
+  }
+
+  if (has_child()) {
+    // required .RelativePoseResponse.Frame child = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->child());
+  }
+
+  if (has_latitude()) {
+    // required double latitude = 6 [(.dccl.field) = {
+    total_size += 1 + 8;
+  }
+
+  if (has_longitude()) {
+    // required double longitude = 7 [(.dccl.field) = {
+    total_size += 1 + 8;
+  }
+
+  if (has_x()) {
+    // required float x = 8 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_y()) {
+    // required float y = 9 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_z()) {
+    // required float z = 10 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_quat_x()) {
+    // required float quat_x = 11 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_quat_y()) {
+    // required float quat_y = 12 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_quat_z()) {
+    // required float quat_z = 13 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_quat_w()) {
+    // required float quat_w = 14 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  return total_size;
+}
+size_t RelativePoseResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:RelativePoseResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00003ffb) ^ 0x00003ffb) == 0) {  // All required fields are present.
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+
+    // required .RelativePoseResponse.Frame parent = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->parent());
+
+    // required .RelativePoseResponse.Frame child = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->child());
+
+    // required double latitude = 6 [(.dccl.field) = {
+    total_size += 1 + 8;
+
+    // required double longitude = 7 [(.dccl.field) = {
+    total_size += 1 + 8;
+
+    // required float x = 8 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float y = 9 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float z = 10 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float quat_x = 11 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float quat_y = 12 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float quat_z = 13 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float quat_w = 14 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  // optional double time = 3 [(.dccl.field) = {
+  if (has_time()) {
+    total_size += 1 + 8;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void RelativePoseResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:RelativePoseResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const RelativePoseResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const RelativePoseResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:RelativePoseResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:RelativePoseResponse)
+    MergeFrom(*source);
+  }
+}
+
+void RelativePoseResponse::MergeFrom(const RelativePoseResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:RelativePoseResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -2354,10 +4143,10 @@ void RelativePose::MergeFrom(const RelativePose& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 255u) {
     if (cached_has_bits & 0x00000001u) {
-      destination_ = from.destination_;
+      source_ = from.source_;
     }
     if (cached_has_bits & 0x00000002u) {
-      cmd_resp_ = from.cmd_resp_;
+      destination_ = from.destination_;
     }
     if (cached_has_bits & 0x00000004u) {
       time_ = from.time_;
@@ -2369,75 +4158,83 @@ void RelativePose::MergeFrom(const RelativePose& from) {
       child_ = from.child_;
     }
     if (cached_has_bits & 0x00000020u) {
-      local_x_ = from.local_x_;
+      latitude_ = from.latitude_;
     }
     if (cached_has_bits & 0x00000040u) {
-      local_y_ = from.local_y_;
+      longitude_ = from.longitude_;
     }
     if (cached_has_bits & 0x00000080u) {
-      local_z_ = from.local_z_;
+      x_ = from.x_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 3840u) {
+  if (cached_has_bits & 16128u) {
     if (cached_has_bits & 0x00000100u) {
-      x_rot_ = from.x_rot_;
+      y_ = from.y_;
     }
     if (cached_has_bits & 0x00000200u) {
-      y_rot_ = from.y_rot_;
+      z_ = from.z_;
     }
     if (cached_has_bits & 0x00000400u) {
-      z_rot_ = from.z_rot_;
+      quat_x_ = from.quat_x_;
     }
     if (cached_has_bits & 0x00000800u) {
-      w_rot_ = from.w_rot_;
+      quat_y_ = from.quat_y_;
+    }
+    if (cached_has_bits & 0x00001000u) {
+      quat_z_ = from.quat_z_;
+    }
+    if (cached_has_bits & 0x00002000u) {
+      quat_w_ = from.quat_w_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
 }
 
-void RelativePose::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:RelativePose)
+void RelativePoseResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:RelativePoseResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void RelativePose::CopyFrom(const RelativePose& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:RelativePose)
+void RelativePoseResponse::CopyFrom(const RelativePoseResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:RelativePoseResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool RelativePose::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+bool RelativePoseResponse::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00003ffb) != 0x00003ffb) return false;
   return true;
 }
 
-void RelativePose::Swap(RelativePose* other) {
+void RelativePoseResponse::Swap(RelativePoseResponse* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void RelativePose::InternalSwap(RelativePose* other) {
+void RelativePoseResponse::InternalSwap(RelativePoseResponse* other) {
   using std::swap;
+  swap(source_, other->source_);
   swap(destination_, other->destination_);
-  swap(cmd_resp_, other->cmd_resp_);
   swap(time_, other->time_);
   swap(parent_, other->parent_);
   swap(child_, other->child_);
-  swap(local_x_, other->local_x_);
-  swap(local_y_, other->local_y_);
-  swap(local_z_, other->local_z_);
-  swap(x_rot_, other->x_rot_);
-  swap(y_rot_, other->y_rot_);
-  swap(z_rot_, other->z_rot_);
-  swap(w_rot_, other->w_rot_);
+  swap(latitude_, other->latitude_);
+  swap(longitude_, other->longitude_);
+  swap(x_, other->x_);
+  swap(y_, other->y_);
+  swap(z_, other->z_);
+  swap(quat_x_, other->quat_x_);
+  swap(quat_y_, other->quat_y_);
+  swap(quat_z_, other->quat_z_);
+  swap(quat_w_, other->quat_w_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata RelativePose::GetMetadata() const {
+::google::protobuf::Metadata RelativePoseResponse::GetMetadata() const {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -2445,91 +4242,105 @@ void RelativePose::InternalSwap(RelativePose* other) {
 
 // ===================================================================
 
-void ControllerInfo::InitAsDefaultInstance() {
+void ControllerStateCommand::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int ControllerInfo::kDestinationFieldNumber;
-const int ControllerInfo::kTimeFieldNumber;
-const int ControllerInfo::kSetgetFieldNumber;
-const int ControllerInfo::kStateFieldNumber;
+const int ControllerStateCommand::kSourceFieldNumber;
+const int ControllerStateCommand::kDestinationFieldNumber;
+const int ControllerStateCommand::kTimeFieldNumber;
+const int ControllerStateCommand::kStateFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-ControllerInfo::ControllerInfo()
+ControllerStateCommand::ControllerStateCommand()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_goby_5fmsgs_2eproto::scc_info_ControllerInfo.base);
+      &protobuf_goby_5fmsgs_2eproto::scc_info_ControllerStateCommand.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:ControllerInfo)
+  // @@protoc_insertion_point(constructor:ControllerStateCommand)
 }
-ControllerInfo::ControllerInfo(const ControllerInfo& from)
+ControllerStateCommand::ControllerStateCommand(const ControllerStateCommand& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&time_, &from.time_,
+  ::memcpy(&source_, &from.source_,
     static_cast<size_t>(reinterpret_cast<char*>(&state_) -
-    reinterpret_cast<char*>(&time_)) + sizeof(state_));
-  // @@protoc_insertion_point(copy_constructor:ControllerInfo)
+    reinterpret_cast<char*>(&source_)) + sizeof(state_));
+  // @@protoc_insertion_point(copy_constructor:ControllerStateCommand)
 }
 
-void ControllerInfo::SharedCtor() {
-  ::memset(&time_, 0, static_cast<size_t>(
+void ControllerStateCommand::SharedCtor() {
+  ::memset(&source_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&state_) -
-      reinterpret_cast<char*>(&time_)) + sizeof(state_));
+      reinterpret_cast<char*>(&source_)) + sizeof(state_));
 }
 
-ControllerInfo::~ControllerInfo() {
-  // @@protoc_insertion_point(destructor:ControllerInfo)
+ControllerStateCommand::~ControllerStateCommand() {
+  // @@protoc_insertion_point(destructor:ControllerStateCommand)
   SharedDtor();
 }
 
-void ControllerInfo::SharedDtor() {
+void ControllerStateCommand::SharedDtor() {
 }
 
-void ControllerInfo::SetCachedSize(int size) const {
+void ControllerStateCommand::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* ControllerInfo::descriptor() {
+const ::google::protobuf::Descriptor* ControllerStateCommand::descriptor() {
   ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const ControllerInfo& ControllerInfo::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_ControllerInfo.base);
+const ControllerStateCommand& ControllerStateCommand::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_ControllerStateCommand.base);
   return *internal_default_instance();
 }
 
 
-void ControllerInfo::Clear() {
-// @@protoc_insertion_point(message_clear_start:ControllerInfo)
+void ControllerStateCommand::Clear() {
+// @@protoc_insertion_point(message_clear_start:ControllerStateCommand)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 15u) {
-    ::memset(&time_, 0, static_cast<size_t>(
+    ::memset(&source_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&state_) -
-        reinterpret_cast<char*>(&time_)) + sizeof(state_));
+        reinterpret_cast<char*>(&source_)) + sizeof(state_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
 
-bool ControllerInfo::MergePartialFromCodedStream(
+bool ControllerStateCommand::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:ControllerInfo)
+  // @@protoc_insertion_point(parse_start:ControllerStateCommand)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 destination = 1 [(.dccl.field) = {
+      // required int32 source = 1 [(.dccl.field) = {
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_source();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &source_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required int32 destination = 2 [(.dccl.field) = {
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
           set_has_destination();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -2540,10 +4351,10 @@ bool ControllerInfo::MergePartialFromCodedStream(
         break;
       }
 
-      // required double time = 2 [(.dccl.field) = {
-      case 2: {
+      // optional double time = 3 [(.dccl.field) = {
+      case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(17u /* 17 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(25u /* 25 & 0xFF */)) {
           set_has_time();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
@@ -2554,403 +4365,7 @@ bool ControllerInfo::MergePartialFromCodedStream(
         break;
       }
 
-      // required bool setget = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
-          set_has_setget();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &setget_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional bool state = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
-          set_has_state();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &state_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:ControllerInfo)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:ControllerInfo)
-  return false;
-#undef DO_
-}
-
-void ControllerInfo::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:ControllerInfo)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // required int32 destination = 1 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000002u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->destination(), output);
-  }
-
-  // required double time = 2 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->time(), output);
-  }
-
-  // required bool setget = 3;
-  if (cached_has_bits & 0x00000004u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->setget(), output);
-  }
-
-  // optional bool state = 4;
-  if (cached_has_bits & 0x00000008u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(4, this->state(), output);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        _internal_metadata_.unknown_fields(), output);
-  }
-  // @@protoc_insertion_point(serialize_end:ControllerInfo)
-}
-
-::google::protobuf::uint8* ControllerInfo::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:ControllerInfo)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // required int32 destination = 1 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000002u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->destination(), target);
-  }
-
-  // required double time = 2 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->time(), target);
-  }
-
-  // required bool setget = 3;
-  if (cached_has_bits & 0x00000004u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->setget(), target);
-  }
-
-  // optional bool state = 4;
-  if (cached_has_bits & 0x00000008u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(4, this->state(), target);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ControllerInfo)
-  return target;
-}
-
-size_t ControllerInfo::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:ControllerInfo)
-  size_t total_size = 0;
-
-  if (has_time()) {
-    // required double time = 2 [(.dccl.field) = {
-    total_size += 1 + 8;
-  }
-
-  if (has_destination()) {
-    // required int32 destination = 1 [(.dccl.field) = {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->destination());
-  }
-
-  if (has_setget()) {
-    // required bool setget = 3;
-    total_size += 1 + 1;
-  }
-
-  return total_size;
-}
-size_t ControllerInfo::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ControllerInfo)
-  size_t total_size = 0;
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        _internal_metadata_.unknown_fields());
-  }
-  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
-    // required double time = 2 [(.dccl.field) = {
-    total_size += 1 + 8;
-
-    // required int32 destination = 1 [(.dccl.field) = {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->destination());
-
-    // required bool setget = 3;
-    total_size += 1 + 1;
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
-  }
-  // optional bool state = 4;
-  if (has_state()) {
-    total_size += 1 + 1;
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void ControllerInfo::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ControllerInfo)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ControllerInfo* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const ControllerInfo>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ControllerInfo)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ControllerInfo)
-    MergeFrom(*source);
-  }
-}
-
-void ControllerInfo::MergeFrom(const ControllerInfo& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ControllerInfo)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 15u) {
-    if (cached_has_bits & 0x00000001u) {
-      time_ = from.time_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      destination_ = from.destination_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      setget_ = from.setget_;
-    }
-    if (cached_has_bits & 0x00000008u) {
-      state_ = from.state_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void ControllerInfo::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ControllerInfo)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void ControllerInfo::CopyFrom(const ControllerInfo& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ControllerInfo)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool ControllerInfo::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
-  return true;
-}
-
-void ControllerInfo::Swap(ControllerInfo* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void ControllerInfo::InternalSwap(ControllerInfo* other) {
-  using std::swap;
-  swap(time_, other->time_);
-  swap(destination_, other->destination_);
-  swap(setget_, other->setget_);
-  swap(state_, other->state_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-}
-
-::google::protobuf::Metadata ControllerInfo::GetMetadata() const {
-  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
-void DirectControl::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int DirectControl::kDestinationFieldNumber;
-const int DirectControl::kTimeFieldNumber;
-const int DirectControl::kSetgetFieldNumber;
-const int DirectControl::kFrameFieldNumber;
-const int DirectControl::kSetXFieldNumber;
-const int DirectControl::kSetYFieldNumber;
-const int DirectControl::kSetZFieldNumber;
-const int DirectControl::kSetRollFieldNumber;
-const int DirectControl::kSetPitchFieldNumber;
-const int DirectControl::kSetYawFieldNumber;
-const int DirectControl::kSetUFieldNumber;
-const int DirectControl::kSetVFieldNumber;
-const int DirectControl::kSetWFieldNumber;
-const int DirectControl::kSetPFieldNumber;
-const int DirectControl::kSetQFieldNumber;
-const int DirectControl::kSetRFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-DirectControl::DirectControl()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  ::google::protobuf::internal::InitSCC(
-      &protobuf_goby_5fmsgs_2eproto::scc_info_DirectControl.base);
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:DirectControl)
-}
-DirectControl::DirectControl(const DirectControl& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&time_, &from.time_,
-    static_cast<size_t>(reinterpret_cast<char*>(&set_r_) -
-    reinterpret_cast<char*>(&time_)) + sizeof(set_r_));
-  // @@protoc_insertion_point(copy_constructor:DirectControl)
-}
-
-void DirectControl::SharedCtor() {
-  ::memset(&time_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&set_r_) -
-      reinterpret_cast<char*>(&time_)) + sizeof(set_r_));
-}
-
-DirectControl::~DirectControl() {
-  // @@protoc_insertion_point(destructor:DirectControl)
-  SharedDtor();
-}
-
-void DirectControl::SharedDtor() {
-}
-
-void DirectControl::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ::google::protobuf::Descriptor* DirectControl::descriptor() {
-  ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const DirectControl& DirectControl::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_DirectControl.base);
-  return *internal_default_instance();
-}
-
-
-void DirectControl::Clear() {
-// @@protoc_insertion_point(message_clear_start:DirectControl)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 255u) {
-    ::memset(&time_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&set_roll_) -
-        reinterpret_cast<char*>(&time_)) + sizeof(set_roll_));
-  }
-  if (cached_has_bits & 65280u) {
-    ::memset(&set_pitch_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&set_r_) -
-        reinterpret_cast<char*>(&set_pitch_)) + sizeof(set_r_));
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear();
-}
-
-bool DirectControl::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:DirectControl)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(16383u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 destination = 1 [(.dccl.field) = {
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-          set_has_destination();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &destination_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // required double time = 2 [(.dccl.field) = {
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(17u /* 17 & 0xFF */)) {
-          set_has_time();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &time_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // required bool setget = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
-          set_has_setget();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &setget_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional .DirectControl.Frame frame = 4;
+      // required .ControllerStateCommand.State state = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
@@ -2958,785 +4373,8 @@ bool DirectControl::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::DirectControl_Frame_IsValid(value)) {
-            set_frame(static_cast< ::DirectControl_Frame >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(
-                4, static_cast< ::google::protobuf::uint64>(value));
-          }
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional float set_x = 6 [(.dccl.field) = {
-      case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(53u /* 53 & 0xFF */)) {
-          set_has_set_x();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &set_x_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional float set_y = 7 [(.dccl.field) = {
-      case 7: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(61u /* 61 & 0xFF */)) {
-          set_has_set_y();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &set_y_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional float set_z = 8 [(.dccl.field) = {
-      case 8: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(69u /* 69 & 0xFF */)) {
-          set_has_set_z();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &set_z_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional float set_roll = 9 [(.dccl.field) = {
-      case 9: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(77u /* 77 & 0xFF */)) {
-          set_has_set_roll();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &set_roll_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional float set_pitch = 10 [(.dccl.field) = {
-      case 10: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(85u /* 85 & 0xFF */)) {
-          set_has_set_pitch();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &set_pitch_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional float set_yaw = 11 [(.dccl.field) = {
-      case 11: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(93u /* 93 & 0xFF */)) {
-          set_has_set_yaw();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &set_yaw_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional float set_u = 12 [(.dccl.field) = {
-      case 12: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(101u /* 101 & 0xFF */)) {
-          set_has_set_u();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &set_u_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional float set_v = 13 [(.dccl.field) = {
-      case 13: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(109u /* 109 & 0xFF */)) {
-          set_has_set_v();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &set_v_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional float set_w = 14 [(.dccl.field) = {
-      case 14: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(117u /* 117 & 0xFF */)) {
-          set_has_set_w();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &set_w_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional float set_p = 15 [(.dccl.field) = {
-      case 15: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(125u /* 125 & 0xFF */)) {
-          set_has_set_p();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &set_p_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional float set_q = 16 [(.dccl.field) = {
-      case 16: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(133u /* 133 & 0xFF */)) {
-          set_has_set_q();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &set_q_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional float set_r = 17 [(.dccl.field) = {
-      case 17: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(141u /* 141 & 0xFF */)) {
-          set_has_set_r();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &set_r_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:DirectControl)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:DirectControl)
-  return false;
-#undef DO_
-}
-
-void DirectControl::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:DirectControl)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // required int32 destination = 1 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000002u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->destination(), output);
-  }
-
-  // required double time = 2 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->time(), output);
-  }
-
-  // required bool setget = 3;
-  if (cached_has_bits & 0x00000004u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->setget(), output);
-  }
-
-  // optional .DirectControl.Frame frame = 4;
-  if (cached_has_bits & 0x00000008u) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      4, this->frame(), output);
-  }
-
-  // optional float set_x = 6 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000010u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(6, this->set_x(), output);
-  }
-
-  // optional float set_y = 7 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000020u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(7, this->set_y(), output);
-  }
-
-  // optional float set_z = 8 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000040u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(8, this->set_z(), output);
-  }
-
-  // optional float set_roll = 9 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000080u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(9, this->set_roll(), output);
-  }
-
-  // optional float set_pitch = 10 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000100u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(10, this->set_pitch(), output);
-  }
-
-  // optional float set_yaw = 11 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000200u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(11, this->set_yaw(), output);
-  }
-
-  // optional float set_u = 12 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000400u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(12, this->set_u(), output);
-  }
-
-  // optional float set_v = 13 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000800u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(13, this->set_v(), output);
-  }
-
-  // optional float set_w = 14 [(.dccl.field) = {
-  if (cached_has_bits & 0x00001000u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(14, this->set_w(), output);
-  }
-
-  // optional float set_p = 15 [(.dccl.field) = {
-  if (cached_has_bits & 0x00002000u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(15, this->set_p(), output);
-  }
-
-  // optional float set_q = 16 [(.dccl.field) = {
-  if (cached_has_bits & 0x00004000u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(16, this->set_q(), output);
-  }
-
-  // optional float set_r = 17 [(.dccl.field) = {
-  if (cached_has_bits & 0x00008000u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(17, this->set_r(), output);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        _internal_metadata_.unknown_fields(), output);
-  }
-  // @@protoc_insertion_point(serialize_end:DirectControl)
-}
-
-::google::protobuf::uint8* DirectControl::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:DirectControl)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // required int32 destination = 1 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000002u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->destination(), target);
-  }
-
-  // required double time = 2 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->time(), target);
-  }
-
-  // required bool setget = 3;
-  if (cached_has_bits & 0x00000004u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->setget(), target);
-  }
-
-  // optional .DirectControl.Frame frame = 4;
-  if (cached_has_bits & 0x00000008u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      4, this->frame(), target);
-  }
-
-  // optional float set_x = 6 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000010u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(6, this->set_x(), target);
-  }
-
-  // optional float set_y = 7 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000020u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(7, this->set_y(), target);
-  }
-
-  // optional float set_z = 8 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000040u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(8, this->set_z(), target);
-  }
-
-  // optional float set_roll = 9 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000080u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(9, this->set_roll(), target);
-  }
-
-  // optional float set_pitch = 10 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000100u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(10, this->set_pitch(), target);
-  }
-
-  // optional float set_yaw = 11 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000200u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(11, this->set_yaw(), target);
-  }
-
-  // optional float set_u = 12 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000400u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(12, this->set_u(), target);
-  }
-
-  // optional float set_v = 13 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000800u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(13, this->set_v(), target);
-  }
-
-  // optional float set_w = 14 [(.dccl.field) = {
-  if (cached_has_bits & 0x00001000u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(14, this->set_w(), target);
-  }
-
-  // optional float set_p = 15 [(.dccl.field) = {
-  if (cached_has_bits & 0x00002000u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(15, this->set_p(), target);
-  }
-
-  // optional float set_q = 16 [(.dccl.field) = {
-  if (cached_has_bits & 0x00004000u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(16, this->set_q(), target);
-  }
-
-  // optional float set_r = 17 [(.dccl.field) = {
-  if (cached_has_bits & 0x00008000u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(17, this->set_r(), target);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:DirectControl)
-  return target;
-}
-
-size_t DirectControl::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:DirectControl)
-  size_t total_size = 0;
-
-  if (has_time()) {
-    // required double time = 2 [(.dccl.field) = {
-    total_size += 1 + 8;
-  }
-
-  if (has_destination()) {
-    // required int32 destination = 1 [(.dccl.field) = {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->destination());
-  }
-
-  if (has_setget()) {
-    // required bool setget = 3;
-    total_size += 1 + 1;
-  }
-
-  return total_size;
-}
-size_t DirectControl::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:DirectControl)
-  size_t total_size = 0;
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        _internal_metadata_.unknown_fields());
-  }
-  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
-    // required double time = 2 [(.dccl.field) = {
-    total_size += 1 + 8;
-
-    // required int32 destination = 1 [(.dccl.field) = {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->destination());
-
-    // required bool setget = 3;
-    total_size += 1 + 1;
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
-  }
-  if (_has_bits_[0 / 32] & 248u) {
-    // optional .DirectControl.Frame frame = 4;
-    if (has_frame()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->frame());
-    }
-
-    // optional float set_x = 6 [(.dccl.field) = {
-    if (has_set_x()) {
-      total_size += 1 + 4;
-    }
-
-    // optional float set_y = 7 [(.dccl.field) = {
-    if (has_set_y()) {
-      total_size += 1 + 4;
-    }
-
-    // optional float set_z = 8 [(.dccl.field) = {
-    if (has_set_z()) {
-      total_size += 1 + 4;
-    }
-
-    // optional float set_roll = 9 [(.dccl.field) = {
-    if (has_set_roll()) {
-      total_size += 1 + 4;
-    }
-
-  }
-  if (_has_bits_[8 / 32] & 65280u) {
-    // optional float set_pitch = 10 [(.dccl.field) = {
-    if (has_set_pitch()) {
-      total_size += 1 + 4;
-    }
-
-    // optional float set_yaw = 11 [(.dccl.field) = {
-    if (has_set_yaw()) {
-      total_size += 1 + 4;
-    }
-
-    // optional float set_u = 12 [(.dccl.field) = {
-    if (has_set_u()) {
-      total_size += 1 + 4;
-    }
-
-    // optional float set_v = 13 [(.dccl.field) = {
-    if (has_set_v()) {
-      total_size += 1 + 4;
-    }
-
-    // optional float set_w = 14 [(.dccl.field) = {
-    if (has_set_w()) {
-      total_size += 1 + 4;
-    }
-
-    // optional float set_p = 15 [(.dccl.field) = {
-    if (has_set_p()) {
-      total_size += 1 + 4;
-    }
-
-    // optional float set_q = 16 [(.dccl.field) = {
-    if (has_set_q()) {
-      total_size += 2 + 4;
-    }
-
-    // optional float set_r = 17 [(.dccl.field) = {
-    if (has_set_r()) {
-      total_size += 2 + 4;
-    }
-
-  }
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void DirectControl::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:DirectControl)
-  GOOGLE_DCHECK_NE(&from, this);
-  const DirectControl* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const DirectControl>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:DirectControl)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:DirectControl)
-    MergeFrom(*source);
-  }
-}
-
-void DirectControl::MergeFrom(const DirectControl& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DirectControl)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 255u) {
-    if (cached_has_bits & 0x00000001u) {
-      time_ = from.time_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      destination_ = from.destination_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      setget_ = from.setget_;
-    }
-    if (cached_has_bits & 0x00000008u) {
-      frame_ = from.frame_;
-    }
-    if (cached_has_bits & 0x00000010u) {
-      set_x_ = from.set_x_;
-    }
-    if (cached_has_bits & 0x00000020u) {
-      set_y_ = from.set_y_;
-    }
-    if (cached_has_bits & 0x00000040u) {
-      set_z_ = from.set_z_;
-    }
-    if (cached_has_bits & 0x00000080u) {
-      set_roll_ = from.set_roll_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-  if (cached_has_bits & 65280u) {
-    if (cached_has_bits & 0x00000100u) {
-      set_pitch_ = from.set_pitch_;
-    }
-    if (cached_has_bits & 0x00000200u) {
-      set_yaw_ = from.set_yaw_;
-    }
-    if (cached_has_bits & 0x00000400u) {
-      set_u_ = from.set_u_;
-    }
-    if (cached_has_bits & 0x00000800u) {
-      set_v_ = from.set_v_;
-    }
-    if (cached_has_bits & 0x00001000u) {
-      set_w_ = from.set_w_;
-    }
-    if (cached_has_bits & 0x00002000u) {
-      set_p_ = from.set_p_;
-    }
-    if (cached_has_bits & 0x00004000u) {
-      set_q_ = from.set_q_;
-    }
-    if (cached_has_bits & 0x00008000u) {
-      set_r_ = from.set_r_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void DirectControl::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:DirectControl)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void DirectControl::CopyFrom(const DirectControl& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:DirectControl)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool DirectControl::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
-  return true;
-}
-
-void DirectControl::Swap(DirectControl* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void DirectControl::InternalSwap(DirectControl* other) {
-  using std::swap;
-  swap(time_, other->time_);
-  swap(destination_, other->destination_);
-  swap(setget_, other->setget_);
-  swap(frame_, other->frame_);
-  swap(set_x_, other->set_x_);
-  swap(set_y_, other->set_y_);
-  swap(set_z_, other->set_z_);
-  swap(set_roll_, other->set_roll_);
-  swap(set_pitch_, other->set_pitch_);
-  swap(set_yaw_, other->set_yaw_);
-  swap(set_u_, other->set_u_);
-  swap(set_v_, other->set_v_);
-  swap(set_w_, other->set_w_);
-  swap(set_p_, other->set_p_);
-  swap(set_q_, other->set_q_);
-  swap(set_r_, other->set_r_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-}
-
-::google::protobuf::Metadata DirectControl::GetMetadata() const {
-  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
-void StateInfo::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int StateInfo::kDestinationFieldNumber;
-const int StateInfo::kTimeFieldNumber;
-const int StateInfo::kSetgetFieldNumber;
-const int StateInfo::kStateFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-StateInfo::StateInfo()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  ::google::protobuf::internal::InitSCC(
-      &protobuf_goby_5fmsgs_2eproto::scc_info_StateInfo.base);
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:StateInfo)
-}
-StateInfo::StateInfo(const StateInfo& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&time_, &from.time_,
-    static_cast<size_t>(reinterpret_cast<char*>(&state_) -
-    reinterpret_cast<char*>(&time_)) + sizeof(state_));
-  // @@protoc_insertion_point(copy_constructor:StateInfo)
-}
-
-void StateInfo::SharedCtor() {
-  ::memset(&time_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&state_) -
-      reinterpret_cast<char*>(&time_)) + sizeof(state_));
-}
-
-StateInfo::~StateInfo() {
-  // @@protoc_insertion_point(destructor:StateInfo)
-  SharedDtor();
-}
-
-void StateInfo::SharedDtor() {
-}
-
-void StateInfo::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ::google::protobuf::Descriptor* StateInfo::descriptor() {
-  ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const StateInfo& StateInfo::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_StateInfo.base);
-  return *internal_default_instance();
-}
-
-
-void StateInfo::Clear() {
-// @@protoc_insertion_point(message_clear_start:StateInfo)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 15u) {
-    ::memset(&time_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&state_) -
-        reinterpret_cast<char*>(&time_)) + sizeof(state_));
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear();
-}
-
-bool StateInfo::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:StateInfo)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 destination = 1 [(.dccl.field) = {
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-          set_has_destination();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &destination_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // required double time = 2 [(.dccl.field) = {
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(17u /* 17 & 0xFF */)) {
-          set_has_time();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &time_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // required bool setget = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
-          set_has_setget();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &setget_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional .StateInfo.State state = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (::StateInfo_State_IsValid(value)) {
-            set_state(static_cast< ::StateInfo_State >(value));
+          if (::ControllerStateCommand_State_IsValid(value)) {
+            set_state(static_cast< ::ControllerStateCommand_State >(value));
           } else {
             mutable_unknown_fields()->AddVarint(
                 4, static_cast< ::google::protobuf::uint64>(value));
@@ -3759,37 +4397,37 @@ bool StateInfo::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:StateInfo)
+  // @@protoc_insertion_point(parse_success:ControllerStateCommand)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:StateInfo)
+  // @@protoc_insertion_point(parse_failure:ControllerStateCommand)
   return false;
 #undef DO_
 }
 
-void StateInfo::SerializeWithCachedSizes(
+void ControllerStateCommand::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:StateInfo)
+  // @@protoc_insertion_point(serialize_start:ControllerStateCommand)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required int32 destination = 1 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000002u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->destination(), output);
-  }
-
-  // required double time = 2 [(.dccl.field) = {
+  // required int32 source = 1 [(.dccl.field) = {
   if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->time(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->source(), output);
   }
 
-  // required bool setget = 3;
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->destination(), output);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
   if (cached_has_bits & 0x00000004u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->setget(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
   }
 
-  // optional .StateInfo.State state = 4;
+  // required .ControllerStateCommand.State state = 4;
   if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       4, this->state(), output);
@@ -3799,33 +4437,33 @@ void StateInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:StateInfo)
+  // @@protoc_insertion_point(serialize_end:ControllerStateCommand)
 }
 
-::google::protobuf::uint8* StateInfo::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* ControllerStateCommand::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:StateInfo)
+  // @@protoc_insertion_point(serialize_to_array_start:ControllerStateCommand)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required int32 destination = 1 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000002u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->destination(), target);
-  }
-
-  // required double time = 2 [(.dccl.field) = {
+  // required int32 source = 1 [(.dccl.field) = {
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->time(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->source(), target);
   }
 
-  // required bool setget = 3;
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->destination(), target);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
   if (cached_has_bits & 0x00000004u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->setget(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
   }
 
-  // optional .StateInfo.State state = 4;
+  // required .ControllerStateCommand.State state = 4;
   if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       4, this->state(), target);
@@ -3835,35 +4473,38 @@ void StateInfo::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:StateInfo)
+  // @@protoc_insertion_point(serialize_to_array_end:ControllerStateCommand)
   return target;
 }
 
-size_t StateInfo::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:StateInfo)
+size_t ControllerStateCommand::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:ControllerStateCommand)
   size_t total_size = 0;
 
-  if (has_time()) {
-    // required double time = 2 [(.dccl.field) = {
-    total_size += 1 + 8;
+  if (has_source()) {
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
   }
 
   if (has_destination()) {
-    // required int32 destination = 1 [(.dccl.field) = {
+    // required int32 destination = 2 [(.dccl.field) = {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
   }
 
-  if (has_setget()) {
-    // required bool setget = 3;
-    total_size += 1 + 1;
+  if (has_state()) {
+    // required .ControllerStateCommand.State state = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
   }
 
   return total_size;
 }
-size_t StateInfo::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:StateInfo)
+size_t ControllerStateCommand::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ControllerStateCommand)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3871,22 +4512,1652 @@ size_t StateInfo::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
-    // required double time = 2 [(.dccl.field) = {
-    total_size += 1 + 8;
+  if (((_has_bits_[0] & 0x0000000b) ^ 0x0000000b) == 0) {  // All required fields are present.
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
 
-    // required int32 destination = 1 [(.dccl.field) = {
+    // required int32 destination = 2 [(.dccl.field) = {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
 
-    // required bool setget = 3;
-    total_size += 1 + 1;
+    // required .ControllerStateCommand.State state = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
-  // optional .StateInfo.State state = 4;
+  // optional double time = 3 [(.dccl.field) = {
+  if (has_time()) {
+    total_size += 1 + 8;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void ControllerStateCommand::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ControllerStateCommand)
+  GOOGLE_DCHECK_NE(&from, this);
+  const ControllerStateCommand* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const ControllerStateCommand>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ControllerStateCommand)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ControllerStateCommand)
+    MergeFrom(*source);
+  }
+}
+
+void ControllerStateCommand::MergeFrom(const ControllerStateCommand& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ControllerStateCommand)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 15u) {
+    if (cached_has_bits & 0x00000001u) {
+      source_ = from.source_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      destination_ = from.destination_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      time_ = from.time_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      state_ = from.state_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void ControllerStateCommand::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ControllerStateCommand)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ControllerStateCommand::CopyFrom(const ControllerStateCommand& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ControllerStateCommand)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ControllerStateCommand::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000000b) != 0x0000000b) return false;
+  return true;
+}
+
+void ControllerStateCommand::Swap(ControllerStateCommand* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void ControllerStateCommand::InternalSwap(ControllerStateCommand* other) {
+  using std::swap;
+  swap(source_, other->source_);
+  swap(destination_, other->destination_);
+  swap(time_, other->time_);
+  swap(state_, other->state_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata ControllerStateCommand::GetMetadata() const {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void ControllerStateResponse::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int ControllerStateResponse::kSourceFieldNumber;
+const int ControllerStateResponse::kDestinationFieldNumber;
+const int ControllerStateResponse::kTimeFieldNumber;
+const int ControllerStateResponse::kStateFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+ControllerStateResponse::ControllerStateResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_goby_5fmsgs_2eproto::scc_info_ControllerStateResponse.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ControllerStateResponse)
+}
+ControllerStateResponse::ControllerStateResponse(const ControllerStateResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&source_, &from.source_,
+    static_cast<size_t>(reinterpret_cast<char*>(&state_) -
+    reinterpret_cast<char*>(&source_)) + sizeof(state_));
+  // @@protoc_insertion_point(copy_constructor:ControllerStateResponse)
+}
+
+void ControllerStateResponse::SharedCtor() {
+  ::memset(&source_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&state_) -
+      reinterpret_cast<char*>(&source_)) + sizeof(state_));
+}
+
+ControllerStateResponse::~ControllerStateResponse() {
+  // @@protoc_insertion_point(destructor:ControllerStateResponse)
+  SharedDtor();
+}
+
+void ControllerStateResponse::SharedDtor() {
+}
+
+void ControllerStateResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* ControllerStateResponse::descriptor() {
+  ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const ControllerStateResponse& ControllerStateResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_ControllerStateResponse.base);
+  return *internal_default_instance();
+}
+
+
+void ControllerStateResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:ControllerStateResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 15u) {
+    ::memset(&source_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&state_) -
+        reinterpret_cast<char*>(&source_)) + sizeof(state_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool ControllerStateResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ControllerStateResponse)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 source = 1 [(.dccl.field) = {
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_source();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &source_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required int32 destination = 2 [(.dccl.field) = {
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+          set_has_destination();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &destination_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional double time = 3 [(.dccl.field) = {
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(25u /* 25 & 0xFF */)) {
+          set_has_time();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &time_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required .ControllerStateResponse.State state = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::ControllerStateResponse_State_IsValid(value)) {
+            set_state(static_cast< ::ControllerStateResponse_State >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(
+                4, static_cast< ::google::protobuf::uint64>(value));
+          }
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ControllerStateResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ControllerStateResponse)
+  return false;
+#undef DO_
+}
+
+void ControllerStateResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ControllerStateResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->source(), output);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->destination(), output);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
+  }
+
+  // required .ControllerStateResponse.State state = 4;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      4, this->state(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ControllerStateResponse)
+}
+
+::google::protobuf::uint8* ControllerStateResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:ControllerStateResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->source(), target);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->destination(), target);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
+  }
+
+  // required .ControllerStateResponse.State state = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      4, this->state(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ControllerStateResponse)
+  return target;
+}
+
+size_t ControllerStateResponse::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:ControllerStateResponse)
+  size_t total_size = 0;
+
+  if (has_source()) {
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+  }
+
+  if (has_destination()) {
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+  }
+
+  if (has_state()) {
+    // required .ControllerStateResponse.State state = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
+  }
+
+  return total_size;
+}
+size_t ControllerStateResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ControllerStateResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x0000000b) ^ 0x0000000b) == 0) {  // All required fields are present.
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+
+    // required .ControllerStateResponse.State state = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  // optional double time = 3 [(.dccl.field) = {
+  if (has_time()) {
+    total_size += 1 + 8;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void ControllerStateResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ControllerStateResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const ControllerStateResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const ControllerStateResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ControllerStateResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ControllerStateResponse)
+    MergeFrom(*source);
+  }
+}
+
+void ControllerStateResponse::MergeFrom(const ControllerStateResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ControllerStateResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 15u) {
+    if (cached_has_bits & 0x00000001u) {
+      source_ = from.source_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      destination_ = from.destination_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      time_ = from.time_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      state_ = from.state_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void ControllerStateResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ControllerStateResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ControllerStateResponse::CopyFrom(const ControllerStateResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ControllerStateResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ControllerStateResponse::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000000b) != 0x0000000b) return false;
+  return true;
+}
+
+void ControllerStateResponse::Swap(ControllerStateResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void ControllerStateResponse::InternalSwap(ControllerStateResponse* other) {
+  using std::swap;
+  swap(source_, other->source_);
+  swap(destination_, other->destination_);
+  swap(time_, other->time_);
+  swap(state_, other->state_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata ControllerStateResponse::GetMetadata() const {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void DirectControlCommand::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int DirectControlCommand::kSourceFieldNumber;
+const int DirectControlCommand::kDestinationFieldNumber;
+const int DirectControlCommand::kTimeFieldNumber;
+const int DirectControlCommand::kFrameFieldNumber;
+const int DirectControlCommand::kXFieldNumber;
+const int DirectControlCommand::kYFieldNumber;
+const int DirectControlCommand::kZFieldNumber;
+const int DirectControlCommand::kRollFieldNumber;
+const int DirectControlCommand::kPitchFieldNumber;
+const int DirectControlCommand::kYawFieldNumber;
+const int DirectControlCommand::kUFieldNumber;
+const int DirectControlCommand::kVFieldNumber;
+const int DirectControlCommand::kWFieldNumber;
+const int DirectControlCommand::kPFieldNumber;
+const int DirectControlCommand::kQFieldNumber;
+const int DirectControlCommand::kRFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+DirectControlCommand::DirectControlCommand()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_goby_5fmsgs_2eproto::scc_info_DirectControlCommand.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:DirectControlCommand)
+}
+DirectControlCommand::DirectControlCommand(const DirectControlCommand& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&source_, &from.source_,
+    static_cast<size_t>(reinterpret_cast<char*>(&r_) -
+    reinterpret_cast<char*>(&source_)) + sizeof(r_));
+  // @@protoc_insertion_point(copy_constructor:DirectControlCommand)
+}
+
+void DirectControlCommand::SharedCtor() {
+  ::memset(&source_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&r_) -
+      reinterpret_cast<char*>(&source_)) + sizeof(r_));
+}
+
+DirectControlCommand::~DirectControlCommand() {
+  // @@protoc_insertion_point(destructor:DirectControlCommand)
+  SharedDtor();
+}
+
+void DirectControlCommand::SharedDtor() {
+}
+
+void DirectControlCommand::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* DirectControlCommand::descriptor() {
+  ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const DirectControlCommand& DirectControlCommand::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_DirectControlCommand.base);
+  return *internal_default_instance();
+}
+
+
+void DirectControlCommand::Clear() {
+// @@protoc_insertion_point(message_clear_start:DirectControlCommand)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 255u) {
+    ::memset(&source_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&roll_) -
+        reinterpret_cast<char*>(&source_)) + sizeof(roll_));
+  }
+  if (cached_has_bits & 65280u) {
+    ::memset(&pitch_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&r_) -
+        reinterpret_cast<char*>(&pitch_)) + sizeof(r_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool DirectControlCommand::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:DirectControlCommand)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(16383u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 source = 1 [(.dccl.field) = {
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_source();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &source_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required int32 destination = 2 [(.dccl.field) = {
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+          set_has_destination();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &destination_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional double time = 3 [(.dccl.field) = {
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(25u /* 25 & 0xFF */)) {
+          set_has_time();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &time_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required .DirectControlCommand.Frame frame = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::DirectControlCommand_Frame_IsValid(value)) {
+            set_frame(static_cast< ::DirectControlCommand_Frame >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(
+                4, static_cast< ::google::protobuf::uint64>(value));
+          }
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float x = 5 [(.dccl.field) = {
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(45u /* 45 & 0xFF */)) {
+          set_has_x();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &x_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float y = 6 [(.dccl.field) = {
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(53u /* 53 & 0xFF */)) {
+          set_has_y();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &y_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float z = 7 [(.dccl.field) = {
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(61u /* 61 & 0xFF */)) {
+          set_has_z();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &z_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float roll = 8 [(.dccl.field) = {
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(69u /* 69 & 0xFF */)) {
+          set_has_roll();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &roll_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float pitch = 9 [(.dccl.field) = {
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(77u /* 77 & 0xFF */)) {
+          set_has_pitch();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &pitch_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float yaw = 10 [(.dccl.field) = {
+      case 10: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(85u /* 85 & 0xFF */)) {
+          set_has_yaw();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &yaw_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float u = 11 [(.dccl.field) = {
+      case 11: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(93u /* 93 & 0xFF */)) {
+          set_has_u();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &u_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float v = 12 [(.dccl.field) = {
+      case 12: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(101u /* 101 & 0xFF */)) {
+          set_has_v();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &v_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float w = 13 [(.dccl.field) = {
+      case 13: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(109u /* 109 & 0xFF */)) {
+          set_has_w();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &w_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float p = 14 [(.dccl.field) = {
+      case 14: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(117u /* 117 & 0xFF */)) {
+          set_has_p();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &p_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float q = 15 [(.dccl.field) = {
+      case 15: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(125u /* 125 & 0xFF */)) {
+          set_has_q();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &q_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float r = 16 [(.dccl.field) = {
+      case 16: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(133u /* 133 & 0xFF */)) {
+          set_has_r();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &r_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:DirectControlCommand)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:DirectControlCommand)
+  return false;
+#undef DO_
+}
+
+void DirectControlCommand::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:DirectControlCommand)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->source(), output);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->destination(), output);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
+  }
+
+  // required .DirectControlCommand.Frame frame = 4;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      4, this->frame(), output);
+  }
+
+  // required float x = 5 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(5, this->x(), output);
+  }
+
+  // required float y = 6 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(6, this->y(), output);
+  }
+
+  // required float z = 7 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000040u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(7, this->z(), output);
+  }
+
+  // required float roll = 8 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000080u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(8, this->roll(), output);
+  }
+
+  // required float pitch = 9 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000100u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(9, this->pitch(), output);
+  }
+
+  // required float yaw = 10 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000200u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(10, this->yaw(), output);
+  }
+
+  // required float u = 11 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000400u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(11, this->u(), output);
+  }
+
+  // required float v = 12 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000800u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(12, this->v(), output);
+  }
+
+  // required float w = 13 [(.dccl.field) = {
+  if (cached_has_bits & 0x00001000u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(13, this->w(), output);
+  }
+
+  // required float p = 14 [(.dccl.field) = {
+  if (cached_has_bits & 0x00002000u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(14, this->p(), output);
+  }
+
+  // required float q = 15 [(.dccl.field) = {
+  if (cached_has_bits & 0x00004000u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(15, this->q(), output);
+  }
+
+  // required float r = 16 [(.dccl.field) = {
+  if (cached_has_bits & 0x00008000u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(16, this->r(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:DirectControlCommand)
+}
+
+::google::protobuf::uint8* DirectControlCommand::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:DirectControlCommand)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->source(), target);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->destination(), target);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
+  }
+
+  // required .DirectControlCommand.Frame frame = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      4, this->frame(), target);
+  }
+
+  // required float x = 5 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(5, this->x(), target);
+  }
+
+  // required float y = 6 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(6, this->y(), target);
+  }
+
+  // required float z = 7 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000040u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(7, this->z(), target);
+  }
+
+  // required float roll = 8 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000080u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(8, this->roll(), target);
+  }
+
+  // required float pitch = 9 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000100u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(9, this->pitch(), target);
+  }
+
+  // required float yaw = 10 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000200u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(10, this->yaw(), target);
+  }
+
+  // required float u = 11 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000400u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(11, this->u(), target);
+  }
+
+  // required float v = 12 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000800u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(12, this->v(), target);
+  }
+
+  // required float w = 13 [(.dccl.field) = {
+  if (cached_has_bits & 0x00001000u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(13, this->w(), target);
+  }
+
+  // required float p = 14 [(.dccl.field) = {
+  if (cached_has_bits & 0x00002000u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(14, this->p(), target);
+  }
+
+  // required float q = 15 [(.dccl.field) = {
+  if (cached_has_bits & 0x00004000u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(15, this->q(), target);
+  }
+
+  // required float r = 16 [(.dccl.field) = {
+  if (cached_has_bits & 0x00008000u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(16, this->r(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:DirectControlCommand)
+  return target;
+}
+
+size_t DirectControlCommand::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:DirectControlCommand)
+  size_t total_size = 0;
+
+  if (has_source()) {
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+  }
+
+  if (has_destination()) {
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+  }
+
+  if (has_frame()) {
+    // required .DirectControlCommand.Frame frame = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->frame());
+  }
+
+  if (has_x()) {
+    // required float x = 5 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_y()) {
+    // required float y = 6 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_z()) {
+    // required float z = 7 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_roll()) {
+    // required float roll = 8 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_pitch()) {
+    // required float pitch = 9 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_yaw()) {
+    // required float yaw = 10 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_u()) {
+    // required float u = 11 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_v()) {
+    // required float v = 12 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_w()) {
+    // required float w = 13 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_p()) {
+    // required float p = 14 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_q()) {
+    // required float q = 15 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_r()) {
+    // required float r = 16 [(.dccl.field) = {
+    total_size += 2 + 4;
+  }
+
+  return total_size;
+}
+size_t DirectControlCommand::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:DirectControlCommand)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x0000fffb) ^ 0x0000fffb) == 0) {  // All required fields are present.
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+
+    // required .DirectControlCommand.Frame frame = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->frame());
+
+    // required float x = 5 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float y = 6 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float z = 7 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float roll = 8 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float pitch = 9 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float yaw = 10 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float u = 11 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float v = 12 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float w = 13 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float p = 14 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float q = 15 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float r = 16 [(.dccl.field) = {
+    total_size += 2 + 4;
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  // optional double time = 3 [(.dccl.field) = {
+  if (has_time()) {
+    total_size += 1 + 8;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void DirectControlCommand::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:DirectControlCommand)
+  GOOGLE_DCHECK_NE(&from, this);
+  const DirectControlCommand* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const DirectControlCommand>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:DirectControlCommand)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:DirectControlCommand)
+    MergeFrom(*source);
+  }
+}
+
+void DirectControlCommand::MergeFrom(const DirectControlCommand& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:DirectControlCommand)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 255u) {
+    if (cached_has_bits & 0x00000001u) {
+      source_ = from.source_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      destination_ = from.destination_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      time_ = from.time_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      frame_ = from.frame_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      x_ = from.x_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      y_ = from.y_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      z_ = from.z_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      roll_ = from.roll_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 65280u) {
+    if (cached_has_bits & 0x00000100u) {
+      pitch_ = from.pitch_;
+    }
+    if (cached_has_bits & 0x00000200u) {
+      yaw_ = from.yaw_;
+    }
+    if (cached_has_bits & 0x00000400u) {
+      u_ = from.u_;
+    }
+    if (cached_has_bits & 0x00000800u) {
+      v_ = from.v_;
+    }
+    if (cached_has_bits & 0x00001000u) {
+      w_ = from.w_;
+    }
+    if (cached_has_bits & 0x00002000u) {
+      p_ = from.p_;
+    }
+    if (cached_has_bits & 0x00004000u) {
+      q_ = from.q_;
+    }
+    if (cached_has_bits & 0x00008000u) {
+      r_ = from.r_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void DirectControlCommand::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:DirectControlCommand)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DirectControlCommand::CopyFrom(const DirectControlCommand& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:DirectControlCommand)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DirectControlCommand::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000fffb) != 0x0000fffb) return false;
+  return true;
+}
+
+void DirectControlCommand::Swap(DirectControlCommand* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void DirectControlCommand::InternalSwap(DirectControlCommand* other) {
+  using std::swap;
+  swap(source_, other->source_);
+  swap(destination_, other->destination_);
+  swap(time_, other->time_);
+  swap(frame_, other->frame_);
+  swap(x_, other->x_);
+  swap(y_, other->y_);
+  swap(z_, other->z_);
+  swap(roll_, other->roll_);
+  swap(pitch_, other->pitch_);
+  swap(yaw_, other->yaw_);
+  swap(u_, other->u_);
+  swap(v_, other->v_);
+  swap(w_, other->w_);
+  swap(p_, other->p_);
+  swap(q_, other->q_);
+  swap(r_, other->r_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata DirectControlCommand::GetMetadata() const {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void StateCommand::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int StateCommand::kSourceFieldNumber;
+const int StateCommand::kDestinationFieldNumber;
+const int StateCommand::kTimeFieldNumber;
+const int StateCommand::kModeFieldNumber;
+const int StateCommand::kStateFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+StateCommand::StateCommand()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_goby_5fmsgs_2eproto::scc_info_StateCommand.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:StateCommand)
+}
+StateCommand::StateCommand(const StateCommand& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&source_, &from.source_,
+    static_cast<size_t>(reinterpret_cast<char*>(&state_) -
+    reinterpret_cast<char*>(&source_)) + sizeof(state_));
+  // @@protoc_insertion_point(copy_constructor:StateCommand)
+}
+
+void StateCommand::SharedCtor() {
+  ::memset(&source_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&state_) -
+      reinterpret_cast<char*>(&source_)) + sizeof(state_));
+}
+
+StateCommand::~StateCommand() {
+  // @@protoc_insertion_point(destructor:StateCommand)
+  SharedDtor();
+}
+
+void StateCommand::SharedDtor() {
+}
+
+void StateCommand::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* StateCommand::descriptor() {
+  ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const StateCommand& StateCommand::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_StateCommand.base);
+  return *internal_default_instance();
+}
+
+
+void StateCommand::Clear() {
+// @@protoc_insertion_point(message_clear_start:StateCommand)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 31u) {
+    ::memset(&source_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&state_) -
+        reinterpret_cast<char*>(&source_)) + sizeof(state_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool StateCommand::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:StateCommand)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 source = 1 [(.dccl.field) = {
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_source();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &source_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required int32 destination = 2 [(.dccl.field) = {
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+          set_has_destination();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &destination_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional double time = 3 [(.dccl.field) = {
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(25u /* 25 & 0xFF */)) {
+          set_has_time();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &time_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required .StateCommand.Mode mode = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::StateCommand_Mode_IsValid(value)) {
+            set_mode(static_cast< ::StateCommand_Mode >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(
+                4, static_cast< ::google::protobuf::uint64>(value));
+          }
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional .StateCommand.State state = 5 [(.dccl.field) = {
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::StateCommand_State_IsValid(value)) {
+            set_state(static_cast< ::StateCommand_State >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(
+                5, static_cast< ::google::protobuf::uint64>(value));
+          }
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:StateCommand)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:StateCommand)
+  return false;
+#undef DO_
+}
+
+void StateCommand::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:StateCommand)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->source(), output);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->destination(), output);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
+  }
+
+  // required .StateCommand.Mode mode = 4;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      4, this->mode(), output);
+  }
+
+  // optional .StateCommand.State state = 5 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      5, this->state(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:StateCommand)
+}
+
+::google::protobuf::uint8* StateCommand::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:StateCommand)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->source(), target);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->destination(), target);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
+  }
+
+  // required .StateCommand.Mode mode = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      4, this->mode(), target);
+  }
+
+  // optional .StateCommand.State state = 5 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      5, this->state(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:StateCommand)
+  return target;
+}
+
+size_t StateCommand::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:StateCommand)
+  size_t total_size = 0;
+
+  if (has_source()) {
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+  }
+
+  if (has_destination()) {
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+  }
+
+  if (has_mode()) {
+    // required .StateCommand.Mode mode = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
+  }
+
+  return total_size;
+}
+size_t StateCommand::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:StateCommand)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x0000000b) ^ 0x0000000b) == 0) {  // All required fields are present.
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+
+    // required .StateCommand.Mode mode = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  // optional double time = 3 [(.dccl.field) = {
+  if (has_time()) {
+    total_size += 1 + 8;
+  }
+
+  // optional .StateCommand.State state = 5 [(.dccl.field) = {
   if (has_state()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
@@ -3897,80 +6168,84 @@ size_t StateInfo::ByteSizeLong() const {
   return total_size;
 }
 
-void StateInfo::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:StateInfo)
+void StateCommand::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:StateCommand)
   GOOGLE_DCHECK_NE(&from, this);
-  const StateInfo* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const StateInfo>(
+  const StateCommand* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const StateCommand>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:StateInfo)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:StateCommand)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:StateInfo)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:StateCommand)
     MergeFrom(*source);
   }
 }
 
-void StateInfo::MergeFrom(const StateInfo& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:StateInfo)
+void StateCommand::MergeFrom(const StateCommand& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:StateCommand)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 15u) {
+  if (cached_has_bits & 31u) {
     if (cached_has_bits & 0x00000001u) {
-      time_ = from.time_;
+      source_ = from.source_;
     }
     if (cached_has_bits & 0x00000002u) {
       destination_ = from.destination_;
     }
     if (cached_has_bits & 0x00000004u) {
-      setget_ = from.setget_;
+      time_ = from.time_;
     }
     if (cached_has_bits & 0x00000008u) {
+      mode_ = from.mode_;
+    }
+    if (cached_has_bits & 0x00000010u) {
       state_ = from.state_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
 }
 
-void StateInfo::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:StateInfo)
+void StateCommand::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:StateCommand)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void StateInfo::CopyFrom(const StateInfo& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:StateInfo)
+void StateCommand::CopyFrom(const StateCommand& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:StateCommand)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool StateInfo::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+bool StateCommand::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000000b) != 0x0000000b) return false;
   return true;
 }
 
-void StateInfo::Swap(StateInfo* other) {
+void StateCommand::Swap(StateCommand* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void StateInfo::InternalSwap(StateInfo* other) {
+void StateCommand::InternalSwap(StateCommand* other) {
   using std::swap;
-  swap(time_, other->time_);
+  swap(source_, other->source_);
   swap(destination_, other->destination_);
-  swap(setget_, other->setget_);
+  swap(time_, other->time_);
+  swap(mode_, other->mode_);
   swap(state_, other->state_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata StateInfo::GetMetadata() const {
+::google::protobuf::Metadata StateCommand::GetMetadata() const {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -3978,95 +6253,105 @@ void StateInfo::InternalSwap(StateInfo* other) {
 
 // ===================================================================
 
-void SingleWaypoint::InitAsDefaultInstance() {
+void StateResponse::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int SingleWaypoint::kDestinationFieldNumber;
-const int SingleWaypoint::kTimeFieldNumber;
-const int SingleWaypoint::kSetgetFieldNumber;
-const int SingleWaypoint::kLatitudeFieldNumber;
-const int SingleWaypoint::kLongitudeFieldNumber;
-const int SingleWaypoint::kLocalXFieldNumber;
-const int SingleWaypoint::kLocalYFieldNumber;
-const int SingleWaypoint::kDepthFieldNumber;
+const int StateResponse::kSourceFieldNumber;
+const int StateResponse::kDestinationFieldNumber;
+const int StateResponse::kTimeFieldNumber;
+const int StateResponse::kStateFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-SingleWaypoint::SingleWaypoint()
+StateResponse::StateResponse()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_goby_5fmsgs_2eproto::scc_info_SingleWaypoint.base);
+      &protobuf_goby_5fmsgs_2eproto::scc_info_StateResponse.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:SingleWaypoint)
+  // @@protoc_insertion_point(constructor:StateResponse)
 }
-SingleWaypoint::SingleWaypoint(const SingleWaypoint& from)
+StateResponse::StateResponse(const StateResponse& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&time_, &from.time_,
-    static_cast<size_t>(reinterpret_cast<char*>(&depth_) -
-    reinterpret_cast<char*>(&time_)) + sizeof(depth_));
-  // @@protoc_insertion_point(copy_constructor:SingleWaypoint)
+  ::memcpy(&source_, &from.source_,
+    static_cast<size_t>(reinterpret_cast<char*>(&state_) -
+    reinterpret_cast<char*>(&source_)) + sizeof(state_));
+  // @@protoc_insertion_point(copy_constructor:StateResponse)
 }
 
-void SingleWaypoint::SharedCtor() {
-  ::memset(&time_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&depth_) -
-      reinterpret_cast<char*>(&time_)) + sizeof(depth_));
+void StateResponse::SharedCtor() {
+  ::memset(&source_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&state_) -
+      reinterpret_cast<char*>(&source_)) + sizeof(state_));
 }
 
-SingleWaypoint::~SingleWaypoint() {
-  // @@protoc_insertion_point(destructor:SingleWaypoint)
+StateResponse::~StateResponse() {
+  // @@protoc_insertion_point(destructor:StateResponse)
   SharedDtor();
 }
 
-void SingleWaypoint::SharedDtor() {
+void StateResponse::SharedDtor() {
 }
 
-void SingleWaypoint::SetCachedSize(int size) const {
+void StateResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* SingleWaypoint::descriptor() {
+const ::google::protobuf::Descriptor* StateResponse::descriptor() {
   ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const SingleWaypoint& SingleWaypoint::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_SingleWaypoint.base);
+const StateResponse& StateResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_StateResponse.base);
   return *internal_default_instance();
 }
 
 
-void SingleWaypoint::Clear() {
-// @@protoc_insertion_point(message_clear_start:SingleWaypoint)
+void StateResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:StateResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 255u) {
-    ::memset(&time_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&depth_) -
-        reinterpret_cast<char*>(&time_)) + sizeof(depth_));
+  if (cached_has_bits & 15u) {
+    ::memset(&source_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&state_) -
+        reinterpret_cast<char*>(&source_)) + sizeof(state_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
 
-bool SingleWaypoint::MergePartialFromCodedStream(
+bool StateResponse::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:SingleWaypoint)
+  // @@protoc_insertion_point(parse_start:StateResponse)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 destination = 1 [(.dccl.field) = {
+      // required int32 source = 1 [(.dccl.field) = {
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_source();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &source_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required int32 destination = 2 [(.dccl.field) = {
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
           set_has_destination();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -4077,10 +6362,10 @@ bool SingleWaypoint::MergePartialFromCodedStream(
         break;
       }
 
-      // required double time = 2 [(.dccl.field) = {
-      case 2: {
+      // optional double time = 3 [(.dccl.field) = {
+      case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(17u /* 17 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(25u /* 25 & 0xFF */)) {
           set_has_time();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
@@ -4091,21 +6376,944 @@ bool SingleWaypoint::MergePartialFromCodedStream(
         break;
       }
 
-      // required bool setget = 3;
-      case 3: {
+      // required .StateResponse.State state = 4;
+      case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
-          set_has_setget();
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+          int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &setget_)));
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::StateResponse_State_IsValid(value)) {
+            set_state(static_cast< ::StateResponse_State >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(
+                4, static_cast< ::google::protobuf::uint64>(value));
+          }
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional double latitude = 4 [(.dccl.field) = {
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:StateResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:StateResponse)
+  return false;
+#undef DO_
+}
+
+void StateResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:StateResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->source(), output);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->destination(), output);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
+  }
+
+  // required .StateResponse.State state = 4;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      4, this->state(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:StateResponse)
+}
+
+::google::protobuf::uint8* StateResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:StateResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->source(), target);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->destination(), target);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
+  }
+
+  // required .StateResponse.State state = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      4, this->state(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:StateResponse)
+  return target;
+}
+
+size_t StateResponse::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:StateResponse)
+  size_t total_size = 0;
+
+  if (has_source()) {
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+  }
+
+  if (has_destination()) {
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+  }
+
+  if (has_state()) {
+    // required .StateResponse.State state = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
+  }
+
+  return total_size;
+}
+size_t StateResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:StateResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x0000000b) ^ 0x0000000b) == 0) {  // All required fields are present.
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+
+    // required .StateResponse.State state = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  // optional double time = 3 [(.dccl.field) = {
+  if (has_time()) {
+    total_size += 1 + 8;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void StateResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:StateResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const StateResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const StateResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:StateResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:StateResponse)
+    MergeFrom(*source);
+  }
+}
+
+void StateResponse::MergeFrom(const StateResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:StateResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 15u) {
+    if (cached_has_bits & 0x00000001u) {
+      source_ = from.source_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      destination_ = from.destination_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      time_ = from.time_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      state_ = from.state_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void StateResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:StateResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void StateResponse::CopyFrom(const StateResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:StateResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool StateResponse::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000000b) != 0x0000000b) return false;
+  return true;
+}
+
+void StateResponse::Swap(StateResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void StateResponse::InternalSwap(StateResponse* other) {
+  using std::swap;
+  swap(source_, other->source_);
+  swap(destination_, other->destination_);
+  swap(time_, other->time_);
+  swap(state_, other->state_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata StateResponse::GetMetadata() const {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void SingleWaypointCommand::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int SingleWaypointCommand::kSourceFieldNumber;
+const int SingleWaypointCommand::kDestinationFieldNumber;
+const int SingleWaypointCommand::kTimeFieldNumber;
+const int SingleWaypointCommand::kModeFieldNumber;
+const int SingleWaypointCommand::kLatitudeFieldNumber;
+const int SingleWaypointCommand::kLongitudeFieldNumber;
+const int SingleWaypointCommand::kXFieldNumber;
+const int SingleWaypointCommand::kYFieldNumber;
+const int SingleWaypointCommand::kZFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+SingleWaypointCommand::SingleWaypointCommand()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_goby_5fmsgs_2eproto::scc_info_SingleWaypointCommand.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:SingleWaypointCommand)
+}
+SingleWaypointCommand::SingleWaypointCommand(const SingleWaypointCommand& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&source_, &from.source_,
+    static_cast<size_t>(reinterpret_cast<char*>(&z_) -
+    reinterpret_cast<char*>(&source_)) + sizeof(z_));
+  // @@protoc_insertion_point(copy_constructor:SingleWaypointCommand)
+}
+
+void SingleWaypointCommand::SharedCtor() {
+  ::memset(&source_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&z_) -
+      reinterpret_cast<char*>(&source_)) + sizeof(z_));
+}
+
+SingleWaypointCommand::~SingleWaypointCommand() {
+  // @@protoc_insertion_point(destructor:SingleWaypointCommand)
+  SharedDtor();
+}
+
+void SingleWaypointCommand::SharedDtor() {
+}
+
+void SingleWaypointCommand::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* SingleWaypointCommand::descriptor() {
+  ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const SingleWaypointCommand& SingleWaypointCommand::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_SingleWaypointCommand.base);
+  return *internal_default_instance();
+}
+
+
+void SingleWaypointCommand::Clear() {
+// @@protoc_insertion_point(message_clear_start:SingleWaypointCommand)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 255u) {
+    ::memset(&source_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&y_) -
+        reinterpret_cast<char*>(&source_)) + sizeof(y_));
+  }
+  z_ = 0;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool SingleWaypointCommand::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:SingleWaypointCommand)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 source = 1 [(.dccl.field) = {
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_source();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &source_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required int32 destination = 2 [(.dccl.field) = {
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+          set_has_destination();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &destination_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional double time = 3 [(.dccl.field) = {
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(25u /* 25 & 0xFF */)) {
+          set_has_time();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &time_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required .SingleWaypointCommand.Mode mode = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::SingleWaypointCommand_Mode_IsValid(value)) {
+            set_mode(static_cast< ::SingleWaypointCommand_Mode >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(
+                4, static_cast< ::google::protobuf::uint64>(value));
+          }
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional double latitude = 5 [(.dccl.field) = {
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(41u /* 41 & 0xFF */)) {
+          set_has_latitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &latitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional double longitude = 6 [(.dccl.field) = {
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(49u /* 49 & 0xFF */)) {
+          set_has_longitude();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &longitude_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional float x = 7 [(.dccl.field) = {
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(61u /* 61 & 0xFF */)) {
+          set_has_x();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &x_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional float y = 8 [(.dccl.field) = {
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(69u /* 69 & 0xFF */)) {
+          set_has_y();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &y_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional float z = 9 [(.dccl.field) = {
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(77u /* 77 & 0xFF */)) {
+          set_has_z();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &z_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:SingleWaypointCommand)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:SingleWaypointCommand)
+  return false;
+#undef DO_
+}
+
+void SingleWaypointCommand::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:SingleWaypointCommand)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->source(), output);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->destination(), output);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
+  }
+
+  // required .SingleWaypointCommand.Mode mode = 4;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      4, this->mode(), output);
+  }
+
+  // optional double latitude = 5 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->latitude(), output);
+  }
+
+  // optional double longitude = 6 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000040u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(6, this->longitude(), output);
+  }
+
+  // optional float x = 7 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(7, this->x(), output);
+  }
+
+  // optional float y = 8 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000080u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(8, this->y(), output);
+  }
+
+  // optional float z = 9 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000100u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(9, this->z(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:SingleWaypointCommand)
+}
+
+::google::protobuf::uint8* SingleWaypointCommand::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:SingleWaypointCommand)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->source(), target);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->destination(), target);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
+  }
+
+  // required .SingleWaypointCommand.Mode mode = 4;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      4, this->mode(), target);
+  }
+
+  // optional double latitude = 5 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->latitude(), target);
+  }
+
+  // optional double longitude = 6 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000040u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(6, this->longitude(), target);
+  }
+
+  // optional float x = 7 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(7, this->x(), target);
+  }
+
+  // optional float y = 8 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000080u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(8, this->y(), target);
+  }
+
+  // optional float z = 9 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000100u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(9, this->z(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:SingleWaypointCommand)
+  return target;
+}
+
+size_t SingleWaypointCommand::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:SingleWaypointCommand)
+  size_t total_size = 0;
+
+  if (has_source()) {
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+  }
+
+  if (has_destination()) {
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+  }
+
+  if (has_mode()) {
+    // required .SingleWaypointCommand.Mode mode = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
+  }
+
+  return total_size;
+}
+size_t SingleWaypointCommand::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:SingleWaypointCommand)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00000013) ^ 0x00000013) == 0) {  // All required fields are present.
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+
+    // required .SingleWaypointCommand.Mode mode = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_has_bits_[0 / 32] & 12u) {
+    // optional double time = 3 [(.dccl.field) = {
+    if (has_time()) {
+      total_size += 1 + 8;
+    }
+
+    // optional double latitude = 5 [(.dccl.field) = {
+    if (has_latitude()) {
+      total_size += 1 + 8;
+    }
+
+  }
+  if (_has_bits_[0 / 32] & 224u) {
+    // optional float x = 7 [(.dccl.field) = {
+    if (has_x()) {
+      total_size += 1 + 4;
+    }
+
+    // optional double longitude = 6 [(.dccl.field) = {
+    if (has_longitude()) {
+      total_size += 1 + 8;
+    }
+
+    // optional float y = 8 [(.dccl.field) = {
+    if (has_y()) {
+      total_size += 1 + 4;
+    }
+
+  }
+  // optional float z = 9 [(.dccl.field) = {
+  if (has_z()) {
+    total_size += 1 + 4;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void SingleWaypointCommand::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:SingleWaypointCommand)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SingleWaypointCommand* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const SingleWaypointCommand>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:SingleWaypointCommand)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:SingleWaypointCommand)
+    MergeFrom(*source);
+  }
+}
+
+void SingleWaypointCommand::MergeFrom(const SingleWaypointCommand& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:SingleWaypointCommand)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 255u) {
+    if (cached_has_bits & 0x00000001u) {
+      source_ = from.source_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      destination_ = from.destination_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      time_ = from.time_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      latitude_ = from.latitude_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      mode_ = from.mode_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      x_ = from.x_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      longitude_ = from.longitude_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      y_ = from.y_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 0x00000100u) {
+    set_z(from.z());
+  }
+}
+
+void SingleWaypointCommand::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:SingleWaypointCommand)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SingleWaypointCommand::CopyFrom(const SingleWaypointCommand& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:SingleWaypointCommand)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SingleWaypointCommand::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000013) != 0x00000013) return false;
+  return true;
+}
+
+void SingleWaypointCommand::Swap(SingleWaypointCommand* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void SingleWaypointCommand::InternalSwap(SingleWaypointCommand* other) {
+  using std::swap;
+  swap(source_, other->source_);
+  swap(destination_, other->destination_);
+  swap(time_, other->time_);
+  swap(latitude_, other->latitude_);
+  swap(mode_, other->mode_);
+  swap(x_, other->x_);
+  swap(longitude_, other->longitude_);
+  swap(y_, other->y_);
+  swap(z_, other->z_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata SingleWaypointCommand::GetMetadata() const {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void SingleWaypointResponse::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int SingleWaypointResponse::kSourceFieldNumber;
+const int SingleWaypointResponse::kDestinationFieldNumber;
+const int SingleWaypointResponse::kTimeFieldNumber;
+const int SingleWaypointResponse::kLatitudeFieldNumber;
+const int SingleWaypointResponse::kLongitudeFieldNumber;
+const int SingleWaypointResponse::kXFieldNumber;
+const int SingleWaypointResponse::kYFieldNumber;
+const int SingleWaypointResponse::kZFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+SingleWaypointResponse::SingleWaypointResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_goby_5fmsgs_2eproto::scc_info_SingleWaypointResponse.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:SingleWaypointResponse)
+}
+SingleWaypointResponse::SingleWaypointResponse(const SingleWaypointResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&source_, &from.source_,
+    static_cast<size_t>(reinterpret_cast<char*>(&z_) -
+    reinterpret_cast<char*>(&source_)) + sizeof(z_));
+  // @@protoc_insertion_point(copy_constructor:SingleWaypointResponse)
+}
+
+void SingleWaypointResponse::SharedCtor() {
+  ::memset(&source_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&z_) -
+      reinterpret_cast<char*>(&source_)) + sizeof(z_));
+}
+
+SingleWaypointResponse::~SingleWaypointResponse() {
+  // @@protoc_insertion_point(destructor:SingleWaypointResponse)
+  SharedDtor();
+}
+
+void SingleWaypointResponse::SharedDtor() {
+}
+
+void SingleWaypointResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* SingleWaypointResponse::descriptor() {
+  ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const SingleWaypointResponse& SingleWaypointResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_SingleWaypointResponse.base);
+  return *internal_default_instance();
+}
+
+
+void SingleWaypointResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:SingleWaypointResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 255u) {
+    ::memset(&source_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&z_) -
+        reinterpret_cast<char*>(&source_)) + sizeof(z_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool SingleWaypointResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:SingleWaypointResponse)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 source = 1 [(.dccl.field) = {
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_source();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &source_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required int32 destination = 2 [(.dccl.field) = {
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+          set_has_destination();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &destination_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional double time = 3 [(.dccl.field) = {
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(25u /* 25 & 0xFF */)) {
+          set_has_time();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &time_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required double latitude = 4 [(.dccl.field) = {
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(33u /* 33 & 0xFF */)) {
@@ -4119,7 +7327,7 @@ bool SingleWaypoint::MergePartialFromCodedStream(
         break;
       }
 
-      // optional double longitude = 5 [(.dccl.field) = {
+      // required double longitude = 5 [(.dccl.field) = {
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(41u /* 41 & 0xFF */)) {
@@ -4133,42 +7341,42 @@ bool SingleWaypoint::MergePartialFromCodedStream(
         break;
       }
 
-      // optional int32 local_x = 6 [(.dccl.field) = {
+      // required float x = 6 [(.dccl.field) = {
       case 6: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(48u /* 48 & 0xFF */)) {
-          set_has_local_x();
+            static_cast< ::google::protobuf::uint8>(53u /* 53 & 0xFF */)) {
+          set_has_x();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &local_x_)));
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &x_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional int32 local_y = 7 [(.dccl.field) = {
+      // required float y = 7 [(.dccl.field) = {
       case 7: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(56u /* 56 & 0xFF */)) {
-          set_has_local_y();
+            static_cast< ::google::protobuf::uint8>(61u /* 61 & 0xFF */)) {
+          set_has_y();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &local_y_)));
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &y_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // required int32 depth = 8 [(.dccl.field) = {
+      // required float z = 8 [(.dccl.field) = {
       case 8: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(64u /* 64 & 0xFF */)) {
-          set_has_depth();
+            static_cast< ::google::protobuf::uint8>(69u /* 69 & 0xFF */)) {
+          set_has_z();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &depth_)));
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &z_)));
         } else {
           goto handle_unusual;
         }
@@ -4187,156 +7395,171 @@ bool SingleWaypoint::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:SingleWaypoint)
+  // @@protoc_insertion_point(parse_success:SingleWaypointResponse)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:SingleWaypoint)
+  // @@protoc_insertion_point(parse_failure:SingleWaypointResponse)
   return false;
 #undef DO_
 }
 
-void SingleWaypoint::SerializeWithCachedSizes(
+void SingleWaypointResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:SingleWaypoint)
+  // @@protoc_insertion_point(serialize_start:SingleWaypointResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required int32 destination = 1 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000002u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->destination(), output);
-  }
-
-  // required double time = 2 [(.dccl.field) = {
+  // required int32 source = 1 [(.dccl.field) = {
   if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->time(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->source(), output);
   }
 
-  // required bool setget = 3;
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->destination(), output);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
   if (cached_has_bits & 0x00000004u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->setget(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
   }
 
-  // optional double latitude = 4 [(.dccl.field) = {
+  // required double latitude = 4 [(.dccl.field) = {
   if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(4, this->latitude(), output);
   }
 
-  // optional double longitude = 5 [(.dccl.field) = {
+  // required double longitude = 5 [(.dccl.field) = {
   if (cached_has_bits & 0x00000010u) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->longitude(), output);
   }
 
-  // optional int32 local_x = 6 [(.dccl.field) = {
+  // required float x = 6 [(.dccl.field) = {
   if (cached_has_bits & 0x00000020u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->local_x(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(6, this->x(), output);
   }
 
-  // optional int32 local_y = 7 [(.dccl.field) = {
+  // required float y = 7 [(.dccl.field) = {
   if (cached_has_bits & 0x00000040u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->local_y(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(7, this->y(), output);
   }
 
-  // required int32 depth = 8 [(.dccl.field) = {
+  // required float z = 8 [(.dccl.field) = {
   if (cached_has_bits & 0x00000080u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->depth(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(8, this->z(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:SingleWaypoint)
+  // @@protoc_insertion_point(serialize_end:SingleWaypointResponse)
 }
 
-::google::protobuf::uint8* SingleWaypoint::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* SingleWaypointResponse::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:SingleWaypoint)
+  // @@protoc_insertion_point(serialize_to_array_start:SingleWaypointResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required int32 destination = 1 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000002u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->destination(), target);
-  }
-
-  // required double time = 2 [(.dccl.field) = {
+  // required int32 source = 1 [(.dccl.field) = {
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->time(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->source(), target);
   }
 
-  // required bool setget = 3;
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->destination(), target);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
   if (cached_has_bits & 0x00000004u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->setget(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
   }
 
-  // optional double latitude = 4 [(.dccl.field) = {
+  // required double latitude = 4 [(.dccl.field) = {
   if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(4, this->latitude(), target);
   }
 
-  // optional double longitude = 5 [(.dccl.field) = {
+  // required double longitude = 5 [(.dccl.field) = {
   if (cached_has_bits & 0x00000010u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->longitude(), target);
   }
 
-  // optional int32 local_x = 6 [(.dccl.field) = {
+  // required float x = 6 [(.dccl.field) = {
   if (cached_has_bits & 0x00000020u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->local_x(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(6, this->x(), target);
   }
 
-  // optional int32 local_y = 7 [(.dccl.field) = {
+  // required float y = 7 [(.dccl.field) = {
   if (cached_has_bits & 0x00000040u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->local_y(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(7, this->y(), target);
   }
 
-  // required int32 depth = 8 [(.dccl.field) = {
+  // required float z = 8 [(.dccl.field) = {
   if (cached_has_bits & 0x00000080u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->depth(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(8, this->z(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:SingleWaypoint)
+  // @@protoc_insertion_point(serialize_to_array_end:SingleWaypointResponse)
   return target;
 }
 
-size_t SingleWaypoint::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:SingleWaypoint)
+size_t SingleWaypointResponse::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:SingleWaypointResponse)
   size_t total_size = 0;
 
-  if (has_time()) {
-    // required double time = 2 [(.dccl.field) = {
-    total_size += 1 + 8;
+  if (has_source()) {
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
   }
 
   if (has_destination()) {
-    // required int32 destination = 1 [(.dccl.field) = {
+    // required int32 destination = 2 [(.dccl.field) = {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
   }
 
-  if (has_setget()) {
-    // required bool setget = 3;
-    total_size += 1 + 1;
+  if (has_latitude()) {
+    // required double latitude = 4 [(.dccl.field) = {
+    total_size += 1 + 8;
   }
 
-  if (has_depth()) {
-    // required int32 depth = 8 [(.dccl.field) = {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->depth());
+  if (has_longitude()) {
+    // required double longitude = 5 [(.dccl.field) = {
+    total_size += 1 + 8;
+  }
+
+  if (has_x()) {
+    // required float x = 6 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_y()) {
+    // required float y = 7 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_z()) {
+    // required float z = 8 [(.dccl.field) = {
+    total_size += 1 + 4;
   }
 
   return total_size;
 }
-size_t SingleWaypoint::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:SingleWaypoint)
+size_t SingleWaypointResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:SingleWaypointResponse)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4344,74 +7567,62 @@ size_t SingleWaypoint::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  if (((_has_bits_[0] & 0x00000087) ^ 0x00000087) == 0) {  // All required fields are present.
-    // required double time = 2 [(.dccl.field) = {
-    total_size += 1 + 8;
+  if (((_has_bits_[0] & 0x000000fb) ^ 0x000000fb) == 0) {  // All required fields are present.
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
 
-    // required int32 destination = 1 [(.dccl.field) = {
+    // required int32 destination = 2 [(.dccl.field) = {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
 
-    // required bool setget = 3;
-    total_size += 1 + 1;
+    // required double latitude = 4 [(.dccl.field) = {
+    total_size += 1 + 8;
 
-    // required int32 depth = 8 [(.dccl.field) = {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->depth());
+    // required double longitude = 5 [(.dccl.field) = {
+    total_size += 1 + 8;
+
+    // required float x = 6 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float y = 7 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float z = 8 [(.dccl.field) = {
+    total_size += 1 + 4;
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
-  if (_has_bits_[0 / 32] & 120u) {
-    // optional double latitude = 4 [(.dccl.field) = {
-    if (has_latitude()) {
-      total_size += 1 + 8;
-    }
-
-    // optional double longitude = 5 [(.dccl.field) = {
-    if (has_longitude()) {
-      total_size += 1 + 8;
-    }
-
-    // optional int32 local_x = 6 [(.dccl.field) = {
-    if (has_local_x()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->local_x());
-    }
-
-    // optional int32 local_y = 7 [(.dccl.field) = {
-    if (has_local_y()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->local_y());
-    }
-
+  // optional double time = 3 [(.dccl.field) = {
+  if (has_time()) {
+    total_size += 1 + 8;
   }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
-void SingleWaypoint::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:SingleWaypoint)
+void SingleWaypointResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:SingleWaypointResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  const SingleWaypoint* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const SingleWaypoint>(
+  const SingleWaypointResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const SingleWaypointResponse>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:SingleWaypoint)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:SingleWaypointResponse)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:SingleWaypoint)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:SingleWaypointResponse)
     MergeFrom(*source);
   }
 }
 
-void SingleWaypoint::MergeFrom(const SingleWaypoint& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:SingleWaypoint)
+void SingleWaypointResponse::MergeFrom(const SingleWaypointResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:SingleWaypointResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -4420,13 +7631,13 @@ void SingleWaypoint::MergeFrom(const SingleWaypoint& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 255u) {
     if (cached_has_bits & 0x00000001u) {
-      time_ = from.time_;
+      source_ = from.source_;
     }
     if (cached_has_bits & 0x00000002u) {
       destination_ = from.destination_;
     }
     if (cached_has_bits & 0x00000004u) {
-      setget_ = from.setget_;
+      time_ = from.time_;
     }
     if (cached_has_bits & 0x00000008u) {
       latitude_ = from.latitude_;
@@ -4435,56 +7646,56 @@ void SingleWaypoint::MergeFrom(const SingleWaypoint& from) {
       longitude_ = from.longitude_;
     }
     if (cached_has_bits & 0x00000020u) {
-      local_x_ = from.local_x_;
+      x_ = from.x_;
     }
     if (cached_has_bits & 0x00000040u) {
-      local_y_ = from.local_y_;
+      y_ = from.y_;
     }
     if (cached_has_bits & 0x00000080u) {
-      depth_ = from.depth_;
+      z_ = from.z_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
 }
 
-void SingleWaypoint::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:SingleWaypoint)
+void SingleWaypointResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:SingleWaypointResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void SingleWaypoint::CopyFrom(const SingleWaypoint& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:SingleWaypoint)
+void SingleWaypointResponse::CopyFrom(const SingleWaypointResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:SingleWaypointResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool SingleWaypoint::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000087) != 0x00000087) return false;
+bool SingleWaypointResponse::IsInitialized() const {
+  if ((_has_bits_[0] & 0x000000fb) != 0x000000fb) return false;
   return true;
 }
 
-void SingleWaypoint::Swap(SingleWaypoint* other) {
+void SingleWaypointResponse::Swap(SingleWaypointResponse* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void SingleWaypoint::InternalSwap(SingleWaypoint* other) {
+void SingleWaypointResponse::InternalSwap(SingleWaypointResponse* other) {
   using std::swap;
-  swap(time_, other->time_);
+  swap(source_, other->source_);
   swap(destination_, other->destination_);
-  swap(setget_, other->setget_);
+  swap(time_, other->time_);
   swap(latitude_, other->latitude_);
   swap(longitude_, other->longitude_);
-  swap(local_x_, other->local_x_);
-  swap(local_y_, other->local_y_);
-  swap(depth_, other->depth_);
+  swap(x_, other->x_);
+  swap(y_, other->y_);
+  swap(z_, other->z_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata SingleWaypoint::GetMetadata() const {
+::google::protobuf::Metadata SingleWaypointResponse::GetMetadata() const {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -4492,105 +7703,118 @@ void SingleWaypoint::InternalSwap(SingleWaypoint* other) {
 
 // ===================================================================
 
-void MultiWaypointGPS::InitAsDefaultInstance() {
+void MultiWaypointGPSCommand::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int MultiWaypointGPS::kDestinationFieldNumber;
-const int MultiWaypointGPS::kTimeFieldNumber;
-const int MultiWaypointGPS::kWptNumFieldNumber;
-const int MultiWaypointGPS::kLatitude1FieldNumber;
-const int MultiWaypointGPS::kLongitude1FieldNumber;
-const int MultiWaypointGPS::kDepth1FieldNumber;
-const int MultiWaypointGPS::kLatitude2FieldNumber;
-const int MultiWaypointGPS::kLongitude2FieldNumber;
-const int MultiWaypointGPS::kDepth2FieldNumber;
-const int MultiWaypointGPS::kLatitude3FieldNumber;
-const int MultiWaypointGPS::kLongitude3FieldNumber;
-const int MultiWaypointGPS::kDepth3FieldNumber;
-const int MultiWaypointGPS::kEndFieldNumber;
+const int MultiWaypointGPSCommand::kSourceFieldNumber;
+const int MultiWaypointGPSCommand::kDestinationFieldNumber;
+const int MultiWaypointGPSCommand::kTimeFieldNumber;
+const int MultiWaypointGPSCommand::kModeFieldNumber;
+const int MultiWaypointGPSCommand::kWptNumFieldNumber;
+const int MultiWaypointGPSCommand::kLatitudeFieldNumber;
+const int MultiWaypointGPSCommand::kLongitudeFieldNumber;
+const int MultiWaypointGPSCommand::kZFieldNumber;
+const int MultiWaypointGPSCommand::kEndFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-MultiWaypointGPS::MultiWaypointGPS()
+MultiWaypointGPSCommand::MultiWaypointGPSCommand()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_goby_5fmsgs_2eproto::scc_info_MultiWaypointGPS.base);
+      &protobuf_goby_5fmsgs_2eproto::scc_info_MultiWaypointGPSCommand.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:MultiWaypointGPS)
+  // @@protoc_insertion_point(constructor:MultiWaypointGPSCommand)
 }
-MultiWaypointGPS::MultiWaypointGPS(const MultiWaypointGPS& from)
+MultiWaypointGPSCommand::MultiWaypointGPSCommand(const MultiWaypointGPSCommand& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
-      _has_bits_(from._has_bits_) {
+      _has_bits_(from._has_bits_),
+      wpt_num_(from.wpt_num_),
+      latitude_(from.latitude_),
+      longitude_(from.longitude_),
+      z_(from.z_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&time_, &from.time_,
+  ::memcpy(&source_, &from.source_,
     static_cast<size_t>(reinterpret_cast<char*>(&end_) -
-    reinterpret_cast<char*>(&time_)) + sizeof(end_));
-  // @@protoc_insertion_point(copy_constructor:MultiWaypointGPS)
+    reinterpret_cast<char*>(&source_)) + sizeof(end_));
+  // @@protoc_insertion_point(copy_constructor:MultiWaypointGPSCommand)
 }
 
-void MultiWaypointGPS::SharedCtor() {
-  ::memset(&time_, 0, static_cast<size_t>(
+void MultiWaypointGPSCommand::SharedCtor() {
+  ::memset(&source_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&end_) -
-      reinterpret_cast<char*>(&time_)) + sizeof(end_));
+      reinterpret_cast<char*>(&source_)) + sizeof(end_));
 }
 
-MultiWaypointGPS::~MultiWaypointGPS() {
-  // @@protoc_insertion_point(destructor:MultiWaypointGPS)
+MultiWaypointGPSCommand::~MultiWaypointGPSCommand() {
+  // @@protoc_insertion_point(destructor:MultiWaypointGPSCommand)
   SharedDtor();
 }
 
-void MultiWaypointGPS::SharedDtor() {
+void MultiWaypointGPSCommand::SharedDtor() {
 }
 
-void MultiWaypointGPS::SetCachedSize(int size) const {
+void MultiWaypointGPSCommand::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* MultiWaypointGPS::descriptor() {
+const ::google::protobuf::Descriptor* MultiWaypointGPSCommand::descriptor() {
   ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const MultiWaypointGPS& MultiWaypointGPS::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_MultiWaypointGPS.base);
+const MultiWaypointGPSCommand& MultiWaypointGPSCommand::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_MultiWaypointGPSCommand.base);
   return *internal_default_instance();
 }
 
 
-void MultiWaypointGPS::Clear() {
-// @@protoc_insertion_point(message_clear_start:MultiWaypointGPS)
+void MultiWaypointGPSCommand::Clear() {
+// @@protoc_insertion_point(message_clear_start:MultiWaypointGPSCommand)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  wpt_num_.Clear();
+  latitude_.Clear();
+  longitude_.Clear();
+  z_.Clear();
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 255u) {
-    ::memset(&time_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&depth_2_) -
-        reinterpret_cast<char*>(&time_)) + sizeof(depth_2_));
-  }
-  if (cached_has_bits & 7936u) {
-    ::memset(&longitude_2_, 0, static_cast<size_t>(
+  if (cached_has_bits & 31u) {
+    ::memset(&source_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&end_) -
-        reinterpret_cast<char*>(&longitude_2_)) + sizeof(end_));
+        reinterpret_cast<char*>(&source_)) + sizeof(end_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
 
-bool MultiWaypointGPS::MergePartialFromCodedStream(
+bool MultiWaypointGPSCommand::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:MultiWaypointGPS)
+  // @@protoc_insertion_point(parse_start:MultiWaypointGPSCommand)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 destination = 1 [(.dccl.field) = {
+      // required int32 source = 1 [(.dccl.field) = {
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_source();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &source_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required int32 destination = 2 [(.dccl.field) = {
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
           set_has_destination();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -4601,10 +7825,10 @@ bool MultiWaypointGPS::MergePartialFromCodedStream(
         break;
       }
 
-      // required double time = 2 [(.dccl.field) = {
-      case 2: {
+      // optional double time = 3 [(.dccl.field) = {
+      case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(17u /* 17 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(25u /* 25 & 0xFF */)) {
           set_has_time();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
@@ -4615,846 +7839,106 @@ bool MultiWaypointGPS::MergePartialFromCodedStream(
         break;
       }
 
-      // required int32 wpt_num = 3 [(.dccl.field) = {
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
-          set_has_wpt_num();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &wpt_num_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional double latitude_1 = 4 [(.dccl.field) = {
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(33u /* 33 & 0xFF */)) {
-          set_has_latitude_1();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &latitude_1_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional double longitude_1 = 5 [(.dccl.field) = {
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(41u /* 41 & 0xFF */)) {
-          set_has_longitude_1();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &longitude_1_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional int32 depth_1 = 6 [(.dccl.field) = {
-      case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(48u /* 48 & 0xFF */)) {
-          set_has_depth_1();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &depth_1_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional double latitude_2 = 7 [(.dccl.field) = {
-      case 7: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(57u /* 57 & 0xFF */)) {
-          set_has_latitude_2();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &latitude_2_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional double longitude_2 = 8 [(.dccl.field) = {
-      case 8: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(65u /* 65 & 0xFF */)) {
-          set_has_longitude_2();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &longitude_2_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional int32 depth_2 = 9 [(.dccl.field) = {
-      case 9: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(72u /* 72 & 0xFF */)) {
-          set_has_depth_2();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &depth_2_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional double latitude_3 = 10 [(.dccl.field) = {
-      case 10: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(81u /* 81 & 0xFF */)) {
-          set_has_latitude_3();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &latitude_3_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional double longitude_3 = 11 [(.dccl.field) = {
-      case 11: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(89u /* 89 & 0xFF */)) {
-          set_has_longitude_3();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &longitude_3_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional int32 depth_3 = 12 [(.dccl.field) = {
-      case 12: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(96u /* 96 & 0xFF */)) {
-          set_has_depth_3();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &depth_3_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // required bool end = 13;
-      case 13: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(104u /* 104 & 0xFF */)) {
-          set_has_end();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &end_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:MultiWaypointGPS)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:MultiWaypointGPS)
-  return false;
-#undef DO_
-}
-
-void MultiWaypointGPS::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:MultiWaypointGPS)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // required int32 destination = 1 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000002u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->destination(), output);
-  }
-
-  // required double time = 2 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->time(), output);
-  }
-
-  // required int32 wpt_num = 3 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000004u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->wpt_num(), output);
-  }
-
-  // optional double latitude_1 = 4 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000008u) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(4, this->latitude_1(), output);
-  }
-
-  // optional double longitude_1 = 5 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000010u) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->longitude_1(), output);
-  }
-
-  // optional int32 depth_1 = 6 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000040u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->depth_1(), output);
-  }
-
-  // optional double latitude_2 = 7 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000020u) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(7, this->latitude_2(), output);
-  }
-
-  // optional double longitude_2 = 8 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000100u) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(8, this->longitude_2(), output);
-  }
-
-  // optional int32 depth_2 = 9 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000080u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->depth_2(), output);
-  }
-
-  // optional double latitude_3 = 10 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000200u) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(10, this->latitude_3(), output);
-  }
-
-  // optional double longitude_3 = 11 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000400u) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(11, this->longitude_3(), output);
-  }
-
-  // optional int32 depth_3 = 12 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000800u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->depth_3(), output);
-  }
-
-  // required bool end = 13;
-  if (cached_has_bits & 0x00001000u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(13, this->end(), output);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        _internal_metadata_.unknown_fields(), output);
-  }
-  // @@protoc_insertion_point(serialize_end:MultiWaypointGPS)
-}
-
-::google::protobuf::uint8* MultiWaypointGPS::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:MultiWaypointGPS)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // required int32 destination = 1 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000002u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->destination(), target);
-  }
-
-  // required double time = 2 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->time(), target);
-  }
-
-  // required int32 wpt_num = 3 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000004u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->wpt_num(), target);
-  }
-
-  // optional double latitude_1 = 4 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000008u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(4, this->latitude_1(), target);
-  }
-
-  // optional double longitude_1 = 5 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000010u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->longitude_1(), target);
-  }
-
-  // optional int32 depth_1 = 6 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000040u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->depth_1(), target);
-  }
-
-  // optional double latitude_2 = 7 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000020u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(7, this->latitude_2(), target);
-  }
-
-  // optional double longitude_2 = 8 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000100u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(8, this->longitude_2(), target);
-  }
-
-  // optional int32 depth_2 = 9 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000080u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->depth_2(), target);
-  }
-
-  // optional double latitude_3 = 10 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000200u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(10, this->latitude_3(), target);
-  }
-
-  // optional double longitude_3 = 11 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000400u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(11, this->longitude_3(), target);
-  }
-
-  // optional int32 depth_3 = 12 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000800u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->depth_3(), target);
-  }
-
-  // required bool end = 13;
-  if (cached_has_bits & 0x00001000u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(13, this->end(), target);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:MultiWaypointGPS)
-  return target;
-}
-
-size_t MultiWaypointGPS::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MultiWaypointGPS)
-  size_t total_size = 0;
-
-  if (has_time()) {
-    // required double time = 2 [(.dccl.field) = {
-    total_size += 1 + 8;
-  }
-
-  if (has_destination()) {
-    // required int32 destination = 1 [(.dccl.field) = {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->destination());
-  }
-
-  if (has_wpt_num()) {
-    // required int32 wpt_num = 3 [(.dccl.field) = {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->wpt_num());
-  }
-
-  if (has_end()) {
-    // required bool end = 13;
-    total_size += 1 + 1;
-  }
-
-  return total_size;
-}
-size_t MultiWaypointGPS::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:MultiWaypointGPS)
-  size_t total_size = 0;
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        _internal_metadata_.unknown_fields());
-  }
-  if (((_has_bits_[0] & 0x00001007) ^ 0x00001007) == 0) {  // All required fields are present.
-    // required double time = 2 [(.dccl.field) = {
-    total_size += 1 + 8;
-
-    // required int32 destination = 1 [(.dccl.field) = {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->destination());
-
-    // required int32 wpt_num = 3 [(.dccl.field) = {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->wpt_num());
-
-    // required bool end = 13;
-    total_size += 1 + 1;
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
-  }
-  if (_has_bits_[0 / 32] & 248u) {
-    // optional double latitude_1 = 4 [(.dccl.field) = {
-    if (has_latitude_1()) {
-      total_size += 1 + 8;
-    }
-
-    // optional double longitude_1 = 5 [(.dccl.field) = {
-    if (has_longitude_1()) {
-      total_size += 1 + 8;
-    }
-
-    // optional double latitude_2 = 7 [(.dccl.field) = {
-    if (has_latitude_2()) {
-      total_size += 1 + 8;
-    }
-
-    // optional int32 depth_1 = 6 [(.dccl.field) = {
-    if (has_depth_1()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->depth_1());
-    }
-
-    // optional int32 depth_2 = 9 [(.dccl.field) = {
-    if (has_depth_2()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->depth_2());
-    }
-
-  }
-  if (_has_bits_[8 / 32] & 3840u) {
-    // optional double longitude_2 = 8 [(.dccl.field) = {
-    if (has_longitude_2()) {
-      total_size += 1 + 8;
-    }
-
-    // optional double latitude_3 = 10 [(.dccl.field) = {
-    if (has_latitude_3()) {
-      total_size += 1 + 8;
-    }
-
-    // optional double longitude_3 = 11 [(.dccl.field) = {
-    if (has_longitude_3()) {
-      total_size += 1 + 8;
-    }
-
-    // optional int32 depth_3 = 12 [(.dccl.field) = {
-    if (has_depth_3()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->depth_3());
-    }
-
-  }
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void MultiWaypointGPS::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:MultiWaypointGPS)
-  GOOGLE_DCHECK_NE(&from, this);
-  const MultiWaypointGPS* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const MultiWaypointGPS>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MultiWaypointGPS)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:MultiWaypointGPS)
-    MergeFrom(*source);
-  }
-}
-
-void MultiWaypointGPS::MergeFrom(const MultiWaypointGPS& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:MultiWaypointGPS)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 255u) {
-    if (cached_has_bits & 0x00000001u) {
-      time_ = from.time_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      destination_ = from.destination_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      wpt_num_ = from.wpt_num_;
-    }
-    if (cached_has_bits & 0x00000008u) {
-      latitude_1_ = from.latitude_1_;
-    }
-    if (cached_has_bits & 0x00000010u) {
-      longitude_1_ = from.longitude_1_;
-    }
-    if (cached_has_bits & 0x00000020u) {
-      latitude_2_ = from.latitude_2_;
-    }
-    if (cached_has_bits & 0x00000040u) {
-      depth_1_ = from.depth_1_;
-    }
-    if (cached_has_bits & 0x00000080u) {
-      depth_2_ = from.depth_2_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-  if (cached_has_bits & 7936u) {
-    if (cached_has_bits & 0x00000100u) {
-      longitude_2_ = from.longitude_2_;
-    }
-    if (cached_has_bits & 0x00000200u) {
-      latitude_3_ = from.latitude_3_;
-    }
-    if (cached_has_bits & 0x00000400u) {
-      longitude_3_ = from.longitude_3_;
-    }
-    if (cached_has_bits & 0x00000800u) {
-      depth_3_ = from.depth_3_;
-    }
-    if (cached_has_bits & 0x00001000u) {
-      end_ = from.end_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void MultiWaypointGPS::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:MultiWaypointGPS)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void MultiWaypointGPS::CopyFrom(const MultiWaypointGPS& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:MultiWaypointGPS)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool MultiWaypointGPS::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00001007) != 0x00001007) return false;
-  return true;
-}
-
-void MultiWaypointGPS::Swap(MultiWaypointGPS* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void MultiWaypointGPS::InternalSwap(MultiWaypointGPS* other) {
-  using std::swap;
-  swap(time_, other->time_);
-  swap(destination_, other->destination_);
-  swap(wpt_num_, other->wpt_num_);
-  swap(latitude_1_, other->latitude_1_);
-  swap(longitude_1_, other->longitude_1_);
-  swap(latitude_2_, other->latitude_2_);
-  swap(depth_1_, other->depth_1_);
-  swap(depth_2_, other->depth_2_);
-  swap(longitude_2_, other->longitude_2_);
-  swap(latitude_3_, other->latitude_3_);
-  swap(longitude_3_, other->longitude_3_);
-  swap(depth_3_, other->depth_3_);
-  swap(end_, other->end_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-}
-
-::google::protobuf::Metadata MultiWaypointGPS::GetMetadata() const {
-  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
-void MultiWaypointXYZ::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int MultiWaypointXYZ::kDestinationFieldNumber;
-const int MultiWaypointXYZ::kTimeFieldNumber;
-const int MultiWaypointXYZ::kWptNumFieldNumber;
-const int MultiWaypointXYZ::kX1FieldNumber;
-const int MultiWaypointXYZ::kY1FieldNumber;
-const int MultiWaypointXYZ::kDepth1FieldNumber;
-const int MultiWaypointXYZ::kX2FieldNumber;
-const int MultiWaypointXYZ::kY2FieldNumber;
-const int MultiWaypointXYZ::kDepth2FieldNumber;
-const int MultiWaypointXYZ::kX3FieldNumber;
-const int MultiWaypointXYZ::kY3FieldNumber;
-const int MultiWaypointXYZ::kDepth3FieldNumber;
-const int MultiWaypointXYZ::kEndFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-MultiWaypointXYZ::MultiWaypointXYZ()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  ::google::protobuf::internal::InitSCC(
-      &protobuf_goby_5fmsgs_2eproto::scc_info_MultiWaypointXYZ.base);
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:MultiWaypointXYZ)
-}
-MultiWaypointXYZ::MultiWaypointXYZ(const MultiWaypointXYZ& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&time_, &from.time_,
-    static_cast<size_t>(reinterpret_cast<char*>(&end_) -
-    reinterpret_cast<char*>(&time_)) + sizeof(end_));
-  // @@protoc_insertion_point(copy_constructor:MultiWaypointXYZ)
-}
-
-void MultiWaypointXYZ::SharedCtor() {
-  ::memset(&time_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&end_) -
-      reinterpret_cast<char*>(&time_)) + sizeof(end_));
-}
-
-MultiWaypointXYZ::~MultiWaypointXYZ() {
-  // @@protoc_insertion_point(destructor:MultiWaypointXYZ)
-  SharedDtor();
-}
-
-void MultiWaypointXYZ::SharedDtor() {
-}
-
-void MultiWaypointXYZ::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ::google::protobuf::Descriptor* MultiWaypointXYZ::descriptor() {
-  ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const MultiWaypointXYZ& MultiWaypointXYZ::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_MultiWaypointXYZ.base);
-  return *internal_default_instance();
-}
-
-
-void MultiWaypointXYZ::Clear() {
-// @@protoc_insertion_point(message_clear_start:MultiWaypointXYZ)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 255u) {
-    ::memset(&time_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&y_2_) -
-        reinterpret_cast<char*>(&time_)) + sizeof(y_2_));
-  }
-  if (cached_has_bits & 7936u) {
-    ::memset(&depth_2_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&end_) -
-        reinterpret_cast<char*>(&depth_2_)) + sizeof(end_));
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear();
-}
-
-bool MultiWaypointXYZ::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:MultiWaypointXYZ)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 destination = 1 [(.dccl.field) = {
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-          set_has_destination();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &destination_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // required double time = 2 [(.dccl.field) = {
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(17u /* 17 & 0xFF */)) {
-          set_has_time();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &time_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // required int32 wpt_num = 3 [(.dccl.field) = {
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
-          set_has_wpt_num();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &wpt_num_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional int32 x_1 = 4 [(.dccl.field) = {
+      // required .MultiWaypointGPSCommand.Mode mode = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
-          set_has_x_1();
+          int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &x_1_)));
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::MultiWaypointGPSCommand_Mode_IsValid(value)) {
+            set_mode(static_cast< ::MultiWaypointGPSCommand_Mode >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(
+                4, static_cast< ::google::protobuf::uint64>(value));
+          }
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional int32 y_1 = 5 [(.dccl.field) = {
+      // repeated int32 wpt_num = 5 [(.dccl.field) = {
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
-          set_has_y_1();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &y_1_)));
+                 1, 40u, input, this->mutable_wpt_num())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_wpt_num())));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional int32 depth_1 = 6 [(.dccl.field) = {
+      // repeated double latitude = 6 [(.dccl.field) = {
       case 6: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(48u /* 48 & 0xFF */)) {
-          set_has_depth_1();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &depth_1_)));
+            static_cast< ::google::protobuf::uint8>(49u /* 49 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 1, 49u, input, this->mutable_latitude())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, this->mutable_latitude())));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional int32 x_2 = 7 [(.dccl.field) = {
+      // repeated double longitude = 7 [(.dccl.field) = {
       case 7: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(56u /* 56 & 0xFF */)) {
-          set_has_x_2();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &x_2_)));
+            static_cast< ::google::protobuf::uint8>(57u /* 57 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 1, 57u, input, this->mutable_longitude())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(58u /* 58 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, this->mutable_longitude())));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional int32 y_2 = 8 [(.dccl.field) = {
+      // repeated float z = 8 [(.dccl.field) = {
       case 8: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(64u /* 64 & 0xFF */)) {
-          set_has_y_2();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &y_2_)));
+            static_cast< ::google::protobuf::uint8>(69u /* 69 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 1, 69u, input, this->mutable_z())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(66u /* 66 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, this->mutable_z())));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional int32 depth_2 = 9 [(.dccl.field) = {
+      // optional bool end = 9 [(.dccl.field) = {
       case 9: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(72u /* 72 & 0xFF */)) {
-          set_has_depth_2();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &depth_2_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional int32 x_3 = 10 [(.dccl.field) = {
-      case 10: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(80u /* 80 & 0xFF */)) {
-          set_has_x_3();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &x_3_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional int32 y_3 = 11 [(.dccl.field) = {
-      case 11: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(88u /* 88 & 0xFF */)) {
-          set_has_y_3();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &y_3_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional int32 depth_3 = 12 [(.dccl.field) = {
-      case 12: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(96u /* 96 & 0xFF */)) {
-          set_has_depth_3();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &depth_3_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // required bool end = 13;
-      case 13: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(104u /* 104 & 0xFF */)) {
           set_has_end();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -5477,206 +7961,164 @@ bool MultiWaypointXYZ::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:MultiWaypointXYZ)
+  // @@protoc_insertion_point(parse_success:MultiWaypointGPSCommand)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:MultiWaypointXYZ)
+  // @@protoc_insertion_point(parse_failure:MultiWaypointGPSCommand)
   return false;
 #undef DO_
 }
 
-void MultiWaypointXYZ::SerializeWithCachedSizes(
+void MultiWaypointGPSCommand::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:MultiWaypointXYZ)
+  // @@protoc_insertion_point(serialize_start:MultiWaypointGPSCommand)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required int32 destination = 1 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000002u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->destination(), output);
-  }
-
-  // required double time = 2 [(.dccl.field) = {
+  // required int32 source = 1 [(.dccl.field) = {
   if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->time(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->source(), output);
   }
 
-  // required int32 wpt_num = 3 [(.dccl.field) = {
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->destination(), output);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
   if (cached_has_bits & 0x00000004u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->wpt_num(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
   }
 
-  // optional int32 x_1 = 4 [(.dccl.field) = {
+  // required .MultiWaypointGPSCommand.Mode mode = 4;
   if (cached_has_bits & 0x00000008u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->x_1(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      4, this->mode(), output);
   }
 
-  // optional int32 y_1 = 5 [(.dccl.field) = {
+  // repeated int32 wpt_num = 5 [(.dccl.field) = {
+  for (int i = 0, n = this->wpt_num_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      5, this->wpt_num(i), output);
+  }
+
+  // repeated double latitude = 6 [(.dccl.field) = {
+  for (int i = 0, n = this->latitude_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(
+      6, this->latitude(i), output);
+  }
+
+  // repeated double longitude = 7 [(.dccl.field) = {
+  for (int i = 0, n = this->longitude_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(
+      7, this->longitude(i), output);
+  }
+
+  // repeated float z = 8 [(.dccl.field) = {
+  for (int i = 0, n = this->z_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(
+      8, this->z(i), output);
+  }
+
+  // optional bool end = 9 [(.dccl.field) = {
   if (cached_has_bits & 0x00000010u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->y_1(), output);
-  }
-
-  // optional int32 depth_1 = 6 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000020u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->depth_1(), output);
-  }
-
-  // optional int32 x_2 = 7 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000040u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->x_2(), output);
-  }
-
-  // optional int32 y_2 = 8 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000080u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->y_2(), output);
-  }
-
-  // optional int32 depth_2 = 9 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000100u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->depth_2(), output);
-  }
-
-  // optional int32 x_3 = 10 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000200u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->x_3(), output);
-  }
-
-  // optional int32 y_3 = 11 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000400u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->y_3(), output);
-  }
-
-  // optional int32 depth_3 = 12 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000800u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->depth_3(), output);
-  }
-
-  // required bool end = 13;
-  if (cached_has_bits & 0x00001000u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(13, this->end(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteBool(9, this->end(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:MultiWaypointXYZ)
+  // @@protoc_insertion_point(serialize_end:MultiWaypointGPSCommand)
 }
 
-::google::protobuf::uint8* MultiWaypointXYZ::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* MultiWaypointGPSCommand::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:MultiWaypointXYZ)
+  // @@protoc_insertion_point(serialize_to_array_start:MultiWaypointGPSCommand)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required int32 destination = 1 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000002u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->destination(), target);
-  }
-
-  // required double time = 2 [(.dccl.field) = {
+  // required int32 source = 1 [(.dccl.field) = {
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->time(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->source(), target);
   }
 
-  // required int32 wpt_num = 3 [(.dccl.field) = {
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->destination(), target);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
   if (cached_has_bits & 0x00000004u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->wpt_num(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
   }
 
-  // optional int32 x_1 = 4 [(.dccl.field) = {
+  // required .MultiWaypointGPSCommand.Mode mode = 4;
   if (cached_has_bits & 0x00000008u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->x_1(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      4, this->mode(), target);
   }
 
-  // optional int32 y_1 = 5 [(.dccl.field) = {
+  // repeated int32 wpt_num = 5 [(.dccl.field) = {
+  target = ::google::protobuf::internal::WireFormatLite::
+    WriteInt32ToArray(5, this->wpt_num_, target);
+
+  // repeated double latitude = 6 [(.dccl.field) = {
+  target = ::google::protobuf::internal::WireFormatLite::
+    WriteDoubleToArray(6, this->latitude_, target);
+
+  // repeated double longitude = 7 [(.dccl.field) = {
+  target = ::google::protobuf::internal::WireFormatLite::
+    WriteDoubleToArray(7, this->longitude_, target);
+
+  // repeated float z = 8 [(.dccl.field) = {
+  target = ::google::protobuf::internal::WireFormatLite::
+    WriteFloatToArray(8, this->z_, target);
+
+  // optional bool end = 9 [(.dccl.field) = {
   if (cached_has_bits & 0x00000010u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->y_1(), target);
-  }
-
-  // optional int32 depth_1 = 6 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000020u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->depth_1(), target);
-  }
-
-  // optional int32 x_2 = 7 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000040u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->x_2(), target);
-  }
-
-  // optional int32 y_2 = 8 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000080u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->y_2(), target);
-  }
-
-  // optional int32 depth_2 = 9 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000100u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->depth_2(), target);
-  }
-
-  // optional int32 x_3 = 10 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000200u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->x_3(), target);
-  }
-
-  // optional int32 y_3 = 11 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000400u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->y_3(), target);
-  }
-
-  // optional int32 depth_3 = 12 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000800u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->depth_3(), target);
-  }
-
-  // required bool end = 13;
-  if (cached_has_bits & 0x00001000u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(13, this->end(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(9, this->end(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:MultiWaypointXYZ)
+  // @@protoc_insertion_point(serialize_to_array_end:MultiWaypointGPSCommand)
   return target;
 }
 
-size_t MultiWaypointXYZ::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MultiWaypointXYZ)
+size_t MultiWaypointGPSCommand::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MultiWaypointGPSCommand)
   size_t total_size = 0;
 
-  if (has_time()) {
-    // required double time = 2 [(.dccl.field) = {
-    total_size += 1 + 8;
+  if (has_source()) {
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
   }
 
   if (has_destination()) {
-    // required int32 destination = 1 [(.dccl.field) = {
+    // required int32 destination = 2 [(.dccl.field) = {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
   }
 
-  if (has_wpt_num()) {
-    // required int32 wpt_num = 3 [(.dccl.field) = {
+  if (has_mode()) {
+    // required .MultiWaypointGPSCommand.Mode mode = 4;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->wpt_num());
-  }
-
-  if (has_end()) {
-    // required bool end = 13;
-    total_size += 1 + 1;
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
   }
 
   return total_size;
 }
-size_t MultiWaypointXYZ::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:MultiWaypointXYZ)
+size_t MultiWaypointGPSCommand::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:MultiWaypointGPSCommand)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -5684,211 +8126,1802 @@ size_t MultiWaypointXYZ::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  if (((_has_bits_[0] & 0x00001007) ^ 0x00001007) == 0) {  // All required fields are present.
-    // required double time = 2 [(.dccl.field) = {
-    total_size += 1 + 8;
+  if (((_has_bits_[0] & 0x0000000b) ^ 0x0000000b) == 0) {  // All required fields are present.
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
 
-    // required int32 destination = 1 [(.dccl.field) = {
+    // required int32 destination = 2 [(.dccl.field) = {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
 
-    // required int32 wpt_num = 3 [(.dccl.field) = {
+    // required .MultiWaypointGPSCommand.Mode mode = 4;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->wpt_num());
-
-    // required bool end = 13;
-    total_size += 1 + 1;
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
-  if (_has_bits_[0 / 32] & 248u) {
-    // optional int32 x_1 = 4 [(.dccl.field) = {
-    if (has_x_1()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->x_1());
-    }
-
-    // optional int32 y_1 = 5 [(.dccl.field) = {
-    if (has_y_1()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->y_1());
-    }
-
-    // optional int32 depth_1 = 6 [(.dccl.field) = {
-    if (has_depth_1()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->depth_1());
-    }
-
-    // optional int32 x_2 = 7 [(.dccl.field) = {
-    if (has_x_2()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->x_2());
-    }
-
-    // optional int32 y_2 = 8 [(.dccl.field) = {
-    if (has_y_2()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->y_2());
-    }
-
+  // repeated int32 wpt_num = 5 [(.dccl.field) = {
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->wpt_num_);
+    total_size += 1 *
+                  ::google::protobuf::internal::FromIntSize(this->wpt_num_size());
+    total_size += data_size;
   }
-  if (_has_bits_[8 / 32] & 3840u) {
-    // optional int32 depth_2 = 9 [(.dccl.field) = {
-    if (has_depth_2()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->depth_2());
-    }
 
-    // optional int32 x_3 = 10 [(.dccl.field) = {
-    if (has_x_3()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->x_3());
-    }
-
-    // optional int32 y_3 = 11 [(.dccl.field) = {
-    if (has_y_3()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->y_3());
-    }
-
-    // optional int32 depth_3 = 12 [(.dccl.field) = {
-    if (has_depth_3()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->depth_3());
-    }
-
+  // repeated double latitude = 6 [(.dccl.field) = {
+  {
+    unsigned int count = static_cast<unsigned int>(this->latitude_size());
+    size_t data_size = 8UL * count;
+    total_size += 1 *
+                  ::google::protobuf::internal::FromIntSize(this->latitude_size());
+    total_size += data_size;
   }
+
+  // repeated double longitude = 7 [(.dccl.field) = {
+  {
+    unsigned int count = static_cast<unsigned int>(this->longitude_size());
+    size_t data_size = 8UL * count;
+    total_size += 1 *
+                  ::google::protobuf::internal::FromIntSize(this->longitude_size());
+    total_size += data_size;
+  }
+
+  // repeated float z = 8 [(.dccl.field) = {
+  {
+    unsigned int count = static_cast<unsigned int>(this->z_size());
+    size_t data_size = 4UL * count;
+    total_size += 1 *
+                  ::google::protobuf::internal::FromIntSize(this->z_size());
+    total_size += data_size;
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (has_time()) {
+    total_size += 1 + 8;
+  }
+
+  // optional bool end = 9 [(.dccl.field) = {
+  if (has_end()) {
+    total_size += 1 + 1;
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
-void MultiWaypointXYZ::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:MultiWaypointXYZ)
+void MultiWaypointGPSCommand::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:MultiWaypointGPSCommand)
   GOOGLE_DCHECK_NE(&from, this);
-  const MultiWaypointXYZ* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const MultiWaypointXYZ>(
+  const MultiWaypointGPSCommand* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const MultiWaypointGPSCommand>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MultiWaypointXYZ)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MultiWaypointGPSCommand)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:MultiWaypointXYZ)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:MultiWaypointGPSCommand)
     MergeFrom(*source);
   }
 }
 
-void MultiWaypointXYZ::MergeFrom(const MultiWaypointXYZ& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:MultiWaypointXYZ)
+void MultiWaypointGPSCommand::MergeFrom(const MultiWaypointGPSCommand& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:MultiWaypointGPSCommand)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  wpt_num_.MergeFrom(from.wpt_num_);
+  latitude_.MergeFrom(from.latitude_);
+  longitude_.MergeFrom(from.longitude_);
+  z_.MergeFrom(from.z_);
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 255u) {
+  if (cached_has_bits & 31u) {
     if (cached_has_bits & 0x00000001u) {
-      time_ = from.time_;
+      source_ = from.source_;
     }
     if (cached_has_bits & 0x00000002u) {
       destination_ = from.destination_;
     }
     if (cached_has_bits & 0x00000004u) {
-      wpt_num_ = from.wpt_num_;
+      time_ = from.time_;
     }
     if (cached_has_bits & 0x00000008u) {
-      x_1_ = from.x_1_;
+      mode_ = from.mode_;
     }
     if (cached_has_bits & 0x00000010u) {
-      y_1_ = from.y_1_;
-    }
-    if (cached_has_bits & 0x00000020u) {
-      depth_1_ = from.depth_1_;
-    }
-    if (cached_has_bits & 0x00000040u) {
-      x_2_ = from.x_2_;
-    }
-    if (cached_has_bits & 0x00000080u) {
-      y_2_ = from.y_2_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-  if (cached_has_bits & 7936u) {
-    if (cached_has_bits & 0x00000100u) {
-      depth_2_ = from.depth_2_;
-    }
-    if (cached_has_bits & 0x00000200u) {
-      x_3_ = from.x_3_;
-    }
-    if (cached_has_bits & 0x00000400u) {
-      y_3_ = from.y_3_;
-    }
-    if (cached_has_bits & 0x00000800u) {
-      depth_3_ = from.depth_3_;
-    }
-    if (cached_has_bits & 0x00001000u) {
       end_ = from.end_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
 }
 
-void MultiWaypointXYZ::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:MultiWaypointXYZ)
+void MultiWaypointGPSCommand::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:MultiWaypointGPSCommand)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void MultiWaypointXYZ::CopyFrom(const MultiWaypointXYZ& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:MultiWaypointXYZ)
+void MultiWaypointGPSCommand::CopyFrom(const MultiWaypointGPSCommand& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:MultiWaypointGPSCommand)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool MultiWaypointXYZ::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00001007) != 0x00001007) return false;
+bool MultiWaypointGPSCommand::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000000b) != 0x0000000b) return false;
   return true;
 }
 
-void MultiWaypointXYZ::Swap(MultiWaypointXYZ* other) {
+void MultiWaypointGPSCommand::Swap(MultiWaypointGPSCommand* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void MultiWaypointXYZ::InternalSwap(MultiWaypointXYZ* other) {
+void MultiWaypointGPSCommand::InternalSwap(MultiWaypointGPSCommand* other) {
   using std::swap;
-  swap(time_, other->time_);
+  wpt_num_.InternalSwap(&other->wpt_num_);
+  latitude_.InternalSwap(&other->latitude_);
+  longitude_.InternalSwap(&other->longitude_);
+  z_.InternalSwap(&other->z_);
+  swap(source_, other->source_);
   swap(destination_, other->destination_);
-  swap(wpt_num_, other->wpt_num_);
-  swap(x_1_, other->x_1_);
-  swap(y_1_, other->y_1_);
-  swap(depth_1_, other->depth_1_);
-  swap(x_2_, other->x_2_);
-  swap(y_2_, other->y_2_);
-  swap(depth_2_, other->depth_2_);
-  swap(x_3_, other->x_3_);
-  swap(y_3_, other->y_3_);
-  swap(depth_3_, other->depth_3_);
+  swap(time_, other->time_);
+  swap(mode_, other->mode_);
   swap(end_, other->end_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata MultiWaypointXYZ::GetMetadata() const {
+::google::protobuf::Metadata MultiWaypointGPSCommand::GetMetadata() const {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void MultiWaypointGPSResponse::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int MultiWaypointGPSResponse::kSourceFieldNumber;
+const int MultiWaypointGPSResponse::kDestinationFieldNumber;
+const int MultiWaypointGPSResponse::kTimeFieldNumber;
+const int MultiWaypointGPSResponse::kWptNumFieldNumber;
+const int MultiWaypointGPSResponse::kLatitudeFieldNumber;
+const int MultiWaypointGPSResponse::kLongitudeFieldNumber;
+const int MultiWaypointGPSResponse::kZFieldNumber;
+const int MultiWaypointGPSResponse::kEndFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+MultiWaypointGPSResponse::MultiWaypointGPSResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_goby_5fmsgs_2eproto::scc_info_MultiWaypointGPSResponse.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:MultiWaypointGPSResponse)
+}
+MultiWaypointGPSResponse::MultiWaypointGPSResponse(const MultiWaypointGPSResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      latitude_(from.latitude_),
+      longitude_(from.longitude_),
+      z_(from.z_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&source_, &from.source_,
+    static_cast<size_t>(reinterpret_cast<char*>(&end_) -
+    reinterpret_cast<char*>(&source_)) + sizeof(end_));
+  // @@protoc_insertion_point(copy_constructor:MultiWaypointGPSResponse)
+}
+
+void MultiWaypointGPSResponse::SharedCtor() {
+  ::memset(&source_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&end_) -
+      reinterpret_cast<char*>(&source_)) + sizeof(end_));
+}
+
+MultiWaypointGPSResponse::~MultiWaypointGPSResponse() {
+  // @@protoc_insertion_point(destructor:MultiWaypointGPSResponse)
+  SharedDtor();
+}
+
+void MultiWaypointGPSResponse::SharedDtor() {
+}
+
+void MultiWaypointGPSResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* MultiWaypointGPSResponse::descriptor() {
+  ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const MultiWaypointGPSResponse& MultiWaypointGPSResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_MultiWaypointGPSResponse.base);
+  return *internal_default_instance();
+}
+
+
+void MultiWaypointGPSResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:MultiWaypointGPSResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  latitude_.Clear();
+  longitude_.Clear();
+  z_.Clear();
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 31u) {
+    ::memset(&source_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&end_) -
+        reinterpret_cast<char*>(&source_)) + sizeof(end_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool MultiWaypointGPSResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:MultiWaypointGPSResponse)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 source = 1 [(.dccl.field) = {
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_source();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &source_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required int32 destination = 2 [(.dccl.field) = {
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+          set_has_destination();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &destination_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional double time = 3 [(.dccl.field) = {
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(25u /* 25 & 0xFF */)) {
+          set_has_time();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &time_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required int32 wpt_num = 4 [(.dccl.field) = {
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+          set_has_wpt_num();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &wpt_num_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated double latitude = 5 [(.dccl.field) = {
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(41u /* 41 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 1, 41u, input, this->mutable_latitude())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, this->mutable_latitude())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated double longitude = 6 [(.dccl.field) = {
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(49u /* 49 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 1, 49u, input, this->mutable_longitude())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, this->mutable_longitude())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated float z = 7 [(.dccl.field) = {
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(61u /* 61 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 1, 61u, input, this->mutable_z())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(58u /* 58 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, this->mutable_z())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional bool end = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(64u /* 64 & 0xFF */)) {
+          set_has_end();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &end_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:MultiWaypointGPSResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:MultiWaypointGPSResponse)
+  return false;
+#undef DO_
+}
+
+void MultiWaypointGPSResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:MultiWaypointGPSResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->source(), output);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->destination(), output);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
+  }
+
+  // required int32 wpt_num = 4 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->wpt_num(), output);
+  }
+
+  // repeated double latitude = 5 [(.dccl.field) = {
+  for (int i = 0, n = this->latitude_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(
+      5, this->latitude(i), output);
+  }
+
+  // repeated double longitude = 6 [(.dccl.field) = {
+  for (int i = 0, n = this->longitude_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(
+      6, this->longitude(i), output);
+  }
+
+  // repeated float z = 7 [(.dccl.field) = {
+  for (int i = 0, n = this->z_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(
+      7, this->z(i), output);
+  }
+
+  // optional bool end = 8;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(8, this->end(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:MultiWaypointGPSResponse)
+}
+
+::google::protobuf::uint8* MultiWaypointGPSResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:MultiWaypointGPSResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->source(), target);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->destination(), target);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
+  }
+
+  // required int32 wpt_num = 4 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->wpt_num(), target);
+  }
+
+  // repeated double latitude = 5 [(.dccl.field) = {
+  target = ::google::protobuf::internal::WireFormatLite::
+    WriteDoubleToArray(5, this->latitude_, target);
+
+  // repeated double longitude = 6 [(.dccl.field) = {
+  target = ::google::protobuf::internal::WireFormatLite::
+    WriteDoubleToArray(6, this->longitude_, target);
+
+  // repeated float z = 7 [(.dccl.field) = {
+  target = ::google::protobuf::internal::WireFormatLite::
+    WriteFloatToArray(7, this->z_, target);
+
+  // optional bool end = 8;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(8, this->end(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:MultiWaypointGPSResponse)
+  return target;
+}
+
+size_t MultiWaypointGPSResponse::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MultiWaypointGPSResponse)
+  size_t total_size = 0;
+
+  if (has_source()) {
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+  }
+
+  if (has_destination()) {
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+  }
+
+  if (has_wpt_num()) {
+    // required int32 wpt_num = 4 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->wpt_num());
+  }
+
+  return total_size;
+}
+size_t MultiWaypointGPSResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:MultiWaypointGPSResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x0000000b) ^ 0x0000000b) == 0) {  // All required fields are present.
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+
+    // required int32 wpt_num = 4 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->wpt_num());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  // repeated double latitude = 5 [(.dccl.field) = {
+  {
+    unsigned int count = static_cast<unsigned int>(this->latitude_size());
+    size_t data_size = 8UL * count;
+    total_size += 1 *
+                  ::google::protobuf::internal::FromIntSize(this->latitude_size());
+    total_size += data_size;
+  }
+
+  // repeated double longitude = 6 [(.dccl.field) = {
+  {
+    unsigned int count = static_cast<unsigned int>(this->longitude_size());
+    size_t data_size = 8UL * count;
+    total_size += 1 *
+                  ::google::protobuf::internal::FromIntSize(this->longitude_size());
+    total_size += data_size;
+  }
+
+  // repeated float z = 7 [(.dccl.field) = {
+  {
+    unsigned int count = static_cast<unsigned int>(this->z_size());
+    size_t data_size = 4UL * count;
+    total_size += 1 *
+                  ::google::protobuf::internal::FromIntSize(this->z_size());
+    total_size += data_size;
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (has_time()) {
+    total_size += 1 + 8;
+  }
+
+  // optional bool end = 8;
+  if (has_end()) {
+    total_size += 1 + 1;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void MultiWaypointGPSResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:MultiWaypointGPSResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const MultiWaypointGPSResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const MultiWaypointGPSResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MultiWaypointGPSResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:MultiWaypointGPSResponse)
+    MergeFrom(*source);
+  }
+}
+
+void MultiWaypointGPSResponse::MergeFrom(const MultiWaypointGPSResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:MultiWaypointGPSResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  latitude_.MergeFrom(from.latitude_);
+  longitude_.MergeFrom(from.longitude_);
+  z_.MergeFrom(from.z_);
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 31u) {
+    if (cached_has_bits & 0x00000001u) {
+      source_ = from.source_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      destination_ = from.destination_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      time_ = from.time_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      wpt_num_ = from.wpt_num_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      end_ = from.end_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void MultiWaypointGPSResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:MultiWaypointGPSResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MultiWaypointGPSResponse::CopyFrom(const MultiWaypointGPSResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:MultiWaypointGPSResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MultiWaypointGPSResponse::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000000b) != 0x0000000b) return false;
+  return true;
+}
+
+void MultiWaypointGPSResponse::Swap(MultiWaypointGPSResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MultiWaypointGPSResponse::InternalSwap(MultiWaypointGPSResponse* other) {
+  using std::swap;
+  latitude_.InternalSwap(&other->latitude_);
+  longitude_.InternalSwap(&other->longitude_);
+  z_.InternalSwap(&other->z_);
+  swap(source_, other->source_);
+  swap(destination_, other->destination_);
+  swap(time_, other->time_);
+  swap(wpt_num_, other->wpt_num_);
+  swap(end_, other->end_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata MultiWaypointGPSResponse::GetMetadata() const {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void MultiWaypointXYZCommand::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int MultiWaypointXYZCommand::kSourceFieldNumber;
+const int MultiWaypointXYZCommand::kDestinationFieldNumber;
+const int MultiWaypointXYZCommand::kTimeFieldNumber;
+const int MultiWaypointXYZCommand::kModeFieldNumber;
+const int MultiWaypointXYZCommand::kWptNumFieldNumber;
+const int MultiWaypointXYZCommand::kXFieldNumber;
+const int MultiWaypointXYZCommand::kYFieldNumber;
+const int MultiWaypointXYZCommand::kZFieldNumber;
+const int MultiWaypointXYZCommand::kEndFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+MultiWaypointXYZCommand::MultiWaypointXYZCommand()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_goby_5fmsgs_2eproto::scc_info_MultiWaypointXYZCommand.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:MultiWaypointXYZCommand)
+}
+MultiWaypointXYZCommand::MultiWaypointXYZCommand(const MultiWaypointXYZCommand& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      wpt_num_(from.wpt_num_),
+      x_(from.x_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&source_, &from.source_,
+    static_cast<size_t>(reinterpret_cast<char*>(&end_) -
+    reinterpret_cast<char*>(&source_)) + sizeof(end_));
+  // @@protoc_insertion_point(copy_constructor:MultiWaypointXYZCommand)
+}
+
+void MultiWaypointXYZCommand::SharedCtor() {
+  ::memset(&source_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&end_) -
+      reinterpret_cast<char*>(&source_)) + sizeof(end_));
+}
+
+MultiWaypointXYZCommand::~MultiWaypointXYZCommand() {
+  // @@protoc_insertion_point(destructor:MultiWaypointXYZCommand)
+  SharedDtor();
+}
+
+void MultiWaypointXYZCommand::SharedDtor() {
+}
+
+void MultiWaypointXYZCommand::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* MultiWaypointXYZCommand::descriptor() {
+  ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const MultiWaypointXYZCommand& MultiWaypointXYZCommand::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_MultiWaypointXYZCommand.base);
+  return *internal_default_instance();
+}
+
+
+void MultiWaypointXYZCommand::Clear() {
+// @@protoc_insertion_point(message_clear_start:MultiWaypointXYZCommand)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  wpt_num_.Clear();
+  x_.Clear();
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 127u) {
+    ::memset(&source_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&end_) -
+        reinterpret_cast<char*>(&source_)) + sizeof(end_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool MultiWaypointXYZCommand::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:MultiWaypointXYZCommand)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 source = 1 [(.dccl.field) = {
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_source();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &source_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required int32 destination = 2 [(.dccl.field) = {
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+          set_has_destination();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &destination_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional double time = 3 [(.dccl.field) = {
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(25u /* 25 & 0xFF */)) {
+          set_has_time();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &time_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required .MultiWaypointXYZCommand.Mode mode = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::MultiWaypointXYZCommand_Mode_IsValid(value)) {
+            set_mode(static_cast< ::MultiWaypointXYZCommand_Mode >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(
+                4, static_cast< ::google::protobuf::uint64>(value));
+          }
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated int32 wpt_num = 5 [(.dccl.field) = {
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 40u, input, this->mutable_wpt_num())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_wpt_num())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated float x = 6 [(.dccl.field) = {
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(53u /* 53 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 1, 53u, input, this->mutable_x())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, this->mutable_x())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float y = 7 [(.dccl.field) = {
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(61u /* 61 & 0xFF */)) {
+          set_has_y();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &y_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float z = 8 [(.dccl.field) = {
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(69u /* 69 & 0xFF */)) {
+          set_has_z();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &z_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bool end = 9 [(.dccl.field) = {
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(72u /* 72 & 0xFF */)) {
+          set_has_end();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &end_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:MultiWaypointXYZCommand)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:MultiWaypointXYZCommand)
+  return false;
+#undef DO_
+}
+
+void MultiWaypointXYZCommand::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:MultiWaypointXYZCommand)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->source(), output);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->destination(), output);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
+  }
+
+  // required .MultiWaypointXYZCommand.Mode mode = 4;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      4, this->mode(), output);
+  }
+
+  // repeated int32 wpt_num = 5 [(.dccl.field) = {
+  for (int i = 0, n = this->wpt_num_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      5, this->wpt_num(i), output);
+  }
+
+  // repeated float x = 6 [(.dccl.field) = {
+  for (int i = 0, n = this->x_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(
+      6, this->x(i), output);
+  }
+
+  // required float y = 7 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(7, this->y(), output);
+  }
+
+  // required float z = 8 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(8, this->z(), output);
+  }
+
+  // required bool end = 9 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000040u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(9, this->end(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:MultiWaypointXYZCommand)
+}
+
+::google::protobuf::uint8* MultiWaypointXYZCommand::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:MultiWaypointXYZCommand)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->source(), target);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->destination(), target);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
+  }
+
+  // required .MultiWaypointXYZCommand.Mode mode = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      4, this->mode(), target);
+  }
+
+  // repeated int32 wpt_num = 5 [(.dccl.field) = {
+  target = ::google::protobuf::internal::WireFormatLite::
+    WriteInt32ToArray(5, this->wpt_num_, target);
+
+  // repeated float x = 6 [(.dccl.field) = {
+  target = ::google::protobuf::internal::WireFormatLite::
+    WriteFloatToArray(6, this->x_, target);
+
+  // required float y = 7 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(7, this->y(), target);
+  }
+
+  // required float z = 8 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(8, this->z(), target);
+  }
+
+  // required bool end = 9 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000040u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(9, this->end(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:MultiWaypointXYZCommand)
+  return target;
+}
+
+size_t MultiWaypointXYZCommand::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MultiWaypointXYZCommand)
+  size_t total_size = 0;
+
+  if (has_source()) {
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+  }
+
+  if (has_destination()) {
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+  }
+
+  if (has_mode()) {
+    // required .MultiWaypointXYZCommand.Mode mode = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
+  }
+
+  if (has_y()) {
+    // required float y = 7 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_z()) {
+    // required float z = 8 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_end()) {
+    // required bool end = 9 [(.dccl.field) = {
+    total_size += 1 + 1;
+  }
+
+  return total_size;
+}
+size_t MultiWaypointXYZCommand::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:MultiWaypointXYZCommand)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x0000007b) ^ 0x0000007b) == 0) {  // All required fields are present.
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+
+    // required .MultiWaypointXYZCommand.Mode mode = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
+
+    // required float y = 7 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float z = 8 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required bool end = 9 [(.dccl.field) = {
+    total_size += 1 + 1;
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  // repeated int32 wpt_num = 5 [(.dccl.field) = {
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->wpt_num_);
+    total_size += 1 *
+                  ::google::protobuf::internal::FromIntSize(this->wpt_num_size());
+    total_size += data_size;
+  }
+
+  // repeated float x = 6 [(.dccl.field) = {
+  {
+    unsigned int count = static_cast<unsigned int>(this->x_size());
+    size_t data_size = 4UL * count;
+    total_size += 1 *
+                  ::google::protobuf::internal::FromIntSize(this->x_size());
+    total_size += data_size;
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (has_time()) {
+    total_size += 1 + 8;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void MultiWaypointXYZCommand::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:MultiWaypointXYZCommand)
+  GOOGLE_DCHECK_NE(&from, this);
+  const MultiWaypointXYZCommand* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const MultiWaypointXYZCommand>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MultiWaypointXYZCommand)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:MultiWaypointXYZCommand)
+    MergeFrom(*source);
+  }
+}
+
+void MultiWaypointXYZCommand::MergeFrom(const MultiWaypointXYZCommand& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:MultiWaypointXYZCommand)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  wpt_num_.MergeFrom(from.wpt_num_);
+  x_.MergeFrom(from.x_);
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 127u) {
+    if (cached_has_bits & 0x00000001u) {
+      source_ = from.source_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      destination_ = from.destination_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      time_ = from.time_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      mode_ = from.mode_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      y_ = from.y_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      z_ = from.z_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      end_ = from.end_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void MultiWaypointXYZCommand::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:MultiWaypointXYZCommand)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MultiWaypointXYZCommand::CopyFrom(const MultiWaypointXYZCommand& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:MultiWaypointXYZCommand)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MultiWaypointXYZCommand::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000007b) != 0x0000007b) return false;
+  return true;
+}
+
+void MultiWaypointXYZCommand::Swap(MultiWaypointXYZCommand* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MultiWaypointXYZCommand::InternalSwap(MultiWaypointXYZCommand* other) {
+  using std::swap;
+  wpt_num_.InternalSwap(&other->wpt_num_);
+  x_.InternalSwap(&other->x_);
+  swap(source_, other->source_);
+  swap(destination_, other->destination_);
+  swap(time_, other->time_);
+  swap(mode_, other->mode_);
+  swap(y_, other->y_);
+  swap(z_, other->z_);
+  swap(end_, other->end_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata MultiWaypointXYZCommand::GetMetadata() const {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void MultiWaypointXYZResponse::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int MultiWaypointXYZResponse::kSourceFieldNumber;
+const int MultiWaypointXYZResponse::kDestinationFieldNumber;
+const int MultiWaypointXYZResponse::kTimeFieldNumber;
+const int MultiWaypointXYZResponse::kWptNumFieldNumber;
+const int MultiWaypointXYZResponse::kXFieldNumber;
+const int MultiWaypointXYZResponse::kYFieldNumber;
+const int MultiWaypointXYZResponse::kZFieldNumber;
+const int MultiWaypointXYZResponse::kEndFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+MultiWaypointXYZResponse::MultiWaypointXYZResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_goby_5fmsgs_2eproto::scc_info_MultiWaypointXYZResponse.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:MultiWaypointXYZResponse)
+}
+MultiWaypointXYZResponse::MultiWaypointXYZResponse(const MultiWaypointXYZResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      wpt_num_(from.wpt_num_),
+      x_(from.x_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&source_, &from.source_,
+    static_cast<size_t>(reinterpret_cast<char*>(&end_) -
+    reinterpret_cast<char*>(&source_)) + sizeof(end_));
+  // @@protoc_insertion_point(copy_constructor:MultiWaypointXYZResponse)
+}
+
+void MultiWaypointXYZResponse::SharedCtor() {
+  ::memset(&source_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&end_) -
+      reinterpret_cast<char*>(&source_)) + sizeof(end_));
+}
+
+MultiWaypointXYZResponse::~MultiWaypointXYZResponse() {
+  // @@protoc_insertion_point(destructor:MultiWaypointXYZResponse)
+  SharedDtor();
+}
+
+void MultiWaypointXYZResponse::SharedDtor() {
+}
+
+void MultiWaypointXYZResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* MultiWaypointXYZResponse::descriptor() {
+  ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const MultiWaypointXYZResponse& MultiWaypointXYZResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_MultiWaypointXYZResponse.base);
+  return *internal_default_instance();
+}
+
+
+void MultiWaypointXYZResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:MultiWaypointXYZResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  wpt_num_.Clear();
+  x_.Clear();
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 63u) {
+    ::memset(&source_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&end_) -
+        reinterpret_cast<char*>(&source_)) + sizeof(end_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool MultiWaypointXYZResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:MultiWaypointXYZResponse)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 source = 1 [(.dccl.field) = {
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_source();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &source_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required int32 destination = 2 [(.dccl.field) = {
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+          set_has_destination();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &destination_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional double time = 3 [(.dccl.field) = {
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(25u /* 25 & 0xFF */)) {
+          set_has_time();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &time_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated int32 wpt_num = 4 [(.dccl.field) = {
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 32u, input, this->mutable_wpt_num())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_wpt_num())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated float x = 5 [(.dccl.field) = {
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(45u /* 45 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 1, 45u, input, this->mutable_x())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, this->mutable_x())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float y = 6 [(.dccl.field) = {
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(53u /* 53 & 0xFF */)) {
+          set_has_y();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &y_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required float z = 7 [(.dccl.field) = {
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(61u /* 61 & 0xFF */)) {
+          set_has_z();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &z_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required bool end = 9;
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(72u /* 72 & 0xFF */)) {
+          set_has_end();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &end_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:MultiWaypointXYZResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:MultiWaypointXYZResponse)
+  return false;
+#undef DO_
+}
+
+void MultiWaypointXYZResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:MultiWaypointXYZResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->source(), output);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->destination(), output);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
+  }
+
+  // repeated int32 wpt_num = 4 [(.dccl.field) = {
+  for (int i = 0, n = this->wpt_num_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      4, this->wpt_num(i), output);
+  }
+
+  // repeated float x = 5 [(.dccl.field) = {
+  for (int i = 0, n = this->x_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(
+      5, this->x(i), output);
+  }
+
+  // required float y = 6 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(6, this->y(), output);
+  }
+
+  // required float z = 7 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(7, this->z(), output);
+  }
+
+  // required bool end = 9;
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(9, this->end(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:MultiWaypointXYZResponse)
+}
+
+::google::protobuf::uint8* MultiWaypointXYZResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:MultiWaypointXYZResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required int32 source = 1 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->source(), target);
+  }
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->destination(), target);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
+  }
+
+  // repeated int32 wpt_num = 4 [(.dccl.field) = {
+  target = ::google::protobuf::internal::WireFormatLite::
+    WriteInt32ToArray(4, this->wpt_num_, target);
+
+  // repeated float x = 5 [(.dccl.field) = {
+  target = ::google::protobuf::internal::WireFormatLite::
+    WriteFloatToArray(5, this->x_, target);
+
+  // required float y = 6 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(6, this->y(), target);
+  }
+
+  // required float z = 7 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(7, this->z(), target);
+  }
+
+  // required bool end = 9;
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(9, this->end(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:MultiWaypointXYZResponse)
+  return target;
+}
+
+size_t MultiWaypointXYZResponse::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MultiWaypointXYZResponse)
+  size_t total_size = 0;
+
+  if (has_source()) {
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+  }
+
+  if (has_destination()) {
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+  }
+
+  if (has_y()) {
+    // required float y = 6 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_z()) {
+    // required float z = 7 [(.dccl.field) = {
+    total_size += 1 + 4;
+  }
+
+  if (has_end()) {
+    // required bool end = 9;
+    total_size += 1 + 1;
+  }
+
+  return total_size;
+}
+size_t MultiWaypointXYZResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:MultiWaypointXYZResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x0000003b) ^ 0x0000003b) == 0) {  // All required fields are present.
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
+
+    // required int32 destination = 2 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->destination());
+
+    // required float y = 6 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required float z = 7 [(.dccl.field) = {
+    total_size += 1 + 4;
+
+    // required bool end = 9;
+    total_size += 1 + 1;
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  // repeated int32 wpt_num = 4 [(.dccl.field) = {
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->wpt_num_);
+    total_size += 1 *
+                  ::google::protobuf::internal::FromIntSize(this->wpt_num_size());
+    total_size += data_size;
+  }
+
+  // repeated float x = 5 [(.dccl.field) = {
+  {
+    unsigned int count = static_cast<unsigned int>(this->x_size());
+    size_t data_size = 4UL * count;
+    total_size += 1 *
+                  ::google::protobuf::internal::FromIntSize(this->x_size());
+    total_size += data_size;
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
+  if (has_time()) {
+    total_size += 1 + 8;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void MultiWaypointXYZResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:MultiWaypointXYZResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const MultiWaypointXYZResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const MultiWaypointXYZResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MultiWaypointXYZResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:MultiWaypointXYZResponse)
+    MergeFrom(*source);
+  }
+}
+
+void MultiWaypointXYZResponse::MergeFrom(const MultiWaypointXYZResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:MultiWaypointXYZResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  wpt_num_.MergeFrom(from.wpt_num_);
+  x_.MergeFrom(from.x_);
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 63u) {
+    if (cached_has_bits & 0x00000001u) {
+      source_ = from.source_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      destination_ = from.destination_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      time_ = from.time_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      y_ = from.y_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      z_ = from.z_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      end_ = from.end_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void MultiWaypointXYZResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:MultiWaypointXYZResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MultiWaypointXYZResponse::CopyFrom(const MultiWaypointXYZResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:MultiWaypointXYZResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MultiWaypointXYZResponse::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000003b) != 0x0000003b) return false;
+  return true;
+}
+
+void MultiWaypointXYZResponse::Swap(MultiWaypointXYZResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MultiWaypointXYZResponse::InternalSwap(MultiWaypointXYZResponse* other) {
+  using std::swap;
+  wpt_num_.InternalSwap(&other->wpt_num_);
+  x_.InternalSwap(&other->x_);
+  swap(source_, other->source_);
+  swap(destination_, other->destination_);
+  swap(time_, other->time_);
+  swap(y_, other->y_);
+  swap(z_, other->z_);
+  swap(end_, other->end_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata MultiWaypointXYZResponse::GetMetadata() const {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -5899,6 +9932,7 @@ void MultiWaypointXYZ::InternalSwap(MultiWaypointXYZ* other) {
 void ExecuteWaypoints::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int ExecuteWaypoints::kSourceFieldNumber;
 const int ExecuteWaypoints::kDestinationFieldNumber;
 const int ExecuteWaypoints::kTimeFieldNumber;
 const int ExecuteWaypoints::kExecuteFieldNumber;
@@ -5917,16 +9951,16 @@ ExecuteWaypoints::ExecuteWaypoints(const ExecuteWaypoints& from)
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&time_, &from.time_,
+  ::memcpy(&source_, &from.source_,
     static_cast<size_t>(reinterpret_cast<char*>(&mode_) -
-    reinterpret_cast<char*>(&time_)) + sizeof(mode_));
+    reinterpret_cast<char*>(&source_)) + sizeof(mode_));
   // @@protoc_insertion_point(copy_constructor:ExecuteWaypoints)
 }
 
 void ExecuteWaypoints::SharedCtor() {
-  ::memset(&time_, 0, static_cast<size_t>(
+  ::memset(&source_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&mode_) -
-      reinterpret_cast<char*>(&time_)) + sizeof(mode_));
+      reinterpret_cast<char*>(&source_)) + sizeof(mode_));
 }
 
 ExecuteWaypoints::~ExecuteWaypoints() {
@@ -5958,10 +9992,10 @@ void ExecuteWaypoints::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 15u) {
-    ::memset(&time_, 0, static_cast<size_t>(
+  if (cached_has_bits & 31u) {
+    ::memset(&source_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&mode_) -
-        reinterpret_cast<char*>(&time_)) + sizeof(mode_));
+        reinterpret_cast<char*>(&source_)) + sizeof(mode_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
@@ -5977,10 +10011,24 @@ bool ExecuteWaypoints::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 destination = 1 [(.dccl.field) = {
+      // required int32 source = 1 [(.dccl.field) = {
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_source();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &source_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required int32 destination = 2 [(.dccl.field) = {
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
           set_has_destination();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -5991,10 +10039,10 @@ bool ExecuteWaypoints::MergePartialFromCodedStream(
         break;
       }
 
-      // required double time = 2 [(.dccl.field) = {
-      case 2: {
+      // optional double time = 3 [(.dccl.field) = {
+      case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(17u /* 17 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(25u /* 25 & 0xFF */)) {
           set_has_time();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
@@ -6005,10 +10053,10 @@ bool ExecuteWaypoints::MergePartialFromCodedStream(
         break;
       }
 
-      // required bool execute = 3;
-      case 3: {
+      // required bool execute = 4;
+      case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
           set_has_execute();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -6019,10 +10067,10 @@ bool ExecuteWaypoints::MergePartialFromCodedStream(
         break;
       }
 
-      // required .ExecuteWaypoints.WaypointMode mode = 4;
-      case 4: {
+      // required .ExecuteWaypoints.WaypointMode mode = 5;
+      case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -6031,7 +10079,7 @@ bool ExecuteWaypoints::MergePartialFromCodedStream(
             set_mode(static_cast< ::ExecuteWaypoints_WaypointMode >(value));
           } else {
             mutable_unknown_fields()->AddVarint(
-                4, static_cast< ::google::protobuf::uint64>(value));
+                5, static_cast< ::google::protobuf::uint64>(value));
           }
         } else {
           goto handle_unusual;
@@ -6066,25 +10114,30 @@ void ExecuteWaypoints::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required int32 destination = 1 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000002u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->destination(), output);
-  }
-
-  // required double time = 2 [(.dccl.field) = {
+  // required int32 source = 1 [(.dccl.field) = {
   if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->time(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->source(), output);
   }
 
-  // required bool execute = 3;
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->destination(), output);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
   if (cached_has_bits & 0x00000004u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->execute(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
   }
 
-  // required .ExecuteWaypoints.WaypointMode mode = 4;
+  // required bool execute = 4;
   if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(4, this->execute(), output);
+  }
+
+  // required .ExecuteWaypoints.WaypointMode mode = 5;
+  if (cached_has_bits & 0x00000010u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      4, this->mode(), output);
+      5, this->mode(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6102,25 +10155,30 @@ void ExecuteWaypoints::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required int32 destination = 1 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000002u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->destination(), target);
-  }
-
-  // required double time = 2 [(.dccl.field) = {
+  // required int32 source = 1 [(.dccl.field) = {
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->time(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->source(), target);
   }
 
-  // required bool execute = 3;
+  // required int32 destination = 2 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->destination(), target);
+  }
+
+  // optional double time = 3 [(.dccl.field) = {
   if (cached_has_bits & 0x00000004u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->execute(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
   }
 
-  // required .ExecuteWaypoints.WaypointMode mode = 4;
+  // required bool execute = 4;
   if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(4, this->execute(), target);
+  }
+
+  // required .ExecuteWaypoints.WaypointMode mode = 5;
+  if (cached_has_bits & 0x00000010u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      4, this->mode(), target);
+      5, this->mode(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6135,25 +10193,27 @@ size_t ExecuteWaypoints::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:ExecuteWaypoints)
   size_t total_size = 0;
 
-  if (has_time()) {
-    // required double time = 2 [(.dccl.field) = {
-    total_size += 1 + 8;
+  if (has_source()) {
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
   }
 
   if (has_destination()) {
-    // required int32 destination = 1 [(.dccl.field) = {
+    // required int32 destination = 2 [(.dccl.field) = {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
   }
 
   if (has_execute()) {
-    // required bool execute = 3;
+    // required bool execute = 4;
     total_size += 1 + 1;
   }
 
   if (has_mode()) {
-    // required .ExecuteWaypoints.WaypointMode mode = 4;
+    // required .ExecuteWaypoints.WaypointMode mode = 5;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
   }
@@ -6169,25 +10229,32 @@ size_t ExecuteWaypoints::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  if (((_has_bits_[0] & 0x0000000f) ^ 0x0000000f) == 0) {  // All required fields are present.
-    // required double time = 2 [(.dccl.field) = {
-    total_size += 1 + 8;
+  if (((_has_bits_[0] & 0x0000001b) ^ 0x0000001b) == 0) {  // All required fields are present.
+    // required int32 source = 1 [(.dccl.field) = {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->source());
 
-    // required int32 destination = 1 [(.dccl.field) = {
+    // required int32 destination = 2 [(.dccl.field) = {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
 
-    // required bool execute = 3;
+    // required bool execute = 4;
     total_size += 1 + 1;
 
-    // required .ExecuteWaypoints.WaypointMode mode = 4;
+    // required .ExecuteWaypoints.WaypointMode mode = 5;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
+  // optional double time = 3 [(.dccl.field) = {
+  if (has_time()) {
+    total_size += 1 + 8;
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -6216,17 +10283,20 @@ void ExecuteWaypoints::MergeFrom(const ExecuteWaypoints& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 15u) {
+  if (cached_has_bits & 31u) {
     if (cached_has_bits & 0x00000001u) {
-      time_ = from.time_;
+      source_ = from.source_;
     }
     if (cached_has_bits & 0x00000002u) {
       destination_ = from.destination_;
     }
     if (cached_has_bits & 0x00000004u) {
-      execute_ = from.execute_;
+      time_ = from.time_;
     }
     if (cached_has_bits & 0x00000008u) {
+      execute_ = from.execute_;
+    }
+    if (cached_has_bits & 0x00000010u) {
       mode_ = from.mode_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -6248,7 +10318,7 @@ void ExecuteWaypoints::CopyFrom(const ExecuteWaypoints& from) {
 }
 
 bool ExecuteWaypoints::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+  if ((_has_bits_[0] & 0x0000001b) != 0x0000001b) return false;
   return true;
 }
 
@@ -6258,8 +10328,9 @@ void ExecuteWaypoints::Swap(ExecuteWaypoints* other) {
 }
 void ExecuteWaypoints::InternalSwap(ExecuteWaypoints* other) {
   using std::swap;
-  swap(time_, other->time_);
+  swap(source_, other->source_);
   swap(destination_, other->destination_);
+  swap(time_, other->time_);
   swap(execute_, other->execute_);
   swap(mode_, other->mode_);
   swap(_has_bits_[0], other->_has_bits_[0]);
@@ -6275,32 +10346,56 @@ void ExecuteWaypoints::InternalSwap(ExecuteWaypoints* other) {
 // @@protoc_insertion_point(namespace_scope)
 namespace google {
 namespace protobuf {
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::Pose* Arena::CreateMaybeMessage< ::Pose >(Arena* arena) {
-  return Arena::CreateInternal< ::Pose >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::PoseCommand* Arena::CreateMaybeMessage< ::PoseCommand >(Arena* arena) {
+  return Arena::CreateInternal< ::PoseCommand >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::Health* Arena::CreateMaybeMessage< ::Health >(Arena* arena) {
-  return Arena::CreateInternal< ::Health >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::PoseResponse* Arena::CreateMaybeMessage< ::PoseResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::PoseResponse >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::RelativePose* Arena::CreateMaybeMessage< ::RelativePose >(Arena* arena) {
-  return Arena::CreateInternal< ::RelativePose >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::HealthCommand* Arena::CreateMaybeMessage< ::HealthCommand >(Arena* arena) {
+  return Arena::CreateInternal< ::HealthCommand >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::ControllerInfo* Arena::CreateMaybeMessage< ::ControllerInfo >(Arena* arena) {
-  return Arena::CreateInternal< ::ControllerInfo >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::HealthResponse* Arena::CreateMaybeMessage< ::HealthResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::HealthResponse >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::DirectControl* Arena::CreateMaybeMessage< ::DirectControl >(Arena* arena) {
-  return Arena::CreateInternal< ::DirectControl >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::RelativePoseCommand* Arena::CreateMaybeMessage< ::RelativePoseCommand >(Arena* arena) {
+  return Arena::CreateInternal< ::RelativePoseCommand >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::StateInfo* Arena::CreateMaybeMessage< ::StateInfo >(Arena* arena) {
-  return Arena::CreateInternal< ::StateInfo >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::RelativePoseResponse* Arena::CreateMaybeMessage< ::RelativePoseResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::RelativePoseResponse >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::SingleWaypoint* Arena::CreateMaybeMessage< ::SingleWaypoint >(Arena* arena) {
-  return Arena::CreateInternal< ::SingleWaypoint >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::ControllerStateCommand* Arena::CreateMaybeMessage< ::ControllerStateCommand >(Arena* arena) {
+  return Arena::CreateInternal< ::ControllerStateCommand >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::MultiWaypointGPS* Arena::CreateMaybeMessage< ::MultiWaypointGPS >(Arena* arena) {
-  return Arena::CreateInternal< ::MultiWaypointGPS >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::ControllerStateResponse* Arena::CreateMaybeMessage< ::ControllerStateResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::ControllerStateResponse >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::MultiWaypointXYZ* Arena::CreateMaybeMessage< ::MultiWaypointXYZ >(Arena* arena) {
-  return Arena::CreateInternal< ::MultiWaypointXYZ >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::DirectControlCommand* Arena::CreateMaybeMessage< ::DirectControlCommand >(Arena* arena) {
+  return Arena::CreateInternal< ::DirectControlCommand >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::StateCommand* Arena::CreateMaybeMessage< ::StateCommand >(Arena* arena) {
+  return Arena::CreateInternal< ::StateCommand >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::StateResponse* Arena::CreateMaybeMessage< ::StateResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::StateResponse >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::SingleWaypointCommand* Arena::CreateMaybeMessage< ::SingleWaypointCommand >(Arena* arena) {
+  return Arena::CreateInternal< ::SingleWaypointCommand >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::SingleWaypointResponse* Arena::CreateMaybeMessage< ::SingleWaypointResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::SingleWaypointResponse >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::MultiWaypointGPSCommand* Arena::CreateMaybeMessage< ::MultiWaypointGPSCommand >(Arena* arena) {
+  return Arena::CreateInternal< ::MultiWaypointGPSCommand >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::MultiWaypointGPSResponse* Arena::CreateMaybeMessage< ::MultiWaypointGPSResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::MultiWaypointGPSResponse >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::MultiWaypointXYZCommand* Arena::CreateMaybeMessage< ::MultiWaypointXYZCommand >(Arena* arena) {
+  return Arena::CreateInternal< ::MultiWaypointXYZCommand >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::MultiWaypointXYZResponse* Arena::CreateMaybeMessage< ::MultiWaypointXYZResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::MultiWaypointXYZResponse >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::ExecuteWaypoints* Arena::CreateMaybeMessage< ::ExecuteWaypoints >(Arena* arena) {
   return Arena::CreateInternal< ::ExecuteWaypoints >(arena);

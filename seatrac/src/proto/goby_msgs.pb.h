@@ -40,122 +40,332 @@ namespace protobuf_goby_5fmsgs_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[10];
+  static const ::google::protobuf::internal::ParseTable schema[18];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
 };
 void AddDescriptors();
 }  // namespace protobuf_goby_5fmsgs_2eproto
-class ControllerInfo;
-class ControllerInfoDefaultTypeInternal;
-extern ControllerInfoDefaultTypeInternal _ControllerInfo_default_instance_;
-class DirectControl;
-class DirectControlDefaultTypeInternal;
-extern DirectControlDefaultTypeInternal _DirectControl_default_instance_;
+class ControllerStateCommand;
+class ControllerStateCommandDefaultTypeInternal;
+extern ControllerStateCommandDefaultTypeInternal _ControllerStateCommand_default_instance_;
+class ControllerStateResponse;
+class ControllerStateResponseDefaultTypeInternal;
+extern ControllerStateResponseDefaultTypeInternal _ControllerStateResponse_default_instance_;
+class DirectControlCommand;
+class DirectControlCommandDefaultTypeInternal;
+extern DirectControlCommandDefaultTypeInternal _DirectControlCommand_default_instance_;
 class ExecuteWaypoints;
 class ExecuteWaypointsDefaultTypeInternal;
 extern ExecuteWaypointsDefaultTypeInternal _ExecuteWaypoints_default_instance_;
-class Health;
-class HealthDefaultTypeInternal;
-extern HealthDefaultTypeInternal _Health_default_instance_;
-class MultiWaypointGPS;
-class MultiWaypointGPSDefaultTypeInternal;
-extern MultiWaypointGPSDefaultTypeInternal _MultiWaypointGPS_default_instance_;
-class MultiWaypointXYZ;
-class MultiWaypointXYZDefaultTypeInternal;
-extern MultiWaypointXYZDefaultTypeInternal _MultiWaypointXYZ_default_instance_;
-class Pose;
-class PoseDefaultTypeInternal;
-extern PoseDefaultTypeInternal _Pose_default_instance_;
-class RelativePose;
-class RelativePoseDefaultTypeInternal;
-extern RelativePoseDefaultTypeInternal _RelativePose_default_instance_;
-class SingleWaypoint;
-class SingleWaypointDefaultTypeInternal;
-extern SingleWaypointDefaultTypeInternal _SingleWaypoint_default_instance_;
-class StateInfo;
-class StateInfoDefaultTypeInternal;
-extern StateInfoDefaultTypeInternal _StateInfo_default_instance_;
+class HealthCommand;
+class HealthCommandDefaultTypeInternal;
+extern HealthCommandDefaultTypeInternal _HealthCommand_default_instance_;
+class HealthResponse;
+class HealthResponseDefaultTypeInternal;
+extern HealthResponseDefaultTypeInternal _HealthResponse_default_instance_;
+class MultiWaypointGPSCommand;
+class MultiWaypointGPSCommandDefaultTypeInternal;
+extern MultiWaypointGPSCommandDefaultTypeInternal _MultiWaypointGPSCommand_default_instance_;
+class MultiWaypointGPSResponse;
+class MultiWaypointGPSResponseDefaultTypeInternal;
+extern MultiWaypointGPSResponseDefaultTypeInternal _MultiWaypointGPSResponse_default_instance_;
+class MultiWaypointXYZCommand;
+class MultiWaypointXYZCommandDefaultTypeInternal;
+extern MultiWaypointXYZCommandDefaultTypeInternal _MultiWaypointXYZCommand_default_instance_;
+class MultiWaypointXYZResponse;
+class MultiWaypointXYZResponseDefaultTypeInternal;
+extern MultiWaypointXYZResponseDefaultTypeInternal _MultiWaypointXYZResponse_default_instance_;
+class PoseCommand;
+class PoseCommandDefaultTypeInternal;
+extern PoseCommandDefaultTypeInternal _PoseCommand_default_instance_;
+class PoseResponse;
+class PoseResponseDefaultTypeInternal;
+extern PoseResponseDefaultTypeInternal _PoseResponse_default_instance_;
+class RelativePoseCommand;
+class RelativePoseCommandDefaultTypeInternal;
+extern RelativePoseCommandDefaultTypeInternal _RelativePoseCommand_default_instance_;
+class RelativePoseResponse;
+class RelativePoseResponseDefaultTypeInternal;
+extern RelativePoseResponseDefaultTypeInternal _RelativePoseResponse_default_instance_;
+class SingleWaypointCommand;
+class SingleWaypointCommandDefaultTypeInternal;
+extern SingleWaypointCommandDefaultTypeInternal _SingleWaypointCommand_default_instance_;
+class SingleWaypointResponse;
+class SingleWaypointResponseDefaultTypeInternal;
+extern SingleWaypointResponseDefaultTypeInternal _SingleWaypointResponse_default_instance_;
+class StateCommand;
+class StateCommandDefaultTypeInternal;
+extern StateCommandDefaultTypeInternal _StateCommand_default_instance_;
+class StateResponse;
+class StateResponseDefaultTypeInternal;
+extern StateResponseDefaultTypeInternal _StateResponse_default_instance_;
 namespace google {
 namespace protobuf {
-template<> ::ControllerInfo* Arena::CreateMaybeMessage<::ControllerInfo>(Arena*);
-template<> ::DirectControl* Arena::CreateMaybeMessage<::DirectControl>(Arena*);
+template<> ::ControllerStateCommand* Arena::CreateMaybeMessage<::ControllerStateCommand>(Arena*);
+template<> ::ControllerStateResponse* Arena::CreateMaybeMessage<::ControllerStateResponse>(Arena*);
+template<> ::DirectControlCommand* Arena::CreateMaybeMessage<::DirectControlCommand>(Arena*);
 template<> ::ExecuteWaypoints* Arena::CreateMaybeMessage<::ExecuteWaypoints>(Arena*);
-template<> ::Health* Arena::CreateMaybeMessage<::Health>(Arena*);
-template<> ::MultiWaypointGPS* Arena::CreateMaybeMessage<::MultiWaypointGPS>(Arena*);
-template<> ::MultiWaypointXYZ* Arena::CreateMaybeMessage<::MultiWaypointXYZ>(Arena*);
-template<> ::Pose* Arena::CreateMaybeMessage<::Pose>(Arena*);
-template<> ::RelativePose* Arena::CreateMaybeMessage<::RelativePose>(Arena*);
-template<> ::SingleWaypoint* Arena::CreateMaybeMessage<::SingleWaypoint>(Arena*);
-template<> ::StateInfo* Arena::CreateMaybeMessage<::StateInfo>(Arena*);
+template<> ::HealthCommand* Arena::CreateMaybeMessage<::HealthCommand>(Arena*);
+template<> ::HealthResponse* Arena::CreateMaybeMessage<::HealthResponse>(Arena*);
+template<> ::MultiWaypointGPSCommand* Arena::CreateMaybeMessage<::MultiWaypointGPSCommand>(Arena*);
+template<> ::MultiWaypointGPSResponse* Arena::CreateMaybeMessage<::MultiWaypointGPSResponse>(Arena*);
+template<> ::MultiWaypointXYZCommand* Arena::CreateMaybeMessage<::MultiWaypointXYZCommand>(Arena*);
+template<> ::MultiWaypointXYZResponse* Arena::CreateMaybeMessage<::MultiWaypointXYZResponse>(Arena*);
+template<> ::PoseCommand* Arena::CreateMaybeMessage<::PoseCommand>(Arena*);
+template<> ::PoseResponse* Arena::CreateMaybeMessage<::PoseResponse>(Arena*);
+template<> ::RelativePoseCommand* Arena::CreateMaybeMessage<::RelativePoseCommand>(Arena*);
+template<> ::RelativePoseResponse* Arena::CreateMaybeMessage<::RelativePoseResponse>(Arena*);
+template<> ::SingleWaypointCommand* Arena::CreateMaybeMessage<::SingleWaypointCommand>(Arena*);
+template<> ::SingleWaypointResponse* Arena::CreateMaybeMessage<::SingleWaypointResponse>(Arena*);
+template<> ::StateCommand* Arena::CreateMaybeMessage<::StateCommand>(Arena*);
+template<> ::StateResponse* Arena::CreateMaybeMessage<::StateResponse>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 
-enum RelativePose_Frame {
-  RelativePose_Frame_BASE_LINK = 0,
-  RelativePose_Frame_ODOM = 1,
-  RelativePose_Frame_WORLD = 2,
-  RelativePose_Frame_USBL = 3
+enum RelativePoseCommand_Frame {
+  RelativePoseCommand_Frame_BASE_LINK = 0,
+  RelativePoseCommand_Frame_ODOM = 1,
+  RelativePoseCommand_Frame_WORLD = 2,
+  RelativePoseCommand_Frame_USBL = 3
 };
-bool RelativePose_Frame_IsValid(int value);
-const RelativePose_Frame RelativePose_Frame_Frame_MIN = RelativePose_Frame_BASE_LINK;
-const RelativePose_Frame RelativePose_Frame_Frame_MAX = RelativePose_Frame_USBL;
-const int RelativePose_Frame_Frame_ARRAYSIZE = RelativePose_Frame_Frame_MAX + 1;
+bool RelativePoseCommand_Frame_IsValid(int value);
+const RelativePoseCommand_Frame RelativePoseCommand_Frame_Frame_MIN = RelativePoseCommand_Frame_BASE_LINK;
+const RelativePoseCommand_Frame RelativePoseCommand_Frame_Frame_MAX = RelativePoseCommand_Frame_USBL;
+const int RelativePoseCommand_Frame_Frame_ARRAYSIZE = RelativePoseCommand_Frame_Frame_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* RelativePose_Frame_descriptor();
-inline const ::std::string& RelativePose_Frame_Name(RelativePose_Frame value) {
+const ::google::protobuf::EnumDescriptor* RelativePoseCommand_Frame_descriptor();
+inline const ::std::string& RelativePoseCommand_Frame_Name(RelativePoseCommand_Frame value) {
   return ::google::protobuf::internal::NameOfEnum(
-    RelativePose_Frame_descriptor(), value);
+    RelativePoseCommand_Frame_descriptor(), value);
 }
-inline bool RelativePose_Frame_Parse(
-    const ::std::string& name, RelativePose_Frame* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<RelativePose_Frame>(
-    RelativePose_Frame_descriptor(), name, value);
+inline bool RelativePoseCommand_Frame_Parse(
+    const ::std::string& name, RelativePoseCommand_Frame* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<RelativePoseCommand_Frame>(
+    RelativePoseCommand_Frame_descriptor(), name, value);
 }
-enum DirectControl_Frame {
-  DirectControl_Frame_BASE_LINK = 0,
-  DirectControl_Frame_ODOM = 1,
-  DirectControl_Frame_WORLD = 2,
-  DirectControl_Frame_USBL = 3
+enum RelativePoseResponse_Frame {
+  RelativePoseResponse_Frame_BASE_LINK = 0,
+  RelativePoseResponse_Frame_ODOM = 1,
+  RelativePoseResponse_Frame_WORLD = 2,
+  RelativePoseResponse_Frame_USBL = 3
 };
-bool DirectControl_Frame_IsValid(int value);
-const DirectControl_Frame DirectControl_Frame_Frame_MIN = DirectControl_Frame_BASE_LINK;
-const DirectControl_Frame DirectControl_Frame_Frame_MAX = DirectControl_Frame_USBL;
-const int DirectControl_Frame_Frame_ARRAYSIZE = DirectControl_Frame_Frame_MAX + 1;
+bool RelativePoseResponse_Frame_IsValid(int value);
+const RelativePoseResponse_Frame RelativePoseResponse_Frame_Frame_MIN = RelativePoseResponse_Frame_BASE_LINK;
+const RelativePoseResponse_Frame RelativePoseResponse_Frame_Frame_MAX = RelativePoseResponse_Frame_USBL;
+const int RelativePoseResponse_Frame_Frame_ARRAYSIZE = RelativePoseResponse_Frame_Frame_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* DirectControl_Frame_descriptor();
-inline const ::std::string& DirectControl_Frame_Name(DirectControl_Frame value) {
+const ::google::protobuf::EnumDescriptor* RelativePoseResponse_Frame_descriptor();
+inline const ::std::string& RelativePoseResponse_Frame_Name(RelativePoseResponse_Frame value) {
   return ::google::protobuf::internal::NameOfEnum(
-    DirectControl_Frame_descriptor(), value);
+    RelativePoseResponse_Frame_descriptor(), value);
 }
-inline bool DirectControl_Frame_Parse(
-    const ::std::string& name, DirectControl_Frame* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<DirectControl_Frame>(
-    DirectControl_Frame_descriptor(), name, value);
+inline bool RelativePoseResponse_Frame_Parse(
+    const ::std::string& name, RelativePoseResponse_Frame* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<RelativePoseResponse_Frame>(
+    RelativePoseResponse_Frame_descriptor(), name, value);
 }
-enum StateInfo_State {
-  StateInfo_State_KILL = 0,
-  StateInfo_State_START = 1,
-  StateInfo_State_SURVEY_LOCAL = 2,
-  StateInfo_State_SURVEY_GLOBAL = 3,
-  StateInfo_State_DIRECT_CONTROL = 4,
-  StateInfo_State_SURVEY_3D = 5
+enum ControllerStateCommand_State {
+  ControllerStateCommand_State_DISABLE = 0,
+  ControllerStateCommand_State_ENABLE = 1
 };
-bool StateInfo_State_IsValid(int value);
-const StateInfo_State StateInfo_State_State_MIN = StateInfo_State_KILL;
-const StateInfo_State StateInfo_State_State_MAX = StateInfo_State_SURVEY_3D;
-const int StateInfo_State_State_ARRAYSIZE = StateInfo_State_State_MAX + 1;
+bool ControllerStateCommand_State_IsValid(int value);
+const ControllerStateCommand_State ControllerStateCommand_State_State_MIN = ControllerStateCommand_State_DISABLE;
+const ControllerStateCommand_State ControllerStateCommand_State_State_MAX = ControllerStateCommand_State_ENABLE;
+const int ControllerStateCommand_State_State_ARRAYSIZE = ControllerStateCommand_State_State_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* StateInfo_State_descriptor();
-inline const ::std::string& StateInfo_State_Name(StateInfo_State value) {
+const ::google::protobuf::EnumDescriptor* ControllerStateCommand_State_descriptor();
+inline const ::std::string& ControllerStateCommand_State_Name(ControllerStateCommand_State value) {
   return ::google::protobuf::internal::NameOfEnum(
-    StateInfo_State_descriptor(), value);
+    ControllerStateCommand_State_descriptor(), value);
 }
-inline bool StateInfo_State_Parse(
-    const ::std::string& name, StateInfo_State* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<StateInfo_State>(
-    StateInfo_State_descriptor(), name, value);
+inline bool ControllerStateCommand_State_Parse(
+    const ::std::string& name, ControllerStateCommand_State* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ControllerStateCommand_State>(
+    ControllerStateCommand_State_descriptor(), name, value);
+}
+enum ControllerStateResponse_State {
+  ControllerStateResponse_State_DISABLE = 0,
+  ControllerStateResponse_State_ENABLE = 1
+};
+bool ControllerStateResponse_State_IsValid(int value);
+const ControllerStateResponse_State ControllerStateResponse_State_State_MIN = ControllerStateResponse_State_DISABLE;
+const ControllerStateResponse_State ControllerStateResponse_State_State_MAX = ControllerStateResponse_State_ENABLE;
+const int ControllerStateResponse_State_State_ARRAYSIZE = ControllerStateResponse_State_State_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* ControllerStateResponse_State_descriptor();
+inline const ::std::string& ControllerStateResponse_State_Name(ControllerStateResponse_State value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    ControllerStateResponse_State_descriptor(), value);
+}
+inline bool ControllerStateResponse_State_Parse(
+    const ::std::string& name, ControllerStateResponse_State* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ControllerStateResponse_State>(
+    ControllerStateResponse_State_descriptor(), name, value);
+}
+enum DirectControlCommand_Frame {
+  DirectControlCommand_Frame_BASE_LINK = 0,
+  DirectControlCommand_Frame_ODOM = 1,
+  DirectControlCommand_Frame_WORLD = 2,
+  DirectControlCommand_Frame_USBL = 3
+};
+bool DirectControlCommand_Frame_IsValid(int value);
+const DirectControlCommand_Frame DirectControlCommand_Frame_Frame_MIN = DirectControlCommand_Frame_BASE_LINK;
+const DirectControlCommand_Frame DirectControlCommand_Frame_Frame_MAX = DirectControlCommand_Frame_USBL;
+const int DirectControlCommand_Frame_Frame_ARRAYSIZE = DirectControlCommand_Frame_Frame_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* DirectControlCommand_Frame_descriptor();
+inline const ::std::string& DirectControlCommand_Frame_Name(DirectControlCommand_Frame value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    DirectControlCommand_Frame_descriptor(), value);
+}
+inline bool DirectControlCommand_Frame_Parse(
+    const ::std::string& name, DirectControlCommand_Frame* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<DirectControlCommand_Frame>(
+    DirectControlCommand_Frame_descriptor(), name, value);
+}
+enum StateCommand_Mode {
+  StateCommand_Mode_QUERY = 0,
+  StateCommand_Mode_COMMAND = 1
+};
+bool StateCommand_Mode_IsValid(int value);
+const StateCommand_Mode StateCommand_Mode_Mode_MIN = StateCommand_Mode_QUERY;
+const StateCommand_Mode StateCommand_Mode_Mode_MAX = StateCommand_Mode_COMMAND;
+const int StateCommand_Mode_Mode_ARRAYSIZE = StateCommand_Mode_Mode_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* StateCommand_Mode_descriptor();
+inline const ::std::string& StateCommand_Mode_Name(StateCommand_Mode value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    StateCommand_Mode_descriptor(), value);
+}
+inline bool StateCommand_Mode_Parse(
+    const ::std::string& name, StateCommand_Mode* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<StateCommand_Mode>(
+    StateCommand_Mode_descriptor(), name, value);
+}
+enum StateCommand_State {
+  StateCommand_State_KILL = 0,
+  StateCommand_State_START = 1,
+  StateCommand_State_SURVEY_LOCAL = 2,
+  StateCommand_State_SURVEY_GLOBAL = 3,
+  StateCommand_State_DIRECT_CONTROL = 4,
+  StateCommand_State_SURVEY_3D = 5
+};
+bool StateCommand_State_IsValid(int value);
+const StateCommand_State StateCommand_State_State_MIN = StateCommand_State_KILL;
+const StateCommand_State StateCommand_State_State_MAX = StateCommand_State_SURVEY_3D;
+const int StateCommand_State_State_ARRAYSIZE = StateCommand_State_State_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* StateCommand_State_descriptor();
+inline const ::std::string& StateCommand_State_Name(StateCommand_State value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    StateCommand_State_descriptor(), value);
+}
+inline bool StateCommand_State_Parse(
+    const ::std::string& name, StateCommand_State* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<StateCommand_State>(
+    StateCommand_State_descriptor(), name, value);
+}
+enum StateResponse_State {
+  StateResponse_State_KILL = 0,
+  StateResponse_State_START = 1,
+  StateResponse_State_SURVEY_LOCAL = 2,
+  StateResponse_State_SURVEY_GLOBAL = 3,
+  StateResponse_State_DIRECT_CONTROL = 4,
+  StateResponse_State_SURVEY_3D = 5
+};
+bool StateResponse_State_IsValid(int value);
+const StateResponse_State StateResponse_State_State_MIN = StateResponse_State_KILL;
+const StateResponse_State StateResponse_State_State_MAX = StateResponse_State_SURVEY_3D;
+const int StateResponse_State_State_ARRAYSIZE = StateResponse_State_State_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* StateResponse_State_descriptor();
+inline const ::std::string& StateResponse_State_Name(StateResponse_State value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    StateResponse_State_descriptor(), value);
+}
+inline bool StateResponse_State_Parse(
+    const ::std::string& name, StateResponse_State* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<StateResponse_State>(
+    StateResponse_State_descriptor(), name, value);
+}
+enum SingleWaypointCommand_Mode {
+  SingleWaypointCommand_Mode_QUERY = 0,
+  SingleWaypointCommand_Mode_COMMAND_LATLONG = 1,
+  SingleWaypointCommand_Mode_COMMAND_XYZ = 2
+};
+bool SingleWaypointCommand_Mode_IsValid(int value);
+const SingleWaypointCommand_Mode SingleWaypointCommand_Mode_Mode_MIN = SingleWaypointCommand_Mode_QUERY;
+const SingleWaypointCommand_Mode SingleWaypointCommand_Mode_Mode_MAX = SingleWaypointCommand_Mode_COMMAND_XYZ;
+const int SingleWaypointCommand_Mode_Mode_ARRAYSIZE = SingleWaypointCommand_Mode_Mode_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* SingleWaypointCommand_Mode_descriptor();
+inline const ::std::string& SingleWaypointCommand_Mode_Name(SingleWaypointCommand_Mode value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    SingleWaypointCommand_Mode_descriptor(), value);
+}
+inline bool SingleWaypointCommand_Mode_Parse(
+    const ::std::string& name, SingleWaypointCommand_Mode* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<SingleWaypointCommand_Mode>(
+    SingleWaypointCommand_Mode_descriptor(), name, value);
+}
+enum MultiWaypointGPSCommand_Mode {
+  MultiWaypointGPSCommand_Mode_QUERY = 0,
+  MultiWaypointGPSCommand_Mode_COMMAND = 1
+};
+bool MultiWaypointGPSCommand_Mode_IsValid(int value);
+const MultiWaypointGPSCommand_Mode MultiWaypointGPSCommand_Mode_Mode_MIN = MultiWaypointGPSCommand_Mode_QUERY;
+const MultiWaypointGPSCommand_Mode MultiWaypointGPSCommand_Mode_Mode_MAX = MultiWaypointGPSCommand_Mode_COMMAND;
+const int MultiWaypointGPSCommand_Mode_Mode_ARRAYSIZE = MultiWaypointGPSCommand_Mode_Mode_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* MultiWaypointGPSCommand_Mode_descriptor();
+inline const ::std::string& MultiWaypointGPSCommand_Mode_Name(MultiWaypointGPSCommand_Mode value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    MultiWaypointGPSCommand_Mode_descriptor(), value);
+}
+inline bool MultiWaypointGPSCommand_Mode_Parse(
+    const ::std::string& name, MultiWaypointGPSCommand_Mode* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<MultiWaypointGPSCommand_Mode>(
+    MultiWaypointGPSCommand_Mode_descriptor(), name, value);
+}
+enum MultiWaypointGPSResponse_Mode {
+  MultiWaypointGPSResponse_Mode_QUERY = 0,
+  MultiWaypointGPSResponse_Mode_COMMAND = 1
+};
+bool MultiWaypointGPSResponse_Mode_IsValid(int value);
+const MultiWaypointGPSResponse_Mode MultiWaypointGPSResponse_Mode_Mode_MIN = MultiWaypointGPSResponse_Mode_QUERY;
+const MultiWaypointGPSResponse_Mode MultiWaypointGPSResponse_Mode_Mode_MAX = MultiWaypointGPSResponse_Mode_COMMAND;
+const int MultiWaypointGPSResponse_Mode_Mode_ARRAYSIZE = MultiWaypointGPSResponse_Mode_Mode_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* MultiWaypointGPSResponse_Mode_descriptor();
+inline const ::std::string& MultiWaypointGPSResponse_Mode_Name(MultiWaypointGPSResponse_Mode value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    MultiWaypointGPSResponse_Mode_descriptor(), value);
+}
+inline bool MultiWaypointGPSResponse_Mode_Parse(
+    const ::std::string& name, MultiWaypointGPSResponse_Mode* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<MultiWaypointGPSResponse_Mode>(
+    MultiWaypointGPSResponse_Mode_descriptor(), name, value);
+}
+enum MultiWaypointXYZCommand_Mode {
+  MultiWaypointXYZCommand_Mode_QUERY = 0,
+  MultiWaypointXYZCommand_Mode_COMMAND = 1
+};
+bool MultiWaypointXYZCommand_Mode_IsValid(int value);
+const MultiWaypointXYZCommand_Mode MultiWaypointXYZCommand_Mode_Mode_MIN = MultiWaypointXYZCommand_Mode_QUERY;
+const MultiWaypointXYZCommand_Mode MultiWaypointXYZCommand_Mode_Mode_MAX = MultiWaypointXYZCommand_Mode_COMMAND;
+const int MultiWaypointXYZCommand_Mode_Mode_ARRAYSIZE = MultiWaypointXYZCommand_Mode_Mode_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* MultiWaypointXYZCommand_Mode_descriptor();
+inline const ::std::string& MultiWaypointXYZCommand_Mode_Name(MultiWaypointXYZCommand_Mode value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    MultiWaypointXYZCommand_Mode_descriptor(), value);
+}
+inline bool MultiWaypointXYZCommand_Mode_Parse(
+    const ::std::string& name, MultiWaypointXYZCommand_Mode* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<MultiWaypointXYZCommand_Mode>(
+    MultiWaypointXYZCommand_Mode_descriptor(), name, value);
 }
 enum ExecuteWaypoints_WaypointMode {
   ExecuteWaypoints_WaypointMode_APPEND = 0,
@@ -178,24 +388,24 @@ inline bool ExecuteWaypoints_WaypointMode_Parse(
 }
 // ===================================================================
 
-class Pose : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Pose) */ {
+class PoseCommand : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:PoseCommand) */ {
  public:
-  Pose();
-  virtual ~Pose();
+  PoseCommand();
+  virtual ~PoseCommand();
 
-  Pose(const Pose& from);
+  PoseCommand(const PoseCommand& from);
 
-  inline Pose& operator=(const Pose& from) {
+  inline PoseCommand& operator=(const PoseCommand& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  Pose(Pose&& from) noexcept
-    : Pose() {
+  PoseCommand(PoseCommand&& from) noexcept
+    : PoseCommand() {
     *this = ::std::move(from);
   }
 
-  inline Pose& operator=(Pose&& from) noexcept {
+  inline PoseCommand& operator=(PoseCommand&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -212,34 +422,34 @@ class Pose : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Pose& default_instance();
+  static const PoseCommand& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const Pose* internal_default_instance() {
-    return reinterpret_cast<const Pose*>(
-               &_Pose_default_instance_);
+  static inline const PoseCommand* internal_default_instance() {
+    return reinterpret_cast<const PoseCommand*>(
+               &_PoseCommand_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  void Swap(Pose* other);
-  friend void swap(Pose& a, Pose& b) {
+  void Swap(PoseCommand* other);
+  friend void swap(PoseCommand& a, PoseCommand& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline Pose* New() const final {
-    return CreateMaybeMessage<Pose>(NULL);
+  inline PoseCommand* New() const final {
+    return CreateMaybeMessage<PoseCommand>(NULL);
   }
 
-  Pose* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<Pose>(arena);
+  PoseCommand* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<PoseCommand>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const Pose& from);
-  void MergeFrom(const Pose& from);
+  void CopyFrom(const PoseCommand& from);
+  void MergeFrom(const PoseCommand& from);
   void Clear() final;
   bool IsInitialized() const final;
 
@@ -256,7 +466,7 @@ class Pose : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Pose* other);
+  void InternalSwap(PoseCommand* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -272,19 +482,19 @@ class Pose : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
 
   // accessors -------------------------------------------------------
 
-  // required int32 destination = 1 [(.dccl.field) = {
+  // required int32 source = 1 [(.dccl.field) = {
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 1;
+  ::google::protobuf::int32 source() const;
+  void set_source(::google::protobuf::int32 value);
+
+  // required int32 destination = 2 [(.dccl.field) = {
   bool has_destination() const;
   void clear_destination();
-  static const int kDestinationFieldNumber = 1;
+  static const int kDestinationFieldNumber = 2;
   ::google::protobuf::int32 destination() const;
   void set_destination(::google::protobuf::int32 value);
-
-  // required bool cmd_resp = 2;
-  bool has_cmd_resp() const;
-  void clear_cmd_resp();
-  static const int kCmdRespFieldNumber = 2;
-  bool cmd_resp() const;
-  void set_cmd_resp(bool value);
 
   // optional double time = 3 [(.dccl.field) = {
   bool has_time() const;
@@ -293,95 +503,14 @@ class Pose : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
   double time() const;
   void set_time(double value);
 
-  // optional double latitude = 4 [(.dccl.field) = {
-  bool has_latitude() const;
-  void clear_latitude();
-  static const int kLatitudeFieldNumber = 4;
-  double latitude() const;
-  void set_latitude(double value);
-
-  // optional double longitude = 5 [(.dccl.field) = {
-  bool has_longitude() const;
-  void clear_longitude();
-  static const int kLongitudeFieldNumber = 5;
-  double longitude() const;
-  void set_longitude(double value);
-
-  // optional int32 local_x = 6 [(.dccl.field) = {
-  bool has_local_x() const;
-  void clear_local_x();
-  static const int kLocalXFieldNumber = 6;
-  ::google::protobuf::int32 local_x() const;
-  void set_local_x(::google::protobuf::int32 value);
-
-  // optional int32 local_y = 7 [(.dccl.field) = {
-  bool has_local_y() const;
-  void clear_local_y();
-  static const int kLocalYFieldNumber = 7;
-  ::google::protobuf::int32 local_y() const;
-  void set_local_y(::google::protobuf::int32 value);
-
-  // optional int32 local_z = 8 [(.dccl.field) = {
-  bool has_local_z() const;
-  void clear_local_z();
-  static const int kLocalZFieldNumber = 8;
-  ::google::protobuf::int32 local_z() const;
-  void set_local_z(::google::protobuf::int32 value);
-
-  // optional float x_rot = 9 [(.dccl.field) = {
-  bool has_x_rot() const;
-  void clear_x_rot();
-  static const int kXRotFieldNumber = 9;
-  float x_rot() const;
-  void set_x_rot(float value);
-
-  // optional float y_rot = 10 [(.dccl.field) = {
-  bool has_y_rot() const;
-  void clear_y_rot();
-  static const int kYRotFieldNumber = 10;
-  float y_rot() const;
-  void set_y_rot(float value);
-
-  // optional float z_rot = 11 [(.dccl.field) = {
-  bool has_z_rot() const;
-  void clear_z_rot();
-  static const int kZRotFieldNumber = 11;
-  float z_rot() const;
-  void set_z_rot(float value);
-
-  // optional float w_rot = 12 [(.dccl.field) = {
-  bool has_w_rot() const;
-  void clear_w_rot();
-  static const int kWRotFieldNumber = 12;
-  float w_rot() const;
-  void set_w_rot(float value);
-
-  // @@protoc_insertion_point(class_scope:Pose)
+  // @@protoc_insertion_point(class_scope:PoseCommand)
  private:
+  void set_has_source();
+  void clear_has_source();
   void set_has_destination();
   void clear_has_destination();
-  void set_has_cmd_resp();
-  void clear_has_cmd_resp();
   void set_has_time();
   void clear_has_time();
-  void set_has_latitude();
-  void clear_has_latitude();
-  void set_has_longitude();
-  void clear_has_longitude();
-  void set_has_local_x();
-  void clear_has_local_x();
-  void set_has_local_y();
-  void clear_has_local_y();
-  void set_has_local_z();
-  void clear_has_local_z();
-  void set_has_x_rot();
-  void clear_has_x_rot();
-  void set_has_y_rot();
-  void clear_has_y_rot();
-  void set_has_z_rot();
-  void clear_has_z_rot();
-  void set_has_w_rot();
-  void clear_has_w_rot();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -389,40 +518,31 @@ class Pose : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::protobuf::int32 source_;
   ::google::protobuf::int32 destination_;
-  bool cmd_resp_;
   double time_;
-  double latitude_;
-  double longitude_;
-  ::google::protobuf::int32 local_x_;
-  ::google::protobuf::int32 local_y_;
-  ::google::protobuf::int32 local_z_;
-  float x_rot_;
-  float y_rot_;
-  float z_rot_;
-  float w_rot_;
   friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
 
-class Health : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Health) */ {
+class PoseResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:PoseResponse) */ {
  public:
-  Health();
-  virtual ~Health();
+  PoseResponse();
+  virtual ~PoseResponse();
 
-  Health(const Health& from);
+  PoseResponse(const PoseResponse& from);
 
-  inline Health& operator=(const Health& from) {
+  inline PoseResponse& operator=(const PoseResponse& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  Health(Health&& from) noexcept
-    : Health() {
+  PoseResponse(PoseResponse&& from) noexcept
+    : PoseResponse() {
     *this = ::std::move(from);
   }
 
-  inline Health& operator=(Health&& from) noexcept {
+  inline PoseResponse& operator=(PoseResponse&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -439,34 +559,34 @@ class Health : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Health& default_instance();
+  static const PoseResponse& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const Health* internal_default_instance() {
-    return reinterpret_cast<const Health*>(
-               &_Health_default_instance_);
+  static inline const PoseResponse* internal_default_instance() {
+    return reinterpret_cast<const PoseResponse*>(
+               &_PoseResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  void Swap(Health* other);
-  friend void swap(Health& a, Health& b) {
+  void Swap(PoseResponse* other);
+  friend void swap(PoseResponse& a, PoseResponse& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline Health* New() const final {
-    return CreateMaybeMessage<Health>(NULL);
+  inline PoseResponse* New() const final {
+    return CreateMaybeMessage<PoseResponse>(NULL);
   }
 
-  Health* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<Health>(arena);
+  PoseResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<PoseResponse>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const Health& from);
-  void MergeFrom(const Health& from);
+  void CopyFrom(const PoseResponse& from);
+  void MergeFrom(const PoseResponse& from);
   void Clear() final;
   bool IsInitialized() const final;
 
@@ -483,7 +603,7 @@ class Health : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Health* other);
+  void InternalSwap(PoseResponse* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -499,19 +619,246 @@ class Health : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
 
   // accessors -------------------------------------------------------
 
-  // required int32 destination = 1 [(.dccl.field) = {
+  // required int32 source = 1 [(.dccl.field) = {
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 1;
+  ::google::protobuf::int32 source() const;
+  void set_source(::google::protobuf::int32 value);
+
+  // required int32 destination = 2 [(.dccl.field) = {
   bool has_destination() const;
   void clear_destination();
-  static const int kDestinationFieldNumber = 1;
+  static const int kDestinationFieldNumber = 2;
   ::google::protobuf::int32 destination() const;
   void set_destination(::google::protobuf::int32 value);
 
-  // optional bool cmd_resp = 2;
-  bool has_cmd_resp() const;
-  void clear_cmd_resp();
-  static const int kCmdRespFieldNumber = 2;
-  bool cmd_resp() const;
-  void set_cmd_resp(bool value);
+  // required double time = 3 [(.dccl.field) = {
+  bool has_time() const;
+  void clear_time();
+  static const int kTimeFieldNumber = 3;
+  double time() const;
+  void set_time(double value);
+
+  // required double latitude = 4 [(.dccl.field) = {
+  bool has_latitude() const;
+  void clear_latitude();
+  static const int kLatitudeFieldNumber = 4;
+  double latitude() const;
+  void set_latitude(double value);
+
+  // required double longitude = 5 [(.dccl.field) = {
+  bool has_longitude() const;
+  void clear_longitude();
+  static const int kLongitudeFieldNumber = 5;
+  double longitude() const;
+  void set_longitude(double value);
+
+  // required float x = 6 [(.dccl.field) = {
+  bool has_x() const;
+  void clear_x();
+  static const int kXFieldNumber = 6;
+  float x() const;
+  void set_x(float value);
+
+  // required float y = 7 [(.dccl.field) = {
+  bool has_y() const;
+  void clear_y();
+  static const int kYFieldNumber = 7;
+  float y() const;
+  void set_y(float value);
+
+  // required float z = 8 [(.dccl.field) = {
+  bool has_z() const;
+  void clear_z();
+  static const int kZFieldNumber = 8;
+  float z() const;
+  void set_z(float value);
+
+  // required float quat_x = 9 [(.dccl.field) = {
+  bool has_quat_x() const;
+  void clear_quat_x();
+  static const int kQuatXFieldNumber = 9;
+  float quat_x() const;
+  void set_quat_x(float value);
+
+  // required float quat_y = 10 [(.dccl.field) = {
+  bool has_quat_y() const;
+  void clear_quat_y();
+  static const int kQuatYFieldNumber = 10;
+  float quat_y() const;
+  void set_quat_y(float value);
+
+  // required float quat_z = 11 [(.dccl.field) = {
+  bool has_quat_z() const;
+  void clear_quat_z();
+  static const int kQuatZFieldNumber = 11;
+  float quat_z() const;
+  void set_quat_z(float value);
+
+  // required float quat_w = 12 [(.dccl.field) = {
+  bool has_quat_w() const;
+  void clear_quat_w();
+  static const int kQuatWFieldNumber = 12;
+  float quat_w() const;
+  void set_quat_w(float value);
+
+  // @@protoc_insertion_point(class_scope:PoseResponse)
+ private:
+  void set_has_source();
+  void clear_has_source();
+  void set_has_destination();
+  void clear_has_destination();
+  void set_has_time();
+  void clear_has_time();
+  void set_has_latitude();
+  void clear_has_latitude();
+  void set_has_longitude();
+  void clear_has_longitude();
+  void set_has_x();
+  void clear_has_x();
+  void set_has_y();
+  void clear_has_y();
+  void set_has_z();
+  void clear_has_z();
+  void set_has_quat_x();
+  void clear_has_quat_x();
+  void set_has_quat_y();
+  void clear_has_quat_y();
+  void set_has_quat_z();
+  void clear_has_quat_z();
+  void set_has_quat_w();
+  void clear_has_quat_w();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::protobuf::int32 source_;
+  ::google::protobuf::int32 destination_;
+  double time_;
+  double latitude_;
+  double longitude_;
+  float x_;
+  float y_;
+  float z_;
+  float quat_x_;
+  float quat_y_;
+  float quat_z_;
+  float quat_w_;
+  friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class HealthCommand : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:HealthCommand) */ {
+ public:
+  HealthCommand();
+  virtual ~HealthCommand();
+
+  HealthCommand(const HealthCommand& from);
+
+  inline HealthCommand& operator=(const HealthCommand& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  HealthCommand(HealthCommand&& from) noexcept
+    : HealthCommand() {
+    *this = ::std::move(from);
+  }
+
+  inline HealthCommand& operator=(HealthCommand&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const HealthCommand& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const HealthCommand* internal_default_instance() {
+    return reinterpret_cast<const HealthCommand*>(
+               &_HealthCommand_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  void Swap(HealthCommand* other);
+  friend void swap(HealthCommand& a, HealthCommand& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline HealthCommand* New() const final {
+    return CreateMaybeMessage<HealthCommand>(NULL);
+  }
+
+  HealthCommand* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<HealthCommand>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const HealthCommand& from);
+  void MergeFrom(const HealthCommand& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(HealthCommand* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 source = 1 [(.dccl.field) = {
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 1;
+  ::google::protobuf::int32 source() const;
+  void set_source(::google::protobuf::int32 value);
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  bool has_destination() const;
+  void clear_destination();
+  static const int kDestinationFieldNumber = 2;
+  ::google::protobuf::int32 destination() const;
+  void set_destination(::google::protobuf::int32 value);
 
   // optional double time = 3 [(.dccl.field) = {
   bool has_time() const;
@@ -520,26 +867,163 @@ class Health : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   double time() const;
   void set_time(double value);
 
-  // optional float batt_volt = 4 [(.dccl.field) = {
+  // @@protoc_insertion_point(class_scope:HealthCommand)
+ private:
+  void set_has_source();
+  void clear_has_source();
+  void set_has_destination();
+  void clear_has_destination();
+  void set_has_time();
+  void clear_has_time();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::protobuf::int32 source_;
+  ::google::protobuf::int32 destination_;
+  double time_;
+  friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class HealthResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:HealthResponse) */ {
+ public:
+  HealthResponse();
+  virtual ~HealthResponse();
+
+  HealthResponse(const HealthResponse& from);
+
+  inline HealthResponse& operator=(const HealthResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  HealthResponse(HealthResponse&& from) noexcept
+    : HealthResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline HealthResponse& operator=(HealthResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const HealthResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const HealthResponse* internal_default_instance() {
+    return reinterpret_cast<const HealthResponse*>(
+               &_HealthResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  void Swap(HealthResponse* other);
+  friend void swap(HealthResponse& a, HealthResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline HealthResponse* New() const final {
+    return CreateMaybeMessage<HealthResponse>(NULL);
+  }
+
+  HealthResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<HealthResponse>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const HealthResponse& from);
+  void MergeFrom(const HealthResponse& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(HealthResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 source = 1 [(.dccl.field) = {
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 1;
+  ::google::protobuf::int32 source() const;
+  void set_source(::google::protobuf::int32 value);
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  bool has_destination() const;
+  void clear_destination();
+  static const int kDestinationFieldNumber = 2;
+  ::google::protobuf::int32 destination() const;
+  void set_destination(::google::protobuf::int32 value);
+
+  // optional double time = 3 [(.dccl.field) = {
+  bool has_time() const;
+  void clear_time();
+  static const int kTimeFieldNumber = 3;
+  double time() const;
+  void set_time(double value);
+
+  // required float batt_volt = 4 [(.dccl.field) = {
   bool has_batt_volt() const;
   void clear_batt_volt();
   static const int kBattVoltFieldNumber = 4;
   float batt_volt() const;
   void set_batt_volt(float value);
 
-  // optional float current = 5 [(.dccl.field) = {
+  // required float current = 5 [(.dccl.field) = {
   bool has_current() const;
   void clear_current();
   static const int kCurrentFieldNumber = 5;
   float current() const;
   void set_current(float value);
 
-  // @@protoc_insertion_point(class_scope:Health)
+  // @@protoc_insertion_point(class_scope:HealthResponse)
  private:
+  void set_has_source();
+  void clear_has_source();
   void set_has_destination();
   void clear_has_destination();
-  void set_has_cmd_resp();
-  void clear_has_cmd_resp();
   void set_has_time();
   void clear_has_time();
   void set_has_batt_volt();
@@ -547,11 +1031,14 @@ class Health : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   void set_has_current();
   void clear_has_current();
 
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::protobuf::int32 source_;
   ::google::protobuf::int32 destination_;
-  bool cmd_resp_;
   double time_;
   float batt_volt_;
   float current_;
@@ -559,24 +1046,24 @@ class Health : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
 };
 // -------------------------------------------------------------------
 
-class RelativePose : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:RelativePose) */ {
+class RelativePoseCommand : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:RelativePoseCommand) */ {
  public:
-  RelativePose();
-  virtual ~RelativePose();
+  RelativePoseCommand();
+  virtual ~RelativePoseCommand();
 
-  RelativePose(const RelativePose& from);
+  RelativePoseCommand(const RelativePoseCommand& from);
 
-  inline RelativePose& operator=(const RelativePose& from) {
+  inline RelativePoseCommand& operator=(const RelativePoseCommand& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  RelativePose(RelativePose&& from) noexcept
-    : RelativePose() {
+  RelativePoseCommand(RelativePoseCommand&& from) noexcept
+    : RelativePoseCommand() {
     *this = ::std::move(from);
   }
 
-  inline RelativePose& operator=(RelativePose&& from) noexcept {
+  inline RelativePoseCommand& operator=(RelativePoseCommand&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -593,34 +1080,34 @@ class RelativePose : public ::google::protobuf::Message /* @@protoc_insertion_po
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const RelativePose& default_instance();
+  static const RelativePoseCommand& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const RelativePose* internal_default_instance() {
-    return reinterpret_cast<const RelativePose*>(
-               &_RelativePose_default_instance_);
+  static inline const RelativePoseCommand* internal_default_instance() {
+    return reinterpret_cast<const RelativePoseCommand*>(
+               &_RelativePoseCommand_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    4;
 
-  void Swap(RelativePose* other);
-  friend void swap(RelativePose& a, RelativePose& b) {
+  void Swap(RelativePoseCommand* other);
+  friend void swap(RelativePoseCommand& a, RelativePoseCommand& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline RelativePose* New() const final {
-    return CreateMaybeMessage<RelativePose>(NULL);
+  inline RelativePoseCommand* New() const final {
+    return CreateMaybeMessage<RelativePoseCommand>(NULL);
   }
 
-  RelativePose* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<RelativePose>(arena);
+  RelativePoseCommand* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<RelativePoseCommand>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const RelativePose& from);
-  void MergeFrom(const RelativePose& from);
+  void CopyFrom(const RelativePoseCommand& from);
+  void MergeFrom(const RelativePoseCommand& from);
   void Clear() final;
   bool IsInitialized() const final;
 
@@ -637,7 +1124,7 @@ class RelativePose : public ::google::protobuf::Message /* @@protoc_insertion_po
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(RelativePose* other);
+  void InternalSwap(RelativePoseCommand* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -651,51 +1138,51 @@ class RelativePose : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // nested types ----------------------------------------------------
 
-  typedef RelativePose_Frame Frame;
+  typedef RelativePoseCommand_Frame Frame;
   static const Frame BASE_LINK =
-    RelativePose_Frame_BASE_LINK;
+    RelativePoseCommand_Frame_BASE_LINK;
   static const Frame ODOM =
-    RelativePose_Frame_ODOM;
+    RelativePoseCommand_Frame_ODOM;
   static const Frame WORLD =
-    RelativePose_Frame_WORLD;
+    RelativePoseCommand_Frame_WORLD;
   static const Frame USBL =
-    RelativePose_Frame_USBL;
+    RelativePoseCommand_Frame_USBL;
   static inline bool Frame_IsValid(int value) {
-    return RelativePose_Frame_IsValid(value);
+    return RelativePoseCommand_Frame_IsValid(value);
   }
   static const Frame Frame_MIN =
-    RelativePose_Frame_Frame_MIN;
+    RelativePoseCommand_Frame_Frame_MIN;
   static const Frame Frame_MAX =
-    RelativePose_Frame_Frame_MAX;
+    RelativePoseCommand_Frame_Frame_MAX;
   static const int Frame_ARRAYSIZE =
-    RelativePose_Frame_Frame_ARRAYSIZE;
+    RelativePoseCommand_Frame_Frame_ARRAYSIZE;
   static inline const ::google::protobuf::EnumDescriptor*
   Frame_descriptor() {
-    return RelativePose_Frame_descriptor();
+    return RelativePoseCommand_Frame_descriptor();
   }
   static inline const ::std::string& Frame_Name(Frame value) {
-    return RelativePose_Frame_Name(value);
+    return RelativePoseCommand_Frame_Name(value);
   }
   static inline bool Frame_Parse(const ::std::string& name,
       Frame* value) {
-    return RelativePose_Frame_Parse(name, value);
+    return RelativePoseCommand_Frame_Parse(name, value);
   }
 
   // accessors -------------------------------------------------------
 
-  // required int32 destination = 1 [(.dccl.field) = {
+  // required int32 source = 1 [(.dccl.field) = {
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 1;
+  ::google::protobuf::int32 source() const;
+  void set_source(::google::protobuf::int32 value);
+
+  // required int32 destination = 2 [(.dccl.field) = {
   bool has_destination() const;
   void clear_destination();
-  static const int kDestinationFieldNumber = 1;
+  static const int kDestinationFieldNumber = 2;
   ::google::protobuf::int32 destination() const;
   void set_destination(::google::protobuf::int32 value);
-
-  // required bool cmd_resp = 2;
-  bool has_cmd_resp() const;
-  void clear_cmd_resp();
-  static const int kCmdRespFieldNumber = 2;
-  bool cmd_resp() const;
-  void set_cmd_resp(bool value);
 
   // optional double time = 3 [(.dccl.field) = {
   bool has_time() const;
@@ -704,95 +1191,32 @@ class RelativePose : public ::google::protobuf::Message /* @@protoc_insertion_po
   double time() const;
   void set_time(double value);
 
-  // optional .RelativePose.Frame parent = 4;
+  // required .RelativePoseCommand.Frame parent = 4;
   bool has_parent() const;
   void clear_parent();
   static const int kParentFieldNumber = 4;
-  ::RelativePose_Frame parent() const;
-  void set_parent(::RelativePose_Frame value);
+  ::RelativePoseCommand_Frame parent() const;
+  void set_parent(::RelativePoseCommand_Frame value);
 
-  // optional .RelativePose.Frame child = 5;
+  // required .RelativePoseCommand.Frame child = 5;
   bool has_child() const;
   void clear_child();
   static const int kChildFieldNumber = 5;
-  ::RelativePose_Frame child() const;
-  void set_child(::RelativePose_Frame value);
+  ::RelativePoseCommand_Frame child() const;
+  void set_child(::RelativePoseCommand_Frame value);
 
-  // optional float local_x = 6 [(.dccl.field) = {
-  bool has_local_x() const;
-  void clear_local_x();
-  static const int kLocalXFieldNumber = 6;
-  float local_x() const;
-  void set_local_x(float value);
-
-  // optional float local_y = 7 [(.dccl.field) = {
-  bool has_local_y() const;
-  void clear_local_y();
-  static const int kLocalYFieldNumber = 7;
-  float local_y() const;
-  void set_local_y(float value);
-
-  // optional float local_z = 8 [(.dccl.field) = {
-  bool has_local_z() const;
-  void clear_local_z();
-  static const int kLocalZFieldNumber = 8;
-  float local_z() const;
-  void set_local_z(float value);
-
-  // optional float x_rot = 9 [(.dccl.field) = {
-  bool has_x_rot() const;
-  void clear_x_rot();
-  static const int kXRotFieldNumber = 9;
-  float x_rot() const;
-  void set_x_rot(float value);
-
-  // optional int32 y_rot = 10 [(.dccl.field) = {
-  bool has_y_rot() const;
-  void clear_y_rot();
-  static const int kYRotFieldNumber = 10;
-  ::google::protobuf::int32 y_rot() const;
-  void set_y_rot(::google::protobuf::int32 value);
-
-  // optional int32 z_rot = 11 [(.dccl.field) = {
-  bool has_z_rot() const;
-  void clear_z_rot();
-  static const int kZRotFieldNumber = 11;
-  ::google::protobuf::int32 z_rot() const;
-  void set_z_rot(::google::protobuf::int32 value);
-
-  // optional int32 w_rot = 12 [(.dccl.field) = {
-  bool has_w_rot() const;
-  void clear_w_rot();
-  static const int kWRotFieldNumber = 12;
-  ::google::protobuf::int32 w_rot() const;
-  void set_w_rot(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:RelativePose)
+  // @@protoc_insertion_point(class_scope:RelativePoseCommand)
  private:
+  void set_has_source();
+  void clear_has_source();
   void set_has_destination();
   void clear_has_destination();
-  void set_has_cmd_resp();
-  void clear_has_cmd_resp();
   void set_has_time();
   void clear_has_time();
   void set_has_parent();
   void clear_has_parent();
   void set_has_child();
   void clear_has_child();
-  void set_has_local_x();
-  void clear_has_local_x();
-  void set_has_local_y();
-  void clear_has_local_y();
-  void set_has_local_z();
-  void clear_has_local_z();
-  void set_has_x_rot();
-  void clear_has_x_rot();
-  void set_has_y_rot();
-  void clear_has_y_rot();
-  void set_has_z_rot();
-  void clear_has_z_rot();
-  void set_has_w_rot();
-  void clear_has_w_rot();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -800,40 +1224,33 @@ class RelativePose : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::protobuf::int32 source_;
   ::google::protobuf::int32 destination_;
-  bool cmd_resp_;
   double time_;
   int parent_;
   int child_;
-  float local_x_;
-  float local_y_;
-  float local_z_;
-  float x_rot_;
-  ::google::protobuf::int32 y_rot_;
-  ::google::protobuf::int32 z_rot_;
-  ::google::protobuf::int32 w_rot_;
   friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
 
-class ControllerInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ControllerInfo) */ {
+class RelativePoseResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:RelativePoseResponse) */ {
  public:
-  ControllerInfo();
-  virtual ~ControllerInfo();
+  RelativePoseResponse();
+  virtual ~RelativePoseResponse();
 
-  ControllerInfo(const ControllerInfo& from);
+  RelativePoseResponse(const RelativePoseResponse& from);
 
-  inline ControllerInfo& operator=(const ControllerInfo& from) {
+  inline RelativePoseResponse& operator=(const RelativePoseResponse& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  ControllerInfo(ControllerInfo&& from) noexcept
-    : ControllerInfo() {
+  RelativePoseResponse(RelativePoseResponse&& from) noexcept
+    : RelativePoseResponse() {
     *this = ::std::move(from);
   }
 
-  inline ControllerInfo& operator=(ControllerInfo&& from) noexcept {
+  inline RelativePoseResponse& operator=(RelativePoseResponse&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -850,478 +1267,34 @@ class ControllerInfo : public ::google::protobuf::Message /* @@protoc_insertion_
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const ControllerInfo& default_instance();
+  static const RelativePoseResponse& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const ControllerInfo* internal_default_instance() {
-    return reinterpret_cast<const ControllerInfo*>(
-               &_ControllerInfo_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    3;
-
-  void Swap(ControllerInfo* other);
-  friend void swap(ControllerInfo& a, ControllerInfo& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline ControllerInfo* New() const final {
-    return CreateMaybeMessage<ControllerInfo>(NULL);
-  }
-
-  ControllerInfo* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<ControllerInfo>(arena);
-  }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const ControllerInfo& from);
-  void MergeFrom(const ControllerInfo& from);
-  void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(ControllerInfo* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // required double time = 2 [(.dccl.field) = {
-  bool has_time() const;
-  void clear_time();
-  static const int kTimeFieldNumber = 2;
-  double time() const;
-  void set_time(double value);
-
-  // required int32 destination = 1 [(.dccl.field) = {
-  bool has_destination() const;
-  void clear_destination();
-  static const int kDestinationFieldNumber = 1;
-  ::google::protobuf::int32 destination() const;
-  void set_destination(::google::protobuf::int32 value);
-
-  // required bool setget = 3;
-  bool has_setget() const;
-  void clear_setget();
-  static const int kSetgetFieldNumber = 3;
-  bool setget() const;
-  void set_setget(bool value);
-
-  // optional bool state = 4;
-  bool has_state() const;
-  void clear_state();
-  static const int kStateFieldNumber = 4;
-  bool state() const;
-  void set_state(bool value);
-
-  // @@protoc_insertion_point(class_scope:ControllerInfo)
- private:
-  void set_has_destination();
-  void clear_has_destination();
-  void set_has_time();
-  void clear_has_time();
-  void set_has_setget();
-  void clear_has_setget();
-  void set_has_state();
-  void clear_has_state();
-
-  // helper for ByteSizeLong()
-  size_t RequiredFieldsByteSizeFallback() const;
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::HasBits<1> _has_bits_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  double time_;
-  ::google::protobuf::int32 destination_;
-  bool setget_;
-  bool state_;
-  friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
-};
-// -------------------------------------------------------------------
-
-class DirectControl : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:DirectControl) */ {
- public:
-  DirectControl();
-  virtual ~DirectControl();
-
-  DirectControl(const DirectControl& from);
-
-  inline DirectControl& operator=(const DirectControl& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  DirectControl(DirectControl&& from) noexcept
-    : DirectControl() {
-    *this = ::std::move(from);
-  }
-
-  inline DirectControl& operator=(DirectControl&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const DirectControl& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const DirectControl* internal_default_instance() {
-    return reinterpret_cast<const DirectControl*>(
-               &_DirectControl_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    4;
-
-  void Swap(DirectControl* other);
-  friend void swap(DirectControl& a, DirectControl& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline DirectControl* New() const final {
-    return CreateMaybeMessage<DirectControl>(NULL);
-  }
-
-  DirectControl* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<DirectControl>(arena);
-  }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const DirectControl& from);
-  void MergeFrom(const DirectControl& from);
-  void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(DirectControl* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  typedef DirectControl_Frame Frame;
-  static const Frame BASE_LINK =
-    DirectControl_Frame_BASE_LINK;
-  static const Frame ODOM =
-    DirectControl_Frame_ODOM;
-  static const Frame WORLD =
-    DirectControl_Frame_WORLD;
-  static const Frame USBL =
-    DirectControl_Frame_USBL;
-  static inline bool Frame_IsValid(int value) {
-    return DirectControl_Frame_IsValid(value);
-  }
-  static const Frame Frame_MIN =
-    DirectControl_Frame_Frame_MIN;
-  static const Frame Frame_MAX =
-    DirectControl_Frame_Frame_MAX;
-  static const int Frame_ARRAYSIZE =
-    DirectControl_Frame_Frame_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
-  Frame_descriptor() {
-    return DirectControl_Frame_descriptor();
-  }
-  static inline const ::std::string& Frame_Name(Frame value) {
-    return DirectControl_Frame_Name(value);
-  }
-  static inline bool Frame_Parse(const ::std::string& name,
-      Frame* value) {
-    return DirectControl_Frame_Parse(name, value);
-  }
-
-  // accessors -------------------------------------------------------
-
-  // required double time = 2 [(.dccl.field) = {
-  bool has_time() const;
-  void clear_time();
-  static const int kTimeFieldNumber = 2;
-  double time() const;
-  void set_time(double value);
-
-  // required int32 destination = 1 [(.dccl.field) = {
-  bool has_destination() const;
-  void clear_destination();
-  static const int kDestinationFieldNumber = 1;
-  ::google::protobuf::int32 destination() const;
-  void set_destination(::google::protobuf::int32 value);
-
-  // required bool setget = 3;
-  bool has_setget() const;
-  void clear_setget();
-  static const int kSetgetFieldNumber = 3;
-  bool setget() const;
-  void set_setget(bool value);
-
-  // optional .DirectControl.Frame frame = 4;
-  bool has_frame() const;
-  void clear_frame();
-  static const int kFrameFieldNumber = 4;
-  ::DirectControl_Frame frame() const;
-  void set_frame(::DirectControl_Frame value);
-
-  // optional float set_x = 6 [(.dccl.field) = {
-  bool has_set_x() const;
-  void clear_set_x();
-  static const int kSetXFieldNumber = 6;
-  float set_x() const;
-  void set_set_x(float value);
-
-  // optional float set_y = 7 [(.dccl.field) = {
-  bool has_set_y() const;
-  void clear_set_y();
-  static const int kSetYFieldNumber = 7;
-  float set_y() const;
-  void set_set_y(float value);
-
-  // optional float set_z = 8 [(.dccl.field) = {
-  bool has_set_z() const;
-  void clear_set_z();
-  static const int kSetZFieldNumber = 8;
-  float set_z() const;
-  void set_set_z(float value);
-
-  // optional float set_roll = 9 [(.dccl.field) = {
-  bool has_set_roll() const;
-  void clear_set_roll();
-  static const int kSetRollFieldNumber = 9;
-  float set_roll() const;
-  void set_set_roll(float value);
-
-  // optional float set_pitch = 10 [(.dccl.field) = {
-  bool has_set_pitch() const;
-  void clear_set_pitch();
-  static const int kSetPitchFieldNumber = 10;
-  float set_pitch() const;
-  void set_set_pitch(float value);
-
-  // optional float set_yaw = 11 [(.dccl.field) = {
-  bool has_set_yaw() const;
-  void clear_set_yaw();
-  static const int kSetYawFieldNumber = 11;
-  float set_yaw() const;
-  void set_set_yaw(float value);
-
-  // optional float set_u = 12 [(.dccl.field) = {
-  bool has_set_u() const;
-  void clear_set_u();
-  static const int kSetUFieldNumber = 12;
-  float set_u() const;
-  void set_set_u(float value);
-
-  // optional float set_v = 13 [(.dccl.field) = {
-  bool has_set_v() const;
-  void clear_set_v();
-  static const int kSetVFieldNumber = 13;
-  float set_v() const;
-  void set_set_v(float value);
-
-  // optional float set_w = 14 [(.dccl.field) = {
-  bool has_set_w() const;
-  void clear_set_w();
-  static const int kSetWFieldNumber = 14;
-  float set_w() const;
-  void set_set_w(float value);
-
-  // optional float set_p = 15 [(.dccl.field) = {
-  bool has_set_p() const;
-  void clear_set_p();
-  static const int kSetPFieldNumber = 15;
-  float set_p() const;
-  void set_set_p(float value);
-
-  // optional float set_q = 16 [(.dccl.field) = {
-  bool has_set_q() const;
-  void clear_set_q();
-  static const int kSetQFieldNumber = 16;
-  float set_q() const;
-  void set_set_q(float value);
-
-  // optional float set_r = 17 [(.dccl.field) = {
-  bool has_set_r() const;
-  void clear_set_r();
-  static const int kSetRFieldNumber = 17;
-  float set_r() const;
-  void set_set_r(float value);
-
-  // @@protoc_insertion_point(class_scope:DirectControl)
- private:
-  void set_has_destination();
-  void clear_has_destination();
-  void set_has_time();
-  void clear_has_time();
-  void set_has_setget();
-  void clear_has_setget();
-  void set_has_frame();
-  void clear_has_frame();
-  void set_has_set_x();
-  void clear_has_set_x();
-  void set_has_set_y();
-  void clear_has_set_y();
-  void set_has_set_z();
-  void clear_has_set_z();
-  void set_has_set_roll();
-  void clear_has_set_roll();
-  void set_has_set_pitch();
-  void clear_has_set_pitch();
-  void set_has_set_yaw();
-  void clear_has_set_yaw();
-  void set_has_set_u();
-  void clear_has_set_u();
-  void set_has_set_v();
-  void clear_has_set_v();
-  void set_has_set_w();
-  void clear_has_set_w();
-  void set_has_set_p();
-  void clear_has_set_p();
-  void set_has_set_q();
-  void clear_has_set_q();
-  void set_has_set_r();
-  void clear_has_set_r();
-
-  // helper for ByteSizeLong()
-  size_t RequiredFieldsByteSizeFallback() const;
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::HasBits<1> _has_bits_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  double time_;
-  ::google::protobuf::int32 destination_;
-  bool setget_;
-  int frame_;
-  float set_x_;
-  float set_y_;
-  float set_z_;
-  float set_roll_;
-  float set_pitch_;
-  float set_yaw_;
-  float set_u_;
-  float set_v_;
-  float set_w_;
-  float set_p_;
-  float set_q_;
-  float set_r_;
-  friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
-};
-// -------------------------------------------------------------------
-
-class StateInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:StateInfo) */ {
- public:
-  StateInfo();
-  virtual ~StateInfo();
-
-  StateInfo(const StateInfo& from);
-
-  inline StateInfo& operator=(const StateInfo& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  StateInfo(StateInfo&& from) noexcept
-    : StateInfo() {
-    *this = ::std::move(from);
-  }
-
-  inline StateInfo& operator=(StateInfo&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const StateInfo& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const StateInfo* internal_default_instance() {
-    return reinterpret_cast<const StateInfo*>(
-               &_StateInfo_default_instance_);
+  static inline const RelativePoseResponse* internal_default_instance() {
+    return reinterpret_cast<const RelativePoseResponse*>(
+               &_RelativePoseResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     5;
 
-  void Swap(StateInfo* other);
-  friend void swap(StateInfo& a, StateInfo& b) {
+  void Swap(RelativePoseResponse* other);
+  friend void swap(RelativePoseResponse& a, RelativePoseResponse& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline StateInfo* New() const final {
-    return CreateMaybeMessage<StateInfo>(NULL);
+  inline RelativePoseResponse* New() const final {
+    return CreateMaybeMessage<RelativePoseResponse>(NULL);
   }
 
-  StateInfo* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<StateInfo>(arena);
+  RelativePoseResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<RelativePoseResponse>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const StateInfo& from);
-  void MergeFrom(const StateInfo& from);
+  void CopyFrom(const RelativePoseResponse& from);
+  void MergeFrom(const RelativePoseResponse& from);
   void Clear() final;
   bool IsInitialized() const final;
 
@@ -1338,7 +1311,7 @@ class StateInfo : public ::google::protobuf::Message /* @@protoc_insertion_point
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(StateInfo* other);
+  void InternalSwap(RelativePoseResponse* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -1352,78 +1325,347 @@ class StateInfo : public ::google::protobuf::Message /* @@protoc_insertion_point
 
   // nested types ----------------------------------------------------
 
-  typedef StateInfo_State State;
-  static const State KILL =
-    StateInfo_State_KILL;
-  static const State START =
-    StateInfo_State_START;
-  static const State SURVEY_LOCAL =
-    StateInfo_State_SURVEY_LOCAL;
-  static const State SURVEY_GLOBAL =
-    StateInfo_State_SURVEY_GLOBAL;
-  static const State DIRECT_CONTROL =
-    StateInfo_State_DIRECT_CONTROL;
-  static const State SURVEY_3D =
-    StateInfo_State_SURVEY_3D;
-  static inline bool State_IsValid(int value) {
-    return StateInfo_State_IsValid(value);
+  typedef RelativePoseResponse_Frame Frame;
+  static const Frame BASE_LINK =
+    RelativePoseResponse_Frame_BASE_LINK;
+  static const Frame ODOM =
+    RelativePoseResponse_Frame_ODOM;
+  static const Frame WORLD =
+    RelativePoseResponse_Frame_WORLD;
+  static const Frame USBL =
+    RelativePoseResponse_Frame_USBL;
+  static inline bool Frame_IsValid(int value) {
+    return RelativePoseResponse_Frame_IsValid(value);
   }
-  static const State State_MIN =
-    StateInfo_State_State_MIN;
-  static const State State_MAX =
-    StateInfo_State_State_MAX;
-  static const int State_ARRAYSIZE =
-    StateInfo_State_State_ARRAYSIZE;
+  static const Frame Frame_MIN =
+    RelativePoseResponse_Frame_Frame_MIN;
+  static const Frame Frame_MAX =
+    RelativePoseResponse_Frame_Frame_MAX;
+  static const int Frame_ARRAYSIZE =
+    RelativePoseResponse_Frame_Frame_ARRAYSIZE;
   static inline const ::google::protobuf::EnumDescriptor*
-  State_descriptor() {
-    return StateInfo_State_descriptor();
+  Frame_descriptor() {
+    return RelativePoseResponse_Frame_descriptor();
   }
-  static inline const ::std::string& State_Name(State value) {
-    return StateInfo_State_Name(value);
+  static inline const ::std::string& Frame_Name(Frame value) {
+    return RelativePoseResponse_Frame_Name(value);
   }
-  static inline bool State_Parse(const ::std::string& name,
-      State* value) {
-    return StateInfo_State_Parse(name, value);
+  static inline bool Frame_Parse(const ::std::string& name,
+      Frame* value) {
+    return RelativePoseResponse_Frame_Parse(name, value);
   }
 
   // accessors -------------------------------------------------------
 
-  // required double time = 2 [(.dccl.field) = {
-  bool has_time() const;
-  void clear_time();
-  static const int kTimeFieldNumber = 2;
-  double time() const;
-  void set_time(double value);
+  // required int32 source = 1 [(.dccl.field) = {
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 1;
+  ::google::protobuf::int32 source() const;
+  void set_source(::google::protobuf::int32 value);
 
-  // required int32 destination = 1 [(.dccl.field) = {
+  // required int32 destination = 2 [(.dccl.field) = {
   bool has_destination() const;
   void clear_destination();
-  static const int kDestinationFieldNumber = 1;
+  static const int kDestinationFieldNumber = 2;
   ::google::protobuf::int32 destination() const;
   void set_destination(::google::protobuf::int32 value);
 
-  // required bool setget = 3;
-  bool has_setget() const;
-  void clear_setget();
-  static const int kSetgetFieldNumber = 3;
-  bool setget() const;
-  void set_setget(bool value);
+  // optional double time = 3 [(.dccl.field) = {
+  bool has_time() const;
+  void clear_time();
+  static const int kTimeFieldNumber = 3;
+  double time() const;
+  void set_time(double value);
 
-  // optional .StateInfo.State state = 4;
-  bool has_state() const;
-  void clear_state();
-  static const int kStateFieldNumber = 4;
-  ::StateInfo_State state() const;
-  void set_state(::StateInfo_State value);
+  // required .RelativePoseResponse.Frame parent = 4;
+  bool has_parent() const;
+  void clear_parent();
+  static const int kParentFieldNumber = 4;
+  ::RelativePoseResponse_Frame parent() const;
+  void set_parent(::RelativePoseResponse_Frame value);
 
-  // @@protoc_insertion_point(class_scope:StateInfo)
+  // required .RelativePoseResponse.Frame child = 5;
+  bool has_child() const;
+  void clear_child();
+  static const int kChildFieldNumber = 5;
+  ::RelativePoseResponse_Frame child() const;
+  void set_child(::RelativePoseResponse_Frame value);
+
+  // required double latitude = 6 [(.dccl.field) = {
+  bool has_latitude() const;
+  void clear_latitude();
+  static const int kLatitudeFieldNumber = 6;
+  double latitude() const;
+  void set_latitude(double value);
+
+  // required double longitude = 7 [(.dccl.field) = {
+  bool has_longitude() const;
+  void clear_longitude();
+  static const int kLongitudeFieldNumber = 7;
+  double longitude() const;
+  void set_longitude(double value);
+
+  // required float x = 8 [(.dccl.field) = {
+  bool has_x() const;
+  void clear_x();
+  static const int kXFieldNumber = 8;
+  float x() const;
+  void set_x(float value);
+
+  // required float y = 9 [(.dccl.field) = {
+  bool has_y() const;
+  void clear_y();
+  static const int kYFieldNumber = 9;
+  float y() const;
+  void set_y(float value);
+
+  // required float z = 10 [(.dccl.field) = {
+  bool has_z() const;
+  void clear_z();
+  static const int kZFieldNumber = 10;
+  float z() const;
+  void set_z(float value);
+
+  // required float quat_x = 11 [(.dccl.field) = {
+  bool has_quat_x() const;
+  void clear_quat_x();
+  static const int kQuatXFieldNumber = 11;
+  float quat_x() const;
+  void set_quat_x(float value);
+
+  // required float quat_y = 12 [(.dccl.field) = {
+  bool has_quat_y() const;
+  void clear_quat_y();
+  static const int kQuatYFieldNumber = 12;
+  float quat_y() const;
+  void set_quat_y(float value);
+
+  // required float quat_z = 13 [(.dccl.field) = {
+  bool has_quat_z() const;
+  void clear_quat_z();
+  static const int kQuatZFieldNumber = 13;
+  float quat_z() const;
+  void set_quat_z(float value);
+
+  // required float quat_w = 14 [(.dccl.field) = {
+  bool has_quat_w() const;
+  void clear_quat_w();
+  static const int kQuatWFieldNumber = 14;
+  float quat_w() const;
+  void set_quat_w(float value);
+
+  // @@protoc_insertion_point(class_scope:RelativePoseResponse)
  private:
+  void set_has_source();
+  void clear_has_source();
   void set_has_destination();
   void clear_has_destination();
   void set_has_time();
   void clear_has_time();
-  void set_has_setget();
-  void clear_has_setget();
+  void set_has_parent();
+  void clear_has_parent();
+  void set_has_child();
+  void clear_has_child();
+  void set_has_latitude();
+  void clear_has_latitude();
+  void set_has_longitude();
+  void clear_has_longitude();
+  void set_has_x();
+  void clear_has_x();
+  void set_has_y();
+  void clear_has_y();
+  void set_has_z();
+  void clear_has_z();
+  void set_has_quat_x();
+  void clear_has_quat_x();
+  void set_has_quat_y();
+  void clear_has_quat_y();
+  void set_has_quat_z();
+  void clear_has_quat_z();
+  void set_has_quat_w();
+  void clear_has_quat_w();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::protobuf::int32 source_;
+  ::google::protobuf::int32 destination_;
+  double time_;
+  int parent_;
+  int child_;
+  double latitude_;
+  double longitude_;
+  float x_;
+  float y_;
+  float z_;
+  float quat_x_;
+  float quat_y_;
+  float quat_z_;
+  float quat_w_;
+  friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class ControllerStateCommand : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ControllerStateCommand) */ {
+ public:
+  ControllerStateCommand();
+  virtual ~ControllerStateCommand();
+
+  ControllerStateCommand(const ControllerStateCommand& from);
+
+  inline ControllerStateCommand& operator=(const ControllerStateCommand& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  ControllerStateCommand(ControllerStateCommand&& from) noexcept
+    : ControllerStateCommand() {
+    *this = ::std::move(from);
+  }
+
+  inline ControllerStateCommand& operator=(ControllerStateCommand&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ControllerStateCommand& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const ControllerStateCommand* internal_default_instance() {
+    return reinterpret_cast<const ControllerStateCommand*>(
+               &_ControllerStateCommand_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  void Swap(ControllerStateCommand* other);
+  friend void swap(ControllerStateCommand& a, ControllerStateCommand& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ControllerStateCommand* New() const final {
+    return CreateMaybeMessage<ControllerStateCommand>(NULL);
+  }
+
+  ControllerStateCommand* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<ControllerStateCommand>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const ControllerStateCommand& from);
+  void MergeFrom(const ControllerStateCommand& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ControllerStateCommand* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef ControllerStateCommand_State State;
+  static const State DISABLE =
+    ControllerStateCommand_State_DISABLE;
+  static const State ENABLE =
+    ControllerStateCommand_State_ENABLE;
+  static inline bool State_IsValid(int value) {
+    return ControllerStateCommand_State_IsValid(value);
+  }
+  static const State State_MIN =
+    ControllerStateCommand_State_State_MIN;
+  static const State State_MAX =
+    ControllerStateCommand_State_State_MAX;
+  static const int State_ARRAYSIZE =
+    ControllerStateCommand_State_State_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  State_descriptor() {
+    return ControllerStateCommand_State_descriptor();
+  }
+  static inline const ::std::string& State_Name(State value) {
+    return ControllerStateCommand_State_Name(value);
+  }
+  static inline bool State_Parse(const ::std::string& name,
+      State* value) {
+    return ControllerStateCommand_State_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // required int32 source = 1 [(.dccl.field) = {
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 1;
+  ::google::protobuf::int32 source() const;
+  void set_source(::google::protobuf::int32 value);
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  bool has_destination() const;
+  void clear_destination();
+  static const int kDestinationFieldNumber = 2;
+  ::google::protobuf::int32 destination() const;
+  void set_destination(::google::protobuf::int32 value);
+
+  // optional double time = 3 [(.dccl.field) = {
+  bool has_time() const;
+  void clear_time();
+  static const int kTimeFieldNumber = 3;
+  double time() const;
+  void set_time(double value);
+
+  // required .ControllerStateCommand.State state = 4;
+  bool has_state() const;
+  void clear_state();
+  static const int kStateFieldNumber = 4;
+  ::ControllerStateCommand_State state() const;
+  void set_state(::ControllerStateCommand_State value);
+
+  // @@protoc_insertion_point(class_scope:ControllerStateCommand)
+ private:
+  void set_has_source();
+  void clear_has_source();
+  void set_has_destination();
+  void clear_has_destination();
+  void set_has_time();
+  void clear_has_time();
   void set_has_state();
   void clear_has_state();
 
@@ -1433,32 +1675,32 @@ class StateInfo : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  double time_;
+  ::google::protobuf::int32 source_;
   ::google::protobuf::int32 destination_;
-  bool setget_;
+  double time_;
   int state_;
   friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
 
-class SingleWaypoint : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:SingleWaypoint) */ {
+class ControllerStateResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ControllerStateResponse) */ {
  public:
-  SingleWaypoint();
-  virtual ~SingleWaypoint();
+  ControllerStateResponse();
+  virtual ~ControllerStateResponse();
 
-  SingleWaypoint(const SingleWaypoint& from);
+  ControllerStateResponse(const ControllerStateResponse& from);
 
-  inline SingleWaypoint& operator=(const SingleWaypoint& from) {
+  inline ControllerStateResponse& operator=(const ControllerStateResponse& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  SingleWaypoint(SingleWaypoint&& from) noexcept
-    : SingleWaypoint() {
+  ControllerStateResponse(ControllerStateResponse&& from) noexcept
+    : ControllerStateResponse() {
     *this = ::std::move(from);
   }
 
-  inline SingleWaypoint& operator=(SingleWaypoint&& from) noexcept {
+  inline ControllerStateResponse& operator=(ControllerStateResponse&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1475,34 +1717,34 @@ class SingleWaypoint : public ::google::protobuf::Message /* @@protoc_insertion_
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const SingleWaypoint& default_instance();
+  static const ControllerStateResponse& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const SingleWaypoint* internal_default_instance() {
-    return reinterpret_cast<const SingleWaypoint*>(
-               &_SingleWaypoint_default_instance_);
+  static inline const ControllerStateResponse* internal_default_instance() {
+    return reinterpret_cast<const ControllerStateResponse*>(
+               &_ControllerStateResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
-  void Swap(SingleWaypoint* other);
-  friend void swap(SingleWaypoint& a, SingleWaypoint& b) {
+  void Swap(ControllerStateResponse* other);
+  friend void swap(ControllerStateResponse& a, ControllerStateResponse& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline SingleWaypoint* New() const final {
-    return CreateMaybeMessage<SingleWaypoint>(NULL);
+  inline ControllerStateResponse* New() const final {
+    return CreateMaybeMessage<ControllerStateResponse>(NULL);
   }
 
-  SingleWaypoint* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<SingleWaypoint>(arena);
+  ControllerStateResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<ControllerStateResponse>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const SingleWaypoint& from);
-  void MergeFrom(const SingleWaypoint& from);
+  void CopyFrom(const ControllerStateResponse& from);
+  void MergeFrom(const ControllerStateResponse& from);
   void Clear() final;
   bool IsInitialized() const final;
 
@@ -1519,7 +1761,1100 @@ class SingleWaypoint : public ::google::protobuf::Message /* @@protoc_insertion_
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SingleWaypoint* other);
+  void InternalSwap(ControllerStateResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef ControllerStateResponse_State State;
+  static const State DISABLE =
+    ControllerStateResponse_State_DISABLE;
+  static const State ENABLE =
+    ControllerStateResponse_State_ENABLE;
+  static inline bool State_IsValid(int value) {
+    return ControllerStateResponse_State_IsValid(value);
+  }
+  static const State State_MIN =
+    ControllerStateResponse_State_State_MIN;
+  static const State State_MAX =
+    ControllerStateResponse_State_State_MAX;
+  static const int State_ARRAYSIZE =
+    ControllerStateResponse_State_State_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  State_descriptor() {
+    return ControllerStateResponse_State_descriptor();
+  }
+  static inline const ::std::string& State_Name(State value) {
+    return ControllerStateResponse_State_Name(value);
+  }
+  static inline bool State_Parse(const ::std::string& name,
+      State* value) {
+    return ControllerStateResponse_State_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // required int32 source = 1 [(.dccl.field) = {
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 1;
+  ::google::protobuf::int32 source() const;
+  void set_source(::google::protobuf::int32 value);
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  bool has_destination() const;
+  void clear_destination();
+  static const int kDestinationFieldNumber = 2;
+  ::google::protobuf::int32 destination() const;
+  void set_destination(::google::protobuf::int32 value);
+
+  // optional double time = 3 [(.dccl.field) = {
+  bool has_time() const;
+  void clear_time();
+  static const int kTimeFieldNumber = 3;
+  double time() const;
+  void set_time(double value);
+
+  // required .ControllerStateResponse.State state = 4;
+  bool has_state() const;
+  void clear_state();
+  static const int kStateFieldNumber = 4;
+  ::ControllerStateResponse_State state() const;
+  void set_state(::ControllerStateResponse_State value);
+
+  // @@protoc_insertion_point(class_scope:ControllerStateResponse)
+ private:
+  void set_has_source();
+  void clear_has_source();
+  void set_has_destination();
+  void clear_has_destination();
+  void set_has_time();
+  void clear_has_time();
+  void set_has_state();
+  void clear_has_state();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::protobuf::int32 source_;
+  ::google::protobuf::int32 destination_;
+  double time_;
+  int state_;
+  friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class DirectControlCommand : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:DirectControlCommand) */ {
+ public:
+  DirectControlCommand();
+  virtual ~DirectControlCommand();
+
+  DirectControlCommand(const DirectControlCommand& from);
+
+  inline DirectControlCommand& operator=(const DirectControlCommand& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  DirectControlCommand(DirectControlCommand&& from) noexcept
+    : DirectControlCommand() {
+    *this = ::std::move(from);
+  }
+
+  inline DirectControlCommand& operator=(DirectControlCommand&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DirectControlCommand& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const DirectControlCommand* internal_default_instance() {
+    return reinterpret_cast<const DirectControlCommand*>(
+               &_DirectControlCommand_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  void Swap(DirectControlCommand* other);
+  friend void swap(DirectControlCommand& a, DirectControlCommand& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline DirectControlCommand* New() const final {
+    return CreateMaybeMessage<DirectControlCommand>(NULL);
+  }
+
+  DirectControlCommand* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<DirectControlCommand>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const DirectControlCommand& from);
+  void MergeFrom(const DirectControlCommand& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DirectControlCommand* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef DirectControlCommand_Frame Frame;
+  static const Frame BASE_LINK =
+    DirectControlCommand_Frame_BASE_LINK;
+  static const Frame ODOM =
+    DirectControlCommand_Frame_ODOM;
+  static const Frame WORLD =
+    DirectControlCommand_Frame_WORLD;
+  static const Frame USBL =
+    DirectControlCommand_Frame_USBL;
+  static inline bool Frame_IsValid(int value) {
+    return DirectControlCommand_Frame_IsValid(value);
+  }
+  static const Frame Frame_MIN =
+    DirectControlCommand_Frame_Frame_MIN;
+  static const Frame Frame_MAX =
+    DirectControlCommand_Frame_Frame_MAX;
+  static const int Frame_ARRAYSIZE =
+    DirectControlCommand_Frame_Frame_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  Frame_descriptor() {
+    return DirectControlCommand_Frame_descriptor();
+  }
+  static inline const ::std::string& Frame_Name(Frame value) {
+    return DirectControlCommand_Frame_Name(value);
+  }
+  static inline bool Frame_Parse(const ::std::string& name,
+      Frame* value) {
+    return DirectControlCommand_Frame_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // required int32 source = 1 [(.dccl.field) = {
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 1;
+  ::google::protobuf::int32 source() const;
+  void set_source(::google::protobuf::int32 value);
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  bool has_destination() const;
+  void clear_destination();
+  static const int kDestinationFieldNumber = 2;
+  ::google::protobuf::int32 destination() const;
+  void set_destination(::google::protobuf::int32 value);
+
+  // optional double time = 3 [(.dccl.field) = {
+  bool has_time() const;
+  void clear_time();
+  static const int kTimeFieldNumber = 3;
+  double time() const;
+  void set_time(double value);
+
+  // required .DirectControlCommand.Frame frame = 4;
+  bool has_frame() const;
+  void clear_frame();
+  static const int kFrameFieldNumber = 4;
+  ::DirectControlCommand_Frame frame() const;
+  void set_frame(::DirectControlCommand_Frame value);
+
+  // required float x = 5 [(.dccl.field) = {
+  bool has_x() const;
+  void clear_x();
+  static const int kXFieldNumber = 5;
+  float x() const;
+  void set_x(float value);
+
+  // required float y = 6 [(.dccl.field) = {
+  bool has_y() const;
+  void clear_y();
+  static const int kYFieldNumber = 6;
+  float y() const;
+  void set_y(float value);
+
+  // required float z = 7 [(.dccl.field) = {
+  bool has_z() const;
+  void clear_z();
+  static const int kZFieldNumber = 7;
+  float z() const;
+  void set_z(float value);
+
+  // required float roll = 8 [(.dccl.field) = {
+  bool has_roll() const;
+  void clear_roll();
+  static const int kRollFieldNumber = 8;
+  float roll() const;
+  void set_roll(float value);
+
+  // required float pitch = 9 [(.dccl.field) = {
+  bool has_pitch() const;
+  void clear_pitch();
+  static const int kPitchFieldNumber = 9;
+  float pitch() const;
+  void set_pitch(float value);
+
+  // required float yaw = 10 [(.dccl.field) = {
+  bool has_yaw() const;
+  void clear_yaw();
+  static const int kYawFieldNumber = 10;
+  float yaw() const;
+  void set_yaw(float value);
+
+  // required float u = 11 [(.dccl.field) = {
+  bool has_u() const;
+  void clear_u();
+  static const int kUFieldNumber = 11;
+  float u() const;
+  void set_u(float value);
+
+  // required float v = 12 [(.dccl.field) = {
+  bool has_v() const;
+  void clear_v();
+  static const int kVFieldNumber = 12;
+  float v() const;
+  void set_v(float value);
+
+  // required float w = 13 [(.dccl.field) = {
+  bool has_w() const;
+  void clear_w();
+  static const int kWFieldNumber = 13;
+  float w() const;
+  void set_w(float value);
+
+  // required float p = 14 [(.dccl.field) = {
+  bool has_p() const;
+  void clear_p();
+  static const int kPFieldNumber = 14;
+  float p() const;
+  void set_p(float value);
+
+  // required float q = 15 [(.dccl.field) = {
+  bool has_q() const;
+  void clear_q();
+  static const int kQFieldNumber = 15;
+  float q() const;
+  void set_q(float value);
+
+  // required float r = 16 [(.dccl.field) = {
+  bool has_r() const;
+  void clear_r();
+  static const int kRFieldNumber = 16;
+  float r() const;
+  void set_r(float value);
+
+  // @@protoc_insertion_point(class_scope:DirectControlCommand)
+ private:
+  void set_has_source();
+  void clear_has_source();
+  void set_has_destination();
+  void clear_has_destination();
+  void set_has_time();
+  void clear_has_time();
+  void set_has_frame();
+  void clear_has_frame();
+  void set_has_x();
+  void clear_has_x();
+  void set_has_y();
+  void clear_has_y();
+  void set_has_z();
+  void clear_has_z();
+  void set_has_roll();
+  void clear_has_roll();
+  void set_has_pitch();
+  void clear_has_pitch();
+  void set_has_yaw();
+  void clear_has_yaw();
+  void set_has_u();
+  void clear_has_u();
+  void set_has_v();
+  void clear_has_v();
+  void set_has_w();
+  void clear_has_w();
+  void set_has_p();
+  void clear_has_p();
+  void set_has_q();
+  void clear_has_q();
+  void set_has_r();
+  void clear_has_r();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::protobuf::int32 source_;
+  ::google::protobuf::int32 destination_;
+  double time_;
+  int frame_;
+  float x_;
+  float y_;
+  float z_;
+  float roll_;
+  float pitch_;
+  float yaw_;
+  float u_;
+  float v_;
+  float w_;
+  float p_;
+  float q_;
+  float r_;
+  friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class StateCommand : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:StateCommand) */ {
+ public:
+  StateCommand();
+  virtual ~StateCommand();
+
+  StateCommand(const StateCommand& from);
+
+  inline StateCommand& operator=(const StateCommand& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  StateCommand(StateCommand&& from) noexcept
+    : StateCommand() {
+    *this = ::std::move(from);
+  }
+
+  inline StateCommand& operator=(StateCommand&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const StateCommand& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const StateCommand* internal_default_instance() {
+    return reinterpret_cast<const StateCommand*>(
+               &_StateCommand_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  void Swap(StateCommand* other);
+  friend void swap(StateCommand& a, StateCommand& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline StateCommand* New() const final {
+    return CreateMaybeMessage<StateCommand>(NULL);
+  }
+
+  StateCommand* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<StateCommand>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const StateCommand& from);
+  void MergeFrom(const StateCommand& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(StateCommand* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef StateCommand_Mode Mode;
+  static const Mode QUERY =
+    StateCommand_Mode_QUERY;
+  static const Mode COMMAND =
+    StateCommand_Mode_COMMAND;
+  static inline bool Mode_IsValid(int value) {
+    return StateCommand_Mode_IsValid(value);
+  }
+  static const Mode Mode_MIN =
+    StateCommand_Mode_Mode_MIN;
+  static const Mode Mode_MAX =
+    StateCommand_Mode_Mode_MAX;
+  static const int Mode_ARRAYSIZE =
+    StateCommand_Mode_Mode_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  Mode_descriptor() {
+    return StateCommand_Mode_descriptor();
+  }
+  static inline const ::std::string& Mode_Name(Mode value) {
+    return StateCommand_Mode_Name(value);
+  }
+  static inline bool Mode_Parse(const ::std::string& name,
+      Mode* value) {
+    return StateCommand_Mode_Parse(name, value);
+  }
+
+  typedef StateCommand_State State;
+  static const State KILL =
+    StateCommand_State_KILL;
+  static const State START =
+    StateCommand_State_START;
+  static const State SURVEY_LOCAL =
+    StateCommand_State_SURVEY_LOCAL;
+  static const State SURVEY_GLOBAL =
+    StateCommand_State_SURVEY_GLOBAL;
+  static const State DIRECT_CONTROL =
+    StateCommand_State_DIRECT_CONTROL;
+  static const State SURVEY_3D =
+    StateCommand_State_SURVEY_3D;
+  static inline bool State_IsValid(int value) {
+    return StateCommand_State_IsValid(value);
+  }
+  static const State State_MIN =
+    StateCommand_State_State_MIN;
+  static const State State_MAX =
+    StateCommand_State_State_MAX;
+  static const int State_ARRAYSIZE =
+    StateCommand_State_State_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  State_descriptor() {
+    return StateCommand_State_descriptor();
+  }
+  static inline const ::std::string& State_Name(State value) {
+    return StateCommand_State_Name(value);
+  }
+  static inline bool State_Parse(const ::std::string& name,
+      State* value) {
+    return StateCommand_State_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // required int32 source = 1 [(.dccl.field) = {
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 1;
+  ::google::protobuf::int32 source() const;
+  void set_source(::google::protobuf::int32 value);
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  bool has_destination() const;
+  void clear_destination();
+  static const int kDestinationFieldNumber = 2;
+  ::google::protobuf::int32 destination() const;
+  void set_destination(::google::protobuf::int32 value);
+
+  // optional double time = 3 [(.dccl.field) = {
+  bool has_time() const;
+  void clear_time();
+  static const int kTimeFieldNumber = 3;
+  double time() const;
+  void set_time(double value);
+
+  // required .StateCommand.Mode mode = 4;
+  bool has_mode() const;
+  void clear_mode();
+  static const int kModeFieldNumber = 4;
+  ::StateCommand_Mode mode() const;
+  void set_mode(::StateCommand_Mode value);
+
+  // optional .StateCommand.State state = 5 [(.dccl.field) = {
+  bool has_state() const;
+  void clear_state();
+  static const int kStateFieldNumber = 5;
+  ::StateCommand_State state() const;
+  void set_state(::StateCommand_State value);
+
+  // @@protoc_insertion_point(class_scope:StateCommand)
+ private:
+  void set_has_source();
+  void clear_has_source();
+  void set_has_destination();
+  void clear_has_destination();
+  void set_has_time();
+  void clear_has_time();
+  void set_has_mode();
+  void clear_has_mode();
+  void set_has_state();
+  void clear_has_state();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::protobuf::int32 source_;
+  ::google::protobuf::int32 destination_;
+  double time_;
+  int mode_;
+  int state_;
+  friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class StateResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:StateResponse) */ {
+ public:
+  StateResponse();
+  virtual ~StateResponse();
+
+  StateResponse(const StateResponse& from);
+
+  inline StateResponse& operator=(const StateResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  StateResponse(StateResponse&& from) noexcept
+    : StateResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline StateResponse& operator=(StateResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const StateResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const StateResponse* internal_default_instance() {
+    return reinterpret_cast<const StateResponse*>(
+               &_StateResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  void Swap(StateResponse* other);
+  friend void swap(StateResponse& a, StateResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline StateResponse* New() const final {
+    return CreateMaybeMessage<StateResponse>(NULL);
+  }
+
+  StateResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<StateResponse>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const StateResponse& from);
+  void MergeFrom(const StateResponse& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(StateResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef StateResponse_State State;
+  static const State KILL =
+    StateResponse_State_KILL;
+  static const State START =
+    StateResponse_State_START;
+  static const State SURVEY_LOCAL =
+    StateResponse_State_SURVEY_LOCAL;
+  static const State SURVEY_GLOBAL =
+    StateResponse_State_SURVEY_GLOBAL;
+  static const State DIRECT_CONTROL =
+    StateResponse_State_DIRECT_CONTROL;
+  static const State SURVEY_3D =
+    StateResponse_State_SURVEY_3D;
+  static inline bool State_IsValid(int value) {
+    return StateResponse_State_IsValid(value);
+  }
+  static const State State_MIN =
+    StateResponse_State_State_MIN;
+  static const State State_MAX =
+    StateResponse_State_State_MAX;
+  static const int State_ARRAYSIZE =
+    StateResponse_State_State_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  State_descriptor() {
+    return StateResponse_State_descriptor();
+  }
+  static inline const ::std::string& State_Name(State value) {
+    return StateResponse_State_Name(value);
+  }
+  static inline bool State_Parse(const ::std::string& name,
+      State* value) {
+    return StateResponse_State_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // required int32 source = 1 [(.dccl.field) = {
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 1;
+  ::google::protobuf::int32 source() const;
+  void set_source(::google::protobuf::int32 value);
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  bool has_destination() const;
+  void clear_destination();
+  static const int kDestinationFieldNumber = 2;
+  ::google::protobuf::int32 destination() const;
+  void set_destination(::google::protobuf::int32 value);
+
+  // optional double time = 3 [(.dccl.field) = {
+  bool has_time() const;
+  void clear_time();
+  static const int kTimeFieldNumber = 3;
+  double time() const;
+  void set_time(double value);
+
+  // required .StateResponse.State state = 4;
+  bool has_state() const;
+  void clear_state();
+  static const int kStateFieldNumber = 4;
+  ::StateResponse_State state() const;
+  void set_state(::StateResponse_State value);
+
+  // @@protoc_insertion_point(class_scope:StateResponse)
+ private:
+  void set_has_source();
+  void clear_has_source();
+  void set_has_destination();
+  void clear_has_destination();
+  void set_has_time();
+  void clear_has_time();
+  void set_has_state();
+  void clear_has_state();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::protobuf::int32 source_;
+  ::google::protobuf::int32 destination_;
+  double time_;
+  int state_;
+  friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class SingleWaypointCommand : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:SingleWaypointCommand) */ {
+ public:
+  SingleWaypointCommand();
+  virtual ~SingleWaypointCommand();
+
+  SingleWaypointCommand(const SingleWaypointCommand& from);
+
+  inline SingleWaypointCommand& operator=(const SingleWaypointCommand& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SingleWaypointCommand(SingleWaypointCommand&& from) noexcept
+    : SingleWaypointCommand() {
+    *this = ::std::move(from);
+  }
+
+  inline SingleWaypointCommand& operator=(SingleWaypointCommand&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SingleWaypointCommand& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SingleWaypointCommand* internal_default_instance() {
+    return reinterpret_cast<const SingleWaypointCommand*>(
+               &_SingleWaypointCommand_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  void Swap(SingleWaypointCommand* other);
+  friend void swap(SingleWaypointCommand& a, SingleWaypointCommand& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SingleWaypointCommand* New() const final {
+    return CreateMaybeMessage<SingleWaypointCommand>(NULL);
+  }
+
+  SingleWaypointCommand* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<SingleWaypointCommand>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const SingleWaypointCommand& from);
+  void MergeFrom(const SingleWaypointCommand& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SingleWaypointCommand* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef SingleWaypointCommand_Mode Mode;
+  static const Mode QUERY =
+    SingleWaypointCommand_Mode_QUERY;
+  static const Mode COMMAND_LATLONG =
+    SingleWaypointCommand_Mode_COMMAND_LATLONG;
+  static const Mode COMMAND_XYZ =
+    SingleWaypointCommand_Mode_COMMAND_XYZ;
+  static inline bool Mode_IsValid(int value) {
+    return SingleWaypointCommand_Mode_IsValid(value);
+  }
+  static const Mode Mode_MIN =
+    SingleWaypointCommand_Mode_Mode_MIN;
+  static const Mode Mode_MAX =
+    SingleWaypointCommand_Mode_Mode_MAX;
+  static const int Mode_ARRAYSIZE =
+    SingleWaypointCommand_Mode_Mode_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  Mode_descriptor() {
+    return SingleWaypointCommand_Mode_descriptor();
+  }
+  static inline const ::std::string& Mode_Name(Mode value) {
+    return SingleWaypointCommand_Mode_Name(value);
+  }
+  static inline bool Mode_Parse(const ::std::string& name,
+      Mode* value) {
+    return SingleWaypointCommand_Mode_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // required int32 source = 1 [(.dccl.field) = {
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 1;
+  ::google::protobuf::int32 source() const;
+  void set_source(::google::protobuf::int32 value);
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  bool has_destination() const;
+  void clear_destination();
+  static const int kDestinationFieldNumber = 2;
+  ::google::protobuf::int32 destination() const;
+  void set_destination(::google::protobuf::int32 value);
+
+  // optional double time = 3 [(.dccl.field) = {
+  bool has_time() const;
+  void clear_time();
+  static const int kTimeFieldNumber = 3;
+  double time() const;
+  void set_time(double value);
+
+  // optional double latitude = 5 [(.dccl.field) = {
+  bool has_latitude() const;
+  void clear_latitude();
+  static const int kLatitudeFieldNumber = 5;
+  double latitude() const;
+  void set_latitude(double value);
+
+  // required .SingleWaypointCommand.Mode mode = 4;
+  bool has_mode() const;
+  void clear_mode();
+  static const int kModeFieldNumber = 4;
+  ::SingleWaypointCommand_Mode mode() const;
+  void set_mode(::SingleWaypointCommand_Mode value);
+
+  // optional float x = 7 [(.dccl.field) = {
+  bool has_x() const;
+  void clear_x();
+  static const int kXFieldNumber = 7;
+  float x() const;
+  void set_x(float value);
+
+  // optional double longitude = 6 [(.dccl.field) = {
+  bool has_longitude() const;
+  void clear_longitude();
+  static const int kLongitudeFieldNumber = 6;
+  double longitude() const;
+  void set_longitude(double value);
+
+  // optional float y = 8 [(.dccl.field) = {
+  bool has_y() const;
+  void clear_y();
+  static const int kYFieldNumber = 8;
+  float y() const;
+  void set_y(float value);
+
+  // optional float z = 9 [(.dccl.field) = {
+  bool has_z() const;
+  void clear_z();
+  static const int kZFieldNumber = 9;
+  float z() const;
+  void set_z(float value);
+
+  // @@protoc_insertion_point(class_scope:SingleWaypointCommand)
+ private:
+  void set_has_source();
+  void clear_has_source();
+  void set_has_destination();
+  void clear_has_destination();
+  void set_has_time();
+  void clear_has_time();
+  void set_has_mode();
+  void clear_has_mode();
+  void set_has_latitude();
+  void clear_has_latitude();
+  void set_has_longitude();
+  void clear_has_longitude();
+  void set_has_x();
+  void clear_has_x();
+  void set_has_y();
+  void clear_has_y();
+  void set_has_z();
+  void clear_has_z();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::protobuf::int32 source_;
+  ::google::protobuf::int32 destination_;
+  double time_;
+  double latitude_;
+  int mode_;
+  float x_;
+  double longitude_;
+  float y_;
+  float z_;
+  friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class SingleWaypointResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:SingleWaypointResponse) */ {
+ public:
+  SingleWaypointResponse();
+  virtual ~SingleWaypointResponse();
+
+  SingleWaypointResponse(const SingleWaypointResponse& from);
+
+  inline SingleWaypointResponse& operator=(const SingleWaypointResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SingleWaypointResponse(SingleWaypointResponse&& from) noexcept
+    : SingleWaypointResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline SingleWaypointResponse& operator=(SingleWaypointResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SingleWaypointResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SingleWaypointResponse* internal_default_instance() {
+    return reinterpret_cast<const SingleWaypointResponse*>(
+               &_SingleWaypointResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    12;
+
+  void Swap(SingleWaypointResponse* other);
+  friend void swap(SingleWaypointResponse& a, SingleWaypointResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SingleWaypointResponse* New() const final {
+    return CreateMaybeMessage<SingleWaypointResponse>(NULL);
+  }
+
+  SingleWaypointResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<SingleWaypointResponse>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const SingleWaypointResponse& from);
+  void MergeFrom(const SingleWaypointResponse& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SingleWaypointResponse* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -1535,80 +2870,80 @@ class SingleWaypoint : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // accessors -------------------------------------------------------
 
-  // required double time = 2 [(.dccl.field) = {
-  bool has_time() const;
-  void clear_time();
-  static const int kTimeFieldNumber = 2;
-  double time() const;
-  void set_time(double value);
+  // required int32 source = 1 [(.dccl.field) = {
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 1;
+  ::google::protobuf::int32 source() const;
+  void set_source(::google::protobuf::int32 value);
 
-  // required int32 destination = 1 [(.dccl.field) = {
+  // required int32 destination = 2 [(.dccl.field) = {
   bool has_destination() const;
   void clear_destination();
-  static const int kDestinationFieldNumber = 1;
+  static const int kDestinationFieldNumber = 2;
   ::google::protobuf::int32 destination() const;
   void set_destination(::google::protobuf::int32 value);
 
-  // required bool setget = 3;
-  bool has_setget() const;
-  void clear_setget();
-  static const int kSetgetFieldNumber = 3;
-  bool setget() const;
-  void set_setget(bool value);
+  // optional double time = 3 [(.dccl.field) = {
+  bool has_time() const;
+  void clear_time();
+  static const int kTimeFieldNumber = 3;
+  double time() const;
+  void set_time(double value);
 
-  // optional double latitude = 4 [(.dccl.field) = {
+  // required double latitude = 4 [(.dccl.field) = {
   bool has_latitude() const;
   void clear_latitude();
   static const int kLatitudeFieldNumber = 4;
   double latitude() const;
   void set_latitude(double value);
 
-  // optional double longitude = 5 [(.dccl.field) = {
+  // required double longitude = 5 [(.dccl.field) = {
   bool has_longitude() const;
   void clear_longitude();
   static const int kLongitudeFieldNumber = 5;
   double longitude() const;
   void set_longitude(double value);
 
-  // optional int32 local_x = 6 [(.dccl.field) = {
-  bool has_local_x() const;
-  void clear_local_x();
-  static const int kLocalXFieldNumber = 6;
-  ::google::protobuf::int32 local_x() const;
-  void set_local_x(::google::protobuf::int32 value);
+  // required float x = 6 [(.dccl.field) = {
+  bool has_x() const;
+  void clear_x();
+  static const int kXFieldNumber = 6;
+  float x() const;
+  void set_x(float value);
 
-  // optional int32 local_y = 7 [(.dccl.field) = {
-  bool has_local_y() const;
-  void clear_local_y();
-  static const int kLocalYFieldNumber = 7;
-  ::google::protobuf::int32 local_y() const;
-  void set_local_y(::google::protobuf::int32 value);
+  // required float y = 7 [(.dccl.field) = {
+  bool has_y() const;
+  void clear_y();
+  static const int kYFieldNumber = 7;
+  float y() const;
+  void set_y(float value);
 
-  // required int32 depth = 8 [(.dccl.field) = {
-  bool has_depth() const;
-  void clear_depth();
-  static const int kDepthFieldNumber = 8;
-  ::google::protobuf::int32 depth() const;
-  void set_depth(::google::protobuf::int32 value);
+  // required float z = 8 [(.dccl.field) = {
+  bool has_z() const;
+  void clear_z();
+  static const int kZFieldNumber = 8;
+  float z() const;
+  void set_z(float value);
 
-  // @@protoc_insertion_point(class_scope:SingleWaypoint)
+  // @@protoc_insertion_point(class_scope:SingleWaypointResponse)
  private:
+  void set_has_source();
+  void clear_has_source();
   void set_has_destination();
   void clear_has_destination();
   void set_has_time();
   void clear_has_time();
-  void set_has_setget();
-  void clear_has_setget();
   void set_has_latitude();
   void clear_has_latitude();
   void set_has_longitude();
   void clear_has_longitude();
-  void set_has_local_x();
-  void clear_has_local_x();
-  void set_has_local_y();
-  void clear_has_local_y();
-  void set_has_depth();
-  void clear_has_depth();
+  void set_has_x();
+  void clear_has_x();
+  void set_has_y();
+  void clear_has_y();
+  void set_has_z();
+  void clear_has_z();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -1616,36 +2951,36 @@ class SingleWaypoint : public ::google::protobuf::Message /* @@protoc_insertion_
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  double time_;
+  ::google::protobuf::int32 source_;
   ::google::protobuf::int32 destination_;
-  bool setget_;
+  double time_;
   double latitude_;
   double longitude_;
-  ::google::protobuf::int32 local_x_;
-  ::google::protobuf::int32 local_y_;
-  ::google::protobuf::int32 depth_;
+  float x_;
+  float y_;
+  float z_;
   friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
 
-class MultiWaypointGPS : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:MultiWaypointGPS) */ {
+class MultiWaypointGPSCommand : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:MultiWaypointGPSCommand) */ {
  public:
-  MultiWaypointGPS();
-  virtual ~MultiWaypointGPS();
+  MultiWaypointGPSCommand();
+  virtual ~MultiWaypointGPSCommand();
 
-  MultiWaypointGPS(const MultiWaypointGPS& from);
+  MultiWaypointGPSCommand(const MultiWaypointGPSCommand& from);
 
-  inline MultiWaypointGPS& operator=(const MultiWaypointGPS& from) {
+  inline MultiWaypointGPSCommand& operator=(const MultiWaypointGPSCommand& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  MultiWaypointGPS(MultiWaypointGPS&& from) noexcept
-    : MultiWaypointGPS() {
+  MultiWaypointGPSCommand(MultiWaypointGPSCommand&& from) noexcept
+    : MultiWaypointGPSCommand() {
     *this = ::std::move(from);
   }
 
-  inline MultiWaypointGPS& operator=(MultiWaypointGPS&& from) noexcept {
+  inline MultiWaypointGPSCommand& operator=(MultiWaypointGPSCommand&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1662,34 +2997,34 @@ class MultiWaypointGPS : public ::google::protobuf::Message /* @@protoc_insertio
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const MultiWaypointGPS& default_instance();
+  static const MultiWaypointGPSCommand& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const MultiWaypointGPS* internal_default_instance() {
-    return reinterpret_cast<const MultiWaypointGPS*>(
-               &_MultiWaypointGPS_default_instance_);
+  static inline const MultiWaypointGPSCommand* internal_default_instance() {
+    return reinterpret_cast<const MultiWaypointGPSCommand*>(
+               &_MultiWaypointGPSCommand_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    13;
 
-  void Swap(MultiWaypointGPS* other);
-  friend void swap(MultiWaypointGPS& a, MultiWaypointGPS& b) {
+  void Swap(MultiWaypointGPSCommand* other);
+  friend void swap(MultiWaypointGPSCommand& a, MultiWaypointGPSCommand& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline MultiWaypointGPS* New() const final {
-    return CreateMaybeMessage<MultiWaypointGPS>(NULL);
+  inline MultiWaypointGPSCommand* New() const final {
+    return CreateMaybeMessage<MultiWaypointGPSCommand>(NULL);
   }
 
-  MultiWaypointGPS* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<MultiWaypointGPS>(arena);
+  MultiWaypointGPSCommand* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<MultiWaypointGPSCommand>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const MultiWaypointGPS& from);
-  void MergeFrom(const MultiWaypointGPS& from);
+  void CopyFrom(const MultiWaypointGPSCommand& from);
+  void MergeFrom(const MultiWaypointGPSCommand& from);
   void Clear() final;
   bool IsInitialized() const final;
 
@@ -1706,7 +3041,7 @@ class MultiWaypointGPS : public ::google::protobuf::Message /* @@protoc_insertio
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(MultiWaypointGPS* other);
+  void InternalSwap(MultiWaypointGPSCommand* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -1720,125 +3055,127 @@ class MultiWaypointGPS : public ::google::protobuf::Message /* @@protoc_insertio
 
   // nested types ----------------------------------------------------
 
+  typedef MultiWaypointGPSCommand_Mode Mode;
+  static const Mode QUERY =
+    MultiWaypointGPSCommand_Mode_QUERY;
+  static const Mode COMMAND =
+    MultiWaypointGPSCommand_Mode_COMMAND;
+  static inline bool Mode_IsValid(int value) {
+    return MultiWaypointGPSCommand_Mode_IsValid(value);
+  }
+  static const Mode Mode_MIN =
+    MultiWaypointGPSCommand_Mode_Mode_MIN;
+  static const Mode Mode_MAX =
+    MultiWaypointGPSCommand_Mode_Mode_MAX;
+  static const int Mode_ARRAYSIZE =
+    MultiWaypointGPSCommand_Mode_Mode_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  Mode_descriptor() {
+    return MultiWaypointGPSCommand_Mode_descriptor();
+  }
+  static inline const ::std::string& Mode_Name(Mode value) {
+    return MultiWaypointGPSCommand_Mode_Name(value);
+  }
+  static inline bool Mode_Parse(const ::std::string& name,
+      Mode* value) {
+    return MultiWaypointGPSCommand_Mode_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
-  // required double time = 2 [(.dccl.field) = {
-  bool has_time() const;
-  void clear_time();
-  static const int kTimeFieldNumber = 2;
-  double time() const;
-  void set_time(double value);
+  // repeated int32 wpt_num = 5 [(.dccl.field) = {
+  int wpt_num_size() const;
+  void clear_wpt_num();
+  static const int kWptNumFieldNumber = 5;
+  ::google::protobuf::int32 wpt_num(int index) const;
+  void set_wpt_num(int index, ::google::protobuf::int32 value);
+  void add_wpt_num(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      wpt_num() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_wpt_num();
 
-  // required int32 destination = 1 [(.dccl.field) = {
+  // repeated double latitude = 6 [(.dccl.field) = {
+  int latitude_size() const;
+  void clear_latitude();
+  static const int kLatitudeFieldNumber = 6;
+  double latitude(int index) const;
+  void set_latitude(int index, double value);
+  void add_latitude(double value);
+  const ::google::protobuf::RepeatedField< double >&
+      latitude() const;
+  ::google::protobuf::RepeatedField< double >*
+      mutable_latitude();
+
+  // repeated double longitude = 7 [(.dccl.field) = {
+  int longitude_size() const;
+  void clear_longitude();
+  static const int kLongitudeFieldNumber = 7;
+  double longitude(int index) const;
+  void set_longitude(int index, double value);
+  void add_longitude(double value);
+  const ::google::protobuf::RepeatedField< double >&
+      longitude() const;
+  ::google::protobuf::RepeatedField< double >*
+      mutable_longitude();
+
+  // repeated float z = 8 [(.dccl.field) = {
+  int z_size() const;
+  void clear_z();
+  static const int kZFieldNumber = 8;
+  float z(int index) const;
+  void set_z(int index, float value);
+  void add_z(float value);
+  const ::google::protobuf::RepeatedField< float >&
+      z() const;
+  ::google::protobuf::RepeatedField< float >*
+      mutable_z();
+
+  // required int32 source = 1 [(.dccl.field) = {
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 1;
+  ::google::protobuf::int32 source() const;
+  void set_source(::google::protobuf::int32 value);
+
+  // required int32 destination = 2 [(.dccl.field) = {
   bool has_destination() const;
   void clear_destination();
-  static const int kDestinationFieldNumber = 1;
+  static const int kDestinationFieldNumber = 2;
   ::google::protobuf::int32 destination() const;
   void set_destination(::google::protobuf::int32 value);
 
-  // required int32 wpt_num = 3 [(.dccl.field) = {
-  bool has_wpt_num() const;
-  void clear_wpt_num();
-  static const int kWptNumFieldNumber = 3;
-  ::google::protobuf::int32 wpt_num() const;
-  void set_wpt_num(::google::protobuf::int32 value);
+  // optional double time = 3 [(.dccl.field) = {
+  bool has_time() const;
+  void clear_time();
+  static const int kTimeFieldNumber = 3;
+  double time() const;
+  void set_time(double value);
 
-  // optional double latitude_1 = 4 [(.dccl.field) = {
-  bool has_latitude_1() const;
-  void clear_latitude_1();
-  static const int kLatitude1FieldNumber = 4;
-  double latitude_1() const;
-  void set_latitude_1(double value);
+  // required .MultiWaypointGPSCommand.Mode mode = 4;
+  bool has_mode() const;
+  void clear_mode();
+  static const int kModeFieldNumber = 4;
+  ::MultiWaypointGPSCommand_Mode mode() const;
+  void set_mode(::MultiWaypointGPSCommand_Mode value);
 
-  // optional double longitude_1 = 5 [(.dccl.field) = {
-  bool has_longitude_1() const;
-  void clear_longitude_1();
-  static const int kLongitude1FieldNumber = 5;
-  double longitude_1() const;
-  void set_longitude_1(double value);
-
-  // optional double latitude_2 = 7 [(.dccl.field) = {
-  bool has_latitude_2() const;
-  void clear_latitude_2();
-  static const int kLatitude2FieldNumber = 7;
-  double latitude_2() const;
-  void set_latitude_2(double value);
-
-  // optional int32 depth_1 = 6 [(.dccl.field) = {
-  bool has_depth_1() const;
-  void clear_depth_1();
-  static const int kDepth1FieldNumber = 6;
-  ::google::protobuf::int32 depth_1() const;
-  void set_depth_1(::google::protobuf::int32 value);
-
-  // optional int32 depth_2 = 9 [(.dccl.field) = {
-  bool has_depth_2() const;
-  void clear_depth_2();
-  static const int kDepth2FieldNumber = 9;
-  ::google::protobuf::int32 depth_2() const;
-  void set_depth_2(::google::protobuf::int32 value);
-
-  // optional double longitude_2 = 8 [(.dccl.field) = {
-  bool has_longitude_2() const;
-  void clear_longitude_2();
-  static const int kLongitude2FieldNumber = 8;
-  double longitude_2() const;
-  void set_longitude_2(double value);
-
-  // optional double latitude_3 = 10 [(.dccl.field) = {
-  bool has_latitude_3() const;
-  void clear_latitude_3();
-  static const int kLatitude3FieldNumber = 10;
-  double latitude_3() const;
-  void set_latitude_3(double value);
-
-  // optional double longitude_3 = 11 [(.dccl.field) = {
-  bool has_longitude_3() const;
-  void clear_longitude_3();
-  static const int kLongitude3FieldNumber = 11;
-  double longitude_3() const;
-  void set_longitude_3(double value);
-
-  // optional int32 depth_3 = 12 [(.dccl.field) = {
-  bool has_depth_3() const;
-  void clear_depth_3();
-  static const int kDepth3FieldNumber = 12;
-  ::google::protobuf::int32 depth_3() const;
-  void set_depth_3(::google::protobuf::int32 value);
-
-  // required bool end = 13;
+  // optional bool end = 9 [(.dccl.field) = {
   bool has_end() const;
   void clear_end();
-  static const int kEndFieldNumber = 13;
+  static const int kEndFieldNumber = 9;
   bool end() const;
   void set_end(bool value);
 
-  // @@protoc_insertion_point(class_scope:MultiWaypointGPS)
+  // @@protoc_insertion_point(class_scope:MultiWaypointGPSCommand)
  private:
+  void set_has_source();
+  void clear_has_source();
   void set_has_destination();
   void clear_has_destination();
   void set_has_time();
   void clear_has_time();
-  void set_has_wpt_num();
-  void clear_has_wpt_num();
-  void set_has_latitude_1();
-  void clear_has_latitude_1();
-  void set_has_longitude_1();
-  void clear_has_longitude_1();
-  void set_has_depth_1();
-  void clear_has_depth_1();
-  void set_has_latitude_2();
-  void clear_has_latitude_2();
-  void set_has_longitude_2();
-  void clear_has_longitude_2();
-  void set_has_depth_2();
-  void clear_has_depth_2();
-  void set_has_latitude_3();
-  void clear_has_latitude_3();
-  void set_has_longitude_3();
-  void clear_has_longitude_3();
-  void set_has_depth_3();
-  void clear_has_depth_3();
+  void set_has_mode();
+  void clear_has_mode();
   void set_has_end();
   void clear_has_end();
 
@@ -1848,41 +3185,37 @@ class MultiWaypointGPS : public ::google::protobuf::Message /* @@protoc_insertio
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  double time_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > wpt_num_;
+  ::google::protobuf::RepeatedField< double > latitude_;
+  ::google::protobuf::RepeatedField< double > longitude_;
+  ::google::protobuf::RepeatedField< float > z_;
+  ::google::protobuf::int32 source_;
   ::google::protobuf::int32 destination_;
-  ::google::protobuf::int32 wpt_num_;
-  double latitude_1_;
-  double longitude_1_;
-  double latitude_2_;
-  ::google::protobuf::int32 depth_1_;
-  ::google::protobuf::int32 depth_2_;
-  double longitude_2_;
-  double latitude_3_;
-  double longitude_3_;
-  ::google::protobuf::int32 depth_3_;
+  double time_;
+  int mode_;
   bool end_;
   friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
 
-class MultiWaypointXYZ : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:MultiWaypointXYZ) */ {
+class MultiWaypointGPSResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:MultiWaypointGPSResponse) */ {
  public:
-  MultiWaypointXYZ();
-  virtual ~MultiWaypointXYZ();
+  MultiWaypointGPSResponse();
+  virtual ~MultiWaypointGPSResponse();
 
-  MultiWaypointXYZ(const MultiWaypointXYZ& from);
+  MultiWaypointGPSResponse(const MultiWaypointGPSResponse& from);
 
-  inline MultiWaypointXYZ& operator=(const MultiWaypointXYZ& from) {
+  inline MultiWaypointGPSResponse& operator=(const MultiWaypointGPSResponse& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  MultiWaypointXYZ(MultiWaypointXYZ&& from) noexcept
-    : MultiWaypointXYZ() {
+  MultiWaypointGPSResponse(MultiWaypointGPSResponse&& from) noexcept
+    : MultiWaypointGPSResponse() {
     *this = ::std::move(from);
   }
 
-  inline MultiWaypointXYZ& operator=(MultiWaypointXYZ&& from) noexcept {
+  inline MultiWaypointGPSResponse& operator=(MultiWaypointGPSResponse&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1899,34 +3232,34 @@ class MultiWaypointXYZ : public ::google::protobuf::Message /* @@protoc_insertio
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const MultiWaypointXYZ& default_instance();
+  static const MultiWaypointGPSResponse& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const MultiWaypointXYZ* internal_default_instance() {
-    return reinterpret_cast<const MultiWaypointXYZ*>(
-               &_MultiWaypointXYZ_default_instance_);
+  static inline const MultiWaypointGPSResponse* internal_default_instance() {
+    return reinterpret_cast<const MultiWaypointGPSResponse*>(
+               &_MultiWaypointGPSResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    14;
 
-  void Swap(MultiWaypointXYZ* other);
-  friend void swap(MultiWaypointXYZ& a, MultiWaypointXYZ& b) {
+  void Swap(MultiWaypointGPSResponse* other);
+  friend void swap(MultiWaypointGPSResponse& a, MultiWaypointGPSResponse& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline MultiWaypointXYZ* New() const final {
-    return CreateMaybeMessage<MultiWaypointXYZ>(NULL);
+  inline MultiWaypointGPSResponse* New() const final {
+    return CreateMaybeMessage<MultiWaypointGPSResponse>(NULL);
   }
 
-  MultiWaypointXYZ* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<MultiWaypointXYZ>(arena);
+  MultiWaypointGPSResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<MultiWaypointGPSResponse>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const MultiWaypointXYZ& from);
-  void MergeFrom(const MultiWaypointXYZ& from);
+  void CopyFrom(const MultiWaypointGPSResponse& from);
+  void MergeFrom(const MultiWaypointGPSResponse& from);
   void Clear() final;
   bool IsInitialized() const final;
 
@@ -1943,7 +3276,458 @@ class MultiWaypointXYZ : public ::google::protobuf::Message /* @@protoc_insertio
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(MultiWaypointXYZ* other);
+  void InternalSwap(MultiWaypointGPSResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef MultiWaypointGPSResponse_Mode Mode;
+  static const Mode QUERY =
+    MultiWaypointGPSResponse_Mode_QUERY;
+  static const Mode COMMAND =
+    MultiWaypointGPSResponse_Mode_COMMAND;
+  static inline bool Mode_IsValid(int value) {
+    return MultiWaypointGPSResponse_Mode_IsValid(value);
+  }
+  static const Mode Mode_MIN =
+    MultiWaypointGPSResponse_Mode_Mode_MIN;
+  static const Mode Mode_MAX =
+    MultiWaypointGPSResponse_Mode_Mode_MAX;
+  static const int Mode_ARRAYSIZE =
+    MultiWaypointGPSResponse_Mode_Mode_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  Mode_descriptor() {
+    return MultiWaypointGPSResponse_Mode_descriptor();
+  }
+  static inline const ::std::string& Mode_Name(Mode value) {
+    return MultiWaypointGPSResponse_Mode_Name(value);
+  }
+  static inline bool Mode_Parse(const ::std::string& name,
+      Mode* value) {
+    return MultiWaypointGPSResponse_Mode_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // repeated double latitude = 5 [(.dccl.field) = {
+  int latitude_size() const;
+  void clear_latitude();
+  static const int kLatitudeFieldNumber = 5;
+  double latitude(int index) const;
+  void set_latitude(int index, double value);
+  void add_latitude(double value);
+  const ::google::protobuf::RepeatedField< double >&
+      latitude() const;
+  ::google::protobuf::RepeatedField< double >*
+      mutable_latitude();
+
+  // repeated double longitude = 6 [(.dccl.field) = {
+  int longitude_size() const;
+  void clear_longitude();
+  static const int kLongitudeFieldNumber = 6;
+  double longitude(int index) const;
+  void set_longitude(int index, double value);
+  void add_longitude(double value);
+  const ::google::protobuf::RepeatedField< double >&
+      longitude() const;
+  ::google::protobuf::RepeatedField< double >*
+      mutable_longitude();
+
+  // repeated float z = 7 [(.dccl.field) = {
+  int z_size() const;
+  void clear_z();
+  static const int kZFieldNumber = 7;
+  float z(int index) const;
+  void set_z(int index, float value);
+  void add_z(float value);
+  const ::google::protobuf::RepeatedField< float >&
+      z() const;
+  ::google::protobuf::RepeatedField< float >*
+      mutable_z();
+
+  // required int32 source = 1 [(.dccl.field) = {
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 1;
+  ::google::protobuf::int32 source() const;
+  void set_source(::google::protobuf::int32 value);
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  bool has_destination() const;
+  void clear_destination();
+  static const int kDestinationFieldNumber = 2;
+  ::google::protobuf::int32 destination() const;
+  void set_destination(::google::protobuf::int32 value);
+
+  // optional double time = 3 [(.dccl.field) = {
+  bool has_time() const;
+  void clear_time();
+  static const int kTimeFieldNumber = 3;
+  double time() const;
+  void set_time(double value);
+
+  // required int32 wpt_num = 4 [(.dccl.field) = {
+  bool has_wpt_num() const;
+  void clear_wpt_num();
+  static const int kWptNumFieldNumber = 4;
+  ::google::protobuf::int32 wpt_num() const;
+  void set_wpt_num(::google::protobuf::int32 value);
+
+  // optional bool end = 8;
+  bool has_end() const;
+  void clear_end();
+  static const int kEndFieldNumber = 8;
+  bool end() const;
+  void set_end(bool value);
+
+  // @@protoc_insertion_point(class_scope:MultiWaypointGPSResponse)
+ private:
+  void set_has_source();
+  void clear_has_source();
+  void set_has_destination();
+  void clear_has_destination();
+  void set_has_time();
+  void clear_has_time();
+  void set_has_wpt_num();
+  void clear_has_wpt_num();
+  void set_has_end();
+  void clear_has_end();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::protobuf::RepeatedField< double > latitude_;
+  ::google::protobuf::RepeatedField< double > longitude_;
+  ::google::protobuf::RepeatedField< float > z_;
+  ::google::protobuf::int32 source_;
+  ::google::protobuf::int32 destination_;
+  double time_;
+  ::google::protobuf::int32 wpt_num_;
+  bool end_;
+  friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class MultiWaypointXYZCommand : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:MultiWaypointXYZCommand) */ {
+ public:
+  MultiWaypointXYZCommand();
+  virtual ~MultiWaypointXYZCommand();
+
+  MultiWaypointXYZCommand(const MultiWaypointXYZCommand& from);
+
+  inline MultiWaypointXYZCommand& operator=(const MultiWaypointXYZCommand& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  MultiWaypointXYZCommand(MultiWaypointXYZCommand&& from) noexcept
+    : MultiWaypointXYZCommand() {
+    *this = ::std::move(from);
+  }
+
+  inline MultiWaypointXYZCommand& operator=(MultiWaypointXYZCommand&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MultiWaypointXYZCommand& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const MultiWaypointXYZCommand* internal_default_instance() {
+    return reinterpret_cast<const MultiWaypointXYZCommand*>(
+               &_MultiWaypointXYZCommand_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    15;
+
+  void Swap(MultiWaypointXYZCommand* other);
+  friend void swap(MultiWaypointXYZCommand& a, MultiWaypointXYZCommand& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline MultiWaypointXYZCommand* New() const final {
+    return CreateMaybeMessage<MultiWaypointXYZCommand>(NULL);
+  }
+
+  MultiWaypointXYZCommand* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<MultiWaypointXYZCommand>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const MultiWaypointXYZCommand& from);
+  void MergeFrom(const MultiWaypointXYZCommand& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(MultiWaypointXYZCommand* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef MultiWaypointXYZCommand_Mode Mode;
+  static const Mode QUERY =
+    MultiWaypointXYZCommand_Mode_QUERY;
+  static const Mode COMMAND =
+    MultiWaypointXYZCommand_Mode_COMMAND;
+  static inline bool Mode_IsValid(int value) {
+    return MultiWaypointXYZCommand_Mode_IsValid(value);
+  }
+  static const Mode Mode_MIN =
+    MultiWaypointXYZCommand_Mode_Mode_MIN;
+  static const Mode Mode_MAX =
+    MultiWaypointXYZCommand_Mode_Mode_MAX;
+  static const int Mode_ARRAYSIZE =
+    MultiWaypointXYZCommand_Mode_Mode_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  Mode_descriptor() {
+    return MultiWaypointXYZCommand_Mode_descriptor();
+  }
+  static inline const ::std::string& Mode_Name(Mode value) {
+    return MultiWaypointXYZCommand_Mode_Name(value);
+  }
+  static inline bool Mode_Parse(const ::std::string& name,
+      Mode* value) {
+    return MultiWaypointXYZCommand_Mode_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // repeated int32 wpt_num = 5 [(.dccl.field) = {
+  int wpt_num_size() const;
+  void clear_wpt_num();
+  static const int kWptNumFieldNumber = 5;
+  ::google::protobuf::int32 wpt_num(int index) const;
+  void set_wpt_num(int index, ::google::protobuf::int32 value);
+  void add_wpt_num(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      wpt_num() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_wpt_num();
+
+  // repeated float x = 6 [(.dccl.field) = {
+  int x_size() const;
+  void clear_x();
+  static const int kXFieldNumber = 6;
+  float x(int index) const;
+  void set_x(int index, float value);
+  void add_x(float value);
+  const ::google::protobuf::RepeatedField< float >&
+      x() const;
+  ::google::protobuf::RepeatedField< float >*
+      mutable_x();
+
+  // required int32 source = 1 [(.dccl.field) = {
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 1;
+  ::google::protobuf::int32 source() const;
+  void set_source(::google::protobuf::int32 value);
+
+  // required int32 destination = 2 [(.dccl.field) = {
+  bool has_destination() const;
+  void clear_destination();
+  static const int kDestinationFieldNumber = 2;
+  ::google::protobuf::int32 destination() const;
+  void set_destination(::google::protobuf::int32 value);
+
+  // optional double time = 3 [(.dccl.field) = {
+  bool has_time() const;
+  void clear_time();
+  static const int kTimeFieldNumber = 3;
+  double time() const;
+  void set_time(double value);
+
+  // required .MultiWaypointXYZCommand.Mode mode = 4;
+  bool has_mode() const;
+  void clear_mode();
+  static const int kModeFieldNumber = 4;
+  ::MultiWaypointXYZCommand_Mode mode() const;
+  void set_mode(::MultiWaypointXYZCommand_Mode value);
+
+  // required float y = 7 [(.dccl.field) = {
+  bool has_y() const;
+  void clear_y();
+  static const int kYFieldNumber = 7;
+  float y() const;
+  void set_y(float value);
+
+  // required float z = 8 [(.dccl.field) = {
+  bool has_z() const;
+  void clear_z();
+  static const int kZFieldNumber = 8;
+  float z() const;
+  void set_z(float value);
+
+  // required bool end = 9 [(.dccl.field) = {
+  bool has_end() const;
+  void clear_end();
+  static const int kEndFieldNumber = 9;
+  bool end() const;
+  void set_end(bool value);
+
+  // @@protoc_insertion_point(class_scope:MultiWaypointXYZCommand)
+ private:
+  void set_has_source();
+  void clear_has_source();
+  void set_has_destination();
+  void clear_has_destination();
+  void set_has_time();
+  void clear_has_time();
+  void set_has_mode();
+  void clear_has_mode();
+  void set_has_y();
+  void clear_has_y();
+  void set_has_z();
+  void clear_has_z();
+  void set_has_end();
+  void clear_has_end();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > wpt_num_;
+  ::google::protobuf::RepeatedField< float > x_;
+  ::google::protobuf::int32 source_;
+  ::google::protobuf::int32 destination_;
+  double time_;
+  int mode_;
+  float y_;
+  float z_;
+  bool end_;
+  friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class MultiWaypointXYZResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:MultiWaypointXYZResponse) */ {
+ public:
+  MultiWaypointXYZResponse();
+  virtual ~MultiWaypointXYZResponse();
+
+  MultiWaypointXYZResponse(const MultiWaypointXYZResponse& from);
+
+  inline MultiWaypointXYZResponse& operator=(const MultiWaypointXYZResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  MultiWaypointXYZResponse(MultiWaypointXYZResponse&& from) noexcept
+    : MultiWaypointXYZResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline MultiWaypointXYZResponse& operator=(MultiWaypointXYZResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MultiWaypointXYZResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const MultiWaypointXYZResponse* internal_default_instance() {
+    return reinterpret_cast<const MultiWaypointXYZResponse*>(
+               &_MultiWaypointXYZResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    16;
+
+  void Swap(MultiWaypointXYZResponse* other);
+  friend void swap(MultiWaypointXYZResponse& a, MultiWaypointXYZResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline MultiWaypointXYZResponse* New() const final {
+    return CreateMaybeMessage<MultiWaypointXYZResponse>(NULL);
+  }
+
+  MultiWaypointXYZResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<MultiWaypointXYZResponse>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const MultiWaypointXYZResponse& from);
+  void MergeFrom(const MultiWaypointXYZResponse& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(MultiWaypointXYZResponse* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -1959,123 +3743,84 @@ class MultiWaypointXYZ : public ::google::protobuf::Message /* @@protoc_insertio
 
   // accessors -------------------------------------------------------
 
-  // required double time = 2 [(.dccl.field) = {
-  bool has_time() const;
-  void clear_time();
-  static const int kTimeFieldNumber = 2;
-  double time() const;
-  void set_time(double value);
+  // repeated int32 wpt_num = 4 [(.dccl.field) = {
+  int wpt_num_size() const;
+  void clear_wpt_num();
+  static const int kWptNumFieldNumber = 4;
+  ::google::protobuf::int32 wpt_num(int index) const;
+  void set_wpt_num(int index, ::google::protobuf::int32 value);
+  void add_wpt_num(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      wpt_num() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_wpt_num();
 
-  // required int32 destination = 1 [(.dccl.field) = {
+  // repeated float x = 5 [(.dccl.field) = {
+  int x_size() const;
+  void clear_x();
+  static const int kXFieldNumber = 5;
+  float x(int index) const;
+  void set_x(int index, float value);
+  void add_x(float value);
+  const ::google::protobuf::RepeatedField< float >&
+      x() const;
+  ::google::protobuf::RepeatedField< float >*
+      mutable_x();
+
+  // required int32 source = 1 [(.dccl.field) = {
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 1;
+  ::google::protobuf::int32 source() const;
+  void set_source(::google::protobuf::int32 value);
+
+  // required int32 destination = 2 [(.dccl.field) = {
   bool has_destination() const;
   void clear_destination();
-  static const int kDestinationFieldNumber = 1;
+  static const int kDestinationFieldNumber = 2;
   ::google::protobuf::int32 destination() const;
   void set_destination(::google::protobuf::int32 value);
 
-  // required int32 wpt_num = 3 [(.dccl.field) = {
-  bool has_wpt_num() const;
-  void clear_wpt_num();
-  static const int kWptNumFieldNumber = 3;
-  ::google::protobuf::int32 wpt_num() const;
-  void set_wpt_num(::google::protobuf::int32 value);
+  // optional double time = 3 [(.dccl.field) = {
+  bool has_time() const;
+  void clear_time();
+  static const int kTimeFieldNumber = 3;
+  double time() const;
+  void set_time(double value);
 
-  // optional int32 x_1 = 4 [(.dccl.field) = {
-  bool has_x_1() const;
-  void clear_x_1();
-  static const int kX1FieldNumber = 4;
-  ::google::protobuf::int32 x_1() const;
-  void set_x_1(::google::protobuf::int32 value);
+  // required float y = 6 [(.dccl.field) = {
+  bool has_y() const;
+  void clear_y();
+  static const int kYFieldNumber = 6;
+  float y() const;
+  void set_y(float value);
 
-  // optional int32 y_1 = 5 [(.dccl.field) = {
-  bool has_y_1() const;
-  void clear_y_1();
-  static const int kY1FieldNumber = 5;
-  ::google::protobuf::int32 y_1() const;
-  void set_y_1(::google::protobuf::int32 value);
+  // required float z = 7 [(.dccl.field) = {
+  bool has_z() const;
+  void clear_z();
+  static const int kZFieldNumber = 7;
+  float z() const;
+  void set_z(float value);
 
-  // optional int32 depth_1 = 6 [(.dccl.field) = {
-  bool has_depth_1() const;
-  void clear_depth_1();
-  static const int kDepth1FieldNumber = 6;
-  ::google::protobuf::int32 depth_1() const;
-  void set_depth_1(::google::protobuf::int32 value);
-
-  // optional int32 x_2 = 7 [(.dccl.field) = {
-  bool has_x_2() const;
-  void clear_x_2();
-  static const int kX2FieldNumber = 7;
-  ::google::protobuf::int32 x_2() const;
-  void set_x_2(::google::protobuf::int32 value);
-
-  // optional int32 y_2 = 8 [(.dccl.field) = {
-  bool has_y_2() const;
-  void clear_y_2();
-  static const int kY2FieldNumber = 8;
-  ::google::protobuf::int32 y_2() const;
-  void set_y_2(::google::protobuf::int32 value);
-
-  // optional int32 depth_2 = 9 [(.dccl.field) = {
-  bool has_depth_2() const;
-  void clear_depth_2();
-  static const int kDepth2FieldNumber = 9;
-  ::google::protobuf::int32 depth_2() const;
-  void set_depth_2(::google::protobuf::int32 value);
-
-  // optional int32 x_3 = 10 [(.dccl.field) = {
-  bool has_x_3() const;
-  void clear_x_3();
-  static const int kX3FieldNumber = 10;
-  ::google::protobuf::int32 x_3() const;
-  void set_x_3(::google::protobuf::int32 value);
-
-  // optional int32 y_3 = 11 [(.dccl.field) = {
-  bool has_y_3() const;
-  void clear_y_3();
-  static const int kY3FieldNumber = 11;
-  ::google::protobuf::int32 y_3() const;
-  void set_y_3(::google::protobuf::int32 value);
-
-  // optional int32 depth_3 = 12 [(.dccl.field) = {
-  bool has_depth_3() const;
-  void clear_depth_3();
-  static const int kDepth3FieldNumber = 12;
-  ::google::protobuf::int32 depth_3() const;
-  void set_depth_3(::google::protobuf::int32 value);
-
-  // required bool end = 13;
+  // required bool end = 9;
   bool has_end() const;
   void clear_end();
-  static const int kEndFieldNumber = 13;
+  static const int kEndFieldNumber = 9;
   bool end() const;
   void set_end(bool value);
 
-  // @@protoc_insertion_point(class_scope:MultiWaypointXYZ)
+  // @@protoc_insertion_point(class_scope:MultiWaypointXYZResponse)
  private:
+  void set_has_source();
+  void clear_has_source();
   void set_has_destination();
   void clear_has_destination();
   void set_has_time();
   void clear_has_time();
-  void set_has_wpt_num();
-  void clear_has_wpt_num();
-  void set_has_x_1();
-  void clear_has_x_1();
-  void set_has_y_1();
-  void clear_has_y_1();
-  void set_has_depth_1();
-  void clear_has_depth_1();
-  void set_has_x_2();
-  void clear_has_x_2();
-  void set_has_y_2();
-  void clear_has_y_2();
-  void set_has_depth_2();
-  void clear_has_depth_2();
-  void set_has_x_3();
-  void clear_has_x_3();
-  void set_has_y_3();
-  void clear_has_y_3();
-  void set_has_depth_3();
-  void clear_has_depth_3();
+  void set_has_y();
+  void clear_has_y();
+  void set_has_z();
+  void clear_has_z();
   void set_has_end();
   void clear_has_end();
 
@@ -2085,18 +3830,13 @@ class MultiWaypointXYZ : public ::google::protobuf::Message /* @@protoc_insertio
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  double time_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > wpt_num_;
+  ::google::protobuf::RepeatedField< float > x_;
+  ::google::protobuf::int32 source_;
   ::google::protobuf::int32 destination_;
-  ::google::protobuf::int32 wpt_num_;
-  ::google::protobuf::int32 x_1_;
-  ::google::protobuf::int32 y_1_;
-  ::google::protobuf::int32 depth_1_;
-  ::google::protobuf::int32 x_2_;
-  ::google::protobuf::int32 y_2_;
-  ::google::protobuf::int32 depth_2_;
-  ::google::protobuf::int32 x_3_;
-  ::google::protobuf::int32 y_3_;
-  ::google::protobuf::int32 depth_3_;
+  double time_;
+  float y_;
+  float z_;
   bool end_;
   friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
 };
@@ -2144,7 +3884,7 @@ class ExecuteWaypoints : public ::google::protobuf::Message /* @@protoc_insertio
                &_ExecuteWaypoints_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    17;
 
   void Swap(ExecuteWaypoints* other);
   friend void swap(ExecuteWaypoints& a, ExecuteWaypoints& b) {
@@ -2222,36 +3962,45 @@ class ExecuteWaypoints : public ::google::protobuf::Message /* @@protoc_insertio
 
   // accessors -------------------------------------------------------
 
-  // required double time = 2 [(.dccl.field) = {
-  bool has_time() const;
-  void clear_time();
-  static const int kTimeFieldNumber = 2;
-  double time() const;
-  void set_time(double value);
+  // required int32 source = 1 [(.dccl.field) = {
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 1;
+  ::google::protobuf::int32 source() const;
+  void set_source(::google::protobuf::int32 value);
 
-  // required int32 destination = 1 [(.dccl.field) = {
+  // required int32 destination = 2 [(.dccl.field) = {
   bool has_destination() const;
   void clear_destination();
-  static const int kDestinationFieldNumber = 1;
+  static const int kDestinationFieldNumber = 2;
   ::google::protobuf::int32 destination() const;
   void set_destination(::google::protobuf::int32 value);
 
-  // required bool execute = 3;
+  // optional double time = 3 [(.dccl.field) = {
+  bool has_time() const;
+  void clear_time();
+  static const int kTimeFieldNumber = 3;
+  double time() const;
+  void set_time(double value);
+
+  // required bool execute = 4;
   bool has_execute() const;
   void clear_execute();
-  static const int kExecuteFieldNumber = 3;
+  static const int kExecuteFieldNumber = 4;
   bool execute() const;
   void set_execute(bool value);
 
-  // required .ExecuteWaypoints.WaypointMode mode = 4;
+  // required .ExecuteWaypoints.WaypointMode mode = 5;
   bool has_mode() const;
   void clear_mode();
-  static const int kModeFieldNumber = 4;
+  static const int kModeFieldNumber = 5;
   ::ExecuteWaypoints_WaypointMode mode() const;
   void set_mode(::ExecuteWaypoints_WaypointMode value);
 
   // @@protoc_insertion_point(class_scope:ExecuteWaypoints)
  private:
+  void set_has_source();
+  void clear_has_source();
   void set_has_destination();
   void clear_has_destination();
   void set_has_time();
@@ -2267,8 +4016,9 @@ class ExecuteWaypoints : public ::google::protobuf::Message /* @@protoc_insertio
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  double time_;
+  ::google::protobuf::int32 source_;
   ::google::protobuf::int32 destination_;
+  double time_;
   bool execute_;
   int mode_;
   friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
@@ -2282,2137 +4032,3204 @@ class ExecuteWaypoints : public ::google::protobuf::Message /* @@protoc_insertio
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// Pose
+// PoseCommand
 
-// required int32 destination = 1 [(.dccl.field) = {
-inline bool Pose::has_destination() const {
+// required int32 source = 1 [(.dccl.field) = {
+inline bool PoseCommand::has_source() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void Pose::set_has_destination() {
+inline void PoseCommand::set_has_source() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void Pose::clear_has_destination() {
+inline void PoseCommand::clear_has_source() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void Pose::clear_destination() {
+inline void PoseCommand::clear_source() {
+  source_ = 0;
+  clear_has_source();
+}
+inline ::google::protobuf::int32 PoseCommand::source() const {
+  // @@protoc_insertion_point(field_get:PoseCommand.source)
+  return source_;
+}
+inline void PoseCommand::set_source(::google::protobuf::int32 value) {
+  set_has_source();
+  source_ = value;
+  // @@protoc_insertion_point(field_set:PoseCommand.source)
+}
+
+// required int32 destination = 2 [(.dccl.field) = {
+inline bool PoseCommand::has_destination() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PoseCommand::set_has_destination() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PoseCommand::clear_has_destination() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PoseCommand::clear_destination() {
   destination_ = 0;
   clear_has_destination();
 }
-inline ::google::protobuf::int32 Pose::destination() const {
-  // @@protoc_insertion_point(field_get:Pose.destination)
+inline ::google::protobuf::int32 PoseCommand::destination() const {
+  // @@protoc_insertion_point(field_get:PoseCommand.destination)
   return destination_;
 }
-inline void Pose::set_destination(::google::protobuf::int32 value) {
+inline void PoseCommand::set_destination(::google::protobuf::int32 value) {
   set_has_destination();
   destination_ = value;
-  // @@protoc_insertion_point(field_set:Pose.destination)
-}
-
-// required bool cmd_resp = 2;
-inline bool Pose::has_cmd_resp() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Pose::set_has_cmd_resp() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Pose::clear_has_cmd_resp() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void Pose::clear_cmd_resp() {
-  cmd_resp_ = false;
-  clear_has_cmd_resp();
-}
-inline bool Pose::cmd_resp() const {
-  // @@protoc_insertion_point(field_get:Pose.cmd_resp)
-  return cmd_resp_;
-}
-inline void Pose::set_cmd_resp(bool value) {
-  set_has_cmd_resp();
-  cmd_resp_ = value;
-  // @@protoc_insertion_point(field_set:Pose.cmd_resp)
+  // @@protoc_insertion_point(field_set:PoseCommand.destination)
 }
 
 // optional double time = 3 [(.dccl.field) = {
-inline bool Pose::has_time() const {
+inline bool PoseCommand::has_time() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void Pose::set_has_time() {
+inline void PoseCommand::set_has_time() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void Pose::clear_has_time() {
+inline void PoseCommand::clear_has_time() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void Pose::clear_time() {
+inline void PoseCommand::clear_time() {
   time_ = 0;
   clear_has_time();
 }
-inline double Pose::time() const {
-  // @@protoc_insertion_point(field_get:Pose.time)
+inline double PoseCommand::time() const {
+  // @@protoc_insertion_point(field_get:PoseCommand.time)
   return time_;
 }
-inline void Pose::set_time(double value) {
+inline void PoseCommand::set_time(double value) {
   set_has_time();
   time_ = value;
-  // @@protoc_insertion_point(field_set:Pose.time)
-}
-
-// optional double latitude = 4 [(.dccl.field) = {
-inline bool Pose::has_latitude() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void Pose::set_has_latitude() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void Pose::clear_has_latitude() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void Pose::clear_latitude() {
-  latitude_ = 0;
-  clear_has_latitude();
-}
-inline double Pose::latitude() const {
-  // @@protoc_insertion_point(field_get:Pose.latitude)
-  return latitude_;
-}
-inline void Pose::set_latitude(double value) {
-  set_has_latitude();
-  latitude_ = value;
-  // @@protoc_insertion_point(field_set:Pose.latitude)
-}
-
-// optional double longitude = 5 [(.dccl.field) = {
-inline bool Pose::has_longitude() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void Pose::set_has_longitude() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void Pose::clear_has_longitude() {
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline void Pose::clear_longitude() {
-  longitude_ = 0;
-  clear_has_longitude();
-}
-inline double Pose::longitude() const {
-  // @@protoc_insertion_point(field_get:Pose.longitude)
-  return longitude_;
-}
-inline void Pose::set_longitude(double value) {
-  set_has_longitude();
-  longitude_ = value;
-  // @@protoc_insertion_point(field_set:Pose.longitude)
-}
-
-// optional int32 local_x = 6 [(.dccl.field) = {
-inline bool Pose::has_local_x() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void Pose::set_has_local_x() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void Pose::clear_has_local_x() {
-  _has_bits_[0] &= ~0x00000020u;
-}
-inline void Pose::clear_local_x() {
-  local_x_ = 0;
-  clear_has_local_x();
-}
-inline ::google::protobuf::int32 Pose::local_x() const {
-  // @@protoc_insertion_point(field_get:Pose.local_x)
-  return local_x_;
-}
-inline void Pose::set_local_x(::google::protobuf::int32 value) {
-  set_has_local_x();
-  local_x_ = value;
-  // @@protoc_insertion_point(field_set:Pose.local_x)
-}
-
-// optional int32 local_y = 7 [(.dccl.field) = {
-inline bool Pose::has_local_y() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
-}
-inline void Pose::set_has_local_y() {
-  _has_bits_[0] |= 0x00000040u;
-}
-inline void Pose::clear_has_local_y() {
-  _has_bits_[0] &= ~0x00000040u;
-}
-inline void Pose::clear_local_y() {
-  local_y_ = 0;
-  clear_has_local_y();
-}
-inline ::google::protobuf::int32 Pose::local_y() const {
-  // @@protoc_insertion_point(field_get:Pose.local_y)
-  return local_y_;
-}
-inline void Pose::set_local_y(::google::protobuf::int32 value) {
-  set_has_local_y();
-  local_y_ = value;
-  // @@protoc_insertion_point(field_set:Pose.local_y)
-}
-
-// optional int32 local_z = 8 [(.dccl.field) = {
-inline bool Pose::has_local_z() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
-}
-inline void Pose::set_has_local_z() {
-  _has_bits_[0] |= 0x00000080u;
-}
-inline void Pose::clear_has_local_z() {
-  _has_bits_[0] &= ~0x00000080u;
-}
-inline void Pose::clear_local_z() {
-  local_z_ = 0;
-  clear_has_local_z();
-}
-inline ::google::protobuf::int32 Pose::local_z() const {
-  // @@protoc_insertion_point(field_get:Pose.local_z)
-  return local_z_;
-}
-inline void Pose::set_local_z(::google::protobuf::int32 value) {
-  set_has_local_z();
-  local_z_ = value;
-  // @@protoc_insertion_point(field_set:Pose.local_z)
-}
-
-// optional float x_rot = 9 [(.dccl.field) = {
-inline bool Pose::has_x_rot() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
-}
-inline void Pose::set_has_x_rot() {
-  _has_bits_[0] |= 0x00000100u;
-}
-inline void Pose::clear_has_x_rot() {
-  _has_bits_[0] &= ~0x00000100u;
-}
-inline void Pose::clear_x_rot() {
-  x_rot_ = 0;
-  clear_has_x_rot();
-}
-inline float Pose::x_rot() const {
-  // @@protoc_insertion_point(field_get:Pose.x_rot)
-  return x_rot_;
-}
-inline void Pose::set_x_rot(float value) {
-  set_has_x_rot();
-  x_rot_ = value;
-  // @@protoc_insertion_point(field_set:Pose.x_rot)
-}
-
-// optional float y_rot = 10 [(.dccl.field) = {
-inline bool Pose::has_y_rot() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
-}
-inline void Pose::set_has_y_rot() {
-  _has_bits_[0] |= 0x00000200u;
-}
-inline void Pose::clear_has_y_rot() {
-  _has_bits_[0] &= ~0x00000200u;
-}
-inline void Pose::clear_y_rot() {
-  y_rot_ = 0;
-  clear_has_y_rot();
-}
-inline float Pose::y_rot() const {
-  // @@protoc_insertion_point(field_get:Pose.y_rot)
-  return y_rot_;
-}
-inline void Pose::set_y_rot(float value) {
-  set_has_y_rot();
-  y_rot_ = value;
-  // @@protoc_insertion_point(field_set:Pose.y_rot)
-}
-
-// optional float z_rot = 11 [(.dccl.field) = {
-inline bool Pose::has_z_rot() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
-}
-inline void Pose::set_has_z_rot() {
-  _has_bits_[0] |= 0x00000400u;
-}
-inline void Pose::clear_has_z_rot() {
-  _has_bits_[0] &= ~0x00000400u;
-}
-inline void Pose::clear_z_rot() {
-  z_rot_ = 0;
-  clear_has_z_rot();
-}
-inline float Pose::z_rot() const {
-  // @@protoc_insertion_point(field_get:Pose.z_rot)
-  return z_rot_;
-}
-inline void Pose::set_z_rot(float value) {
-  set_has_z_rot();
-  z_rot_ = value;
-  // @@protoc_insertion_point(field_set:Pose.z_rot)
-}
-
-// optional float w_rot = 12 [(.dccl.field) = {
-inline bool Pose::has_w_rot() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
-}
-inline void Pose::set_has_w_rot() {
-  _has_bits_[0] |= 0x00000800u;
-}
-inline void Pose::clear_has_w_rot() {
-  _has_bits_[0] &= ~0x00000800u;
-}
-inline void Pose::clear_w_rot() {
-  w_rot_ = 0;
-  clear_has_w_rot();
-}
-inline float Pose::w_rot() const {
-  // @@protoc_insertion_point(field_get:Pose.w_rot)
-  return w_rot_;
-}
-inline void Pose::set_w_rot(float value) {
-  set_has_w_rot();
-  w_rot_ = value;
-  // @@protoc_insertion_point(field_set:Pose.w_rot)
+  // @@protoc_insertion_point(field_set:PoseCommand.time)
 }
 
 // -------------------------------------------------------------------
 
-// Health
+// PoseResponse
 
-// required int32 destination = 1 [(.dccl.field) = {
-inline bool Health::has_destination() const {
+// required int32 source = 1 [(.dccl.field) = {
+inline bool PoseResponse::has_source() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void Health::set_has_destination() {
+inline void PoseResponse::set_has_source() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void Health::clear_has_destination() {
+inline void PoseResponse::clear_has_source() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void Health::clear_destination() {
+inline void PoseResponse::clear_source() {
+  source_ = 0;
+  clear_has_source();
+}
+inline ::google::protobuf::int32 PoseResponse::source() const {
+  // @@protoc_insertion_point(field_get:PoseResponse.source)
+  return source_;
+}
+inline void PoseResponse::set_source(::google::protobuf::int32 value) {
+  set_has_source();
+  source_ = value;
+  // @@protoc_insertion_point(field_set:PoseResponse.source)
+}
+
+// required int32 destination = 2 [(.dccl.field) = {
+inline bool PoseResponse::has_destination() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PoseResponse::set_has_destination() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PoseResponse::clear_has_destination() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PoseResponse::clear_destination() {
   destination_ = 0;
   clear_has_destination();
 }
-inline ::google::protobuf::int32 Health::destination() const {
-  // @@protoc_insertion_point(field_get:Health.destination)
+inline ::google::protobuf::int32 PoseResponse::destination() const {
+  // @@protoc_insertion_point(field_get:PoseResponse.destination)
   return destination_;
 }
-inline void Health::set_destination(::google::protobuf::int32 value) {
+inline void PoseResponse::set_destination(::google::protobuf::int32 value) {
   set_has_destination();
   destination_ = value;
-  // @@protoc_insertion_point(field_set:Health.destination)
+  // @@protoc_insertion_point(field_set:PoseResponse.destination)
 }
 
-// optional bool cmd_resp = 2;
-inline bool Health::has_cmd_resp() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Health::set_has_cmd_resp() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Health::clear_has_cmd_resp() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void Health::clear_cmd_resp() {
-  cmd_resp_ = false;
-  clear_has_cmd_resp();
-}
-inline bool Health::cmd_resp() const {
-  // @@protoc_insertion_point(field_get:Health.cmd_resp)
-  return cmd_resp_;
-}
-inline void Health::set_cmd_resp(bool value) {
-  set_has_cmd_resp();
-  cmd_resp_ = value;
-  // @@protoc_insertion_point(field_set:Health.cmd_resp)
-}
-
-// optional double time = 3 [(.dccl.field) = {
-inline bool Health::has_time() const {
+// required double time = 3 [(.dccl.field) = {
+inline bool PoseResponse::has_time() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void Health::set_has_time() {
+inline void PoseResponse::set_has_time() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void Health::clear_has_time() {
+inline void PoseResponse::clear_has_time() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void Health::clear_time() {
+inline void PoseResponse::clear_time() {
   time_ = 0;
   clear_has_time();
 }
-inline double Health::time() const {
-  // @@protoc_insertion_point(field_get:Health.time)
+inline double PoseResponse::time() const {
+  // @@protoc_insertion_point(field_get:PoseResponse.time)
   return time_;
 }
-inline void Health::set_time(double value) {
+inline void PoseResponse::set_time(double value) {
   set_has_time();
   time_ = value;
-  // @@protoc_insertion_point(field_set:Health.time)
+  // @@protoc_insertion_point(field_set:PoseResponse.time)
 }
 
-// optional float batt_volt = 4 [(.dccl.field) = {
-inline bool Health::has_batt_volt() const {
+// required double latitude = 4 [(.dccl.field) = {
+inline bool PoseResponse::has_latitude() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void Health::set_has_batt_volt() {
+inline void PoseResponse::set_has_latitude() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void Health::clear_has_batt_volt() {
+inline void PoseResponse::clear_has_latitude() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void Health::clear_batt_volt() {
+inline void PoseResponse::clear_latitude() {
+  latitude_ = 0;
+  clear_has_latitude();
+}
+inline double PoseResponse::latitude() const {
+  // @@protoc_insertion_point(field_get:PoseResponse.latitude)
+  return latitude_;
+}
+inline void PoseResponse::set_latitude(double value) {
+  set_has_latitude();
+  latitude_ = value;
+  // @@protoc_insertion_point(field_set:PoseResponse.latitude)
+}
+
+// required double longitude = 5 [(.dccl.field) = {
+inline bool PoseResponse::has_longitude() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void PoseResponse::set_has_longitude() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void PoseResponse::clear_has_longitude() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void PoseResponse::clear_longitude() {
+  longitude_ = 0;
+  clear_has_longitude();
+}
+inline double PoseResponse::longitude() const {
+  // @@protoc_insertion_point(field_get:PoseResponse.longitude)
+  return longitude_;
+}
+inline void PoseResponse::set_longitude(double value) {
+  set_has_longitude();
+  longitude_ = value;
+  // @@protoc_insertion_point(field_set:PoseResponse.longitude)
+}
+
+// required float x = 6 [(.dccl.field) = {
+inline bool PoseResponse::has_x() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void PoseResponse::set_has_x() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void PoseResponse::clear_has_x() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void PoseResponse::clear_x() {
+  x_ = 0;
+  clear_has_x();
+}
+inline float PoseResponse::x() const {
+  // @@protoc_insertion_point(field_get:PoseResponse.x)
+  return x_;
+}
+inline void PoseResponse::set_x(float value) {
+  set_has_x();
+  x_ = value;
+  // @@protoc_insertion_point(field_set:PoseResponse.x)
+}
+
+// required float y = 7 [(.dccl.field) = {
+inline bool PoseResponse::has_y() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void PoseResponse::set_has_y() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void PoseResponse::clear_has_y() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void PoseResponse::clear_y() {
+  y_ = 0;
+  clear_has_y();
+}
+inline float PoseResponse::y() const {
+  // @@protoc_insertion_point(field_get:PoseResponse.y)
+  return y_;
+}
+inline void PoseResponse::set_y(float value) {
+  set_has_y();
+  y_ = value;
+  // @@protoc_insertion_point(field_set:PoseResponse.y)
+}
+
+// required float z = 8 [(.dccl.field) = {
+inline bool PoseResponse::has_z() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void PoseResponse::set_has_z() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void PoseResponse::clear_has_z() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void PoseResponse::clear_z() {
+  z_ = 0;
+  clear_has_z();
+}
+inline float PoseResponse::z() const {
+  // @@protoc_insertion_point(field_get:PoseResponse.z)
+  return z_;
+}
+inline void PoseResponse::set_z(float value) {
+  set_has_z();
+  z_ = value;
+  // @@protoc_insertion_point(field_set:PoseResponse.z)
+}
+
+// required float quat_x = 9 [(.dccl.field) = {
+inline bool PoseResponse::has_quat_x() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void PoseResponse::set_has_quat_x() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void PoseResponse::clear_has_quat_x() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void PoseResponse::clear_quat_x() {
+  quat_x_ = 0;
+  clear_has_quat_x();
+}
+inline float PoseResponse::quat_x() const {
+  // @@protoc_insertion_point(field_get:PoseResponse.quat_x)
+  return quat_x_;
+}
+inline void PoseResponse::set_quat_x(float value) {
+  set_has_quat_x();
+  quat_x_ = value;
+  // @@protoc_insertion_point(field_set:PoseResponse.quat_x)
+}
+
+// required float quat_y = 10 [(.dccl.field) = {
+inline bool PoseResponse::has_quat_y() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void PoseResponse::set_has_quat_y() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void PoseResponse::clear_has_quat_y() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void PoseResponse::clear_quat_y() {
+  quat_y_ = 0;
+  clear_has_quat_y();
+}
+inline float PoseResponse::quat_y() const {
+  // @@protoc_insertion_point(field_get:PoseResponse.quat_y)
+  return quat_y_;
+}
+inline void PoseResponse::set_quat_y(float value) {
+  set_has_quat_y();
+  quat_y_ = value;
+  // @@protoc_insertion_point(field_set:PoseResponse.quat_y)
+}
+
+// required float quat_z = 11 [(.dccl.field) = {
+inline bool PoseResponse::has_quat_z() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void PoseResponse::set_has_quat_z() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void PoseResponse::clear_has_quat_z() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void PoseResponse::clear_quat_z() {
+  quat_z_ = 0;
+  clear_has_quat_z();
+}
+inline float PoseResponse::quat_z() const {
+  // @@protoc_insertion_point(field_get:PoseResponse.quat_z)
+  return quat_z_;
+}
+inline void PoseResponse::set_quat_z(float value) {
+  set_has_quat_z();
+  quat_z_ = value;
+  // @@protoc_insertion_point(field_set:PoseResponse.quat_z)
+}
+
+// required float quat_w = 12 [(.dccl.field) = {
+inline bool PoseResponse::has_quat_w() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void PoseResponse::set_has_quat_w() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void PoseResponse::clear_has_quat_w() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void PoseResponse::clear_quat_w() {
+  quat_w_ = 0;
+  clear_has_quat_w();
+}
+inline float PoseResponse::quat_w() const {
+  // @@protoc_insertion_point(field_get:PoseResponse.quat_w)
+  return quat_w_;
+}
+inline void PoseResponse::set_quat_w(float value) {
+  set_has_quat_w();
+  quat_w_ = value;
+  // @@protoc_insertion_point(field_set:PoseResponse.quat_w)
+}
+
+// -------------------------------------------------------------------
+
+// HealthCommand
+
+// required int32 source = 1 [(.dccl.field) = {
+inline bool HealthCommand::has_source() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void HealthCommand::set_has_source() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void HealthCommand::clear_has_source() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void HealthCommand::clear_source() {
+  source_ = 0;
+  clear_has_source();
+}
+inline ::google::protobuf::int32 HealthCommand::source() const {
+  // @@protoc_insertion_point(field_get:HealthCommand.source)
+  return source_;
+}
+inline void HealthCommand::set_source(::google::protobuf::int32 value) {
+  set_has_source();
+  source_ = value;
+  // @@protoc_insertion_point(field_set:HealthCommand.source)
+}
+
+// required int32 destination = 2 [(.dccl.field) = {
+inline bool HealthCommand::has_destination() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void HealthCommand::set_has_destination() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void HealthCommand::clear_has_destination() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void HealthCommand::clear_destination() {
+  destination_ = 0;
+  clear_has_destination();
+}
+inline ::google::protobuf::int32 HealthCommand::destination() const {
+  // @@protoc_insertion_point(field_get:HealthCommand.destination)
+  return destination_;
+}
+inline void HealthCommand::set_destination(::google::protobuf::int32 value) {
+  set_has_destination();
+  destination_ = value;
+  // @@protoc_insertion_point(field_set:HealthCommand.destination)
+}
+
+// optional double time = 3 [(.dccl.field) = {
+inline bool HealthCommand::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void HealthCommand::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void HealthCommand::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void HealthCommand::clear_time() {
+  time_ = 0;
+  clear_has_time();
+}
+inline double HealthCommand::time() const {
+  // @@protoc_insertion_point(field_get:HealthCommand.time)
+  return time_;
+}
+inline void HealthCommand::set_time(double value) {
+  set_has_time();
+  time_ = value;
+  // @@protoc_insertion_point(field_set:HealthCommand.time)
+}
+
+// -------------------------------------------------------------------
+
+// HealthResponse
+
+// required int32 source = 1 [(.dccl.field) = {
+inline bool HealthResponse::has_source() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void HealthResponse::set_has_source() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void HealthResponse::clear_has_source() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void HealthResponse::clear_source() {
+  source_ = 0;
+  clear_has_source();
+}
+inline ::google::protobuf::int32 HealthResponse::source() const {
+  // @@protoc_insertion_point(field_get:HealthResponse.source)
+  return source_;
+}
+inline void HealthResponse::set_source(::google::protobuf::int32 value) {
+  set_has_source();
+  source_ = value;
+  // @@protoc_insertion_point(field_set:HealthResponse.source)
+}
+
+// required int32 destination = 2 [(.dccl.field) = {
+inline bool HealthResponse::has_destination() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void HealthResponse::set_has_destination() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void HealthResponse::clear_has_destination() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void HealthResponse::clear_destination() {
+  destination_ = 0;
+  clear_has_destination();
+}
+inline ::google::protobuf::int32 HealthResponse::destination() const {
+  // @@protoc_insertion_point(field_get:HealthResponse.destination)
+  return destination_;
+}
+inline void HealthResponse::set_destination(::google::protobuf::int32 value) {
+  set_has_destination();
+  destination_ = value;
+  // @@protoc_insertion_point(field_set:HealthResponse.destination)
+}
+
+// optional double time = 3 [(.dccl.field) = {
+inline bool HealthResponse::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void HealthResponse::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void HealthResponse::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void HealthResponse::clear_time() {
+  time_ = 0;
+  clear_has_time();
+}
+inline double HealthResponse::time() const {
+  // @@protoc_insertion_point(field_get:HealthResponse.time)
+  return time_;
+}
+inline void HealthResponse::set_time(double value) {
+  set_has_time();
+  time_ = value;
+  // @@protoc_insertion_point(field_set:HealthResponse.time)
+}
+
+// required float batt_volt = 4 [(.dccl.field) = {
+inline bool HealthResponse::has_batt_volt() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void HealthResponse::set_has_batt_volt() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void HealthResponse::clear_has_batt_volt() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void HealthResponse::clear_batt_volt() {
   batt_volt_ = 0;
   clear_has_batt_volt();
 }
-inline float Health::batt_volt() const {
-  // @@protoc_insertion_point(field_get:Health.batt_volt)
+inline float HealthResponse::batt_volt() const {
+  // @@protoc_insertion_point(field_get:HealthResponse.batt_volt)
   return batt_volt_;
 }
-inline void Health::set_batt_volt(float value) {
+inline void HealthResponse::set_batt_volt(float value) {
   set_has_batt_volt();
   batt_volt_ = value;
-  // @@protoc_insertion_point(field_set:Health.batt_volt)
+  // @@protoc_insertion_point(field_set:HealthResponse.batt_volt)
 }
 
-// optional float current = 5 [(.dccl.field) = {
-inline bool Health::has_current() const {
+// required float current = 5 [(.dccl.field) = {
+inline bool HealthResponse::has_current() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void Health::set_has_current() {
+inline void HealthResponse::set_has_current() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void Health::clear_has_current() {
+inline void HealthResponse::clear_has_current() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void Health::clear_current() {
+inline void HealthResponse::clear_current() {
   current_ = 0;
   clear_has_current();
 }
-inline float Health::current() const {
-  // @@protoc_insertion_point(field_get:Health.current)
+inline float HealthResponse::current() const {
+  // @@protoc_insertion_point(field_get:HealthResponse.current)
   return current_;
 }
-inline void Health::set_current(float value) {
+inline void HealthResponse::set_current(float value) {
   set_has_current();
   current_ = value;
-  // @@protoc_insertion_point(field_set:Health.current)
+  // @@protoc_insertion_point(field_set:HealthResponse.current)
 }
 
 // -------------------------------------------------------------------
 
-// RelativePose
+// RelativePoseCommand
 
-// required int32 destination = 1 [(.dccl.field) = {
-inline bool RelativePose::has_destination() const {
+// required int32 source = 1 [(.dccl.field) = {
+inline bool RelativePoseCommand::has_source() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void RelativePose::set_has_destination() {
+inline void RelativePoseCommand::set_has_source() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void RelativePose::clear_has_destination() {
+inline void RelativePoseCommand::clear_has_source() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void RelativePose::clear_destination() {
+inline void RelativePoseCommand::clear_source() {
+  source_ = 0;
+  clear_has_source();
+}
+inline ::google::protobuf::int32 RelativePoseCommand::source() const {
+  // @@protoc_insertion_point(field_get:RelativePoseCommand.source)
+  return source_;
+}
+inline void RelativePoseCommand::set_source(::google::protobuf::int32 value) {
+  set_has_source();
+  source_ = value;
+  // @@protoc_insertion_point(field_set:RelativePoseCommand.source)
+}
+
+// required int32 destination = 2 [(.dccl.field) = {
+inline bool RelativePoseCommand::has_destination() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void RelativePoseCommand::set_has_destination() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void RelativePoseCommand::clear_has_destination() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void RelativePoseCommand::clear_destination() {
   destination_ = 0;
   clear_has_destination();
 }
-inline ::google::protobuf::int32 RelativePose::destination() const {
-  // @@protoc_insertion_point(field_get:RelativePose.destination)
+inline ::google::protobuf::int32 RelativePoseCommand::destination() const {
+  // @@protoc_insertion_point(field_get:RelativePoseCommand.destination)
   return destination_;
 }
-inline void RelativePose::set_destination(::google::protobuf::int32 value) {
+inline void RelativePoseCommand::set_destination(::google::protobuf::int32 value) {
   set_has_destination();
   destination_ = value;
-  // @@protoc_insertion_point(field_set:RelativePose.destination)
-}
-
-// required bool cmd_resp = 2;
-inline bool RelativePose::has_cmd_resp() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void RelativePose::set_has_cmd_resp() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void RelativePose::clear_has_cmd_resp() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void RelativePose::clear_cmd_resp() {
-  cmd_resp_ = false;
-  clear_has_cmd_resp();
-}
-inline bool RelativePose::cmd_resp() const {
-  // @@protoc_insertion_point(field_get:RelativePose.cmd_resp)
-  return cmd_resp_;
-}
-inline void RelativePose::set_cmd_resp(bool value) {
-  set_has_cmd_resp();
-  cmd_resp_ = value;
-  // @@protoc_insertion_point(field_set:RelativePose.cmd_resp)
+  // @@protoc_insertion_point(field_set:RelativePoseCommand.destination)
 }
 
 // optional double time = 3 [(.dccl.field) = {
-inline bool RelativePose::has_time() const {
+inline bool RelativePoseCommand::has_time() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void RelativePose::set_has_time() {
+inline void RelativePoseCommand::set_has_time() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void RelativePose::clear_has_time() {
+inline void RelativePoseCommand::clear_has_time() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void RelativePose::clear_time() {
+inline void RelativePoseCommand::clear_time() {
   time_ = 0;
   clear_has_time();
 }
-inline double RelativePose::time() const {
-  // @@protoc_insertion_point(field_get:RelativePose.time)
+inline double RelativePoseCommand::time() const {
+  // @@protoc_insertion_point(field_get:RelativePoseCommand.time)
   return time_;
 }
-inline void RelativePose::set_time(double value) {
+inline void RelativePoseCommand::set_time(double value) {
   set_has_time();
   time_ = value;
-  // @@protoc_insertion_point(field_set:RelativePose.time)
+  // @@protoc_insertion_point(field_set:RelativePoseCommand.time)
 }
 
-// optional .RelativePose.Frame parent = 4;
-inline bool RelativePose::has_parent() const {
+// required .RelativePoseCommand.Frame parent = 4;
+inline bool RelativePoseCommand::has_parent() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void RelativePose::set_has_parent() {
+inline void RelativePoseCommand::set_has_parent() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void RelativePose::clear_has_parent() {
+inline void RelativePoseCommand::clear_has_parent() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void RelativePose::clear_parent() {
+inline void RelativePoseCommand::clear_parent() {
   parent_ = 0;
   clear_has_parent();
 }
-inline ::RelativePose_Frame RelativePose::parent() const {
-  // @@protoc_insertion_point(field_get:RelativePose.parent)
-  return static_cast< ::RelativePose_Frame >(parent_);
+inline ::RelativePoseCommand_Frame RelativePoseCommand::parent() const {
+  // @@protoc_insertion_point(field_get:RelativePoseCommand.parent)
+  return static_cast< ::RelativePoseCommand_Frame >(parent_);
 }
-inline void RelativePose::set_parent(::RelativePose_Frame value) {
-  assert(::RelativePose_Frame_IsValid(value));
+inline void RelativePoseCommand::set_parent(::RelativePoseCommand_Frame value) {
+  assert(::RelativePoseCommand_Frame_IsValid(value));
   set_has_parent();
   parent_ = value;
-  // @@protoc_insertion_point(field_set:RelativePose.parent)
+  // @@protoc_insertion_point(field_set:RelativePoseCommand.parent)
 }
 
-// optional .RelativePose.Frame child = 5;
-inline bool RelativePose::has_child() const {
+// required .RelativePoseCommand.Frame child = 5;
+inline bool RelativePoseCommand::has_child() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void RelativePose::set_has_child() {
+inline void RelativePoseCommand::set_has_child() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void RelativePose::clear_has_child() {
+inline void RelativePoseCommand::clear_has_child() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void RelativePose::clear_child() {
+inline void RelativePoseCommand::clear_child() {
   child_ = 0;
   clear_has_child();
 }
-inline ::RelativePose_Frame RelativePose::child() const {
-  // @@protoc_insertion_point(field_get:RelativePose.child)
-  return static_cast< ::RelativePose_Frame >(child_);
+inline ::RelativePoseCommand_Frame RelativePoseCommand::child() const {
+  // @@protoc_insertion_point(field_get:RelativePoseCommand.child)
+  return static_cast< ::RelativePoseCommand_Frame >(child_);
 }
-inline void RelativePose::set_child(::RelativePose_Frame value) {
-  assert(::RelativePose_Frame_IsValid(value));
+inline void RelativePoseCommand::set_child(::RelativePoseCommand_Frame value) {
+  assert(::RelativePoseCommand_Frame_IsValid(value));
   set_has_child();
   child_ = value;
-  // @@protoc_insertion_point(field_set:RelativePose.child)
-}
-
-// optional float local_x = 6 [(.dccl.field) = {
-inline bool RelativePose::has_local_x() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void RelativePose::set_has_local_x() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void RelativePose::clear_has_local_x() {
-  _has_bits_[0] &= ~0x00000020u;
-}
-inline void RelativePose::clear_local_x() {
-  local_x_ = 0;
-  clear_has_local_x();
-}
-inline float RelativePose::local_x() const {
-  // @@protoc_insertion_point(field_get:RelativePose.local_x)
-  return local_x_;
-}
-inline void RelativePose::set_local_x(float value) {
-  set_has_local_x();
-  local_x_ = value;
-  // @@protoc_insertion_point(field_set:RelativePose.local_x)
-}
-
-// optional float local_y = 7 [(.dccl.field) = {
-inline bool RelativePose::has_local_y() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
-}
-inline void RelativePose::set_has_local_y() {
-  _has_bits_[0] |= 0x00000040u;
-}
-inline void RelativePose::clear_has_local_y() {
-  _has_bits_[0] &= ~0x00000040u;
-}
-inline void RelativePose::clear_local_y() {
-  local_y_ = 0;
-  clear_has_local_y();
-}
-inline float RelativePose::local_y() const {
-  // @@protoc_insertion_point(field_get:RelativePose.local_y)
-  return local_y_;
-}
-inline void RelativePose::set_local_y(float value) {
-  set_has_local_y();
-  local_y_ = value;
-  // @@protoc_insertion_point(field_set:RelativePose.local_y)
-}
-
-// optional float local_z = 8 [(.dccl.field) = {
-inline bool RelativePose::has_local_z() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
-}
-inline void RelativePose::set_has_local_z() {
-  _has_bits_[0] |= 0x00000080u;
-}
-inline void RelativePose::clear_has_local_z() {
-  _has_bits_[0] &= ~0x00000080u;
-}
-inline void RelativePose::clear_local_z() {
-  local_z_ = 0;
-  clear_has_local_z();
-}
-inline float RelativePose::local_z() const {
-  // @@protoc_insertion_point(field_get:RelativePose.local_z)
-  return local_z_;
-}
-inline void RelativePose::set_local_z(float value) {
-  set_has_local_z();
-  local_z_ = value;
-  // @@protoc_insertion_point(field_set:RelativePose.local_z)
-}
-
-// optional float x_rot = 9 [(.dccl.field) = {
-inline bool RelativePose::has_x_rot() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
-}
-inline void RelativePose::set_has_x_rot() {
-  _has_bits_[0] |= 0x00000100u;
-}
-inline void RelativePose::clear_has_x_rot() {
-  _has_bits_[0] &= ~0x00000100u;
-}
-inline void RelativePose::clear_x_rot() {
-  x_rot_ = 0;
-  clear_has_x_rot();
-}
-inline float RelativePose::x_rot() const {
-  // @@protoc_insertion_point(field_get:RelativePose.x_rot)
-  return x_rot_;
-}
-inline void RelativePose::set_x_rot(float value) {
-  set_has_x_rot();
-  x_rot_ = value;
-  // @@protoc_insertion_point(field_set:RelativePose.x_rot)
-}
-
-// optional int32 y_rot = 10 [(.dccl.field) = {
-inline bool RelativePose::has_y_rot() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
-}
-inline void RelativePose::set_has_y_rot() {
-  _has_bits_[0] |= 0x00000200u;
-}
-inline void RelativePose::clear_has_y_rot() {
-  _has_bits_[0] &= ~0x00000200u;
-}
-inline void RelativePose::clear_y_rot() {
-  y_rot_ = 0;
-  clear_has_y_rot();
-}
-inline ::google::protobuf::int32 RelativePose::y_rot() const {
-  // @@protoc_insertion_point(field_get:RelativePose.y_rot)
-  return y_rot_;
-}
-inline void RelativePose::set_y_rot(::google::protobuf::int32 value) {
-  set_has_y_rot();
-  y_rot_ = value;
-  // @@protoc_insertion_point(field_set:RelativePose.y_rot)
-}
-
-// optional int32 z_rot = 11 [(.dccl.field) = {
-inline bool RelativePose::has_z_rot() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
-}
-inline void RelativePose::set_has_z_rot() {
-  _has_bits_[0] |= 0x00000400u;
-}
-inline void RelativePose::clear_has_z_rot() {
-  _has_bits_[0] &= ~0x00000400u;
-}
-inline void RelativePose::clear_z_rot() {
-  z_rot_ = 0;
-  clear_has_z_rot();
-}
-inline ::google::protobuf::int32 RelativePose::z_rot() const {
-  // @@protoc_insertion_point(field_get:RelativePose.z_rot)
-  return z_rot_;
-}
-inline void RelativePose::set_z_rot(::google::protobuf::int32 value) {
-  set_has_z_rot();
-  z_rot_ = value;
-  // @@protoc_insertion_point(field_set:RelativePose.z_rot)
-}
-
-// optional int32 w_rot = 12 [(.dccl.field) = {
-inline bool RelativePose::has_w_rot() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
-}
-inline void RelativePose::set_has_w_rot() {
-  _has_bits_[0] |= 0x00000800u;
-}
-inline void RelativePose::clear_has_w_rot() {
-  _has_bits_[0] &= ~0x00000800u;
-}
-inline void RelativePose::clear_w_rot() {
-  w_rot_ = 0;
-  clear_has_w_rot();
-}
-inline ::google::protobuf::int32 RelativePose::w_rot() const {
-  // @@protoc_insertion_point(field_get:RelativePose.w_rot)
-  return w_rot_;
-}
-inline void RelativePose::set_w_rot(::google::protobuf::int32 value) {
-  set_has_w_rot();
-  w_rot_ = value;
-  // @@protoc_insertion_point(field_set:RelativePose.w_rot)
+  // @@protoc_insertion_point(field_set:RelativePoseCommand.child)
 }
 
 // -------------------------------------------------------------------
 
-// ControllerInfo
+// RelativePoseResponse
 
-// required int32 destination = 1 [(.dccl.field) = {
-inline bool ControllerInfo::has_destination() const {
+// required int32 source = 1 [(.dccl.field) = {
+inline bool RelativePoseResponse::has_source() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void RelativePoseResponse::set_has_source() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void RelativePoseResponse::clear_has_source() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void RelativePoseResponse::clear_source() {
+  source_ = 0;
+  clear_has_source();
+}
+inline ::google::protobuf::int32 RelativePoseResponse::source() const {
+  // @@protoc_insertion_point(field_get:RelativePoseResponse.source)
+  return source_;
+}
+inline void RelativePoseResponse::set_source(::google::protobuf::int32 value) {
+  set_has_source();
+  source_ = value;
+  // @@protoc_insertion_point(field_set:RelativePoseResponse.source)
+}
+
+// required int32 destination = 2 [(.dccl.field) = {
+inline bool RelativePoseResponse::has_destination() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void ControllerInfo::set_has_destination() {
+inline void RelativePoseResponse::set_has_destination() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void ControllerInfo::clear_has_destination() {
+inline void RelativePoseResponse::clear_has_destination() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void ControllerInfo::clear_destination() {
+inline void RelativePoseResponse::clear_destination() {
   destination_ = 0;
   clear_has_destination();
 }
-inline ::google::protobuf::int32 ControllerInfo::destination() const {
-  // @@protoc_insertion_point(field_get:ControllerInfo.destination)
+inline ::google::protobuf::int32 RelativePoseResponse::destination() const {
+  // @@protoc_insertion_point(field_get:RelativePoseResponse.destination)
   return destination_;
 }
-inline void ControllerInfo::set_destination(::google::protobuf::int32 value) {
+inline void RelativePoseResponse::set_destination(::google::protobuf::int32 value) {
   set_has_destination();
   destination_ = value;
-  // @@protoc_insertion_point(field_set:ControllerInfo.destination)
+  // @@protoc_insertion_point(field_set:RelativePoseResponse.destination)
 }
 
-// required double time = 2 [(.dccl.field) = {
-inline bool ControllerInfo::has_time() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+// optional double time = 3 [(.dccl.field) = {
+inline bool RelativePoseResponse::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void ControllerInfo::set_has_time() {
-  _has_bits_[0] |= 0x00000001u;
+inline void RelativePoseResponse::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
 }
-inline void ControllerInfo::clear_has_time() {
-  _has_bits_[0] &= ~0x00000001u;
+inline void RelativePoseResponse::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
 }
-inline void ControllerInfo::clear_time() {
+inline void RelativePoseResponse::clear_time() {
   time_ = 0;
   clear_has_time();
 }
-inline double ControllerInfo::time() const {
-  // @@protoc_insertion_point(field_get:ControllerInfo.time)
+inline double RelativePoseResponse::time() const {
+  // @@protoc_insertion_point(field_get:RelativePoseResponse.time)
   return time_;
 }
-inline void ControllerInfo::set_time(double value) {
+inline void RelativePoseResponse::set_time(double value) {
   set_has_time();
   time_ = value;
-  // @@protoc_insertion_point(field_set:ControllerInfo.time)
+  // @@protoc_insertion_point(field_set:RelativePoseResponse.time)
 }
 
-// required bool setget = 3;
-inline bool ControllerInfo::has_setget() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void ControllerInfo::set_has_setget() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void ControllerInfo::clear_has_setget() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void ControllerInfo::clear_setget() {
-  setget_ = false;
-  clear_has_setget();
-}
-inline bool ControllerInfo::setget() const {
-  // @@protoc_insertion_point(field_get:ControllerInfo.setget)
-  return setget_;
-}
-inline void ControllerInfo::set_setget(bool value) {
-  set_has_setget();
-  setget_ = value;
-  // @@protoc_insertion_point(field_set:ControllerInfo.setget)
-}
-
-// optional bool state = 4;
-inline bool ControllerInfo::has_state() const {
+// required .RelativePoseResponse.Frame parent = 4;
+inline bool RelativePoseResponse::has_parent() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void ControllerInfo::set_has_state() {
+inline void RelativePoseResponse::set_has_parent() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void ControllerInfo::clear_has_state() {
+inline void RelativePoseResponse::clear_has_parent() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void ControllerInfo::clear_state() {
-  state_ = false;
-  clear_has_state();
+inline void RelativePoseResponse::clear_parent() {
+  parent_ = 0;
+  clear_has_parent();
 }
-inline bool ControllerInfo::state() const {
-  // @@protoc_insertion_point(field_get:ControllerInfo.state)
-  return state_;
+inline ::RelativePoseResponse_Frame RelativePoseResponse::parent() const {
+  // @@protoc_insertion_point(field_get:RelativePoseResponse.parent)
+  return static_cast< ::RelativePoseResponse_Frame >(parent_);
 }
-inline void ControllerInfo::set_state(bool value) {
-  set_has_state();
-  state_ = value;
-  // @@protoc_insertion_point(field_set:ControllerInfo.state)
-}
-
-// -------------------------------------------------------------------
-
-// DirectControl
-
-// required int32 destination = 1 [(.dccl.field) = {
-inline bool DirectControl::has_destination() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void DirectControl::set_has_destination() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void DirectControl::clear_has_destination() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void DirectControl::clear_destination() {
-  destination_ = 0;
-  clear_has_destination();
-}
-inline ::google::protobuf::int32 DirectControl::destination() const {
-  // @@protoc_insertion_point(field_get:DirectControl.destination)
-  return destination_;
-}
-inline void DirectControl::set_destination(::google::protobuf::int32 value) {
-  set_has_destination();
-  destination_ = value;
-  // @@protoc_insertion_point(field_set:DirectControl.destination)
+inline void RelativePoseResponse::set_parent(::RelativePoseResponse_Frame value) {
+  assert(::RelativePoseResponse_Frame_IsValid(value));
+  set_has_parent();
+  parent_ = value;
+  // @@protoc_insertion_point(field_set:RelativePoseResponse.parent)
 }
 
-// required double time = 2 [(.dccl.field) = {
-inline bool DirectControl::has_time() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void DirectControl::set_has_time() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void DirectControl::clear_has_time() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void DirectControl::clear_time() {
-  time_ = 0;
-  clear_has_time();
-}
-inline double DirectControl::time() const {
-  // @@protoc_insertion_point(field_get:DirectControl.time)
-  return time_;
-}
-inline void DirectControl::set_time(double value) {
-  set_has_time();
-  time_ = value;
-  // @@protoc_insertion_point(field_set:DirectControl.time)
-}
-
-// required bool setget = 3;
-inline bool DirectControl::has_setget() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void DirectControl::set_has_setget() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void DirectControl::clear_has_setget() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void DirectControl::clear_setget() {
-  setget_ = false;
-  clear_has_setget();
-}
-inline bool DirectControl::setget() const {
-  // @@protoc_insertion_point(field_get:DirectControl.setget)
-  return setget_;
-}
-inline void DirectControl::set_setget(bool value) {
-  set_has_setget();
-  setget_ = value;
-  // @@protoc_insertion_point(field_set:DirectControl.setget)
-}
-
-// optional .DirectControl.Frame frame = 4;
-inline bool DirectControl::has_frame() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void DirectControl::set_has_frame() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void DirectControl::clear_has_frame() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void DirectControl::clear_frame() {
-  frame_ = 0;
-  clear_has_frame();
-}
-inline ::DirectControl_Frame DirectControl::frame() const {
-  // @@protoc_insertion_point(field_get:DirectControl.frame)
-  return static_cast< ::DirectControl_Frame >(frame_);
-}
-inline void DirectControl::set_frame(::DirectControl_Frame value) {
-  assert(::DirectControl_Frame_IsValid(value));
-  set_has_frame();
-  frame_ = value;
-  // @@protoc_insertion_point(field_set:DirectControl.frame)
-}
-
-// optional float set_x = 6 [(.dccl.field) = {
-inline bool DirectControl::has_set_x() const {
+// required .RelativePoseResponse.Frame child = 5;
+inline bool RelativePoseResponse::has_child() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void DirectControl::set_has_set_x() {
+inline void RelativePoseResponse::set_has_child() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void DirectControl::clear_has_set_x() {
+inline void RelativePoseResponse::clear_has_child() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void DirectControl::clear_set_x() {
-  set_x_ = 0;
-  clear_has_set_x();
+inline void RelativePoseResponse::clear_child() {
+  child_ = 0;
+  clear_has_child();
 }
-inline float DirectControl::set_x() const {
-  // @@protoc_insertion_point(field_get:DirectControl.set_x)
-  return set_x_;
+inline ::RelativePoseResponse_Frame RelativePoseResponse::child() const {
+  // @@protoc_insertion_point(field_get:RelativePoseResponse.child)
+  return static_cast< ::RelativePoseResponse_Frame >(child_);
 }
-inline void DirectControl::set_set_x(float value) {
-  set_has_set_x();
-  set_x_ = value;
-  // @@protoc_insertion_point(field_set:DirectControl.set_x)
+inline void RelativePoseResponse::set_child(::RelativePoseResponse_Frame value) {
+  assert(::RelativePoseResponse_Frame_IsValid(value));
+  set_has_child();
+  child_ = value;
+  // @@protoc_insertion_point(field_set:RelativePoseResponse.child)
 }
 
-// optional float set_y = 7 [(.dccl.field) = {
-inline bool DirectControl::has_set_y() const {
+// required double latitude = 6 [(.dccl.field) = {
+inline bool RelativePoseResponse::has_latitude() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void DirectControl::set_has_set_y() {
+inline void RelativePoseResponse::set_has_latitude() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void DirectControl::clear_has_set_y() {
+inline void RelativePoseResponse::clear_has_latitude() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void DirectControl::clear_set_y() {
-  set_y_ = 0;
-  clear_has_set_y();
-}
-inline float DirectControl::set_y() const {
-  // @@protoc_insertion_point(field_get:DirectControl.set_y)
-  return set_y_;
-}
-inline void DirectControl::set_set_y(float value) {
-  set_has_set_y();
-  set_y_ = value;
-  // @@protoc_insertion_point(field_set:DirectControl.set_y)
-}
-
-// optional float set_z = 8 [(.dccl.field) = {
-inline bool DirectControl::has_set_z() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
-}
-inline void DirectControl::set_has_set_z() {
-  _has_bits_[0] |= 0x00000040u;
-}
-inline void DirectControl::clear_has_set_z() {
-  _has_bits_[0] &= ~0x00000040u;
-}
-inline void DirectControl::clear_set_z() {
-  set_z_ = 0;
-  clear_has_set_z();
-}
-inline float DirectControl::set_z() const {
-  // @@protoc_insertion_point(field_get:DirectControl.set_z)
-  return set_z_;
-}
-inline void DirectControl::set_set_z(float value) {
-  set_has_set_z();
-  set_z_ = value;
-  // @@protoc_insertion_point(field_set:DirectControl.set_z)
-}
-
-// optional float set_roll = 9 [(.dccl.field) = {
-inline bool DirectControl::has_set_roll() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
-}
-inline void DirectControl::set_has_set_roll() {
-  _has_bits_[0] |= 0x00000080u;
-}
-inline void DirectControl::clear_has_set_roll() {
-  _has_bits_[0] &= ~0x00000080u;
-}
-inline void DirectControl::clear_set_roll() {
-  set_roll_ = 0;
-  clear_has_set_roll();
-}
-inline float DirectControl::set_roll() const {
-  // @@protoc_insertion_point(field_get:DirectControl.set_roll)
-  return set_roll_;
-}
-inline void DirectControl::set_set_roll(float value) {
-  set_has_set_roll();
-  set_roll_ = value;
-  // @@protoc_insertion_point(field_set:DirectControl.set_roll)
-}
-
-// optional float set_pitch = 10 [(.dccl.field) = {
-inline bool DirectControl::has_set_pitch() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
-}
-inline void DirectControl::set_has_set_pitch() {
-  _has_bits_[0] |= 0x00000100u;
-}
-inline void DirectControl::clear_has_set_pitch() {
-  _has_bits_[0] &= ~0x00000100u;
-}
-inline void DirectControl::clear_set_pitch() {
-  set_pitch_ = 0;
-  clear_has_set_pitch();
-}
-inline float DirectControl::set_pitch() const {
-  // @@protoc_insertion_point(field_get:DirectControl.set_pitch)
-  return set_pitch_;
-}
-inline void DirectControl::set_set_pitch(float value) {
-  set_has_set_pitch();
-  set_pitch_ = value;
-  // @@protoc_insertion_point(field_set:DirectControl.set_pitch)
-}
-
-// optional float set_yaw = 11 [(.dccl.field) = {
-inline bool DirectControl::has_set_yaw() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
-}
-inline void DirectControl::set_has_set_yaw() {
-  _has_bits_[0] |= 0x00000200u;
-}
-inline void DirectControl::clear_has_set_yaw() {
-  _has_bits_[0] &= ~0x00000200u;
-}
-inline void DirectControl::clear_set_yaw() {
-  set_yaw_ = 0;
-  clear_has_set_yaw();
-}
-inline float DirectControl::set_yaw() const {
-  // @@protoc_insertion_point(field_get:DirectControl.set_yaw)
-  return set_yaw_;
-}
-inline void DirectControl::set_set_yaw(float value) {
-  set_has_set_yaw();
-  set_yaw_ = value;
-  // @@protoc_insertion_point(field_set:DirectControl.set_yaw)
-}
-
-// optional float set_u = 12 [(.dccl.field) = {
-inline bool DirectControl::has_set_u() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
-}
-inline void DirectControl::set_has_set_u() {
-  _has_bits_[0] |= 0x00000400u;
-}
-inline void DirectControl::clear_has_set_u() {
-  _has_bits_[0] &= ~0x00000400u;
-}
-inline void DirectControl::clear_set_u() {
-  set_u_ = 0;
-  clear_has_set_u();
-}
-inline float DirectControl::set_u() const {
-  // @@protoc_insertion_point(field_get:DirectControl.set_u)
-  return set_u_;
-}
-inline void DirectControl::set_set_u(float value) {
-  set_has_set_u();
-  set_u_ = value;
-  // @@protoc_insertion_point(field_set:DirectControl.set_u)
-}
-
-// optional float set_v = 13 [(.dccl.field) = {
-inline bool DirectControl::has_set_v() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
-}
-inline void DirectControl::set_has_set_v() {
-  _has_bits_[0] |= 0x00000800u;
-}
-inline void DirectControl::clear_has_set_v() {
-  _has_bits_[0] &= ~0x00000800u;
-}
-inline void DirectControl::clear_set_v() {
-  set_v_ = 0;
-  clear_has_set_v();
-}
-inline float DirectControl::set_v() const {
-  // @@protoc_insertion_point(field_get:DirectControl.set_v)
-  return set_v_;
-}
-inline void DirectControl::set_set_v(float value) {
-  set_has_set_v();
-  set_v_ = value;
-  // @@protoc_insertion_point(field_set:DirectControl.set_v)
-}
-
-// optional float set_w = 14 [(.dccl.field) = {
-inline bool DirectControl::has_set_w() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
-}
-inline void DirectControl::set_has_set_w() {
-  _has_bits_[0] |= 0x00001000u;
-}
-inline void DirectControl::clear_has_set_w() {
-  _has_bits_[0] &= ~0x00001000u;
-}
-inline void DirectControl::clear_set_w() {
-  set_w_ = 0;
-  clear_has_set_w();
-}
-inline float DirectControl::set_w() const {
-  // @@protoc_insertion_point(field_get:DirectControl.set_w)
-  return set_w_;
-}
-inline void DirectControl::set_set_w(float value) {
-  set_has_set_w();
-  set_w_ = value;
-  // @@protoc_insertion_point(field_set:DirectControl.set_w)
-}
-
-// optional float set_p = 15 [(.dccl.field) = {
-inline bool DirectControl::has_set_p() const {
-  return (_has_bits_[0] & 0x00002000u) != 0;
-}
-inline void DirectControl::set_has_set_p() {
-  _has_bits_[0] |= 0x00002000u;
-}
-inline void DirectControl::clear_has_set_p() {
-  _has_bits_[0] &= ~0x00002000u;
-}
-inline void DirectControl::clear_set_p() {
-  set_p_ = 0;
-  clear_has_set_p();
-}
-inline float DirectControl::set_p() const {
-  // @@protoc_insertion_point(field_get:DirectControl.set_p)
-  return set_p_;
-}
-inline void DirectControl::set_set_p(float value) {
-  set_has_set_p();
-  set_p_ = value;
-  // @@protoc_insertion_point(field_set:DirectControl.set_p)
-}
-
-// optional float set_q = 16 [(.dccl.field) = {
-inline bool DirectControl::has_set_q() const {
-  return (_has_bits_[0] & 0x00004000u) != 0;
-}
-inline void DirectControl::set_has_set_q() {
-  _has_bits_[0] |= 0x00004000u;
-}
-inline void DirectControl::clear_has_set_q() {
-  _has_bits_[0] &= ~0x00004000u;
-}
-inline void DirectControl::clear_set_q() {
-  set_q_ = 0;
-  clear_has_set_q();
-}
-inline float DirectControl::set_q() const {
-  // @@protoc_insertion_point(field_get:DirectControl.set_q)
-  return set_q_;
-}
-inline void DirectControl::set_set_q(float value) {
-  set_has_set_q();
-  set_q_ = value;
-  // @@protoc_insertion_point(field_set:DirectControl.set_q)
-}
-
-// optional float set_r = 17 [(.dccl.field) = {
-inline bool DirectControl::has_set_r() const {
-  return (_has_bits_[0] & 0x00008000u) != 0;
-}
-inline void DirectControl::set_has_set_r() {
-  _has_bits_[0] |= 0x00008000u;
-}
-inline void DirectControl::clear_has_set_r() {
-  _has_bits_[0] &= ~0x00008000u;
-}
-inline void DirectControl::clear_set_r() {
-  set_r_ = 0;
-  clear_has_set_r();
-}
-inline float DirectControl::set_r() const {
-  // @@protoc_insertion_point(field_get:DirectControl.set_r)
-  return set_r_;
-}
-inline void DirectControl::set_set_r(float value) {
-  set_has_set_r();
-  set_r_ = value;
-  // @@protoc_insertion_point(field_set:DirectControl.set_r)
-}
-
-// -------------------------------------------------------------------
-
-// StateInfo
-
-// required int32 destination = 1 [(.dccl.field) = {
-inline bool StateInfo::has_destination() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void StateInfo::set_has_destination() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void StateInfo::clear_has_destination() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void StateInfo::clear_destination() {
-  destination_ = 0;
-  clear_has_destination();
-}
-inline ::google::protobuf::int32 StateInfo::destination() const {
-  // @@protoc_insertion_point(field_get:StateInfo.destination)
-  return destination_;
-}
-inline void StateInfo::set_destination(::google::protobuf::int32 value) {
-  set_has_destination();
-  destination_ = value;
-  // @@protoc_insertion_point(field_set:StateInfo.destination)
-}
-
-// required double time = 2 [(.dccl.field) = {
-inline bool StateInfo::has_time() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void StateInfo::set_has_time() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void StateInfo::clear_has_time() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void StateInfo::clear_time() {
-  time_ = 0;
-  clear_has_time();
-}
-inline double StateInfo::time() const {
-  // @@protoc_insertion_point(field_get:StateInfo.time)
-  return time_;
-}
-inline void StateInfo::set_time(double value) {
-  set_has_time();
-  time_ = value;
-  // @@protoc_insertion_point(field_set:StateInfo.time)
-}
-
-// required bool setget = 3;
-inline bool StateInfo::has_setget() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void StateInfo::set_has_setget() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void StateInfo::clear_has_setget() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void StateInfo::clear_setget() {
-  setget_ = false;
-  clear_has_setget();
-}
-inline bool StateInfo::setget() const {
-  // @@protoc_insertion_point(field_get:StateInfo.setget)
-  return setget_;
-}
-inline void StateInfo::set_setget(bool value) {
-  set_has_setget();
-  setget_ = value;
-  // @@protoc_insertion_point(field_set:StateInfo.setget)
-}
-
-// optional .StateInfo.State state = 4;
-inline bool StateInfo::has_state() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void StateInfo::set_has_state() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void StateInfo::clear_has_state() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void StateInfo::clear_state() {
-  state_ = 0;
-  clear_has_state();
-}
-inline ::StateInfo_State StateInfo::state() const {
-  // @@protoc_insertion_point(field_get:StateInfo.state)
-  return static_cast< ::StateInfo_State >(state_);
-}
-inline void StateInfo::set_state(::StateInfo_State value) {
-  assert(::StateInfo_State_IsValid(value));
-  set_has_state();
-  state_ = value;
-  // @@protoc_insertion_point(field_set:StateInfo.state)
-}
-
-// -------------------------------------------------------------------
-
-// SingleWaypoint
-
-// required int32 destination = 1 [(.dccl.field) = {
-inline bool SingleWaypoint::has_destination() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void SingleWaypoint::set_has_destination() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void SingleWaypoint::clear_has_destination() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void SingleWaypoint::clear_destination() {
-  destination_ = 0;
-  clear_has_destination();
-}
-inline ::google::protobuf::int32 SingleWaypoint::destination() const {
-  // @@protoc_insertion_point(field_get:SingleWaypoint.destination)
-  return destination_;
-}
-inline void SingleWaypoint::set_destination(::google::protobuf::int32 value) {
-  set_has_destination();
-  destination_ = value;
-  // @@protoc_insertion_point(field_set:SingleWaypoint.destination)
-}
-
-// required double time = 2 [(.dccl.field) = {
-inline bool SingleWaypoint::has_time() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void SingleWaypoint::set_has_time() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void SingleWaypoint::clear_has_time() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void SingleWaypoint::clear_time() {
-  time_ = 0;
-  clear_has_time();
-}
-inline double SingleWaypoint::time() const {
-  // @@protoc_insertion_point(field_get:SingleWaypoint.time)
-  return time_;
-}
-inline void SingleWaypoint::set_time(double value) {
-  set_has_time();
-  time_ = value;
-  // @@protoc_insertion_point(field_set:SingleWaypoint.time)
-}
-
-// required bool setget = 3;
-inline bool SingleWaypoint::has_setget() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void SingleWaypoint::set_has_setget() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void SingleWaypoint::clear_has_setget() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void SingleWaypoint::clear_setget() {
-  setget_ = false;
-  clear_has_setget();
-}
-inline bool SingleWaypoint::setget() const {
-  // @@protoc_insertion_point(field_get:SingleWaypoint.setget)
-  return setget_;
-}
-inline void SingleWaypoint::set_setget(bool value) {
-  set_has_setget();
-  setget_ = value;
-  // @@protoc_insertion_point(field_set:SingleWaypoint.setget)
-}
-
-// optional double latitude = 4 [(.dccl.field) = {
-inline bool SingleWaypoint::has_latitude() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void SingleWaypoint::set_has_latitude() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void SingleWaypoint::clear_has_latitude() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void SingleWaypoint::clear_latitude() {
+inline void RelativePoseResponse::clear_latitude() {
   latitude_ = 0;
   clear_has_latitude();
 }
-inline double SingleWaypoint::latitude() const {
-  // @@protoc_insertion_point(field_get:SingleWaypoint.latitude)
+inline double RelativePoseResponse::latitude() const {
+  // @@protoc_insertion_point(field_get:RelativePoseResponse.latitude)
   return latitude_;
 }
-inline void SingleWaypoint::set_latitude(double value) {
+inline void RelativePoseResponse::set_latitude(double value) {
   set_has_latitude();
   latitude_ = value;
-  // @@protoc_insertion_point(field_set:SingleWaypoint.latitude)
+  // @@protoc_insertion_point(field_set:RelativePoseResponse.latitude)
 }
 
-// optional double longitude = 5 [(.dccl.field) = {
-inline bool SingleWaypoint::has_longitude() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+// required double longitude = 7 [(.dccl.field) = {
+inline bool RelativePoseResponse::has_longitude() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void SingleWaypoint::set_has_longitude() {
-  _has_bits_[0] |= 0x00000010u;
+inline void RelativePoseResponse::set_has_longitude() {
+  _has_bits_[0] |= 0x00000040u;
 }
-inline void SingleWaypoint::clear_has_longitude() {
-  _has_bits_[0] &= ~0x00000010u;
+inline void RelativePoseResponse::clear_has_longitude() {
+  _has_bits_[0] &= ~0x00000040u;
 }
-inline void SingleWaypoint::clear_longitude() {
+inline void RelativePoseResponse::clear_longitude() {
   longitude_ = 0;
   clear_has_longitude();
 }
-inline double SingleWaypoint::longitude() const {
-  // @@protoc_insertion_point(field_get:SingleWaypoint.longitude)
+inline double RelativePoseResponse::longitude() const {
+  // @@protoc_insertion_point(field_get:RelativePoseResponse.longitude)
   return longitude_;
 }
-inline void SingleWaypoint::set_longitude(double value) {
+inline void RelativePoseResponse::set_longitude(double value) {
   set_has_longitude();
   longitude_ = value;
-  // @@protoc_insertion_point(field_set:SingleWaypoint.longitude)
+  // @@protoc_insertion_point(field_set:RelativePoseResponse.longitude)
 }
 
-// optional int32 local_x = 6 [(.dccl.field) = {
-inline bool SingleWaypoint::has_local_x() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void SingleWaypoint::set_has_local_x() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void SingleWaypoint::clear_has_local_x() {
-  _has_bits_[0] &= ~0x00000020u;
-}
-inline void SingleWaypoint::clear_local_x() {
-  local_x_ = 0;
-  clear_has_local_x();
-}
-inline ::google::protobuf::int32 SingleWaypoint::local_x() const {
-  // @@protoc_insertion_point(field_get:SingleWaypoint.local_x)
-  return local_x_;
-}
-inline void SingleWaypoint::set_local_x(::google::protobuf::int32 value) {
-  set_has_local_x();
-  local_x_ = value;
-  // @@protoc_insertion_point(field_set:SingleWaypoint.local_x)
-}
-
-// optional int32 local_y = 7 [(.dccl.field) = {
-inline bool SingleWaypoint::has_local_y() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
-}
-inline void SingleWaypoint::set_has_local_y() {
-  _has_bits_[0] |= 0x00000040u;
-}
-inline void SingleWaypoint::clear_has_local_y() {
-  _has_bits_[0] &= ~0x00000040u;
-}
-inline void SingleWaypoint::clear_local_y() {
-  local_y_ = 0;
-  clear_has_local_y();
-}
-inline ::google::protobuf::int32 SingleWaypoint::local_y() const {
-  // @@protoc_insertion_point(field_get:SingleWaypoint.local_y)
-  return local_y_;
-}
-inline void SingleWaypoint::set_local_y(::google::protobuf::int32 value) {
-  set_has_local_y();
-  local_y_ = value;
-  // @@protoc_insertion_point(field_set:SingleWaypoint.local_y)
-}
-
-// required int32 depth = 8 [(.dccl.field) = {
-inline bool SingleWaypoint::has_depth() const {
+// required float x = 8 [(.dccl.field) = {
+inline bool RelativePoseResponse::has_x() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void SingleWaypoint::set_has_depth() {
+inline void RelativePoseResponse::set_has_x() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void SingleWaypoint::clear_has_depth() {
+inline void RelativePoseResponse::clear_has_x() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void SingleWaypoint::clear_depth() {
-  depth_ = 0;
-  clear_has_depth();
+inline void RelativePoseResponse::clear_x() {
+  x_ = 0;
+  clear_has_x();
 }
-inline ::google::protobuf::int32 SingleWaypoint::depth() const {
-  // @@protoc_insertion_point(field_get:SingleWaypoint.depth)
-  return depth_;
+inline float RelativePoseResponse::x() const {
+  // @@protoc_insertion_point(field_get:RelativePoseResponse.x)
+  return x_;
 }
-inline void SingleWaypoint::set_depth(::google::protobuf::int32 value) {
-  set_has_depth();
-  depth_ = value;
-  // @@protoc_insertion_point(field_set:SingleWaypoint.depth)
+inline void RelativePoseResponse::set_x(float value) {
+  set_has_x();
+  x_ = value;
+  // @@protoc_insertion_point(field_set:RelativePoseResponse.x)
+}
+
+// required float y = 9 [(.dccl.field) = {
+inline bool RelativePoseResponse::has_y() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void RelativePoseResponse::set_has_y() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void RelativePoseResponse::clear_has_y() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void RelativePoseResponse::clear_y() {
+  y_ = 0;
+  clear_has_y();
+}
+inline float RelativePoseResponse::y() const {
+  // @@protoc_insertion_point(field_get:RelativePoseResponse.y)
+  return y_;
+}
+inline void RelativePoseResponse::set_y(float value) {
+  set_has_y();
+  y_ = value;
+  // @@protoc_insertion_point(field_set:RelativePoseResponse.y)
+}
+
+// required float z = 10 [(.dccl.field) = {
+inline bool RelativePoseResponse::has_z() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void RelativePoseResponse::set_has_z() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void RelativePoseResponse::clear_has_z() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void RelativePoseResponse::clear_z() {
+  z_ = 0;
+  clear_has_z();
+}
+inline float RelativePoseResponse::z() const {
+  // @@protoc_insertion_point(field_get:RelativePoseResponse.z)
+  return z_;
+}
+inline void RelativePoseResponse::set_z(float value) {
+  set_has_z();
+  z_ = value;
+  // @@protoc_insertion_point(field_set:RelativePoseResponse.z)
+}
+
+// required float quat_x = 11 [(.dccl.field) = {
+inline bool RelativePoseResponse::has_quat_x() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void RelativePoseResponse::set_has_quat_x() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void RelativePoseResponse::clear_has_quat_x() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void RelativePoseResponse::clear_quat_x() {
+  quat_x_ = 0;
+  clear_has_quat_x();
+}
+inline float RelativePoseResponse::quat_x() const {
+  // @@protoc_insertion_point(field_get:RelativePoseResponse.quat_x)
+  return quat_x_;
+}
+inline void RelativePoseResponse::set_quat_x(float value) {
+  set_has_quat_x();
+  quat_x_ = value;
+  // @@protoc_insertion_point(field_set:RelativePoseResponse.quat_x)
+}
+
+// required float quat_y = 12 [(.dccl.field) = {
+inline bool RelativePoseResponse::has_quat_y() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void RelativePoseResponse::set_has_quat_y() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void RelativePoseResponse::clear_has_quat_y() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void RelativePoseResponse::clear_quat_y() {
+  quat_y_ = 0;
+  clear_has_quat_y();
+}
+inline float RelativePoseResponse::quat_y() const {
+  // @@protoc_insertion_point(field_get:RelativePoseResponse.quat_y)
+  return quat_y_;
+}
+inline void RelativePoseResponse::set_quat_y(float value) {
+  set_has_quat_y();
+  quat_y_ = value;
+  // @@protoc_insertion_point(field_set:RelativePoseResponse.quat_y)
+}
+
+// required float quat_z = 13 [(.dccl.field) = {
+inline bool RelativePoseResponse::has_quat_z() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void RelativePoseResponse::set_has_quat_z() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void RelativePoseResponse::clear_has_quat_z() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void RelativePoseResponse::clear_quat_z() {
+  quat_z_ = 0;
+  clear_has_quat_z();
+}
+inline float RelativePoseResponse::quat_z() const {
+  // @@protoc_insertion_point(field_get:RelativePoseResponse.quat_z)
+  return quat_z_;
+}
+inline void RelativePoseResponse::set_quat_z(float value) {
+  set_has_quat_z();
+  quat_z_ = value;
+  // @@protoc_insertion_point(field_set:RelativePoseResponse.quat_z)
+}
+
+// required float quat_w = 14 [(.dccl.field) = {
+inline bool RelativePoseResponse::has_quat_w() const {
+  return (_has_bits_[0] & 0x00002000u) != 0;
+}
+inline void RelativePoseResponse::set_has_quat_w() {
+  _has_bits_[0] |= 0x00002000u;
+}
+inline void RelativePoseResponse::clear_has_quat_w() {
+  _has_bits_[0] &= ~0x00002000u;
+}
+inline void RelativePoseResponse::clear_quat_w() {
+  quat_w_ = 0;
+  clear_has_quat_w();
+}
+inline float RelativePoseResponse::quat_w() const {
+  // @@protoc_insertion_point(field_get:RelativePoseResponse.quat_w)
+  return quat_w_;
+}
+inline void RelativePoseResponse::set_quat_w(float value) {
+  set_has_quat_w();
+  quat_w_ = value;
+  // @@protoc_insertion_point(field_set:RelativePoseResponse.quat_w)
 }
 
 // -------------------------------------------------------------------
 
-// MultiWaypointGPS
+// ControllerStateCommand
 
-// required int32 destination = 1 [(.dccl.field) = {
-inline bool MultiWaypointGPS::has_destination() const {
+// required int32 source = 1 [(.dccl.field) = {
+inline bool ControllerStateCommand::has_source() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ControllerStateCommand::set_has_source() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ControllerStateCommand::clear_has_source() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ControllerStateCommand::clear_source() {
+  source_ = 0;
+  clear_has_source();
+}
+inline ::google::protobuf::int32 ControllerStateCommand::source() const {
+  // @@protoc_insertion_point(field_get:ControllerStateCommand.source)
+  return source_;
+}
+inline void ControllerStateCommand::set_source(::google::protobuf::int32 value) {
+  set_has_source();
+  source_ = value;
+  // @@protoc_insertion_point(field_set:ControllerStateCommand.source)
+}
+
+// required int32 destination = 2 [(.dccl.field) = {
+inline bool ControllerStateCommand::has_destination() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void MultiWaypointGPS::set_has_destination() {
+inline void ControllerStateCommand::set_has_destination() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void MultiWaypointGPS::clear_has_destination() {
+inline void ControllerStateCommand::clear_has_destination() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void MultiWaypointGPS::clear_destination() {
+inline void ControllerStateCommand::clear_destination() {
   destination_ = 0;
   clear_has_destination();
 }
-inline ::google::protobuf::int32 MultiWaypointGPS::destination() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointGPS.destination)
+inline ::google::protobuf::int32 ControllerStateCommand::destination() const {
+  // @@protoc_insertion_point(field_get:ControllerStateCommand.destination)
   return destination_;
 }
-inline void MultiWaypointGPS::set_destination(::google::protobuf::int32 value) {
+inline void ControllerStateCommand::set_destination(::google::protobuf::int32 value) {
   set_has_destination();
   destination_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointGPS.destination)
+  // @@protoc_insertion_point(field_set:ControllerStateCommand.destination)
 }
 
-// required double time = 2 [(.dccl.field) = {
-inline bool MultiWaypointGPS::has_time() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+// optional double time = 3 [(.dccl.field) = {
+inline bool ControllerStateCommand::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void MultiWaypointGPS::set_has_time() {
-  _has_bits_[0] |= 0x00000001u;
+inline void ControllerStateCommand::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
 }
-inline void MultiWaypointGPS::clear_has_time() {
-  _has_bits_[0] &= ~0x00000001u;
+inline void ControllerStateCommand::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
 }
-inline void MultiWaypointGPS::clear_time() {
+inline void ControllerStateCommand::clear_time() {
   time_ = 0;
   clear_has_time();
 }
-inline double MultiWaypointGPS::time() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointGPS.time)
+inline double ControllerStateCommand::time() const {
+  // @@protoc_insertion_point(field_get:ControllerStateCommand.time)
   return time_;
 }
-inline void MultiWaypointGPS::set_time(double value) {
+inline void ControllerStateCommand::set_time(double value) {
   set_has_time();
   time_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointGPS.time)
+  // @@protoc_insertion_point(field_set:ControllerStateCommand.time)
 }
 
-// required int32 wpt_num = 3 [(.dccl.field) = {
-inline bool MultiWaypointGPS::has_wpt_num() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void MultiWaypointGPS::set_has_wpt_num() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void MultiWaypointGPS::clear_has_wpt_num() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void MultiWaypointGPS::clear_wpt_num() {
-  wpt_num_ = 0;
-  clear_has_wpt_num();
-}
-inline ::google::protobuf::int32 MultiWaypointGPS::wpt_num() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointGPS.wpt_num)
-  return wpt_num_;
-}
-inline void MultiWaypointGPS::set_wpt_num(::google::protobuf::int32 value) {
-  set_has_wpt_num();
-  wpt_num_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointGPS.wpt_num)
-}
-
-// optional double latitude_1 = 4 [(.dccl.field) = {
-inline bool MultiWaypointGPS::has_latitude_1() const {
+// required .ControllerStateCommand.State state = 4;
+inline bool ControllerStateCommand::has_state() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void MultiWaypointGPS::set_has_latitude_1() {
+inline void ControllerStateCommand::set_has_state() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void MultiWaypointGPS::clear_has_latitude_1() {
+inline void ControllerStateCommand::clear_has_state() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void MultiWaypointGPS::clear_latitude_1() {
-  latitude_1_ = 0;
-  clear_has_latitude_1();
+inline void ControllerStateCommand::clear_state() {
+  state_ = 0;
+  clear_has_state();
 }
-inline double MultiWaypointGPS::latitude_1() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointGPS.latitude_1)
-  return latitude_1_;
+inline ::ControllerStateCommand_State ControllerStateCommand::state() const {
+  // @@protoc_insertion_point(field_get:ControllerStateCommand.state)
+  return static_cast< ::ControllerStateCommand_State >(state_);
 }
-inline void MultiWaypointGPS::set_latitude_1(double value) {
-  set_has_latitude_1();
-  latitude_1_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointGPS.latitude_1)
-}
-
-// optional double longitude_1 = 5 [(.dccl.field) = {
-inline bool MultiWaypointGPS::has_longitude_1() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void MultiWaypointGPS::set_has_longitude_1() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void MultiWaypointGPS::clear_has_longitude_1() {
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline void MultiWaypointGPS::clear_longitude_1() {
-  longitude_1_ = 0;
-  clear_has_longitude_1();
-}
-inline double MultiWaypointGPS::longitude_1() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointGPS.longitude_1)
-  return longitude_1_;
-}
-inline void MultiWaypointGPS::set_longitude_1(double value) {
-  set_has_longitude_1();
-  longitude_1_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointGPS.longitude_1)
-}
-
-// optional int32 depth_1 = 6 [(.dccl.field) = {
-inline bool MultiWaypointGPS::has_depth_1() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
-}
-inline void MultiWaypointGPS::set_has_depth_1() {
-  _has_bits_[0] |= 0x00000040u;
-}
-inline void MultiWaypointGPS::clear_has_depth_1() {
-  _has_bits_[0] &= ~0x00000040u;
-}
-inline void MultiWaypointGPS::clear_depth_1() {
-  depth_1_ = 0;
-  clear_has_depth_1();
-}
-inline ::google::protobuf::int32 MultiWaypointGPS::depth_1() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointGPS.depth_1)
-  return depth_1_;
-}
-inline void MultiWaypointGPS::set_depth_1(::google::protobuf::int32 value) {
-  set_has_depth_1();
-  depth_1_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointGPS.depth_1)
-}
-
-// optional double latitude_2 = 7 [(.dccl.field) = {
-inline bool MultiWaypointGPS::has_latitude_2() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void MultiWaypointGPS::set_has_latitude_2() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void MultiWaypointGPS::clear_has_latitude_2() {
-  _has_bits_[0] &= ~0x00000020u;
-}
-inline void MultiWaypointGPS::clear_latitude_2() {
-  latitude_2_ = 0;
-  clear_has_latitude_2();
-}
-inline double MultiWaypointGPS::latitude_2() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointGPS.latitude_2)
-  return latitude_2_;
-}
-inline void MultiWaypointGPS::set_latitude_2(double value) {
-  set_has_latitude_2();
-  latitude_2_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointGPS.latitude_2)
-}
-
-// optional double longitude_2 = 8 [(.dccl.field) = {
-inline bool MultiWaypointGPS::has_longitude_2() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
-}
-inline void MultiWaypointGPS::set_has_longitude_2() {
-  _has_bits_[0] |= 0x00000100u;
-}
-inline void MultiWaypointGPS::clear_has_longitude_2() {
-  _has_bits_[0] &= ~0x00000100u;
-}
-inline void MultiWaypointGPS::clear_longitude_2() {
-  longitude_2_ = 0;
-  clear_has_longitude_2();
-}
-inline double MultiWaypointGPS::longitude_2() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointGPS.longitude_2)
-  return longitude_2_;
-}
-inline void MultiWaypointGPS::set_longitude_2(double value) {
-  set_has_longitude_2();
-  longitude_2_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointGPS.longitude_2)
-}
-
-// optional int32 depth_2 = 9 [(.dccl.field) = {
-inline bool MultiWaypointGPS::has_depth_2() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
-}
-inline void MultiWaypointGPS::set_has_depth_2() {
-  _has_bits_[0] |= 0x00000080u;
-}
-inline void MultiWaypointGPS::clear_has_depth_2() {
-  _has_bits_[0] &= ~0x00000080u;
-}
-inline void MultiWaypointGPS::clear_depth_2() {
-  depth_2_ = 0;
-  clear_has_depth_2();
-}
-inline ::google::protobuf::int32 MultiWaypointGPS::depth_2() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointGPS.depth_2)
-  return depth_2_;
-}
-inline void MultiWaypointGPS::set_depth_2(::google::protobuf::int32 value) {
-  set_has_depth_2();
-  depth_2_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointGPS.depth_2)
-}
-
-// optional double latitude_3 = 10 [(.dccl.field) = {
-inline bool MultiWaypointGPS::has_latitude_3() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
-}
-inline void MultiWaypointGPS::set_has_latitude_3() {
-  _has_bits_[0] |= 0x00000200u;
-}
-inline void MultiWaypointGPS::clear_has_latitude_3() {
-  _has_bits_[0] &= ~0x00000200u;
-}
-inline void MultiWaypointGPS::clear_latitude_3() {
-  latitude_3_ = 0;
-  clear_has_latitude_3();
-}
-inline double MultiWaypointGPS::latitude_3() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointGPS.latitude_3)
-  return latitude_3_;
-}
-inline void MultiWaypointGPS::set_latitude_3(double value) {
-  set_has_latitude_3();
-  latitude_3_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointGPS.latitude_3)
-}
-
-// optional double longitude_3 = 11 [(.dccl.field) = {
-inline bool MultiWaypointGPS::has_longitude_3() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
-}
-inline void MultiWaypointGPS::set_has_longitude_3() {
-  _has_bits_[0] |= 0x00000400u;
-}
-inline void MultiWaypointGPS::clear_has_longitude_3() {
-  _has_bits_[0] &= ~0x00000400u;
-}
-inline void MultiWaypointGPS::clear_longitude_3() {
-  longitude_3_ = 0;
-  clear_has_longitude_3();
-}
-inline double MultiWaypointGPS::longitude_3() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointGPS.longitude_3)
-  return longitude_3_;
-}
-inline void MultiWaypointGPS::set_longitude_3(double value) {
-  set_has_longitude_3();
-  longitude_3_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointGPS.longitude_3)
-}
-
-// optional int32 depth_3 = 12 [(.dccl.field) = {
-inline bool MultiWaypointGPS::has_depth_3() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
-}
-inline void MultiWaypointGPS::set_has_depth_3() {
-  _has_bits_[0] |= 0x00000800u;
-}
-inline void MultiWaypointGPS::clear_has_depth_3() {
-  _has_bits_[0] &= ~0x00000800u;
-}
-inline void MultiWaypointGPS::clear_depth_3() {
-  depth_3_ = 0;
-  clear_has_depth_3();
-}
-inline ::google::protobuf::int32 MultiWaypointGPS::depth_3() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointGPS.depth_3)
-  return depth_3_;
-}
-inline void MultiWaypointGPS::set_depth_3(::google::protobuf::int32 value) {
-  set_has_depth_3();
-  depth_3_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointGPS.depth_3)
-}
-
-// required bool end = 13;
-inline bool MultiWaypointGPS::has_end() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
-}
-inline void MultiWaypointGPS::set_has_end() {
-  _has_bits_[0] |= 0x00001000u;
-}
-inline void MultiWaypointGPS::clear_has_end() {
-  _has_bits_[0] &= ~0x00001000u;
-}
-inline void MultiWaypointGPS::clear_end() {
-  end_ = false;
-  clear_has_end();
-}
-inline bool MultiWaypointGPS::end() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointGPS.end)
-  return end_;
-}
-inline void MultiWaypointGPS::set_end(bool value) {
-  set_has_end();
-  end_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointGPS.end)
+inline void ControllerStateCommand::set_state(::ControllerStateCommand_State value) {
+  assert(::ControllerStateCommand_State_IsValid(value));
+  set_has_state();
+  state_ = value;
+  // @@protoc_insertion_point(field_set:ControllerStateCommand.state)
 }
 
 // -------------------------------------------------------------------
 
-// MultiWaypointXYZ
+// ControllerStateResponse
 
-// required int32 destination = 1 [(.dccl.field) = {
-inline bool MultiWaypointXYZ::has_destination() const {
+// required int32 source = 1 [(.dccl.field) = {
+inline bool ControllerStateResponse::has_source() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ControllerStateResponse::set_has_source() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ControllerStateResponse::clear_has_source() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ControllerStateResponse::clear_source() {
+  source_ = 0;
+  clear_has_source();
+}
+inline ::google::protobuf::int32 ControllerStateResponse::source() const {
+  // @@protoc_insertion_point(field_get:ControllerStateResponse.source)
+  return source_;
+}
+inline void ControllerStateResponse::set_source(::google::protobuf::int32 value) {
+  set_has_source();
+  source_ = value;
+  // @@protoc_insertion_point(field_set:ControllerStateResponse.source)
+}
+
+// required int32 destination = 2 [(.dccl.field) = {
+inline bool ControllerStateResponse::has_destination() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void MultiWaypointXYZ::set_has_destination() {
+inline void ControllerStateResponse::set_has_destination() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void MultiWaypointXYZ::clear_has_destination() {
+inline void ControllerStateResponse::clear_has_destination() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void MultiWaypointXYZ::clear_destination() {
+inline void ControllerStateResponse::clear_destination() {
   destination_ = 0;
   clear_has_destination();
 }
-inline ::google::protobuf::int32 MultiWaypointXYZ::destination() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointXYZ.destination)
+inline ::google::protobuf::int32 ControllerStateResponse::destination() const {
+  // @@protoc_insertion_point(field_get:ControllerStateResponse.destination)
   return destination_;
 }
-inline void MultiWaypointXYZ::set_destination(::google::protobuf::int32 value) {
+inline void ControllerStateResponse::set_destination(::google::protobuf::int32 value) {
   set_has_destination();
   destination_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointXYZ.destination)
+  // @@protoc_insertion_point(field_set:ControllerStateResponse.destination)
 }
 
-// required double time = 2 [(.dccl.field) = {
-inline bool MultiWaypointXYZ::has_time() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+// optional double time = 3 [(.dccl.field) = {
+inline bool ControllerStateResponse::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void MultiWaypointXYZ::set_has_time() {
-  _has_bits_[0] |= 0x00000001u;
+inline void ControllerStateResponse::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
 }
-inline void MultiWaypointXYZ::clear_has_time() {
-  _has_bits_[0] &= ~0x00000001u;
+inline void ControllerStateResponse::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
 }
-inline void MultiWaypointXYZ::clear_time() {
+inline void ControllerStateResponse::clear_time() {
   time_ = 0;
   clear_has_time();
 }
-inline double MultiWaypointXYZ::time() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointXYZ.time)
+inline double ControllerStateResponse::time() const {
+  // @@protoc_insertion_point(field_get:ControllerStateResponse.time)
   return time_;
 }
-inline void MultiWaypointXYZ::set_time(double value) {
+inline void ControllerStateResponse::set_time(double value) {
   set_has_time();
   time_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointXYZ.time)
+  // @@protoc_insertion_point(field_set:ControllerStateResponse.time)
 }
 
-// required int32 wpt_num = 3 [(.dccl.field) = {
-inline bool MultiWaypointXYZ::has_wpt_num() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void MultiWaypointXYZ::set_has_wpt_num() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void MultiWaypointXYZ::clear_has_wpt_num() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void MultiWaypointXYZ::clear_wpt_num() {
-  wpt_num_ = 0;
-  clear_has_wpt_num();
-}
-inline ::google::protobuf::int32 MultiWaypointXYZ::wpt_num() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointXYZ.wpt_num)
-  return wpt_num_;
-}
-inline void MultiWaypointXYZ::set_wpt_num(::google::protobuf::int32 value) {
-  set_has_wpt_num();
-  wpt_num_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointXYZ.wpt_num)
-}
-
-// optional int32 x_1 = 4 [(.dccl.field) = {
-inline bool MultiWaypointXYZ::has_x_1() const {
+// required .ControllerStateResponse.State state = 4;
+inline bool ControllerStateResponse::has_state() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void MultiWaypointXYZ::set_has_x_1() {
+inline void ControllerStateResponse::set_has_state() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void MultiWaypointXYZ::clear_has_x_1() {
+inline void ControllerStateResponse::clear_has_state() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void MultiWaypointXYZ::clear_x_1() {
-  x_1_ = 0;
-  clear_has_x_1();
+inline void ControllerStateResponse::clear_state() {
+  state_ = 0;
+  clear_has_state();
 }
-inline ::google::protobuf::int32 MultiWaypointXYZ::x_1() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointXYZ.x_1)
-  return x_1_;
+inline ::ControllerStateResponse_State ControllerStateResponse::state() const {
+  // @@protoc_insertion_point(field_get:ControllerStateResponse.state)
+  return static_cast< ::ControllerStateResponse_State >(state_);
 }
-inline void MultiWaypointXYZ::set_x_1(::google::protobuf::int32 value) {
-  set_has_x_1();
-  x_1_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointXYZ.x_1)
+inline void ControllerStateResponse::set_state(::ControllerStateResponse_State value) {
+  assert(::ControllerStateResponse_State_IsValid(value));
+  set_has_state();
+  state_ = value;
+  // @@protoc_insertion_point(field_set:ControllerStateResponse.state)
 }
 
-// optional int32 y_1 = 5 [(.dccl.field) = {
-inline bool MultiWaypointXYZ::has_y_1() const {
+// -------------------------------------------------------------------
+
+// DirectControlCommand
+
+// required int32 source = 1 [(.dccl.field) = {
+inline bool DirectControlCommand::has_source() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DirectControlCommand::set_has_source() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DirectControlCommand::clear_has_source() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DirectControlCommand::clear_source() {
+  source_ = 0;
+  clear_has_source();
+}
+inline ::google::protobuf::int32 DirectControlCommand::source() const {
+  // @@protoc_insertion_point(field_get:DirectControlCommand.source)
+  return source_;
+}
+inline void DirectControlCommand::set_source(::google::protobuf::int32 value) {
+  set_has_source();
+  source_ = value;
+  // @@protoc_insertion_point(field_set:DirectControlCommand.source)
+}
+
+// required int32 destination = 2 [(.dccl.field) = {
+inline bool DirectControlCommand::has_destination() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DirectControlCommand::set_has_destination() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DirectControlCommand::clear_has_destination() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DirectControlCommand::clear_destination() {
+  destination_ = 0;
+  clear_has_destination();
+}
+inline ::google::protobuf::int32 DirectControlCommand::destination() const {
+  // @@protoc_insertion_point(field_get:DirectControlCommand.destination)
+  return destination_;
+}
+inline void DirectControlCommand::set_destination(::google::protobuf::int32 value) {
+  set_has_destination();
+  destination_ = value;
+  // @@protoc_insertion_point(field_set:DirectControlCommand.destination)
+}
+
+// optional double time = 3 [(.dccl.field) = {
+inline bool DirectControlCommand::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void DirectControlCommand::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void DirectControlCommand::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void DirectControlCommand::clear_time() {
+  time_ = 0;
+  clear_has_time();
+}
+inline double DirectControlCommand::time() const {
+  // @@protoc_insertion_point(field_get:DirectControlCommand.time)
+  return time_;
+}
+inline void DirectControlCommand::set_time(double value) {
+  set_has_time();
+  time_ = value;
+  // @@protoc_insertion_point(field_set:DirectControlCommand.time)
+}
+
+// required .DirectControlCommand.Frame frame = 4;
+inline bool DirectControlCommand::has_frame() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void DirectControlCommand::set_has_frame() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void DirectControlCommand::clear_has_frame() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void DirectControlCommand::clear_frame() {
+  frame_ = 0;
+  clear_has_frame();
+}
+inline ::DirectControlCommand_Frame DirectControlCommand::frame() const {
+  // @@protoc_insertion_point(field_get:DirectControlCommand.frame)
+  return static_cast< ::DirectControlCommand_Frame >(frame_);
+}
+inline void DirectControlCommand::set_frame(::DirectControlCommand_Frame value) {
+  assert(::DirectControlCommand_Frame_IsValid(value));
+  set_has_frame();
+  frame_ = value;
+  // @@protoc_insertion_point(field_set:DirectControlCommand.frame)
+}
+
+// required float x = 5 [(.dccl.field) = {
+inline bool DirectControlCommand::has_x() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void MultiWaypointXYZ::set_has_y_1() {
+inline void DirectControlCommand::set_has_x() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void MultiWaypointXYZ::clear_has_y_1() {
+inline void DirectControlCommand::clear_has_x() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void MultiWaypointXYZ::clear_y_1() {
-  y_1_ = 0;
-  clear_has_y_1();
+inline void DirectControlCommand::clear_x() {
+  x_ = 0;
+  clear_has_x();
 }
-inline ::google::protobuf::int32 MultiWaypointXYZ::y_1() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointXYZ.y_1)
-  return y_1_;
+inline float DirectControlCommand::x() const {
+  // @@protoc_insertion_point(field_get:DirectControlCommand.x)
+  return x_;
 }
-inline void MultiWaypointXYZ::set_y_1(::google::protobuf::int32 value) {
-  set_has_y_1();
-  y_1_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointXYZ.y_1)
+inline void DirectControlCommand::set_x(float value) {
+  set_has_x();
+  x_ = value;
+  // @@protoc_insertion_point(field_set:DirectControlCommand.x)
 }
 
-// optional int32 depth_1 = 6 [(.dccl.field) = {
-inline bool MultiWaypointXYZ::has_depth_1() const {
+// required float y = 6 [(.dccl.field) = {
+inline bool DirectControlCommand::has_y() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void MultiWaypointXYZ::set_has_depth_1() {
+inline void DirectControlCommand::set_has_y() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void MultiWaypointXYZ::clear_has_depth_1() {
+inline void DirectControlCommand::clear_has_y() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void MultiWaypointXYZ::clear_depth_1() {
-  depth_1_ = 0;
-  clear_has_depth_1();
+inline void DirectControlCommand::clear_y() {
+  y_ = 0;
+  clear_has_y();
 }
-inline ::google::protobuf::int32 MultiWaypointXYZ::depth_1() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointXYZ.depth_1)
-  return depth_1_;
+inline float DirectControlCommand::y() const {
+  // @@protoc_insertion_point(field_get:DirectControlCommand.y)
+  return y_;
 }
-inline void MultiWaypointXYZ::set_depth_1(::google::protobuf::int32 value) {
-  set_has_depth_1();
-  depth_1_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointXYZ.depth_1)
+inline void DirectControlCommand::set_y(float value) {
+  set_has_y();
+  y_ = value;
+  // @@protoc_insertion_point(field_set:DirectControlCommand.y)
 }
 
-// optional int32 x_2 = 7 [(.dccl.field) = {
-inline bool MultiWaypointXYZ::has_x_2() const {
+// required float z = 7 [(.dccl.field) = {
+inline bool DirectControlCommand::has_z() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void MultiWaypointXYZ::set_has_x_2() {
+inline void DirectControlCommand::set_has_z() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void MultiWaypointXYZ::clear_has_x_2() {
+inline void DirectControlCommand::clear_has_z() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void MultiWaypointXYZ::clear_x_2() {
-  x_2_ = 0;
-  clear_has_x_2();
+inline void DirectControlCommand::clear_z() {
+  z_ = 0;
+  clear_has_z();
 }
-inline ::google::protobuf::int32 MultiWaypointXYZ::x_2() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointXYZ.x_2)
-  return x_2_;
+inline float DirectControlCommand::z() const {
+  // @@protoc_insertion_point(field_get:DirectControlCommand.z)
+  return z_;
 }
-inline void MultiWaypointXYZ::set_x_2(::google::protobuf::int32 value) {
-  set_has_x_2();
-  x_2_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointXYZ.x_2)
+inline void DirectControlCommand::set_z(float value) {
+  set_has_z();
+  z_ = value;
+  // @@protoc_insertion_point(field_set:DirectControlCommand.z)
 }
 
-// optional int32 y_2 = 8 [(.dccl.field) = {
-inline bool MultiWaypointXYZ::has_y_2() const {
+// required float roll = 8 [(.dccl.field) = {
+inline bool DirectControlCommand::has_roll() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void MultiWaypointXYZ::set_has_y_2() {
+inline void DirectControlCommand::set_has_roll() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void MultiWaypointXYZ::clear_has_y_2() {
+inline void DirectControlCommand::clear_has_roll() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void MultiWaypointXYZ::clear_y_2() {
-  y_2_ = 0;
-  clear_has_y_2();
+inline void DirectControlCommand::clear_roll() {
+  roll_ = 0;
+  clear_has_roll();
 }
-inline ::google::protobuf::int32 MultiWaypointXYZ::y_2() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointXYZ.y_2)
-  return y_2_;
+inline float DirectControlCommand::roll() const {
+  // @@protoc_insertion_point(field_get:DirectControlCommand.roll)
+  return roll_;
 }
-inline void MultiWaypointXYZ::set_y_2(::google::protobuf::int32 value) {
-  set_has_y_2();
-  y_2_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointXYZ.y_2)
+inline void DirectControlCommand::set_roll(float value) {
+  set_has_roll();
+  roll_ = value;
+  // @@protoc_insertion_point(field_set:DirectControlCommand.roll)
 }
 
-// optional int32 depth_2 = 9 [(.dccl.field) = {
-inline bool MultiWaypointXYZ::has_depth_2() const {
+// required float pitch = 9 [(.dccl.field) = {
+inline bool DirectControlCommand::has_pitch() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void MultiWaypointXYZ::set_has_depth_2() {
+inline void DirectControlCommand::set_has_pitch() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void MultiWaypointXYZ::clear_has_depth_2() {
+inline void DirectControlCommand::clear_has_pitch() {
   _has_bits_[0] &= ~0x00000100u;
 }
-inline void MultiWaypointXYZ::clear_depth_2() {
-  depth_2_ = 0;
-  clear_has_depth_2();
+inline void DirectControlCommand::clear_pitch() {
+  pitch_ = 0;
+  clear_has_pitch();
 }
-inline ::google::protobuf::int32 MultiWaypointXYZ::depth_2() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointXYZ.depth_2)
-  return depth_2_;
+inline float DirectControlCommand::pitch() const {
+  // @@protoc_insertion_point(field_get:DirectControlCommand.pitch)
+  return pitch_;
 }
-inline void MultiWaypointXYZ::set_depth_2(::google::protobuf::int32 value) {
-  set_has_depth_2();
-  depth_2_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointXYZ.depth_2)
+inline void DirectControlCommand::set_pitch(float value) {
+  set_has_pitch();
+  pitch_ = value;
+  // @@protoc_insertion_point(field_set:DirectControlCommand.pitch)
 }
 
-// optional int32 x_3 = 10 [(.dccl.field) = {
-inline bool MultiWaypointXYZ::has_x_3() const {
+// required float yaw = 10 [(.dccl.field) = {
+inline bool DirectControlCommand::has_yaw() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
-inline void MultiWaypointXYZ::set_has_x_3() {
+inline void DirectControlCommand::set_has_yaw() {
   _has_bits_[0] |= 0x00000200u;
 }
-inline void MultiWaypointXYZ::clear_has_x_3() {
+inline void DirectControlCommand::clear_has_yaw() {
   _has_bits_[0] &= ~0x00000200u;
 }
-inline void MultiWaypointXYZ::clear_x_3() {
-  x_3_ = 0;
-  clear_has_x_3();
+inline void DirectControlCommand::clear_yaw() {
+  yaw_ = 0;
+  clear_has_yaw();
 }
-inline ::google::protobuf::int32 MultiWaypointXYZ::x_3() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointXYZ.x_3)
-  return x_3_;
+inline float DirectControlCommand::yaw() const {
+  // @@protoc_insertion_point(field_get:DirectControlCommand.yaw)
+  return yaw_;
 }
-inline void MultiWaypointXYZ::set_x_3(::google::protobuf::int32 value) {
-  set_has_x_3();
-  x_3_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointXYZ.x_3)
+inline void DirectControlCommand::set_yaw(float value) {
+  set_has_yaw();
+  yaw_ = value;
+  // @@protoc_insertion_point(field_set:DirectControlCommand.yaw)
 }
 
-// optional int32 y_3 = 11 [(.dccl.field) = {
-inline bool MultiWaypointXYZ::has_y_3() const {
+// required float u = 11 [(.dccl.field) = {
+inline bool DirectControlCommand::has_u() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void MultiWaypointXYZ::set_has_y_3() {
+inline void DirectControlCommand::set_has_u() {
   _has_bits_[0] |= 0x00000400u;
 }
-inline void MultiWaypointXYZ::clear_has_y_3() {
+inline void DirectControlCommand::clear_has_u() {
   _has_bits_[0] &= ~0x00000400u;
 }
-inline void MultiWaypointXYZ::clear_y_3() {
-  y_3_ = 0;
-  clear_has_y_3();
+inline void DirectControlCommand::clear_u() {
+  u_ = 0;
+  clear_has_u();
 }
-inline ::google::protobuf::int32 MultiWaypointXYZ::y_3() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointXYZ.y_3)
-  return y_3_;
+inline float DirectControlCommand::u() const {
+  // @@protoc_insertion_point(field_get:DirectControlCommand.u)
+  return u_;
 }
-inline void MultiWaypointXYZ::set_y_3(::google::protobuf::int32 value) {
-  set_has_y_3();
-  y_3_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointXYZ.y_3)
+inline void DirectControlCommand::set_u(float value) {
+  set_has_u();
+  u_ = value;
+  // @@protoc_insertion_point(field_set:DirectControlCommand.u)
 }
 
-// optional int32 depth_3 = 12 [(.dccl.field) = {
-inline bool MultiWaypointXYZ::has_depth_3() const {
+// required float v = 12 [(.dccl.field) = {
+inline bool DirectControlCommand::has_v() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
-inline void MultiWaypointXYZ::set_has_depth_3() {
+inline void DirectControlCommand::set_has_v() {
   _has_bits_[0] |= 0x00000800u;
 }
-inline void MultiWaypointXYZ::clear_has_depth_3() {
+inline void DirectControlCommand::clear_has_v() {
   _has_bits_[0] &= ~0x00000800u;
 }
-inline void MultiWaypointXYZ::clear_depth_3() {
-  depth_3_ = 0;
-  clear_has_depth_3();
+inline void DirectControlCommand::clear_v() {
+  v_ = 0;
+  clear_has_v();
 }
-inline ::google::protobuf::int32 MultiWaypointXYZ::depth_3() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointXYZ.depth_3)
-  return depth_3_;
+inline float DirectControlCommand::v() const {
+  // @@protoc_insertion_point(field_get:DirectControlCommand.v)
+  return v_;
 }
-inline void MultiWaypointXYZ::set_depth_3(::google::protobuf::int32 value) {
-  set_has_depth_3();
-  depth_3_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointXYZ.depth_3)
+inline void DirectControlCommand::set_v(float value) {
+  set_has_v();
+  v_ = value;
+  // @@protoc_insertion_point(field_set:DirectControlCommand.v)
 }
 
-// required bool end = 13;
-inline bool MultiWaypointXYZ::has_end() const {
+// required float w = 13 [(.dccl.field) = {
+inline bool DirectControlCommand::has_w() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
-inline void MultiWaypointXYZ::set_has_end() {
+inline void DirectControlCommand::set_has_w() {
   _has_bits_[0] |= 0x00001000u;
 }
-inline void MultiWaypointXYZ::clear_has_end() {
+inline void DirectControlCommand::clear_has_w() {
   _has_bits_[0] &= ~0x00001000u;
 }
-inline void MultiWaypointXYZ::clear_end() {
+inline void DirectControlCommand::clear_w() {
+  w_ = 0;
+  clear_has_w();
+}
+inline float DirectControlCommand::w() const {
+  // @@protoc_insertion_point(field_get:DirectControlCommand.w)
+  return w_;
+}
+inline void DirectControlCommand::set_w(float value) {
+  set_has_w();
+  w_ = value;
+  // @@protoc_insertion_point(field_set:DirectControlCommand.w)
+}
+
+// required float p = 14 [(.dccl.field) = {
+inline bool DirectControlCommand::has_p() const {
+  return (_has_bits_[0] & 0x00002000u) != 0;
+}
+inline void DirectControlCommand::set_has_p() {
+  _has_bits_[0] |= 0x00002000u;
+}
+inline void DirectControlCommand::clear_has_p() {
+  _has_bits_[0] &= ~0x00002000u;
+}
+inline void DirectControlCommand::clear_p() {
+  p_ = 0;
+  clear_has_p();
+}
+inline float DirectControlCommand::p() const {
+  // @@protoc_insertion_point(field_get:DirectControlCommand.p)
+  return p_;
+}
+inline void DirectControlCommand::set_p(float value) {
+  set_has_p();
+  p_ = value;
+  // @@protoc_insertion_point(field_set:DirectControlCommand.p)
+}
+
+// required float q = 15 [(.dccl.field) = {
+inline bool DirectControlCommand::has_q() const {
+  return (_has_bits_[0] & 0x00004000u) != 0;
+}
+inline void DirectControlCommand::set_has_q() {
+  _has_bits_[0] |= 0x00004000u;
+}
+inline void DirectControlCommand::clear_has_q() {
+  _has_bits_[0] &= ~0x00004000u;
+}
+inline void DirectControlCommand::clear_q() {
+  q_ = 0;
+  clear_has_q();
+}
+inline float DirectControlCommand::q() const {
+  // @@protoc_insertion_point(field_get:DirectControlCommand.q)
+  return q_;
+}
+inline void DirectControlCommand::set_q(float value) {
+  set_has_q();
+  q_ = value;
+  // @@protoc_insertion_point(field_set:DirectControlCommand.q)
+}
+
+// required float r = 16 [(.dccl.field) = {
+inline bool DirectControlCommand::has_r() const {
+  return (_has_bits_[0] & 0x00008000u) != 0;
+}
+inline void DirectControlCommand::set_has_r() {
+  _has_bits_[0] |= 0x00008000u;
+}
+inline void DirectControlCommand::clear_has_r() {
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline void DirectControlCommand::clear_r() {
+  r_ = 0;
+  clear_has_r();
+}
+inline float DirectControlCommand::r() const {
+  // @@protoc_insertion_point(field_get:DirectControlCommand.r)
+  return r_;
+}
+inline void DirectControlCommand::set_r(float value) {
+  set_has_r();
+  r_ = value;
+  // @@protoc_insertion_point(field_set:DirectControlCommand.r)
+}
+
+// -------------------------------------------------------------------
+
+// StateCommand
+
+// required int32 source = 1 [(.dccl.field) = {
+inline bool StateCommand::has_source() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void StateCommand::set_has_source() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void StateCommand::clear_has_source() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void StateCommand::clear_source() {
+  source_ = 0;
+  clear_has_source();
+}
+inline ::google::protobuf::int32 StateCommand::source() const {
+  // @@protoc_insertion_point(field_get:StateCommand.source)
+  return source_;
+}
+inline void StateCommand::set_source(::google::protobuf::int32 value) {
+  set_has_source();
+  source_ = value;
+  // @@protoc_insertion_point(field_set:StateCommand.source)
+}
+
+// required int32 destination = 2 [(.dccl.field) = {
+inline bool StateCommand::has_destination() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void StateCommand::set_has_destination() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void StateCommand::clear_has_destination() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void StateCommand::clear_destination() {
+  destination_ = 0;
+  clear_has_destination();
+}
+inline ::google::protobuf::int32 StateCommand::destination() const {
+  // @@protoc_insertion_point(field_get:StateCommand.destination)
+  return destination_;
+}
+inline void StateCommand::set_destination(::google::protobuf::int32 value) {
+  set_has_destination();
+  destination_ = value;
+  // @@protoc_insertion_point(field_set:StateCommand.destination)
+}
+
+// optional double time = 3 [(.dccl.field) = {
+inline bool StateCommand::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void StateCommand::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void StateCommand::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void StateCommand::clear_time() {
+  time_ = 0;
+  clear_has_time();
+}
+inline double StateCommand::time() const {
+  // @@protoc_insertion_point(field_get:StateCommand.time)
+  return time_;
+}
+inline void StateCommand::set_time(double value) {
+  set_has_time();
+  time_ = value;
+  // @@protoc_insertion_point(field_set:StateCommand.time)
+}
+
+// required .StateCommand.Mode mode = 4;
+inline bool StateCommand::has_mode() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void StateCommand::set_has_mode() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void StateCommand::clear_has_mode() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void StateCommand::clear_mode() {
+  mode_ = 0;
+  clear_has_mode();
+}
+inline ::StateCommand_Mode StateCommand::mode() const {
+  // @@protoc_insertion_point(field_get:StateCommand.mode)
+  return static_cast< ::StateCommand_Mode >(mode_);
+}
+inline void StateCommand::set_mode(::StateCommand_Mode value) {
+  assert(::StateCommand_Mode_IsValid(value));
+  set_has_mode();
+  mode_ = value;
+  // @@protoc_insertion_point(field_set:StateCommand.mode)
+}
+
+// optional .StateCommand.State state = 5 [(.dccl.field) = {
+inline bool StateCommand::has_state() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void StateCommand::set_has_state() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void StateCommand::clear_has_state() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void StateCommand::clear_state() {
+  state_ = 0;
+  clear_has_state();
+}
+inline ::StateCommand_State StateCommand::state() const {
+  // @@protoc_insertion_point(field_get:StateCommand.state)
+  return static_cast< ::StateCommand_State >(state_);
+}
+inline void StateCommand::set_state(::StateCommand_State value) {
+  assert(::StateCommand_State_IsValid(value));
+  set_has_state();
+  state_ = value;
+  // @@protoc_insertion_point(field_set:StateCommand.state)
+}
+
+// -------------------------------------------------------------------
+
+// StateResponse
+
+// required int32 source = 1 [(.dccl.field) = {
+inline bool StateResponse::has_source() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void StateResponse::set_has_source() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void StateResponse::clear_has_source() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void StateResponse::clear_source() {
+  source_ = 0;
+  clear_has_source();
+}
+inline ::google::protobuf::int32 StateResponse::source() const {
+  // @@protoc_insertion_point(field_get:StateResponse.source)
+  return source_;
+}
+inline void StateResponse::set_source(::google::protobuf::int32 value) {
+  set_has_source();
+  source_ = value;
+  // @@protoc_insertion_point(field_set:StateResponse.source)
+}
+
+// required int32 destination = 2 [(.dccl.field) = {
+inline bool StateResponse::has_destination() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void StateResponse::set_has_destination() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void StateResponse::clear_has_destination() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void StateResponse::clear_destination() {
+  destination_ = 0;
+  clear_has_destination();
+}
+inline ::google::protobuf::int32 StateResponse::destination() const {
+  // @@protoc_insertion_point(field_get:StateResponse.destination)
+  return destination_;
+}
+inline void StateResponse::set_destination(::google::protobuf::int32 value) {
+  set_has_destination();
+  destination_ = value;
+  // @@protoc_insertion_point(field_set:StateResponse.destination)
+}
+
+// optional double time = 3 [(.dccl.field) = {
+inline bool StateResponse::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void StateResponse::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void StateResponse::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void StateResponse::clear_time() {
+  time_ = 0;
+  clear_has_time();
+}
+inline double StateResponse::time() const {
+  // @@protoc_insertion_point(field_get:StateResponse.time)
+  return time_;
+}
+inline void StateResponse::set_time(double value) {
+  set_has_time();
+  time_ = value;
+  // @@protoc_insertion_point(field_set:StateResponse.time)
+}
+
+// required .StateResponse.State state = 4;
+inline bool StateResponse::has_state() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void StateResponse::set_has_state() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void StateResponse::clear_has_state() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void StateResponse::clear_state() {
+  state_ = 0;
+  clear_has_state();
+}
+inline ::StateResponse_State StateResponse::state() const {
+  // @@protoc_insertion_point(field_get:StateResponse.state)
+  return static_cast< ::StateResponse_State >(state_);
+}
+inline void StateResponse::set_state(::StateResponse_State value) {
+  assert(::StateResponse_State_IsValid(value));
+  set_has_state();
+  state_ = value;
+  // @@protoc_insertion_point(field_set:StateResponse.state)
+}
+
+// -------------------------------------------------------------------
+
+// SingleWaypointCommand
+
+// required int32 source = 1 [(.dccl.field) = {
+inline bool SingleWaypointCommand::has_source() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SingleWaypointCommand::set_has_source() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SingleWaypointCommand::clear_has_source() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SingleWaypointCommand::clear_source() {
+  source_ = 0;
+  clear_has_source();
+}
+inline ::google::protobuf::int32 SingleWaypointCommand::source() const {
+  // @@protoc_insertion_point(field_get:SingleWaypointCommand.source)
+  return source_;
+}
+inline void SingleWaypointCommand::set_source(::google::protobuf::int32 value) {
+  set_has_source();
+  source_ = value;
+  // @@protoc_insertion_point(field_set:SingleWaypointCommand.source)
+}
+
+// required int32 destination = 2 [(.dccl.field) = {
+inline bool SingleWaypointCommand::has_destination() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SingleWaypointCommand::set_has_destination() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SingleWaypointCommand::clear_has_destination() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SingleWaypointCommand::clear_destination() {
+  destination_ = 0;
+  clear_has_destination();
+}
+inline ::google::protobuf::int32 SingleWaypointCommand::destination() const {
+  // @@protoc_insertion_point(field_get:SingleWaypointCommand.destination)
+  return destination_;
+}
+inline void SingleWaypointCommand::set_destination(::google::protobuf::int32 value) {
+  set_has_destination();
+  destination_ = value;
+  // @@protoc_insertion_point(field_set:SingleWaypointCommand.destination)
+}
+
+// optional double time = 3 [(.dccl.field) = {
+inline bool SingleWaypointCommand::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void SingleWaypointCommand::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void SingleWaypointCommand::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void SingleWaypointCommand::clear_time() {
+  time_ = 0;
+  clear_has_time();
+}
+inline double SingleWaypointCommand::time() const {
+  // @@protoc_insertion_point(field_get:SingleWaypointCommand.time)
+  return time_;
+}
+inline void SingleWaypointCommand::set_time(double value) {
+  set_has_time();
+  time_ = value;
+  // @@protoc_insertion_point(field_set:SingleWaypointCommand.time)
+}
+
+// required .SingleWaypointCommand.Mode mode = 4;
+inline bool SingleWaypointCommand::has_mode() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void SingleWaypointCommand::set_has_mode() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void SingleWaypointCommand::clear_has_mode() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void SingleWaypointCommand::clear_mode() {
+  mode_ = 0;
+  clear_has_mode();
+}
+inline ::SingleWaypointCommand_Mode SingleWaypointCommand::mode() const {
+  // @@protoc_insertion_point(field_get:SingleWaypointCommand.mode)
+  return static_cast< ::SingleWaypointCommand_Mode >(mode_);
+}
+inline void SingleWaypointCommand::set_mode(::SingleWaypointCommand_Mode value) {
+  assert(::SingleWaypointCommand_Mode_IsValid(value));
+  set_has_mode();
+  mode_ = value;
+  // @@protoc_insertion_point(field_set:SingleWaypointCommand.mode)
+}
+
+// optional double latitude = 5 [(.dccl.field) = {
+inline bool SingleWaypointCommand::has_latitude() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void SingleWaypointCommand::set_has_latitude() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void SingleWaypointCommand::clear_has_latitude() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void SingleWaypointCommand::clear_latitude() {
+  latitude_ = 0;
+  clear_has_latitude();
+}
+inline double SingleWaypointCommand::latitude() const {
+  // @@protoc_insertion_point(field_get:SingleWaypointCommand.latitude)
+  return latitude_;
+}
+inline void SingleWaypointCommand::set_latitude(double value) {
+  set_has_latitude();
+  latitude_ = value;
+  // @@protoc_insertion_point(field_set:SingleWaypointCommand.latitude)
+}
+
+// optional double longitude = 6 [(.dccl.field) = {
+inline bool SingleWaypointCommand::has_longitude() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void SingleWaypointCommand::set_has_longitude() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void SingleWaypointCommand::clear_has_longitude() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void SingleWaypointCommand::clear_longitude() {
+  longitude_ = 0;
+  clear_has_longitude();
+}
+inline double SingleWaypointCommand::longitude() const {
+  // @@protoc_insertion_point(field_get:SingleWaypointCommand.longitude)
+  return longitude_;
+}
+inline void SingleWaypointCommand::set_longitude(double value) {
+  set_has_longitude();
+  longitude_ = value;
+  // @@protoc_insertion_point(field_set:SingleWaypointCommand.longitude)
+}
+
+// optional float x = 7 [(.dccl.field) = {
+inline bool SingleWaypointCommand::has_x() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void SingleWaypointCommand::set_has_x() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void SingleWaypointCommand::clear_has_x() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void SingleWaypointCommand::clear_x() {
+  x_ = 0;
+  clear_has_x();
+}
+inline float SingleWaypointCommand::x() const {
+  // @@protoc_insertion_point(field_get:SingleWaypointCommand.x)
+  return x_;
+}
+inline void SingleWaypointCommand::set_x(float value) {
+  set_has_x();
+  x_ = value;
+  // @@protoc_insertion_point(field_set:SingleWaypointCommand.x)
+}
+
+// optional float y = 8 [(.dccl.field) = {
+inline bool SingleWaypointCommand::has_y() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void SingleWaypointCommand::set_has_y() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void SingleWaypointCommand::clear_has_y() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void SingleWaypointCommand::clear_y() {
+  y_ = 0;
+  clear_has_y();
+}
+inline float SingleWaypointCommand::y() const {
+  // @@protoc_insertion_point(field_get:SingleWaypointCommand.y)
+  return y_;
+}
+inline void SingleWaypointCommand::set_y(float value) {
+  set_has_y();
+  y_ = value;
+  // @@protoc_insertion_point(field_set:SingleWaypointCommand.y)
+}
+
+// optional float z = 9 [(.dccl.field) = {
+inline bool SingleWaypointCommand::has_z() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void SingleWaypointCommand::set_has_z() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void SingleWaypointCommand::clear_has_z() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void SingleWaypointCommand::clear_z() {
+  z_ = 0;
+  clear_has_z();
+}
+inline float SingleWaypointCommand::z() const {
+  // @@protoc_insertion_point(field_get:SingleWaypointCommand.z)
+  return z_;
+}
+inline void SingleWaypointCommand::set_z(float value) {
+  set_has_z();
+  z_ = value;
+  // @@protoc_insertion_point(field_set:SingleWaypointCommand.z)
+}
+
+// -------------------------------------------------------------------
+
+// SingleWaypointResponse
+
+// required int32 source = 1 [(.dccl.field) = {
+inline bool SingleWaypointResponse::has_source() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SingleWaypointResponse::set_has_source() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SingleWaypointResponse::clear_has_source() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SingleWaypointResponse::clear_source() {
+  source_ = 0;
+  clear_has_source();
+}
+inline ::google::protobuf::int32 SingleWaypointResponse::source() const {
+  // @@protoc_insertion_point(field_get:SingleWaypointResponse.source)
+  return source_;
+}
+inline void SingleWaypointResponse::set_source(::google::protobuf::int32 value) {
+  set_has_source();
+  source_ = value;
+  // @@protoc_insertion_point(field_set:SingleWaypointResponse.source)
+}
+
+// required int32 destination = 2 [(.dccl.field) = {
+inline bool SingleWaypointResponse::has_destination() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SingleWaypointResponse::set_has_destination() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SingleWaypointResponse::clear_has_destination() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SingleWaypointResponse::clear_destination() {
+  destination_ = 0;
+  clear_has_destination();
+}
+inline ::google::protobuf::int32 SingleWaypointResponse::destination() const {
+  // @@protoc_insertion_point(field_get:SingleWaypointResponse.destination)
+  return destination_;
+}
+inline void SingleWaypointResponse::set_destination(::google::protobuf::int32 value) {
+  set_has_destination();
+  destination_ = value;
+  // @@protoc_insertion_point(field_set:SingleWaypointResponse.destination)
+}
+
+// optional double time = 3 [(.dccl.field) = {
+inline bool SingleWaypointResponse::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void SingleWaypointResponse::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void SingleWaypointResponse::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void SingleWaypointResponse::clear_time() {
+  time_ = 0;
+  clear_has_time();
+}
+inline double SingleWaypointResponse::time() const {
+  // @@protoc_insertion_point(field_get:SingleWaypointResponse.time)
+  return time_;
+}
+inline void SingleWaypointResponse::set_time(double value) {
+  set_has_time();
+  time_ = value;
+  // @@protoc_insertion_point(field_set:SingleWaypointResponse.time)
+}
+
+// required double latitude = 4 [(.dccl.field) = {
+inline bool SingleWaypointResponse::has_latitude() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void SingleWaypointResponse::set_has_latitude() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void SingleWaypointResponse::clear_has_latitude() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void SingleWaypointResponse::clear_latitude() {
+  latitude_ = 0;
+  clear_has_latitude();
+}
+inline double SingleWaypointResponse::latitude() const {
+  // @@protoc_insertion_point(field_get:SingleWaypointResponse.latitude)
+  return latitude_;
+}
+inline void SingleWaypointResponse::set_latitude(double value) {
+  set_has_latitude();
+  latitude_ = value;
+  // @@protoc_insertion_point(field_set:SingleWaypointResponse.latitude)
+}
+
+// required double longitude = 5 [(.dccl.field) = {
+inline bool SingleWaypointResponse::has_longitude() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void SingleWaypointResponse::set_has_longitude() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void SingleWaypointResponse::clear_has_longitude() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void SingleWaypointResponse::clear_longitude() {
+  longitude_ = 0;
+  clear_has_longitude();
+}
+inline double SingleWaypointResponse::longitude() const {
+  // @@protoc_insertion_point(field_get:SingleWaypointResponse.longitude)
+  return longitude_;
+}
+inline void SingleWaypointResponse::set_longitude(double value) {
+  set_has_longitude();
+  longitude_ = value;
+  // @@protoc_insertion_point(field_set:SingleWaypointResponse.longitude)
+}
+
+// required float x = 6 [(.dccl.field) = {
+inline bool SingleWaypointResponse::has_x() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void SingleWaypointResponse::set_has_x() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void SingleWaypointResponse::clear_has_x() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void SingleWaypointResponse::clear_x() {
+  x_ = 0;
+  clear_has_x();
+}
+inline float SingleWaypointResponse::x() const {
+  // @@protoc_insertion_point(field_get:SingleWaypointResponse.x)
+  return x_;
+}
+inline void SingleWaypointResponse::set_x(float value) {
+  set_has_x();
+  x_ = value;
+  // @@protoc_insertion_point(field_set:SingleWaypointResponse.x)
+}
+
+// required float y = 7 [(.dccl.field) = {
+inline bool SingleWaypointResponse::has_y() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void SingleWaypointResponse::set_has_y() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void SingleWaypointResponse::clear_has_y() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void SingleWaypointResponse::clear_y() {
+  y_ = 0;
+  clear_has_y();
+}
+inline float SingleWaypointResponse::y() const {
+  // @@protoc_insertion_point(field_get:SingleWaypointResponse.y)
+  return y_;
+}
+inline void SingleWaypointResponse::set_y(float value) {
+  set_has_y();
+  y_ = value;
+  // @@protoc_insertion_point(field_set:SingleWaypointResponse.y)
+}
+
+// required float z = 8 [(.dccl.field) = {
+inline bool SingleWaypointResponse::has_z() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void SingleWaypointResponse::set_has_z() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void SingleWaypointResponse::clear_has_z() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void SingleWaypointResponse::clear_z() {
+  z_ = 0;
+  clear_has_z();
+}
+inline float SingleWaypointResponse::z() const {
+  // @@protoc_insertion_point(field_get:SingleWaypointResponse.z)
+  return z_;
+}
+inline void SingleWaypointResponse::set_z(float value) {
+  set_has_z();
+  z_ = value;
+  // @@protoc_insertion_point(field_set:SingleWaypointResponse.z)
+}
+
+// -------------------------------------------------------------------
+
+// MultiWaypointGPSCommand
+
+// required int32 source = 1 [(.dccl.field) = {
+inline bool MultiWaypointGPSCommand::has_source() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MultiWaypointGPSCommand::set_has_source() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MultiWaypointGPSCommand::clear_has_source() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MultiWaypointGPSCommand::clear_source() {
+  source_ = 0;
+  clear_has_source();
+}
+inline ::google::protobuf::int32 MultiWaypointGPSCommand::source() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointGPSCommand.source)
+  return source_;
+}
+inline void MultiWaypointGPSCommand::set_source(::google::protobuf::int32 value) {
+  set_has_source();
+  source_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointGPSCommand.source)
+}
+
+// required int32 destination = 2 [(.dccl.field) = {
+inline bool MultiWaypointGPSCommand::has_destination() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MultiWaypointGPSCommand::set_has_destination() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MultiWaypointGPSCommand::clear_has_destination() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MultiWaypointGPSCommand::clear_destination() {
+  destination_ = 0;
+  clear_has_destination();
+}
+inline ::google::protobuf::int32 MultiWaypointGPSCommand::destination() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointGPSCommand.destination)
+  return destination_;
+}
+inline void MultiWaypointGPSCommand::set_destination(::google::protobuf::int32 value) {
+  set_has_destination();
+  destination_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointGPSCommand.destination)
+}
+
+// optional double time = 3 [(.dccl.field) = {
+inline bool MultiWaypointGPSCommand::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MultiWaypointGPSCommand::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MultiWaypointGPSCommand::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MultiWaypointGPSCommand::clear_time() {
+  time_ = 0;
+  clear_has_time();
+}
+inline double MultiWaypointGPSCommand::time() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointGPSCommand.time)
+  return time_;
+}
+inline void MultiWaypointGPSCommand::set_time(double value) {
+  set_has_time();
+  time_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointGPSCommand.time)
+}
+
+// required .MultiWaypointGPSCommand.Mode mode = 4;
+inline bool MultiWaypointGPSCommand::has_mode() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MultiWaypointGPSCommand::set_has_mode() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MultiWaypointGPSCommand::clear_has_mode() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MultiWaypointGPSCommand::clear_mode() {
+  mode_ = 0;
+  clear_has_mode();
+}
+inline ::MultiWaypointGPSCommand_Mode MultiWaypointGPSCommand::mode() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointGPSCommand.mode)
+  return static_cast< ::MultiWaypointGPSCommand_Mode >(mode_);
+}
+inline void MultiWaypointGPSCommand::set_mode(::MultiWaypointGPSCommand_Mode value) {
+  assert(::MultiWaypointGPSCommand_Mode_IsValid(value));
+  set_has_mode();
+  mode_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointGPSCommand.mode)
+}
+
+// repeated int32 wpt_num = 5 [(.dccl.field) = {
+inline int MultiWaypointGPSCommand::wpt_num_size() const {
+  return wpt_num_.size();
+}
+inline void MultiWaypointGPSCommand::clear_wpt_num() {
+  wpt_num_.Clear();
+}
+inline ::google::protobuf::int32 MultiWaypointGPSCommand::wpt_num(int index) const {
+  // @@protoc_insertion_point(field_get:MultiWaypointGPSCommand.wpt_num)
+  return wpt_num_.Get(index);
+}
+inline void MultiWaypointGPSCommand::set_wpt_num(int index, ::google::protobuf::int32 value) {
+  wpt_num_.Set(index, value);
+  // @@protoc_insertion_point(field_set:MultiWaypointGPSCommand.wpt_num)
+}
+inline void MultiWaypointGPSCommand::add_wpt_num(::google::protobuf::int32 value) {
+  wpt_num_.Add(value);
+  // @@protoc_insertion_point(field_add:MultiWaypointGPSCommand.wpt_num)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+MultiWaypointGPSCommand::wpt_num() const {
+  // @@protoc_insertion_point(field_list:MultiWaypointGPSCommand.wpt_num)
+  return wpt_num_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+MultiWaypointGPSCommand::mutable_wpt_num() {
+  // @@protoc_insertion_point(field_mutable_list:MultiWaypointGPSCommand.wpt_num)
+  return &wpt_num_;
+}
+
+// repeated double latitude = 6 [(.dccl.field) = {
+inline int MultiWaypointGPSCommand::latitude_size() const {
+  return latitude_.size();
+}
+inline void MultiWaypointGPSCommand::clear_latitude() {
+  latitude_.Clear();
+}
+inline double MultiWaypointGPSCommand::latitude(int index) const {
+  // @@protoc_insertion_point(field_get:MultiWaypointGPSCommand.latitude)
+  return latitude_.Get(index);
+}
+inline void MultiWaypointGPSCommand::set_latitude(int index, double value) {
+  latitude_.Set(index, value);
+  // @@protoc_insertion_point(field_set:MultiWaypointGPSCommand.latitude)
+}
+inline void MultiWaypointGPSCommand::add_latitude(double value) {
+  latitude_.Add(value);
+  // @@protoc_insertion_point(field_add:MultiWaypointGPSCommand.latitude)
+}
+inline const ::google::protobuf::RepeatedField< double >&
+MultiWaypointGPSCommand::latitude() const {
+  // @@protoc_insertion_point(field_list:MultiWaypointGPSCommand.latitude)
+  return latitude_;
+}
+inline ::google::protobuf::RepeatedField< double >*
+MultiWaypointGPSCommand::mutable_latitude() {
+  // @@protoc_insertion_point(field_mutable_list:MultiWaypointGPSCommand.latitude)
+  return &latitude_;
+}
+
+// repeated double longitude = 7 [(.dccl.field) = {
+inline int MultiWaypointGPSCommand::longitude_size() const {
+  return longitude_.size();
+}
+inline void MultiWaypointGPSCommand::clear_longitude() {
+  longitude_.Clear();
+}
+inline double MultiWaypointGPSCommand::longitude(int index) const {
+  // @@protoc_insertion_point(field_get:MultiWaypointGPSCommand.longitude)
+  return longitude_.Get(index);
+}
+inline void MultiWaypointGPSCommand::set_longitude(int index, double value) {
+  longitude_.Set(index, value);
+  // @@protoc_insertion_point(field_set:MultiWaypointGPSCommand.longitude)
+}
+inline void MultiWaypointGPSCommand::add_longitude(double value) {
+  longitude_.Add(value);
+  // @@protoc_insertion_point(field_add:MultiWaypointGPSCommand.longitude)
+}
+inline const ::google::protobuf::RepeatedField< double >&
+MultiWaypointGPSCommand::longitude() const {
+  // @@protoc_insertion_point(field_list:MultiWaypointGPSCommand.longitude)
+  return longitude_;
+}
+inline ::google::protobuf::RepeatedField< double >*
+MultiWaypointGPSCommand::mutable_longitude() {
+  // @@protoc_insertion_point(field_mutable_list:MultiWaypointGPSCommand.longitude)
+  return &longitude_;
+}
+
+// repeated float z = 8 [(.dccl.field) = {
+inline int MultiWaypointGPSCommand::z_size() const {
+  return z_.size();
+}
+inline void MultiWaypointGPSCommand::clear_z() {
+  z_.Clear();
+}
+inline float MultiWaypointGPSCommand::z(int index) const {
+  // @@protoc_insertion_point(field_get:MultiWaypointGPSCommand.z)
+  return z_.Get(index);
+}
+inline void MultiWaypointGPSCommand::set_z(int index, float value) {
+  z_.Set(index, value);
+  // @@protoc_insertion_point(field_set:MultiWaypointGPSCommand.z)
+}
+inline void MultiWaypointGPSCommand::add_z(float value) {
+  z_.Add(value);
+  // @@protoc_insertion_point(field_add:MultiWaypointGPSCommand.z)
+}
+inline const ::google::protobuf::RepeatedField< float >&
+MultiWaypointGPSCommand::z() const {
+  // @@protoc_insertion_point(field_list:MultiWaypointGPSCommand.z)
+  return z_;
+}
+inline ::google::protobuf::RepeatedField< float >*
+MultiWaypointGPSCommand::mutable_z() {
+  // @@protoc_insertion_point(field_mutable_list:MultiWaypointGPSCommand.z)
+  return &z_;
+}
+
+// optional bool end = 9 [(.dccl.field) = {
+inline bool MultiWaypointGPSCommand::has_end() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MultiWaypointGPSCommand::set_has_end() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MultiWaypointGPSCommand::clear_has_end() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MultiWaypointGPSCommand::clear_end() {
   end_ = false;
   clear_has_end();
 }
-inline bool MultiWaypointXYZ::end() const {
-  // @@protoc_insertion_point(field_get:MultiWaypointXYZ.end)
+inline bool MultiWaypointGPSCommand::end() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointGPSCommand.end)
   return end_;
 }
-inline void MultiWaypointXYZ::set_end(bool value) {
+inline void MultiWaypointGPSCommand::set_end(bool value) {
   set_has_end();
   end_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointXYZ.end)
+  // @@protoc_insertion_point(field_set:MultiWaypointGPSCommand.end)
+}
+
+// -------------------------------------------------------------------
+
+// MultiWaypointGPSResponse
+
+// required int32 source = 1 [(.dccl.field) = {
+inline bool MultiWaypointGPSResponse::has_source() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MultiWaypointGPSResponse::set_has_source() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MultiWaypointGPSResponse::clear_has_source() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MultiWaypointGPSResponse::clear_source() {
+  source_ = 0;
+  clear_has_source();
+}
+inline ::google::protobuf::int32 MultiWaypointGPSResponse::source() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointGPSResponse.source)
+  return source_;
+}
+inline void MultiWaypointGPSResponse::set_source(::google::protobuf::int32 value) {
+  set_has_source();
+  source_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointGPSResponse.source)
+}
+
+// required int32 destination = 2 [(.dccl.field) = {
+inline bool MultiWaypointGPSResponse::has_destination() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MultiWaypointGPSResponse::set_has_destination() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MultiWaypointGPSResponse::clear_has_destination() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MultiWaypointGPSResponse::clear_destination() {
+  destination_ = 0;
+  clear_has_destination();
+}
+inline ::google::protobuf::int32 MultiWaypointGPSResponse::destination() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointGPSResponse.destination)
+  return destination_;
+}
+inline void MultiWaypointGPSResponse::set_destination(::google::protobuf::int32 value) {
+  set_has_destination();
+  destination_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointGPSResponse.destination)
+}
+
+// optional double time = 3 [(.dccl.field) = {
+inline bool MultiWaypointGPSResponse::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MultiWaypointGPSResponse::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MultiWaypointGPSResponse::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MultiWaypointGPSResponse::clear_time() {
+  time_ = 0;
+  clear_has_time();
+}
+inline double MultiWaypointGPSResponse::time() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointGPSResponse.time)
+  return time_;
+}
+inline void MultiWaypointGPSResponse::set_time(double value) {
+  set_has_time();
+  time_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointGPSResponse.time)
+}
+
+// required int32 wpt_num = 4 [(.dccl.field) = {
+inline bool MultiWaypointGPSResponse::has_wpt_num() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MultiWaypointGPSResponse::set_has_wpt_num() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MultiWaypointGPSResponse::clear_has_wpt_num() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MultiWaypointGPSResponse::clear_wpt_num() {
+  wpt_num_ = 0;
+  clear_has_wpt_num();
+}
+inline ::google::protobuf::int32 MultiWaypointGPSResponse::wpt_num() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointGPSResponse.wpt_num)
+  return wpt_num_;
+}
+inline void MultiWaypointGPSResponse::set_wpt_num(::google::protobuf::int32 value) {
+  set_has_wpt_num();
+  wpt_num_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointGPSResponse.wpt_num)
+}
+
+// repeated double latitude = 5 [(.dccl.field) = {
+inline int MultiWaypointGPSResponse::latitude_size() const {
+  return latitude_.size();
+}
+inline void MultiWaypointGPSResponse::clear_latitude() {
+  latitude_.Clear();
+}
+inline double MultiWaypointGPSResponse::latitude(int index) const {
+  // @@protoc_insertion_point(field_get:MultiWaypointGPSResponse.latitude)
+  return latitude_.Get(index);
+}
+inline void MultiWaypointGPSResponse::set_latitude(int index, double value) {
+  latitude_.Set(index, value);
+  // @@protoc_insertion_point(field_set:MultiWaypointGPSResponse.latitude)
+}
+inline void MultiWaypointGPSResponse::add_latitude(double value) {
+  latitude_.Add(value);
+  // @@protoc_insertion_point(field_add:MultiWaypointGPSResponse.latitude)
+}
+inline const ::google::protobuf::RepeatedField< double >&
+MultiWaypointGPSResponse::latitude() const {
+  // @@protoc_insertion_point(field_list:MultiWaypointGPSResponse.latitude)
+  return latitude_;
+}
+inline ::google::protobuf::RepeatedField< double >*
+MultiWaypointGPSResponse::mutable_latitude() {
+  // @@protoc_insertion_point(field_mutable_list:MultiWaypointGPSResponse.latitude)
+  return &latitude_;
+}
+
+// repeated double longitude = 6 [(.dccl.field) = {
+inline int MultiWaypointGPSResponse::longitude_size() const {
+  return longitude_.size();
+}
+inline void MultiWaypointGPSResponse::clear_longitude() {
+  longitude_.Clear();
+}
+inline double MultiWaypointGPSResponse::longitude(int index) const {
+  // @@protoc_insertion_point(field_get:MultiWaypointGPSResponse.longitude)
+  return longitude_.Get(index);
+}
+inline void MultiWaypointGPSResponse::set_longitude(int index, double value) {
+  longitude_.Set(index, value);
+  // @@protoc_insertion_point(field_set:MultiWaypointGPSResponse.longitude)
+}
+inline void MultiWaypointGPSResponse::add_longitude(double value) {
+  longitude_.Add(value);
+  // @@protoc_insertion_point(field_add:MultiWaypointGPSResponse.longitude)
+}
+inline const ::google::protobuf::RepeatedField< double >&
+MultiWaypointGPSResponse::longitude() const {
+  // @@protoc_insertion_point(field_list:MultiWaypointGPSResponse.longitude)
+  return longitude_;
+}
+inline ::google::protobuf::RepeatedField< double >*
+MultiWaypointGPSResponse::mutable_longitude() {
+  // @@protoc_insertion_point(field_mutable_list:MultiWaypointGPSResponse.longitude)
+  return &longitude_;
+}
+
+// repeated float z = 7 [(.dccl.field) = {
+inline int MultiWaypointGPSResponse::z_size() const {
+  return z_.size();
+}
+inline void MultiWaypointGPSResponse::clear_z() {
+  z_.Clear();
+}
+inline float MultiWaypointGPSResponse::z(int index) const {
+  // @@protoc_insertion_point(field_get:MultiWaypointGPSResponse.z)
+  return z_.Get(index);
+}
+inline void MultiWaypointGPSResponse::set_z(int index, float value) {
+  z_.Set(index, value);
+  // @@protoc_insertion_point(field_set:MultiWaypointGPSResponse.z)
+}
+inline void MultiWaypointGPSResponse::add_z(float value) {
+  z_.Add(value);
+  // @@protoc_insertion_point(field_add:MultiWaypointGPSResponse.z)
+}
+inline const ::google::protobuf::RepeatedField< float >&
+MultiWaypointGPSResponse::z() const {
+  // @@protoc_insertion_point(field_list:MultiWaypointGPSResponse.z)
+  return z_;
+}
+inline ::google::protobuf::RepeatedField< float >*
+MultiWaypointGPSResponse::mutable_z() {
+  // @@protoc_insertion_point(field_mutable_list:MultiWaypointGPSResponse.z)
+  return &z_;
+}
+
+// optional bool end = 8;
+inline bool MultiWaypointGPSResponse::has_end() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MultiWaypointGPSResponse::set_has_end() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MultiWaypointGPSResponse::clear_has_end() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MultiWaypointGPSResponse::clear_end() {
+  end_ = false;
+  clear_has_end();
+}
+inline bool MultiWaypointGPSResponse::end() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointGPSResponse.end)
+  return end_;
+}
+inline void MultiWaypointGPSResponse::set_end(bool value) {
+  set_has_end();
+  end_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointGPSResponse.end)
+}
+
+// -------------------------------------------------------------------
+
+// MultiWaypointXYZCommand
+
+// required int32 source = 1 [(.dccl.field) = {
+inline bool MultiWaypointXYZCommand::has_source() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MultiWaypointXYZCommand::set_has_source() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MultiWaypointXYZCommand::clear_has_source() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MultiWaypointXYZCommand::clear_source() {
+  source_ = 0;
+  clear_has_source();
+}
+inline ::google::protobuf::int32 MultiWaypointXYZCommand::source() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointXYZCommand.source)
+  return source_;
+}
+inline void MultiWaypointXYZCommand::set_source(::google::protobuf::int32 value) {
+  set_has_source();
+  source_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointXYZCommand.source)
+}
+
+// required int32 destination = 2 [(.dccl.field) = {
+inline bool MultiWaypointXYZCommand::has_destination() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MultiWaypointXYZCommand::set_has_destination() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MultiWaypointXYZCommand::clear_has_destination() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MultiWaypointXYZCommand::clear_destination() {
+  destination_ = 0;
+  clear_has_destination();
+}
+inline ::google::protobuf::int32 MultiWaypointXYZCommand::destination() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointXYZCommand.destination)
+  return destination_;
+}
+inline void MultiWaypointXYZCommand::set_destination(::google::protobuf::int32 value) {
+  set_has_destination();
+  destination_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointXYZCommand.destination)
+}
+
+// optional double time = 3 [(.dccl.field) = {
+inline bool MultiWaypointXYZCommand::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MultiWaypointXYZCommand::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MultiWaypointXYZCommand::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MultiWaypointXYZCommand::clear_time() {
+  time_ = 0;
+  clear_has_time();
+}
+inline double MultiWaypointXYZCommand::time() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointXYZCommand.time)
+  return time_;
+}
+inline void MultiWaypointXYZCommand::set_time(double value) {
+  set_has_time();
+  time_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointXYZCommand.time)
+}
+
+// required .MultiWaypointXYZCommand.Mode mode = 4;
+inline bool MultiWaypointXYZCommand::has_mode() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MultiWaypointXYZCommand::set_has_mode() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MultiWaypointXYZCommand::clear_has_mode() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MultiWaypointXYZCommand::clear_mode() {
+  mode_ = 0;
+  clear_has_mode();
+}
+inline ::MultiWaypointXYZCommand_Mode MultiWaypointXYZCommand::mode() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointXYZCommand.mode)
+  return static_cast< ::MultiWaypointXYZCommand_Mode >(mode_);
+}
+inline void MultiWaypointXYZCommand::set_mode(::MultiWaypointXYZCommand_Mode value) {
+  assert(::MultiWaypointXYZCommand_Mode_IsValid(value));
+  set_has_mode();
+  mode_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointXYZCommand.mode)
+}
+
+// repeated int32 wpt_num = 5 [(.dccl.field) = {
+inline int MultiWaypointXYZCommand::wpt_num_size() const {
+  return wpt_num_.size();
+}
+inline void MultiWaypointXYZCommand::clear_wpt_num() {
+  wpt_num_.Clear();
+}
+inline ::google::protobuf::int32 MultiWaypointXYZCommand::wpt_num(int index) const {
+  // @@protoc_insertion_point(field_get:MultiWaypointXYZCommand.wpt_num)
+  return wpt_num_.Get(index);
+}
+inline void MultiWaypointXYZCommand::set_wpt_num(int index, ::google::protobuf::int32 value) {
+  wpt_num_.Set(index, value);
+  // @@protoc_insertion_point(field_set:MultiWaypointXYZCommand.wpt_num)
+}
+inline void MultiWaypointXYZCommand::add_wpt_num(::google::protobuf::int32 value) {
+  wpt_num_.Add(value);
+  // @@protoc_insertion_point(field_add:MultiWaypointXYZCommand.wpt_num)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+MultiWaypointXYZCommand::wpt_num() const {
+  // @@protoc_insertion_point(field_list:MultiWaypointXYZCommand.wpt_num)
+  return wpt_num_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+MultiWaypointXYZCommand::mutable_wpt_num() {
+  // @@protoc_insertion_point(field_mutable_list:MultiWaypointXYZCommand.wpt_num)
+  return &wpt_num_;
+}
+
+// repeated float x = 6 [(.dccl.field) = {
+inline int MultiWaypointXYZCommand::x_size() const {
+  return x_.size();
+}
+inline void MultiWaypointXYZCommand::clear_x() {
+  x_.Clear();
+}
+inline float MultiWaypointXYZCommand::x(int index) const {
+  // @@protoc_insertion_point(field_get:MultiWaypointXYZCommand.x)
+  return x_.Get(index);
+}
+inline void MultiWaypointXYZCommand::set_x(int index, float value) {
+  x_.Set(index, value);
+  // @@protoc_insertion_point(field_set:MultiWaypointXYZCommand.x)
+}
+inline void MultiWaypointXYZCommand::add_x(float value) {
+  x_.Add(value);
+  // @@protoc_insertion_point(field_add:MultiWaypointXYZCommand.x)
+}
+inline const ::google::protobuf::RepeatedField< float >&
+MultiWaypointXYZCommand::x() const {
+  // @@protoc_insertion_point(field_list:MultiWaypointXYZCommand.x)
+  return x_;
+}
+inline ::google::protobuf::RepeatedField< float >*
+MultiWaypointXYZCommand::mutable_x() {
+  // @@protoc_insertion_point(field_mutable_list:MultiWaypointXYZCommand.x)
+  return &x_;
+}
+
+// required float y = 7 [(.dccl.field) = {
+inline bool MultiWaypointXYZCommand::has_y() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MultiWaypointXYZCommand::set_has_y() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MultiWaypointXYZCommand::clear_has_y() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MultiWaypointXYZCommand::clear_y() {
+  y_ = 0;
+  clear_has_y();
+}
+inline float MultiWaypointXYZCommand::y() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointXYZCommand.y)
+  return y_;
+}
+inline void MultiWaypointXYZCommand::set_y(float value) {
+  set_has_y();
+  y_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointXYZCommand.y)
+}
+
+// required float z = 8 [(.dccl.field) = {
+inline bool MultiWaypointXYZCommand::has_z() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void MultiWaypointXYZCommand::set_has_z() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void MultiWaypointXYZCommand::clear_has_z() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void MultiWaypointXYZCommand::clear_z() {
+  z_ = 0;
+  clear_has_z();
+}
+inline float MultiWaypointXYZCommand::z() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointXYZCommand.z)
+  return z_;
+}
+inline void MultiWaypointXYZCommand::set_z(float value) {
+  set_has_z();
+  z_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointXYZCommand.z)
+}
+
+// required bool end = 9 [(.dccl.field) = {
+inline bool MultiWaypointXYZCommand::has_end() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void MultiWaypointXYZCommand::set_has_end() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void MultiWaypointXYZCommand::clear_has_end() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void MultiWaypointXYZCommand::clear_end() {
+  end_ = false;
+  clear_has_end();
+}
+inline bool MultiWaypointXYZCommand::end() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointXYZCommand.end)
+  return end_;
+}
+inline void MultiWaypointXYZCommand::set_end(bool value) {
+  set_has_end();
+  end_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointXYZCommand.end)
+}
+
+// -------------------------------------------------------------------
+
+// MultiWaypointXYZResponse
+
+// required int32 source = 1 [(.dccl.field) = {
+inline bool MultiWaypointXYZResponse::has_source() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MultiWaypointXYZResponse::set_has_source() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MultiWaypointXYZResponse::clear_has_source() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MultiWaypointXYZResponse::clear_source() {
+  source_ = 0;
+  clear_has_source();
+}
+inline ::google::protobuf::int32 MultiWaypointXYZResponse::source() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointXYZResponse.source)
+  return source_;
+}
+inline void MultiWaypointXYZResponse::set_source(::google::protobuf::int32 value) {
+  set_has_source();
+  source_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointXYZResponse.source)
+}
+
+// required int32 destination = 2 [(.dccl.field) = {
+inline bool MultiWaypointXYZResponse::has_destination() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MultiWaypointXYZResponse::set_has_destination() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MultiWaypointXYZResponse::clear_has_destination() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MultiWaypointXYZResponse::clear_destination() {
+  destination_ = 0;
+  clear_has_destination();
+}
+inline ::google::protobuf::int32 MultiWaypointXYZResponse::destination() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointXYZResponse.destination)
+  return destination_;
+}
+inline void MultiWaypointXYZResponse::set_destination(::google::protobuf::int32 value) {
+  set_has_destination();
+  destination_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointXYZResponse.destination)
+}
+
+// optional double time = 3 [(.dccl.field) = {
+inline bool MultiWaypointXYZResponse::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MultiWaypointXYZResponse::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MultiWaypointXYZResponse::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MultiWaypointXYZResponse::clear_time() {
+  time_ = 0;
+  clear_has_time();
+}
+inline double MultiWaypointXYZResponse::time() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointXYZResponse.time)
+  return time_;
+}
+inline void MultiWaypointXYZResponse::set_time(double value) {
+  set_has_time();
+  time_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointXYZResponse.time)
+}
+
+// repeated int32 wpt_num = 4 [(.dccl.field) = {
+inline int MultiWaypointXYZResponse::wpt_num_size() const {
+  return wpt_num_.size();
+}
+inline void MultiWaypointXYZResponse::clear_wpt_num() {
+  wpt_num_.Clear();
+}
+inline ::google::protobuf::int32 MultiWaypointXYZResponse::wpt_num(int index) const {
+  // @@protoc_insertion_point(field_get:MultiWaypointXYZResponse.wpt_num)
+  return wpt_num_.Get(index);
+}
+inline void MultiWaypointXYZResponse::set_wpt_num(int index, ::google::protobuf::int32 value) {
+  wpt_num_.Set(index, value);
+  // @@protoc_insertion_point(field_set:MultiWaypointXYZResponse.wpt_num)
+}
+inline void MultiWaypointXYZResponse::add_wpt_num(::google::protobuf::int32 value) {
+  wpt_num_.Add(value);
+  // @@protoc_insertion_point(field_add:MultiWaypointXYZResponse.wpt_num)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+MultiWaypointXYZResponse::wpt_num() const {
+  // @@protoc_insertion_point(field_list:MultiWaypointXYZResponse.wpt_num)
+  return wpt_num_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+MultiWaypointXYZResponse::mutable_wpt_num() {
+  // @@protoc_insertion_point(field_mutable_list:MultiWaypointXYZResponse.wpt_num)
+  return &wpt_num_;
+}
+
+// repeated float x = 5 [(.dccl.field) = {
+inline int MultiWaypointXYZResponse::x_size() const {
+  return x_.size();
+}
+inline void MultiWaypointXYZResponse::clear_x() {
+  x_.Clear();
+}
+inline float MultiWaypointXYZResponse::x(int index) const {
+  // @@protoc_insertion_point(field_get:MultiWaypointXYZResponse.x)
+  return x_.Get(index);
+}
+inline void MultiWaypointXYZResponse::set_x(int index, float value) {
+  x_.Set(index, value);
+  // @@protoc_insertion_point(field_set:MultiWaypointXYZResponse.x)
+}
+inline void MultiWaypointXYZResponse::add_x(float value) {
+  x_.Add(value);
+  // @@protoc_insertion_point(field_add:MultiWaypointXYZResponse.x)
+}
+inline const ::google::protobuf::RepeatedField< float >&
+MultiWaypointXYZResponse::x() const {
+  // @@protoc_insertion_point(field_list:MultiWaypointXYZResponse.x)
+  return x_;
+}
+inline ::google::protobuf::RepeatedField< float >*
+MultiWaypointXYZResponse::mutable_x() {
+  // @@protoc_insertion_point(field_mutable_list:MultiWaypointXYZResponse.x)
+  return &x_;
+}
+
+// required float y = 6 [(.dccl.field) = {
+inline bool MultiWaypointXYZResponse::has_y() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MultiWaypointXYZResponse::set_has_y() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MultiWaypointXYZResponse::clear_has_y() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MultiWaypointXYZResponse::clear_y() {
+  y_ = 0;
+  clear_has_y();
+}
+inline float MultiWaypointXYZResponse::y() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointXYZResponse.y)
+  return y_;
+}
+inline void MultiWaypointXYZResponse::set_y(float value) {
+  set_has_y();
+  y_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointXYZResponse.y)
+}
+
+// required float z = 7 [(.dccl.field) = {
+inline bool MultiWaypointXYZResponse::has_z() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MultiWaypointXYZResponse::set_has_z() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MultiWaypointXYZResponse::clear_has_z() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MultiWaypointXYZResponse::clear_z() {
+  z_ = 0;
+  clear_has_z();
+}
+inline float MultiWaypointXYZResponse::z() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointXYZResponse.z)
+  return z_;
+}
+inline void MultiWaypointXYZResponse::set_z(float value) {
+  set_has_z();
+  z_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointXYZResponse.z)
+}
+
+// required bool end = 9;
+inline bool MultiWaypointXYZResponse::has_end() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void MultiWaypointXYZResponse::set_has_end() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void MultiWaypointXYZResponse::clear_has_end() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void MultiWaypointXYZResponse::clear_end() {
+  end_ = false;
+  clear_has_end();
+}
+inline bool MultiWaypointXYZResponse::end() const {
+  // @@protoc_insertion_point(field_get:MultiWaypointXYZResponse.end)
+  return end_;
+}
+inline void MultiWaypointXYZResponse::set_end(bool value) {
+  set_has_end();
+  end_ = value;
+  // @@protoc_insertion_point(field_set:MultiWaypointXYZResponse.end)
 }
 
 // -------------------------------------------------------------------
 
 // ExecuteWaypoints
 
-// required int32 destination = 1 [(.dccl.field) = {
+// required int32 source = 1 [(.dccl.field) = {
+inline bool ExecuteWaypoints::has_source() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ExecuteWaypoints::set_has_source() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ExecuteWaypoints::clear_has_source() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ExecuteWaypoints::clear_source() {
+  source_ = 0;
+  clear_has_source();
+}
+inline ::google::protobuf::int32 ExecuteWaypoints::source() const {
+  // @@protoc_insertion_point(field_get:ExecuteWaypoints.source)
+  return source_;
+}
+inline void ExecuteWaypoints::set_source(::google::protobuf::int32 value) {
+  set_has_source();
+  source_ = value;
+  // @@protoc_insertion_point(field_set:ExecuteWaypoints.source)
+}
+
+// required int32 destination = 2 [(.dccl.field) = {
 inline bool ExecuteWaypoints::has_destination() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -4436,15 +7253,15 @@ inline void ExecuteWaypoints::set_destination(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:ExecuteWaypoints.destination)
 }
 
-// required double time = 2 [(.dccl.field) = {
+// optional double time = 3 [(.dccl.field) = {
 inline bool ExecuteWaypoints::has_time() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void ExecuteWaypoints::set_has_time() {
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void ExecuteWaypoints::clear_has_time() {
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void ExecuteWaypoints::clear_time() {
   time_ = 0;
@@ -4460,15 +7277,15 @@ inline void ExecuteWaypoints::set_time(double value) {
   // @@protoc_insertion_point(field_set:ExecuteWaypoints.time)
 }
 
-// required bool execute = 3;
+// required bool execute = 4;
 inline bool ExecuteWaypoints::has_execute() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void ExecuteWaypoints::set_has_execute() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void ExecuteWaypoints::clear_has_execute() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void ExecuteWaypoints::clear_execute() {
   execute_ = false;
@@ -4484,15 +7301,15 @@ inline void ExecuteWaypoints::set_execute(bool value) {
   // @@protoc_insertion_point(field_set:ExecuteWaypoints.execute)
 }
 
-// required .ExecuteWaypoints.WaypointMode mode = 4;
+// required .ExecuteWaypoints.WaypointMode mode = 5;
 inline bool ExecuteWaypoints::has_mode() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void ExecuteWaypoints::set_has_mode() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void ExecuteWaypoints::clear_has_mode() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void ExecuteWaypoints::clear_mode() {
   mode_ = 0;
@@ -4530,6 +7347,22 @@ inline void ExecuteWaypoints::set_mode(::ExecuteWaypoints_WaypointMode value) {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -4537,20 +7370,65 @@ inline void ExecuteWaypoints::set_mode(::ExecuteWaypoints_WaypointMode value) {
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::RelativePose_Frame> : ::std::true_type {};
+template <> struct is_proto_enum< ::RelativePoseCommand_Frame> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::RelativePose_Frame>() {
-  return ::RelativePose_Frame_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::RelativePoseCommand_Frame>() {
+  return ::RelativePoseCommand_Frame_descriptor();
 }
-template <> struct is_proto_enum< ::DirectControl_Frame> : ::std::true_type {};
+template <> struct is_proto_enum< ::RelativePoseResponse_Frame> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::DirectControl_Frame>() {
-  return ::DirectControl_Frame_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::RelativePoseResponse_Frame>() {
+  return ::RelativePoseResponse_Frame_descriptor();
 }
-template <> struct is_proto_enum< ::StateInfo_State> : ::std::true_type {};
+template <> struct is_proto_enum< ::ControllerStateCommand_State> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::StateInfo_State>() {
-  return ::StateInfo_State_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::ControllerStateCommand_State>() {
+  return ::ControllerStateCommand_State_descriptor();
+}
+template <> struct is_proto_enum< ::ControllerStateResponse_State> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ControllerStateResponse_State>() {
+  return ::ControllerStateResponse_State_descriptor();
+}
+template <> struct is_proto_enum< ::DirectControlCommand_Frame> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::DirectControlCommand_Frame>() {
+  return ::DirectControlCommand_Frame_descriptor();
+}
+template <> struct is_proto_enum< ::StateCommand_Mode> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::StateCommand_Mode>() {
+  return ::StateCommand_Mode_descriptor();
+}
+template <> struct is_proto_enum< ::StateCommand_State> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::StateCommand_State>() {
+  return ::StateCommand_State_descriptor();
+}
+template <> struct is_proto_enum< ::StateResponse_State> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::StateResponse_State>() {
+  return ::StateResponse_State_descriptor();
+}
+template <> struct is_proto_enum< ::SingleWaypointCommand_Mode> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::SingleWaypointCommand_Mode>() {
+  return ::SingleWaypointCommand_Mode_descriptor();
+}
+template <> struct is_proto_enum< ::MultiWaypointGPSCommand_Mode> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::MultiWaypointGPSCommand_Mode>() {
+  return ::MultiWaypointGPSCommand_Mode_descriptor();
+}
+template <> struct is_proto_enum< ::MultiWaypointGPSResponse_Mode> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::MultiWaypointGPSResponse_Mode>() {
+  return ::MultiWaypointGPSResponse_Mode_descriptor();
+}
+template <> struct is_proto_enum< ::MultiWaypointXYZCommand_Mode> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::MultiWaypointXYZCommand_Mode>() {
+  return ::MultiWaypointXYZCommand_Mode_descriptor();
 }
 template <> struct is_proto_enum< ::ExecuteWaypoints_WaypointMode> : ::std::true_type {};
 template <>
