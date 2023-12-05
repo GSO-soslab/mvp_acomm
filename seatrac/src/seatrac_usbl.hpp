@@ -20,6 +20,7 @@
 
     Copyright (C) 2023 Smart Ocean Systems Laboratory
 */
+
 #pragma once
 
 #include <thread>

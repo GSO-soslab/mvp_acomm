@@ -206,15 +206,23 @@ void SeaTracUSBL::setup_goby()
     goby::acomms::protobuf::DCCLConfig dccl_cfg;
 
     //validate messages
-    dccl_->validate<Pose>();
-    dccl_->validate<Health>();
-    dccl_->validate<RelativePose>();
-    dccl_->validate<ControllerInfo>();
-    dccl_->validate<DirectControl>();
-    dccl_->validate<StateInfo>();
-    dccl_->validate<SingleWaypoint>();
-    dccl_->validate<MultiWaypointGPS>();
-    dccl_->validate<MultiWaypointXYZ>();
+    dccl_->validate<PoseCommand>();
+    dccl_->validate<PoseResponse>();
+    dccl_->validate<HealthCommand>();
+    dccl_->validate<HealthResponse>();
+    dccl_->validate<RelativePoseCommand>();
+    dccl_->validate<RelativePoseResponse>();
+    dccl_->validate<ControllerStateCommand>();
+    dccl_->validate<ControllerStateResponse>();
+    dccl_->validate<DirectControlCommand>();
+    dccl_->validate<HelmStateCommand>();
+    dccl_->validate<HelmStateResponse>();
+    dccl_->validate<SingleWaypointCommand>();
+    dccl_->validate<SingleWaypointResponse>();
+    dccl_->validate<MultiWaypointGPSCommand>();
+    dccl_->validate<MultiWaypointGPSResponse>();
+    dccl_->validate<MultiWaypointXYZCommand>();
+    dccl_->validate<MultiWaypointXYZResponse>();
     dccl_->validate<ExecuteWaypoints>();
 
 
@@ -262,8 +270,8 @@ void SeaTracUSBL::setup_goby()
     }
 
 
-    goby::glog.set_name("usbl");
-    goby::glog.add_stream(goby::util::logger::DEBUG2, &std::clog);
+    //goby::glog.set_name("usbl");
+    //goby::glog.add_stream(goby::util::logger::DEBUG2, &std::clog);
 
     dccl_->set_cfg(dccl_cfg);
     q_manager.set_cfg(q_manager_cfg);   
@@ -347,47 +355,43 @@ void SeaTracUSBL::setup_queue()
 void SeaTracUSBL::received_data(const google::protobuf::Message& data_msg)
 {
     std::string msg_type =  data_msg.GetTypeName();
-    if(msg_type == "Pose")
+    if(msg_type == "PoseCommand")
     {
-        Pose pose;
+        PoseResponse pose;
         pose.CopyFrom(data_msg);
 
         //if the received message is a pose command/request
-        if(!pose.cmd_resp())
-        {
-            nav_msgs::Odometry odom;
+        nav_msgs::Odometry odom;
 
-            odom.header.stamp = ros::Time::now();
+        odom.header.stamp = ros::Time::now();
 
-            odom.header.frame_id = "alpha_rise/odom";
+        odom.header.frame_id = "alpha_rise/odom";
 
-            odom.pose.pose.position.x = pose.local_x();
-            odom.pose.pose.position.y = pose.local_y();
-            odom.pose.pose.position.z = pose.local_z();
-            
-            odom.pose.pose.orientation.x = pose.x_rot();
-            odom.pose.pose.orientation.y = pose.y_rot();
-            odom.pose.pose.orientation.z = pose.z_rot();
-            odom.pose.pose.orientation.w = pose.w_rot();
+        odom.pose.pose.position.x = pose.x();
+        odom.pose.pose.position.y = pose.y();
+        odom.pose.pose.position.z = pose.z();
+        
+        odom.pose.pose.orientation.x = pose.quat_x();
+        odom.pose.pose.orientation.y = pose.quat_y();
+        odom.pose.pose.orientation.z = pose.quat_z();
+        odom.pose.pose.orientation.w = pose.quat_w();
 
 
-            odom_pub.publish(odom);
+        odom_pub.publish(odom);
 
-        }
     }
     else if(msg_type == "Health")
     {
-        Health health;
+        HealthResponse health;
         health.CopyFrom(data_msg);
-        if(!health.cmd_resp())
-        {
-            mvp_msgs::VehicleStatus status;
 
-            status.current = health.current();
-            status.voltage = health.batt_volt();
+        mvp_msgs::VehicleStatus status;
 
-            health_pub.publish(status);
-        }
+        status.current = health.current();
+        status.voltage = health.batt_volt();
+
+        health_pub.publish(status);
+        
     }  
 }
 
@@ -404,20 +408,53 @@ void SeaTracUSBL::received_ack(const goby::acomms::protobuf::ModemTransmission& 
     std::cout << ack_message.src() << " acknowledged receiving message: " << original_message.ShortDebugString() << std::endl;
 }
 
+
+/**
+ * @brief Callback to add pose request to the queue manager
+ * 
+ * @param request 
+ * @param response 
+ * @return true 
+ * @return false 
+ */
 bool SeaTracUSBL::f_cb_srv_request_pose(mvp_msgs::CommsPose::Request &request, mvp_msgs::CommsPose::Response &response)
 {
+    PoseCommand pose_cmd;
+
+    pose_cmd.set_time(ros::Time::now().toSec()); 
+
+    pose_cmd.set_destination(dest_id);
+
+    q_manager.push_message(pose_cmd);
 
     return true;
 }
 
+/**
+ * @brief Callback for health service call
+ * 
+ * @param request 
+ * @param response 
+ * @return true 
+ * @return false 
+ */
 bool SeaTracUSBL::f_cb_srv_request_health(mvp_msgs::CommsHealth::Request &request, mvp_msgs::CommsHealth::Response &response)
 {
+    HealthCommand health_request;
+
+    health_request.set_time(ros::Time::now().toSec());
+    
+    health_request.set_source(our_id);
+    health_request.set_destination(dest_id);
+
+    q_manager.push_message(health_request);
     
     return true;
 }
 
 bool SeaTracUSBL::f_cb_srv_request_relative_pose(mvp_msgs::CommsRelativePose::Request &request, mvp_msgs::CommsRelativePose::Response &response)
 {
+
 
     return true;
 }
