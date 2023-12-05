@@ -168,17 +168,17 @@ message HealthResponse {
     }];
 
     //battery voltage
-    required float batt_volt = 4[(dccl.field)={
+    required float battery_voltage = 4[(dccl.field)={
         min: 12
         max: 22
-        precision: 1
+        precision: 3
     }];
 
     //battery current
     required float current = 5[(dccl.field)={
         min: -50
         max: 50
-        precision: 1 
+        precision: 3
     }];
 }
 
@@ -339,13 +339,26 @@ message ControllerStateCommand {
         precision: 3
     }];
 
-    required State state = 4;
+    required Mode mode = 4;
 
-    enum State
+    optional ControllerState state = 5 [(dccl.field) = {
+        dynamic_conditions {
+            only_if: "this.mode == 'COMMAND'"
+        }
+    }];
+
+    enum Mode 
+    {
+        QUERY=0;
+        COMMAND=1;
+    }
+
+    enum ControllerState
     {
         DISABLE=0;
         ENABLE=1;
     }
+
 }
 
 message ControllerStateResponse {
@@ -374,13 +387,14 @@ message ControllerStateResponse {
         precision: 3
     }];
 
-    required State state = 4;
+    optional ControllerState state = 4;
 
-    enum State
+    enum ControllerState
     {
         DISABLE=0;
         ENABLE=1;
     }
+       
 }
 
 
@@ -492,7 +506,7 @@ message DirectControlCommand {
     }];
 }
 
-message StateCommand {
+message HelmStateCommand {
     option (dccl.msg) = {   
         codec_version: 4
         id: 6
@@ -520,7 +534,7 @@ message StateCommand {
 
     required Mode mode = 4;
 
-    optional State state = 5 [(dccl.field) = {
+    optional HelmState state = 5 [(dccl.field) = {
         dynamic_conditions {
             only_if: "this.mode == 'COMMAND'"
         }
@@ -532,7 +546,7 @@ message StateCommand {
         COMMAND=1;
     }
 
-    enum State
+    enum HelmState
     {
         KILL = 0;
         START = 1;
@@ -543,7 +557,7 @@ message StateCommand {
     };
 }
 
-message StateResponse {
+message HelmStateResponse {
     option (dccl.msg) = {   
         codec_version: 4
         id: 106
@@ -568,8 +582,8 @@ message StateResponse {
         max:  1893456000
         precision: 3
     }];
-    required State state = 4;
-    enum State
+    required HelmState helm_state = 4;
+    enum HelmState
     {
         KILL = 0;
         START = 1;
@@ -606,7 +620,7 @@ message SingleWaypointCommand {
         precision: 3
     }];
 
-    required Mode mode = 4;
+    required WaypointMode waypoint_mode = 4;
 
     //global waypoint
     optional double latitude = 5 [(dccl.field) = {
@@ -655,7 +669,7 @@ message SingleWaypointCommand {
         }
     }];
 
-    enum Mode 
+    enum WaypointMode 
     {
         QUERY=0;
         COMMAND_LATLONG=1;
@@ -755,26 +769,24 @@ message MultiWaypointGPSCommand {
         max:  32,
         precision: 0
         max_repeat: 3
+        dynamic_conditions {
+            only_if: "this.waypoint_mode == 'COMMAND'"
+        }
     }];
     //global waypoint
     repeated double latitude = 6 [(dccl.field) = {
-        min: -72.422134,
+        min: 40.491621
+        max: 42.491621
+        precision: 6
+        max_repeat: 3
+    }];
+    repeated double longitude = 7 [(dccl.field) = {
+        min: -72.422134
         max: -70.422134
         precision: 6
         max_repeat: 3
-        dynamic_conditions {
-            only_if: "this.mode == 'COMMAND'"
-        }
     }];
-    repeated double longitude = 7 [(dccl.field) = {
-        min: -72.422134,
-        max: -70.422134
-        precision: 6,
-        max_repeat: 3
-        dynamic_conditions {
-            only_if: "this.mode == 'COMMAND'"
-        }
-    }];
+
     repeated float z = 8 [(dccl.field) = {
         min: 0,
         max: 100,
@@ -806,7 +818,7 @@ message MultiWaypointGPSResponse {
 
     required int32 source = 1 [(dccl.field) = {
         min: 0
-        max: 15
+        max: 1
         precision: 0
     }];
 
@@ -818,45 +830,38 @@ message MultiWaypointGPSResponse {
 
     //time since epoch (including miliseconds)
     //max time is Jan 1 2030, please update future soslab member
-    optional double time = 3 [(dccl.field) = {
+    required double time = 3 [(dccl.field) = {
         min:  1672531200
         max:  1893456000
         precision: 3
     }];
 
-    required int32 wpt_num = 4 [(dccl.field) = {
+    repeated int32 wpt_num = 4 [(dccl.field) = {
         min: 0,
         max:  32,
         precision: 0
+        max_repeat: 3
     }];
-
-    //global waypoint
     repeated double latitude = 5 [(dccl.field) = {
-        min: -72.422134
-        max: -70.422134
+        min: 40.491621
+        max: 42.491621
         precision: 6
         max_repeat: 3
     }];
     repeated double longitude = 6 [(dccl.field) = {
         min: -72.422134
         max: -70.422134
-        precision: 6,
+        precision: 6
         max_repeat: 3
     }];
     repeated float z = 7 [(dccl.field) = {
-        min: 0
+        min: 0,
         max: 100,
         precision: 1
         max_repeat: 3
     }];
 
     optional bool end = 8;
-
-    enum Mode 
-    {
-        QUERY=0;
-        COMMAND=1;
-    }
 }
 
 message MultiWaypointXYZCommand {
@@ -867,7 +872,7 @@ message MultiWaypointXYZCommand {
 
     required int32 source = 1 [(dccl.field) = {
         min: 0
-        max: 15
+        max: 1
         precision: 0
     }];
 
@@ -892,9 +897,11 @@ message MultiWaypointXYZCommand {
         max:  32,
         precision: 0
         max_repeat: 3
+        dynamic_conditions {
+            only_if: "this.waypoint_mode == 'COMMAND'"
+        }
     }];
-
-    //xyz waypoint
+    //global waypoint
     repeated float x = 6 [(dccl.field) = {
         min: -10000
         max: 10000
@@ -904,8 +911,7 @@ message MultiWaypointXYZCommand {
             only_if: "this.mode == 'COMMAND'"
         }
     }];
-
-    required float y = 7 [(dccl.field) = {
+    repeated float y = 7 [(dccl.field) = {
         min: -10000
         max: 10000
         precision: 1
@@ -915,9 +921,9 @@ message MultiWaypointXYZCommand {
         }
     }];
 
-    required float z = 8 [(dccl.field) = {
-        min: 0
-        max: 100
+    repeated float z = 8 [(dccl.field) = {
+        min: 0,
+        max: 100,
         precision: 1
         max_repeat: 3
         dynamic_conditions {
@@ -925,7 +931,7 @@ message MultiWaypointXYZCommand {
         }
     }];
 
-    required bool end = 9 [(dccl.field) = {
+    optional bool end = 9 [(dccl.field) = {
         dynamic_conditions {
             only_if: "this.mode == 'COMMAND'"
         }
@@ -937,6 +943,7 @@ message MultiWaypointXYZCommand {
         COMMAND=1;
     }
 }
+
 
 message MultiWaypointXYZResponse {
     option (dccl.msg) = {   
@@ -1022,11 +1029,9 @@ message ExecuteWaypoints {
         precision: 3
     }];
 
-    required bool execute = 4;
+    required ExecuteMode mode = 4;
 
-    required WaypointMode mode = 5;
-
-    enum WaypointMode
+    enum ExecuteMode
     {
         APPEND = 0;
         UPDATE = 1;

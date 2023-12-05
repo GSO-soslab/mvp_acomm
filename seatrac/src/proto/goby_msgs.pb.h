@@ -65,6 +65,12 @@ extern HealthCommandDefaultTypeInternal _HealthCommand_default_instance_;
 class HealthResponse;
 class HealthResponseDefaultTypeInternal;
 extern HealthResponseDefaultTypeInternal _HealthResponse_default_instance_;
+class HelmStateCommand;
+class HelmStateCommandDefaultTypeInternal;
+extern HelmStateCommandDefaultTypeInternal _HelmStateCommand_default_instance_;
+class HelmStateResponse;
+class HelmStateResponseDefaultTypeInternal;
+extern HelmStateResponseDefaultTypeInternal _HelmStateResponse_default_instance_;
 class MultiWaypointGPSCommand;
 class MultiWaypointGPSCommandDefaultTypeInternal;
 extern MultiWaypointGPSCommandDefaultTypeInternal _MultiWaypointGPSCommand_default_instance_;
@@ -95,12 +101,6 @@ extern SingleWaypointCommandDefaultTypeInternal _SingleWaypointCommand_default_i
 class SingleWaypointResponse;
 class SingleWaypointResponseDefaultTypeInternal;
 extern SingleWaypointResponseDefaultTypeInternal _SingleWaypointResponse_default_instance_;
-class StateCommand;
-class StateCommandDefaultTypeInternal;
-extern StateCommandDefaultTypeInternal _StateCommand_default_instance_;
-class StateResponse;
-class StateResponseDefaultTypeInternal;
-extern StateResponseDefaultTypeInternal _StateResponse_default_instance_;
 namespace google {
 namespace protobuf {
 template<> ::ControllerStateCommand* Arena::CreateMaybeMessage<::ControllerStateCommand>(Arena*);
@@ -109,6 +109,8 @@ template<> ::DirectControlCommand* Arena::CreateMaybeMessage<::DirectControlComm
 template<> ::ExecuteWaypoints* Arena::CreateMaybeMessage<::ExecuteWaypoints>(Arena*);
 template<> ::HealthCommand* Arena::CreateMaybeMessage<::HealthCommand>(Arena*);
 template<> ::HealthResponse* Arena::CreateMaybeMessage<::HealthResponse>(Arena*);
+template<> ::HelmStateCommand* Arena::CreateMaybeMessage<::HelmStateCommand>(Arena*);
+template<> ::HelmStateResponse* Arena::CreateMaybeMessage<::HelmStateResponse>(Arena*);
 template<> ::MultiWaypointGPSCommand* Arena::CreateMaybeMessage<::MultiWaypointGPSCommand>(Arena*);
 template<> ::MultiWaypointGPSResponse* Arena::CreateMaybeMessage<::MultiWaypointGPSResponse>(Arena*);
 template<> ::MultiWaypointXYZCommand* Arena::CreateMaybeMessage<::MultiWaypointXYZCommand>(Arena*);
@@ -119,8 +121,6 @@ template<> ::RelativePoseCommand* Arena::CreateMaybeMessage<::RelativePoseComman
 template<> ::RelativePoseResponse* Arena::CreateMaybeMessage<::RelativePoseResponse>(Arena*);
 template<> ::SingleWaypointCommand* Arena::CreateMaybeMessage<::SingleWaypointCommand>(Arena*);
 template<> ::SingleWaypointResponse* Arena::CreateMaybeMessage<::SingleWaypointResponse>(Arena*);
-template<> ::StateCommand* Arena::CreateMaybeMessage<::StateCommand>(Arena*);
-template<> ::StateResponse* Arena::CreateMaybeMessage<::StateResponse>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 
@@ -166,43 +166,81 @@ inline bool RelativePoseResponse_Frame_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<RelativePoseResponse_Frame>(
     RelativePoseResponse_Frame_descriptor(), name, value);
 }
-enum ControllerStateCommand_State {
-  ControllerStateCommand_State_DISABLE = 0,
-  ControllerStateCommand_State_ENABLE = 1
+enum ControllerStateCommand_Mode {
+  ControllerStateCommand_Mode_QUERY = 0,
+  ControllerStateCommand_Mode_COMMAND = 1
 };
-bool ControllerStateCommand_State_IsValid(int value);
-const ControllerStateCommand_State ControllerStateCommand_State_State_MIN = ControllerStateCommand_State_DISABLE;
-const ControllerStateCommand_State ControllerStateCommand_State_State_MAX = ControllerStateCommand_State_ENABLE;
-const int ControllerStateCommand_State_State_ARRAYSIZE = ControllerStateCommand_State_State_MAX + 1;
+bool ControllerStateCommand_Mode_IsValid(int value);
+const ControllerStateCommand_Mode ControllerStateCommand_Mode_Mode_MIN = ControllerStateCommand_Mode_QUERY;
+const ControllerStateCommand_Mode ControllerStateCommand_Mode_Mode_MAX = ControllerStateCommand_Mode_COMMAND;
+const int ControllerStateCommand_Mode_Mode_ARRAYSIZE = ControllerStateCommand_Mode_Mode_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* ControllerStateCommand_State_descriptor();
-inline const ::std::string& ControllerStateCommand_State_Name(ControllerStateCommand_State value) {
+const ::google::protobuf::EnumDescriptor* ControllerStateCommand_Mode_descriptor();
+inline const ::std::string& ControllerStateCommand_Mode_Name(ControllerStateCommand_Mode value) {
   return ::google::protobuf::internal::NameOfEnum(
-    ControllerStateCommand_State_descriptor(), value);
+    ControllerStateCommand_Mode_descriptor(), value);
 }
-inline bool ControllerStateCommand_State_Parse(
-    const ::std::string& name, ControllerStateCommand_State* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<ControllerStateCommand_State>(
-    ControllerStateCommand_State_descriptor(), name, value);
+inline bool ControllerStateCommand_Mode_Parse(
+    const ::std::string& name, ControllerStateCommand_Mode* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ControllerStateCommand_Mode>(
+    ControllerStateCommand_Mode_descriptor(), name, value);
 }
-enum ControllerStateResponse_State {
-  ControllerStateResponse_State_DISABLE = 0,
-  ControllerStateResponse_State_ENABLE = 1
+enum ControllerStateCommand_ControllerState {
+  ControllerStateCommand_ControllerState_DISABLE = 0,
+  ControllerStateCommand_ControllerState_ENABLE = 1
 };
-bool ControllerStateResponse_State_IsValid(int value);
-const ControllerStateResponse_State ControllerStateResponse_State_State_MIN = ControllerStateResponse_State_DISABLE;
-const ControllerStateResponse_State ControllerStateResponse_State_State_MAX = ControllerStateResponse_State_ENABLE;
-const int ControllerStateResponse_State_State_ARRAYSIZE = ControllerStateResponse_State_State_MAX + 1;
+bool ControllerStateCommand_ControllerState_IsValid(int value);
+const ControllerStateCommand_ControllerState ControllerStateCommand_ControllerState_ControllerState_MIN = ControllerStateCommand_ControllerState_DISABLE;
+const ControllerStateCommand_ControllerState ControllerStateCommand_ControllerState_ControllerState_MAX = ControllerStateCommand_ControllerState_ENABLE;
+const int ControllerStateCommand_ControllerState_ControllerState_ARRAYSIZE = ControllerStateCommand_ControllerState_ControllerState_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* ControllerStateResponse_State_descriptor();
-inline const ::std::string& ControllerStateResponse_State_Name(ControllerStateResponse_State value) {
+const ::google::protobuf::EnumDescriptor* ControllerStateCommand_ControllerState_descriptor();
+inline const ::std::string& ControllerStateCommand_ControllerState_Name(ControllerStateCommand_ControllerState value) {
   return ::google::protobuf::internal::NameOfEnum(
-    ControllerStateResponse_State_descriptor(), value);
+    ControllerStateCommand_ControllerState_descriptor(), value);
 }
-inline bool ControllerStateResponse_State_Parse(
-    const ::std::string& name, ControllerStateResponse_State* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<ControllerStateResponse_State>(
-    ControllerStateResponse_State_descriptor(), name, value);
+inline bool ControllerStateCommand_ControllerState_Parse(
+    const ::std::string& name, ControllerStateCommand_ControllerState* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ControllerStateCommand_ControllerState>(
+    ControllerStateCommand_ControllerState_descriptor(), name, value);
+}
+enum ControllerStateResponse_Mode {
+  ControllerStateResponse_Mode_QUERY = 0,
+  ControllerStateResponse_Mode_COMMAND = 1
+};
+bool ControllerStateResponse_Mode_IsValid(int value);
+const ControllerStateResponse_Mode ControllerStateResponse_Mode_Mode_MIN = ControllerStateResponse_Mode_QUERY;
+const ControllerStateResponse_Mode ControllerStateResponse_Mode_Mode_MAX = ControllerStateResponse_Mode_COMMAND;
+const int ControllerStateResponse_Mode_Mode_ARRAYSIZE = ControllerStateResponse_Mode_Mode_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* ControllerStateResponse_Mode_descriptor();
+inline const ::std::string& ControllerStateResponse_Mode_Name(ControllerStateResponse_Mode value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    ControllerStateResponse_Mode_descriptor(), value);
+}
+inline bool ControllerStateResponse_Mode_Parse(
+    const ::std::string& name, ControllerStateResponse_Mode* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ControllerStateResponse_Mode>(
+    ControllerStateResponse_Mode_descriptor(), name, value);
+}
+enum ControllerStateResponse_ControllerState {
+  ControllerStateResponse_ControllerState_DISABLE = 0,
+  ControllerStateResponse_ControllerState_ENABLE = 1
+};
+bool ControllerStateResponse_ControllerState_IsValid(int value);
+const ControllerStateResponse_ControllerState ControllerStateResponse_ControllerState_ControllerState_MIN = ControllerStateResponse_ControllerState_DISABLE;
+const ControllerStateResponse_ControllerState ControllerStateResponse_ControllerState_ControllerState_MAX = ControllerStateResponse_ControllerState_ENABLE;
+const int ControllerStateResponse_ControllerState_ControllerState_ARRAYSIZE = ControllerStateResponse_ControllerState_ControllerState_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* ControllerStateResponse_ControllerState_descriptor();
+inline const ::std::string& ControllerStateResponse_ControllerState_Name(ControllerStateResponse_ControllerState value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    ControllerStateResponse_ControllerState_descriptor(), value);
+}
+inline bool ControllerStateResponse_ControllerState_Parse(
+    const ::std::string& name, ControllerStateResponse_ControllerState* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ControllerStateResponse_ControllerState>(
+    ControllerStateResponse_ControllerState_descriptor(), name, value);
 }
 enum DirectControlCommand_Frame {
   DirectControlCommand_Frame_BASE_LINK = 0,
@@ -225,90 +263,90 @@ inline bool DirectControlCommand_Frame_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<DirectControlCommand_Frame>(
     DirectControlCommand_Frame_descriptor(), name, value);
 }
-enum StateCommand_Mode {
-  StateCommand_Mode_QUERY = 0,
-  StateCommand_Mode_COMMAND = 1
+enum HelmStateCommand_Mode {
+  HelmStateCommand_Mode_QUERY = 0,
+  HelmStateCommand_Mode_COMMAND = 1
 };
-bool StateCommand_Mode_IsValid(int value);
-const StateCommand_Mode StateCommand_Mode_Mode_MIN = StateCommand_Mode_QUERY;
-const StateCommand_Mode StateCommand_Mode_Mode_MAX = StateCommand_Mode_COMMAND;
-const int StateCommand_Mode_Mode_ARRAYSIZE = StateCommand_Mode_Mode_MAX + 1;
+bool HelmStateCommand_Mode_IsValid(int value);
+const HelmStateCommand_Mode HelmStateCommand_Mode_Mode_MIN = HelmStateCommand_Mode_QUERY;
+const HelmStateCommand_Mode HelmStateCommand_Mode_Mode_MAX = HelmStateCommand_Mode_COMMAND;
+const int HelmStateCommand_Mode_Mode_ARRAYSIZE = HelmStateCommand_Mode_Mode_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* StateCommand_Mode_descriptor();
-inline const ::std::string& StateCommand_Mode_Name(StateCommand_Mode value) {
+const ::google::protobuf::EnumDescriptor* HelmStateCommand_Mode_descriptor();
+inline const ::std::string& HelmStateCommand_Mode_Name(HelmStateCommand_Mode value) {
   return ::google::protobuf::internal::NameOfEnum(
-    StateCommand_Mode_descriptor(), value);
+    HelmStateCommand_Mode_descriptor(), value);
 }
-inline bool StateCommand_Mode_Parse(
-    const ::std::string& name, StateCommand_Mode* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<StateCommand_Mode>(
-    StateCommand_Mode_descriptor(), name, value);
+inline bool HelmStateCommand_Mode_Parse(
+    const ::std::string& name, HelmStateCommand_Mode* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<HelmStateCommand_Mode>(
+    HelmStateCommand_Mode_descriptor(), name, value);
 }
-enum StateCommand_State {
-  StateCommand_State_KILL = 0,
-  StateCommand_State_START = 1,
-  StateCommand_State_SURVEY_LOCAL = 2,
-  StateCommand_State_SURVEY_GLOBAL = 3,
-  StateCommand_State_DIRECT_CONTROL = 4,
-  StateCommand_State_SURVEY_3D = 5
+enum HelmStateCommand_HelmState {
+  HelmStateCommand_HelmState_KILL = 0,
+  HelmStateCommand_HelmState_START = 1,
+  HelmStateCommand_HelmState_SURVEY_LOCAL = 2,
+  HelmStateCommand_HelmState_SURVEY_GLOBAL = 3,
+  HelmStateCommand_HelmState_DIRECT_CONTROL = 4,
+  HelmStateCommand_HelmState_SURVEY_3D = 5
 };
-bool StateCommand_State_IsValid(int value);
-const StateCommand_State StateCommand_State_State_MIN = StateCommand_State_KILL;
-const StateCommand_State StateCommand_State_State_MAX = StateCommand_State_SURVEY_3D;
-const int StateCommand_State_State_ARRAYSIZE = StateCommand_State_State_MAX + 1;
+bool HelmStateCommand_HelmState_IsValid(int value);
+const HelmStateCommand_HelmState HelmStateCommand_HelmState_HelmState_MIN = HelmStateCommand_HelmState_KILL;
+const HelmStateCommand_HelmState HelmStateCommand_HelmState_HelmState_MAX = HelmStateCommand_HelmState_SURVEY_3D;
+const int HelmStateCommand_HelmState_HelmState_ARRAYSIZE = HelmStateCommand_HelmState_HelmState_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* StateCommand_State_descriptor();
-inline const ::std::string& StateCommand_State_Name(StateCommand_State value) {
+const ::google::protobuf::EnumDescriptor* HelmStateCommand_HelmState_descriptor();
+inline const ::std::string& HelmStateCommand_HelmState_Name(HelmStateCommand_HelmState value) {
   return ::google::protobuf::internal::NameOfEnum(
-    StateCommand_State_descriptor(), value);
+    HelmStateCommand_HelmState_descriptor(), value);
 }
-inline bool StateCommand_State_Parse(
-    const ::std::string& name, StateCommand_State* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<StateCommand_State>(
-    StateCommand_State_descriptor(), name, value);
+inline bool HelmStateCommand_HelmState_Parse(
+    const ::std::string& name, HelmStateCommand_HelmState* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<HelmStateCommand_HelmState>(
+    HelmStateCommand_HelmState_descriptor(), name, value);
 }
-enum StateResponse_State {
-  StateResponse_State_KILL = 0,
-  StateResponse_State_START = 1,
-  StateResponse_State_SURVEY_LOCAL = 2,
-  StateResponse_State_SURVEY_GLOBAL = 3,
-  StateResponse_State_DIRECT_CONTROL = 4,
-  StateResponse_State_SURVEY_3D = 5
+enum HelmStateResponse_HelmState {
+  HelmStateResponse_HelmState_KILL = 0,
+  HelmStateResponse_HelmState_START = 1,
+  HelmStateResponse_HelmState_SURVEY_LOCAL = 2,
+  HelmStateResponse_HelmState_SURVEY_GLOBAL = 3,
+  HelmStateResponse_HelmState_DIRECT_CONTROL = 4,
+  HelmStateResponse_HelmState_SURVEY_3D = 5
 };
-bool StateResponse_State_IsValid(int value);
-const StateResponse_State StateResponse_State_State_MIN = StateResponse_State_KILL;
-const StateResponse_State StateResponse_State_State_MAX = StateResponse_State_SURVEY_3D;
-const int StateResponse_State_State_ARRAYSIZE = StateResponse_State_State_MAX + 1;
+bool HelmStateResponse_HelmState_IsValid(int value);
+const HelmStateResponse_HelmState HelmStateResponse_HelmState_HelmState_MIN = HelmStateResponse_HelmState_KILL;
+const HelmStateResponse_HelmState HelmStateResponse_HelmState_HelmState_MAX = HelmStateResponse_HelmState_SURVEY_3D;
+const int HelmStateResponse_HelmState_HelmState_ARRAYSIZE = HelmStateResponse_HelmState_HelmState_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* StateResponse_State_descriptor();
-inline const ::std::string& StateResponse_State_Name(StateResponse_State value) {
+const ::google::protobuf::EnumDescriptor* HelmStateResponse_HelmState_descriptor();
+inline const ::std::string& HelmStateResponse_HelmState_Name(HelmStateResponse_HelmState value) {
   return ::google::protobuf::internal::NameOfEnum(
-    StateResponse_State_descriptor(), value);
+    HelmStateResponse_HelmState_descriptor(), value);
 }
-inline bool StateResponse_State_Parse(
-    const ::std::string& name, StateResponse_State* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<StateResponse_State>(
-    StateResponse_State_descriptor(), name, value);
+inline bool HelmStateResponse_HelmState_Parse(
+    const ::std::string& name, HelmStateResponse_HelmState* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<HelmStateResponse_HelmState>(
+    HelmStateResponse_HelmState_descriptor(), name, value);
 }
-enum SingleWaypointCommand_Mode {
-  SingleWaypointCommand_Mode_QUERY = 0,
-  SingleWaypointCommand_Mode_COMMAND_LATLONG = 1,
-  SingleWaypointCommand_Mode_COMMAND_XYZ = 2
+enum SingleWaypointCommand_WaypointMode {
+  SingleWaypointCommand_WaypointMode_QUERY = 0,
+  SingleWaypointCommand_WaypointMode_COMMAND_LATLONG = 1,
+  SingleWaypointCommand_WaypointMode_COMMAND_XYZ = 2
 };
-bool SingleWaypointCommand_Mode_IsValid(int value);
-const SingleWaypointCommand_Mode SingleWaypointCommand_Mode_Mode_MIN = SingleWaypointCommand_Mode_QUERY;
-const SingleWaypointCommand_Mode SingleWaypointCommand_Mode_Mode_MAX = SingleWaypointCommand_Mode_COMMAND_XYZ;
-const int SingleWaypointCommand_Mode_Mode_ARRAYSIZE = SingleWaypointCommand_Mode_Mode_MAX + 1;
+bool SingleWaypointCommand_WaypointMode_IsValid(int value);
+const SingleWaypointCommand_WaypointMode SingleWaypointCommand_WaypointMode_WaypointMode_MIN = SingleWaypointCommand_WaypointMode_QUERY;
+const SingleWaypointCommand_WaypointMode SingleWaypointCommand_WaypointMode_WaypointMode_MAX = SingleWaypointCommand_WaypointMode_COMMAND_XYZ;
+const int SingleWaypointCommand_WaypointMode_WaypointMode_ARRAYSIZE = SingleWaypointCommand_WaypointMode_WaypointMode_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* SingleWaypointCommand_Mode_descriptor();
-inline const ::std::string& SingleWaypointCommand_Mode_Name(SingleWaypointCommand_Mode value) {
+const ::google::protobuf::EnumDescriptor* SingleWaypointCommand_WaypointMode_descriptor();
+inline const ::std::string& SingleWaypointCommand_WaypointMode_Name(SingleWaypointCommand_WaypointMode value) {
   return ::google::protobuf::internal::NameOfEnum(
-    SingleWaypointCommand_Mode_descriptor(), value);
+    SingleWaypointCommand_WaypointMode_descriptor(), value);
 }
-inline bool SingleWaypointCommand_Mode_Parse(
-    const ::std::string& name, SingleWaypointCommand_Mode* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<SingleWaypointCommand_Mode>(
-    SingleWaypointCommand_Mode_descriptor(), name, value);
+inline bool SingleWaypointCommand_WaypointMode_Parse(
+    const ::std::string& name, SingleWaypointCommand_WaypointMode* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<SingleWaypointCommand_WaypointMode>(
+    SingleWaypointCommand_WaypointMode_descriptor(), name, value);
 }
 enum MultiWaypointGPSCommand_Mode {
   MultiWaypointGPSCommand_Mode_QUERY = 0,
@@ -329,25 +367,6 @@ inline bool MultiWaypointGPSCommand_Mode_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<MultiWaypointGPSCommand_Mode>(
     MultiWaypointGPSCommand_Mode_descriptor(), name, value);
 }
-enum MultiWaypointGPSResponse_Mode {
-  MultiWaypointGPSResponse_Mode_QUERY = 0,
-  MultiWaypointGPSResponse_Mode_COMMAND = 1
-};
-bool MultiWaypointGPSResponse_Mode_IsValid(int value);
-const MultiWaypointGPSResponse_Mode MultiWaypointGPSResponse_Mode_Mode_MIN = MultiWaypointGPSResponse_Mode_QUERY;
-const MultiWaypointGPSResponse_Mode MultiWaypointGPSResponse_Mode_Mode_MAX = MultiWaypointGPSResponse_Mode_COMMAND;
-const int MultiWaypointGPSResponse_Mode_Mode_ARRAYSIZE = MultiWaypointGPSResponse_Mode_Mode_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* MultiWaypointGPSResponse_Mode_descriptor();
-inline const ::std::string& MultiWaypointGPSResponse_Mode_Name(MultiWaypointGPSResponse_Mode value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    MultiWaypointGPSResponse_Mode_descriptor(), value);
-}
-inline bool MultiWaypointGPSResponse_Mode_Parse(
-    const ::std::string& name, MultiWaypointGPSResponse_Mode* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<MultiWaypointGPSResponse_Mode>(
-    MultiWaypointGPSResponse_Mode_descriptor(), name, value);
-}
 enum MultiWaypointXYZCommand_Mode {
   MultiWaypointXYZCommand_Mode_QUERY = 0,
   MultiWaypointXYZCommand_Mode_COMMAND = 1
@@ -367,24 +386,24 @@ inline bool MultiWaypointXYZCommand_Mode_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<MultiWaypointXYZCommand_Mode>(
     MultiWaypointXYZCommand_Mode_descriptor(), name, value);
 }
-enum ExecuteWaypoints_WaypointMode {
-  ExecuteWaypoints_WaypointMode_APPEND = 0,
-  ExecuteWaypoints_WaypointMode_UPDATE = 1
+enum ExecuteWaypoints_ExecuteMode {
+  ExecuteWaypoints_ExecuteMode_APPEND = 0,
+  ExecuteWaypoints_ExecuteMode_UPDATE = 1
 };
-bool ExecuteWaypoints_WaypointMode_IsValid(int value);
-const ExecuteWaypoints_WaypointMode ExecuteWaypoints_WaypointMode_WaypointMode_MIN = ExecuteWaypoints_WaypointMode_APPEND;
-const ExecuteWaypoints_WaypointMode ExecuteWaypoints_WaypointMode_WaypointMode_MAX = ExecuteWaypoints_WaypointMode_UPDATE;
-const int ExecuteWaypoints_WaypointMode_WaypointMode_ARRAYSIZE = ExecuteWaypoints_WaypointMode_WaypointMode_MAX + 1;
+bool ExecuteWaypoints_ExecuteMode_IsValid(int value);
+const ExecuteWaypoints_ExecuteMode ExecuteWaypoints_ExecuteMode_ExecuteMode_MIN = ExecuteWaypoints_ExecuteMode_APPEND;
+const ExecuteWaypoints_ExecuteMode ExecuteWaypoints_ExecuteMode_ExecuteMode_MAX = ExecuteWaypoints_ExecuteMode_UPDATE;
+const int ExecuteWaypoints_ExecuteMode_ExecuteMode_ARRAYSIZE = ExecuteWaypoints_ExecuteMode_ExecuteMode_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* ExecuteWaypoints_WaypointMode_descriptor();
-inline const ::std::string& ExecuteWaypoints_WaypointMode_Name(ExecuteWaypoints_WaypointMode value) {
+const ::google::protobuf::EnumDescriptor* ExecuteWaypoints_ExecuteMode_descriptor();
+inline const ::std::string& ExecuteWaypoints_ExecuteMode_Name(ExecuteWaypoints_ExecuteMode value) {
   return ::google::protobuf::internal::NameOfEnum(
-    ExecuteWaypoints_WaypointMode_descriptor(), value);
+    ExecuteWaypoints_ExecuteMode_descriptor(), value);
 }
-inline bool ExecuteWaypoints_WaypointMode_Parse(
-    const ::std::string& name, ExecuteWaypoints_WaypointMode* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<ExecuteWaypoints_WaypointMode>(
-    ExecuteWaypoints_WaypointMode_descriptor(), name, value);
+inline bool ExecuteWaypoints_ExecuteMode_Parse(
+    const ::std::string& name, ExecuteWaypoints_ExecuteMode* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ExecuteWaypoints_ExecuteMode>(
+    ExecuteWaypoints_ExecuteMode_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -1602,30 +1621,56 @@ class ControllerStateCommand : public ::google::protobuf::Message /* @@protoc_in
 
   // nested types ----------------------------------------------------
 
-  typedef ControllerStateCommand_State State;
-  static const State DISABLE =
-    ControllerStateCommand_State_DISABLE;
-  static const State ENABLE =
-    ControllerStateCommand_State_ENABLE;
-  static inline bool State_IsValid(int value) {
-    return ControllerStateCommand_State_IsValid(value);
+  typedef ControllerStateCommand_Mode Mode;
+  static const Mode QUERY =
+    ControllerStateCommand_Mode_QUERY;
+  static const Mode COMMAND =
+    ControllerStateCommand_Mode_COMMAND;
+  static inline bool Mode_IsValid(int value) {
+    return ControllerStateCommand_Mode_IsValid(value);
   }
-  static const State State_MIN =
-    ControllerStateCommand_State_State_MIN;
-  static const State State_MAX =
-    ControllerStateCommand_State_State_MAX;
-  static const int State_ARRAYSIZE =
-    ControllerStateCommand_State_State_ARRAYSIZE;
+  static const Mode Mode_MIN =
+    ControllerStateCommand_Mode_Mode_MIN;
+  static const Mode Mode_MAX =
+    ControllerStateCommand_Mode_Mode_MAX;
+  static const int Mode_ARRAYSIZE =
+    ControllerStateCommand_Mode_Mode_ARRAYSIZE;
   static inline const ::google::protobuf::EnumDescriptor*
-  State_descriptor() {
-    return ControllerStateCommand_State_descriptor();
+  Mode_descriptor() {
+    return ControllerStateCommand_Mode_descriptor();
   }
-  static inline const ::std::string& State_Name(State value) {
-    return ControllerStateCommand_State_Name(value);
+  static inline const ::std::string& Mode_Name(Mode value) {
+    return ControllerStateCommand_Mode_Name(value);
   }
-  static inline bool State_Parse(const ::std::string& name,
-      State* value) {
-    return ControllerStateCommand_State_Parse(name, value);
+  static inline bool Mode_Parse(const ::std::string& name,
+      Mode* value) {
+    return ControllerStateCommand_Mode_Parse(name, value);
+  }
+
+  typedef ControllerStateCommand_ControllerState ControllerState;
+  static const ControllerState DISABLE =
+    ControllerStateCommand_ControllerState_DISABLE;
+  static const ControllerState ENABLE =
+    ControllerStateCommand_ControllerState_ENABLE;
+  static inline bool ControllerState_IsValid(int value) {
+    return ControllerStateCommand_ControllerState_IsValid(value);
+  }
+  static const ControllerState ControllerState_MIN =
+    ControllerStateCommand_ControllerState_ControllerState_MIN;
+  static const ControllerState ControllerState_MAX =
+    ControllerStateCommand_ControllerState_ControllerState_MAX;
+  static const int ControllerState_ARRAYSIZE =
+    ControllerStateCommand_ControllerState_ControllerState_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  ControllerState_descriptor() {
+    return ControllerStateCommand_ControllerState_descriptor();
+  }
+  static inline const ::std::string& ControllerState_Name(ControllerState value) {
+    return ControllerStateCommand_ControllerState_Name(value);
+  }
+  static inline bool ControllerState_Parse(const ::std::string& name,
+      ControllerState* value) {
+    return ControllerStateCommand_ControllerState_Parse(name, value);
   }
 
   // accessors -------------------------------------------------------
@@ -1651,12 +1696,19 @@ class ControllerStateCommand : public ::google::protobuf::Message /* @@protoc_in
   double time() const;
   void set_time(double value);
 
-  // required .ControllerStateCommand.State state = 4;
+  // required .ControllerStateCommand.Mode mode = 4;
+  bool has_mode() const;
+  void clear_mode();
+  static const int kModeFieldNumber = 4;
+  ::ControllerStateCommand_Mode mode() const;
+  void set_mode(::ControllerStateCommand_Mode value);
+
+  // optional .ControllerStateCommand.ControllerState state = 5 [(.dccl.field) = {
   bool has_state() const;
   void clear_state();
-  static const int kStateFieldNumber = 4;
-  ::ControllerStateCommand_State state() const;
-  void set_state(::ControllerStateCommand_State value);
+  static const int kStateFieldNumber = 5;
+  ::ControllerStateCommand_ControllerState state() const;
+  void set_state(::ControllerStateCommand_ControllerState value);
 
   // @@protoc_insertion_point(class_scope:ControllerStateCommand)
  private:
@@ -1666,6 +1718,8 @@ class ControllerStateCommand : public ::google::protobuf::Message /* @@protoc_in
   void clear_has_destination();
   void set_has_time();
   void clear_has_time();
+  void set_has_mode();
+  void clear_has_mode();
   void set_has_state();
   void clear_has_state();
 
@@ -1678,6 +1732,7 @@ class ControllerStateCommand : public ::google::protobuf::Message /* @@protoc_in
   ::google::protobuf::int32 source_;
   ::google::protobuf::int32 destination_;
   double time_;
+  int mode_;
   int state_;
   friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
 };
@@ -1775,30 +1830,56 @@ class ControllerStateResponse : public ::google::protobuf::Message /* @@protoc_i
 
   // nested types ----------------------------------------------------
 
-  typedef ControllerStateResponse_State State;
-  static const State DISABLE =
-    ControllerStateResponse_State_DISABLE;
-  static const State ENABLE =
-    ControllerStateResponse_State_ENABLE;
-  static inline bool State_IsValid(int value) {
-    return ControllerStateResponse_State_IsValid(value);
+  typedef ControllerStateResponse_Mode Mode;
+  static const Mode QUERY =
+    ControllerStateResponse_Mode_QUERY;
+  static const Mode COMMAND =
+    ControllerStateResponse_Mode_COMMAND;
+  static inline bool Mode_IsValid(int value) {
+    return ControllerStateResponse_Mode_IsValid(value);
   }
-  static const State State_MIN =
-    ControllerStateResponse_State_State_MIN;
-  static const State State_MAX =
-    ControllerStateResponse_State_State_MAX;
-  static const int State_ARRAYSIZE =
-    ControllerStateResponse_State_State_ARRAYSIZE;
+  static const Mode Mode_MIN =
+    ControllerStateResponse_Mode_Mode_MIN;
+  static const Mode Mode_MAX =
+    ControllerStateResponse_Mode_Mode_MAX;
+  static const int Mode_ARRAYSIZE =
+    ControllerStateResponse_Mode_Mode_ARRAYSIZE;
   static inline const ::google::protobuf::EnumDescriptor*
-  State_descriptor() {
-    return ControllerStateResponse_State_descriptor();
+  Mode_descriptor() {
+    return ControllerStateResponse_Mode_descriptor();
   }
-  static inline const ::std::string& State_Name(State value) {
-    return ControllerStateResponse_State_Name(value);
+  static inline const ::std::string& Mode_Name(Mode value) {
+    return ControllerStateResponse_Mode_Name(value);
   }
-  static inline bool State_Parse(const ::std::string& name,
-      State* value) {
-    return ControllerStateResponse_State_Parse(name, value);
+  static inline bool Mode_Parse(const ::std::string& name,
+      Mode* value) {
+    return ControllerStateResponse_Mode_Parse(name, value);
+  }
+
+  typedef ControllerStateResponse_ControllerState ControllerState;
+  static const ControllerState DISABLE =
+    ControllerStateResponse_ControllerState_DISABLE;
+  static const ControllerState ENABLE =
+    ControllerStateResponse_ControllerState_ENABLE;
+  static inline bool ControllerState_IsValid(int value) {
+    return ControllerStateResponse_ControllerState_IsValid(value);
+  }
+  static const ControllerState ControllerState_MIN =
+    ControllerStateResponse_ControllerState_ControllerState_MIN;
+  static const ControllerState ControllerState_MAX =
+    ControllerStateResponse_ControllerState_ControllerState_MAX;
+  static const int ControllerState_ARRAYSIZE =
+    ControllerStateResponse_ControllerState_ControllerState_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  ControllerState_descriptor() {
+    return ControllerStateResponse_ControllerState_descriptor();
+  }
+  static inline const ::std::string& ControllerState_Name(ControllerState value) {
+    return ControllerStateResponse_ControllerState_Name(value);
+  }
+  static inline bool ControllerState_Parse(const ::std::string& name,
+      ControllerState* value) {
+    return ControllerStateResponse_ControllerState_Parse(name, value);
   }
 
   // accessors -------------------------------------------------------
@@ -1824,12 +1905,19 @@ class ControllerStateResponse : public ::google::protobuf::Message /* @@protoc_i
   double time() const;
   void set_time(double value);
 
-  // required .ControllerStateResponse.State state = 4;
+  // required .ControllerStateResponse.Mode mode = 4;
+  bool has_mode() const;
+  void clear_mode();
+  static const int kModeFieldNumber = 4;
+  ::ControllerStateResponse_Mode mode() const;
+  void set_mode(::ControllerStateResponse_Mode value);
+
+  // optional .ControllerStateResponse.ControllerState state = 5 [(.dccl.field) = {
   bool has_state() const;
   void clear_state();
-  static const int kStateFieldNumber = 4;
-  ::ControllerStateResponse_State state() const;
-  void set_state(::ControllerStateResponse_State value);
+  static const int kStateFieldNumber = 5;
+  ::ControllerStateResponse_ControllerState state() const;
+  void set_state(::ControllerStateResponse_ControllerState value);
 
   // @@protoc_insertion_point(class_scope:ControllerStateResponse)
  private:
@@ -1839,6 +1927,8 @@ class ControllerStateResponse : public ::google::protobuf::Message /* @@protoc_i
   void clear_has_destination();
   void set_has_time();
   void clear_has_time();
+  void set_has_mode();
+  void clear_has_mode();
   void set_has_state();
   void clear_has_state();
 
@@ -1851,6 +1941,7 @@ class ControllerStateResponse : public ::google::protobuf::Message /* @@protoc_i
   ::google::protobuf::int32 source_;
   ::google::protobuf::int32 destination_;
   double time_;
+  int mode_;
   int state_;
   friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
 };
@@ -2153,24 +2244,24 @@ class DirectControlCommand : public ::google::protobuf::Message /* @@protoc_inse
 };
 // -------------------------------------------------------------------
 
-class StateCommand : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:StateCommand) */ {
+class HelmStateCommand : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:HelmStateCommand) */ {
  public:
-  StateCommand();
-  virtual ~StateCommand();
+  HelmStateCommand();
+  virtual ~HelmStateCommand();
 
-  StateCommand(const StateCommand& from);
+  HelmStateCommand(const HelmStateCommand& from);
 
-  inline StateCommand& operator=(const StateCommand& from) {
+  inline HelmStateCommand& operator=(const HelmStateCommand& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  StateCommand(StateCommand&& from) noexcept
-    : StateCommand() {
+  HelmStateCommand(HelmStateCommand&& from) noexcept
+    : HelmStateCommand() {
     *this = ::std::move(from);
   }
 
-  inline StateCommand& operator=(StateCommand&& from) noexcept {
+  inline HelmStateCommand& operator=(HelmStateCommand&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -2187,34 +2278,34 @@ class StateCommand : public ::google::protobuf::Message /* @@protoc_insertion_po
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const StateCommand& default_instance();
+  static const HelmStateCommand& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const StateCommand* internal_default_instance() {
-    return reinterpret_cast<const StateCommand*>(
-               &_StateCommand_default_instance_);
+  static inline const HelmStateCommand* internal_default_instance() {
+    return reinterpret_cast<const HelmStateCommand*>(
+               &_HelmStateCommand_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     9;
 
-  void Swap(StateCommand* other);
-  friend void swap(StateCommand& a, StateCommand& b) {
+  void Swap(HelmStateCommand* other);
+  friend void swap(HelmStateCommand& a, HelmStateCommand& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline StateCommand* New() const final {
-    return CreateMaybeMessage<StateCommand>(NULL);
+  inline HelmStateCommand* New() const final {
+    return CreateMaybeMessage<HelmStateCommand>(NULL);
   }
 
-  StateCommand* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<StateCommand>(arena);
+  HelmStateCommand* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<HelmStateCommand>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const StateCommand& from);
-  void MergeFrom(const StateCommand& from);
+  void CopyFrom(const HelmStateCommand& from);
+  void MergeFrom(const HelmStateCommand& from);
   void Clear() final;
   bool IsInitialized() const final;
 
@@ -2231,7 +2322,7 @@ class StateCommand : public ::google::protobuf::Message /* @@protoc_insertion_po
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(StateCommand* other);
+  void InternalSwap(HelmStateCommand* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -2245,64 +2336,64 @@ class StateCommand : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // nested types ----------------------------------------------------
 
-  typedef StateCommand_Mode Mode;
+  typedef HelmStateCommand_Mode Mode;
   static const Mode QUERY =
-    StateCommand_Mode_QUERY;
+    HelmStateCommand_Mode_QUERY;
   static const Mode COMMAND =
-    StateCommand_Mode_COMMAND;
+    HelmStateCommand_Mode_COMMAND;
   static inline bool Mode_IsValid(int value) {
-    return StateCommand_Mode_IsValid(value);
+    return HelmStateCommand_Mode_IsValid(value);
   }
   static const Mode Mode_MIN =
-    StateCommand_Mode_Mode_MIN;
+    HelmStateCommand_Mode_Mode_MIN;
   static const Mode Mode_MAX =
-    StateCommand_Mode_Mode_MAX;
+    HelmStateCommand_Mode_Mode_MAX;
   static const int Mode_ARRAYSIZE =
-    StateCommand_Mode_Mode_ARRAYSIZE;
+    HelmStateCommand_Mode_Mode_ARRAYSIZE;
   static inline const ::google::protobuf::EnumDescriptor*
   Mode_descriptor() {
-    return StateCommand_Mode_descriptor();
+    return HelmStateCommand_Mode_descriptor();
   }
   static inline const ::std::string& Mode_Name(Mode value) {
-    return StateCommand_Mode_Name(value);
+    return HelmStateCommand_Mode_Name(value);
   }
   static inline bool Mode_Parse(const ::std::string& name,
       Mode* value) {
-    return StateCommand_Mode_Parse(name, value);
+    return HelmStateCommand_Mode_Parse(name, value);
   }
 
-  typedef StateCommand_State State;
-  static const State KILL =
-    StateCommand_State_KILL;
-  static const State START =
-    StateCommand_State_START;
-  static const State SURVEY_LOCAL =
-    StateCommand_State_SURVEY_LOCAL;
-  static const State SURVEY_GLOBAL =
-    StateCommand_State_SURVEY_GLOBAL;
-  static const State DIRECT_CONTROL =
-    StateCommand_State_DIRECT_CONTROL;
-  static const State SURVEY_3D =
-    StateCommand_State_SURVEY_3D;
-  static inline bool State_IsValid(int value) {
-    return StateCommand_State_IsValid(value);
+  typedef HelmStateCommand_HelmState HelmState;
+  static const HelmState KILL =
+    HelmStateCommand_HelmState_KILL;
+  static const HelmState START =
+    HelmStateCommand_HelmState_START;
+  static const HelmState SURVEY_LOCAL =
+    HelmStateCommand_HelmState_SURVEY_LOCAL;
+  static const HelmState SURVEY_GLOBAL =
+    HelmStateCommand_HelmState_SURVEY_GLOBAL;
+  static const HelmState DIRECT_CONTROL =
+    HelmStateCommand_HelmState_DIRECT_CONTROL;
+  static const HelmState SURVEY_3D =
+    HelmStateCommand_HelmState_SURVEY_3D;
+  static inline bool HelmState_IsValid(int value) {
+    return HelmStateCommand_HelmState_IsValid(value);
   }
-  static const State State_MIN =
-    StateCommand_State_State_MIN;
-  static const State State_MAX =
-    StateCommand_State_State_MAX;
-  static const int State_ARRAYSIZE =
-    StateCommand_State_State_ARRAYSIZE;
+  static const HelmState HelmState_MIN =
+    HelmStateCommand_HelmState_HelmState_MIN;
+  static const HelmState HelmState_MAX =
+    HelmStateCommand_HelmState_HelmState_MAX;
+  static const int HelmState_ARRAYSIZE =
+    HelmStateCommand_HelmState_HelmState_ARRAYSIZE;
   static inline const ::google::protobuf::EnumDescriptor*
-  State_descriptor() {
-    return StateCommand_State_descriptor();
+  HelmState_descriptor() {
+    return HelmStateCommand_HelmState_descriptor();
   }
-  static inline const ::std::string& State_Name(State value) {
-    return StateCommand_State_Name(value);
+  static inline const ::std::string& HelmState_Name(HelmState value) {
+    return HelmStateCommand_HelmState_Name(value);
   }
-  static inline bool State_Parse(const ::std::string& name,
-      State* value) {
-    return StateCommand_State_Parse(name, value);
+  static inline bool HelmState_Parse(const ::std::string& name,
+      HelmState* value) {
+    return HelmStateCommand_HelmState_Parse(name, value);
   }
 
   // accessors -------------------------------------------------------
@@ -2328,21 +2419,21 @@ class StateCommand : public ::google::protobuf::Message /* @@protoc_insertion_po
   double time() const;
   void set_time(double value);
 
-  // required .StateCommand.Mode mode = 4;
+  // required .HelmStateCommand.Mode mode = 4;
   bool has_mode() const;
   void clear_mode();
   static const int kModeFieldNumber = 4;
-  ::StateCommand_Mode mode() const;
-  void set_mode(::StateCommand_Mode value);
+  ::HelmStateCommand_Mode mode() const;
+  void set_mode(::HelmStateCommand_Mode value);
 
-  // optional .StateCommand.State state = 5 [(.dccl.field) = {
+  // optional .HelmStateCommand.HelmState state = 5 [(.dccl.field) = {
   bool has_state() const;
   void clear_state();
   static const int kStateFieldNumber = 5;
-  ::StateCommand_State state() const;
-  void set_state(::StateCommand_State value);
+  ::HelmStateCommand_HelmState state() const;
+  void set_state(::HelmStateCommand_HelmState value);
 
-  // @@protoc_insertion_point(class_scope:StateCommand)
+  // @@protoc_insertion_point(class_scope:HelmStateCommand)
  private:
   void set_has_source();
   void clear_has_source();
@@ -2370,24 +2461,24 @@ class StateCommand : public ::google::protobuf::Message /* @@protoc_insertion_po
 };
 // -------------------------------------------------------------------
 
-class StateResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:StateResponse) */ {
+class HelmStateResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:HelmStateResponse) */ {
  public:
-  StateResponse();
-  virtual ~StateResponse();
+  HelmStateResponse();
+  virtual ~HelmStateResponse();
 
-  StateResponse(const StateResponse& from);
+  HelmStateResponse(const HelmStateResponse& from);
 
-  inline StateResponse& operator=(const StateResponse& from) {
+  inline HelmStateResponse& operator=(const HelmStateResponse& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  StateResponse(StateResponse&& from) noexcept
-    : StateResponse() {
+  HelmStateResponse(HelmStateResponse&& from) noexcept
+    : HelmStateResponse() {
     *this = ::std::move(from);
   }
 
-  inline StateResponse& operator=(StateResponse&& from) noexcept {
+  inline HelmStateResponse& operator=(HelmStateResponse&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -2404,34 +2495,34 @@ class StateResponse : public ::google::protobuf::Message /* @@protoc_insertion_p
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const StateResponse& default_instance();
+  static const HelmStateResponse& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const StateResponse* internal_default_instance() {
-    return reinterpret_cast<const StateResponse*>(
-               &_StateResponse_default_instance_);
+  static inline const HelmStateResponse* internal_default_instance() {
+    return reinterpret_cast<const HelmStateResponse*>(
+               &_HelmStateResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     10;
 
-  void Swap(StateResponse* other);
-  friend void swap(StateResponse& a, StateResponse& b) {
+  void Swap(HelmStateResponse* other);
+  friend void swap(HelmStateResponse& a, HelmStateResponse& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline StateResponse* New() const final {
-    return CreateMaybeMessage<StateResponse>(NULL);
+  inline HelmStateResponse* New() const final {
+    return CreateMaybeMessage<HelmStateResponse>(NULL);
   }
 
-  StateResponse* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<StateResponse>(arena);
+  HelmStateResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<HelmStateResponse>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const StateResponse& from);
-  void MergeFrom(const StateResponse& from);
+  void CopyFrom(const HelmStateResponse& from);
+  void MergeFrom(const HelmStateResponse& from);
   void Clear() final;
   bool IsInitialized() const final;
 
@@ -2448,7 +2539,7 @@ class StateResponse : public ::google::protobuf::Message /* @@protoc_insertion_p
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(StateResponse* other);
+  void InternalSwap(HelmStateResponse* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -2462,38 +2553,38 @@ class StateResponse : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // nested types ----------------------------------------------------
 
-  typedef StateResponse_State State;
-  static const State KILL =
-    StateResponse_State_KILL;
-  static const State START =
-    StateResponse_State_START;
-  static const State SURVEY_LOCAL =
-    StateResponse_State_SURVEY_LOCAL;
-  static const State SURVEY_GLOBAL =
-    StateResponse_State_SURVEY_GLOBAL;
-  static const State DIRECT_CONTROL =
-    StateResponse_State_DIRECT_CONTROL;
-  static const State SURVEY_3D =
-    StateResponse_State_SURVEY_3D;
-  static inline bool State_IsValid(int value) {
-    return StateResponse_State_IsValid(value);
+  typedef HelmStateResponse_HelmState HelmState;
+  static const HelmState KILL =
+    HelmStateResponse_HelmState_KILL;
+  static const HelmState START =
+    HelmStateResponse_HelmState_START;
+  static const HelmState SURVEY_LOCAL =
+    HelmStateResponse_HelmState_SURVEY_LOCAL;
+  static const HelmState SURVEY_GLOBAL =
+    HelmStateResponse_HelmState_SURVEY_GLOBAL;
+  static const HelmState DIRECT_CONTROL =
+    HelmStateResponse_HelmState_DIRECT_CONTROL;
+  static const HelmState SURVEY_3D =
+    HelmStateResponse_HelmState_SURVEY_3D;
+  static inline bool HelmState_IsValid(int value) {
+    return HelmStateResponse_HelmState_IsValid(value);
   }
-  static const State State_MIN =
-    StateResponse_State_State_MIN;
-  static const State State_MAX =
-    StateResponse_State_State_MAX;
-  static const int State_ARRAYSIZE =
-    StateResponse_State_State_ARRAYSIZE;
+  static const HelmState HelmState_MIN =
+    HelmStateResponse_HelmState_HelmState_MIN;
+  static const HelmState HelmState_MAX =
+    HelmStateResponse_HelmState_HelmState_MAX;
+  static const int HelmState_ARRAYSIZE =
+    HelmStateResponse_HelmState_HelmState_ARRAYSIZE;
   static inline const ::google::protobuf::EnumDescriptor*
-  State_descriptor() {
-    return StateResponse_State_descriptor();
+  HelmState_descriptor() {
+    return HelmStateResponse_HelmState_descriptor();
   }
-  static inline const ::std::string& State_Name(State value) {
-    return StateResponse_State_Name(value);
+  static inline const ::std::string& HelmState_Name(HelmState value) {
+    return HelmStateResponse_HelmState_Name(value);
   }
-  static inline bool State_Parse(const ::std::string& name,
-      State* value) {
-    return StateResponse_State_Parse(name, value);
+  static inline bool HelmState_Parse(const ::std::string& name,
+      HelmState* value) {
+    return HelmStateResponse_HelmState_Parse(name, value);
   }
 
   // accessors -------------------------------------------------------
@@ -2519,14 +2610,14 @@ class StateResponse : public ::google::protobuf::Message /* @@protoc_insertion_p
   double time() const;
   void set_time(double value);
 
-  // required .StateResponse.State state = 4;
+  // required .HelmStateResponse.HelmState state = 4;
   bool has_state() const;
   void clear_state();
   static const int kStateFieldNumber = 4;
-  ::StateResponse_State state() const;
-  void set_state(::StateResponse_State value);
+  ::HelmStateResponse_HelmState state() const;
+  void set_state(::HelmStateResponse_HelmState value);
 
-  // @@protoc_insertion_point(class_scope:StateResponse)
+  // @@protoc_insertion_point(class_scope:HelmStateResponse)
  private:
   void set_has_source();
   void clear_has_source();
@@ -2643,32 +2734,32 @@ class SingleWaypointCommand : public ::google::protobuf::Message /* @@protoc_ins
 
   // nested types ----------------------------------------------------
 
-  typedef SingleWaypointCommand_Mode Mode;
-  static const Mode QUERY =
-    SingleWaypointCommand_Mode_QUERY;
-  static const Mode COMMAND_LATLONG =
-    SingleWaypointCommand_Mode_COMMAND_LATLONG;
-  static const Mode COMMAND_XYZ =
-    SingleWaypointCommand_Mode_COMMAND_XYZ;
-  static inline bool Mode_IsValid(int value) {
-    return SingleWaypointCommand_Mode_IsValid(value);
+  typedef SingleWaypointCommand_WaypointMode WaypointMode;
+  static const WaypointMode QUERY =
+    SingleWaypointCommand_WaypointMode_QUERY;
+  static const WaypointMode COMMAND_LATLONG =
+    SingleWaypointCommand_WaypointMode_COMMAND_LATLONG;
+  static const WaypointMode COMMAND_XYZ =
+    SingleWaypointCommand_WaypointMode_COMMAND_XYZ;
+  static inline bool WaypointMode_IsValid(int value) {
+    return SingleWaypointCommand_WaypointMode_IsValid(value);
   }
-  static const Mode Mode_MIN =
-    SingleWaypointCommand_Mode_Mode_MIN;
-  static const Mode Mode_MAX =
-    SingleWaypointCommand_Mode_Mode_MAX;
-  static const int Mode_ARRAYSIZE =
-    SingleWaypointCommand_Mode_Mode_ARRAYSIZE;
+  static const WaypointMode WaypointMode_MIN =
+    SingleWaypointCommand_WaypointMode_WaypointMode_MIN;
+  static const WaypointMode WaypointMode_MAX =
+    SingleWaypointCommand_WaypointMode_WaypointMode_MAX;
+  static const int WaypointMode_ARRAYSIZE =
+    SingleWaypointCommand_WaypointMode_WaypointMode_ARRAYSIZE;
   static inline const ::google::protobuf::EnumDescriptor*
-  Mode_descriptor() {
-    return SingleWaypointCommand_Mode_descriptor();
+  WaypointMode_descriptor() {
+    return SingleWaypointCommand_WaypointMode_descriptor();
   }
-  static inline const ::std::string& Mode_Name(Mode value) {
-    return SingleWaypointCommand_Mode_Name(value);
+  static inline const ::std::string& WaypointMode_Name(WaypointMode value) {
+    return SingleWaypointCommand_WaypointMode_Name(value);
   }
-  static inline bool Mode_Parse(const ::std::string& name,
-      Mode* value) {
-    return SingleWaypointCommand_Mode_Parse(name, value);
+  static inline bool WaypointMode_Parse(const ::std::string& name,
+      WaypointMode* value) {
+    return SingleWaypointCommand_WaypointMode_Parse(name, value);
   }
 
   // accessors -------------------------------------------------------
@@ -2701,12 +2792,12 @@ class SingleWaypointCommand : public ::google::protobuf::Message /* @@protoc_ins
   double latitude() const;
   void set_latitude(double value);
 
-  // required .SingleWaypointCommand.Mode mode = 4;
-  bool has_mode() const;
-  void clear_mode();
-  static const int kModeFieldNumber = 4;
-  ::SingleWaypointCommand_Mode mode() const;
-  void set_mode(::SingleWaypointCommand_Mode value);
+  // required .SingleWaypointCommand.WaypointMode waypoint_mode = 4;
+  bool has_waypoint_mode() const;
+  void clear_waypoint_mode();
+  static const int kWaypointModeFieldNumber = 4;
+  ::SingleWaypointCommand_WaypointMode waypoint_mode() const;
+  void set_waypoint_mode(::SingleWaypointCommand_WaypointMode value);
 
   // optional float x = 7 [(.dccl.field) = {
   bool has_x() const;
@@ -2744,8 +2835,8 @@ class SingleWaypointCommand : public ::google::protobuf::Message /* @@protoc_ins
   void clear_has_destination();
   void set_has_time();
   void clear_has_time();
-  void set_has_mode();
-  void clear_has_mode();
+  void set_has_waypoint_mode();
+  void clear_has_waypoint_mode();
   void set_has_latitude();
   void clear_has_latitude();
   void set_has_longitude();
@@ -2767,7 +2858,7 @@ class SingleWaypointCommand : public ::google::protobuf::Message /* @@protoc_ins
   ::google::protobuf::int32 destination_;
   double time_;
   double latitude_;
-  int mode_;
+  int waypoint_mode_;
   float x_;
   double longitude_;
   float y_;
@@ -3290,33 +3381,19 @@ class MultiWaypointGPSResponse : public ::google::protobuf::Message /* @@protoc_
 
   // nested types ----------------------------------------------------
 
-  typedef MultiWaypointGPSResponse_Mode Mode;
-  static const Mode QUERY =
-    MultiWaypointGPSResponse_Mode_QUERY;
-  static const Mode COMMAND =
-    MultiWaypointGPSResponse_Mode_COMMAND;
-  static inline bool Mode_IsValid(int value) {
-    return MultiWaypointGPSResponse_Mode_IsValid(value);
-  }
-  static const Mode Mode_MIN =
-    MultiWaypointGPSResponse_Mode_Mode_MIN;
-  static const Mode Mode_MAX =
-    MultiWaypointGPSResponse_Mode_Mode_MAX;
-  static const int Mode_ARRAYSIZE =
-    MultiWaypointGPSResponse_Mode_Mode_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
-  Mode_descriptor() {
-    return MultiWaypointGPSResponse_Mode_descriptor();
-  }
-  static inline const ::std::string& Mode_Name(Mode value) {
-    return MultiWaypointGPSResponse_Mode_Name(value);
-  }
-  static inline bool Mode_Parse(const ::std::string& name,
-      Mode* value) {
-    return MultiWaypointGPSResponse_Mode_Parse(name, value);
-  }
-
   // accessors -------------------------------------------------------
+
+  // repeated int32 wpt_num = 4 [(.dccl.field) = {
+  int wpt_num_size() const;
+  void clear_wpt_num();
+  static const int kWptNumFieldNumber = 4;
+  ::google::protobuf::int32 wpt_num(int index) const;
+  void set_wpt_num(int index, ::google::protobuf::int32 value);
+  void add_wpt_num(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      wpt_num() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_wpt_num();
 
   // repeated double latitude = 5 [(.dccl.field) = {
   int latitude_size() const;
@@ -3368,19 +3445,12 @@ class MultiWaypointGPSResponse : public ::google::protobuf::Message /* @@protoc_
   ::google::protobuf::int32 destination() const;
   void set_destination(::google::protobuf::int32 value);
 
-  // optional double time = 3 [(.dccl.field) = {
+  // required double time = 3 [(.dccl.field) = {
   bool has_time() const;
   void clear_time();
   static const int kTimeFieldNumber = 3;
   double time() const;
   void set_time(double value);
-
-  // required int32 wpt_num = 4 [(.dccl.field) = {
-  bool has_wpt_num() const;
-  void clear_wpt_num();
-  static const int kWptNumFieldNumber = 4;
-  ::google::protobuf::int32 wpt_num() const;
-  void set_wpt_num(::google::protobuf::int32 value);
 
   // optional bool end = 8;
   bool has_end() const;
@@ -3397,8 +3467,6 @@ class MultiWaypointGPSResponse : public ::google::protobuf::Message /* @@protoc_
   void clear_has_destination();
   void set_has_time();
   void clear_has_time();
-  void set_has_wpt_num();
-  void clear_has_wpt_num();
   void set_has_end();
   void clear_has_end();
 
@@ -3408,13 +3476,13 @@ class MultiWaypointGPSResponse : public ::google::protobuf::Message /* @@protoc_
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > wpt_num_;
   ::google::protobuf::RepeatedField< double > latitude_;
   ::google::protobuf::RepeatedField< double > longitude_;
   ::google::protobuf::RepeatedField< float > z_;
   ::google::protobuf::int32 source_;
   ::google::protobuf::int32 destination_;
   double time_;
-  ::google::protobuf::int32 wpt_num_;
   bool end_;
   friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
 };
@@ -3564,6 +3632,30 @@ class MultiWaypointXYZCommand : public ::google::protobuf::Message /* @@protoc_i
   ::google::protobuf::RepeatedField< float >*
       mutable_x();
 
+  // repeated float y = 7 [(.dccl.field) = {
+  int y_size() const;
+  void clear_y();
+  static const int kYFieldNumber = 7;
+  float y(int index) const;
+  void set_y(int index, float value);
+  void add_y(float value);
+  const ::google::protobuf::RepeatedField< float >&
+      y() const;
+  ::google::protobuf::RepeatedField< float >*
+      mutable_y();
+
+  // repeated float z = 8 [(.dccl.field) = {
+  int z_size() const;
+  void clear_z();
+  static const int kZFieldNumber = 8;
+  float z(int index) const;
+  void set_z(int index, float value);
+  void add_z(float value);
+  const ::google::protobuf::RepeatedField< float >&
+      z() const;
+  ::google::protobuf::RepeatedField< float >*
+      mutable_z();
+
   // required int32 source = 1 [(.dccl.field) = {
   bool has_source() const;
   void clear_source();
@@ -3592,21 +3684,7 @@ class MultiWaypointXYZCommand : public ::google::protobuf::Message /* @@protoc_i
   ::MultiWaypointXYZCommand_Mode mode() const;
   void set_mode(::MultiWaypointXYZCommand_Mode value);
 
-  // required float y = 7 [(.dccl.field) = {
-  bool has_y() const;
-  void clear_y();
-  static const int kYFieldNumber = 7;
-  float y() const;
-  void set_y(float value);
-
-  // required float z = 8 [(.dccl.field) = {
-  bool has_z() const;
-  void clear_z();
-  static const int kZFieldNumber = 8;
-  float z() const;
-  void set_z(float value);
-
-  // required bool end = 9 [(.dccl.field) = {
+  // optional bool end = 9 [(.dccl.field) = {
   bool has_end() const;
   void clear_end();
   static const int kEndFieldNumber = 9;
@@ -3623,10 +3701,6 @@ class MultiWaypointXYZCommand : public ::google::protobuf::Message /* @@protoc_i
   void clear_has_time();
   void set_has_mode();
   void clear_has_mode();
-  void set_has_y();
-  void clear_has_y();
-  void set_has_z();
-  void clear_has_z();
   void set_has_end();
   void clear_has_end();
 
@@ -3638,12 +3712,12 @@ class MultiWaypointXYZCommand : public ::google::protobuf::Message /* @@protoc_i
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > wpt_num_;
   ::google::protobuf::RepeatedField< float > x_;
+  ::google::protobuf::RepeatedField< float > y_;
+  ::google::protobuf::RepeatedField< float > z_;
   ::google::protobuf::int32 source_;
   ::google::protobuf::int32 destination_;
   double time_;
   int mode_;
-  float y_;
-  float z_;
   bool end_;
   friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
 };
@@ -3934,30 +4008,30 @@ class ExecuteWaypoints : public ::google::protobuf::Message /* @@protoc_insertio
 
   // nested types ----------------------------------------------------
 
-  typedef ExecuteWaypoints_WaypointMode WaypointMode;
-  static const WaypointMode APPEND =
-    ExecuteWaypoints_WaypointMode_APPEND;
-  static const WaypointMode UPDATE =
-    ExecuteWaypoints_WaypointMode_UPDATE;
-  static inline bool WaypointMode_IsValid(int value) {
-    return ExecuteWaypoints_WaypointMode_IsValid(value);
+  typedef ExecuteWaypoints_ExecuteMode ExecuteMode;
+  static const ExecuteMode APPEND =
+    ExecuteWaypoints_ExecuteMode_APPEND;
+  static const ExecuteMode UPDATE =
+    ExecuteWaypoints_ExecuteMode_UPDATE;
+  static inline bool ExecuteMode_IsValid(int value) {
+    return ExecuteWaypoints_ExecuteMode_IsValid(value);
   }
-  static const WaypointMode WaypointMode_MIN =
-    ExecuteWaypoints_WaypointMode_WaypointMode_MIN;
-  static const WaypointMode WaypointMode_MAX =
-    ExecuteWaypoints_WaypointMode_WaypointMode_MAX;
-  static const int WaypointMode_ARRAYSIZE =
-    ExecuteWaypoints_WaypointMode_WaypointMode_ARRAYSIZE;
+  static const ExecuteMode ExecuteMode_MIN =
+    ExecuteWaypoints_ExecuteMode_ExecuteMode_MIN;
+  static const ExecuteMode ExecuteMode_MAX =
+    ExecuteWaypoints_ExecuteMode_ExecuteMode_MAX;
+  static const int ExecuteMode_ARRAYSIZE =
+    ExecuteWaypoints_ExecuteMode_ExecuteMode_ARRAYSIZE;
   static inline const ::google::protobuf::EnumDescriptor*
-  WaypointMode_descriptor() {
-    return ExecuteWaypoints_WaypointMode_descriptor();
+  ExecuteMode_descriptor() {
+    return ExecuteWaypoints_ExecuteMode_descriptor();
   }
-  static inline const ::std::string& WaypointMode_Name(WaypointMode value) {
-    return ExecuteWaypoints_WaypointMode_Name(value);
+  static inline const ::std::string& ExecuteMode_Name(ExecuteMode value) {
+    return ExecuteWaypoints_ExecuteMode_Name(value);
   }
-  static inline bool WaypointMode_Parse(const ::std::string& name,
-      WaypointMode* value) {
-    return ExecuteWaypoints_WaypointMode_Parse(name, value);
+  static inline bool ExecuteMode_Parse(const ::std::string& name,
+      ExecuteMode* value) {
+    return ExecuteWaypoints_ExecuteMode_Parse(name, value);
   }
 
   // accessors -------------------------------------------------------
@@ -3990,12 +4064,12 @@ class ExecuteWaypoints : public ::google::protobuf::Message /* @@protoc_insertio
   bool execute() const;
   void set_execute(bool value);
 
-  // required .ExecuteWaypoints.WaypointMode mode = 5;
+  // required .ExecuteWaypoints.ExecuteMode mode = 5;
   bool has_mode() const;
   void clear_mode();
   static const int kModeFieldNumber = 5;
-  ::ExecuteWaypoints_WaypointMode mode() const;
-  void set_mode(::ExecuteWaypoints_WaypointMode value);
+  ::ExecuteWaypoints_ExecuteMode mode() const;
+  void set_mode(::ExecuteWaypoints_ExecuteMode value);
 
   // @@protoc_insertion_point(class_scope:ExecuteWaypoints)
  private:
@@ -5142,26 +5216,51 @@ inline void ControllerStateCommand::set_time(double value) {
   // @@protoc_insertion_point(field_set:ControllerStateCommand.time)
 }
 
-// required .ControllerStateCommand.State state = 4;
-inline bool ControllerStateCommand::has_state() const {
+// required .ControllerStateCommand.Mode mode = 4;
+inline bool ControllerStateCommand::has_mode() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void ControllerStateCommand::set_has_state() {
+inline void ControllerStateCommand::set_has_mode() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void ControllerStateCommand::clear_has_state() {
+inline void ControllerStateCommand::clear_has_mode() {
   _has_bits_[0] &= ~0x00000008u;
+}
+inline void ControllerStateCommand::clear_mode() {
+  mode_ = 0;
+  clear_has_mode();
+}
+inline ::ControllerStateCommand_Mode ControllerStateCommand::mode() const {
+  // @@protoc_insertion_point(field_get:ControllerStateCommand.mode)
+  return static_cast< ::ControllerStateCommand_Mode >(mode_);
+}
+inline void ControllerStateCommand::set_mode(::ControllerStateCommand_Mode value) {
+  assert(::ControllerStateCommand_Mode_IsValid(value));
+  set_has_mode();
+  mode_ = value;
+  // @@protoc_insertion_point(field_set:ControllerStateCommand.mode)
+}
+
+// optional .ControllerStateCommand.ControllerState state = 5 [(.dccl.field) = {
+inline bool ControllerStateCommand::has_state() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void ControllerStateCommand::set_has_state() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void ControllerStateCommand::clear_has_state() {
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void ControllerStateCommand::clear_state() {
   state_ = 0;
   clear_has_state();
 }
-inline ::ControllerStateCommand_State ControllerStateCommand::state() const {
+inline ::ControllerStateCommand_ControllerState ControllerStateCommand::state() const {
   // @@protoc_insertion_point(field_get:ControllerStateCommand.state)
-  return static_cast< ::ControllerStateCommand_State >(state_);
+  return static_cast< ::ControllerStateCommand_ControllerState >(state_);
 }
-inline void ControllerStateCommand::set_state(::ControllerStateCommand_State value) {
-  assert(::ControllerStateCommand_State_IsValid(value));
+inline void ControllerStateCommand::set_state(::ControllerStateCommand_ControllerState value) {
+  assert(::ControllerStateCommand_ControllerState_IsValid(value));
   set_has_state();
   state_ = value;
   // @@protoc_insertion_point(field_set:ControllerStateCommand.state)
@@ -5243,26 +5342,51 @@ inline void ControllerStateResponse::set_time(double value) {
   // @@protoc_insertion_point(field_set:ControllerStateResponse.time)
 }
 
-// required .ControllerStateResponse.State state = 4;
-inline bool ControllerStateResponse::has_state() const {
+// required .ControllerStateResponse.Mode mode = 4;
+inline bool ControllerStateResponse::has_mode() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void ControllerStateResponse::set_has_state() {
+inline void ControllerStateResponse::set_has_mode() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void ControllerStateResponse::clear_has_state() {
+inline void ControllerStateResponse::clear_has_mode() {
   _has_bits_[0] &= ~0x00000008u;
+}
+inline void ControllerStateResponse::clear_mode() {
+  mode_ = 0;
+  clear_has_mode();
+}
+inline ::ControllerStateResponse_Mode ControllerStateResponse::mode() const {
+  // @@protoc_insertion_point(field_get:ControllerStateResponse.mode)
+  return static_cast< ::ControllerStateResponse_Mode >(mode_);
+}
+inline void ControllerStateResponse::set_mode(::ControllerStateResponse_Mode value) {
+  assert(::ControllerStateResponse_Mode_IsValid(value));
+  set_has_mode();
+  mode_ = value;
+  // @@protoc_insertion_point(field_set:ControllerStateResponse.mode)
+}
+
+// optional .ControllerStateResponse.ControllerState state = 5 [(.dccl.field) = {
+inline bool ControllerStateResponse::has_state() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void ControllerStateResponse::set_has_state() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void ControllerStateResponse::clear_has_state() {
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void ControllerStateResponse::clear_state() {
   state_ = 0;
   clear_has_state();
 }
-inline ::ControllerStateResponse_State ControllerStateResponse::state() const {
+inline ::ControllerStateResponse_ControllerState ControllerStateResponse::state() const {
   // @@protoc_insertion_point(field_get:ControllerStateResponse.state)
-  return static_cast< ::ControllerStateResponse_State >(state_);
+  return static_cast< ::ControllerStateResponse_ControllerState >(state_);
 }
-inline void ControllerStateResponse::set_state(::ControllerStateResponse_State value) {
-  assert(::ControllerStateResponse_State_IsValid(value));
+inline void ControllerStateResponse::set_state(::ControllerStateResponse_ControllerState value) {
+  assert(::ControllerStateResponse_ControllerState_IsValid(value));
   set_has_state();
   state_ = value;
   // @@protoc_insertion_point(field_set:ControllerStateResponse.state)
@@ -5659,229 +5783,229 @@ inline void DirectControlCommand::set_r(float value) {
 
 // -------------------------------------------------------------------
 
-// StateCommand
+// HelmStateCommand
 
 // required int32 source = 1 [(.dccl.field) = {
-inline bool StateCommand::has_source() const {
+inline bool HelmStateCommand::has_source() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void StateCommand::set_has_source() {
+inline void HelmStateCommand::set_has_source() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void StateCommand::clear_has_source() {
+inline void HelmStateCommand::clear_has_source() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void StateCommand::clear_source() {
+inline void HelmStateCommand::clear_source() {
   source_ = 0;
   clear_has_source();
 }
-inline ::google::protobuf::int32 StateCommand::source() const {
-  // @@protoc_insertion_point(field_get:StateCommand.source)
+inline ::google::protobuf::int32 HelmStateCommand::source() const {
+  // @@protoc_insertion_point(field_get:HelmStateCommand.source)
   return source_;
 }
-inline void StateCommand::set_source(::google::protobuf::int32 value) {
+inline void HelmStateCommand::set_source(::google::protobuf::int32 value) {
   set_has_source();
   source_ = value;
-  // @@protoc_insertion_point(field_set:StateCommand.source)
+  // @@protoc_insertion_point(field_set:HelmStateCommand.source)
 }
 
 // required int32 destination = 2 [(.dccl.field) = {
-inline bool StateCommand::has_destination() const {
+inline bool HelmStateCommand::has_destination() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void StateCommand::set_has_destination() {
+inline void HelmStateCommand::set_has_destination() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void StateCommand::clear_has_destination() {
+inline void HelmStateCommand::clear_has_destination() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void StateCommand::clear_destination() {
+inline void HelmStateCommand::clear_destination() {
   destination_ = 0;
   clear_has_destination();
 }
-inline ::google::protobuf::int32 StateCommand::destination() const {
-  // @@protoc_insertion_point(field_get:StateCommand.destination)
+inline ::google::protobuf::int32 HelmStateCommand::destination() const {
+  // @@protoc_insertion_point(field_get:HelmStateCommand.destination)
   return destination_;
 }
-inline void StateCommand::set_destination(::google::protobuf::int32 value) {
+inline void HelmStateCommand::set_destination(::google::protobuf::int32 value) {
   set_has_destination();
   destination_ = value;
-  // @@protoc_insertion_point(field_set:StateCommand.destination)
+  // @@protoc_insertion_point(field_set:HelmStateCommand.destination)
 }
 
 // optional double time = 3 [(.dccl.field) = {
-inline bool StateCommand::has_time() const {
+inline bool HelmStateCommand::has_time() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void StateCommand::set_has_time() {
+inline void HelmStateCommand::set_has_time() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void StateCommand::clear_has_time() {
+inline void HelmStateCommand::clear_has_time() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void StateCommand::clear_time() {
+inline void HelmStateCommand::clear_time() {
   time_ = 0;
   clear_has_time();
 }
-inline double StateCommand::time() const {
-  // @@protoc_insertion_point(field_get:StateCommand.time)
+inline double HelmStateCommand::time() const {
+  // @@protoc_insertion_point(field_get:HelmStateCommand.time)
   return time_;
 }
-inline void StateCommand::set_time(double value) {
+inline void HelmStateCommand::set_time(double value) {
   set_has_time();
   time_ = value;
-  // @@protoc_insertion_point(field_set:StateCommand.time)
+  // @@protoc_insertion_point(field_set:HelmStateCommand.time)
 }
 
-// required .StateCommand.Mode mode = 4;
-inline bool StateCommand::has_mode() const {
+// required .HelmStateCommand.Mode mode = 4;
+inline bool HelmStateCommand::has_mode() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void StateCommand::set_has_mode() {
+inline void HelmStateCommand::set_has_mode() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void StateCommand::clear_has_mode() {
+inline void HelmStateCommand::clear_has_mode() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void StateCommand::clear_mode() {
+inline void HelmStateCommand::clear_mode() {
   mode_ = 0;
   clear_has_mode();
 }
-inline ::StateCommand_Mode StateCommand::mode() const {
-  // @@protoc_insertion_point(field_get:StateCommand.mode)
-  return static_cast< ::StateCommand_Mode >(mode_);
+inline ::HelmStateCommand_Mode HelmStateCommand::mode() const {
+  // @@protoc_insertion_point(field_get:HelmStateCommand.mode)
+  return static_cast< ::HelmStateCommand_Mode >(mode_);
 }
-inline void StateCommand::set_mode(::StateCommand_Mode value) {
-  assert(::StateCommand_Mode_IsValid(value));
+inline void HelmStateCommand::set_mode(::HelmStateCommand_Mode value) {
+  assert(::HelmStateCommand_Mode_IsValid(value));
   set_has_mode();
   mode_ = value;
-  // @@protoc_insertion_point(field_set:StateCommand.mode)
+  // @@protoc_insertion_point(field_set:HelmStateCommand.mode)
 }
 
-// optional .StateCommand.State state = 5 [(.dccl.field) = {
-inline bool StateCommand::has_state() const {
+// optional .HelmStateCommand.HelmState state = 5 [(.dccl.field) = {
+inline bool HelmStateCommand::has_state() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void StateCommand::set_has_state() {
+inline void HelmStateCommand::set_has_state() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void StateCommand::clear_has_state() {
+inline void HelmStateCommand::clear_has_state() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void StateCommand::clear_state() {
+inline void HelmStateCommand::clear_state() {
   state_ = 0;
   clear_has_state();
 }
-inline ::StateCommand_State StateCommand::state() const {
-  // @@protoc_insertion_point(field_get:StateCommand.state)
-  return static_cast< ::StateCommand_State >(state_);
+inline ::HelmStateCommand_HelmState HelmStateCommand::state() const {
+  // @@protoc_insertion_point(field_get:HelmStateCommand.state)
+  return static_cast< ::HelmStateCommand_HelmState >(state_);
 }
-inline void StateCommand::set_state(::StateCommand_State value) {
-  assert(::StateCommand_State_IsValid(value));
+inline void HelmStateCommand::set_state(::HelmStateCommand_HelmState value) {
+  assert(::HelmStateCommand_HelmState_IsValid(value));
   set_has_state();
   state_ = value;
-  // @@protoc_insertion_point(field_set:StateCommand.state)
+  // @@protoc_insertion_point(field_set:HelmStateCommand.state)
 }
 
 // -------------------------------------------------------------------
 
-// StateResponse
+// HelmStateResponse
 
 // required int32 source = 1 [(.dccl.field) = {
-inline bool StateResponse::has_source() const {
+inline bool HelmStateResponse::has_source() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void StateResponse::set_has_source() {
+inline void HelmStateResponse::set_has_source() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void StateResponse::clear_has_source() {
+inline void HelmStateResponse::clear_has_source() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void StateResponse::clear_source() {
+inline void HelmStateResponse::clear_source() {
   source_ = 0;
   clear_has_source();
 }
-inline ::google::protobuf::int32 StateResponse::source() const {
-  // @@protoc_insertion_point(field_get:StateResponse.source)
+inline ::google::protobuf::int32 HelmStateResponse::source() const {
+  // @@protoc_insertion_point(field_get:HelmStateResponse.source)
   return source_;
 }
-inline void StateResponse::set_source(::google::protobuf::int32 value) {
+inline void HelmStateResponse::set_source(::google::protobuf::int32 value) {
   set_has_source();
   source_ = value;
-  // @@protoc_insertion_point(field_set:StateResponse.source)
+  // @@protoc_insertion_point(field_set:HelmStateResponse.source)
 }
 
 // required int32 destination = 2 [(.dccl.field) = {
-inline bool StateResponse::has_destination() const {
+inline bool HelmStateResponse::has_destination() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void StateResponse::set_has_destination() {
+inline void HelmStateResponse::set_has_destination() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void StateResponse::clear_has_destination() {
+inline void HelmStateResponse::clear_has_destination() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void StateResponse::clear_destination() {
+inline void HelmStateResponse::clear_destination() {
   destination_ = 0;
   clear_has_destination();
 }
-inline ::google::protobuf::int32 StateResponse::destination() const {
-  // @@protoc_insertion_point(field_get:StateResponse.destination)
+inline ::google::protobuf::int32 HelmStateResponse::destination() const {
+  // @@protoc_insertion_point(field_get:HelmStateResponse.destination)
   return destination_;
 }
-inline void StateResponse::set_destination(::google::protobuf::int32 value) {
+inline void HelmStateResponse::set_destination(::google::protobuf::int32 value) {
   set_has_destination();
   destination_ = value;
-  // @@protoc_insertion_point(field_set:StateResponse.destination)
+  // @@protoc_insertion_point(field_set:HelmStateResponse.destination)
 }
 
 // optional double time = 3 [(.dccl.field) = {
-inline bool StateResponse::has_time() const {
+inline bool HelmStateResponse::has_time() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void StateResponse::set_has_time() {
+inline void HelmStateResponse::set_has_time() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void StateResponse::clear_has_time() {
+inline void HelmStateResponse::clear_has_time() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void StateResponse::clear_time() {
+inline void HelmStateResponse::clear_time() {
   time_ = 0;
   clear_has_time();
 }
-inline double StateResponse::time() const {
-  // @@protoc_insertion_point(field_get:StateResponse.time)
+inline double HelmStateResponse::time() const {
+  // @@protoc_insertion_point(field_get:HelmStateResponse.time)
   return time_;
 }
-inline void StateResponse::set_time(double value) {
+inline void HelmStateResponse::set_time(double value) {
   set_has_time();
   time_ = value;
-  // @@protoc_insertion_point(field_set:StateResponse.time)
+  // @@protoc_insertion_point(field_set:HelmStateResponse.time)
 }
 
-// required .StateResponse.State state = 4;
-inline bool StateResponse::has_state() const {
+// required .HelmStateResponse.HelmState state = 4;
+inline bool HelmStateResponse::has_state() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void StateResponse::set_has_state() {
+inline void HelmStateResponse::set_has_state() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void StateResponse::clear_has_state() {
+inline void HelmStateResponse::clear_has_state() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void StateResponse::clear_state() {
+inline void HelmStateResponse::clear_state() {
   state_ = 0;
   clear_has_state();
 }
-inline ::StateResponse_State StateResponse::state() const {
-  // @@protoc_insertion_point(field_get:StateResponse.state)
-  return static_cast< ::StateResponse_State >(state_);
+inline ::HelmStateResponse_HelmState HelmStateResponse::state() const {
+  // @@protoc_insertion_point(field_get:HelmStateResponse.state)
+  return static_cast< ::HelmStateResponse_HelmState >(state_);
 }
-inline void StateResponse::set_state(::StateResponse_State value) {
-  assert(::StateResponse_State_IsValid(value));
+inline void HelmStateResponse::set_state(::HelmStateResponse_HelmState value) {
+  assert(::HelmStateResponse_HelmState_IsValid(value));
   set_has_state();
   state_ = value;
-  // @@protoc_insertion_point(field_set:StateResponse.state)
+  // @@protoc_insertion_point(field_set:HelmStateResponse.state)
 }
 
 // -------------------------------------------------------------------
@@ -5960,29 +6084,29 @@ inline void SingleWaypointCommand::set_time(double value) {
   // @@protoc_insertion_point(field_set:SingleWaypointCommand.time)
 }
 
-// required .SingleWaypointCommand.Mode mode = 4;
-inline bool SingleWaypointCommand::has_mode() const {
+// required .SingleWaypointCommand.WaypointMode waypoint_mode = 4;
+inline bool SingleWaypointCommand::has_waypoint_mode() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void SingleWaypointCommand::set_has_mode() {
+inline void SingleWaypointCommand::set_has_waypoint_mode() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void SingleWaypointCommand::clear_has_mode() {
+inline void SingleWaypointCommand::clear_has_waypoint_mode() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void SingleWaypointCommand::clear_mode() {
-  mode_ = 0;
-  clear_has_mode();
+inline void SingleWaypointCommand::clear_waypoint_mode() {
+  waypoint_mode_ = 0;
+  clear_has_waypoint_mode();
 }
-inline ::SingleWaypointCommand_Mode SingleWaypointCommand::mode() const {
-  // @@protoc_insertion_point(field_get:SingleWaypointCommand.mode)
-  return static_cast< ::SingleWaypointCommand_Mode >(mode_);
+inline ::SingleWaypointCommand_WaypointMode SingleWaypointCommand::waypoint_mode() const {
+  // @@protoc_insertion_point(field_get:SingleWaypointCommand.waypoint_mode)
+  return static_cast< ::SingleWaypointCommand_WaypointMode >(waypoint_mode_);
 }
-inline void SingleWaypointCommand::set_mode(::SingleWaypointCommand_Mode value) {
-  assert(::SingleWaypointCommand_Mode_IsValid(value));
-  set_has_mode();
-  mode_ = value;
-  // @@protoc_insertion_point(field_set:SingleWaypointCommand.mode)
+inline void SingleWaypointCommand::set_waypoint_mode(::SingleWaypointCommand_WaypointMode value) {
+  assert(::SingleWaypointCommand_WaypointMode_IsValid(value));
+  set_has_waypoint_mode();
+  waypoint_mode_ = value;
+  // @@protoc_insertion_point(field_set:SingleWaypointCommand.waypoint_mode)
 }
 
 // optional double latitude = 5 [(.dccl.field) = {
@@ -6598,7 +6722,7 @@ inline void MultiWaypointGPSResponse::set_destination(::google::protobuf::int32 
   // @@protoc_insertion_point(field_set:MultiWaypointGPSResponse.destination)
 }
 
-// optional double time = 3 [(.dccl.field) = {
+// required double time = 3 [(.dccl.field) = {
 inline bool MultiWaypointGPSResponse::has_time() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -6622,28 +6746,34 @@ inline void MultiWaypointGPSResponse::set_time(double value) {
   // @@protoc_insertion_point(field_set:MultiWaypointGPSResponse.time)
 }
 
-// required int32 wpt_num = 4 [(.dccl.field) = {
-inline bool MultiWaypointGPSResponse::has_wpt_num() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void MultiWaypointGPSResponse::set_has_wpt_num() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void MultiWaypointGPSResponse::clear_has_wpt_num() {
-  _has_bits_[0] &= ~0x00000008u;
+// repeated int32 wpt_num = 4 [(.dccl.field) = {
+inline int MultiWaypointGPSResponse::wpt_num_size() const {
+  return wpt_num_.size();
 }
 inline void MultiWaypointGPSResponse::clear_wpt_num() {
-  wpt_num_ = 0;
-  clear_has_wpt_num();
+  wpt_num_.Clear();
 }
-inline ::google::protobuf::int32 MultiWaypointGPSResponse::wpt_num() const {
+inline ::google::protobuf::int32 MultiWaypointGPSResponse::wpt_num(int index) const {
   // @@protoc_insertion_point(field_get:MultiWaypointGPSResponse.wpt_num)
+  return wpt_num_.Get(index);
+}
+inline void MultiWaypointGPSResponse::set_wpt_num(int index, ::google::protobuf::int32 value) {
+  wpt_num_.Set(index, value);
+  // @@protoc_insertion_point(field_set:MultiWaypointGPSResponse.wpt_num)
+}
+inline void MultiWaypointGPSResponse::add_wpt_num(::google::protobuf::int32 value) {
+  wpt_num_.Add(value);
+  // @@protoc_insertion_point(field_add:MultiWaypointGPSResponse.wpt_num)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+MultiWaypointGPSResponse::wpt_num() const {
+  // @@protoc_insertion_point(field_list:MultiWaypointGPSResponse.wpt_num)
   return wpt_num_;
 }
-inline void MultiWaypointGPSResponse::set_wpt_num(::google::protobuf::int32 value) {
-  set_has_wpt_num();
-  wpt_num_ = value;
-  // @@protoc_insertion_point(field_set:MultiWaypointGPSResponse.wpt_num)
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+MultiWaypointGPSResponse::mutable_wpt_num() {
+  // @@protoc_insertion_point(field_mutable_list:MultiWaypointGPSResponse.wpt_num)
+  return &wpt_num_;
 }
 
 // repeated double latitude = 5 [(.dccl.field) = {
@@ -6738,13 +6868,13 @@ MultiWaypointGPSResponse::mutable_z() {
 
 // optional bool end = 8;
 inline bool MultiWaypointGPSResponse::has_end() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void MultiWaypointGPSResponse::set_has_end() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void MultiWaypointGPSResponse::clear_has_end() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void MultiWaypointGPSResponse::clear_end() {
   end_ = false;
@@ -6921,63 +7051,75 @@ MultiWaypointXYZCommand::mutable_x() {
   return &x_;
 }
 
-// required float y = 7 [(.dccl.field) = {
-inline bool MultiWaypointXYZCommand::has_y() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void MultiWaypointXYZCommand::set_has_y() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void MultiWaypointXYZCommand::clear_has_y() {
-  _has_bits_[0] &= ~0x00000010u;
+// repeated float y = 7 [(.dccl.field) = {
+inline int MultiWaypointXYZCommand::y_size() const {
+  return y_.size();
 }
 inline void MultiWaypointXYZCommand::clear_y() {
-  y_ = 0;
-  clear_has_y();
+  y_.Clear();
 }
-inline float MultiWaypointXYZCommand::y() const {
+inline float MultiWaypointXYZCommand::y(int index) const {
   // @@protoc_insertion_point(field_get:MultiWaypointXYZCommand.y)
-  return y_;
+  return y_.Get(index);
 }
-inline void MultiWaypointXYZCommand::set_y(float value) {
-  set_has_y();
-  y_ = value;
+inline void MultiWaypointXYZCommand::set_y(int index, float value) {
+  y_.Set(index, value);
   // @@protoc_insertion_point(field_set:MultiWaypointXYZCommand.y)
 }
+inline void MultiWaypointXYZCommand::add_y(float value) {
+  y_.Add(value);
+  // @@protoc_insertion_point(field_add:MultiWaypointXYZCommand.y)
+}
+inline const ::google::protobuf::RepeatedField< float >&
+MultiWaypointXYZCommand::y() const {
+  // @@protoc_insertion_point(field_list:MultiWaypointXYZCommand.y)
+  return y_;
+}
+inline ::google::protobuf::RepeatedField< float >*
+MultiWaypointXYZCommand::mutable_y() {
+  // @@protoc_insertion_point(field_mutable_list:MultiWaypointXYZCommand.y)
+  return &y_;
+}
 
-// required float z = 8 [(.dccl.field) = {
-inline bool MultiWaypointXYZCommand::has_z() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void MultiWaypointXYZCommand::set_has_z() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void MultiWaypointXYZCommand::clear_has_z() {
-  _has_bits_[0] &= ~0x00000020u;
+// repeated float z = 8 [(.dccl.field) = {
+inline int MultiWaypointXYZCommand::z_size() const {
+  return z_.size();
 }
 inline void MultiWaypointXYZCommand::clear_z() {
-  z_ = 0;
-  clear_has_z();
+  z_.Clear();
 }
-inline float MultiWaypointXYZCommand::z() const {
+inline float MultiWaypointXYZCommand::z(int index) const {
   // @@protoc_insertion_point(field_get:MultiWaypointXYZCommand.z)
-  return z_;
+  return z_.Get(index);
 }
-inline void MultiWaypointXYZCommand::set_z(float value) {
-  set_has_z();
-  z_ = value;
+inline void MultiWaypointXYZCommand::set_z(int index, float value) {
+  z_.Set(index, value);
   // @@protoc_insertion_point(field_set:MultiWaypointXYZCommand.z)
 }
+inline void MultiWaypointXYZCommand::add_z(float value) {
+  z_.Add(value);
+  // @@protoc_insertion_point(field_add:MultiWaypointXYZCommand.z)
+}
+inline const ::google::protobuf::RepeatedField< float >&
+MultiWaypointXYZCommand::z() const {
+  // @@protoc_insertion_point(field_list:MultiWaypointXYZCommand.z)
+  return z_;
+}
+inline ::google::protobuf::RepeatedField< float >*
+MultiWaypointXYZCommand::mutable_z() {
+  // @@protoc_insertion_point(field_mutable_list:MultiWaypointXYZCommand.z)
+  return &z_;
+}
 
-// required bool end = 9 [(.dccl.field) = {
+// optional bool end = 9 [(.dccl.field) = {
 inline bool MultiWaypointXYZCommand::has_end() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void MultiWaypointXYZCommand::set_has_end() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void MultiWaypointXYZCommand::clear_has_end() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void MultiWaypointXYZCommand::clear_end() {
   end_ = false;
@@ -7301,7 +7443,7 @@ inline void ExecuteWaypoints::set_execute(bool value) {
   // @@protoc_insertion_point(field_set:ExecuteWaypoints.execute)
 }
 
-// required .ExecuteWaypoints.WaypointMode mode = 5;
+// required .ExecuteWaypoints.ExecuteMode mode = 5;
 inline bool ExecuteWaypoints::has_mode() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -7315,12 +7457,12 @@ inline void ExecuteWaypoints::clear_mode() {
   mode_ = 0;
   clear_has_mode();
 }
-inline ::ExecuteWaypoints_WaypointMode ExecuteWaypoints::mode() const {
+inline ::ExecuteWaypoints_ExecuteMode ExecuteWaypoints::mode() const {
   // @@protoc_insertion_point(field_get:ExecuteWaypoints.mode)
-  return static_cast< ::ExecuteWaypoints_WaypointMode >(mode_);
+  return static_cast< ::ExecuteWaypoints_ExecuteMode >(mode_);
 }
-inline void ExecuteWaypoints::set_mode(::ExecuteWaypoints_WaypointMode value) {
-  assert(::ExecuteWaypoints_WaypointMode_IsValid(value));
+inline void ExecuteWaypoints::set_mode(::ExecuteWaypoints_ExecuteMode value) {
+  assert(::ExecuteWaypoints_ExecuteMode_IsValid(value));
   set_has_mode();
   mode_ = value;
   // @@protoc_insertion_point(field_set:ExecuteWaypoints.mode)
@@ -7380,60 +7522,65 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::RelativePoseResponse_Frame>() {
   return ::RelativePoseResponse_Frame_descriptor();
 }
-template <> struct is_proto_enum< ::ControllerStateCommand_State> : ::std::true_type {};
+template <> struct is_proto_enum< ::ControllerStateCommand_Mode> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::ControllerStateCommand_State>() {
-  return ::ControllerStateCommand_State_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::ControllerStateCommand_Mode>() {
+  return ::ControllerStateCommand_Mode_descriptor();
 }
-template <> struct is_proto_enum< ::ControllerStateResponse_State> : ::std::true_type {};
+template <> struct is_proto_enum< ::ControllerStateCommand_ControllerState> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::ControllerStateResponse_State>() {
-  return ::ControllerStateResponse_State_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::ControllerStateCommand_ControllerState>() {
+  return ::ControllerStateCommand_ControllerState_descriptor();
+}
+template <> struct is_proto_enum< ::ControllerStateResponse_Mode> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ControllerStateResponse_Mode>() {
+  return ::ControllerStateResponse_Mode_descriptor();
+}
+template <> struct is_proto_enum< ::ControllerStateResponse_ControllerState> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ControllerStateResponse_ControllerState>() {
+  return ::ControllerStateResponse_ControllerState_descriptor();
 }
 template <> struct is_proto_enum< ::DirectControlCommand_Frame> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::DirectControlCommand_Frame>() {
   return ::DirectControlCommand_Frame_descriptor();
 }
-template <> struct is_proto_enum< ::StateCommand_Mode> : ::std::true_type {};
+template <> struct is_proto_enum< ::HelmStateCommand_Mode> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::StateCommand_Mode>() {
-  return ::StateCommand_Mode_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::HelmStateCommand_Mode>() {
+  return ::HelmStateCommand_Mode_descriptor();
 }
-template <> struct is_proto_enum< ::StateCommand_State> : ::std::true_type {};
+template <> struct is_proto_enum< ::HelmStateCommand_HelmState> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::StateCommand_State>() {
-  return ::StateCommand_State_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::HelmStateCommand_HelmState>() {
+  return ::HelmStateCommand_HelmState_descriptor();
 }
-template <> struct is_proto_enum< ::StateResponse_State> : ::std::true_type {};
+template <> struct is_proto_enum< ::HelmStateResponse_HelmState> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::StateResponse_State>() {
-  return ::StateResponse_State_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::HelmStateResponse_HelmState>() {
+  return ::HelmStateResponse_HelmState_descriptor();
 }
-template <> struct is_proto_enum< ::SingleWaypointCommand_Mode> : ::std::true_type {};
+template <> struct is_proto_enum< ::SingleWaypointCommand_WaypointMode> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::SingleWaypointCommand_Mode>() {
-  return ::SingleWaypointCommand_Mode_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::SingleWaypointCommand_WaypointMode>() {
+  return ::SingleWaypointCommand_WaypointMode_descriptor();
 }
 template <> struct is_proto_enum< ::MultiWaypointGPSCommand_Mode> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::MultiWaypointGPSCommand_Mode>() {
   return ::MultiWaypointGPSCommand_Mode_descriptor();
 }
-template <> struct is_proto_enum< ::MultiWaypointGPSResponse_Mode> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::MultiWaypointGPSResponse_Mode>() {
-  return ::MultiWaypointGPSResponse_Mode_descriptor();
-}
 template <> struct is_proto_enum< ::MultiWaypointXYZCommand_Mode> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::MultiWaypointXYZCommand_Mode>() {
   return ::MultiWaypointXYZCommand_Mode_descriptor();
 }
-template <> struct is_proto_enum< ::ExecuteWaypoints_WaypointMode> : ::std::true_type {};
+template <> struct is_proto_enum< ::ExecuteWaypoints_ExecuteMode> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::ExecuteWaypoints_WaypointMode>() {
-  return ::ExecuteWaypoints_WaypointMode_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::ExecuteWaypoints_ExecuteMode>() {
+  return ::ExecuteWaypoints_ExecuteMode_descriptor();
 }
 
 }  // namespace protobuf

@@ -64,16 +64,16 @@ class DirectControlCommandDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<DirectControlCommand>
       _instance;
 } _DirectControlCommand_default_instance_;
-class StateCommandDefaultTypeInternal {
+class HelmStateCommandDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<StateCommand>
+  ::google::protobuf::internal::ExplicitlyConstructed<HelmStateCommand>
       _instance;
-} _StateCommand_default_instance_;
-class StateResponseDefaultTypeInternal {
+} _HelmStateCommand_default_instance_;
+class HelmStateResponseDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<StateResponse>
+  ::google::protobuf::internal::ExplicitlyConstructed<HelmStateResponse>
       _instance;
-} _StateResponse_default_instance_;
+} _HelmStateResponse_default_instance_;
 class SingleWaypointCommandDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<SingleWaypointCommand>
@@ -236,33 +236,33 @@ static void InitDefaultsDirectControlCommand() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_DirectControlCommand =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsDirectControlCommand}, {}};
 
-static void InitDefaultsStateCommand() {
+static void InitDefaultsHelmStateCommand() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_StateCommand_default_instance_;
-    new (ptr) ::StateCommand();
+    void* ptr = &::_HelmStateCommand_default_instance_;
+    new (ptr) ::HelmStateCommand();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::StateCommand::InitAsDefaultInstance();
+  ::HelmStateCommand::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_StateCommand =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsStateCommand}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_HelmStateCommand =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsHelmStateCommand}, {}};
 
-static void InitDefaultsStateResponse() {
+static void InitDefaultsHelmStateResponse() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_StateResponse_default_instance_;
-    new (ptr) ::StateResponse();
+    void* ptr = &::_HelmStateResponse_default_instance_;
+    new (ptr) ::HelmStateResponse();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::StateResponse::InitAsDefaultInstance();
+  ::HelmStateResponse::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_StateResponse =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsStateResponse}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_HelmStateResponse =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsHelmStateResponse}, {}};
 
 static void InitDefaultsSingleWaypointCommand() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -372,8 +372,8 @@ void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_ControllerStateCommand.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ControllerStateResponse.base);
   ::google::protobuf::internal::InitSCC(&scc_info_DirectControlCommand.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_StateCommand.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_StateResponse.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_HelmStateCommand.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_HelmStateResponse.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SingleWaypointCommand.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SingleWaypointResponse.base);
   ::google::protobuf::internal::InitSCC(&scc_info_MultiWaypointGPSCommand.base);
@@ -384,7 +384,7 @@ void InitDefaults() {
 }
 
 ::google::protobuf::Metadata file_level_metadata[18];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[13];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[14];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseCommand, _has_bits_),
@@ -509,11 +509,13 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateCommand, source_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateCommand, destination_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateCommand, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateCommand, mode_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateCommand, state_),
   0,
   1,
   2,
   3,
+  4,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateResponse, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -522,11 +524,13 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateResponse, source_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateResponse, destination_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateResponse, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateResponse, mode_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateResponse, state_),
   0,
   1,
   2,
   3,
+  4,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -564,30 +568,30 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   13,
   14,
   15,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateCommand, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateCommand, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HelmStateCommand, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HelmStateCommand, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateCommand, source_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateCommand, destination_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateCommand, time_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateCommand, mode_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateCommand, state_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HelmStateCommand, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HelmStateCommand, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HelmStateCommand, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HelmStateCommand, mode_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HelmStateCommand, state_),
   0,
   1,
   2,
   3,
   4,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateResponse, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateResponse, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HelmStateResponse, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HelmStateResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateResponse, source_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateResponse, destination_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateResponse, time_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::StateResponse, state_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HelmStateResponse, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HelmStateResponse, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HelmStateResponse, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HelmStateResponse, state_),
   0,
   1,
   2,
@@ -600,7 +604,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointCommand, source_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointCommand, destination_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointCommand, time_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointCommand, mode_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointCommand, waypoint_mode_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointCommand, latitude_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointCommand, longitude_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SingleWaypointCommand, x_),
@@ -675,11 +679,11 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   0,
   1,
   2,
+  ~0u,
+  ~0u,
+  ~0u,
+  ~0u,
   3,
-  ~0u,
-  ~0u,
-  ~0u,
-  4,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZCommand, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZCommand, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -700,9 +704,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   3,
   ~0u,
   ~0u,
+  ~0u,
+  ~0u,
   4,
-  5,
-  6,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZResponse, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::MultiWaypointXYZResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -747,18 +751,18 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 51, 61, sizeof(::HealthResponse)},
   { 66, 76, sizeof(::RelativePoseCommand)},
   { 81, 100, sizeof(::RelativePoseResponse)},
-  { 114, 123, sizeof(::ControllerStateCommand)},
-  { 127, 136, sizeof(::ControllerStateResponse)},
-  { 140, 161, sizeof(::DirectControlCommand)},
-  { 177, 187, sizeof(::StateCommand)},
-  { 192, 201, sizeof(::StateResponse)},
-  { 205, 219, sizeof(::SingleWaypointCommand)},
-  { 228, 241, sizeof(::SingleWaypointResponse)},
-  { 249, 263, sizeof(::MultiWaypointGPSCommand)},
-  { 272, 285, sizeof(::MultiWaypointGPSResponse)},
-  { 293, 307, sizeof(::MultiWaypointXYZCommand)},
-  { 316, 329, sizeof(::MultiWaypointXYZResponse)},
-  { 337, 347, sizeof(::ExecuteWaypoints)},
+  { 114, 124, sizeof(::ControllerStateCommand)},
+  { 129, 139, sizeof(::ControllerStateResponse)},
+  { 144, 165, sizeof(::DirectControlCommand)},
+  { 181, 191, sizeof(::HelmStateCommand)},
+  { 196, 205, sizeof(::HelmStateResponse)},
+  { 209, 223, sizeof(::SingleWaypointCommand)},
+  { 232, 245, sizeof(::SingleWaypointResponse)},
+  { 253, 267, sizeof(::MultiWaypointGPSCommand)},
+  { 276, 289, sizeof(::MultiWaypointGPSResponse)},
+  { 297, 311, sizeof(::MultiWaypointXYZCommand)},
+  { 320, 333, sizeof(::MultiWaypointXYZResponse)},
+  { 341, 351, sizeof(::ExecuteWaypoints)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -771,8 +775,8 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::_ControllerStateCommand_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::_ControllerStateResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::_DirectControlCommand_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::_StateCommand_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::_StateResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_HelmStateCommand_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_HelmStateResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::_SingleWaypointCommand_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::_SingleWaypointResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::_MultiWaypointGPSCommand_default_instance_),
@@ -855,132 +859,140 @@ void AddDescriptorsImpl() {
       "\360\2771\000\000\000\000\000\000\360\?\022\'\n\006quat_w\030\016 \002(\002B\027\242\?\024 \004)\000\000\000\000\000"
       "\000\360\2771\000\000\000\000\000\000\360\?\"5\n\005Frame\022\r\n\tBASE_LINK\020\000\022\010\n\004"
       "ODOM\020\001\022\t\n\005WORLD\020\002\022\010\n\004USBL\020\003:\t\242\?\006\010g\020\037(\004\"\361"
-      "\001\n\026ControllerStateCommand\022\'\n\006source\030\001 \002("
+      "\002\n\026ControllerStateCommand\022\'\n\006source\030\001 \002("
       "\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destinatio"
       "n\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time"
-      "\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022,\n\005state"
-      "\030\004 \002(\0162\035.ControllerStateCommand.State\" \n"
-      "\005State\022\013\n\007DISABLE\020\000\022\n\n\006ENABLE\020\001:\t\242\?\006\010\004\020\037"
-      "(\004\"\363\001\n\027ControllerStateResponse\022\'\n\006source"
-      "\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013desti"
-      "nation\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n"
-      "\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022-\n\005"
-      "state\030\004 \002(\0162\036.ControllerStateResponse.St"
-      "ate\" \n\005State\022\013\n\007DISABLE\020\000\022\n\n\006ENABLE\020\001:\t\242"
-      "\?\006\010h\020\037(\004\"\273\005\n\024DirectControlCommand\022\'\n\006sou"
-      "rce\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013de"
-      "stination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@"
-      "\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022"
-      "*\n\005frame\030\004 \002(\0162\033.DirectControlCommand.Fr"
-      "ame\022\"\n\001x\030\005 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@\022"
-      "\"\n\001y\030\006 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@\022\"\n\001z"
-      "\030\007 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@\022%\n\004roll\030"
-      "\010 \002(\002B\027\242\?\024 \002)\037\205\353Q\270\036\371\2771\037\205\353Q\270\036\371\?\022&\n\005pitch\030"
-      "\t \002(\002B\027\242\?\024 \002)\037\205\353Q\270\036\371\2771\037\205\353Q\270\036\371\?\022$\n\003yaw\030\n "
-      "\002(\002B\027\242\?\024 \002)\000\000\000\000\000\000\000\0001\037\205\353Q\270\036\t@\022\"\n\001u\030\013 \002(\002B"
-      "\027\242\?\024 \002)\000\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@\022\"\n\001v\030\014 \002(\002B\027\242\?\024"
-      " \002)\000\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@\022\"\n\001w\030\r \002(\002B\027\242\?\024 \002)\000"
-      "\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@\022\"\n\001p\030\016 \002(\002B\027\242\?\024 \002)\000\000\000\000\000"
-      "\000\000\3001\000\000\000\000\000\000\000@\022\"\n\001q\030\017 \002(\002B\027\242\?\024 \002)\000\000\000\000\000\000\000\3001"
-      "\000\000\000\000\000\000\000@\022\"\n\001r\030\020 \002(\002B\027\242\?\024 \002)\000\000\000\000\000\000\000\3001\000\000\000\000"
-      "\000\000\000@\"5\n\005Frame\022\r\n\tBASE_LINK\020\000\022\010\n\004ODOM\020\001\022\t"
-      "\n\005WORLD\020\002\022\010\n\004USBL\020\003:\t\242\?\006\010\005\020\037(\004\"\203\003\n\014State"
-      "Command\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001"
-      "\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000"
-      "\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@"
-      "3\354\330A1\000\000\000 \3666\334A\022 \n\004mode\030\004 \002(\0162\022.StateComma"
-      "nd.Mode\022B\n\005state\030\005 \001(\0162\023.StateCommand.St"
-      "ateB\036\242\?\033\302\002\030\032\026this.mode == \'COMMAND\'\"\036\n\004M"
-      "ode\022\t\n\005QUERY\020\000\022\013\n\007COMMAND\020\001\"d\n\005State\022\010\n\004"
-      "KILL\020\000\022\t\n\005START\020\001\022\020\n\014SURVEY_LOCAL\020\002\022\021\n\rS"
-      "URVEY_GLOBAL\020\003\022\022\n\016DIRECT_CONTROL\020\004\022\r\n\tSU"
-      "RVEY_3D\020\005:\t\242\?\006\010\006\020\037(\004\"\243\002\n\rStateResponse\022\'"
+      "\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022*\n\004mode\030"
+      "\004 \002(\0162\034.ControllerStateCommand.Mode\022V\n\005s"
+      "tate\030\005 \001(\0162\'.ControllerStateCommand.Cont"
+      "rollerStateB\036\242\?\033\302\002\030\032\026this.mode == \'COMMA"
+      "ND\'\"\036\n\004Mode\022\t\n\005QUERY\020\000\022\013\n\007COMMAND\020\001\"*\n\017C"
+      "ontrollerState\022\013\n\007DISABLE\020\000\022\n\n\006ENABLE\020\001:"
+      "\t\242\?\006\010\004\020\037(\004\"\362\002\n\027ControllerStateResponse\022\'"
       "\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022"
       ",\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000"
       "\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 "
-      "\3666\334A\022#\n\005state\030\004 \002(\0162\024.StateResponse.Stat"
-      "e\"d\n\005State\022\010\n\004KILL\020\000\022\t\n\005START\020\001\022\020\n\014SURVE"
-      "Y_LOCAL\020\002\022\021\n\rSURVEY_GLOBAL\020\003\022\022\n\016DIRECT_C"
-      "ONTROL\020\004\022\r\n\tSURVEY_3D\020\005:\t\242\?\006\010j\020\037(\004\"\352\004\n\025S"
-      "ingleWaypointCommand\022\'\n\006source\030\001 \002(\005B\027\242\?"
-      "\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002"
-      "(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001("
-      "\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022)\n\004mode\030\004 \002(\016"
-      "2\033.SingleWaypointCommand.Mode\022L\n\010latitud"
-      "e\030\005 \001(\001B:\242\?7 \006)o\203\332o\355>D@1o\203\332o\355>E@\302\002 \032\036thi"
-      "s.mode == \'COMMAND_LATLONG\'\022M\n\tlongitude"
-      "\030\006 \001(\001B:\242\?7 \006)\346!S>\004\033R\3001\346!S>\004\233Q\300\302\002 \032\036this"
-      ".mode == \'COMMAND_LATLONG\'\022A\n\001x\030\007 \001(\002B6\242"
-      "\?3 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@\302\002\034\032\032this.mode == "
-      "\'COMMAND_XYZ\'\022A\n\001y\030\010 \001(\002B6\242\?3 \001)\000\000\000\000\000\210\303\300"
-      "1\000\000\000\000\000\210\303@\302\002\034\032\032this.mode == \'COMMAND_XYZ\'"
-      "\022A\n\001z\030\t \001(\002B6\242\?3 \003)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@\302\002\034\032"
-      "\032this.mode == \'COMMAND_XYZ\'\"7\n\004Mode\022\t\n\005Q"
-      "UERY\020\000\022\023\n\017COMMAND_LATLONG\020\001\022\017\n\013COMMAND_X"
-      "YZ\020\002:\t\242\?\006\010\007\020\037(\004\"\344\002\n\026SingleWaypointRespon"
+      "\3666\334A\022+\n\004mode\030\004 \002(\0162\035.ControllerStateResp"
+      "onse.Mode\022U\n\005state\030\005 \001(\0162(.ControllerSta"
+      "teResponse.ControllerStateB\034\242\?\031\302\002\026\032\024this"
+      ".mode == \'QUERY\'\"\036\n\004Mode\022\t\n\005QUERY\020\000\022\013\n\007C"
+      "OMMAND\020\001\"*\n\017ControllerState\022\013\n\007DISABLE\020\000"
+      "\022\n\n\006ENABLE\020\001:\t\242\?\006\010h\020\037(\004\"\273\005\n\024DirectContro"
+      "lCommand\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\000"
+      "1\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000"
+      "\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000"
+      "@3\354\330A1\000\000\000 \3666\334A\022*\n\005frame\030\004 \002(\0162\033.DirectCo"
+      "ntrolCommand.Frame\022\"\n\001x\030\005 \002(\002B\027\242\?\024 \001)\000\000\000"
+      "\000\000\210\303\3001\000\000\000\000\000\210\303@\022\"\n\001y\030\006 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\210\303"
+      "\3001\000\000\000\000\000\210\303@\022\"\n\001z\030\007 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\000\000\0001\000\000"
+      "\000\000\000\000Y@\022%\n\004roll\030\010 \002(\002B\027\242\?\024 \002)\037\205\353Q\270\036\371\2771\037\205\353"
+      "Q\270\036\371\?\022&\n\005pitch\030\t \002(\002B\027\242\?\024 \002)\037\205\353Q\270\036\371\2771\037\205\353"
+      "Q\270\036\371\?\022$\n\003yaw\030\n \002(\002B\027\242\?\024 \002)\000\000\000\000\000\000\000\0001\037\205\353Q\270"
+      "\036\t@\022\"\n\001u\030\013 \002(\002B\027\242\?\024 \002)\000\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@\022"
+      "\"\n\001v\030\014 \002(\002B\027\242\?\024 \002)\000\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@\022\"\n\001w"
+      "\030\r \002(\002B\027\242\?\024 \002)\000\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@\022\"\n\001p\030\016 \002"
+      "(\002B\027\242\?\024 \002)\000\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@\022\"\n\001q\030\017 \002(\002B\027"
+      "\242\?\024 \002)\000\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@\022\"\n\001r\030\020 \002(\002B\027\242\?\024 "
+      "\002)\000\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@\"5\n\005Frame\022\r\n\tBASE_LIN"
+      "K\020\000\022\010\n\004ODOM\020\001\022\t\n\005WORLD\020\002\022\010\n\004USBL\020\003:\t\242\?\006\010"
+      "\005\020\037(\004\"\227\003\n\020HelmStateCommand\022\'\n\006source\030\001 \002"
+      "(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destinati"
+      "on\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004tim"
+      "e\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022$\n\004mode"
+      "\030\004 \002(\0162\026.HelmStateCommand.Mode\022J\n\005state\030"
+      "\005 \001(\0162\033.HelmStateCommand.HelmStateB\036\242\?\033\302"
+      "\002\030\032\026this.mode == \'COMMAND\'\"\036\n\004Mode\022\t\n\005QU"
+      "ERY\020\000\022\013\n\007COMMAND\020\001\"h\n\tHelmState\022\010\n\004KILL\020"
+      "\000\022\t\n\005START\020\001\022\020\n\014SURVEY_LOCAL\020\002\022\021\n\rSURVEY"
+      "_GLOBAL\020\003\022\022\n\016DIRECT_CONTROL\020\004\022\r\n\tSURVEY_"
+      "3D\020\005:\t\242\?\006\010\006\020\037(\004\"\263\002\n\021HelmStateResponse\022\'\n"
+      "\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,"
+      "\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000"
+      "\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \366"
+      "6\334A\022+\n\005state\030\004 \002(\0162\034.HelmStateResponse.H"
+      "elmState\"h\n\tHelmState\022\010\n\004KILL\020\000\022\t\n\005START"
+      "\020\001\022\020\n\014SURVEY_LOCAL\020\002\022\021\n\rSURVEY_GLOBAL\020\003\022"
+      "\022\n\016DIRECT_CONTROL\020\004\022\r\n\tSURVEY_3D\020\005:\t\242\?\006\010"
+      "j\020\037(\004\"\203\005\n\025SingleWaypointCommand\022\'\n\006sourc"
+      "e\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013dest"
+      "ination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%"
+      "\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022:\n"
+      "\rwaypoint_mode\030\004 \002(\0162#.SingleWaypointCom"
+      "mand.WaypointMode\022L\n\010latitude\030\005 \001(\001B:\242\?7"
+      " \006)o\203\332o\355>D@1o\203\332o\355>E@\302\002 \032\036this.mode == \'C"
+      "OMMAND_LATLONG\'\022M\n\tlongitude\030\006 \001(\001B:\242\?7 "
+      "\006)\346!S>\004\033R\3001\346!S>\004\233Q\300\302\002 \032\036this.mode == \'CO"
+      "MMAND_LATLONG\'\022A\n\001x\030\007 \001(\002B6\242\?3 \001)\000\000\000\000\000\210\303"
+      "\3001\000\000\000\000\000\210\303@\302\002\034\032\032this.mode == \'COMMAND_XYZ"
+      "\'\022A\n\001y\030\010 \001(\002B6\242\?3 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@\302\002\034"
+      "\032\032this.mode == \'COMMAND_XYZ\'\022A\n\001z\030\t \001(\002B"
+      "6\242\?3 \003)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@\302\002\034\032\032this.mode ="
+      "= \'COMMAND_XYZ\'\"\?\n\014WaypointMode\022\t\n\005QUERY"
+      "\020\000\022\023\n\017COMMAND_LATLONG\020\001\022\017\n\013COMMAND_XYZ\020\002"
+      ":\t\242\?\006\010\007\020\037(\004\"\344\002\n\026SingleWaypointResponse\022\'"
+      "\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022"
+      ",\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000"
+      "\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 "
+      "\3666\334A\022)\n\010latitude\030\004 \002(\001B\027\242\?\024 \006)o\203\332o\355>D@1o"
+      "\203\332o\355>E@\022*\n\tlongitude\030\005 \002(\001B\027\242\?\024 \006)\346!S>\004\033"
+      "R\3001\346!S>\004\233Q\300\022\"\n\001x\030\006 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\210\303\3001\000"
+      "\000\000\000\000\210\303@\022\"\n\001y\030\007 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000"
+      "\210\303@\022\"\n\001z\030\010 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@:"
+      "\t\242\?\006\010k\020\037(\004\"\210\004\n\027MultiWaypointGPSCommand\022\'"
+      "\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000\360\?\022"
+      ",\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000"
+      "\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 "
+      "\3666\334A\022+\n\004mode\030\004 \002(\0162\035.MultiWaypointGPSCom"
+      "mand.Mode\022N\n\007wpt_num\030\005 \003(\005B=\242\?: \000)\000\000\000\000\000\000"
+      "\000\0001\000\000\000\000\000\000@@P\003\302\002!\032\037this.waypoint_mode == "
+      "\'COMMAND\'\022+\n\010latitude\030\006 \003(\001B\031\242\?\026 \006)o\203\332o\355"
+      ">D@1o\203\332o\355>E@P\003\022,\n\tlongitude\030\007 \003(\001B\031\242\?\026 \006"
+      ")\346!S>\004\033R\3001\346!S>\004\233Q\300P\003\022\?\n\001z\030\010 \003(\002B4\242\?1 \001)\000"
+      "\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@P\003\302\002\030\032\026this.mode == \'COM"
+      "MAND\'\022+\n\003end\030\t \001(\010B\036\242\?\033\302\002\030\032\026this.mode =="
+      " \'COMMAND\'\"\036\n\004Mode\022\t\n\005QUERY\020\000\022\013\n\007COMMAND"
+      "\020\001:\t\242\?\006\010\010\020\037(\004\"\335\002\n\030MultiWaypointGPSRespon"
       "se\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000"
-      "\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\000"
-      "1\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1"
-      "\000\000\000 \3666\334A\022)\n\010latitude\030\004 \002(\001B\027\242\?\024 \006)o\203\332o\355>"
-      "D@1o\203\332o\355>E@\022*\n\tlongitude\030\005 \002(\001B\027\242\?\024 \006)\346!"
-      "S>\004\033R\3001\346!S>\004\233Q\300\022\"\n\001x\030\006 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\210"
-      "\303\3001\000\000\000\000\000\210\303@\022\"\n\001y\030\007 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\210\303\3001\000"
-      "\000\000\000\000\210\303@\022\"\n\001z\030\010 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\000\000\0001\000\000\000\000\000"
-      "\000Y@:\t\242\?\006\010k\020\037(\004\"\232\004\n\027MultiWaypointGPSComma"
-      "nd\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000"
       "\000\360\?\022,\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\000"
-      "1\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1"
-      "\000\000\000 \3666\334A\022+\n\004mode\030\004 \002(\0162\035.MultiWaypointGP"
-      "SCommand.Mode\022*\n\007wpt_num\030\005 \003(\005B\031\242\?\026 \000)\000\000"
-      "\000\000\000\000\000\0001\000\000\000\000\000\000@@P\003\022F\n\010latitude\030\006 \003(\001B4\242\?1"
-      " \006)\346!S>\004\033R\3001\346!S>\004\233Q\300P\003\302\002\030\032\026this.mode == "
-      "\'COMMAND\'\022G\n\tlongitude\030\007 \003(\001B4\242\?1 \006)\346!S>"
-      "\004\033R\3001\346!S>\004\233Q\300P\003\302\002\030\032\026this.mode == \'COMMAN"
-      "D\'\022\?\n\001z\030\010 \003(\002B4\242\?1 \001)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@P\003"
-      "\302\002\030\032\026this.mode == \'COMMAND\'\022+\n\003end\030\t \001(\010"
-      "B\036\242\?\033\302\002\030\032\026this.mode == \'COMMAND\'\"\036\n\004Mode"
-      "\022\t\n\005QUERY\020\000\022\013\n\007COMMAND\020\001:\t\242\?\006\010\010\020\037(\004\"\373\002\n\030"
-      "MultiWaypointGPSResponse\022\'\n\006source\030\001 \002(\005"
-      "B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destination"
-      "\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030"
-      "\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022(\n\007wpt_nu"
-      "m\030\004 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000@@\022+\n\010lati"
-      "tude\030\005 \003(\001B\031\242\?\026 \006)\346!S>\004\033R\3001\346!S>\004\233Q\300P\003\022,\n"
-      "\tlongitude\030\006 \003(\001B\031\242\?\026 \006)\346!S>\004\033R\3001\346!S>\004\233Q"
-      "\300P\003\022$\n\001z\030\007 \003(\002B\031\242\?\026 \001)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@P"
-      "\003\022\013\n\003end\030\010 \001(\010\"\036\n\004Mode\022\t\n\005QUERY\020\000\022\013\n\007COM"
-      "MAND\020\001:\t\242\?\006\010l\020\037(\004\"\213\004\n\027MultiWaypointXYZCo"
-      "mmand\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000"
+      "1\000\000\000\000\000\000.@\022%\n\004time\030\003 \002(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1"
+      "\000\000\000 \3666\334A\022*\n\007wpt_num\030\004 \003(\005B\031\242\?\026 \000)\000\000\000\000\000\000\000"
+      "\0001\000\000\000\000\000\000@@P\003\022+\n\010latitude\030\005 \003(\001B\031\242\?\026 \006)o\203"
+      "\332o\355>D@1o\203\332o\355>E@P\003\022,\n\tlongitude\030\006 \003(\001B\031\242\?"
+      "\026 \006)\346!S>\004\033R\3001\346!S>\004\233Q\300P\003\022$\n\001z\030\007 \003(\002B\031\242\?\026 "
+      "\001)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@P\003\022\013\n\003end\030\010 \001(\010:\t\242\?\006\010"
+      "l\020\037(\004\"\257\004\n\027MultiWaypointXYZCommand\022\'\n\006sou"
+      "rce\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000\360\?\022,\n\013de"
+      "stination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@"
+      "\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022"
+      "+\n\004mode\030\004 \002(\0162\035.MultiWaypointXYZCommand."
+      "Mode\022N\n\007wpt_num\030\005 \003(\005B=\242\?: \000)\000\000\000\000\000\000\000\0001\000\000"
+      "\000\000\000\000@@P\003\302\002!\032\037this.waypoint_mode == \'COMM"
+      "AND\'\022\?\n\001x\030\006 \003(\002B4\242\?1 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@"
+      "P\003\302\002\030\032\026this.mode == \'COMMAND\'\022\?\n\001y\030\007 \003(\002"
+      "B4\242\?1 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@P\003\302\002\030\032\026this.mod"
+      "e == \'COMMAND\'\022\?\n\001z\030\010 \003(\002B4\242\?1 \001)\000\000\000\000\000\000\000"
+      "\0001\000\000\000\000\000\000Y@P\003\302\002\030\032\026this.mode == \'COMMAND\'\022"
+      "+\n\003end\030\t \001(\010B\036\242\?\033\302\002\030\032\026this.mode == \'COMM"
+      "AND\'\"\036\n\004Mode\022\t\n\005QUERY\020\000\022\013\n\007COMMAND\020\001:\t\242\?"
+      "\006\010\t\020\037(\004\"\316\002\n\030MultiWaypointXYZResponse\022\'\n\006"
+      "source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n"
+      "\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000"
+      "\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666"
+      "\334A\022*\n\007wpt_num\030\004 \003(\005B\031\242\?\026 \000)\000\000\000\000\000\000\000\0001\000\000\000\000"
+      "\000\000@@P\003\022$\n\001x\030\005 \003(\002B\031\242\?\026 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210"
+      "\303@P\003\022$\n\001y\030\006 \002(\002B\031\242\?\026 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@"
+      "P\003\022$\n\001z\030\007 \002(\002B\031\242\?\026 \001)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@P\003"
+      "\022\013\n\003end\030\t \002(\010:\t\242\?\006\010m\020\037(\004\"\200\002\n\020ExecuteWayp"
+      "oints\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000"
       "\000\000\000\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000"
       "\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354"
-      "\330A1\000\000\000 \3666\334A\022+\n\004mode\030\004 \002(\0162\035.MultiWaypoin"
-      "tXYZCommand.Mode\022*\n\007wpt_num\030\005 \003(\005B\031\242\?\026 \000"
-      ")\000\000\000\000\000\000\000\0001\000\000\000\000\000\000@@P\003\022\?\n\001x\030\006 \003(\002B4\242\?1 \001)\000"
-      "\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@P\003\302\002\030\032\026this.mode == \'COM"
-      "MAND\'\022\?\n\001y\030\007 \002(\002B4\242\?1 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303"
-      "@P\003\302\002\030\032\026this.mode == \'COMMAND\'\022\?\n\001z\030\010 \002("
-      "\002B4\242\?1 \001)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@P\003\302\002\030\032\026this.mo"
-      "de == \'COMMAND\'\022+\n\003end\030\t \002(\010B\036\242\?\033\302\002\030\032\026th"
-      "is.mode == \'COMMAND\'\"\036\n\004Mode\022\t\n\005QUERY\020\000\022"
-      "\013\n\007COMMAND\020\001:\t\242\?\006\010\t\020\037(\004\"\316\002\n\030MultiWaypoin"
-      "tXYZResponse\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000"
-      "\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?\024 "
-      "\000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003"
-      ")\000\000\000@3\354\330A1\000\000\000 \3666\334A\022*\n\007wpt_num\030\004 \003(\005B\031\242\?\026"
-      " \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000@@P\003\022$\n\001x\030\005 \003(\002B\031\242\?\026 \001"
-      ")\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@P\003\022$\n\001y\030\006 \002(\002B\031\242\?\026 \001)\000"
-      "\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@P\003\022$\n\001z\030\007 \002(\002B\031\242\?\026 \001)\000\000\000"
-      "\000\000\000\000\0001\000\000\000\000\000\000Y@P\003\022\013\n\003end\030\t \002(\010:\t\242\?\006\010m\020\037(\004"
-      "\"\202\002\n\020ExecuteWaypoints\022\'\n\006source\030\001 \002(\005B\027\242"
-      "\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destination\030\002 "
-      "\002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001"
-      "(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022\017\n\007execute\030\004"
-      " \002(\010\022,\n\004mode\030\005 \002(\0162\036.ExecuteWaypoints.Wa"
-      "ypointMode\"&\n\014WaypointMode\022\n\n\006APPEND\020\000\022\n"
-      "\n\006UPDATE\020\001:\t\242\?\006\010\n\020\037(\004"
+      "\330A1\000\000\000 \3666\334A\022\017\n\007execute\030\004 \002(\010\022+\n\004mode\030\005 \002"
+      "(\0162\035.ExecuteWaypoints.ExecuteMode\"%\n\013Exe"
+      "cuteMode\022\n\n\006APPEND\020\000\022\n\n\006UPDATE\020\001:\t\242\?\006\010\n\020"
+      "\037(\004"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 6981);
+      descriptor, 7283);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "goby_msgs.proto", &protobuf_RegisterTypes);
   ::protobuf_dccl_2foption_5fextensions_2eproto::AddDescriptors();
@@ -1047,11 +1059,11 @@ const RelativePoseResponse_Frame RelativePoseResponse::Frame_MIN;
 const RelativePoseResponse_Frame RelativePoseResponse::Frame_MAX;
 const int RelativePoseResponse::Frame_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* ControllerStateCommand_State_descriptor() {
+const ::google::protobuf::EnumDescriptor* ControllerStateCommand_Mode_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[2];
 }
-bool ControllerStateCommand_State_IsValid(int value) {
+bool ControllerStateCommand_Mode_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -1062,17 +1074,17 @@ bool ControllerStateCommand_State_IsValid(int value) {
 }
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const ControllerStateCommand_State ControllerStateCommand::DISABLE;
-const ControllerStateCommand_State ControllerStateCommand::ENABLE;
-const ControllerStateCommand_State ControllerStateCommand::State_MIN;
-const ControllerStateCommand_State ControllerStateCommand::State_MAX;
-const int ControllerStateCommand::State_ARRAYSIZE;
+const ControllerStateCommand_Mode ControllerStateCommand::QUERY;
+const ControllerStateCommand_Mode ControllerStateCommand::COMMAND;
+const ControllerStateCommand_Mode ControllerStateCommand::Mode_MIN;
+const ControllerStateCommand_Mode ControllerStateCommand::Mode_MAX;
+const int ControllerStateCommand::Mode_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* ControllerStateResponse_State_descriptor() {
+const ::google::protobuf::EnumDescriptor* ControllerStateCommand_ControllerState_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[3];
 }
-bool ControllerStateResponse_State_IsValid(int value) {
+bool ControllerStateCommand_ControllerState_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -1083,15 +1095,57 @@ bool ControllerStateResponse_State_IsValid(int value) {
 }
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const ControllerStateResponse_State ControllerStateResponse::DISABLE;
-const ControllerStateResponse_State ControllerStateResponse::ENABLE;
-const ControllerStateResponse_State ControllerStateResponse::State_MIN;
-const ControllerStateResponse_State ControllerStateResponse::State_MAX;
-const int ControllerStateResponse::State_ARRAYSIZE;
+const ControllerStateCommand_ControllerState ControllerStateCommand::DISABLE;
+const ControllerStateCommand_ControllerState ControllerStateCommand::ENABLE;
+const ControllerStateCommand_ControllerState ControllerStateCommand::ControllerState_MIN;
+const ControllerStateCommand_ControllerState ControllerStateCommand::ControllerState_MAX;
+const int ControllerStateCommand::ControllerState_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* ControllerStateResponse_Mode_descriptor() {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[4];
+}
+bool ControllerStateResponse_Mode_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const ControllerStateResponse_Mode ControllerStateResponse::QUERY;
+const ControllerStateResponse_Mode ControllerStateResponse::COMMAND;
+const ControllerStateResponse_Mode ControllerStateResponse::Mode_MIN;
+const ControllerStateResponse_Mode ControllerStateResponse::Mode_MAX;
+const int ControllerStateResponse::Mode_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* ControllerStateResponse_ControllerState_descriptor() {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[5];
+}
+bool ControllerStateResponse_ControllerState_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const ControllerStateResponse_ControllerState ControllerStateResponse::DISABLE;
+const ControllerStateResponse_ControllerState ControllerStateResponse::ENABLE;
+const ControllerStateResponse_ControllerState ControllerStateResponse::ControllerState_MIN;
+const ControllerStateResponse_ControllerState ControllerStateResponse::ControllerState_MAX;
+const int ControllerStateResponse::ControllerState_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 const ::google::protobuf::EnumDescriptor* DirectControlCommand_Frame_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[4];
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[6];
 }
 bool DirectControlCommand_Frame_IsValid(int value) {
   switch (value) {
@@ -1114,61 +1168,32 @@ const DirectControlCommand_Frame DirectControlCommand::Frame_MIN;
 const DirectControlCommand_Frame DirectControlCommand::Frame_MAX;
 const int DirectControlCommand::Frame_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* StateCommand_Mode_descriptor() {
-  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[5];
-}
-bool StateCommand_Mode_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const StateCommand_Mode StateCommand::QUERY;
-const StateCommand_Mode StateCommand::COMMAND;
-const StateCommand_Mode StateCommand::Mode_MIN;
-const StateCommand_Mode StateCommand::Mode_MAX;
-const int StateCommand::Mode_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* StateCommand_State_descriptor() {
-  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[6];
-}
-bool StateCommand_State_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const StateCommand_State StateCommand::KILL;
-const StateCommand_State StateCommand::START;
-const StateCommand_State StateCommand::SURVEY_LOCAL;
-const StateCommand_State StateCommand::SURVEY_GLOBAL;
-const StateCommand_State StateCommand::DIRECT_CONTROL;
-const StateCommand_State StateCommand::SURVEY_3D;
-const StateCommand_State StateCommand::State_MIN;
-const StateCommand_State StateCommand::State_MAX;
-const int StateCommand::State_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* StateResponse_State_descriptor() {
+const ::google::protobuf::EnumDescriptor* HelmStateCommand_Mode_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[7];
 }
-bool StateResponse_State_IsValid(int value) {
+bool HelmStateCommand_Mode_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const HelmStateCommand_Mode HelmStateCommand::QUERY;
+const HelmStateCommand_Mode HelmStateCommand::COMMAND;
+const HelmStateCommand_Mode HelmStateCommand::Mode_MIN;
+const HelmStateCommand_Mode HelmStateCommand::Mode_MAX;
+const int HelmStateCommand::Mode_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* HelmStateCommand_HelmState_descriptor() {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[8];
+}
+bool HelmStateCommand_HelmState_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -1183,21 +1208,50 @@ bool StateResponse_State_IsValid(int value) {
 }
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const StateResponse_State StateResponse::KILL;
-const StateResponse_State StateResponse::START;
-const StateResponse_State StateResponse::SURVEY_LOCAL;
-const StateResponse_State StateResponse::SURVEY_GLOBAL;
-const StateResponse_State StateResponse::DIRECT_CONTROL;
-const StateResponse_State StateResponse::SURVEY_3D;
-const StateResponse_State StateResponse::State_MIN;
-const StateResponse_State StateResponse::State_MAX;
-const int StateResponse::State_ARRAYSIZE;
+const HelmStateCommand_HelmState HelmStateCommand::KILL;
+const HelmStateCommand_HelmState HelmStateCommand::START;
+const HelmStateCommand_HelmState HelmStateCommand::SURVEY_LOCAL;
+const HelmStateCommand_HelmState HelmStateCommand::SURVEY_GLOBAL;
+const HelmStateCommand_HelmState HelmStateCommand::DIRECT_CONTROL;
+const HelmStateCommand_HelmState HelmStateCommand::SURVEY_3D;
+const HelmStateCommand_HelmState HelmStateCommand::HelmState_MIN;
+const HelmStateCommand_HelmState HelmStateCommand::HelmState_MAX;
+const int HelmStateCommand::HelmState_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* SingleWaypointCommand_Mode_descriptor() {
+const ::google::protobuf::EnumDescriptor* HelmStateResponse_HelmState_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[8];
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[9];
 }
-bool SingleWaypointCommand_Mode_IsValid(int value) {
+bool HelmStateResponse_HelmState_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const HelmStateResponse_HelmState HelmStateResponse::KILL;
+const HelmStateResponse_HelmState HelmStateResponse::START;
+const HelmStateResponse_HelmState HelmStateResponse::SURVEY_LOCAL;
+const HelmStateResponse_HelmState HelmStateResponse::SURVEY_GLOBAL;
+const HelmStateResponse_HelmState HelmStateResponse::DIRECT_CONTROL;
+const HelmStateResponse_HelmState HelmStateResponse::SURVEY_3D;
+const HelmStateResponse_HelmState HelmStateResponse::HelmState_MIN;
+const HelmStateResponse_HelmState HelmStateResponse::HelmState_MAX;
+const int HelmStateResponse::HelmState_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* SingleWaypointCommand_WaypointMode_descriptor() {
+  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[10];
+}
+bool SingleWaypointCommand_WaypointMode_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -1209,16 +1263,16 @@ bool SingleWaypointCommand_Mode_IsValid(int value) {
 }
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const SingleWaypointCommand_Mode SingleWaypointCommand::QUERY;
-const SingleWaypointCommand_Mode SingleWaypointCommand::COMMAND_LATLONG;
-const SingleWaypointCommand_Mode SingleWaypointCommand::COMMAND_XYZ;
-const SingleWaypointCommand_Mode SingleWaypointCommand::Mode_MIN;
-const SingleWaypointCommand_Mode SingleWaypointCommand::Mode_MAX;
-const int SingleWaypointCommand::Mode_ARRAYSIZE;
+const SingleWaypointCommand_WaypointMode SingleWaypointCommand::QUERY;
+const SingleWaypointCommand_WaypointMode SingleWaypointCommand::COMMAND_LATLONG;
+const SingleWaypointCommand_WaypointMode SingleWaypointCommand::COMMAND_XYZ;
+const SingleWaypointCommand_WaypointMode SingleWaypointCommand::WaypointMode_MIN;
+const SingleWaypointCommand_WaypointMode SingleWaypointCommand::WaypointMode_MAX;
+const int SingleWaypointCommand::WaypointMode_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 const ::google::protobuf::EnumDescriptor* MultiWaypointGPSCommand_Mode_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[9];
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[11];
 }
 bool MultiWaypointGPSCommand_Mode_IsValid(int value) {
   switch (value) {
@@ -1237,30 +1291,9 @@ const MultiWaypointGPSCommand_Mode MultiWaypointGPSCommand::Mode_MIN;
 const MultiWaypointGPSCommand_Mode MultiWaypointGPSCommand::Mode_MAX;
 const int MultiWaypointGPSCommand::Mode_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* MultiWaypointGPSResponse_Mode_descriptor() {
-  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[10];
-}
-bool MultiWaypointGPSResponse_Mode_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const MultiWaypointGPSResponse_Mode MultiWaypointGPSResponse::QUERY;
-const MultiWaypointGPSResponse_Mode MultiWaypointGPSResponse::COMMAND;
-const MultiWaypointGPSResponse_Mode MultiWaypointGPSResponse::Mode_MIN;
-const MultiWaypointGPSResponse_Mode MultiWaypointGPSResponse::Mode_MAX;
-const int MultiWaypointGPSResponse::Mode_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 const ::google::protobuf::EnumDescriptor* MultiWaypointXYZCommand_Mode_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[11];
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[12];
 }
 bool MultiWaypointXYZCommand_Mode_IsValid(int value) {
   switch (value) {
@@ -1279,11 +1312,11 @@ const MultiWaypointXYZCommand_Mode MultiWaypointXYZCommand::Mode_MIN;
 const MultiWaypointXYZCommand_Mode MultiWaypointXYZCommand::Mode_MAX;
 const int MultiWaypointXYZCommand::Mode_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* ExecuteWaypoints_WaypointMode_descriptor() {
+const ::google::protobuf::EnumDescriptor* ExecuteWaypoints_ExecuteMode_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[12];
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[13];
 }
-bool ExecuteWaypoints_WaypointMode_IsValid(int value) {
+bool ExecuteWaypoints_ExecuteMode_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -1294,11 +1327,11 @@ bool ExecuteWaypoints_WaypointMode_IsValid(int value) {
 }
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const ExecuteWaypoints_WaypointMode ExecuteWaypoints::APPEND;
-const ExecuteWaypoints_WaypointMode ExecuteWaypoints::UPDATE;
-const ExecuteWaypoints_WaypointMode ExecuteWaypoints::WaypointMode_MIN;
-const ExecuteWaypoints_WaypointMode ExecuteWaypoints::WaypointMode_MAX;
-const int ExecuteWaypoints::WaypointMode_ARRAYSIZE;
+const ExecuteWaypoints_ExecuteMode ExecuteWaypoints::APPEND;
+const ExecuteWaypoints_ExecuteMode ExecuteWaypoints::UPDATE;
+const ExecuteWaypoints_ExecuteMode ExecuteWaypoints::ExecuteMode_MIN;
+const ExecuteWaypoints_ExecuteMode ExecuteWaypoints::ExecuteMode_MAX;
+const int ExecuteWaypoints::ExecuteMode_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 // ===================================================================
@@ -4248,6 +4281,7 @@ void ControllerStateCommand::InitAsDefaultInstance() {
 const int ControllerStateCommand::kSourceFieldNumber;
 const int ControllerStateCommand::kDestinationFieldNumber;
 const int ControllerStateCommand::kTimeFieldNumber;
+const int ControllerStateCommand::kModeFieldNumber;
 const int ControllerStateCommand::kStateFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -4304,7 +4338,7 @@ void ControllerStateCommand::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 15u) {
+  if (cached_has_bits & 31u) {
     ::memset(&source_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&state_) -
         reinterpret_cast<char*>(&source_)) + sizeof(state_));
@@ -4365,7 +4399,7 @@ bool ControllerStateCommand::MergePartialFromCodedStream(
         break;
       }
 
-      // required .ControllerStateCommand.State state = 4;
+      // required .ControllerStateCommand.Mode mode = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
@@ -4373,11 +4407,31 @@ bool ControllerStateCommand::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::ControllerStateCommand_State_IsValid(value)) {
-            set_state(static_cast< ::ControllerStateCommand_State >(value));
+          if (::ControllerStateCommand_Mode_IsValid(value)) {
+            set_mode(static_cast< ::ControllerStateCommand_Mode >(value));
           } else {
             mutable_unknown_fields()->AddVarint(
                 4, static_cast< ::google::protobuf::uint64>(value));
+          }
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional .ControllerStateCommand.ControllerState state = 5 [(.dccl.field) = {
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::ControllerStateCommand_ControllerState_IsValid(value)) {
+            set_state(static_cast< ::ControllerStateCommand_ControllerState >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(
+                5, static_cast< ::google::protobuf::uint64>(value));
           }
         } else {
           goto handle_unusual;
@@ -4427,10 +4481,16 @@ void ControllerStateCommand::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
   }
 
-  // required .ControllerStateCommand.State state = 4;
+  // required .ControllerStateCommand.Mode mode = 4;
   if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      4, this->state(), output);
+      4, this->mode(), output);
+  }
+
+  // optional .ControllerStateCommand.ControllerState state = 5 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      5, this->state(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4463,10 +4523,16 @@ void ControllerStateCommand::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
   }
 
-  // required .ControllerStateCommand.State state = 4;
+  // required .ControllerStateCommand.Mode mode = 4;
   if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      4, this->state(), target);
+      4, this->mode(), target);
+  }
+
+  // optional .ControllerStateCommand.ControllerState state = 5 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      5, this->state(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4495,10 +4561,10 @@ size_t ControllerStateCommand::RequiredFieldsByteSizeFallback() const {
         this->destination());
   }
 
-  if (has_state()) {
-    // required .ControllerStateCommand.State state = 4;
+  if (has_mode()) {
+    // required .ControllerStateCommand.Mode mode = 4;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
   }
 
   return total_size;
@@ -4523,9 +4589,9 @@ size_t ControllerStateCommand::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
 
-    // required .ControllerStateCommand.State state = 4;
+    // required .ControllerStateCommand.Mode mode = 4;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -4533,6 +4599,12 @@ size_t ControllerStateCommand::ByteSizeLong() const {
   // optional double time = 3 [(.dccl.field) = {
   if (has_time()) {
     total_size += 1 + 8;
+  }
+
+  // optional .ControllerStateCommand.ControllerState state = 5 [(.dccl.field) = {
+  if (has_state()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -4563,7 +4635,7 @@ void ControllerStateCommand::MergeFrom(const ControllerStateCommand& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 15u) {
+  if (cached_has_bits & 31u) {
     if (cached_has_bits & 0x00000001u) {
       source_ = from.source_;
     }
@@ -4574,6 +4646,9 @@ void ControllerStateCommand::MergeFrom(const ControllerStateCommand& from) {
       time_ = from.time_;
     }
     if (cached_has_bits & 0x00000008u) {
+      mode_ = from.mode_;
+    }
+    if (cached_has_bits & 0x00000010u) {
       state_ = from.state_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -4608,6 +4683,7 @@ void ControllerStateCommand::InternalSwap(ControllerStateCommand* other) {
   swap(source_, other->source_);
   swap(destination_, other->destination_);
   swap(time_, other->time_);
+  swap(mode_, other->mode_);
   swap(state_, other->state_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -4627,6 +4703,7 @@ void ControllerStateResponse::InitAsDefaultInstance() {
 const int ControllerStateResponse::kSourceFieldNumber;
 const int ControllerStateResponse::kDestinationFieldNumber;
 const int ControllerStateResponse::kTimeFieldNumber;
+const int ControllerStateResponse::kModeFieldNumber;
 const int ControllerStateResponse::kStateFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -4683,7 +4760,7 @@ void ControllerStateResponse::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 15u) {
+  if (cached_has_bits & 31u) {
     ::memset(&source_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&state_) -
         reinterpret_cast<char*>(&source_)) + sizeof(state_));
@@ -4744,7 +4821,7 @@ bool ControllerStateResponse::MergePartialFromCodedStream(
         break;
       }
 
-      // required .ControllerStateResponse.State state = 4;
+      // required .ControllerStateResponse.Mode mode = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
@@ -4752,11 +4829,31 @@ bool ControllerStateResponse::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::ControllerStateResponse_State_IsValid(value)) {
-            set_state(static_cast< ::ControllerStateResponse_State >(value));
+          if (::ControllerStateResponse_Mode_IsValid(value)) {
+            set_mode(static_cast< ::ControllerStateResponse_Mode >(value));
           } else {
             mutable_unknown_fields()->AddVarint(
                 4, static_cast< ::google::protobuf::uint64>(value));
+          }
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional .ControllerStateResponse.ControllerState state = 5 [(.dccl.field) = {
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::ControllerStateResponse_ControllerState_IsValid(value)) {
+            set_state(static_cast< ::ControllerStateResponse_ControllerState >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(
+                5, static_cast< ::google::protobuf::uint64>(value));
           }
         } else {
           goto handle_unusual;
@@ -4806,10 +4903,16 @@ void ControllerStateResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
   }
 
-  // required .ControllerStateResponse.State state = 4;
+  // required .ControllerStateResponse.Mode mode = 4;
   if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      4, this->state(), output);
+      4, this->mode(), output);
+  }
+
+  // optional .ControllerStateResponse.ControllerState state = 5 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      5, this->state(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4842,10 +4945,16 @@ void ControllerStateResponse::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
   }
 
-  // required .ControllerStateResponse.State state = 4;
+  // required .ControllerStateResponse.Mode mode = 4;
   if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      4, this->state(), target);
+      4, this->mode(), target);
+  }
+
+  // optional .ControllerStateResponse.ControllerState state = 5 [(.dccl.field) = {
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      5, this->state(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4874,10 +4983,10 @@ size_t ControllerStateResponse::RequiredFieldsByteSizeFallback() const {
         this->destination());
   }
 
-  if (has_state()) {
-    // required .ControllerStateResponse.State state = 4;
+  if (has_mode()) {
+    // required .ControllerStateResponse.Mode mode = 4;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
   }
 
   return total_size;
@@ -4902,9 +5011,9 @@ size_t ControllerStateResponse::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
 
-    // required .ControllerStateResponse.State state = 4;
+    // required .ControllerStateResponse.Mode mode = 4;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -4912,6 +5021,12 @@ size_t ControllerStateResponse::ByteSizeLong() const {
   // optional double time = 3 [(.dccl.field) = {
   if (has_time()) {
     total_size += 1 + 8;
+  }
+
+  // optional .ControllerStateResponse.ControllerState state = 5 [(.dccl.field) = {
+  if (has_state()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -4942,7 +5057,7 @@ void ControllerStateResponse::MergeFrom(const ControllerStateResponse& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 15u) {
+  if (cached_has_bits & 31u) {
     if (cached_has_bits & 0x00000001u) {
       source_ = from.source_;
     }
@@ -4953,6 +5068,9 @@ void ControllerStateResponse::MergeFrom(const ControllerStateResponse& from) {
       time_ = from.time_;
     }
     if (cached_has_bits & 0x00000008u) {
+      mode_ = from.mode_;
+    }
+    if (cached_has_bits & 0x00000010u) {
       state_ = from.state_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -4987,6 +5105,7 @@ void ControllerStateResponse::InternalSwap(ControllerStateResponse* other) {
   swap(source_, other->source_);
   swap(destination_, other->destination_);
   swap(time_, other->time_);
+  swap(mode_, other->mode_);
   swap(state_, other->state_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -5831,24 +5950,24 @@ void DirectControlCommand::InternalSwap(DirectControlCommand* other) {
 
 // ===================================================================
 
-void StateCommand::InitAsDefaultInstance() {
+void HelmStateCommand::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int StateCommand::kSourceFieldNumber;
-const int StateCommand::kDestinationFieldNumber;
-const int StateCommand::kTimeFieldNumber;
-const int StateCommand::kModeFieldNumber;
-const int StateCommand::kStateFieldNumber;
+const int HelmStateCommand::kSourceFieldNumber;
+const int HelmStateCommand::kDestinationFieldNumber;
+const int HelmStateCommand::kTimeFieldNumber;
+const int HelmStateCommand::kModeFieldNumber;
+const int HelmStateCommand::kStateFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-StateCommand::StateCommand()
+HelmStateCommand::HelmStateCommand()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_goby_5fmsgs_2eproto::scc_info_StateCommand.base);
+      &protobuf_goby_5fmsgs_2eproto::scc_info_HelmStateCommand.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:StateCommand)
+  // @@protoc_insertion_point(constructor:HelmStateCommand)
 }
-StateCommand::StateCommand(const StateCommand& from)
+HelmStateCommand::HelmStateCommand(const HelmStateCommand& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_) {
@@ -5856,39 +5975,39 @@ StateCommand::StateCommand(const StateCommand& from)
   ::memcpy(&source_, &from.source_,
     static_cast<size_t>(reinterpret_cast<char*>(&state_) -
     reinterpret_cast<char*>(&source_)) + sizeof(state_));
-  // @@protoc_insertion_point(copy_constructor:StateCommand)
+  // @@protoc_insertion_point(copy_constructor:HelmStateCommand)
 }
 
-void StateCommand::SharedCtor() {
+void HelmStateCommand::SharedCtor() {
   ::memset(&source_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&state_) -
       reinterpret_cast<char*>(&source_)) + sizeof(state_));
 }
 
-StateCommand::~StateCommand() {
-  // @@protoc_insertion_point(destructor:StateCommand)
+HelmStateCommand::~HelmStateCommand() {
+  // @@protoc_insertion_point(destructor:HelmStateCommand)
   SharedDtor();
 }
 
-void StateCommand::SharedDtor() {
+void HelmStateCommand::SharedDtor() {
 }
 
-void StateCommand::SetCachedSize(int size) const {
+void HelmStateCommand::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* StateCommand::descriptor() {
+const ::google::protobuf::Descriptor* HelmStateCommand::descriptor() {
   ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const StateCommand& StateCommand::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_StateCommand.base);
+const HelmStateCommand& HelmStateCommand::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_HelmStateCommand.base);
   return *internal_default_instance();
 }
 
 
-void StateCommand::Clear() {
-// @@protoc_insertion_point(message_clear_start:StateCommand)
+void HelmStateCommand::Clear() {
+// @@protoc_insertion_point(message_clear_start:HelmStateCommand)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -5903,11 +6022,11 @@ void StateCommand::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool StateCommand::MergePartialFromCodedStream(
+bool HelmStateCommand::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:StateCommand)
+  // @@protoc_insertion_point(parse_start:HelmStateCommand)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -5955,7 +6074,7 @@ bool StateCommand::MergePartialFromCodedStream(
         break;
       }
 
-      // required .StateCommand.Mode mode = 4;
+      // required .HelmStateCommand.Mode mode = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
@@ -5963,8 +6082,8 @@ bool StateCommand::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::StateCommand_Mode_IsValid(value)) {
-            set_mode(static_cast< ::StateCommand_Mode >(value));
+          if (::HelmStateCommand_Mode_IsValid(value)) {
+            set_mode(static_cast< ::HelmStateCommand_Mode >(value));
           } else {
             mutable_unknown_fields()->AddVarint(
                 4, static_cast< ::google::protobuf::uint64>(value));
@@ -5975,7 +6094,7 @@ bool StateCommand::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .StateCommand.State state = 5 [(.dccl.field) = {
+      // optional .HelmStateCommand.HelmState state = 5 [(.dccl.field) = {
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
@@ -5983,8 +6102,8 @@ bool StateCommand::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::StateCommand_State_IsValid(value)) {
-            set_state(static_cast< ::StateCommand_State >(value));
+          if (::HelmStateCommand_HelmState_IsValid(value)) {
+            set_state(static_cast< ::HelmStateCommand_HelmState >(value));
           } else {
             mutable_unknown_fields()->AddVarint(
                 5, static_cast< ::google::protobuf::uint64>(value));
@@ -6007,17 +6126,17 @@ bool StateCommand::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:StateCommand)
+  // @@protoc_insertion_point(parse_success:HelmStateCommand)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:StateCommand)
+  // @@protoc_insertion_point(parse_failure:HelmStateCommand)
   return false;
 #undef DO_
 }
 
-void StateCommand::SerializeWithCachedSizes(
+void HelmStateCommand::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:StateCommand)
+  // @@protoc_insertion_point(serialize_start:HelmStateCommand)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -6037,13 +6156,13 @@ void StateCommand::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
   }
 
-  // required .StateCommand.Mode mode = 4;
+  // required .HelmStateCommand.Mode mode = 4;
   if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       4, this->mode(), output);
   }
 
-  // optional .StateCommand.State state = 5 [(.dccl.field) = {
+  // optional .HelmStateCommand.HelmState state = 5 [(.dccl.field) = {
   if (cached_has_bits & 0x00000010u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       5, this->state(), output);
@@ -6053,13 +6172,13 @@ void StateCommand::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:StateCommand)
+  // @@protoc_insertion_point(serialize_end:HelmStateCommand)
 }
 
-::google::protobuf::uint8* StateCommand::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* HelmStateCommand::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:StateCommand)
+  // @@protoc_insertion_point(serialize_to_array_start:HelmStateCommand)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -6079,13 +6198,13 @@ void StateCommand::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
   }
 
-  // required .StateCommand.Mode mode = 4;
+  // required .HelmStateCommand.Mode mode = 4;
   if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       4, this->mode(), target);
   }
 
-  // optional .StateCommand.State state = 5 [(.dccl.field) = {
+  // optional .HelmStateCommand.HelmState state = 5 [(.dccl.field) = {
   if (cached_has_bits & 0x00000010u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       5, this->state(), target);
@@ -6095,12 +6214,12 @@ void StateCommand::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:StateCommand)
+  // @@protoc_insertion_point(serialize_to_array_end:HelmStateCommand)
   return target;
 }
 
-size_t StateCommand::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:StateCommand)
+size_t HelmStateCommand::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:HelmStateCommand)
   size_t total_size = 0;
 
   if (has_source()) {
@@ -6118,15 +6237,15 @@ size_t StateCommand::RequiredFieldsByteSizeFallback() const {
   }
 
   if (has_mode()) {
-    // required .StateCommand.Mode mode = 4;
+    // required .HelmStateCommand.Mode mode = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
   }
 
   return total_size;
 }
-size_t StateCommand::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:StateCommand)
+size_t HelmStateCommand::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:HelmStateCommand)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6145,7 +6264,7 @@ size_t StateCommand::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
 
-    // required .StateCommand.Mode mode = 4;
+    // required .HelmStateCommand.Mode mode = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
 
@@ -6157,7 +6276,7 @@ size_t StateCommand::ByteSizeLong() const {
     total_size += 1 + 8;
   }
 
-  // optional .StateCommand.State state = 5 [(.dccl.field) = {
+  // optional .HelmStateCommand.HelmState state = 5 [(.dccl.field) = {
   if (has_state()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
@@ -6168,23 +6287,23 @@ size_t StateCommand::ByteSizeLong() const {
   return total_size;
 }
 
-void StateCommand::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:StateCommand)
+void HelmStateCommand::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:HelmStateCommand)
   GOOGLE_DCHECK_NE(&from, this);
-  const StateCommand* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const StateCommand>(
+  const HelmStateCommand* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const HelmStateCommand>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:StateCommand)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:HelmStateCommand)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:StateCommand)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:HelmStateCommand)
     MergeFrom(*source);
   }
 }
 
-void StateCommand::MergeFrom(const StateCommand& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:StateCommand)
+void HelmStateCommand::MergeFrom(const HelmStateCommand& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:HelmStateCommand)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -6211,30 +6330,30 @@ void StateCommand::MergeFrom(const StateCommand& from) {
   }
 }
 
-void StateCommand::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:StateCommand)
+void HelmStateCommand::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:HelmStateCommand)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void StateCommand::CopyFrom(const StateCommand& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:StateCommand)
+void HelmStateCommand::CopyFrom(const HelmStateCommand& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:HelmStateCommand)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool StateCommand::IsInitialized() const {
+bool HelmStateCommand::IsInitialized() const {
   if ((_has_bits_[0] & 0x0000000b) != 0x0000000b) return false;
   return true;
 }
 
-void StateCommand::Swap(StateCommand* other) {
+void HelmStateCommand::Swap(HelmStateCommand* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void StateCommand::InternalSwap(StateCommand* other) {
+void HelmStateCommand::InternalSwap(HelmStateCommand* other) {
   using std::swap;
   swap(source_, other->source_);
   swap(destination_, other->destination_);
@@ -6245,7 +6364,7 @@ void StateCommand::InternalSwap(StateCommand* other) {
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata StateCommand::GetMetadata() const {
+::google::protobuf::Metadata HelmStateCommand::GetMetadata() const {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -6253,23 +6372,23 @@ void StateCommand::InternalSwap(StateCommand* other) {
 
 // ===================================================================
 
-void StateResponse::InitAsDefaultInstance() {
+void HelmStateResponse::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int StateResponse::kSourceFieldNumber;
-const int StateResponse::kDestinationFieldNumber;
-const int StateResponse::kTimeFieldNumber;
-const int StateResponse::kStateFieldNumber;
+const int HelmStateResponse::kSourceFieldNumber;
+const int HelmStateResponse::kDestinationFieldNumber;
+const int HelmStateResponse::kTimeFieldNumber;
+const int HelmStateResponse::kStateFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-StateResponse::StateResponse()
+HelmStateResponse::HelmStateResponse()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_goby_5fmsgs_2eproto::scc_info_StateResponse.base);
+      &protobuf_goby_5fmsgs_2eproto::scc_info_HelmStateResponse.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:StateResponse)
+  // @@protoc_insertion_point(constructor:HelmStateResponse)
 }
-StateResponse::StateResponse(const StateResponse& from)
+HelmStateResponse::HelmStateResponse(const HelmStateResponse& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_) {
@@ -6277,39 +6396,39 @@ StateResponse::StateResponse(const StateResponse& from)
   ::memcpy(&source_, &from.source_,
     static_cast<size_t>(reinterpret_cast<char*>(&state_) -
     reinterpret_cast<char*>(&source_)) + sizeof(state_));
-  // @@protoc_insertion_point(copy_constructor:StateResponse)
+  // @@protoc_insertion_point(copy_constructor:HelmStateResponse)
 }
 
-void StateResponse::SharedCtor() {
+void HelmStateResponse::SharedCtor() {
   ::memset(&source_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&state_) -
       reinterpret_cast<char*>(&source_)) + sizeof(state_));
 }
 
-StateResponse::~StateResponse() {
-  // @@protoc_insertion_point(destructor:StateResponse)
+HelmStateResponse::~HelmStateResponse() {
+  // @@protoc_insertion_point(destructor:HelmStateResponse)
   SharedDtor();
 }
 
-void StateResponse::SharedDtor() {
+void HelmStateResponse::SharedDtor() {
 }
 
-void StateResponse::SetCachedSize(int size) const {
+void HelmStateResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* StateResponse::descriptor() {
+const ::google::protobuf::Descriptor* HelmStateResponse::descriptor() {
   ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const StateResponse& StateResponse::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_StateResponse.base);
+const HelmStateResponse& HelmStateResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_HelmStateResponse.base);
   return *internal_default_instance();
 }
 
 
-void StateResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:StateResponse)
+void HelmStateResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:HelmStateResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -6324,11 +6443,11 @@ void StateResponse::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool StateResponse::MergePartialFromCodedStream(
+bool HelmStateResponse::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:StateResponse)
+  // @@protoc_insertion_point(parse_start:HelmStateResponse)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -6376,7 +6495,7 @@ bool StateResponse::MergePartialFromCodedStream(
         break;
       }
 
-      // required .StateResponse.State state = 4;
+      // required .HelmStateResponse.HelmState state = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
@@ -6384,8 +6503,8 @@ bool StateResponse::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::StateResponse_State_IsValid(value)) {
-            set_state(static_cast< ::StateResponse_State >(value));
+          if (::HelmStateResponse_HelmState_IsValid(value)) {
+            set_state(static_cast< ::HelmStateResponse_HelmState >(value));
           } else {
             mutable_unknown_fields()->AddVarint(
                 4, static_cast< ::google::protobuf::uint64>(value));
@@ -6408,17 +6527,17 @@ bool StateResponse::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:StateResponse)
+  // @@protoc_insertion_point(parse_success:HelmStateResponse)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:StateResponse)
+  // @@protoc_insertion_point(parse_failure:HelmStateResponse)
   return false;
 #undef DO_
 }
 
-void StateResponse::SerializeWithCachedSizes(
+void HelmStateResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:StateResponse)
+  // @@protoc_insertion_point(serialize_start:HelmStateResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -6438,7 +6557,7 @@ void StateResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
   }
 
-  // required .StateResponse.State state = 4;
+  // required .HelmStateResponse.HelmState state = 4;
   if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       4, this->state(), output);
@@ -6448,13 +6567,13 @@ void StateResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:StateResponse)
+  // @@protoc_insertion_point(serialize_end:HelmStateResponse)
 }
 
-::google::protobuf::uint8* StateResponse::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* HelmStateResponse::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:StateResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:HelmStateResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -6474,7 +6593,7 @@ void StateResponse::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
   }
 
-  // required .StateResponse.State state = 4;
+  // required .HelmStateResponse.HelmState state = 4;
   if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       4, this->state(), target);
@@ -6484,12 +6603,12 @@ void StateResponse::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:StateResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:HelmStateResponse)
   return target;
 }
 
-size_t StateResponse::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:StateResponse)
+size_t HelmStateResponse::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:HelmStateResponse)
   size_t total_size = 0;
 
   if (has_source()) {
@@ -6507,15 +6626,15 @@ size_t StateResponse::RequiredFieldsByteSizeFallback() const {
   }
 
   if (has_state()) {
-    // required .StateResponse.State state = 4;
+    // required .HelmStateResponse.HelmState state = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
   }
 
   return total_size;
 }
-size_t StateResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:StateResponse)
+size_t HelmStateResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:HelmStateResponse)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6534,7 +6653,7 @@ size_t StateResponse::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
 
-    // required .StateResponse.State state = 4;
+    // required .HelmStateResponse.HelmState state = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
 
@@ -6551,23 +6670,23 @@ size_t StateResponse::ByteSizeLong() const {
   return total_size;
 }
 
-void StateResponse::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:StateResponse)
+void HelmStateResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:HelmStateResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  const StateResponse* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const StateResponse>(
+  const HelmStateResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const HelmStateResponse>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:StateResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:HelmStateResponse)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:StateResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:HelmStateResponse)
     MergeFrom(*source);
   }
 }
 
-void StateResponse::MergeFrom(const StateResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:StateResponse)
+void HelmStateResponse::MergeFrom(const HelmStateResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:HelmStateResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -6591,30 +6710,30 @@ void StateResponse::MergeFrom(const StateResponse& from) {
   }
 }
 
-void StateResponse::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:StateResponse)
+void HelmStateResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:HelmStateResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void StateResponse::CopyFrom(const StateResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:StateResponse)
+void HelmStateResponse::CopyFrom(const HelmStateResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:HelmStateResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool StateResponse::IsInitialized() const {
+bool HelmStateResponse::IsInitialized() const {
   if ((_has_bits_[0] & 0x0000000b) != 0x0000000b) return false;
   return true;
 }
 
-void StateResponse::Swap(StateResponse* other) {
+void HelmStateResponse::Swap(HelmStateResponse* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void StateResponse::InternalSwap(StateResponse* other) {
+void HelmStateResponse::InternalSwap(HelmStateResponse* other) {
   using std::swap;
   swap(source_, other->source_);
   swap(destination_, other->destination_);
@@ -6624,7 +6743,7 @@ void StateResponse::InternalSwap(StateResponse* other) {
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata StateResponse::GetMetadata() const {
+::google::protobuf::Metadata HelmStateResponse::GetMetadata() const {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -6638,7 +6757,7 @@ void SingleWaypointCommand::InitAsDefaultInstance() {
 const int SingleWaypointCommand::kSourceFieldNumber;
 const int SingleWaypointCommand::kDestinationFieldNumber;
 const int SingleWaypointCommand::kTimeFieldNumber;
-const int SingleWaypointCommand::kModeFieldNumber;
+const int SingleWaypointCommand::kWaypointModeFieldNumber;
 const int SingleWaypointCommand::kLatitudeFieldNumber;
 const int SingleWaypointCommand::kLongitudeFieldNumber;
 const int SingleWaypointCommand::kXFieldNumber;
@@ -6761,7 +6880,7 @@ bool SingleWaypointCommand::MergePartialFromCodedStream(
         break;
       }
 
-      // required .SingleWaypointCommand.Mode mode = 4;
+      // required .SingleWaypointCommand.WaypointMode waypoint_mode = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
@@ -6769,8 +6888,8 @@ bool SingleWaypointCommand::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::SingleWaypointCommand_Mode_IsValid(value)) {
-            set_mode(static_cast< ::SingleWaypointCommand_Mode >(value));
+          if (::SingleWaypointCommand_WaypointMode_IsValid(value)) {
+            set_waypoint_mode(static_cast< ::SingleWaypointCommand_WaypointMode >(value));
           } else {
             mutable_unknown_fields()->AddVarint(
                 4, static_cast< ::google::protobuf::uint64>(value));
@@ -6893,10 +7012,10 @@ void SingleWaypointCommand::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
   }
 
-  // required .SingleWaypointCommand.Mode mode = 4;
+  // required .SingleWaypointCommand.WaypointMode waypoint_mode = 4;
   if (cached_has_bits & 0x00000010u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      4, this->mode(), output);
+      4, this->waypoint_mode(), output);
   }
 
   // optional double latitude = 5 [(.dccl.field) = {
@@ -6954,10 +7073,10 @@ void SingleWaypointCommand::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
   }
 
-  // required .SingleWaypointCommand.Mode mode = 4;
+  // required .SingleWaypointCommand.WaypointMode waypoint_mode = 4;
   if (cached_has_bits & 0x00000010u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      4, this->mode(), target);
+      4, this->waypoint_mode(), target);
   }
 
   // optional double latitude = 5 [(.dccl.field) = {
@@ -7011,10 +7130,10 @@ size_t SingleWaypointCommand::RequiredFieldsByteSizeFallback() const {
         this->destination());
   }
 
-  if (has_mode()) {
-    // required .SingleWaypointCommand.Mode mode = 4;
+  if (has_waypoint_mode()) {
+    // required .SingleWaypointCommand.WaypointMode waypoint_mode = 4;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->waypoint_mode());
   }
 
   return total_size;
@@ -7039,9 +7158,9 @@ size_t SingleWaypointCommand::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
 
-    // required .SingleWaypointCommand.Mode mode = 4;
+    // required .SingleWaypointCommand.WaypointMode waypoint_mode = 4;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->waypoint_mode());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -7122,7 +7241,7 @@ void SingleWaypointCommand::MergeFrom(const SingleWaypointCommand& from) {
       latitude_ = from.latitude_;
     }
     if (cached_has_bits & 0x00000010u) {
-      mode_ = from.mode_;
+      waypoint_mode_ = from.waypoint_mode_;
     }
     if (cached_has_bits & 0x00000020u) {
       x_ = from.x_;
@@ -7169,7 +7288,7 @@ void SingleWaypointCommand::InternalSwap(SingleWaypointCommand* other) {
   swap(destination_, other->destination_);
   swap(time_, other->time_);
   swap(latitude_, other->latitude_);
-  swap(mode_, other->mode_);
+  swap(waypoint_mode_, other->waypoint_mode_);
   swap(x_, other->x_);
   swap(longitude_, other->longitude_);
   swap(y_, other->y_);
@@ -8312,6 +8431,7 @@ MultiWaypointGPSResponse::MultiWaypointGPSResponse(const MultiWaypointGPSRespons
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_),
+      wpt_num_(from.wpt_num_),
       latitude_(from.latitude_),
       longitude_(from.longitude_),
       z_(from.z_) {
@@ -8356,11 +8476,12 @@ void MultiWaypointGPSResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  wpt_num_.Clear();
   latitude_.Clear();
   longitude_.Clear();
   z_.Clear();
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 31u) {
+  if (cached_has_bits & 15u) {
     ::memset(&source_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&end_) -
         reinterpret_cast<char*>(&source_)) + sizeof(end_));
@@ -8407,7 +8528,7 @@ bool MultiWaypointGPSResponse::MergePartialFromCodedStream(
         break;
       }
 
-      // optional double time = 3 [(.dccl.field) = {
+      // required double time = 3 [(.dccl.field) = {
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(25u /* 25 & 0xFF */)) {
@@ -8421,14 +8542,19 @@ bool MultiWaypointGPSResponse::MergePartialFromCodedStream(
         break;
       }
 
-      // required int32 wpt_num = 4 [(.dccl.field) = {
+      // repeated int32 wpt_num = 4 [(.dccl.field) = {
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
-          set_has_wpt_num();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &wpt_num_)));
+                 1, 32u, input, this->mutable_wpt_num())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_wpt_num())));
         } else {
           goto handle_unusual;
         }
@@ -8543,14 +8669,15 @@ void MultiWaypointGPSResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->destination(), output);
   }
 
-  // optional double time = 3 [(.dccl.field) = {
+  // required double time = 3 [(.dccl.field) = {
   if (cached_has_bits & 0x00000004u) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
   }
 
-  // required int32 wpt_num = 4 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000008u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->wpt_num(), output);
+  // repeated int32 wpt_num = 4 [(.dccl.field) = {
+  for (int i = 0, n = this->wpt_num_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      4, this->wpt_num(i), output);
   }
 
   // repeated double latitude = 5 [(.dccl.field) = {
@@ -8572,7 +8699,7 @@ void MultiWaypointGPSResponse::SerializeWithCachedSizes(
   }
 
   // optional bool end = 8;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(8, this->end(), output);
   }
 
@@ -8601,15 +8728,14 @@ void MultiWaypointGPSResponse::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->destination(), target);
   }
 
-  // optional double time = 3 [(.dccl.field) = {
+  // required double time = 3 [(.dccl.field) = {
   if (cached_has_bits & 0x00000004u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
   }
 
-  // required int32 wpt_num = 4 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000008u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->wpt_num(), target);
-  }
+  // repeated int32 wpt_num = 4 [(.dccl.field) = {
+  target = ::google::protobuf::internal::WireFormatLite::
+    WriteInt32ToArray(4, this->wpt_num_, target);
 
   // repeated double latitude = 5 [(.dccl.field) = {
   target = ::google::protobuf::internal::WireFormatLite::
@@ -8624,7 +8750,7 @@ void MultiWaypointGPSResponse::SerializeWithCachedSizes(
     WriteFloatToArray(7, this->z_, target);
 
   // optional bool end = 8;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(8, this->end(), target);
   }
 
@@ -8654,11 +8780,9 @@ size_t MultiWaypointGPSResponse::RequiredFieldsByteSizeFallback() const {
         this->destination());
   }
 
-  if (has_wpt_num()) {
-    // required int32 wpt_num = 4 [(.dccl.field) = {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->wpt_num());
+  if (has_time()) {
+    // required double time = 3 [(.dccl.field) = {
+    total_size += 1 + 8;
   }
 
   return total_size;
@@ -8672,7 +8796,7 @@ size_t MultiWaypointGPSResponse::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  if (((_has_bits_[0] & 0x0000000b) ^ 0x0000000b) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
     // required int32 source = 1 [(.dccl.field) = {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -8683,14 +8807,21 @@ size_t MultiWaypointGPSResponse::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
 
-    // required int32 wpt_num = 4 [(.dccl.field) = {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->wpt_num());
+    // required double time = 3 [(.dccl.field) = {
+    total_size += 1 + 8;
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
+  // repeated int32 wpt_num = 4 [(.dccl.field) = {
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->wpt_num_);
+    total_size += 1 *
+                  ::google::protobuf::internal::FromIntSize(this->wpt_num_size());
+    total_size += data_size;
+  }
+
   // repeated double latitude = 5 [(.dccl.field) = {
   {
     unsigned int count = static_cast<unsigned int>(this->latitude_size());
@@ -8716,11 +8847,6 @@ size_t MultiWaypointGPSResponse::ByteSizeLong() const {
     total_size += 1 *
                   ::google::protobuf::internal::FromIntSize(this->z_size());
     total_size += data_size;
-  }
-
-  // optional double time = 3 [(.dccl.field) = {
-  if (has_time()) {
-    total_size += 1 + 8;
   }
 
   // optional bool end = 8;
@@ -8755,11 +8881,12 @@ void MultiWaypointGPSResponse::MergeFrom(const MultiWaypointGPSResponse& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  wpt_num_.MergeFrom(from.wpt_num_);
   latitude_.MergeFrom(from.latitude_);
   longitude_.MergeFrom(from.longitude_);
   z_.MergeFrom(from.z_);
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 31u) {
+  if (cached_has_bits & 15u) {
     if (cached_has_bits & 0x00000001u) {
       source_ = from.source_;
     }
@@ -8770,9 +8897,6 @@ void MultiWaypointGPSResponse::MergeFrom(const MultiWaypointGPSResponse& from) {
       time_ = from.time_;
     }
     if (cached_has_bits & 0x00000008u) {
-      wpt_num_ = from.wpt_num_;
-    }
-    if (cached_has_bits & 0x00000010u) {
       end_ = from.end_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -8794,7 +8918,7 @@ void MultiWaypointGPSResponse::CopyFrom(const MultiWaypointGPSResponse& from) {
 }
 
 bool MultiWaypointGPSResponse::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000000b) != 0x0000000b) return false;
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
   return true;
 }
 
@@ -8804,13 +8928,13 @@ void MultiWaypointGPSResponse::Swap(MultiWaypointGPSResponse* other) {
 }
 void MultiWaypointGPSResponse::InternalSwap(MultiWaypointGPSResponse* other) {
   using std::swap;
+  wpt_num_.InternalSwap(&other->wpt_num_);
   latitude_.InternalSwap(&other->latitude_);
   longitude_.InternalSwap(&other->longitude_);
   z_.InternalSwap(&other->z_);
   swap(source_, other->source_);
   swap(destination_, other->destination_);
   swap(time_, other->time_);
-  swap(wpt_num_, other->wpt_num_);
   swap(end_, other->end_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -8850,7 +8974,9 @@ MultiWaypointXYZCommand::MultiWaypointXYZCommand(const MultiWaypointXYZCommand& 
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_),
       wpt_num_(from.wpt_num_),
-      x_(from.x_) {
+      x_(from.x_),
+      y_(from.y_),
+      z_(from.z_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&source_, &from.source_,
     static_cast<size_t>(reinterpret_cast<char*>(&end_) -
@@ -8894,8 +9020,10 @@ void MultiWaypointXYZCommand::Clear() {
 
   wpt_num_.Clear();
   x_.Clear();
+  y_.Clear();
+  z_.Clear();
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 127u) {
+  if (cached_has_bits & 31u) {
     ::memset(&source_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&end_) -
         reinterpret_cast<char*>(&source_)) + sizeof(end_));
@@ -9014,35 +9142,45 @@ bool MultiWaypointXYZCommand::MergePartialFromCodedStream(
         break;
       }
 
-      // required float y = 7 [(.dccl.field) = {
+      // repeated float y = 7 [(.dccl.field) = {
       case 7: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(61u /* 61 & 0xFF */)) {
-          set_has_y();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &y_)));
+                 1, 61u, input, this->mutable_y())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(58u /* 58 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, this->mutable_y())));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // required float z = 8 [(.dccl.field) = {
+      // repeated float z = 8 [(.dccl.field) = {
       case 8: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(69u /* 69 & 0xFF */)) {
-          set_has_z();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &z_)));
+                 1, 69u, input, this->mutable_z())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(66u /* 66 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, this->mutable_z())));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // required bool end = 9 [(.dccl.field) = {
+      // optional bool end = 9 [(.dccl.field) = {
       case 9: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(72u /* 72 & 0xFF */)) {
@@ -9116,18 +9254,20 @@ void MultiWaypointXYZCommand::SerializeWithCachedSizes(
       6, this->x(i), output);
   }
 
-  // required float y = 7 [(.dccl.field) = {
+  // repeated float y = 7 [(.dccl.field) = {
+  for (int i = 0, n = this->y_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(
+      7, this->y(i), output);
+  }
+
+  // repeated float z = 8 [(.dccl.field) = {
+  for (int i = 0, n = this->z_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(
+      8, this->z(i), output);
+  }
+
+  // optional bool end = 9 [(.dccl.field) = {
   if (cached_has_bits & 0x00000010u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(7, this->y(), output);
-  }
-
-  // required float z = 8 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000020u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(8, this->z(), output);
-  }
-
-  // required bool end = 9 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000040u) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(9, this->end(), output);
   }
 
@@ -9175,18 +9315,16 @@ void MultiWaypointXYZCommand::SerializeWithCachedSizes(
   target = ::google::protobuf::internal::WireFormatLite::
     WriteFloatToArray(6, this->x_, target);
 
-  // required float y = 7 [(.dccl.field) = {
+  // repeated float y = 7 [(.dccl.field) = {
+  target = ::google::protobuf::internal::WireFormatLite::
+    WriteFloatToArray(7, this->y_, target);
+
+  // repeated float z = 8 [(.dccl.field) = {
+  target = ::google::protobuf::internal::WireFormatLite::
+    WriteFloatToArray(8, this->z_, target);
+
+  // optional bool end = 9 [(.dccl.field) = {
   if (cached_has_bits & 0x00000010u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(7, this->y(), target);
-  }
-
-  // required float z = 8 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000020u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(8, this->z(), target);
-  }
-
-  // required bool end = 9 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000040u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(9, this->end(), target);
   }
 
@@ -9222,21 +9360,6 @@ size_t MultiWaypointXYZCommand::RequiredFieldsByteSizeFallback() const {
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
   }
 
-  if (has_y()) {
-    // required float y = 7 [(.dccl.field) = {
-    total_size += 1 + 4;
-  }
-
-  if (has_z()) {
-    // required float z = 8 [(.dccl.field) = {
-    total_size += 1 + 4;
-  }
-
-  if (has_end()) {
-    // required bool end = 9 [(.dccl.field) = {
-    total_size += 1 + 1;
-  }
-
   return total_size;
 }
 size_t MultiWaypointXYZCommand::ByteSizeLong() const {
@@ -9248,7 +9371,7 @@ size_t MultiWaypointXYZCommand::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  if (((_has_bits_[0] & 0x0000007b) ^ 0x0000007b) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x0000000b) ^ 0x0000000b) == 0) {  // All required fields are present.
     // required int32 source = 1 [(.dccl.field) = {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -9262,15 +9385,6 @@ size_t MultiWaypointXYZCommand::ByteSizeLong() const {
     // required .MultiWaypointXYZCommand.Mode mode = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
-
-    // required float y = 7 [(.dccl.field) = {
-    total_size += 1 + 4;
-
-    // required float z = 8 [(.dccl.field) = {
-    total_size += 1 + 4;
-
-    // required bool end = 9 [(.dccl.field) = {
-    total_size += 1 + 1;
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -9293,9 +9407,32 @@ size_t MultiWaypointXYZCommand::ByteSizeLong() const {
     total_size += data_size;
   }
 
+  // repeated float y = 7 [(.dccl.field) = {
+  {
+    unsigned int count = static_cast<unsigned int>(this->y_size());
+    size_t data_size = 4UL * count;
+    total_size += 1 *
+                  ::google::protobuf::internal::FromIntSize(this->y_size());
+    total_size += data_size;
+  }
+
+  // repeated float z = 8 [(.dccl.field) = {
+  {
+    unsigned int count = static_cast<unsigned int>(this->z_size());
+    size_t data_size = 4UL * count;
+    total_size += 1 *
+                  ::google::protobuf::internal::FromIntSize(this->z_size());
+    total_size += data_size;
+  }
+
   // optional double time = 3 [(.dccl.field) = {
   if (has_time()) {
     total_size += 1 + 8;
+  }
+
+  // optional bool end = 9 [(.dccl.field) = {
+  if (has_end()) {
+    total_size += 1 + 1;
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -9327,8 +9464,10 @@ void MultiWaypointXYZCommand::MergeFrom(const MultiWaypointXYZCommand& from) {
 
   wpt_num_.MergeFrom(from.wpt_num_);
   x_.MergeFrom(from.x_);
+  y_.MergeFrom(from.y_);
+  z_.MergeFrom(from.z_);
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 127u) {
+  if (cached_has_bits & 31u) {
     if (cached_has_bits & 0x00000001u) {
       source_ = from.source_;
     }
@@ -9342,12 +9481,6 @@ void MultiWaypointXYZCommand::MergeFrom(const MultiWaypointXYZCommand& from) {
       mode_ = from.mode_;
     }
     if (cached_has_bits & 0x00000010u) {
-      y_ = from.y_;
-    }
-    if (cached_has_bits & 0x00000020u) {
-      z_ = from.z_;
-    }
-    if (cached_has_bits & 0x00000040u) {
       end_ = from.end_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -9369,7 +9502,7 @@ void MultiWaypointXYZCommand::CopyFrom(const MultiWaypointXYZCommand& from) {
 }
 
 bool MultiWaypointXYZCommand::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000007b) != 0x0000007b) return false;
+  if ((_has_bits_[0] & 0x0000000b) != 0x0000000b) return false;
   return true;
 }
 
@@ -9381,12 +9514,12 @@ void MultiWaypointXYZCommand::InternalSwap(MultiWaypointXYZCommand* other) {
   using std::swap;
   wpt_num_.InternalSwap(&other->wpt_num_);
   x_.InternalSwap(&other->x_);
+  y_.InternalSwap(&other->y_);
+  z_.InternalSwap(&other->z_);
   swap(source_, other->source_);
   swap(destination_, other->destination_);
   swap(time_, other->time_);
   swap(mode_, other->mode_);
-  swap(y_, other->y_);
-  swap(z_, other->z_);
   swap(end_, other->end_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -10067,7 +10200,7 @@ bool ExecuteWaypoints::MergePartialFromCodedStream(
         break;
       }
 
-      // required .ExecuteWaypoints.WaypointMode mode = 5;
+      // required .ExecuteWaypoints.ExecuteMode mode = 5;
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
@@ -10075,8 +10208,8 @@ bool ExecuteWaypoints::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::ExecuteWaypoints_WaypointMode_IsValid(value)) {
-            set_mode(static_cast< ::ExecuteWaypoints_WaypointMode >(value));
+          if (::ExecuteWaypoints_ExecuteMode_IsValid(value)) {
+            set_mode(static_cast< ::ExecuteWaypoints_ExecuteMode >(value));
           } else {
             mutable_unknown_fields()->AddVarint(
                 5, static_cast< ::google::protobuf::uint64>(value));
@@ -10134,7 +10267,7 @@ void ExecuteWaypoints::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(4, this->execute(), output);
   }
 
-  // required .ExecuteWaypoints.WaypointMode mode = 5;
+  // required .ExecuteWaypoints.ExecuteMode mode = 5;
   if (cached_has_bits & 0x00000010u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       5, this->mode(), output);
@@ -10175,7 +10308,7 @@ void ExecuteWaypoints::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(4, this->execute(), target);
   }
 
-  // required .ExecuteWaypoints.WaypointMode mode = 5;
+  // required .ExecuteWaypoints.ExecuteMode mode = 5;
   if (cached_has_bits & 0x00000010u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       5, this->mode(), target);
@@ -10213,7 +10346,7 @@ size_t ExecuteWaypoints::RequiredFieldsByteSizeFallback() const {
   }
 
   if (has_mode()) {
-    // required .ExecuteWaypoints.WaypointMode mode = 5;
+    // required .ExecuteWaypoints.ExecuteMode mode = 5;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
   }
@@ -10243,7 +10376,7 @@ size_t ExecuteWaypoints::ByteSizeLong() const {
     // required bool execute = 4;
     total_size += 1 + 1;
 
-    // required .ExecuteWaypoints.WaypointMode mode = 5;
+    // required .ExecuteWaypoints.ExecuteMode mode = 5;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
 
@@ -10373,11 +10506,11 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::ControllerStateResponse* Arena::
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::DirectControlCommand* Arena::CreateMaybeMessage< ::DirectControlCommand >(Arena* arena) {
   return Arena::CreateInternal< ::DirectControlCommand >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::StateCommand* Arena::CreateMaybeMessage< ::StateCommand >(Arena* arena) {
-  return Arena::CreateInternal< ::StateCommand >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::HelmStateCommand* Arena::CreateMaybeMessage< ::HelmStateCommand >(Arena* arena) {
+  return Arena::CreateInternal< ::HelmStateCommand >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::StateResponse* Arena::CreateMaybeMessage< ::StateResponse >(Arena* arena) {
-  return Arena::CreateInternal< ::StateResponse >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::HelmStateResponse* Arena::CreateMaybeMessage< ::HelmStateResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::HelmStateResponse >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::SingleWaypointCommand* Arena::CreateMaybeMessage< ::SingleWaypointCommand >(Arena* arena) {
   return Arena::CreateInternal< ::SingleWaypointCommand >(arena);
