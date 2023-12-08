@@ -25,6 +25,7 @@
   <depend>goby</depend>
   <depend>dccl</depend>
   <depend>seatrac_driver</depend>
+  <depend>dynamic_reconfigure</depend>
 
   <export>
 

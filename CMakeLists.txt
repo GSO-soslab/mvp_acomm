@@ -49,8 +49,24 @@ include_directories( ${CMAKE_BINARY_DIR} )
 catkin_package(
   # INCLUDE_DIRS 
   # LIBRARIES
-  CATKIN_DEPENDS roscpp std_msgs std_srvs nav_msgs geometry_msgs geographic_msgs mvp_msgs
+  CATKIN_DEPENDS roscpp std_msgs std_srvs nav_msgs geometry_msgs geographic_msgs mvp_msgs dynamic_reconfigure
   # DEPENDS
+)
+
+file(GLOB SRV_FILES ${PROJECT_SOURCE_DIR}/**/*.srv)
+
+foreach(I IN ITEMS ${SRV_FILES})
+  get_filename_component(ITEM_NAME ${I} NAME)
+  add_service_files(FILES ${ITEM_NAME})
+endforeach()
+
+generate_messages(
+  DEPENDENCIES
+    dynamic_reconfigure
+)
+
+generate_dynamic_reconfigure_options(
+  ${CFG_FILES}
 )
 
 ###########
