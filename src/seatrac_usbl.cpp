@@ -421,9 +421,9 @@ bool SeaTracUSBL::f_cb_srv_request_pose(mvp_msgs::CommsPose::Request &request, m
 {
     PoseCommand pose_cmd;
 
-    pose_cmd.set_time(ros::Time::now().toSec()); 
-
+    pose_cmd.set_source(our_id);
     pose_cmd.set_destination(dest_id);
+    pose_cmd.set_time(ros::Time::now().toSec()); 
 
     q_manager.push_message(pose_cmd);
 
@@ -442,11 +442,10 @@ bool SeaTracUSBL::f_cb_srv_request_health(mvp_msgs::CommsHealth::Request &reques
 {
     HealthCommand health_request;
 
-    health_request.set_time(ros::Time::now().toSec());
-    
     health_request.set_source(our_id);
     health_request.set_destination(dest_id);
-
+    health_request.set_time(ros::Time::now().toSec());
+    
     q_manager.push_message(health_request);
     
     return true;
@@ -454,7 +453,13 @@ bool SeaTracUSBL::f_cb_srv_request_health(mvp_msgs::CommsHealth::Request &reques
 
 bool SeaTracUSBL::f_cb_srv_request_relative_pose(mvp_msgs::CommsRelativePose::Request &request, mvp_msgs::CommsRelativePose::Response &response)
 {
+    RelativePoseCommand rel_pose_command;
 
+    rel_pose_command.set_source(our_id);
+    rel_pose_command.set_destination(dest_id);
+    rel_pose_command.set_time(ros::Time::now().toSec());
+    // rel_pose_command.set_parent();
+    // rel_pose_command.set_child();
 
     return true;
 }

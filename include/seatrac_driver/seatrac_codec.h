@@ -2,11 +2,11 @@
 #define GOBY_ACOMMS_SEATRAC_CODEC_H
 
 
-int RANGE_VALID         = 0b00000001;
-int USBL_VALID          = 0b00000010;
-int POSITION_VALID      = 0b00000100;
-int POSITION_ENHANCED   = 0b00001000;
-int POSITION_FLT_ERR    = 0b00010000;
+const int RANGE_VALID         = 0b00000001;
+const int USBL_VALID          = 0b00000010;
+const int POSITION_VALID      = 0b00000100;
+const int POSITION_ENHANCED   = 0b00001000;
+const int POSITION_FLT_ERR    = 0b00010000;
 
 
 enum ESeatracCmdId : uint8_t {
