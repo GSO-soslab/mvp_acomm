@@ -59,12 +59,6 @@ extern DirectControlCommandDefaultTypeInternal _DirectControlCommand_default_ins
 class ExecuteWaypoints;
 class ExecuteWaypointsDefaultTypeInternal;
 extern ExecuteWaypointsDefaultTypeInternal _ExecuteWaypoints_default_instance_;
-class HealthCommand;
-class HealthCommandDefaultTypeInternal;
-extern HealthCommandDefaultTypeInternal _HealthCommand_default_instance_;
-class HealthResponse;
-class HealthResponseDefaultTypeInternal;
-extern HealthResponseDefaultTypeInternal _HealthResponse_default_instance_;
 class HelmStateCommand;
 class HelmStateCommandDefaultTypeInternal;
 extern HelmStateCommandDefaultTypeInternal _HelmStateCommand_default_instance_;
@@ -89,6 +83,12 @@ extern PoseCommandDefaultTypeInternal _PoseCommand_default_instance_;
 class PoseResponse;
 class PoseResponseDefaultTypeInternal;
 extern PoseResponseDefaultTypeInternal _PoseResponse_default_instance_;
+class PowerCommand;
+class PowerCommandDefaultTypeInternal;
+extern PowerCommandDefaultTypeInternal _PowerCommand_default_instance_;
+class PowerResponse;
+class PowerResponseDefaultTypeInternal;
+extern PowerResponseDefaultTypeInternal _PowerResponse_default_instance_;
 class RelativePoseCommand;
 class RelativePoseCommandDefaultTypeInternal;
 extern RelativePoseCommandDefaultTypeInternal _RelativePoseCommand_default_instance_;
@@ -107,8 +107,6 @@ template<> ::ControllerStateCommand* Arena::CreateMaybeMessage<::ControllerState
 template<> ::ControllerStateResponse* Arena::CreateMaybeMessage<::ControllerStateResponse>(Arena*);
 template<> ::DirectControlCommand* Arena::CreateMaybeMessage<::DirectControlCommand>(Arena*);
 template<> ::ExecuteWaypoints* Arena::CreateMaybeMessage<::ExecuteWaypoints>(Arena*);
-template<> ::HealthCommand* Arena::CreateMaybeMessage<::HealthCommand>(Arena*);
-template<> ::HealthResponse* Arena::CreateMaybeMessage<::HealthResponse>(Arena*);
 template<> ::HelmStateCommand* Arena::CreateMaybeMessage<::HelmStateCommand>(Arena*);
 template<> ::HelmStateResponse* Arena::CreateMaybeMessage<::HelmStateResponse>(Arena*);
 template<> ::MultiWaypointGPSCommand* Arena::CreateMaybeMessage<::MultiWaypointGPSCommand>(Arena*);
@@ -117,6 +115,8 @@ template<> ::MultiWaypointXYZCommand* Arena::CreateMaybeMessage<::MultiWaypointX
 template<> ::MultiWaypointXYZResponse* Arena::CreateMaybeMessage<::MultiWaypointXYZResponse>(Arena*);
 template<> ::PoseCommand* Arena::CreateMaybeMessage<::PoseCommand>(Arena*);
 template<> ::PoseResponse* Arena::CreateMaybeMessage<::PoseResponse>(Arena*);
+template<> ::PowerCommand* Arena::CreateMaybeMessage<::PowerCommand>(Arena*);
+template<> ::PowerResponse* Arena::CreateMaybeMessage<::PowerResponse>(Arena*);
 template<> ::RelativePoseCommand* Arena::CreateMaybeMessage<::RelativePoseCommand>(Arena*);
 template<> ::RelativePoseResponse* Arena::CreateMaybeMessage<::RelativePoseResponse>(Arena*);
 template<> ::SingleWaypointCommand* Arena::CreateMaybeMessage<::SingleWaypointCommand>(Arena*);
@@ -203,25 +203,6 @@ inline bool ControllerStateCommand_ControllerState_Parse(
     const ::std::string& name, ControllerStateCommand_ControllerState* value) {
   return ::google::protobuf::internal::ParseNamedEnum<ControllerStateCommand_ControllerState>(
     ControllerStateCommand_ControllerState_descriptor(), name, value);
-}
-enum ControllerStateResponse_Mode {
-  ControllerStateResponse_Mode_QUERY = 0,
-  ControllerStateResponse_Mode_COMMAND = 1
-};
-bool ControllerStateResponse_Mode_IsValid(int value);
-const ControllerStateResponse_Mode ControllerStateResponse_Mode_Mode_MIN = ControllerStateResponse_Mode_QUERY;
-const ControllerStateResponse_Mode ControllerStateResponse_Mode_Mode_MAX = ControllerStateResponse_Mode_COMMAND;
-const int ControllerStateResponse_Mode_Mode_ARRAYSIZE = ControllerStateResponse_Mode_Mode_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* ControllerStateResponse_Mode_descriptor();
-inline const ::std::string& ControllerStateResponse_Mode_Name(ControllerStateResponse_Mode value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    ControllerStateResponse_Mode_descriptor(), value);
-}
-inline bool ControllerStateResponse_Mode_Parse(
-    const ::std::string& name, ControllerStateResponse_Mode* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<ControllerStateResponse_Mode>(
-    ControllerStateResponse_Mode_descriptor(), name, value);
 }
 enum ControllerStateResponse_ControllerState {
   ControllerStateResponse_ControllerState_DISABLE = 0,
@@ -771,24 +752,24 @@ class PoseResponse : public ::google::protobuf::Message /* @@protoc_insertion_po
 };
 // -------------------------------------------------------------------
 
-class HealthCommand : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:HealthCommand) */ {
+class PowerCommand : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:PowerCommand) */ {
  public:
-  HealthCommand();
-  virtual ~HealthCommand();
+  PowerCommand();
+  virtual ~PowerCommand();
 
-  HealthCommand(const HealthCommand& from);
+  PowerCommand(const PowerCommand& from);
 
-  inline HealthCommand& operator=(const HealthCommand& from) {
+  inline PowerCommand& operator=(const PowerCommand& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  HealthCommand(HealthCommand&& from) noexcept
-    : HealthCommand() {
+  PowerCommand(PowerCommand&& from) noexcept
+    : PowerCommand() {
     *this = ::std::move(from);
   }
 
-  inline HealthCommand& operator=(HealthCommand&& from) noexcept {
+  inline PowerCommand& operator=(PowerCommand&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -805,34 +786,34 @@ class HealthCommand : public ::google::protobuf::Message /* @@protoc_insertion_p
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const HealthCommand& default_instance();
+  static const PowerCommand& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const HealthCommand* internal_default_instance() {
-    return reinterpret_cast<const HealthCommand*>(
-               &_HealthCommand_default_instance_);
+  static inline const PowerCommand* internal_default_instance() {
+    return reinterpret_cast<const PowerCommand*>(
+               &_PowerCommand_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     2;
 
-  void Swap(HealthCommand* other);
-  friend void swap(HealthCommand& a, HealthCommand& b) {
+  void Swap(PowerCommand* other);
+  friend void swap(PowerCommand& a, PowerCommand& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline HealthCommand* New() const final {
-    return CreateMaybeMessage<HealthCommand>(NULL);
+  inline PowerCommand* New() const final {
+    return CreateMaybeMessage<PowerCommand>(NULL);
   }
 
-  HealthCommand* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<HealthCommand>(arena);
+  PowerCommand* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<PowerCommand>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const HealthCommand& from);
-  void MergeFrom(const HealthCommand& from);
+  void CopyFrom(const PowerCommand& from);
+  void MergeFrom(const PowerCommand& from);
   void Clear() final;
   bool IsInitialized() const final;
 
@@ -849,7 +830,7 @@ class HealthCommand : public ::google::protobuf::Message /* @@protoc_insertion_p
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(HealthCommand* other);
+  void InternalSwap(PowerCommand* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -886,7 +867,7 @@ class HealthCommand : public ::google::protobuf::Message /* @@protoc_insertion_p
   double time() const;
   void set_time(double value);
 
-  // @@protoc_insertion_point(class_scope:HealthCommand)
+  // @@protoc_insertion_point(class_scope:PowerCommand)
  private:
   void set_has_source();
   void clear_has_source();
@@ -908,24 +889,24 @@ class HealthCommand : public ::google::protobuf::Message /* @@protoc_insertion_p
 };
 // -------------------------------------------------------------------
 
-class HealthResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:HealthResponse) */ {
+class PowerResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:PowerResponse) */ {
  public:
-  HealthResponse();
-  virtual ~HealthResponse();
+  PowerResponse();
+  virtual ~PowerResponse();
 
-  HealthResponse(const HealthResponse& from);
+  PowerResponse(const PowerResponse& from);
 
-  inline HealthResponse& operator=(const HealthResponse& from) {
+  inline PowerResponse& operator=(const PowerResponse& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  HealthResponse(HealthResponse&& from) noexcept
-    : HealthResponse() {
+  PowerResponse(PowerResponse&& from) noexcept
+    : PowerResponse() {
     *this = ::std::move(from);
   }
 
-  inline HealthResponse& operator=(HealthResponse&& from) noexcept {
+  inline PowerResponse& operator=(PowerResponse&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -942,34 +923,34 @@ class HealthResponse : public ::google::protobuf::Message /* @@protoc_insertion_
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const HealthResponse& default_instance();
+  static const PowerResponse& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const HealthResponse* internal_default_instance() {
-    return reinterpret_cast<const HealthResponse*>(
-               &_HealthResponse_default_instance_);
+  static inline const PowerResponse* internal_default_instance() {
+    return reinterpret_cast<const PowerResponse*>(
+               &_PowerResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     3;
 
-  void Swap(HealthResponse* other);
-  friend void swap(HealthResponse& a, HealthResponse& b) {
+  void Swap(PowerResponse* other);
+  friend void swap(PowerResponse& a, PowerResponse& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline HealthResponse* New() const final {
-    return CreateMaybeMessage<HealthResponse>(NULL);
+  inline PowerResponse* New() const final {
+    return CreateMaybeMessage<PowerResponse>(NULL);
   }
 
-  HealthResponse* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<HealthResponse>(arena);
+  PowerResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<PowerResponse>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const HealthResponse& from);
-  void MergeFrom(const HealthResponse& from);
+  void CopyFrom(const PowerResponse& from);
+  void MergeFrom(const PowerResponse& from);
   void Clear() final;
   bool IsInitialized() const final;
 
@@ -986,7 +967,7 @@ class HealthResponse : public ::google::protobuf::Message /* @@protoc_insertion_
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(HealthResponse* other);
+  void InternalSwap(PowerResponse* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -1023,12 +1004,12 @@ class HealthResponse : public ::google::protobuf::Message /* @@protoc_insertion_
   double time() const;
   void set_time(double value);
 
-  // required float batt_volt = 4 [(.dccl.field) = {
-  bool has_batt_volt() const;
-  void clear_batt_volt();
-  static const int kBattVoltFieldNumber = 4;
-  float batt_volt() const;
-  void set_batt_volt(float value);
+  // required float battery_voltage = 4 [(.dccl.field) = {
+  bool has_battery_voltage() const;
+  void clear_battery_voltage();
+  static const int kBatteryVoltageFieldNumber = 4;
+  float battery_voltage() const;
+  void set_battery_voltage(float value);
 
   // required float current = 5 [(.dccl.field) = {
   bool has_current() const;
@@ -1037,7 +1018,7 @@ class HealthResponse : public ::google::protobuf::Message /* @@protoc_insertion_
   float current() const;
   void set_current(float value);
 
-  // @@protoc_insertion_point(class_scope:HealthResponse)
+  // @@protoc_insertion_point(class_scope:PowerResponse)
  private:
   void set_has_source();
   void clear_has_source();
@@ -1045,8 +1026,8 @@ class HealthResponse : public ::google::protobuf::Message /* @@protoc_insertion_
   void clear_has_destination();
   void set_has_time();
   void clear_has_time();
-  void set_has_batt_volt();
-  void clear_has_batt_volt();
+  void set_has_battery_voltage();
+  void clear_has_battery_voltage();
   void set_has_current();
   void clear_has_current();
 
@@ -1059,7 +1040,7 @@ class HealthResponse : public ::google::protobuf::Message /* @@protoc_insertion_
   ::google::protobuf::int32 source_;
   ::google::protobuf::int32 destination_;
   double time_;
-  float batt_volt_;
+  float battery_voltage_;
   float current_;
   friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
 };
@@ -1830,32 +1811,6 @@ class ControllerStateResponse : public ::google::protobuf::Message /* @@protoc_i
 
   // nested types ----------------------------------------------------
 
-  typedef ControllerStateResponse_Mode Mode;
-  static const Mode QUERY =
-    ControllerStateResponse_Mode_QUERY;
-  static const Mode COMMAND =
-    ControllerStateResponse_Mode_COMMAND;
-  static inline bool Mode_IsValid(int value) {
-    return ControllerStateResponse_Mode_IsValid(value);
-  }
-  static const Mode Mode_MIN =
-    ControllerStateResponse_Mode_Mode_MIN;
-  static const Mode Mode_MAX =
-    ControllerStateResponse_Mode_Mode_MAX;
-  static const int Mode_ARRAYSIZE =
-    ControllerStateResponse_Mode_Mode_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
-  Mode_descriptor() {
-    return ControllerStateResponse_Mode_descriptor();
-  }
-  static inline const ::std::string& Mode_Name(Mode value) {
-    return ControllerStateResponse_Mode_Name(value);
-  }
-  static inline bool Mode_Parse(const ::std::string& name,
-      Mode* value) {
-    return ControllerStateResponse_Mode_Parse(name, value);
-  }
-
   typedef ControllerStateResponse_ControllerState ControllerState;
   static const ControllerState DISABLE =
     ControllerStateResponse_ControllerState_DISABLE;
@@ -1905,17 +1860,10 @@ class ControllerStateResponse : public ::google::protobuf::Message /* @@protoc_i
   double time() const;
   void set_time(double value);
 
-  // required .ControllerStateResponse.Mode mode = 4;
-  bool has_mode() const;
-  void clear_mode();
-  static const int kModeFieldNumber = 4;
-  ::ControllerStateResponse_Mode mode() const;
-  void set_mode(::ControllerStateResponse_Mode value);
-
-  // optional .ControllerStateResponse.ControllerState state = 5 [(.dccl.field) = {
+  // optional .ControllerStateResponse.ControllerState state = 4;
   bool has_state() const;
   void clear_state();
-  static const int kStateFieldNumber = 5;
+  static const int kStateFieldNumber = 4;
   ::ControllerStateResponse_ControllerState state() const;
   void set_state(::ControllerStateResponse_ControllerState value);
 
@@ -1927,8 +1875,6 @@ class ControllerStateResponse : public ::google::protobuf::Message /* @@protoc_i
   void clear_has_destination();
   void set_has_time();
   void clear_has_time();
-  void set_has_mode();
-  void clear_has_mode();
   void set_has_state();
   void clear_has_state();
 
@@ -1941,7 +1887,6 @@ class ControllerStateResponse : public ::google::protobuf::Message /* @@protoc_i
   ::google::protobuf::int32 source_;
   ::google::protobuf::int32 destination_;
   double time_;
-  int mode_;
   int state_;
   friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
 };
@@ -2610,12 +2555,12 @@ class HelmStateResponse : public ::google::protobuf::Message /* @@protoc_inserti
   double time() const;
   void set_time(double value);
 
-  // required .HelmStateResponse.HelmState state = 4;
-  bool has_state() const;
-  void clear_state();
-  static const int kStateFieldNumber = 4;
-  ::HelmStateResponse_HelmState state() const;
-  void set_state(::HelmStateResponse_HelmState value);
+  // required .HelmStateResponse.HelmState helm_state = 4;
+  bool has_helm_state() const;
+  void clear_helm_state();
+  static const int kHelmStateFieldNumber = 4;
+  ::HelmStateResponse_HelmState helm_state() const;
+  void set_helm_state(::HelmStateResponse_HelmState value);
 
   // @@protoc_insertion_point(class_scope:HelmStateResponse)
  private:
@@ -2625,8 +2570,8 @@ class HelmStateResponse : public ::google::protobuf::Message /* @@protoc_inserti
   void clear_has_destination();
   void set_has_time();
   void clear_has_time();
-  void set_has_state();
-  void clear_has_state();
+  void set_has_helm_state();
+  void clear_has_helm_state();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -2637,7 +2582,7 @@ class HelmStateResponse : public ::google::protobuf::Message /* @@protoc_inserti
   ::google::protobuf::int32 source_;
   ::google::protobuf::int32 destination_;
   double time_;
-  int state_;
+  int helm_state_;
   friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -4057,17 +4002,10 @@ class ExecuteWaypoints : public ::google::protobuf::Message /* @@protoc_insertio
   double time() const;
   void set_time(double value);
 
-  // required bool execute = 4;
-  bool has_execute() const;
-  void clear_execute();
-  static const int kExecuteFieldNumber = 4;
-  bool execute() const;
-  void set_execute(bool value);
-
-  // required .ExecuteWaypoints.ExecuteMode mode = 5;
+  // required .ExecuteWaypoints.ExecuteMode mode = 4;
   bool has_mode() const;
   void clear_mode();
-  static const int kModeFieldNumber = 5;
+  static const int kModeFieldNumber = 4;
   ::ExecuteWaypoints_ExecuteMode mode() const;
   void set_mode(::ExecuteWaypoints_ExecuteMode value);
 
@@ -4079,8 +4017,6 @@ class ExecuteWaypoints : public ::google::protobuf::Message /* @@protoc_insertio
   void clear_has_destination();
   void set_has_time();
   void clear_has_time();
-  void set_has_execute();
-  void clear_has_execute();
   void set_has_mode();
   void clear_has_mode();
 
@@ -4093,7 +4029,6 @@ class ExecuteWaypoints : public ::google::protobuf::Message /* @@protoc_insertio
   ::google::protobuf::int32 source_;
   ::google::protobuf::int32 destination_;
   double time_;
-  bool execute_;
   int mode_;
   friend struct ::protobuf_goby_5fmsgs_2eproto::TableStruct;
 };
@@ -4474,202 +4409,202 @@ inline void PoseResponse::set_quat_w(float value) {
 
 // -------------------------------------------------------------------
 
-// HealthCommand
+// PowerCommand
 
 // required int32 source = 1 [(.dccl.field) = {
-inline bool HealthCommand::has_source() const {
+inline bool PowerCommand::has_source() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void HealthCommand::set_has_source() {
+inline void PowerCommand::set_has_source() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void HealthCommand::clear_has_source() {
+inline void PowerCommand::clear_has_source() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void HealthCommand::clear_source() {
+inline void PowerCommand::clear_source() {
   source_ = 0;
   clear_has_source();
 }
-inline ::google::protobuf::int32 HealthCommand::source() const {
-  // @@protoc_insertion_point(field_get:HealthCommand.source)
+inline ::google::protobuf::int32 PowerCommand::source() const {
+  // @@protoc_insertion_point(field_get:PowerCommand.source)
   return source_;
 }
-inline void HealthCommand::set_source(::google::protobuf::int32 value) {
+inline void PowerCommand::set_source(::google::protobuf::int32 value) {
   set_has_source();
   source_ = value;
-  // @@protoc_insertion_point(field_set:HealthCommand.source)
+  // @@protoc_insertion_point(field_set:PowerCommand.source)
 }
 
 // required int32 destination = 2 [(.dccl.field) = {
-inline bool HealthCommand::has_destination() const {
+inline bool PowerCommand::has_destination() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void HealthCommand::set_has_destination() {
+inline void PowerCommand::set_has_destination() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void HealthCommand::clear_has_destination() {
+inline void PowerCommand::clear_has_destination() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void HealthCommand::clear_destination() {
+inline void PowerCommand::clear_destination() {
   destination_ = 0;
   clear_has_destination();
 }
-inline ::google::protobuf::int32 HealthCommand::destination() const {
-  // @@protoc_insertion_point(field_get:HealthCommand.destination)
+inline ::google::protobuf::int32 PowerCommand::destination() const {
+  // @@protoc_insertion_point(field_get:PowerCommand.destination)
   return destination_;
 }
-inline void HealthCommand::set_destination(::google::protobuf::int32 value) {
+inline void PowerCommand::set_destination(::google::protobuf::int32 value) {
   set_has_destination();
   destination_ = value;
-  // @@protoc_insertion_point(field_set:HealthCommand.destination)
+  // @@protoc_insertion_point(field_set:PowerCommand.destination)
 }
 
 // optional double time = 3 [(.dccl.field) = {
-inline bool HealthCommand::has_time() const {
+inline bool PowerCommand::has_time() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void HealthCommand::set_has_time() {
+inline void PowerCommand::set_has_time() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void HealthCommand::clear_has_time() {
+inline void PowerCommand::clear_has_time() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void HealthCommand::clear_time() {
+inline void PowerCommand::clear_time() {
   time_ = 0;
   clear_has_time();
 }
-inline double HealthCommand::time() const {
-  // @@protoc_insertion_point(field_get:HealthCommand.time)
+inline double PowerCommand::time() const {
+  // @@protoc_insertion_point(field_get:PowerCommand.time)
   return time_;
 }
-inline void HealthCommand::set_time(double value) {
+inline void PowerCommand::set_time(double value) {
   set_has_time();
   time_ = value;
-  // @@protoc_insertion_point(field_set:HealthCommand.time)
+  // @@protoc_insertion_point(field_set:PowerCommand.time)
 }
 
 // -------------------------------------------------------------------
 
-// HealthResponse
+// PowerResponse
 
 // required int32 source = 1 [(.dccl.field) = {
-inline bool HealthResponse::has_source() const {
+inline bool PowerResponse::has_source() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void HealthResponse::set_has_source() {
+inline void PowerResponse::set_has_source() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void HealthResponse::clear_has_source() {
+inline void PowerResponse::clear_has_source() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void HealthResponse::clear_source() {
+inline void PowerResponse::clear_source() {
   source_ = 0;
   clear_has_source();
 }
-inline ::google::protobuf::int32 HealthResponse::source() const {
-  // @@protoc_insertion_point(field_get:HealthResponse.source)
+inline ::google::protobuf::int32 PowerResponse::source() const {
+  // @@protoc_insertion_point(field_get:PowerResponse.source)
   return source_;
 }
-inline void HealthResponse::set_source(::google::protobuf::int32 value) {
+inline void PowerResponse::set_source(::google::protobuf::int32 value) {
   set_has_source();
   source_ = value;
-  // @@protoc_insertion_point(field_set:HealthResponse.source)
+  // @@protoc_insertion_point(field_set:PowerResponse.source)
 }
 
 // required int32 destination = 2 [(.dccl.field) = {
-inline bool HealthResponse::has_destination() const {
+inline bool PowerResponse::has_destination() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void HealthResponse::set_has_destination() {
+inline void PowerResponse::set_has_destination() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void HealthResponse::clear_has_destination() {
+inline void PowerResponse::clear_has_destination() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void HealthResponse::clear_destination() {
+inline void PowerResponse::clear_destination() {
   destination_ = 0;
   clear_has_destination();
 }
-inline ::google::protobuf::int32 HealthResponse::destination() const {
-  // @@protoc_insertion_point(field_get:HealthResponse.destination)
+inline ::google::protobuf::int32 PowerResponse::destination() const {
+  // @@protoc_insertion_point(field_get:PowerResponse.destination)
   return destination_;
 }
-inline void HealthResponse::set_destination(::google::protobuf::int32 value) {
+inline void PowerResponse::set_destination(::google::protobuf::int32 value) {
   set_has_destination();
   destination_ = value;
-  // @@protoc_insertion_point(field_set:HealthResponse.destination)
+  // @@protoc_insertion_point(field_set:PowerResponse.destination)
 }
 
 // optional double time = 3 [(.dccl.field) = {
-inline bool HealthResponse::has_time() const {
+inline bool PowerResponse::has_time() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void HealthResponse::set_has_time() {
+inline void PowerResponse::set_has_time() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void HealthResponse::clear_has_time() {
+inline void PowerResponse::clear_has_time() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void HealthResponse::clear_time() {
+inline void PowerResponse::clear_time() {
   time_ = 0;
   clear_has_time();
 }
-inline double HealthResponse::time() const {
-  // @@protoc_insertion_point(field_get:HealthResponse.time)
+inline double PowerResponse::time() const {
+  // @@protoc_insertion_point(field_get:PowerResponse.time)
   return time_;
 }
-inline void HealthResponse::set_time(double value) {
+inline void PowerResponse::set_time(double value) {
   set_has_time();
   time_ = value;
-  // @@protoc_insertion_point(field_set:HealthResponse.time)
+  // @@protoc_insertion_point(field_set:PowerResponse.time)
 }
 
-// required float batt_volt = 4 [(.dccl.field) = {
-inline bool HealthResponse::has_batt_volt() const {
+// required float battery_voltage = 4 [(.dccl.field) = {
+inline bool PowerResponse::has_battery_voltage() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void HealthResponse::set_has_batt_volt() {
+inline void PowerResponse::set_has_battery_voltage() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void HealthResponse::clear_has_batt_volt() {
+inline void PowerResponse::clear_has_battery_voltage() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void HealthResponse::clear_batt_volt() {
-  batt_volt_ = 0;
-  clear_has_batt_volt();
+inline void PowerResponse::clear_battery_voltage() {
+  battery_voltage_ = 0;
+  clear_has_battery_voltage();
 }
-inline float HealthResponse::batt_volt() const {
-  // @@protoc_insertion_point(field_get:HealthResponse.batt_volt)
-  return batt_volt_;
+inline float PowerResponse::battery_voltage() const {
+  // @@protoc_insertion_point(field_get:PowerResponse.battery_voltage)
+  return battery_voltage_;
 }
-inline void HealthResponse::set_batt_volt(float value) {
-  set_has_batt_volt();
-  batt_volt_ = value;
-  // @@protoc_insertion_point(field_set:HealthResponse.batt_volt)
+inline void PowerResponse::set_battery_voltage(float value) {
+  set_has_battery_voltage();
+  battery_voltage_ = value;
+  // @@protoc_insertion_point(field_set:PowerResponse.battery_voltage)
 }
 
 // required float current = 5 [(.dccl.field) = {
-inline bool HealthResponse::has_current() const {
+inline bool PowerResponse::has_current() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void HealthResponse::set_has_current() {
+inline void PowerResponse::set_has_current() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void HealthResponse::clear_has_current() {
+inline void PowerResponse::clear_has_current() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void HealthResponse::clear_current() {
+inline void PowerResponse::clear_current() {
   current_ = 0;
   clear_has_current();
 }
-inline float HealthResponse::current() const {
-  // @@protoc_insertion_point(field_get:HealthResponse.current)
+inline float PowerResponse::current() const {
+  // @@protoc_insertion_point(field_get:PowerResponse.current)
   return current_;
 }
-inline void HealthResponse::set_current(float value) {
+inline void PowerResponse::set_current(float value) {
   set_has_current();
   current_ = value;
-  // @@protoc_insertion_point(field_set:HealthResponse.current)
+  // @@protoc_insertion_point(field_set:PowerResponse.current)
 }
 
 // -------------------------------------------------------------------
@@ -5342,40 +5277,15 @@ inline void ControllerStateResponse::set_time(double value) {
   // @@protoc_insertion_point(field_set:ControllerStateResponse.time)
 }
 
-// required .ControllerStateResponse.Mode mode = 4;
-inline bool ControllerStateResponse::has_mode() const {
+// optional .ControllerStateResponse.ControllerState state = 4;
+inline bool ControllerStateResponse::has_state() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void ControllerStateResponse::set_has_mode() {
+inline void ControllerStateResponse::set_has_state() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void ControllerStateResponse::clear_has_mode() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void ControllerStateResponse::clear_mode() {
-  mode_ = 0;
-  clear_has_mode();
-}
-inline ::ControllerStateResponse_Mode ControllerStateResponse::mode() const {
-  // @@protoc_insertion_point(field_get:ControllerStateResponse.mode)
-  return static_cast< ::ControllerStateResponse_Mode >(mode_);
-}
-inline void ControllerStateResponse::set_mode(::ControllerStateResponse_Mode value) {
-  assert(::ControllerStateResponse_Mode_IsValid(value));
-  set_has_mode();
-  mode_ = value;
-  // @@protoc_insertion_point(field_set:ControllerStateResponse.mode)
-}
-
-// optional .ControllerStateResponse.ControllerState state = 5 [(.dccl.field) = {
-inline bool ControllerStateResponse::has_state() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void ControllerStateResponse::set_has_state() {
-  _has_bits_[0] |= 0x00000010u;
-}
 inline void ControllerStateResponse::clear_has_state() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void ControllerStateResponse::clear_state() {
   state_ = 0;
@@ -5983,29 +5893,29 @@ inline void HelmStateResponse::set_time(double value) {
   // @@protoc_insertion_point(field_set:HelmStateResponse.time)
 }
 
-// required .HelmStateResponse.HelmState state = 4;
-inline bool HelmStateResponse::has_state() const {
+// required .HelmStateResponse.HelmState helm_state = 4;
+inline bool HelmStateResponse::has_helm_state() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void HelmStateResponse::set_has_state() {
+inline void HelmStateResponse::set_has_helm_state() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void HelmStateResponse::clear_has_state() {
+inline void HelmStateResponse::clear_has_helm_state() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void HelmStateResponse::clear_state() {
-  state_ = 0;
-  clear_has_state();
+inline void HelmStateResponse::clear_helm_state() {
+  helm_state_ = 0;
+  clear_has_helm_state();
 }
-inline ::HelmStateResponse_HelmState HelmStateResponse::state() const {
-  // @@protoc_insertion_point(field_get:HelmStateResponse.state)
-  return static_cast< ::HelmStateResponse_HelmState >(state_);
+inline ::HelmStateResponse_HelmState HelmStateResponse::helm_state() const {
+  // @@protoc_insertion_point(field_get:HelmStateResponse.helm_state)
+  return static_cast< ::HelmStateResponse_HelmState >(helm_state_);
 }
-inline void HelmStateResponse::set_state(::HelmStateResponse_HelmState value) {
+inline void HelmStateResponse::set_helm_state(::HelmStateResponse_HelmState value) {
   assert(::HelmStateResponse_HelmState_IsValid(value));
-  set_has_state();
-  state_ = value;
-  // @@protoc_insertion_point(field_set:HelmStateResponse.state)
+  set_has_helm_state();
+  helm_state_ = value;
+  // @@protoc_insertion_point(field_set:HelmStateResponse.helm_state)
 }
 
 // -------------------------------------------------------------------
@@ -7419,39 +7329,15 @@ inline void ExecuteWaypoints::set_time(double value) {
   // @@protoc_insertion_point(field_set:ExecuteWaypoints.time)
 }
 
-// required bool execute = 4;
-inline bool ExecuteWaypoints::has_execute() const {
+// required .ExecuteWaypoints.ExecuteMode mode = 4;
+inline bool ExecuteWaypoints::has_mode() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void ExecuteWaypoints::set_has_execute() {
+inline void ExecuteWaypoints::set_has_mode() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void ExecuteWaypoints::clear_has_execute() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void ExecuteWaypoints::clear_execute() {
-  execute_ = false;
-  clear_has_execute();
-}
-inline bool ExecuteWaypoints::execute() const {
-  // @@protoc_insertion_point(field_get:ExecuteWaypoints.execute)
-  return execute_;
-}
-inline void ExecuteWaypoints::set_execute(bool value) {
-  set_has_execute();
-  execute_ = value;
-  // @@protoc_insertion_point(field_set:ExecuteWaypoints.execute)
-}
-
-// required .ExecuteWaypoints.ExecuteMode mode = 5;
-inline bool ExecuteWaypoints::has_mode() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void ExecuteWaypoints::set_has_mode() {
-  _has_bits_[0] |= 0x00000010u;
-}
 inline void ExecuteWaypoints::clear_has_mode() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void ExecuteWaypoints::clear_mode() {
   mode_ = 0;
@@ -7531,11 +7417,6 @@ template <> struct is_proto_enum< ::ControllerStateCommand_ControllerState> : ::
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ControllerStateCommand_ControllerState>() {
   return ::ControllerStateCommand_ControllerState_descriptor();
-}
-template <> struct is_proto_enum< ::ControllerStateResponse_Mode> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::ControllerStateResponse_Mode>() {
-  return ::ControllerStateResponse_Mode_descriptor();
 }
 template <> struct is_proto_enum< ::ControllerStateResponse_ControllerState> : ::std::true_type {};
 template <>

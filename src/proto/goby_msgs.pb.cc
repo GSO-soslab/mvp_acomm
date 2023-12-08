@@ -29,16 +29,16 @@ class PoseResponseDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<PoseResponse>
       _instance;
 } _PoseResponse_default_instance_;
-class HealthCommandDefaultTypeInternal {
+class PowerCommandDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<HealthCommand>
+  ::google::protobuf::internal::ExplicitlyConstructed<PowerCommand>
       _instance;
-} _HealthCommand_default_instance_;
-class HealthResponseDefaultTypeInternal {
+} _PowerCommand_default_instance_;
+class PowerResponseDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<HealthResponse>
+  ::google::protobuf::internal::ExplicitlyConstructed<PowerResponse>
       _instance;
-} _HealthResponse_default_instance_;
+} _PowerResponse_default_instance_;
 class RelativePoseCommandDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<RelativePoseCommand>
@@ -138,33 +138,33 @@ static void InitDefaultsPoseResponse() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_PoseResponse =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsPoseResponse}, {}};
 
-static void InitDefaultsHealthCommand() {
+static void InitDefaultsPowerCommand() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_HealthCommand_default_instance_;
-    new (ptr) ::HealthCommand();
+    void* ptr = &::_PowerCommand_default_instance_;
+    new (ptr) ::PowerCommand();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::HealthCommand::InitAsDefaultInstance();
+  ::PowerCommand::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_HealthCommand =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsHealthCommand}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_PowerCommand =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsPowerCommand}, {}};
 
-static void InitDefaultsHealthResponse() {
+static void InitDefaultsPowerResponse() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_HealthResponse_default_instance_;
-    new (ptr) ::HealthResponse();
+    void* ptr = &::_PowerResponse_default_instance_;
+    new (ptr) ::PowerResponse();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::HealthResponse::InitAsDefaultInstance();
+  ::PowerResponse::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_HealthResponse =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsHealthResponse}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_PowerResponse =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsPowerResponse}, {}};
 
 static void InitDefaultsRelativePoseCommand() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -365,8 +365,8 @@ static void InitDefaultsExecuteWaypoints() {
 void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_PoseCommand.base);
   ::google::protobuf::internal::InitSCC(&scc_info_PoseResponse.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_HealthCommand.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_HealthResponse.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_PowerCommand.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_PowerResponse.base);
   ::google::protobuf::internal::InitSCC(&scc_info_RelativePoseCommand.base);
   ::google::protobuf::internal::InitSCC(&scc_info_RelativePoseResponse.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ControllerStateCommand.base);
@@ -384,7 +384,7 @@ void InitDefaults() {
 }
 
 ::google::protobuf::Metadata file_level_metadata[18];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[14];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[13];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PoseCommand, _has_bits_),
@@ -427,27 +427,27 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   9,
   10,
   11,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthCommand, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthCommand, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PowerCommand, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PowerCommand, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthCommand, source_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthCommand, destination_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthCommand, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PowerCommand, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PowerCommand, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PowerCommand, time_),
   0,
   1,
   2,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthResponse, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthResponse, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PowerResponse, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PowerResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthResponse, source_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthResponse, destination_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthResponse, time_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthResponse, batt_volt_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HealthResponse, current_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PowerResponse, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PowerResponse, destination_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PowerResponse, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PowerResponse, battery_voltage_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::PowerResponse, current_),
   0,
   1,
   2,
@@ -524,13 +524,11 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateResponse, source_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateResponse, destination_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateResponse, time_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateResponse, mode_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ControllerStateResponse, state_),
   0,
   1,
   2,
   3,
-  4,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DirectControlCommand, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -591,7 +589,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HelmStateResponse, source_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HelmStateResponse, destination_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HelmStateResponse, time_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HelmStateResponse, state_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::HelmStateResponse, helm_state_),
   0,
   1,
   2,
@@ -736,40 +734,38 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, source_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, destination_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, time_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, execute_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::ExecuteWaypoints, mode_),
   0,
   1,
   2,
   3,
-  4,
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 8, sizeof(::PoseCommand)},
   { 11, 28, sizeof(::PoseResponse)},
-  { 40, 48, sizeof(::HealthCommand)},
-  { 51, 61, sizeof(::HealthResponse)},
+  { 40, 48, sizeof(::PowerCommand)},
+  { 51, 61, sizeof(::PowerResponse)},
   { 66, 76, sizeof(::RelativePoseCommand)},
   { 81, 100, sizeof(::RelativePoseResponse)},
   { 114, 124, sizeof(::ControllerStateCommand)},
-  { 129, 139, sizeof(::ControllerStateResponse)},
-  { 144, 165, sizeof(::DirectControlCommand)},
-  { 181, 191, sizeof(::HelmStateCommand)},
-  { 196, 205, sizeof(::HelmStateResponse)},
-  { 209, 223, sizeof(::SingleWaypointCommand)},
-  { 232, 245, sizeof(::SingleWaypointResponse)},
-  { 253, 267, sizeof(::MultiWaypointGPSCommand)},
-  { 276, 289, sizeof(::MultiWaypointGPSResponse)},
-  { 297, 311, sizeof(::MultiWaypointXYZCommand)},
-  { 320, 333, sizeof(::MultiWaypointXYZResponse)},
-  { 341, 351, sizeof(::ExecuteWaypoints)},
+  { 129, 138, sizeof(::ControllerStateResponse)},
+  { 142, 163, sizeof(::DirectControlCommand)},
+  { 179, 189, sizeof(::HelmStateCommand)},
+  { 194, 203, sizeof(::HelmStateResponse)},
+  { 207, 221, sizeof(::SingleWaypointCommand)},
+  { 230, 243, sizeof(::SingleWaypointResponse)},
+  { 251, 265, sizeof(::MultiWaypointGPSCommand)},
+  { 274, 287, sizeof(::MultiWaypointGPSResponse)},
+  { 295, 309, sizeof(::MultiWaypointXYZCommand)},
+  { 318, 331, sizeof(::MultiWaypointXYZResponse)},
+  { 339, 348, sizeof(::ExecuteWaypoints)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::_PoseCommand_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::_PoseResponse_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::_HealthCommand_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::_HealthResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_PowerCommand_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_PowerResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::_RelativePoseCommand_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::_RelativePoseResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::_ControllerStateCommand_default_instance_),
@@ -824,175 +820,172 @@ void AddDescriptorsImpl() {
       "\004)\000\000\000\000\000\000\360\2771\000\000\000\000\000\000\360\?\022\'\n\006quat_y\030\n \002(\002B\027\242\?\024"
       " \004)\000\000\000\000\000\000\360\2771\000\000\000\000\000\000\360\?\022\'\n\006quat_z\030\013 \002(\002B\027\242\?"
       "\024 \004)\000\000\000\000\000\000\360\2771\000\000\000\000\000\000\360\?\022\'\n\006quat_w\030\014 \002(\002B\027\242"
-      "\?\024 \004)\000\000\000\000\000\000\360\2771\000\000\000\000\000\000\360\?:\t\242\?\006\010e\020\037(\004\"\230\001\n\rHe"
-      "althCommand\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000"
-      "\000\000\0001\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?\024 \000"
-      ")\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)"
-      "\000\000\000@3\354\330A1\000\000\000 \3666\334A:\t\242\?\006\010\002\020\037(\004\"\357\001\n\016HealthR"
-      "esponse\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001"
-      "\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000"
-      "\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@"
-      "3\354\330A1\000\000\000 \3666\334A\022*\n\tbatt_volt\030\004 \002(\002B\027\242\?\024 \001)"
-      "\000\000\000\000\000\000(@1\000\000\000\000\000\0006@\022(\n\007current\030\005 \002(\002B\027\242\?\024 "
-      "\001)\000\000\000\000\000\000I\3001\000\000\000\000\000\000I@:\t\242\?\006\010f\020\037(\004\"\254\002\n\023Relat"
-      "ivePoseCommand\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000"
-      "\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?"
-      "\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024"
-      " \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022*\n\006parent\030\004 \002(\0162\032.R"
-      "elativePoseCommand.Frame\022)\n\005child\030\005 \002(\0162"
-      "\032.RelativePoseCommand.Frame\"5\n\005Frame\022\r\n\t"
-      "BASE_LINK\020\000\022\010\n\004ODOM\020\001\022\t\n\005WORLD\020\002\022\010\n\004USBL"
-      "\020\003:\t\242\?\006\010\003\020\037(\004\"\226\005\n\024RelativePoseResponse\022\'"
-      "\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022"
-      ",\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000"
-      "\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 "
-      "\3666\334A\022+\n\006parent\030\004 \002(\0162\033.RelativePoseRespo"
-      "nse.Frame\022*\n\005child\030\005 \002(\0162\033.RelativePoseR"
-      "esponse.Frame\022)\n\010latitude\030\006 \002(\001B\027\242\?\024 \006)o"
-      "\203\332o\355>D@1o\203\332o\355>E@\022*\n\tlongitude\030\007 \002(\001B\027\242\?\024"
-      " \006)\346!S>\004\033R\3001\346!S>\004\233Q\300\022\"\n\001x\030\010 \002(\002B\027\242\?\024 \001)\000"
-      "\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@\022\"\n\001y\030\t \002(\002B\027\242\?\024 \001)\000\000\000\000\000"
-      "\210\303\3001\000\000\000\000\000\210\303@\022\"\n\001z\030\n \002(\002B\027\242\?\024 \001)\000\000\000\000\000\000\000\0001"
-      "\000\000\000\000\000\000Y@\022\'\n\006quat_x\030\013 \002(\002B\027\242\?\024 \004)\000\000\000\000\000\000\360\277"
-      "1\000\000\000\000\000\000\360\?\022\'\n\006quat_y\030\014 \002(\002B\027\242\?\024 \004)\000\000\000\000\000\000\360"
-      "\2771\000\000\000\000\000\000\360\?\022\'\n\006quat_z\030\r \002(\002B\027\242\?\024 \004)\000\000\000\000\000\000"
-      "\360\2771\000\000\000\000\000\000\360\?\022\'\n\006quat_w\030\016 \002(\002B\027\242\?\024 \004)\000\000\000\000\000"
-      "\000\360\2771\000\000\000\000\000\000\360\?\"5\n\005Frame\022\r\n\tBASE_LINK\020\000\022\010\n\004"
-      "ODOM\020\001\022\t\n\005WORLD\020\002\022\010\n\004USBL\020\003:\t\242\?\006\010g\020\037(\004\"\361"
-      "\002\n\026ControllerStateCommand\022\'\n\006source\030\001 \002("
-      "\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destinatio"
-      "n\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time"
-      "\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022*\n\004mode\030"
-      "\004 \002(\0162\034.ControllerStateCommand.Mode\022V\n\005s"
-      "tate\030\005 \001(\0162\'.ControllerStateCommand.Cont"
-      "rollerStateB\036\242\?\033\302\002\030\032\026this.mode == \'COMMA"
-      "ND\'\"\036\n\004Mode\022\t\n\005QUERY\020\000\022\013\n\007COMMAND\020\001\"*\n\017C"
-      "ontrollerState\022\013\n\007DISABLE\020\000\022\n\n\006ENABLE\020\001:"
-      "\t\242\?\006\010\004\020\037(\004\"\362\002\n\027ControllerStateResponse\022\'"
-      "\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022"
-      ",\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000"
-      "\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 "
-      "\3666\334A\022+\n\004mode\030\004 \002(\0162\035.ControllerStateResp"
-      "onse.Mode\022U\n\005state\030\005 \001(\0162(.ControllerSta"
-      "teResponse.ControllerStateB\034\242\?\031\302\002\026\032\024this"
-      ".mode == \'QUERY\'\"\036\n\004Mode\022\t\n\005QUERY\020\000\022\013\n\007C"
-      "OMMAND\020\001\"*\n\017ControllerState\022\013\n\007DISABLE\020\000"
-      "\022\n\n\006ENABLE\020\001:\t\242\?\006\010h\020\037(\004\"\273\005\n\024DirectContro"
-      "lCommand\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\000"
-      "1\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000"
-      "\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000"
-      "@3\354\330A1\000\000\000 \3666\334A\022*\n\005frame\030\004 \002(\0162\033.DirectCo"
-      "ntrolCommand.Frame\022\"\n\001x\030\005 \002(\002B\027\242\?\024 \001)\000\000\000"
-      "\000\000\210\303\3001\000\000\000\000\000\210\303@\022\"\n\001y\030\006 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\210\303"
-      "\3001\000\000\000\000\000\210\303@\022\"\n\001z\030\007 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\000\000\0001\000\000"
-      "\000\000\000\000Y@\022%\n\004roll\030\010 \002(\002B\027\242\?\024 \002)\037\205\353Q\270\036\371\2771\037\205\353"
-      "Q\270\036\371\?\022&\n\005pitch\030\t \002(\002B\027\242\?\024 \002)\037\205\353Q\270\036\371\2771\037\205\353"
-      "Q\270\036\371\?\022$\n\003yaw\030\n \002(\002B\027\242\?\024 \002)\000\000\000\000\000\000\000\0001\037\205\353Q\270"
-      "\036\t@\022\"\n\001u\030\013 \002(\002B\027\242\?\024 \002)\000\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@\022"
-      "\"\n\001v\030\014 \002(\002B\027\242\?\024 \002)\000\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@\022\"\n\001w"
-      "\030\r \002(\002B\027\242\?\024 \002)\000\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@\022\"\n\001p\030\016 \002"
-      "(\002B\027\242\?\024 \002)\000\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@\022\"\n\001q\030\017 \002(\002B\027"
-      "\242\?\024 \002)\000\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@\022\"\n\001r\030\020 \002(\002B\027\242\?\024 "
-      "\002)\000\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@\"5\n\005Frame\022\r\n\tBASE_LIN"
-      "K\020\000\022\010\n\004ODOM\020\001\022\t\n\005WORLD\020\002\022\010\n\004USBL\020\003:\t\242\?\006\010"
-      "\005\020\037(\004\"\227\003\n\020HelmStateCommand\022\'\n\006source\030\001 \002"
-      "(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destinati"
-      "on\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004tim"
-      "e\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022$\n\004mode"
-      "\030\004 \002(\0162\026.HelmStateCommand.Mode\022J\n\005state\030"
-      "\005 \001(\0162\033.HelmStateCommand.HelmStateB\036\242\?\033\302"
-      "\002\030\032\026this.mode == \'COMMAND\'\"\036\n\004Mode\022\t\n\005QU"
-      "ERY\020\000\022\013\n\007COMMAND\020\001\"h\n\tHelmState\022\010\n\004KILL\020"
-      "\000\022\t\n\005START\020\001\022\020\n\014SURVEY_LOCAL\020\002\022\021\n\rSURVEY"
-      "_GLOBAL\020\003\022\022\n\016DIRECT_CONTROL\020\004\022\r\n\tSURVEY_"
-      "3D\020\005:\t\242\?\006\010\006\020\037(\004\"\263\002\n\021HelmStateResponse\022\'\n"
-      "\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,"
-      "\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000"
-      "\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \366"
-      "6\334A\022+\n\005state\030\004 \002(\0162\034.HelmStateResponse.H"
-      "elmState\"h\n\tHelmState\022\010\n\004KILL\020\000\022\t\n\005START"
-      "\020\001\022\020\n\014SURVEY_LOCAL\020\002\022\021\n\rSURVEY_GLOBAL\020\003\022"
-      "\022\n\016DIRECT_CONTROL\020\004\022\r\n\tSURVEY_3D\020\005:\t\242\?\006\010"
-      "j\020\037(\004\"\203\005\n\025SingleWaypointCommand\022\'\n\006sourc"
-      "e\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013dest"
-      "ination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%"
-      "\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022:\n"
-      "\rwaypoint_mode\030\004 \002(\0162#.SingleWaypointCom"
-      "mand.WaypointMode\022L\n\010latitude\030\005 \001(\001B:\242\?7"
-      " \006)o\203\332o\355>D@1o\203\332o\355>E@\302\002 \032\036this.mode == \'C"
-      "OMMAND_LATLONG\'\022M\n\tlongitude\030\006 \001(\001B:\242\?7 "
-      "\006)\346!S>\004\033R\3001\346!S>\004\233Q\300\302\002 \032\036this.mode == \'CO"
-      "MMAND_LATLONG\'\022A\n\001x\030\007 \001(\002B6\242\?3 \001)\000\000\000\000\000\210\303"
-      "\3001\000\000\000\000\000\210\303@\302\002\034\032\032this.mode == \'COMMAND_XYZ"
-      "\'\022A\n\001y\030\010 \001(\002B6\242\?3 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@\302\002\034"
-      "\032\032this.mode == \'COMMAND_XYZ\'\022A\n\001z\030\t \001(\002B"
-      "6\242\?3 \003)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@\302\002\034\032\032this.mode ="
-      "= \'COMMAND_XYZ\'\"\?\n\014WaypointMode\022\t\n\005QUERY"
-      "\020\000\022\023\n\017COMMAND_LATLONG\020\001\022\017\n\013COMMAND_XYZ\020\002"
-      ":\t\242\?\006\010\007\020\037(\004\"\344\002\n\026SingleWaypointResponse\022\'"
-      "\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022"
-      ",\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000"
-      "\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 "
-      "\3666\334A\022)\n\010latitude\030\004 \002(\001B\027\242\?\024 \006)o\203\332o\355>D@1o"
-      "\203\332o\355>E@\022*\n\tlongitude\030\005 \002(\001B\027\242\?\024 \006)\346!S>\004\033"
-      "R\3001\346!S>\004\233Q\300\022\"\n\001x\030\006 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\210\303\3001\000"
-      "\000\000\000\000\210\303@\022\"\n\001y\030\007 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000"
-      "\210\303@\022\"\n\001z\030\010 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@:"
-      "\t\242\?\006\010k\020\037(\004\"\210\004\n\027MultiWaypointGPSCommand\022\'"
-      "\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000\360\?\022"
-      ",\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000"
-      "\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 "
-      "\3666\334A\022+\n\004mode\030\004 \002(\0162\035.MultiWaypointGPSCom"
-      "mand.Mode\022N\n\007wpt_num\030\005 \003(\005B=\242\?: \000)\000\000\000\000\000\000"
-      "\000\0001\000\000\000\000\000\000@@P\003\302\002!\032\037this.waypoint_mode == "
-      "\'COMMAND\'\022+\n\010latitude\030\006 \003(\001B\031\242\?\026 \006)o\203\332o\355"
-      ">D@1o\203\332o\355>E@P\003\022,\n\tlongitude\030\007 \003(\001B\031\242\?\026 \006"
-      ")\346!S>\004\033R\3001\346!S>\004\233Q\300P\003\022\?\n\001z\030\010 \003(\002B4\242\?1 \001)\000"
-      "\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@P\003\302\002\030\032\026this.mode == \'COM"
-      "MAND\'\022+\n\003end\030\t \001(\010B\036\242\?\033\302\002\030\032\026this.mode =="
-      " \'COMMAND\'\"\036\n\004Mode\022\t\n\005QUERY\020\000\022\013\n\007COMMAND"
-      "\020\001:\t\242\?\006\010\010\020\037(\004\"\335\002\n\030MultiWaypointGPSRespon"
-      "se\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000"
-      "\000\360\?\022,\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\000"
-      "1\000\000\000\000\000\000.@\022%\n\004time\030\003 \002(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1"
-      "\000\000\000 \3666\334A\022*\n\007wpt_num\030\004 \003(\005B\031\242\?\026 \000)\000\000\000\000\000\000\000"
-      "\0001\000\000\000\000\000\000@@P\003\022+\n\010latitude\030\005 \003(\001B\031\242\?\026 \006)o\203"
-      "\332o\355>D@1o\203\332o\355>E@P\003\022,\n\tlongitude\030\006 \003(\001B\031\242\?"
-      "\026 \006)\346!S>\004\033R\3001\346!S>\004\233Q\300P\003\022$\n\001z\030\007 \003(\002B\031\242\?\026 "
-      "\001)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@P\003\022\013\n\003end\030\010 \001(\010:\t\242\?\006\010"
-      "l\020\037(\004\"\257\004\n\027MultiWaypointXYZCommand\022\'\n\006sou"
-      "rce\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000\360\?\022,\n\013de"
-      "stination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@"
-      "\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022"
-      "+\n\004mode\030\004 \002(\0162\035.MultiWaypointXYZCommand."
-      "Mode\022N\n\007wpt_num\030\005 \003(\005B=\242\?: \000)\000\000\000\000\000\000\000\0001\000\000"
-      "\000\000\000\000@@P\003\302\002!\032\037this.waypoint_mode == \'COMM"
-      "AND\'\022\?\n\001x\030\006 \003(\002B4\242\?1 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@"
-      "P\003\302\002\030\032\026this.mode == \'COMMAND\'\022\?\n\001y\030\007 \003(\002"
-      "B4\242\?1 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@P\003\302\002\030\032\026this.mod"
-      "e == \'COMMAND\'\022\?\n\001z\030\010 \003(\002B4\242\?1 \001)\000\000\000\000\000\000\000"
-      "\0001\000\000\000\000\000\000Y@P\003\302\002\030\032\026this.mode == \'COMMAND\'\022"
-      "+\n\003end\030\t \001(\010B\036\242\?\033\302\002\030\032\026this.mode == \'COMM"
-      "AND\'\"\036\n\004Mode\022\t\n\005QUERY\020\000\022\013\n\007COMMAND\020\001:\t\242\?"
-      "\006\010\t\020\037(\004\"\316\002\n\030MultiWaypointXYZResponse\022\'\n\006"
-      "source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n"
-      "\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000"
-      "\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666"
-      "\334A\022*\n\007wpt_num\030\004 \003(\005B\031\242\?\026 \000)\000\000\000\000\000\000\000\0001\000\000\000\000"
-      "\000\000@@P\003\022$\n\001x\030\005 \003(\002B\031\242\?\026 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210"
-      "\303@P\003\022$\n\001y\030\006 \002(\002B\031\242\?\026 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@"
-      "P\003\022$\n\001z\030\007 \002(\002B\031\242\?\026 \001)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@P\003"
-      "\022\013\n\003end\030\t \002(\010:\t\242\?\006\010m\020\037(\004\"\200\002\n\020ExecuteWayp"
-      "oints\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000"
+      "\?\024 \004)\000\000\000\000\000\000\360\2771\000\000\000\000\000\000\360\?:\t\242\?\006\010e\020\037(\004\"\227\001\n\014Po"
+      "werCommand\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000"
+      "\000\0001\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?\024 \000)"
+      "\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000"
+      "\000\000@3\354\330A1\000\000\000 \3666\334A:\t\242\?\006\010\002\020\037(\004\"\364\001\n\rPowerRes"
+      "ponse\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000"
       "\000\000\000\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000"
       "\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354"
-      "\330A1\000\000\000 \3666\334A\022\017\n\007execute\030\004 \002(\010\022+\n\004mode\030\005 \002"
-      "(\0162\035.ExecuteWaypoints.ExecuteMode\"%\n\013Exe"
-      "cuteMode\022\n\n\006APPEND\020\000\022\n\n\006UPDATE\020\001:\t\242\?\006\010\n\020"
-      "\037(\004"
+      "\330A1\000\000\000 \3666\334A\0220\n\017battery_voltage\030\004 \002(\002B\027\242\?"
+      "\024 \003)\000\000\000\000\000\000(@1\000\000\000\000\000\0006@\022(\n\007current\030\005 \002(\002B\027"
+      "\242\?\024 \003)\000\000\000\000\000\000I\3001\000\000\000\000\000\000I@:\t\242\?\006\010f\020\037(\004\"\254\002\n\023R"
+      "elativePoseCommand\022\'\n\006source\030\001 \002(\005B\027\242\?\024 "
+      "\000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002(\005"
+      "B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B"
+      "\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022*\n\006parent\030\004 \002(\016"
+      "2\032.RelativePoseCommand.Frame\022)\n\005child\030\005 "
+      "\002(\0162\032.RelativePoseCommand.Frame\"5\n\005Frame"
+      "\022\r\n\tBASE_LINK\020\000\022\010\n\004ODOM\020\001\022\t\n\005WORLD\020\002\022\010\n\004"
+      "USBL\020\003:\t\242\?\006\010\003\020\037(\004\"\226\005\n\024RelativePoseRespon"
+      "se\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000"
+      "\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\000"
+      "1\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1"
+      "\000\000\000 \3666\334A\022+\n\006parent\030\004 \002(\0162\033.RelativePoseR"
+      "esponse.Frame\022*\n\005child\030\005 \002(\0162\033.RelativeP"
+      "oseResponse.Frame\022)\n\010latitude\030\006 \002(\001B\027\242\?\024"
+      " \006)o\203\332o\355>D@1o\203\332o\355>E@\022*\n\tlongitude\030\007 \002(\001B"
+      "\027\242\?\024 \006)\346!S>\004\033R\3001\346!S>\004\233Q\300\022\"\n\001x\030\010 \002(\002B\027\242\?\024"
+      " \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@\022\"\n\001y\030\t \002(\002B\027\242\?\024 \001)\000"
+      "\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@\022\"\n\001z\030\n \002(\002B\027\242\?\024 \001)\000\000\000\000\000"
+      "\000\000\0001\000\000\000\000\000\000Y@\022\'\n\006quat_x\030\013 \002(\002B\027\242\?\024 \004)\000\000\000\000"
+      "\000\000\360\2771\000\000\000\000\000\000\360\?\022\'\n\006quat_y\030\014 \002(\002B\027\242\?\024 \004)\000\000\000"
+      "\000\000\000\360\2771\000\000\000\000\000\000\360\?\022\'\n\006quat_z\030\r \002(\002B\027\242\?\024 \004)\000\000"
+      "\000\000\000\000\360\2771\000\000\000\000\000\000\360\?\022\'\n\006quat_w\030\016 \002(\002B\027\242\?\024 \004)\000"
+      "\000\000\000\000\000\360\2771\000\000\000\000\000\000\360\?\"5\n\005Frame\022\r\n\tBASE_LINK\020\000"
+      "\022\010\n\004ODOM\020\001\022\t\n\005WORLD\020\002\022\010\n\004USBL\020\003:\t\242\?\006\010g\020\037"
+      "(\004\"\361\002\n\026ControllerStateCommand\022\'\n\006source\030"
+      "\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destin"
+      "ation\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004"
+      "time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022*\n\004m"
+      "ode\030\004 \002(\0162\034.ControllerStateCommand.Mode\022"
+      "V\n\005state\030\005 \001(\0162\'.ControllerStateCommand."
+      "ControllerStateB\036\242\?\033\302\002\030\032\026this.mode == \'C"
+      "OMMAND\'\"\036\n\004Mode\022\t\n\005QUERY\020\000\022\013\n\007COMMAND\020\001\""
+      "*\n\017ControllerState\022\013\n\007DISABLE\020\000\022\n\n\006ENABL"
+      "E\020\001:\t\242\?\006\010\004\020\037(\004\"\207\002\n\027ControllerStateRespon"
+      "se\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000"
+      "\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\000"
+      "1\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1"
+      "\000\000\000 \3666\334A\0227\n\005state\030\004 \001(\0162(.ControllerStat"
+      "eResponse.ControllerState\"*\n\017ControllerS"
+      "tate\022\013\n\007DISABLE\020\000\022\n\n\006ENABLE\020\001:\t\242\?\006\010h\020\037(\004"
+      "\"\273\005\n\024DirectControlCommand\022\'\n\006source\030\001 \002("
+      "\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destinatio"
+      "n\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time"
+      "\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022*\n\005frame"
+      "\030\004 \002(\0162\033.DirectControlCommand.Frame\022\"\n\001x"
+      "\030\005 \002(\002B\027\242\?\024 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@\022\"\n\001y\030\006 \002"
+      "(\002B\027\242\?\024 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@\022\"\n\001z\030\007 \002(\002B\027"
+      "\242\?\024 \001)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@\022%\n\004roll\030\010 \002(\002B\027\242"
+      "\?\024 \002)\037\205\353Q\270\036\371\2771\037\205\353Q\270\036\371\?\022&\n\005pitch\030\t \002(\002B\027\242"
+      "\?\024 \002)\037\205\353Q\270\036\371\2771\037\205\353Q\270\036\371\?\022$\n\003yaw\030\n \002(\002B\027\242\?\024"
+      " \002)\000\000\000\000\000\000\000\0001\037\205\353Q\270\036\t@\022\"\n\001u\030\013 \002(\002B\027\242\?\024 \002)\000"
+      "\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@\022\"\n\001v\030\014 \002(\002B\027\242\?\024 \002)\000\000\000\000\000"
+      "\000\000\3001\000\000\000\000\000\000\000@\022\"\n\001w\030\r \002(\002B\027\242\?\024 \002)\000\000\000\000\000\000\000\3001"
+      "\000\000\000\000\000\000\000@\022\"\n\001p\030\016 \002(\002B\027\242\?\024 \002)\000\000\000\000\000\000\000\3001\000\000\000\000"
+      "\000\000\000@\022\"\n\001q\030\017 \002(\002B\027\242\?\024 \002)\000\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@"
+      "\022\"\n\001r\030\020 \002(\002B\027\242\?\024 \002)\000\000\000\000\000\000\000\3001\000\000\000\000\000\000\000@\"5\n\005"
+      "Frame\022\r\n\tBASE_LINK\020\000\022\010\n\004ODOM\020\001\022\t\n\005WORLD\020"
+      "\002\022\010\n\004USBL\020\003:\t\242\?\006\010\005\020\037(\004\"\227\003\n\020HelmStateComm"
+      "and\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000"
+      "\000\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000"
+      "\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A"
+      "1\000\000\000 \3666\334A\022$\n\004mode\030\004 \002(\0162\026.HelmStateComma"
+      "nd.Mode\022J\n\005state\030\005 \001(\0162\033.HelmStateComman"
+      "d.HelmStateB\036\242\?\033\302\002\030\032\026this.mode == \'COMMA"
+      "ND\'\"\036\n\004Mode\022\t\n\005QUERY\020\000\022\013\n\007COMMAND\020\001\"h\n\tH"
+      "elmState\022\010\n\004KILL\020\000\022\t\n\005START\020\001\022\020\n\014SURVEY_"
+      "LOCAL\020\002\022\021\n\rSURVEY_GLOBAL\020\003\022\022\n\016DIRECT_CON"
+      "TROL\020\004\022\r\n\tSURVEY_3D\020\005:\t\242\?\006\010\006\020\037(\004\"\270\002\n\021Hel"
+      "mStateResponse\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000"
+      "\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?"
+      "\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024"
+      " \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\0220\n\nhelm_state\030\004 \002(\016"
+      "2\034.HelmStateResponse.HelmState\"h\n\tHelmSt"
+      "ate\022\010\n\004KILL\020\000\022\t\n\005START\020\001\022\020\n\014SURVEY_LOCAL"
+      "\020\002\022\021\n\rSURVEY_GLOBAL\020\003\022\022\n\016DIRECT_CONTROL\020"
+      "\004\022\r\n\tSURVEY_3D\020\005:\t\242\?\006\010j\020\037(\004\"\203\005\n\025SingleWa"
+      "ypointCommand\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000\000\000"
+      "\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002(\005B\027\242\?\024"
+      " \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?\024 "
+      "\003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022:\n\rwaypoint_mode\030\004 \002"
+      "(\0162#.SingleWaypointCommand.WaypointMode\022"
+      "L\n\010latitude\030\005 \001(\001B:\242\?7 \006)o\203\332o\355>D@1o\203\332o\355>"
+      "E@\302\002 \032\036this.mode == \'COMMAND_LATLONG\'\022M\n"
+      "\tlongitude\030\006 \001(\001B:\242\?7 \006)\346!S>\004\033R\3001\346!S>\004\233Q"
+      "\300\302\002 \032\036this.mode == \'COMMAND_LATLONG\'\022A\n\001"
+      "x\030\007 \001(\002B6\242\?3 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@\302\002\034\032\032thi"
+      "s.mode == \'COMMAND_XYZ\'\022A\n\001y\030\010 \001(\002B6\242\?3 "
+      "\001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@\302\002\034\032\032this.mode == \'CO"
+      "MMAND_XYZ\'\022A\n\001z\030\t \001(\002B6\242\?3 \003)\000\000\000\000\000\000\000\0001\000\000"
+      "\000\000\000\000Y@\302\002\034\032\032this.mode == \'COMMAND_XYZ\'\"\?\n"
+      "\014WaypointMode\022\t\n\005QUERY\020\000\022\023\n\017COMMAND_LATL"
+      "ONG\020\001\022\017\n\013COMMAND_XYZ\020\002:\t\242\?\006\010\007\020\037(\004\"\344\002\n\026Si"
+      "ngleWaypointResponse\022\'\n\006source\030\001 \002(\005B\027\242\?"
+      "\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002"
+      "(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001("
+      "\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022)\n\010latitude\030\004"
+      " \002(\001B\027\242\?\024 \006)o\203\332o\355>D@1o\203\332o\355>E@\022*\n\tlongitu"
+      "de\030\005 \002(\001B\027\242\?\024 \006)\346!S>\004\033R\3001\346!S>\004\233Q\300\022\"\n\001x\030\006"
+      " \002(\002B\027\242\?\024 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@\022\"\n\001y\030\007 \002(\002"
+      "B\027\242\?\024 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@\022\"\n\001z\030\010 \002(\002B\027\242\?"
+      "\024 \001)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@:\t\242\?\006\010k\020\037(\004\"\210\004\n\027Mul"
+      "tiWaypointGPSCommand\022\'\n\006source\030\001 \002(\005B\027\242\?"
+      "\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000\360\?\022,\n\013destination\030\002 \002"
+      "(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001("
+      "\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022+\n\004mode\030\004 \002(\016"
+      "2\035.MultiWaypointGPSCommand.Mode\022N\n\007wpt_n"
+      "um\030\005 \003(\005B=\242\?: \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000@@P\003\302\002!\032\037"
+      "this.waypoint_mode == \'COMMAND\'\022+\n\010latit"
+      "ude\030\006 \003(\001B\031\242\?\026 \006)o\203\332o\355>D@1o\203\332o\355>E@P\003\022,\n\t"
+      "longitude\030\007 \003(\001B\031\242\?\026 \006)\346!S>\004\033R\3001\346!S>\004\233Q\300"
+      "P\003\022\?\n\001z\030\010 \003(\002B4\242\?1 \001)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@P\003"
+      "\302\002\030\032\026this.mode == \'COMMAND\'\022+\n\003end\030\t \001(\010"
+      "B\036\242\?\033\302\002\030\032\026this.mode == \'COMMAND\'\"\036\n\004Mode"
+      "\022\t\n\005QUERY\020\000\022\013\n\007COMMAND\020\001:\t\242\?\006\010\010\020\037(\004\"\335\002\n\030"
+      "MultiWaypointGPSResponse\022\'\n\006source\030\001 \002(\005"
+      "B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000\360\?\022,\n\013destination"
+      "\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030"
+      "\003 \002(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022*\n\007wpt_nu"
+      "m\030\004 \003(\005B\031\242\?\026 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000@@P\003\022+\n\010la"
+      "titude\030\005 \003(\001B\031\242\?\026 \006)o\203\332o\355>D@1o\203\332o\355>E@P\003\022"
+      ",\n\tlongitude\030\006 \003(\001B\031\242\?\026 \006)\346!S>\004\033R\3001\346!S>\004"
+      "\233Q\300P\003\022$\n\001z\030\007 \003(\002B\031\242\?\026 \001)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y"
+      "@P\003\022\013\n\003end\030\010 \001(\010:\t\242\?\006\010l\020\037(\004\"\257\004\n\027MultiWay"
+      "pointXYZCommand\022\'\n\006source\030\001 \002(\005B\027\242\?\024 \000)\000"
+      "\000\000\000\000\000\000\0001\000\000\000\000\000\000\360\?\022,\n\013destination\030\002 \002(\005B\027\242"
+      "\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B\027\242\?"
+      "\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022+\n\004mode\030\004 \002(\0162\035.Mu"
+      "ltiWaypointXYZCommand.Mode\022N\n\007wpt_num\030\005 "
+      "\003(\005B=\242\?: \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000@@P\003\302\002!\032\037this."
+      "waypoint_mode == \'COMMAND\'\022\?\n\001x\030\006 \003(\002B4\242"
+      "\?1 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@P\003\302\002\030\032\026this.mode ="
+      "= \'COMMAND\'\022\?\n\001y\030\007 \003(\002B4\242\?1 \001)\000\000\000\000\000\210\303\3001\000"
+      "\000\000\000\000\210\303@P\003\302\002\030\032\026this.mode == \'COMMAND\'\022\?\n\001"
+      "z\030\010 \003(\002B4\242\?1 \001)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@P\003\302\002\030\032\026t"
+      "his.mode == \'COMMAND\'\022+\n\003end\030\t \001(\010B\036\242\?\033\302"
+      "\002\030\032\026this.mode == \'COMMAND\'\"\036\n\004Mode\022\t\n\005QU"
+      "ERY\020\000\022\013\n\007COMMAND\020\001:\t\242\?\006\010\t\020\037(\004\"\316\002\n\030MultiW"
+      "aypointXYZResponse\022\'\n\006source\030\001 \002(\005B\027\242\?\024 "
+      "\000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destination\030\002 \002(\005"
+      "B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004time\030\003 \001(\001B"
+      "\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022*\n\007wpt_num\030\004 \003("
+      "\005B\031\242\?\026 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000@@P\003\022$\n\001x\030\005 \003(\002B"
+      "\031\242\?\026 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@P\003\022$\n\001y\030\006 \002(\002B\031\242"
+      "\?\026 \001)\000\000\000\000\000\210\303\3001\000\000\000\000\000\210\303@P\003\022$\n\001z\030\007 \002(\002B\031\242\?\026"
+      " \001)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000Y@P\003\022\013\n\003end\030\t \002(\010:\t\242\?\006"
+      "\010m\020\037(\004\"\357\001\n\020ExecuteWaypoints\022\'\n\006source\030\001 "
+      "\002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022,\n\013destinat"
+      "ion\030\002 \002(\005B\027\242\?\024 \000)\000\000\000\000\000\000\000\0001\000\000\000\000\000\000.@\022%\n\004ti"
+      "me\030\003 \001(\001B\027\242\?\024 \003)\000\000\000@3\354\330A1\000\000\000 \3666\334A\022+\n\004mod"
+      "e\030\004 \002(\0162\035.ExecuteWaypoints.ExecuteMode\"%"
+      "\n\013ExecuteMode\022\n\n\006APPEND\020\000\022\n\n\006UPDATE\020\001:\t\242"
+      "\?\006\010\n\020\037(\004"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 7283);
+      descriptor, 7168);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "goby_msgs.proto", &protobuf_RegisterTypes);
   ::protobuf_dccl_2foption_5fextensions_2eproto::AddDescriptors();
@@ -1101,30 +1094,9 @@ const ControllerStateCommand_ControllerState ControllerStateCommand::ControllerS
 const ControllerStateCommand_ControllerState ControllerStateCommand::ControllerState_MAX;
 const int ControllerStateCommand::ControllerState_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* ControllerStateResponse_Mode_descriptor() {
-  protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[4];
-}
-bool ControllerStateResponse_Mode_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const ControllerStateResponse_Mode ControllerStateResponse::QUERY;
-const ControllerStateResponse_Mode ControllerStateResponse::COMMAND;
-const ControllerStateResponse_Mode ControllerStateResponse::Mode_MIN;
-const ControllerStateResponse_Mode ControllerStateResponse::Mode_MAX;
-const int ControllerStateResponse::Mode_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 const ::google::protobuf::EnumDescriptor* ControllerStateResponse_ControllerState_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[5];
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[4];
 }
 bool ControllerStateResponse_ControllerState_IsValid(int value) {
   switch (value) {
@@ -1145,7 +1117,7 @@ const int ControllerStateResponse::ControllerState_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 const ::google::protobuf::EnumDescriptor* DirectControlCommand_Frame_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[6];
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[5];
 }
 bool DirectControlCommand_Frame_IsValid(int value) {
   switch (value) {
@@ -1170,7 +1142,7 @@ const int DirectControlCommand::Frame_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 const ::google::protobuf::EnumDescriptor* HelmStateCommand_Mode_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[7];
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[6];
 }
 bool HelmStateCommand_Mode_IsValid(int value) {
   switch (value) {
@@ -1191,7 +1163,7 @@ const int HelmStateCommand::Mode_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 const ::google::protobuf::EnumDescriptor* HelmStateCommand_HelmState_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[8];
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[7];
 }
 bool HelmStateCommand_HelmState_IsValid(int value) {
   switch (value) {
@@ -1220,7 +1192,7 @@ const int HelmStateCommand::HelmState_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 const ::google::protobuf::EnumDescriptor* HelmStateResponse_HelmState_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[9];
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[8];
 }
 bool HelmStateResponse_HelmState_IsValid(int value) {
   switch (value) {
@@ -1249,7 +1221,7 @@ const int HelmStateResponse::HelmState_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 const ::google::protobuf::EnumDescriptor* SingleWaypointCommand_WaypointMode_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[10];
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[9];
 }
 bool SingleWaypointCommand_WaypointMode_IsValid(int value) {
   switch (value) {
@@ -1272,7 +1244,7 @@ const int SingleWaypointCommand::WaypointMode_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 const ::google::protobuf::EnumDescriptor* MultiWaypointGPSCommand_Mode_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[11];
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[10];
 }
 bool MultiWaypointGPSCommand_Mode_IsValid(int value) {
   switch (value) {
@@ -1293,7 +1265,7 @@ const int MultiWaypointGPSCommand::Mode_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 const ::google::protobuf::EnumDescriptor* MultiWaypointXYZCommand_Mode_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[12];
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[11];
 }
 bool MultiWaypointXYZCommand_Mode_IsValid(int value) {
   switch (value) {
@@ -1314,7 +1286,7 @@ const int MultiWaypointXYZCommand::Mode_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 const ::google::protobuf::EnumDescriptor* ExecuteWaypoints_ExecuteMode_descriptor() {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[13];
+  return protobuf_goby_5fmsgs_2eproto::file_level_enum_descriptors[12];
 }
 bool ExecuteWaypoints_ExecuteMode_IsValid(int value) {
   switch (value) {
@@ -2344,22 +2316,22 @@ void PoseResponse::InternalSwap(PoseResponse* other) {
 
 // ===================================================================
 
-void HealthCommand::InitAsDefaultInstance() {
+void PowerCommand::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int HealthCommand::kSourceFieldNumber;
-const int HealthCommand::kDestinationFieldNumber;
-const int HealthCommand::kTimeFieldNumber;
+const int PowerCommand::kSourceFieldNumber;
+const int PowerCommand::kDestinationFieldNumber;
+const int PowerCommand::kTimeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-HealthCommand::HealthCommand()
+PowerCommand::PowerCommand()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_goby_5fmsgs_2eproto::scc_info_HealthCommand.base);
+      &protobuf_goby_5fmsgs_2eproto::scc_info_PowerCommand.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:HealthCommand)
+  // @@protoc_insertion_point(constructor:PowerCommand)
 }
-HealthCommand::HealthCommand(const HealthCommand& from)
+PowerCommand::PowerCommand(const PowerCommand& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_) {
@@ -2367,39 +2339,39 @@ HealthCommand::HealthCommand(const HealthCommand& from)
   ::memcpy(&source_, &from.source_,
     static_cast<size_t>(reinterpret_cast<char*>(&time_) -
     reinterpret_cast<char*>(&source_)) + sizeof(time_));
-  // @@protoc_insertion_point(copy_constructor:HealthCommand)
+  // @@protoc_insertion_point(copy_constructor:PowerCommand)
 }
 
-void HealthCommand::SharedCtor() {
+void PowerCommand::SharedCtor() {
   ::memset(&source_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&time_) -
       reinterpret_cast<char*>(&source_)) + sizeof(time_));
 }
 
-HealthCommand::~HealthCommand() {
-  // @@protoc_insertion_point(destructor:HealthCommand)
+PowerCommand::~PowerCommand() {
+  // @@protoc_insertion_point(destructor:PowerCommand)
   SharedDtor();
 }
 
-void HealthCommand::SharedDtor() {
+void PowerCommand::SharedDtor() {
 }
 
-void HealthCommand::SetCachedSize(int size) const {
+void PowerCommand::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* HealthCommand::descriptor() {
+const ::google::protobuf::Descriptor* PowerCommand::descriptor() {
   ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const HealthCommand& HealthCommand::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_HealthCommand.base);
+const PowerCommand& PowerCommand::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_PowerCommand.base);
   return *internal_default_instance();
 }
 
 
-void HealthCommand::Clear() {
-// @@protoc_insertion_point(message_clear_start:HealthCommand)
+void PowerCommand::Clear() {
+// @@protoc_insertion_point(message_clear_start:PowerCommand)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -2414,11 +2386,11 @@ void HealthCommand::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool HealthCommand::MergePartialFromCodedStream(
+bool PowerCommand::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:HealthCommand)
+  // @@protoc_insertion_point(parse_start:PowerCommand)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -2478,17 +2450,17 @@ bool HealthCommand::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:HealthCommand)
+  // @@protoc_insertion_point(parse_success:PowerCommand)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:HealthCommand)
+  // @@protoc_insertion_point(parse_failure:PowerCommand)
   return false;
 #undef DO_
 }
 
-void HealthCommand::SerializeWithCachedSizes(
+void PowerCommand::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:HealthCommand)
+  // @@protoc_insertion_point(serialize_start:PowerCommand)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -2512,13 +2484,13 @@ void HealthCommand::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:HealthCommand)
+  // @@protoc_insertion_point(serialize_end:PowerCommand)
 }
 
-::google::protobuf::uint8* HealthCommand::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* PowerCommand::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:HealthCommand)
+  // @@protoc_insertion_point(serialize_to_array_start:PowerCommand)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -2542,12 +2514,12 @@ void HealthCommand::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:HealthCommand)
+  // @@protoc_insertion_point(serialize_to_array_end:PowerCommand)
   return target;
 }
 
-size_t HealthCommand::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:HealthCommand)
+size_t PowerCommand::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:PowerCommand)
   size_t total_size = 0;
 
   if (has_source()) {
@@ -2566,8 +2538,8 @@ size_t HealthCommand::RequiredFieldsByteSizeFallback() const {
 
   return total_size;
 }
-size_t HealthCommand::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:HealthCommand)
+size_t PowerCommand::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:PowerCommand)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2599,23 +2571,23 @@ size_t HealthCommand::ByteSizeLong() const {
   return total_size;
 }
 
-void HealthCommand::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:HealthCommand)
+void PowerCommand::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:PowerCommand)
   GOOGLE_DCHECK_NE(&from, this);
-  const HealthCommand* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const HealthCommand>(
+  const PowerCommand* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const PowerCommand>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:HealthCommand)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:PowerCommand)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:HealthCommand)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:PowerCommand)
     MergeFrom(*source);
   }
 }
 
-void HealthCommand::MergeFrom(const HealthCommand& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:HealthCommand)
+void PowerCommand::MergeFrom(const PowerCommand& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:PowerCommand)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -2636,30 +2608,30 @@ void HealthCommand::MergeFrom(const HealthCommand& from) {
   }
 }
 
-void HealthCommand::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:HealthCommand)
+void PowerCommand::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:PowerCommand)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void HealthCommand::CopyFrom(const HealthCommand& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:HealthCommand)
+void PowerCommand::CopyFrom(const PowerCommand& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:PowerCommand)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool HealthCommand::IsInitialized() const {
+bool PowerCommand::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
   return true;
 }
 
-void HealthCommand::Swap(HealthCommand* other) {
+void PowerCommand::Swap(PowerCommand* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void HealthCommand::InternalSwap(HealthCommand* other) {
+void PowerCommand::InternalSwap(PowerCommand* other) {
   using std::swap;
   swap(source_, other->source_);
   swap(destination_, other->destination_);
@@ -2668,7 +2640,7 @@ void HealthCommand::InternalSwap(HealthCommand* other) {
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata HealthCommand::GetMetadata() const {
+::google::protobuf::Metadata PowerCommand::GetMetadata() const {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -2676,24 +2648,24 @@ void HealthCommand::InternalSwap(HealthCommand* other) {
 
 // ===================================================================
 
-void HealthResponse::InitAsDefaultInstance() {
+void PowerResponse::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int HealthResponse::kSourceFieldNumber;
-const int HealthResponse::kDestinationFieldNumber;
-const int HealthResponse::kTimeFieldNumber;
-const int HealthResponse::kBattVoltFieldNumber;
-const int HealthResponse::kCurrentFieldNumber;
+const int PowerResponse::kSourceFieldNumber;
+const int PowerResponse::kDestinationFieldNumber;
+const int PowerResponse::kTimeFieldNumber;
+const int PowerResponse::kBatteryVoltageFieldNumber;
+const int PowerResponse::kCurrentFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-HealthResponse::HealthResponse()
+PowerResponse::PowerResponse()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_goby_5fmsgs_2eproto::scc_info_HealthResponse.base);
+      &protobuf_goby_5fmsgs_2eproto::scc_info_PowerResponse.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:HealthResponse)
+  // @@protoc_insertion_point(constructor:PowerResponse)
 }
-HealthResponse::HealthResponse(const HealthResponse& from)
+PowerResponse::PowerResponse(const PowerResponse& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_) {
@@ -2701,39 +2673,39 @@ HealthResponse::HealthResponse(const HealthResponse& from)
   ::memcpy(&source_, &from.source_,
     static_cast<size_t>(reinterpret_cast<char*>(&current_) -
     reinterpret_cast<char*>(&source_)) + sizeof(current_));
-  // @@protoc_insertion_point(copy_constructor:HealthResponse)
+  // @@protoc_insertion_point(copy_constructor:PowerResponse)
 }
 
-void HealthResponse::SharedCtor() {
+void PowerResponse::SharedCtor() {
   ::memset(&source_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&current_) -
       reinterpret_cast<char*>(&source_)) + sizeof(current_));
 }
 
-HealthResponse::~HealthResponse() {
-  // @@protoc_insertion_point(destructor:HealthResponse)
+PowerResponse::~PowerResponse() {
+  // @@protoc_insertion_point(destructor:PowerResponse)
   SharedDtor();
 }
 
-void HealthResponse::SharedDtor() {
+void PowerResponse::SharedDtor() {
 }
 
-void HealthResponse::SetCachedSize(int size) const {
+void PowerResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* HealthResponse::descriptor() {
+const ::google::protobuf::Descriptor* PowerResponse::descriptor() {
   ::protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const HealthResponse& HealthResponse::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_HealthResponse.base);
+const PowerResponse& PowerResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_goby_5fmsgs_2eproto::scc_info_PowerResponse.base);
   return *internal_default_instance();
 }
 
 
-void HealthResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:HealthResponse)
+void PowerResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:PowerResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -2748,11 +2720,11 @@ void HealthResponse::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool HealthResponse::MergePartialFromCodedStream(
+bool PowerResponse::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:HealthResponse)
+  // @@protoc_insertion_point(parse_start:PowerResponse)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -2800,14 +2772,14 @@ bool HealthResponse::MergePartialFromCodedStream(
         break;
       }
 
-      // required float batt_volt = 4 [(.dccl.field) = {
+      // required float battery_voltage = 4 [(.dccl.field) = {
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(37u /* 37 & 0xFF */)) {
-          set_has_batt_volt();
+          set_has_battery_voltage();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &batt_volt_)));
+                 input, &battery_voltage_)));
         } else {
           goto handle_unusual;
         }
@@ -2840,17 +2812,17 @@ bool HealthResponse::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:HealthResponse)
+  // @@protoc_insertion_point(parse_success:PowerResponse)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:HealthResponse)
+  // @@protoc_insertion_point(parse_failure:PowerResponse)
   return false;
 #undef DO_
 }
 
-void HealthResponse::SerializeWithCachedSizes(
+void PowerResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:HealthResponse)
+  // @@protoc_insertion_point(serialize_start:PowerResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -2870,9 +2842,9 @@ void HealthResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
   }
 
-  // required float batt_volt = 4 [(.dccl.field) = {
+  // required float battery_voltage = 4 [(.dccl.field) = {
   if (cached_has_bits & 0x00000008u) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(4, this->batt_volt(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(4, this->battery_voltage(), output);
   }
 
   // required float current = 5 [(.dccl.field) = {
@@ -2884,13 +2856,13 @@ void HealthResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:HealthResponse)
+  // @@protoc_insertion_point(serialize_end:PowerResponse)
 }
 
-::google::protobuf::uint8* HealthResponse::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* PowerResponse::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:HealthResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:PowerResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -2910,9 +2882,9 @@ void HealthResponse::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
   }
 
-  // required float batt_volt = 4 [(.dccl.field) = {
+  // required float battery_voltage = 4 [(.dccl.field) = {
   if (cached_has_bits & 0x00000008u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(4, this->batt_volt(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(4, this->battery_voltage(), target);
   }
 
   // required float current = 5 [(.dccl.field) = {
@@ -2924,12 +2896,12 @@ void HealthResponse::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:HealthResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:PowerResponse)
   return target;
 }
 
-size_t HealthResponse::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:HealthResponse)
+size_t PowerResponse::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:PowerResponse)
   size_t total_size = 0;
 
   if (has_source()) {
@@ -2946,8 +2918,8 @@ size_t HealthResponse::RequiredFieldsByteSizeFallback() const {
         this->destination());
   }
 
-  if (has_batt_volt()) {
-    // required float batt_volt = 4 [(.dccl.field) = {
+  if (has_battery_voltage()) {
+    // required float battery_voltage = 4 [(.dccl.field) = {
     total_size += 1 + 4;
   }
 
@@ -2958,8 +2930,8 @@ size_t HealthResponse::RequiredFieldsByteSizeFallback() const {
 
   return total_size;
 }
-size_t HealthResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:HealthResponse)
+size_t PowerResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:PowerResponse)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2978,7 +2950,7 @@ size_t HealthResponse::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
 
-    // required float batt_volt = 4 [(.dccl.field) = {
+    // required float battery_voltage = 4 [(.dccl.field) = {
     total_size += 1 + 4;
 
     // required float current = 5 [(.dccl.field) = {
@@ -2997,23 +2969,23 @@ size_t HealthResponse::ByteSizeLong() const {
   return total_size;
 }
 
-void HealthResponse::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:HealthResponse)
+void PowerResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:PowerResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  const HealthResponse* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const HealthResponse>(
+  const PowerResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const PowerResponse>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:HealthResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:PowerResponse)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:HealthResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:PowerResponse)
     MergeFrom(*source);
   }
 }
 
-void HealthResponse::MergeFrom(const HealthResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:HealthResponse)
+void PowerResponse::MergeFrom(const PowerResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:PowerResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -3031,7 +3003,7 @@ void HealthResponse::MergeFrom(const HealthResponse& from) {
       time_ = from.time_;
     }
     if (cached_has_bits & 0x00000008u) {
-      batt_volt_ = from.batt_volt_;
+      battery_voltage_ = from.battery_voltage_;
     }
     if (cached_has_bits & 0x00000010u) {
       current_ = from.current_;
@@ -3040,41 +3012,41 @@ void HealthResponse::MergeFrom(const HealthResponse& from) {
   }
 }
 
-void HealthResponse::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:HealthResponse)
+void PowerResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:PowerResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void HealthResponse::CopyFrom(const HealthResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:HealthResponse)
+void PowerResponse::CopyFrom(const PowerResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:PowerResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool HealthResponse::IsInitialized() const {
+bool PowerResponse::IsInitialized() const {
   if ((_has_bits_[0] & 0x0000001b) != 0x0000001b) return false;
   return true;
 }
 
-void HealthResponse::Swap(HealthResponse* other) {
+void PowerResponse::Swap(PowerResponse* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void HealthResponse::InternalSwap(HealthResponse* other) {
+void PowerResponse::InternalSwap(PowerResponse* other) {
   using std::swap;
   swap(source_, other->source_);
   swap(destination_, other->destination_);
   swap(time_, other->time_);
-  swap(batt_volt_, other->batt_volt_);
+  swap(battery_voltage_, other->battery_voltage_);
   swap(current_, other->current_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata HealthResponse::GetMetadata() const {
+::google::protobuf::Metadata PowerResponse::GetMetadata() const {
   protobuf_goby_5fmsgs_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_goby_5fmsgs_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -4703,7 +4675,6 @@ void ControllerStateResponse::InitAsDefaultInstance() {
 const int ControllerStateResponse::kSourceFieldNumber;
 const int ControllerStateResponse::kDestinationFieldNumber;
 const int ControllerStateResponse::kTimeFieldNumber;
-const int ControllerStateResponse::kModeFieldNumber;
 const int ControllerStateResponse::kStateFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -4760,7 +4731,7 @@ void ControllerStateResponse::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 31u) {
+  if (cached_has_bits & 15u) {
     ::memset(&source_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&state_) -
         reinterpret_cast<char*>(&source_)) + sizeof(state_));
@@ -4821,30 +4792,10 @@ bool ControllerStateResponse::MergePartialFromCodedStream(
         break;
       }
 
-      // required .ControllerStateResponse.Mode mode = 4;
+      // optional .ControllerStateResponse.ControllerState state = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (::ControllerStateResponse_Mode_IsValid(value)) {
-            set_mode(static_cast< ::ControllerStateResponse_Mode >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(
-                4, static_cast< ::google::protobuf::uint64>(value));
-          }
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional .ControllerStateResponse.ControllerState state = 5 [(.dccl.field) = {
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -4853,7 +4804,7 @@ bool ControllerStateResponse::MergePartialFromCodedStream(
             set_state(static_cast< ::ControllerStateResponse_ControllerState >(value));
           } else {
             mutable_unknown_fields()->AddVarint(
-                5, static_cast< ::google::protobuf::uint64>(value));
+                4, static_cast< ::google::protobuf::uint64>(value));
           }
         } else {
           goto handle_unusual;
@@ -4903,16 +4854,10 @@ void ControllerStateResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
   }
 
-  // required .ControllerStateResponse.Mode mode = 4;
+  // optional .ControllerStateResponse.ControllerState state = 4;
   if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      4, this->mode(), output);
-  }
-
-  // optional .ControllerStateResponse.ControllerState state = 5 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000010u) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      5, this->state(), output);
+      4, this->state(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4945,16 +4890,10 @@ void ControllerStateResponse::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
   }
 
-  // required .ControllerStateResponse.Mode mode = 4;
+  // optional .ControllerStateResponse.ControllerState state = 4;
   if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      4, this->mode(), target);
-  }
-
-  // optional .ControllerStateResponse.ControllerState state = 5 [(.dccl.field) = {
-  if (cached_has_bits & 0x00000010u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      5, this->state(), target);
+      4, this->state(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4983,12 +4922,6 @@ size_t ControllerStateResponse::RequiredFieldsByteSizeFallback() const {
         this->destination());
   }
 
-  if (has_mode()) {
-    // required .ControllerStateResponse.Mode mode = 4;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
-  }
-
   return total_size;
 }
 size_t ControllerStateResponse::ByteSizeLong() const {
@@ -5000,7 +4933,7 @@ size_t ControllerStateResponse::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  if (((_has_bits_[0] & 0x0000000b) ^ 0x0000000b) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
     // required int32 source = 1 [(.dccl.field) = {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -5011,24 +4944,22 @@ size_t ControllerStateResponse::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
 
-    // required .ControllerStateResponse.Mode mode = 4;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
-
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
-  // optional double time = 3 [(.dccl.field) = {
-  if (has_time()) {
-    total_size += 1 + 8;
-  }
+  if (_has_bits_[0 / 32] & 12u) {
+    // optional double time = 3 [(.dccl.field) = {
+    if (has_time()) {
+      total_size += 1 + 8;
+    }
 
-  // optional .ControllerStateResponse.ControllerState state = 5 [(.dccl.field) = {
-  if (has_state()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
-  }
+    // optional .ControllerStateResponse.ControllerState state = 4;
+    if (has_state()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
+    }
 
+  }
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -5057,7 +4988,7 @@ void ControllerStateResponse::MergeFrom(const ControllerStateResponse& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 31u) {
+  if (cached_has_bits & 15u) {
     if (cached_has_bits & 0x00000001u) {
       source_ = from.source_;
     }
@@ -5068,9 +4999,6 @@ void ControllerStateResponse::MergeFrom(const ControllerStateResponse& from) {
       time_ = from.time_;
     }
     if (cached_has_bits & 0x00000008u) {
-      mode_ = from.mode_;
-    }
-    if (cached_has_bits & 0x00000010u) {
       state_ = from.state_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -5092,7 +5020,7 @@ void ControllerStateResponse::CopyFrom(const ControllerStateResponse& from) {
 }
 
 bool ControllerStateResponse::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000000b) != 0x0000000b) return false;
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
   return true;
 }
 
@@ -5105,7 +5033,6 @@ void ControllerStateResponse::InternalSwap(ControllerStateResponse* other) {
   swap(source_, other->source_);
   swap(destination_, other->destination_);
   swap(time_, other->time_);
-  swap(mode_, other->mode_);
   swap(state_, other->state_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -6378,7 +6305,7 @@ void HelmStateResponse::InitAsDefaultInstance() {
 const int HelmStateResponse::kSourceFieldNumber;
 const int HelmStateResponse::kDestinationFieldNumber;
 const int HelmStateResponse::kTimeFieldNumber;
-const int HelmStateResponse::kStateFieldNumber;
+const int HelmStateResponse::kHelmStateFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 HelmStateResponse::HelmStateResponse()
@@ -6394,15 +6321,15 @@ HelmStateResponse::HelmStateResponse(const HelmStateResponse& from)
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&source_, &from.source_,
-    static_cast<size_t>(reinterpret_cast<char*>(&state_) -
-    reinterpret_cast<char*>(&source_)) + sizeof(state_));
+    static_cast<size_t>(reinterpret_cast<char*>(&helm_state_) -
+    reinterpret_cast<char*>(&source_)) + sizeof(helm_state_));
   // @@protoc_insertion_point(copy_constructor:HelmStateResponse)
 }
 
 void HelmStateResponse::SharedCtor() {
   ::memset(&source_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&state_) -
-      reinterpret_cast<char*>(&source_)) + sizeof(state_));
+      reinterpret_cast<char*>(&helm_state_) -
+      reinterpret_cast<char*>(&source_)) + sizeof(helm_state_));
 }
 
 HelmStateResponse::~HelmStateResponse() {
@@ -6436,8 +6363,8 @@ void HelmStateResponse::Clear() {
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 15u) {
     ::memset(&source_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&state_) -
-        reinterpret_cast<char*>(&source_)) + sizeof(state_));
+        reinterpret_cast<char*>(&helm_state_) -
+        reinterpret_cast<char*>(&source_)) + sizeof(helm_state_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
@@ -6495,7 +6422,7 @@ bool HelmStateResponse::MergePartialFromCodedStream(
         break;
       }
 
-      // required .HelmStateResponse.HelmState state = 4;
+      // required .HelmStateResponse.HelmState helm_state = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
@@ -6504,7 +6431,7 @@ bool HelmStateResponse::MergePartialFromCodedStream(
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
           if (::HelmStateResponse_HelmState_IsValid(value)) {
-            set_state(static_cast< ::HelmStateResponse_HelmState >(value));
+            set_helm_state(static_cast< ::HelmStateResponse_HelmState >(value));
           } else {
             mutable_unknown_fields()->AddVarint(
                 4, static_cast< ::google::protobuf::uint64>(value));
@@ -6557,10 +6484,10 @@ void HelmStateResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
   }
 
-  // required .HelmStateResponse.HelmState state = 4;
+  // required .HelmStateResponse.HelmState helm_state = 4;
   if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      4, this->state(), output);
+      4, this->helm_state(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6593,10 +6520,10 @@ void HelmStateResponse::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
   }
 
-  // required .HelmStateResponse.HelmState state = 4;
+  // required .HelmStateResponse.HelmState helm_state = 4;
   if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      4, this->state(), target);
+      4, this->helm_state(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6625,10 +6552,10 @@ size_t HelmStateResponse::RequiredFieldsByteSizeFallback() const {
         this->destination());
   }
 
-  if (has_state()) {
-    // required .HelmStateResponse.HelmState state = 4;
+  if (has_helm_state()) {
+    // required .HelmStateResponse.HelmState helm_state = 4;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->helm_state());
   }
 
   return total_size;
@@ -6653,9 +6580,9 @@ size_t HelmStateResponse::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
 
-    // required .HelmStateResponse.HelmState state = 4;
+    // required .HelmStateResponse.HelmState helm_state = 4;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->helm_state());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -6704,7 +6631,7 @@ void HelmStateResponse::MergeFrom(const HelmStateResponse& from) {
       time_ = from.time_;
     }
     if (cached_has_bits & 0x00000008u) {
-      state_ = from.state_;
+      helm_state_ = from.helm_state_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -6738,7 +6665,7 @@ void HelmStateResponse::InternalSwap(HelmStateResponse* other) {
   swap(source_, other->source_);
   swap(destination_, other->destination_);
   swap(time_, other->time_);
-  swap(state_, other->state_);
+  swap(helm_state_, other->helm_state_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
@@ -10068,7 +9995,6 @@ void ExecuteWaypoints::InitAsDefaultInstance() {
 const int ExecuteWaypoints::kSourceFieldNumber;
 const int ExecuteWaypoints::kDestinationFieldNumber;
 const int ExecuteWaypoints::kTimeFieldNumber;
-const int ExecuteWaypoints::kExecuteFieldNumber;
 const int ExecuteWaypoints::kModeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -10125,7 +10051,7 @@ void ExecuteWaypoints::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 31u) {
+  if (cached_has_bits & 15u) {
     ::memset(&source_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&mode_) -
         reinterpret_cast<char*>(&source_)) + sizeof(mode_));
@@ -10186,24 +10112,10 @@ bool ExecuteWaypoints::MergePartialFromCodedStream(
         break;
       }
 
-      // required bool execute = 4;
+      // required .ExecuteWaypoints.ExecuteMode mode = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
-          set_has_execute();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &execute_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // required .ExecuteWaypoints.ExecuteMode mode = 5;
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -10212,7 +10124,7 @@ bool ExecuteWaypoints::MergePartialFromCodedStream(
             set_mode(static_cast< ::ExecuteWaypoints_ExecuteMode >(value));
           } else {
             mutable_unknown_fields()->AddVarint(
-                5, static_cast< ::google::protobuf::uint64>(value));
+                4, static_cast< ::google::protobuf::uint64>(value));
           }
         } else {
           goto handle_unusual;
@@ -10262,15 +10174,10 @@ void ExecuteWaypoints::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->time(), output);
   }
 
-  // required bool execute = 4;
+  // required .ExecuteWaypoints.ExecuteMode mode = 4;
   if (cached_has_bits & 0x00000008u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(4, this->execute(), output);
-  }
-
-  // required .ExecuteWaypoints.ExecuteMode mode = 5;
-  if (cached_has_bits & 0x00000010u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      5, this->mode(), output);
+      4, this->mode(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -10303,15 +10210,10 @@ void ExecuteWaypoints::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->time(), target);
   }
 
-  // required bool execute = 4;
+  // required .ExecuteWaypoints.ExecuteMode mode = 4;
   if (cached_has_bits & 0x00000008u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(4, this->execute(), target);
-  }
-
-  // required .ExecuteWaypoints.ExecuteMode mode = 5;
-  if (cached_has_bits & 0x00000010u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      5, this->mode(), target);
+      4, this->mode(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -10340,13 +10242,8 @@ size_t ExecuteWaypoints::RequiredFieldsByteSizeFallback() const {
         this->destination());
   }
 
-  if (has_execute()) {
-    // required bool execute = 4;
-    total_size += 1 + 1;
-  }
-
   if (has_mode()) {
-    // required .ExecuteWaypoints.ExecuteMode mode = 5;
+    // required .ExecuteWaypoints.ExecuteMode mode = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
   }
@@ -10362,7 +10259,7 @@ size_t ExecuteWaypoints::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  if (((_has_bits_[0] & 0x0000001b) ^ 0x0000001b) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x0000000b) ^ 0x0000000b) == 0) {  // All required fields are present.
     // required int32 source = 1 [(.dccl.field) = {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -10373,10 +10270,7 @@ size_t ExecuteWaypoints::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->destination());
 
-    // required bool execute = 4;
-    total_size += 1 + 1;
-
-    // required .ExecuteWaypoints.ExecuteMode mode = 5;
+    // required .ExecuteWaypoints.ExecuteMode mode = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
 
@@ -10416,7 +10310,7 @@ void ExecuteWaypoints::MergeFrom(const ExecuteWaypoints& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 31u) {
+  if (cached_has_bits & 15u) {
     if (cached_has_bits & 0x00000001u) {
       source_ = from.source_;
     }
@@ -10427,9 +10321,6 @@ void ExecuteWaypoints::MergeFrom(const ExecuteWaypoints& from) {
       time_ = from.time_;
     }
     if (cached_has_bits & 0x00000008u) {
-      execute_ = from.execute_;
-    }
-    if (cached_has_bits & 0x00000010u) {
       mode_ = from.mode_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -10451,7 +10342,7 @@ void ExecuteWaypoints::CopyFrom(const ExecuteWaypoints& from) {
 }
 
 bool ExecuteWaypoints::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000001b) != 0x0000001b) return false;
+  if ((_has_bits_[0] & 0x0000000b) != 0x0000000b) return false;
   return true;
 }
 
@@ -10464,7 +10355,6 @@ void ExecuteWaypoints::InternalSwap(ExecuteWaypoints* other) {
   swap(source_, other->source_);
   swap(destination_, other->destination_);
   swap(time_, other->time_);
-  swap(execute_, other->execute_);
   swap(mode_, other->mode_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -10485,11 +10375,11 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::PoseCommand* Arena::CreateMaybeM
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::PoseResponse* Arena::CreateMaybeMessage< ::PoseResponse >(Arena* arena) {
   return Arena::CreateInternal< ::PoseResponse >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::HealthCommand* Arena::CreateMaybeMessage< ::HealthCommand >(Arena* arena) {
-  return Arena::CreateInternal< ::HealthCommand >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::PowerCommand* Arena::CreateMaybeMessage< ::PowerCommand >(Arena* arena) {
+  return Arena::CreateInternal< ::PowerCommand >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::HealthResponse* Arena::CreateMaybeMessage< ::HealthResponse >(Arena* arena) {
-  return Arena::CreateInternal< ::HealthResponse >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::PowerResponse* Arena::CreateMaybeMessage< ::PowerResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::PowerResponse >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::RelativePoseCommand* Arena::CreateMaybeMessage< ::RelativePoseCommand >(Arena* arena) {
   return Arena::CreateInternal< ::RelativePoseCommand >(arena);

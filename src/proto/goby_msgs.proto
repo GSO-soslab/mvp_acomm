@@ -114,7 +114,7 @@ message PoseResponse
     }];
 }
 
-message HealthCommand {
+message PowerCommand {
     option (dccl.msg) = {   
         codec_version: 4
         id: 2
@@ -141,7 +141,7 @@ message HealthCommand {
     }];
 }
 
-message HealthResponse {
+message PowerResponse {
     option (dccl.msg) = {   
         codec_version: 4
         id: 102

@@ -34,11 +34,11 @@ SeaTracUSBL::SeaTracUSBL()
     m_pnh.reset(new ros::NodeHandle("~"));
 
     odom_pub = m_nh->advertise<nav_msgs::Odometry>("comms/odometry/filtered/local", 10);
-    health_pub = m_nh->advertise<mvp_msgs::VehicleStatus>("comms/health", 10);
+    power_pub = m_nh->advertise<mvp_msgs::Power>("comms/power", 10);
 
     pose_server = m_nh->advertiseService
-        <mvp_msgs::CommsPose::Request, 
-        mvp_msgs::CommsPose::Response>
+        <alpha_acomms::CommsPose::Request, 
+        alpha_acomms::CommsPose::Response>
     (
         "comms/request_pose",
         std::bind(
@@ -49,13 +49,13 @@ SeaTracUSBL::SeaTracUSBL()
         )
     );
 
-    health_server = m_nh->advertiseService
-        <mvp_msgs::CommsHealth::Request,
-        mvp_msgs::CommsHealth::Response>
+    power_server = m_nh->advertiseService
+        <alpha_acomms::CommsPower::Request,
+        alpha_acomms::CommsPower::Response>
     (
-        "comms/request_health",
+        "comms/request_power",
         std::bind(
-            &SeaTracUSBL::f_cb_srv_request_health,
+            &SeaTracUSBL::f_cb_srv_request_power,
             this,
             std::placeholders::_1,
             std::placeholders::_2
@@ -63,8 +63,8 @@ SeaTracUSBL::SeaTracUSBL()
     );
 
     relative_pose_server = m_nh->advertiseService
-        <mvp_msgs::CommsRelativePose::Request,
-        mvp_msgs::CommsRelativePose::Response>
+        <alpha_acomms::CommsRelativePose::Request,
+        alpha_acomms::CommsRelativePose::Response>
     (
         "comms/request_relative_pose",
         std::bind(
@@ -76,8 +76,8 @@ SeaTracUSBL::SeaTracUSBL()
     );
 
     controller_info_server = m_nh->advertiseService
-        <mvp_msgs::CommsControllerInfo::Request,
-        mvp_msgs::CommsControllerInfo::Response>
+        <alpha_acomms::CommsControllerInfo::Request,
+        alpha_acomms::CommsControllerInfo::Response>
     (
         "comms/reuest_controller_info",
         std::bind(
@@ -89,8 +89,8 @@ SeaTracUSBL::SeaTracUSBL()
     );
 
     direct_control_server = m_nh->advertiseService
-        <mvp_msgs::CommsDirectControl::Request,
-        mvp_msgs::CommsDirectControl::Response>
+        <alpha_acomms::CommsDirectControl::Request,
+        alpha_acomms::CommsDirectControl::Response>
     (
         "comms/direct_control",
         std::bind(
@@ -102,8 +102,8 @@ SeaTracUSBL::SeaTracUSBL()
     );
 
     state_info_server = m_nh->advertiseService
-        <mvp_msgs::CommsStateInfo::Request,
-        mvp_msgs::CommsStateInfo::Response>
+        <alpha_acomms::CommsStateInfo::Request,
+        alpha_acomms::CommsStateInfo::Response>
     (
         "comms/state_info",
         std::bind(
@@ -115,8 +115,8 @@ SeaTracUSBL::SeaTracUSBL()
     );
 
     single_waypoint_server = m_nh->advertiseService
-        <mvp_msgs::CommsSingleWaypoint::Request,
-        mvp_msgs::CommsSingleWaypoint::Response>
+        <alpha_acomms::CommsSingleWaypoint::Request,
+        alpha_acomms::CommsSingleWaypoint::Response>
     (
         "comms/single_waypoint",
         std::bind(
@@ -128,8 +128,8 @@ SeaTracUSBL::SeaTracUSBL()
     );
 
     multi_waypoint_gps_server = m_nh->advertiseService
-        <mvp_msgs::CommsMultiWaypointGPS::Request,
-        mvp_msgs::CommsMultiWaypointGPS::Response>
+        <alpha_acomms::CommsMultiWaypointGPS::Request,
+        alpha_acomms::CommsMultiWaypointGPS::Response>
     (
         "comms/multi_waypoint_gps",
         std::bind(
@@ -141,8 +141,8 @@ SeaTracUSBL::SeaTracUSBL()
     );
 
     multi_waypoint_xyz_server = m_nh->advertiseService
-        <mvp_msgs::CommsMultiWaypointXYZ::Request,
-        mvp_msgs::CommsMultiWaypointXYZ::Response>
+        <alpha_acomms::CommsMultiWaypointXYZ::Request,
+        alpha_acomms::CommsMultiWaypointXYZ::Response>
     (
         "comms/multi_waypoint_xyz",
         std::bind(
@@ -154,8 +154,8 @@ SeaTracUSBL::SeaTracUSBL()
     );
 
     execute_waypoints_server = m_nh->advertiseService
-        <mvp_msgs::CommsExecuteWaypoint::Request,
-        mvp_msgs::CommsExecuteWaypoint::Response>
+        <alpha_acomms::CommsExecuteWaypoint::Request,
+        alpha_acomms::CommsExecuteWaypoint::Response>
     (
         "comms/execute_waypoint",
         std::bind(
@@ -208,8 +208,8 @@ void SeaTracUSBL::setup_goby()
     //validate messages
     dccl_->validate<PoseCommand>();
     dccl_->validate<PoseResponse>();
-    dccl_->validate<HealthCommand>();
-    dccl_->validate<HealthResponse>();
+    dccl_->validate<PowerCommand>();
+    dccl_->validate<PowerResponse>();
     dccl_->validate<RelativePoseCommand>();
     dccl_->validate<RelativePoseResponse>();
     dccl_->validate<ControllerStateCommand>();
@@ -355,7 +355,7 @@ void SeaTracUSBL::setup_queue()
 void SeaTracUSBL::received_data(const google::protobuf::Message& data_msg)
 {
     std::string msg_type =  data_msg.GetTypeName();
-    if(msg_type == "PoseCommand")
+    if(msg_type == "PoseResponse")
     {
         PoseResponse pose;
         pose.CopyFrom(data_msg);
@@ -380,17 +380,17 @@ void SeaTracUSBL::received_data(const google::protobuf::Message& data_msg)
         odom_pub.publish(odom);
 
     }
-    else if(msg_type == "Health")
+    else if(msg_type == "PowerResponse")
     {
-        HealthResponse health;
-        health.CopyFrom(data_msg);
+        PowerResponse power_response;
+        power_response.CopyFrom(data_msg);
 
-        mvp_msgs::VehicleStatus status;
+        mvp_msgs::Power power_out;
 
-        status.current = health.current();
-        status.voltage = health.batt_volt();
+        power_out.current = power_response.current();
+        power_out.voltage = power_response.battery_voltage();
 
-        health_pub.publish(status);
+        power_pub.publish(power_out);
         
     }  
 }
@@ -417,7 +417,7 @@ void SeaTracUSBL::received_ack(const goby::acomms::protobuf::ModemTransmission& 
  * @return true 
  * @return false 
  */
-bool SeaTracUSBL::f_cb_srv_request_pose(mvp_msgs::CommsPose::Request &request, mvp_msgs::CommsPose::Response &response)
+bool SeaTracUSBL::f_cb_srv_request_pose(alpha_acomms::CommsPose::Request &request, alpha_acomms::CommsPose::Response &response)
 {
     PoseCommand pose_cmd;
 
@@ -438,20 +438,20 @@ bool SeaTracUSBL::f_cb_srv_request_pose(mvp_msgs::CommsPose::Request &request, m
  * @return true 
  * @return false 
  */
-bool SeaTracUSBL::f_cb_srv_request_health(mvp_msgs::CommsHealth::Request &request, mvp_msgs::CommsHealth::Response &response)
+bool SeaTracUSBL::f_cb_srv_request_power(alpha_acomms::CommsPower::Request &request, alpha_acomms::CommsPower::Response &response)
 {
-    HealthCommand health_request;
+    PowerCommand power_request;
 
-    health_request.set_source(our_id);
-    health_request.set_destination(dest_id);
-    health_request.set_time(ros::Time::now().toSec());
+    power_request.set_source(our_id);
+    power_request.set_destination(dest_id);
+    power_request.set_time(ros::Time::now().toSec());
     
-    q_manager.push_message(health_request);
+    q_manager.push_message(power_request);
     
     return true;
 }
 
-bool SeaTracUSBL::f_cb_srv_request_relative_pose(mvp_msgs::CommsRelativePose::Request &request, mvp_msgs::CommsRelativePose::Response &response)
+bool SeaTracUSBL::f_cb_srv_request_relative_pose(alpha_acomms::CommsRelativePose::Request &request, alpha_acomms::CommsRelativePose::Response &response)
 {
     RelativePoseCommand rel_pose_command;
 
@@ -464,41 +464,41 @@ bool SeaTracUSBL::f_cb_srv_request_relative_pose(mvp_msgs::CommsRelativePose::Re
     return true;
 }
 
-bool SeaTracUSBL::f_cb_srv_controller_info(mvp_msgs::CommsControllerInfo::Request &request, mvp_msgs::CommsControllerInfo::Response &response)
+bool SeaTracUSBL::f_cb_srv_controller_info(alpha_acomms::CommsControllerInfo::Request &request, alpha_acomms::CommsControllerInfo::Response &response)
 {
 
     return true;
 }
 
-bool SeaTracUSBL::f_cb_srv_direct_control(mvp_msgs::CommsDirectControl::Request &request, mvp_msgs::CommsDirectControl::Response &response)
+bool SeaTracUSBL::f_cb_srv_direct_control(alpha_acomms::CommsDirectControl::Request &request, alpha_acomms::CommsDirectControl::Response &response)
 {
 
     return true;
 }
 
-bool SeaTracUSBL::f_cb_srv_state_info(mvp_msgs::CommsStateInfo::Request &request, mvp_msgs::CommsStateInfo::Response &response)
+bool SeaTracUSBL::f_cb_srv_state_info(alpha_acomms::CommsStateInfo::Request &request, alpha_acomms::CommsStateInfo::Response &response)
 {
 
     return true;
 }
 
-bool SeaTracUSBL::f_cb_srv_single_waypoint(mvp_msgs::CommsSingleWaypoint::Request &request, mvp_msgs::CommsSingleWaypoint::Response &response)
+bool SeaTracUSBL::f_cb_srv_single_waypoint(alpha_acomms::CommsSingleWaypoint::Request &request, alpha_acomms::CommsSingleWaypoint::Response &response)
 {
 
     return true;
 }
 
-bool SeaTracUSBL::f_cb_srv_multi_waypoint_gps(mvp_msgs::CommsMultiWaypointGPS::Request &request, mvp_msgs::CommsMultiWaypointGPS::Response &response)
+bool SeaTracUSBL::f_cb_srv_multi_waypoint_gps(alpha_acomms::CommsMultiWaypointGPS::Request &request, alpha_acomms::CommsMultiWaypointGPS::Response &response)
 {
 
     return true;
 }
-bool SeaTracUSBL::f_cb_srv_multi_waypoint_xyz(mvp_msgs::CommsMultiWaypointXYZ::Request &request, mvp_msgs::CommsMultiWaypointXYZ::Response &response)
+bool SeaTracUSBL::f_cb_srv_multi_waypoint_xyz(alpha_acomms::CommsMultiWaypointXYZ::Request &request, alpha_acomms::CommsMultiWaypointXYZ::Response &response)
 {
 
     return true;
 }
-bool SeaTracUSBL::f_cb_srv_execute_waypoints(mvp_msgs::CommsExecuteWaypoint::Request &request, mvp_msgs::CommsExecuteWaypoint::Response &response)
+bool SeaTracUSBL::f_cb_srv_execute_waypoints(alpha_acomms::CommsExecuteWaypoint::Request &request, alpha_acomms::CommsExecuteWaypoint::Response &response)
 {
 
     return true;

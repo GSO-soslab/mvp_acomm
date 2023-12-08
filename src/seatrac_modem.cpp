@@ -35,10 +35,7 @@ SeaTracModem::SeaTracModem()
 
     local_odom_sub = m_nh->subscribe("odometry/filtered/local", 10, &SeaTracModem::f_local_odom_callback, this);
     
-    message_filters::Subscriber<mvp_msgs::Float64Stamped> voltage_sub(*m_nh, "power/voltage", 10);
-    message_filters::Subscriber<mvp_msgs::Float64Stamped> current_sub(*m_nh, "power/current", 10);
-    message_filters::TimeSynchronizer<mvp_msgs::Float64Stamped, mvp_msgs::Float64Stamped> sync(voltage_sub, current_sub, 10);
-    sync.registerCallback(&SeaTracModem::f_power_callback, this);
+    power_sub = m_nh->subscribe("power/power_monitor", 10, &SeaTracModem::f_power_callback, this);
 
     controller_enable_client = m_nh->serviceClient<std_srvs::Empty>("controller/enable");
     controller_disable_client = m_nh->serviceClient<std_srvs::Empty>("controller/disable");
@@ -59,7 +56,7 @@ SeaTracModem::SeaTracModem()
         if(i%300)
         {
             q_manager.push_message(pose_out);
-            q_manager.push_message(health_out);
+            q_manager.push_message(power_out);
         }
 
         st_driver.do_work();
@@ -101,8 +98,8 @@ void SeaTracModem::setup_goby()
     //validate messages
     dccl_->validate<PoseCommand>();
     dccl_->validate<PoseResponse>();
-    dccl_->validate<HealthCommand>();
-    dccl_->validate<HealthResponse>();
+    dccl_->validate<PowerCommand>();
+    dccl_->validate<PowerResponse>();
     dccl_->validate<RelativePoseCommand>();
     dccl_->validate<RelativePoseResponse>();
     dccl_->validate<ControllerStateCommand>();
@@ -259,7 +256,7 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
     else if(msg_type == "HealthCommand")
     {
         
-        q_manager.push_message(health_out);
+        q_manager.push_message(power_out);
 
     }
     else if(msg_type == "RelativePoseCommand")
@@ -413,6 +410,7 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
         else
         {
             HelmStateResponse state_info_out;
+            state_info_out.set_source(our_id);
             state_info_out.set_destination(dest_id);
             state_info_out.set_time(ros::Time::now().toSec());
 
@@ -420,7 +418,7 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
             {
                 if(current_state == HelmStateResponse_HelmState_Name(HelmStateResponse_HelmState(i)))
                 {
-                    state_info_out.set_state(HelmStateResponse_HelmState(i));
+                    state_info_out.set_helm_state(HelmStateResponse_HelmState(i));
                     q_manager.push_message(state_info_out);
                     break;
                 }
@@ -512,22 +510,19 @@ void SeaTracModem::received_data(const google::protobuf::Message& data_msg)
         ExecuteWaypoints exec_waypoints;
         exec_waypoints.CopyFrom(data_msg);
 
-        if(exec_waypoints.execute())
+        waypoint_array.header.frame_id = "world_ned";
+        waypoint_array.header.stamp = ros::Time::now();
+        
+        if(exec_waypoints.mode() == ExecuteWaypoints_ExecuteMode_APPEND)
         {
-            waypoint_array.header.frame_id = "world_ned";
-            waypoint_array.header.stamp = ros::Time::now();
-            
-            if(exec_waypoints.mode() == ExecuteWaypoints_ExecuteMode_APPEND)
-            {
-                append_waypoint_pub.publish(waypoint_array);
-            }
-            else if(exec_waypoints.mode() == ExecuteWaypoints_ExecuteMode_UPDATE)
-            {
-                update_waypoint_pub.publish(waypoint_array);
-            }
-
-            waypoint_array.polygon.points.erase(waypoint_array.polygon.points.begin(), waypoint_array.polygon.points.end());
+            append_waypoint_pub.publish(waypoint_array);
         }
+        else if(exec_waypoints.mode() == ExecuteWaypoints_ExecuteMode_UPDATE)
+        {
+            update_waypoint_pub.publish(waypoint_array);
+        }
+
+        waypoint_array.polygon.points.erase(waypoint_array.polygon.points.begin(), waypoint_array.polygon.points.end());
     }    
 }
 
@@ -560,7 +555,7 @@ void SeaTracModem::f_local_odom_callback(const nav_msgs::OdometryPtr &msg)
 
     pose_out.set_source(our_id);
     pose_out.set_destination(dest_id);
-    pose_out.set_time(ros::Time::now().toSec());
+    pose_out.set_time(msg->header.stamp.toSec());
     pose_out.set_latitude(global_lat);
     pose_out.set_longitude(global_long);
     pose_out.set_x(std::round(local_x));
@@ -573,19 +568,19 @@ void SeaTracModem::f_local_odom_callback(const nav_msgs::OdometryPtr &msg)
 }
 
 /**
- * @brief time synced subscriber to voltage and current. updating health_out, a class variable, 
+ * @brief time synced subscriber to voltage and current. updating power_out, a class variable, 
  * to be sent over acomms asynchronously
  * 
  * @param voltage the voltage msg
  * @param current the current msg
  */
-void SeaTracModem::f_power_callback(const mvp_msgs::Float64Stamped &voltage, const mvp_msgs::Float64Stamped &current)
+void SeaTracModem::f_power_callback(const mvp_msgs::PowerPtr &power)
 {
-    health_out.set_source(our_id);
-    health_out.set_destination(dest_id);
-    health_out.set_time(ros::Time::now().toSec());
-    health_out.set_batt_volt(voltage.data);
-    health_out.set_current(current.data);
+    power_out.set_source(our_id);
+    power_out.set_destination(dest_id);
+    power_out.set_time(power->header.stamp.toSec());
+    power_out.set_battery_voltage(power->voltage);
+    power_out.set_current(power->current);
 }
 
 /**

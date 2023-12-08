@@ -28,16 +28,12 @@
 #include "unistd.h"
 #include <iostream>
 
-//ros includes for syncronizing voltage and current subscribers
-#include "message_filters/subscriber.h"
-#include "message_filters/time_synchronizer.h"
-
 //ros msg includes for pose
 #include "nav_msgs/Odometry.h"
 #include "geometry_msgs/Point.h"
 #include "geographic_msgs/GeoPoint.h"
 //ros msg includes for health
-#include "mvp_msgs/Float64Stamped.h"
+#include "mvp_msgs/Power.h"
 //ros service includes for controller info
 #include "std_srvs/Empty.h"
 //ros msg includes for direct control
@@ -82,6 +78,7 @@ private:
     ros::Publisher append_waypoint_pub;
 
     ros::Subscriber local_odom_sub;
+    ros::Subscriber power_sub;
 
     ros::ServiceClient controller_enable_client;
     ros::ServiceClient controller_disable_client;
@@ -107,11 +104,11 @@ private:
     void received_data(const google::protobuf::Message& data_msg);
     void received_ack(const goby::acomms::protobuf::ModemTransmission& ack_message, const google::protobuf::Message& original_message);
     void f_local_odom_callback(const nav_msgs::OdometryPtr &msg);
-    void f_power_callback(const mvp_msgs::Float64Stamped &voltage, const mvp_msgs::Float64Stamped &current);
+    void f_power_callback(const mvp_msgs::PowerPtr &power);
     ros::Timer timer;
     
     PoseResponse pose_out;
-    HealthResponse health_out;
+    PowerResponse power_out;
 
 public:
 

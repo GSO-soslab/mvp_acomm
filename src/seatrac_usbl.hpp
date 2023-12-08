@@ -30,17 +30,17 @@
 #include <iostream>
 
 #include <nav_msgs/Odometry.h>
-#include <mvp_msgs/VehicleStatus.h>
-#include <mvp_msgs/CommsPose.h>
-#include <mvp_msgs/CommsHealth.h>
-#include <mvp_msgs/CommsRelativePose.h>
-#include <mvp_msgs/CommsControllerInfo.h>
-#include <mvp_msgs/CommsDirectControl.h>
-#include <mvp_msgs/CommsStateInfo.h>
-#include <mvp_msgs/CommsSingleWaypoint.h>
-#include <mvp_msgs/CommsMultiWaypointGPS.h>
-#include <mvp_msgs/CommsMultiWaypointXYZ.h>
-#include <mvp_msgs/CommsExecuteWaypoint.h>
+#include <mvp_msgs/Power.h>
+#include <alpha_acomms/CommsPose.h>
+#include <alpha_acomms/CommsPower.h>
+#include <alpha_acomms/CommsRelativePose.h>
+#include <alpha_acomms/CommsControllerInfo.h>
+#include <alpha_acomms/CommsDirectControl.h>
+#include <alpha_acomms/CommsStateInfo.h>
+#include <alpha_acomms/CommsSingleWaypoint.h>
+#include <alpha_acomms/CommsMultiWaypointGPS.h>
+#include <alpha_acomms/CommsMultiWaypointXYZ.h>
+#include <alpha_acomms/CommsExecuteWaypoint.h>
 
 //goby includes
 #include <goby/acomms/connect.h>
@@ -63,10 +63,10 @@ private:
     ros::NodeHandlePtr m_pnh;
     
     ros::Publisher odom_pub;
-    ros::Publisher health_pub;
+    ros::Publisher power_pub;
     
     ros::ServiceServer pose_server;
-    ros::ServiceServer health_server;
+    ros::ServiceServer power_server;
     ros::ServiceServer relative_pose_server;
     ros::ServiceServer controller_info_server;
     ros::ServiceServer direct_control_server;
@@ -93,16 +93,16 @@ private:
     void setup_queue();
     void received_data(const google::protobuf::Message& message_in);
     void received_ack(const goby::acomms::protobuf::ModemTransmission& ack_message, const google::protobuf::Message& original_message);
-    bool f_cb_srv_request_pose(mvp_msgs::CommsPose::Request &request, mvp_msgs::CommsPose::Response &response);
-    bool f_cb_srv_request_health(mvp_msgs::CommsHealth::Request &request, mvp_msgs::CommsHealth::Response &response);
-    bool f_cb_srv_request_relative_pose(mvp_msgs::CommsRelativePose::Request &request, mvp_msgs::CommsRelativePose::Response &response);
-    bool f_cb_srv_controller_info(mvp_msgs::CommsControllerInfo::Request &request, mvp_msgs::CommsControllerInfo::Response &response);
-    bool f_cb_srv_direct_control(mvp_msgs::CommsDirectControl::Request &request, mvp_msgs::CommsDirectControl::Response &response);
-    bool f_cb_srv_state_info(mvp_msgs::CommsStateInfo::Request &request, mvp_msgs::CommsStateInfo::Response &response);
-    bool f_cb_srv_single_waypoint(mvp_msgs::CommsSingleWaypoint::Request &request, mvp_msgs::CommsSingleWaypoint::Response &response);
-    bool f_cb_srv_multi_waypoint_gps(mvp_msgs::CommsMultiWaypointGPS::Request &request, mvp_msgs::CommsMultiWaypointGPS::Response &response);
-    bool f_cb_srv_multi_waypoint_xyz(mvp_msgs::CommsMultiWaypointXYZ::Request &request, mvp_msgs::CommsMultiWaypointXYZ::Response &response);
-    bool f_cb_srv_execute_waypoints(mvp_msgs::CommsExecuteWaypoint::Request &request, mvp_msgs::CommsExecuteWaypoint::Response &response);
+    bool f_cb_srv_request_pose(alpha_acomms::CommsPose::Request &request, alpha_acomms::CommsPose::Response &response);
+    bool f_cb_srv_request_power(alpha_acomms::CommsPower::Request &request, alpha_acomms::CommsPower::Response &response);
+    bool f_cb_srv_request_relative_pose(alpha_acomms::CommsRelativePose::Request &request, alpha_acomms::CommsRelativePose::Response &response);
+    bool f_cb_srv_controller_info(alpha_acomms::CommsControllerInfo::Request &request, alpha_acomms::CommsControllerInfo::Response &response);
+    bool f_cb_srv_direct_control(alpha_acomms::CommsDirectControl::Request &request, alpha_acomms::CommsDirectControl::Response &response);
+    bool f_cb_srv_state_info(alpha_acomms::CommsStateInfo::Request &request, alpha_acomms::CommsStateInfo::Response &response);
+    bool f_cb_srv_single_waypoint(alpha_acomms::CommsSingleWaypoint::Request &request, alpha_acomms::CommsSingleWaypoint::Response &response);
+    bool f_cb_srv_multi_waypoint_gps(alpha_acomms::CommsMultiWaypointGPS::Request &request, alpha_acomms::CommsMultiWaypointGPS::Response &response);
+    bool f_cb_srv_multi_waypoint_xyz(alpha_acomms::CommsMultiWaypointXYZ::Request &request, alpha_acomms::CommsMultiWaypointXYZ::Response &response);
+    bool f_cb_srv_execute_waypoints(alpha_acomms::CommsExecuteWaypoint::Request &request, alpha_acomms::CommsExecuteWaypoint::Response &response);
 
 
 

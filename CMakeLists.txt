@@ -46,12 +46,8 @@ include_directories( ${CMAKE_BINARY_DIR} )
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
-catkin_package(
-  # INCLUDE_DIRS 
-  # LIBRARIES
-  CATKIN_DEPENDS roscpp std_msgs std_srvs nav_msgs geometry_msgs geographic_msgs mvp_msgs dynamic_reconfigure
-  # DEPENDS
-)
+
+
 
 file(GLOB SRV_FILES ${PROJECT_SOURCE_DIR}/**/*.srv)
 
@@ -63,10 +59,18 @@ endforeach()
 generate_messages(
   DEPENDENCIES
     dynamic_reconfigure
+    mvp_msgs
 )
 
 generate_dynamic_reconfigure_options(
   ${CFG_FILES}
+)
+
+catkin_package(
+  # INCLUDE_DIRS 
+  # LIBRARIES
+  CATKIN_DEPENDS roscpp std_msgs std_srvs nav_msgs geometry_msgs geographic_msgs mvp_msgs dynamic_reconfigure
+  # DEPENDS
 )
 
 ###########
