@@ -110,8 +110,8 @@ private:
     void f_power_callback(const mvp_msgs::Float64Stamped &voltage, const mvp_msgs::Float64Stamped &current);
     ros::Timer timer;
     
-    Pose pose_out;
-    Health health_out;
+    PoseResponse pose_out;
+    HealthResponse health_out;
 
 public:
 
