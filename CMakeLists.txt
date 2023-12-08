@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5.1)
-project(alpha_comms)
+project(alpha_acomms)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++17)
