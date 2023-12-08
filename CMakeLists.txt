@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5.1)
-project(seatrac_modem)
+project(alpha_acomms)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++17)
@@ -78,16 +78,30 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(${PROJECT_NAME}_ros_node
+add_executable(${PROJECT_NAME}_node
   src/seatrac_modem.cpp
   include/seatrac_driver/seatrac_driver.cpp
 )
 
-add_dependencies(${PROJECT_NAME}_ros_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_executable(alpha_topside
+  src/seatrac_usbl.cpp
+  include/seatrac_driver/seatrac_driver.cpp
+)
 
-target_link_libraries(${PROJECT_NAME}_ros_node
+add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(alpha_topside ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+target_link_libraries(${PROJECT_NAME}_node
   ${catkin_LIBRARIES}
   proto
   goby
   dccl
 )
+
+target_link_libraries(alpha_topside
+  ${catkin_LIBRARIES}
+  proto
+  goby
+  dccl
+)
+
