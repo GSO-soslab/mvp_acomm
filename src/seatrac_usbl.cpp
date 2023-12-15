@@ -285,61 +285,101 @@ void SeaTracUSBL::setup_goby()
  */
 void SeaTracUSBL::setup_queue()
 {
-    //setup pose msg
-    goby::acomms::protobuf::QueuedMessageEntry* q_entry_pose = q_manager_cfg.add_message_entry();
-    q_entry_pose->set_protobuf_name("Pose");
-    q_entry_pose->set_ack(false);
-    q_entry_pose->set_max_queue(1);
+    // setup pose msg
+    goby::acomms::protobuf::QueuedMessageEntry *q_entry_pose_cmd = q_manager_cfg.add_message_entry();
+    q_entry_pose_cmd->set_protobuf_name("PoseCommand");
+    q_entry_pose_cmd->set_ack(false);
+    q_entry_pose_cmd->set_max_queue(1);
 
-    //setup health msg
-    goby::acomms::protobuf::QueuedMessageEntry* q_entry_health = q_manager_cfg.add_message_entry();
-    q_entry_health->set_protobuf_name("Health");
-    q_entry_health->set_ack(false);
-    q_entry_health->set_max_queue(1);
+    goby::acomms::protobuf::QueuedMessageEntry *q_entry_pose_resp = q_manager_cfg.add_message_entry();
+    q_entry_pose_resp->set_protobuf_name("PoseResponse");
+    q_entry_pose_resp->set_ack(false);
+    q_entry_pose_resp->set_max_queue(1);
 
-    //setup relative pose
-    goby::acomms::protobuf::QueuedMessageEntry* q_entry_rel_pose = q_manager_cfg.add_message_entry();
-    q_entry_rel_pose->set_protobuf_name("RelativePose");;
-    q_entry_rel_pose->set_ack(false);
-    q_entry_rel_pose->set_max_queue(1);
+    // setup health msg
+    goby::acomms::protobuf::QueuedMessageEntry *q_entry_power_cmd = q_manager_cfg.add_message_entry();
+    q_entry_power_cmd->set_protobuf_name("PowerCommand");
+    q_entry_power_cmd->set_ack(false);
+    q_entry_power_cmd->set_max_queue(1);
 
-    //setup controller info
-    goby::acomms::protobuf::QueuedMessageEntry* q_entry_control = q_manager_cfg.add_message_entry();
-    q_entry_control->set_protobuf_name("ControllerInfo");;
-    q_entry_control->set_ack(false);
-    q_entry_control->set_max_queue(1);
+    // setup health msg
+    goby::acomms::protobuf::QueuedMessageEntry *q_entry_power_resp = q_manager_cfg.add_message_entry();
+    q_entry_power_resp->set_protobuf_name("PowerResponse");
+    q_entry_power_resp->set_ack(false);
+    q_entry_power_resp->set_max_queue(1);
 
-    //setup direct control
-    goby::acomms::protobuf::QueuedMessageEntry* q_entry_direct = q_manager_cfg.add_message_entry();
-    q_entry_direct->set_protobuf_name("DirectControl");;
+    // setup relative pose
+    goby::acomms::protobuf::QueuedMessageEntry *q_entry_rel_pose_cmd = q_manager_cfg.add_message_entry();
+    q_entry_rel_pose_cmd->set_protobuf_name("RelativePoseCommand");
+    q_entry_rel_pose_cmd->set_ack(false);
+    q_entry_rel_pose_cmd->set_max_queue(1);
+
+    goby::acomms::protobuf::QueuedMessageEntry *q_entry_rel_pose_resp = q_manager_cfg.add_message_entry();
+    q_entry_rel_pose_resp->set_protobuf_name("RelativePoseResponse");
+    q_entry_rel_pose_resp->set_ack(false);
+    q_entry_rel_pose_resp->set_max_queue(1);
+
+    // setup controller info
+    goby::acomms::protobuf::QueuedMessageEntry *q_entry_control_state_cmd = q_manager_cfg.add_message_entry();
+    q_entry_control_state_cmd->set_protobuf_name("ControllerStateCommand");
+    q_entry_control_state_cmd->set_ack(false);
+    q_entry_control_state_cmd->set_max_queue(1);
+
+    goby::acomms::protobuf::QueuedMessageEntry *q_entry_control_state_resp = q_manager_cfg.add_message_entry();
+    q_entry_control_state_resp->set_protobuf_name("ControllerStateResponse");
+    q_entry_control_state_resp->set_ack(false);
+    q_entry_control_state_resp->set_max_queue(1);
+
+    // setup direct control
+    goby::acomms::protobuf::QueuedMessageEntry *q_entry_direct = q_manager_cfg.add_message_entry();
+    q_entry_direct->set_protobuf_name("DirectControlCommand");
     q_entry_direct->set_ack(false);
     q_entry_direct->set_max_queue(1);
 
-    //setup state info
-    goby::acomms::protobuf::QueuedMessageEntry* q_entry_state = q_manager_cfg.add_message_entry();
-    q_entry_state->set_protobuf_name("StateInfo");;
-    q_entry_state->set_ack(false);
-    q_entry_state->set_max_queue(1);
+    goby::acomms::protobuf::QueuedMessageEntry *q_entry_helm_state_cmd = q_manager_cfg.add_message_entry();
+    q_entry_helm_state_cmd->set_protobuf_name("HelmStateCommand");
+    q_entry_helm_state_cmd->set_ack(false);
+    q_entry_helm_state_cmd->set_max_queue(1);
 
-    //setup single waypoint
-    goby::acomms::protobuf::QueuedMessageEntry* q_entry_single_wpt = q_manager_cfg.add_message_entry();
-    q_entry_single_wpt->set_protobuf_name("SingleWaypoint");;
-    q_entry_single_wpt->set_ack(false);
-    q_entry_single_wpt->set_max_queue(1);
+    goby::acomms::protobuf::QueuedMessageEntry *q_entry_helm_state_resp = q_manager_cfg.add_message_entry();
+    q_entry_helm_state_resp->set_protobuf_name("HelmStateResponse");
+    q_entry_helm_state_resp->set_ack(false);
+    q_entry_helm_state_resp->set_max_queue(1);
 
-    goby::acomms::protobuf::QueuedMessageEntry* q_entry_multi_wpt_gps = q_manager_cfg.add_message_entry();
-    q_entry_multi_wpt_gps->set_protobuf_name("MultiWaypointGPS");;
-    q_entry_multi_wpt_gps->set_ack(false);
-    q_entry_multi_wpt_gps->set_max_queue(1);
+    // setup single waypoint
+    goby::acomms::protobuf::QueuedMessageEntry *q_entry_single_wpt_cmd = q_manager_cfg.add_message_entry();
+    q_entry_single_wpt_cmd->set_protobuf_name("SingleWaypointCommand");
+    q_entry_single_wpt_cmd->set_ack(false);
+    q_entry_single_wpt_cmd->set_max_queue(1);
 
-    goby::acomms::protobuf::QueuedMessageEntry* q_entry_multi_wpt_xyz = q_manager_cfg.add_message_entry();
-    q_entry_multi_wpt_xyz->set_protobuf_name("MultiWaypointXYZ");;
-    q_entry_multi_wpt_xyz->set_ack(false);
-    q_entry_multi_wpt_xyz->set_max_queue(1);
+    goby::acomms::protobuf::QueuedMessageEntry *q_entry_single_wpt_response = q_manager_cfg.add_message_entry();
+    q_entry_single_wpt_response->set_protobuf_name("SingleWaypointResponse");
+    q_entry_single_wpt_response->set_ack(false);
+    q_entry_single_wpt_response->set_max_queue(1);
 
-    //setup multi waypoint
-    goby::acomms::protobuf::QueuedMessageEntry* q_entry_exe_wpt = q_manager_cfg.add_message_entry();
-    q_entry_exe_wpt->set_protobuf_name("ExecuteWaypoints");;
+    goby::acomms::protobuf::QueuedMessageEntry *q_entry_multi_wpt_gps_cmd = q_manager_cfg.add_message_entry();
+    q_entry_multi_wpt_gps_cmd->set_protobuf_name("MultiWaypointGPSCommand");
+    q_entry_multi_wpt_gps_cmd->set_ack(false);
+    q_entry_multi_wpt_gps_cmd->set_max_queue(1);
+
+    goby::acomms::protobuf::QueuedMessageEntry *q_entry_multi_wpt_gps_resp = q_manager_cfg.add_message_entry();
+    q_entry_multi_wpt_gps_resp->set_protobuf_name("MultiWaypointGPSResponse");
+    q_entry_multi_wpt_gps_resp->set_ack(false);
+    q_entry_multi_wpt_gps_resp->set_max_queue(1);
+
+    goby::acomms::protobuf::QueuedMessageEntry *q_entry_multi_wpt_xyz_cmd = q_manager_cfg.add_message_entry();
+    q_entry_multi_wpt_xyz_cmd->set_protobuf_name("MultiWaypointXYZCommand");
+    q_entry_multi_wpt_xyz_cmd->set_ack(false);
+    q_entry_multi_wpt_xyz_cmd->set_max_queue(1);
+
+    goby::acomms::protobuf::QueuedMessageEntry *q_entry_multi_wpt_xyz_resp = q_manager_cfg.add_message_entry();
+    q_entry_multi_wpt_xyz_resp->set_protobuf_name("MultiWaypointXYZResponse");
+    q_entry_multi_wpt_xyz_resp->set_ack(false);
+    q_entry_multi_wpt_xyz_resp->set_max_queue(1);
+
+    // setup multi waypoint
+    goby::acomms::protobuf::QueuedMessageEntry *q_entry_exe_wpt = q_manager_cfg.add_message_entry();
+    q_entry_exe_wpt->set_protobuf_name("ExecuteWaypoints");
     q_entry_exe_wpt->set_ack(false);
     q_entry_exe_wpt->set_max_queue(1);
 
