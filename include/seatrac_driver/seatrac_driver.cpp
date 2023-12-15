@@ -63,7 +63,7 @@ void goby::acomms::SeatracDriver::handle_initiate_transmission(
 
     // rate() can be 0 (lowest), 1, 2, 3, 4, or 5 (lowest). Map these integers onto real bit-rates
     // in a meaningful way (on the WHOI Micro-Modem 0 ~= 80 bps, 5 ~= 5000 bps).
-    glog.is(DEBUG1) && glog << group(glog_out_group()) << "We were asked to transmit from "
+    glog.is(QUIET) && glog << group(glog_out_group()) << "We were asked to transmit from "
                             << msg.src() << " to " << msg.dest() << std::endl;
 
     // let's say ABC modem uses 31 byte packet
@@ -73,7 +73,7 @@ void goby::acomms::SeatracDriver::handle_initiate_transmission(
     if (msg.frame_size() == 0)
         ModemDriverBase::signal_data_request(&msg);
 
-    glog.is(DEBUG1) && glog << group(glog_out_group()) << "Sending these data now: " << hex_decode(msg.frame(0))
+    glog.is(QUIET) && glog << group(glog_out_group()) << "Sending these data now: " << hex_decode(msg.frame(0))
                             << std::endl;
 
     
@@ -182,7 +182,7 @@ void goby::acomms::SeatracDriver::do_work()
                 else if(cid == ST_CID_DAT_SEND)
                 {
 
-                    printf("sent message\n");
+                    // printf("sent message\n");
 
                 }
             }
