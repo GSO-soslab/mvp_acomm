@@ -2,6 +2,6 @@
 
 <launch>
 
-  <node pkg="alpha_comms" type="alpha_comms_node" name="alpha_acomms_node" output="screen"> </node>
+  <node pkg="alpha_acomms" type="alpha_comms_node" name="alpha_acomms_node" output="screen"> </node>
 
 </launch>

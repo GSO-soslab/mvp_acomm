@@ -236,7 +236,7 @@ void SeaTracUSBL::setup_goby()
     //Initiate modem driver
     goby::acomms::protobuf::DriverConfig driver_cfg;
     driver_cfg.set_modem_id(our_id);
-    driver_cfg.set_serial_port("/dev/ttyUSB0");
+driver_cfg.set_serial_port("/dev/ttyUSB0");
     driver_cfg.set_connection_type(goby::acomms::protobuf::DriverConfig_ConnectionType_CONNECTION_SERIAL);
 
     //Initiate medium access control

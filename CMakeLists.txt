@@ -87,13 +87,13 @@ add_executable(${PROJECT_NAME}_node
   include/seatrac_driver/seatrac_driver.cpp
 )
 
-add_executable(alpha_topside
+add_executable(alpha_topside_node
   src/seatrac_usbl.cpp
   include/seatrac_driver/seatrac_driver.cpp
 )
 
 add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(alpha_topside ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(alpha_topside_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 target_link_libraries(${PROJECT_NAME}_node
   ${catkin_LIBRARIES}
@@ -102,7 +102,7 @@ target_link_libraries(${PROJECT_NAME}_node
   dccl
 )
 
-target_link_libraries(alpha_topside
+target_link_libraries(alpha_topside_node
   ${catkin_LIBRARIES}
   proto
   goby
