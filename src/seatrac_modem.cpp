@@ -29,43 +29,25 @@
  */
 SeaTracModem::SeaTracModem()
 {
-    m_nh.reset(new ros::NodeHandle(""));
     m_pnh.reset(new ros::NodeHandle("~"));
 
-    local_odom_sub = m_nh->subscribe("odometry/filtered/local", 10, &SeaTracModem::f_local_odom_callback, this);
+    local_odom_sub = m_nh.subscribe("/alpha_rise/odometry/filtered/local", 1, &SeaTracModem::f_local_odom_callback, this);
 
-    power_sub = m_nh->subscribe("power/power_monitor", 10, &SeaTracModem::f_power_callback, this);
+    power_sub = m_nh.subscribe("/alpha_rise/power_monitor/power", 1, &SeaTracModem::f_power_callback, this);
 
-    controller_enable_client = m_nh->serviceClient<std_srvs::Empty>("controller/enable");
-    controller_disable_client = m_nh->serviceClient<std_srvs::Empty>("controller/disable");
-    direct_control_pub = m_nh->advertise<mvp_msgs::ControlProcess>("continuous_command_topic", 10);
-    set_state_client = m_nh->serviceClient<mvp_msgs::ChangeState>("helm/change_state");
-    get_state_client = m_nh->serviceClient<mvp_msgs::ChangeState>("helm/get_state");
-    append_waypoint_pub = m_nh->advertise<geometry_msgs::PolygonStamped>("helm/path_3d/append_waypoints", 10);
-    update_waypoint_pub = m_nh->advertise<geometry_msgs::PolygonStamped>("helm/path_3d/update_waypoints", 10);
+    controller_enable_client = m_nh.serviceClient<std_srvs::Empty>("controller/enable");
+    controller_disable_client = m_nh.serviceClient<std_srvs::Empty>("controller/disable");
+    direct_control_pub = m_nh.advertise<mvp_msgs::ControlProcess>("continuous_command_topic", 10);
+    set_state_client = m_nh.serviceClient<mvp_msgs::ChangeState>("helm/change_state");
+    get_state_client = m_nh.serviceClient<mvp_msgs::ChangeState>("helm/get_state");
+    append_waypoint_pub = m_nh.advertise<geometry_msgs::PolygonStamped>("helm/path_3d/append_waypoints", 10);
+    update_waypoint_pub = m_nh.advertise<geometry_msgs::PolygonStamped>("helm/path_3d/update_waypoints", 10);
 
     setup_goby();
 
-    int i = 0;
-
-    // loop at 10Hz
-    while (ros::ok())
-    {
-        // every 30 seconds add pose and health to the queue
-        if (i % 300)
-        {
-            q_manager.push_message(pose_out);
-            q_manager.push_message(power_out);
-        }
-
-        st_driver.do_work();
-        q_manager.do_work();
-        mac.do_work();
-
-        i++;
-
-        usleep(100000);
-    }
+    // setup the receive thread
+    std::thread t(std::bind(&SeaTracModem::loop, this));
+    t.detach();
 }
 
 /**
@@ -74,6 +56,41 @@ SeaTracModem::SeaTracModem()
  */
 SeaTracModem::~SeaTracModem()
 {
+}
+
+void SeaTracModem::loop()
+{
+    int i = 0;
+
+    ros::Rate rate(10);
+
+        // loop at 10Hz
+    while (ros::ok())
+    {
+
+        // every 30 seconds add pose and health to the queue
+        if (i >= 150)
+        {
+            // printf("Pose Out Message: %s\n", pose_out.ShortDebugString().c_str());
+            // printf("Power Out Message: %s\n", power_out.ShortDebugString().c_str());
+
+            i = 0;
+            q_manager.push_message(pose_out);
+            q_manager.push_message(power_out);
+
+            printf("Added Messages to Queue\n");
+        }
+
+        st_driver.do_work();
+        q_manager.do_work();
+        mac.do_work();
+
+
+        i++;
+
+
+        rate.sleep();
+    }
 }
 
 /**
@@ -157,7 +174,7 @@ void SeaTracModem::setup_goby()
     }
 
     goby::glog.set_name("modem");
-    goby::glog.add_stream(goby::util::logger::DEBUG2, &std::clog);
+    goby::glog.add_stream(goby::util::logger::QUIET, &std::clog);
 
     dccl_->set_cfg(dccl_cfg);
     q_manager.set_cfg(q_manager_cfg);
@@ -278,6 +295,8 @@ void SeaTracModem::setup_queue()
  */
 void SeaTracModem::received_data(const google::protobuf::Message &data_msg)
 {
+    printf("Received Data: %s\n", data_msg.ShortDebugString().c_str());
+
     std::string msg_type = data_msg.GetTypeName();
     if (msg_type == "PoseCommand")
     {
@@ -578,9 +597,9 @@ void SeaTracModem::f_local_odom_callback(const nav_msgs::OdometryPtr &msg)
     pose_out.set_time(msg->header.stamp.toSec());
     pose_out.set_latitude(global_lat);
     pose_out.set_longitude(global_long);
-    pose_out.set_x(std::round(local_x));
-    pose_out.set_y(std::round(local_y));
-    pose_out.set_z(std::round(local_z));
+    pose_out.set_x(local_x);
+    pose_out.set_y(local_y);
+    pose_out.set_z(local_z);
     pose_out.set_quat_x(x_rot);
     pose_out.set_quat_y(y_rot);
     pose_out.set_quat_z(z_rot);
@@ -601,6 +620,7 @@ void SeaTracModem::f_power_callback(const mvp_msgs::PowerPtr &power)
     power_out.set_time(power->header.stamp.toSec());
     power_out.set_battery_voltage(power->voltage);
     power_out.set_current(power->current);
+   
 }
 
 /**

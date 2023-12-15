@@ -68,7 +68,7 @@
 class SeaTracModem{
 
 private:
-    ros::NodeHandlePtr m_nh;
+    ros::NodeHandle m_nh;
     ros::NodeHandlePtr m_pnh;
 
     ros::Publisher health_pub;
@@ -93,12 +93,10 @@ private:
     geometry_msgs::PolygonStamped waypoint_array;
 
     goby::acomms::DCCLCodec* dccl_ = goby::acomms::DCCLCodec::get();
-    goby::acomms::QueueManager q_manager;
-    goby::acomms::SeatracDriver st_driver;
-    goby::acomms::MACManager mac;
 
     goby::acomms::protobuf::QueueManagerConfig q_manager_cfg;
 
+    void loop();
     void setup_goby();
     void setup_queue();
     void received_data(const google::protobuf::Message& data_msg);
@@ -107,10 +105,16 @@ private:
     void f_power_callback(const mvp_msgs::PowerPtr &power);
     ros::Timer timer;
     
+
+
+public:
+    goby::acomms::QueueManager q_manager;
+    goby::acomms::SeatracDriver st_driver;
+    goby::acomms::MACManager mac;
+
     PoseResponse pose_out;
     PowerResponse power_out;
 
-public:
 
     SeaTracModem();
     ~SeaTracModem();
