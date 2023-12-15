@@ -168,15 +168,11 @@ SeaTracUSBL::SeaTracUSBL()
 
     setup_goby();
 
-    //loop at 10Hz 
-    while(ros::ok())
-    {
-        st_driver.do_work();
-        q_manager.do_work();
-        mac.do_work();
+        // setup the receive thread
+    std::thread t(std::bind(&SeaTracUSBL::loop, this));
+    t.detach();
 
-        usleep(100000);
-    }
+
     
 }
 
@@ -186,6 +182,20 @@ SeaTracUSBL::SeaTracUSBL()
  */
 SeaTracUSBL::~SeaTracUSBL()
 {
+
+}
+
+void SeaTracUSBL::loop()
+{
+        //loop at 10Hz 
+    while(ros::ok())
+    {
+        st_driver.do_work();
+        q_manager.do_work();
+        mac.do_work();
+
+        usleep(100000);
+    }
 
 }
 
@@ -236,7 +246,7 @@ void SeaTracUSBL::setup_goby()
     //Initiate modem driver
     goby::acomms::protobuf::DriverConfig driver_cfg;
     driver_cfg.set_modem_id(our_id);
-driver_cfg.set_serial_port("/dev/ttyUSB0");
+    driver_cfg.set_serial_port("/dev/ttyUSB0");
     driver_cfg.set_connection_type(goby::acomms::protobuf::DriverConfig_ConnectionType_CONNECTION_SERIAL);
 
     //Initiate medium access control
@@ -270,8 +280,8 @@ driver_cfg.set_serial_port("/dev/ttyUSB0");
     }
 
 
-    //goby::glog.set_name("usbl");
-    //goby::glog.add_stream(goby::util::logger::DEBUG2, &std::clog);
+    goby::glog.set_name("usbl");
+    goby::glog.add_stream(goby::util::logger::QUIET, &std::clog);
 
     dccl_->set_cfg(dccl_cfg);
     q_manager.set_cfg(q_manager_cfg);   
@@ -395,6 +405,8 @@ void SeaTracUSBL::setup_queue()
 void SeaTracUSBL::received_data(const google::protobuf::Message& data_msg)
 {
     std::string msg_type =  data_msg.GetTypeName();
+    printf("Received %s: %s\n", msg_type.c_str(), data_msg.ShortDebugString().c_str());
+
     if(msg_type == "PoseResponse")
     {
         PoseResponse pose;

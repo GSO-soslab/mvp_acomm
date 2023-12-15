@@ -89,6 +89,7 @@ private:
 
     goby::acomms::protobuf::QueueManagerConfig q_manager_cfg;
 
+    void loop();
     void setup_goby();
     void setup_queue();
     void received_data(const google::protobuf::Message& message_in);
