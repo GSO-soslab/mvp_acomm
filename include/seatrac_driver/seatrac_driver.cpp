@@ -185,6 +185,13 @@ void goby::acomms::SeatracDriver::do_work()
                     // printf("sent message\n");
 
                 }
+                else if(cid == ST_CID_DAT_ERROR)
+                {
+
+                    glog.is(QUIET) && glog << group(glog_out_group())
+                        << "DAT RECEIVE ERROR" << std::endl;
+
+                }
             }
         }
         catch (std::exception& e)
