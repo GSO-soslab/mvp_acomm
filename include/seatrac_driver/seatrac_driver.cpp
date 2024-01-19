@@ -21,6 +21,7 @@
 #include "goby/util/protobuf/io.h"                 // for operator<<
 
 #include "goby/time/convert.h"
+#include "goby/acomms/modemdriver/driver_exception.h"
 
 #include "seatrac_driver.h"
 
@@ -28,6 +29,7 @@
 using goby::glog;
 using goby::util::hex_decode;
 using goby::util::hex_encode;
+using goby::util::number2hex_string;
 using namespace goby::util::logger;
 
 goby::acomms::SeatracDriver::SeatracDriver()
@@ -50,69 +52,111 @@ void goby::acomms::SeatracDriver::startup(const protobuf::DriverConfig& cfg)
 
 void goby::acomms::SeatracDriver::shutdown()
 {
-    // put the modem in a low power state?
-    // ...
     ModemDriverBase::modem_close();
 } // shutdown
 
 void goby::acomms::SeatracDriver::handle_initiate_transmission(
-    const protobuf::ModemTransmission& orig_msg)
+    const protobuf::ModemTransmission& msg)
 {
     // copy so we can modify
-    protobuf::ModemTransmission msg = orig_msg;
+    transmit_msg_.CopyFrom(msg);
 
-    // rate() can be 0 (lowest), 1, 2, 3, 4, or 5 (lowest). Map these integers onto real bit-rates
-    // in a meaningful way (on the WHOI Micro-Modem 0 ~= 80 bps, 5 ~= 5000 bps).
-    glog.is(QUIET) && glog << group(glog_out_group()) << "We were asked to transmit from "
-                            << msg.src() << " to " << msg.dest() << std::endl;
-
-    // let's say ABC modem uses 31 byte packet
-    msg.set_max_frame_bytes(31);
-
-    // no data given to us, let's ask for some
-    if (msg.frame_size() == 0)
-        ModemDriverBase::signal_data_request(&msg);
-
-    glog.is(QUIET) && glog << group(glog_out_group()) << "Sending these data now: " << hex_decode(msg.frame(0))
-                            << std::endl;
-
-    
-    CID_DAT_SEND tx;
-    tx.dest_id = msg.dest();
-    tx.amsgtype = MSG_OWAY;
-    std::string hash  = hex_encode(msg.frame(0));
-    
-    tx.packet_len = hash.length()/2;
-
-    if(tx.packet_len % 2)
+    try
     {
-        hash.append("00");
-        tx.packet_len += 1;
+        glog.is(QUIET) && glog << group(glog_out_group()) << "We were asked to transmit from "
+                                << msg.src() << " to " << msg.dest() << std::endl;
+
+        signal_modify_transmission(&transmit_msg_);
+
+        switch(transmit_msg_.type())
+        {
+            case protobuf::ModemTransmission::DATA: ciddat(&transmit_msg_); break;
+            case protobuf::ModemTransmission::DRIVER_SPECIFIC:
+            {
+                switch (transmit_msg_.GetExtension(seatrac::protobuf::transmission).type())
+                {
+                    case seatrac::protobuf::SEATRAC_TWO_WAY_PING: cidping(&transmit_msg_); break;
+                    case seatrac::protobuf::SEATRAC_NAVIGATION: cidnav(&transmit_msg_); break;
+                    case seatrac::protobuf::SEATRAC_ECHO: cidecho(&transmit_msg_); break;   
+                    default:
+                        glog.is(DEBUG1) &&
+                                glog << group(glog_out_group()) << warn
+                                    << "Not initiating transmission because we were given an invalid "
+                                        "DRIVER_SPECIFIC transmission type for the Micro-Modem:"
+                                    << transmit_msg_ << std::endl;
+                        break;
+                }
+            }
+        }
     }
 
-    //the output string of hex
-    std::ostringstream os;
-    
-    convert_to_hex_string(os, reinterpret_cast<const unsigned char*>(&tx), sizeof(tx));
-    os << hash;
+    catch (ModemDriverException& e)
+    {
+        glog.is(DEBUG1) && glog << group(glog_out_group()) << warn
+                                << "Failed to initiate transmission: " << e.what() << std::endl;
+    }
 
-    unsigned char buffer[os.str().length()/2];
-
-    std::string bytes = boost::algorithm::unhex(os.str());
-    std::copy(bytes.begin(), bytes.end(), buffer);
-    int buffLen = sizeof(buffer);
-    uint16_t cksumCalc = CRC16(buffer, buffLen);
-    uint8_t hibyte = (cksumCalc & 0xff00) >> 8;
-    uint8_t lobyte = (cksumCalc & 0xff);
-    uint16_t le_cksum = lobyte << 8 | hibyte;
-    os << std::hex << le_cksum << "\r\n";
-    
-    std::ostringstream temp;
-    temp <<"#" << os.str();
-    
-    // let anyone who is interested know
-    signal_and_write(temp.str());
 } // handle_initiate_transmission
+
+
+/**
+ * @brief data packet to be sent to the modem. 31 max bytes. currently MSG_OWAY.
+ * 
+ * @param msg the protobuf message to send
+ */
+void goby::acomms::SeatracDriver::ciddat(protobuf::ModemTransmission* msg)
+{
+    glog.is(DEBUG1) && glog << group(glog_out_group()) << "\tthis is a DATA transmission"
+                                << std::endl;
+
+    msg->set_max_frame_bytes(1);
+    msg->set_max_frame_bytes(31);
+
+    const bool is_local_cycle = msg->src() == driver_cfg_.modem_id();
+    if(!(is_local_cycle && (msg->frame_size() == 0 || msg->frame(0) == "")))
+    {
+        std::string out;
+        out.append("96"); //command id of cid_dat_send
+        out.append(goby::util::as<std::string>(msg->dest())); // destination id
+        out.append(std::to_string(MSG_OWAY)); // msg_type
+        out.append(std::to_string(msg->frame_size())); // packet_length
+        out.append(msg->frame(0));
+        std::string bytes = hex_encode(out);
+
+        append_to_write_queue(bytes);
+    }
+    else
+    {
+        glog.is(DEBUG1) && glog << group(glog_out_group())
+                                << "Not initiating transmission because we have no data to send"
+                                << std::endl;
+    }
+}
+
+void goby::acomms::SeatracDriver::cidping(protobuf::ModemTransmission* msg)
+{
+    glog.is(DEBUG1) && glog << group(glog_out_group()) << "\tthis is a PING transmission"
+                                << std::endl;
+
+    std::string out;
+    out.append("64"); //command id of cid_ping_send
+    out.append(goby::util::as<std::string>(msg->dest())); // destination id
+    out.append(std::to_string(MSG_REQX)); // msg_type
+
+    std::string bytes = hex_encode(out);
+
+    append_to_write_queue(bytes);
+}
+
+void goby::acomms::SeatracDriver::cidnav(protobuf::ModemTransmission* msg)
+{
+
+}
+
+void goby::acomms::SeatracDriver::cidecho(protobuf::ModemTransmission* msg)
+{
+
+}
 
 void goby::acomms::SeatracDriver::do_work()
 {
@@ -203,16 +247,34 @@ void goby::acomms::SeatracDriver::do_work()
     
 } // do_work
 
-void goby::acomms::SeatracDriver::signal_and_write(const std::string& raw)
+void goby::acomms::SeatracDriver::append_to_write_queue(const std::string &bytes)
+{
+    out_.push_back(bytes);
+    try_send();
+}
+
+void goby::acomms::SeatracDriver::try_send()
+{
+    if (out_.empty())
+    return;
+
+    const std::string bytes = out_.front();
+
+    seatrac_write(bytes);
+}
+
+void goby::acomms::SeatracDriver::seatrac_write(const std::string &bytes)
 {
     protobuf::ModemRaw raw_msg;
-    raw_msg.set_raw(raw);
-    ModemDriverBase::signal_raw_outgoing(raw_msg);
+    raw_msg.set_raw(bytes);
 
-    glog.is(QUIET) && glog << group(glog_out_group()) << boost::trim_copy(raw) << std::endl;
+    signal_raw_outgoing(raw_msg);
 
-    ModemDriverBase::modem_write(raw);
+    uint16_t cksum = CRC16(reinterpret_cast<const uint8_t*>(raw_msg.raw().c_str()), sizeof(raw_msg.raw().c_str()));  
+
+    modem_write("#" + raw_msg.raw() + "*" + number2hex_string(cksum));
 }
+
 
 void goby::acomms::SeatracDriver::read_sys_info(unsigned char* buffer, struct CID_SYS_INFO *msg)
 {
@@ -319,7 +381,7 @@ void goby::acomms::SeatracDriver::read_dat_msg(unsigned char* buffer, struct CID
 
 }
 
-uint16_t goby::acomms::SeatracDriver::CRC16(uint8_t* buff, uint16_t len)
+uint16_t goby::acomms::SeatracDriver::CRC16(const uint8_t* buff, uint16_t len)
 {	
     uint16_t poly = 0xA001;
     uint16_t crc = 0;

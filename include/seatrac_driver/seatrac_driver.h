@@ -7,20 +7,21 @@
 
 #include "goby/acomms/modemdriver/driver_base.h" // for ModemDriverBase
 #include "goby/acomms/protobuf/driver_base.pb.h" // for DriverConfig
+#include "goby/acomms/protobuf/modem_message.pb.h"
+#include "goby/acomms/protobuf/seatrac_driver.pb.h"
+
 #include "seatrac_codec.h"
+
+namespace dccl
+{
+class Codec;
+}
 
 namespace goby
 {
 namespace acomms
 {
-namespace protobuf
-{
-class ModemTransmission;
-} // namespace protobuf
 
-/// \brief provides an API to the imaginary ABC modem (as an example how to write drivers)
-/// \ingroup acomms_api
-///
 class SeatracDriver : public ModemDriverBase
 {
   public:
@@ -31,21 +32,32 @@ class SeatracDriver : public ModemDriverBase
     void handle_initiate_transmission(const protobuf::ModemTransmission& m) override;
 
   private:
-    void parse_in(const std::string& in, std::map<std::string, std::string>* out);
-    void signal_and_write(const std::string& raw);
+
     void read_sys_info(unsigned char* buffer, struct CID_SYS_INFO *msg);
-    void read_acoustic_msg(unsigned char* buffer, struct CID_XCVR_RX *msg);
     void read_dat_msg(unsigned char* buffer, struct CID_DAT_RX *msg);
     void convert_to_hex_string(std::ostringstream &op, const unsigned char* data, int size);
-    uint16_t CRC16(uint8_t* buff, uint16_t len);
+    uint16_t CRC16(const uint8_t* buff, uint16_t len);
 
-  private:
+    void ciddat(protobuf::ModemTransmission* msg);
+    void cidping(protobuf::ModemTransmission* msg);
+    void cidnav(protobuf::ModemTransmission* msg);
+    void cidecho(protobuf::ModemTransmission* msg);
+
+    void append_to_write_queue(const std::string &bytes);
+    void try_send();
+    void seatrac_write(const std::string &bytes);
+
+    protobuf::ModemTransmission transmit_msg_;
+
+    std::deque<std::string> out_;
+
     enum
     {
         DEFAULT_BAUD = 115200
     };
 
     protobuf::DriverConfig driver_cfg_; // configuration given to you at launch
+
     // rest is up to you!
 };
 } // namespace acomms

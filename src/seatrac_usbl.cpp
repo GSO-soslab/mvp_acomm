@@ -23,7 +23,7 @@
 
 #include "seatrac_usbl.hpp"
 
-
+using goby::util::as;
 /**
  * @brief Construct a new Sea Trac USBL:: SeaTrac USBL object
  * 
@@ -258,7 +258,9 @@ void SeaTracUSBL::setup_goby()
     my_slot.set_src(our_id);
     my_slot.set_dest(dest_id);
     my_slot.set_rate(0);
-    my_slot.set_type(goby::acomms::protobuf::ModemTransmission::DATA);
+    my_slot.set_type(goby::acomms::protobuf::ModemTransmission::DRIVER_SPECIFIC);
+    
+    my_slot.SetExtension(goby::, goby::acomms::seatrac::protobuf::SEATRAC_TWO_WAY_PING);
     my_slot.set_slot_seconds(slot_time);
 
     goby::acomms::protobuf::ModemTransmission buddy_slot;
