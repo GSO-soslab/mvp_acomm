@@ -71,22 +71,22 @@ void goby::acomms::SeatracDriver::handle_initiate_transmission(
         switch(transmit_msg_.type())
         {
             case protobuf::ModemTransmission::DATA: ciddat(&transmit_msg_); break;
-            case protobuf::ModemTransmission::DRIVER_SPECIFIC:
-            {
-                switch (transmit_msg_.GetExtension(seatrac::protobuf::transmission).type())
-                {
-                    case seatrac::protobuf::SEATRAC_TWO_WAY_PING: cidping(&transmit_msg_); break;
-                    case seatrac::protobuf::SEATRAC_NAVIGATION: cidnav(&transmit_msg_); break;
-                    case seatrac::protobuf::SEATRAC_ECHO: cidecho(&transmit_msg_); break;   
-                    default:
-                        glog.is(DEBUG1) &&
-                                glog << group(glog_out_group()) << warn
-                                    << "Not initiating transmission because we were given an invalid "
-                                        "DRIVER_SPECIFIC transmission type for the Micro-Modem:"
-                                    << transmit_msg_ << std::endl;
-                        break;
-                }
-            }
+            // case protobuf::ModemTransmission::DRIVER_SPECIFIC:
+            // {
+            //     switch (transmit_msg_.GetExtension(seatrac::protobuf::transmission).type())
+            //     {
+            //         case seatrac::protobuf::SEATRAC_TWO_WAY_PING: cidping(&transmit_msg_); break;
+            //         case seatrac::protobuf::SEATRAC_NAVIGATION: cidnav(&transmit_msg_); break;
+            //         case seatrac::protobuf::SEATRAC_ECHO: cidecho(&transmit_msg_); break;   
+            //         default:
+            //             glog.is(DEBUG1) &&
+            //                     glog << group(glog_out_group()) << warn
+            //                         << "Not initiating transmission because we were given an invalid "
+            //                             "DRIVER_SPECIFIC transmission type for the Micro-Modem:"
+            //                         << transmit_msg_ << std::endl;
+            //             break;
+            //     }
+            // }
         }
     }
 
