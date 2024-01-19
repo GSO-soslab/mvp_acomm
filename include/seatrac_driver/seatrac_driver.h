@@ -37,6 +37,7 @@ class SeatracDriver : public ModemDriverBase
     void read_dat_msg(unsigned char* buffer, struct CID_DAT_RX *msg);
     void convert_to_hex_string(std::ostringstream &op, const unsigned char* data, int size);
     uint16_t CRC16(const uint8_t* buff, uint16_t len);
+    bool validate_and_remove_cksum(std::vector<uint8_t> buffer);
 
     void ciddat(protobuf::ModemTransmission* msg);
     void cidping(protobuf::ModemTransmission* msg);

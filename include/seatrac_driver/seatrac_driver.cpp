@@ -165,44 +165,43 @@ void goby::acomms::SeatracDriver::do_work()
     {
         try
         {
+            //search the string for the dollar sign, indicating the start of a msg
             size_t position = in.find("$");
+            //split the string off where a msg starts
             in = in.substr(position);
-            boost::trim(in); // get whitespace off from either end
+            // get whitespace off from either end
+            boost::trim(in); 
 
-            // let others know about the raw feed
+            //let others know about the raw feed
             protobuf::ModemRaw raw;
             raw.set_raw(in);
             ModemDriverBase::signal_raw_incoming(raw);
 
+            //remove the dollar sign
             in.erase(0,1);
-            unsigned char buffer[in.length()/2];
 
+            //decode the hex string
             std::string hash = boost::algorithm::unhex(in);
-            std::copy(hash.begin(), hash.end(), buffer);
 
-            int buffLen = sizeof(buffer);
-            uint16_t cksumRx;
-            if(buffLen >= 2) {
-                buffLen -= 2;
-                cksumRx = (uint16_t)(buffer[buffLen+1] << 8 | buffer[buffLen]);
-            }
-            else
-                cksumRx = 0;
+            //convert the string type to a vector of bytes
+            std::vector<uint8_t> byte_vec(hash.begin(), hash.end());
 
-            uint16_t cksumCalc = CRC16(buffer, buffLen);
 
-            glog.is(DEBUG1) && glog << group(glog_out_group())
-                            << "RX Checksum: " << std::hex << cksumRx << "\t" << "Calc Checksum: " << std::hex <<cksumCalc << std::endl;
+            //validate the checksum
+            bool cksum_valid = validate_and_remove_cksum(byte_vec);
 
-            if(cksumCalc == cksumRx)
+            if(cksum_valid)
             {
+                //initialize generic received msg
                 protobuf::ModemTransmission msg;
-                uint8_t cid = buffer[0];
+
+                //look at what the command id is
+                uint8_t cid = byte_vec[0];
 
                 if(cid == ST_CID_SYS_INFO)
                 {
                     CID_SYS_INFO sys_rx;
-                    read_sys_info(buffer, &sys_rx);
+                    read_sys_info(byte_vec.data(), &sys_rx);
                 }
                 else if(cid == ST_CID_STATUS)
                 {
@@ -211,7 +210,7 @@ void goby::acomms::SeatracDriver::do_work()
                 else if(cid == ST_CID_DAT_RECEIVE)
                 {
                     CID_DAT_RX dat_rx;
-                    read_dat_msg(buffer, &dat_rx);
+                    read_dat_msg(byte_vec.data(), &dat_rx);
 
                     msg.set_src(dat_rx.aco_fix.local.src_id);
                     msg.set_dest(dat_rx.aco_fix.local.dest_id);
@@ -420,4 +419,25 @@ void goby::acomms::SeatracDriver::convert_to_hex_string(std::ostringstream &op,
  
     op.flags(old_flags);
     op.fill(old_fill);
+}
+
+bool goby::acomms::SeatracDriver::validate_and_remove_cksum(std::vector<uint8_t> buffer)
+{
+
+    int buffLen = buffer.size();
+    uint16_t cksumRx;
+    if(buffLen >= 2) {
+        buffLen -= 2;
+        cksumRx = (uint16_t)(buffer[buffLen+1] << 8 | buffer[buffLen]);
+    }
+    else
+        cksumRx = 0;
+
+    uint16_t cksumCalc = CRC16(buffer.data(), buffLen);
+
+    glog.is(DEBUG1) && glog << group(glog_out_group())
+                    << "RX Checksum: " << std::hex << cksumRx << "\t" << "Calc Checksum: " << std::hex <<cksumCalc << std::endl;
+
+    if(cksumCalc == cksumRx){buffer.resize(buffer.size()-2); return true;}
+    else{return false;}
 }
