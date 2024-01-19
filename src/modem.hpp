@@ -65,7 +65,7 @@
 
 
 
-class SeaTracModem{
+class Modem{
 
 private:
     ros::NodeHandle m_nh;
@@ -116,8 +116,8 @@ public:
     PowerResponse power_out;
 
 
-    SeaTracModem();
-    ~SeaTracModem();
+    Modem();
+    ~Modem();
 
 };
 

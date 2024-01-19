@@ -57,7 +57,7 @@
 //driver includes
 #include "seatrac_driver.h"
 
-class SeaTracUSBL{
+class USBL{
 
 private:
     ros::NodeHandlePtr m_nh;
@@ -117,8 +117,8 @@ private:
 
 public:
 
-    SeaTracUSBL();
-    ~SeaTracUSBL();
+    USBL();
+    ~USBL();
 
 };
 

@@ -21,14 +21,14 @@
     Copyright (C) 2023 Smart Ocean Systems Laboratory
 */
 
-#include "seatrac_usbl.hpp"
+#include "usbl.hpp"
 
 using goby::util::as;
 /**
- * @brief Construct a new Sea Trac USBL:: SeaTrac USBL object
+ * @brief Construct a USBL object
  * 
  */
-SeaTracUSBL::SeaTracUSBL()
+USBL::USBL()
 {
     m_nh.reset(new ros::NodeHandle(""));
     m_pnh.reset(new ros::NodeHandle("~"));
@@ -42,7 +42,7 @@ SeaTracUSBL::SeaTracUSBL()
     (
         "comms/request_pose",
         std::bind(
-            &SeaTracUSBL::f_cb_srv_request_pose,
+            &USBL::f_cb_srv_request_pose,
             this,
             std::placeholders::_1,
             std::placeholders::_2
@@ -55,7 +55,7 @@ SeaTracUSBL::SeaTracUSBL()
     (
         "comms/request_power",
         std::bind(
-            &SeaTracUSBL::f_cb_srv_request_power,
+            &USBL::f_cb_srv_request_power,
             this,
             std::placeholders::_1,
             std::placeholders::_2
@@ -68,7 +68,7 @@ SeaTracUSBL::SeaTracUSBL()
     (
         "comms/request_relative_pose",
         std::bind(
-            &SeaTracUSBL::f_cb_srv_request_relative_pose,
+            &USBL::f_cb_srv_request_relative_pose,
             this,
             std::placeholders::_1,
             std::placeholders::_2
@@ -81,7 +81,7 @@ SeaTracUSBL::SeaTracUSBL()
     (
         "comms/reuest_controller_info",
         std::bind(
-            &SeaTracUSBL::f_cb_srv_controller_info,
+            &USBL::f_cb_srv_controller_info,
             this,
             std::placeholders::_1,
             std::placeholders::_2
@@ -94,7 +94,7 @@ SeaTracUSBL::SeaTracUSBL()
     (
         "comms/direct_control",
         std::bind(
-            &SeaTracUSBL::f_cb_srv_direct_control,
+            &USBL::f_cb_srv_direct_control,
             this,
             std::placeholders::_1,
             std::placeholders::_2
@@ -107,7 +107,7 @@ SeaTracUSBL::SeaTracUSBL()
     (
         "comms/state_info",
         std::bind(
-            &SeaTracUSBL::f_cb_srv_state_info,
+            &USBL::f_cb_srv_state_info,
             this,
             std::placeholders::_1,
             std::placeholders::_2
@@ -120,7 +120,7 @@ SeaTracUSBL::SeaTracUSBL()
     (
         "comms/single_waypoint",
         std::bind(
-            &SeaTracUSBL::f_cb_srv_single_waypoint,
+            &USBL::f_cb_srv_single_waypoint,
             this,
             std::placeholders::_1,
             std::placeholders::_2
@@ -133,7 +133,7 @@ SeaTracUSBL::SeaTracUSBL()
     (
         "comms/multi_waypoint_gps",
         std::bind(
-            &SeaTracUSBL::f_cb_srv_multi_waypoint_gps,
+            &USBL::f_cb_srv_multi_waypoint_gps,
             this,
             std::placeholders::_1,
             std::placeholders::_2
@@ -146,7 +146,7 @@ SeaTracUSBL::SeaTracUSBL()
     (
         "comms/multi_waypoint_xyz",
         std::bind(
-            &SeaTracUSBL::f_cb_srv_multi_waypoint_xyz,
+            &USBL::f_cb_srv_multi_waypoint_xyz,
             this,
             std::placeholders::_1,
             std::placeholders::_2
@@ -159,7 +159,7 @@ SeaTracUSBL::SeaTracUSBL()
     (
         "comms/execute_waypoint",
         std::bind(
-            &SeaTracUSBL::f_cb_srv_execute_waypoints,
+            &USBL::f_cb_srv_execute_waypoints,
             this,
             std::placeholders::_1,
             std::placeholders::_2
@@ -169,7 +169,7 @@ SeaTracUSBL::SeaTracUSBL()
     setup_goby();
 
         // setup the receive thread
-    std::thread t(std::bind(&SeaTracUSBL::loop, this));
+    std::thread t(std::bind(&USBL::loop, this));
     t.detach();
 
 
@@ -177,15 +177,15 @@ SeaTracUSBL::SeaTracUSBL()
 }
 
 /**
- * @brief Destroy the SeaTracUSBL:: SeaTracUSBL object
+ * @brief Destroy the USBL:: USBL object
  * 
  */
-SeaTracUSBL::~SeaTracUSBL()
+USBL::~USBL()
 {
 
 }
 
-void SeaTracUSBL::loop()
+void USBL::loop()
 {
         //loop at 10Hz 
     while(ros::ok())
@@ -203,7 +203,7 @@ void SeaTracUSBL::loop()
  * @brief the goby dccl, mac, queue, and driver are configured and initialized
  * 
  */
-void SeaTracUSBL::setup_goby()
+void USBL::setup_goby()
 {
     goby::acomms::bind(st_driver, q_manager, mac);
 
@@ -241,8 +241,8 @@ void SeaTracUSBL::setup_goby()
     
     q_manager_cfg.set_modem_id(our_id);
 
-    goby::acomms::connect(&q_manager.signal_receive, this, &SeaTracUSBL::received_data);
-    goby::acomms::connect(&q_manager.signal_ack, this, &SeaTracUSBL::received_ack);
+    goby::acomms::connect(&q_manager.signal_receive, this, &USBL::received_data);
+    goby::acomms::connect(&q_manager.signal_ack, this, &USBL::received_ack);
     //Initiate modem driver
     goby::acomms::protobuf::DriverConfig driver_cfg;
     driver_cfg.set_modem_id(our_id);
@@ -292,7 +292,7 @@ void SeaTracUSBL::setup_goby()
  * @brief messages from mvp_messages documentation are loaded and configured into the queue manager.
  * 
  */
-void SeaTracUSBL::setup_queue()
+void USBL::setup_queue()
 {
     // setup pose msg
     goby::acomms::protobuf::QueuedMessageEntry *q_entry_pose_cmd = q_manager_cfg.add_message_entry();
@@ -401,7 +401,7 @@ void SeaTracUSBL::setup_queue()
  * 
  * @param data_msg the incoming protobuf message
  */
-void SeaTracUSBL::received_data(const google::protobuf::Message& data_msg)
+void USBL::received_data(const google::protobuf::Message& data_msg)
 {
     std::string msg_type =  data_msg.GetTypeName();
     printf("Received %s: %s\n", msg_type.c_str(), data_msg.ShortDebugString().c_str());
@@ -452,7 +452,7 @@ void SeaTracUSBL::received_data(const google::protobuf::Message& data_msg)
  * @param ack_message 
  * @param original_message 
  */
-void SeaTracUSBL::received_ack(const goby::acomms::protobuf::ModemTransmission& ack_message,
+void USBL::received_ack(const goby::acomms::protobuf::ModemTransmission& ack_message,
                   const google::protobuf::Message& original_message)
 {
     
@@ -468,7 +468,7 @@ void SeaTracUSBL::received_ack(const goby::acomms::protobuf::ModemTransmission& 
  * @return true 
  * @return false 
  */
-bool SeaTracUSBL::f_cb_srv_request_pose(alpha_acomms::CommsPose::Request &request, alpha_acomms::CommsPose::Response &response)
+bool USBL::f_cb_srv_request_pose(alpha_acomms::CommsPose::Request &request, alpha_acomms::CommsPose::Response &response)
 {
     PoseCommand pose_cmd;
 
@@ -489,7 +489,7 @@ bool SeaTracUSBL::f_cb_srv_request_pose(alpha_acomms::CommsPose::Request &reques
  * @return true 
  * @return false 
  */
-bool SeaTracUSBL::f_cb_srv_request_power(alpha_acomms::CommsPower::Request &request, alpha_acomms::CommsPower::Response &response)
+bool USBL::f_cb_srv_request_power(alpha_acomms::CommsPower::Request &request, alpha_acomms::CommsPower::Response &response)
 {
     PowerCommand power_request;
 
@@ -502,7 +502,7 @@ bool SeaTracUSBL::f_cb_srv_request_power(alpha_acomms::CommsPower::Request &requ
     return true;
 }
 
-bool SeaTracUSBL::f_cb_srv_request_relative_pose(alpha_acomms::CommsRelativePose::Request &request, alpha_acomms::CommsRelativePose::Response &response)
+bool USBL::f_cb_srv_request_relative_pose(alpha_acomms::CommsRelativePose::Request &request, alpha_acomms::CommsRelativePose::Response &response)
 {
     RelativePoseCommand rel_pose_command;
 
@@ -515,41 +515,41 @@ bool SeaTracUSBL::f_cb_srv_request_relative_pose(alpha_acomms::CommsRelativePose
     return true;
 }
 
-bool SeaTracUSBL::f_cb_srv_controller_info(alpha_acomms::CommsControllerInfo::Request &request, alpha_acomms::CommsControllerInfo::Response &response)
+bool USBL::f_cb_srv_controller_info(alpha_acomms::CommsControllerInfo::Request &request, alpha_acomms::CommsControllerInfo::Response &response)
 {
 
     return true;
 }
 
-bool SeaTracUSBL::f_cb_srv_direct_control(alpha_acomms::CommsDirectControl::Request &request, alpha_acomms::CommsDirectControl::Response &response)
+bool USBL::f_cb_srv_direct_control(alpha_acomms::CommsDirectControl::Request &request, alpha_acomms::CommsDirectControl::Response &response)
 {
 
     return true;
 }
 
-bool SeaTracUSBL::f_cb_srv_state_info(alpha_acomms::CommsStateInfo::Request &request, alpha_acomms::CommsStateInfo::Response &response)
+bool USBL::f_cb_srv_state_info(alpha_acomms::CommsStateInfo::Request &request, alpha_acomms::CommsStateInfo::Response &response)
 {
 
     return true;
 }
 
-bool SeaTracUSBL::f_cb_srv_single_waypoint(alpha_acomms::CommsSingleWaypoint::Request &request, alpha_acomms::CommsSingleWaypoint::Response &response)
+bool USBL::f_cb_srv_single_waypoint(alpha_acomms::CommsSingleWaypoint::Request &request, alpha_acomms::CommsSingleWaypoint::Response &response)
 {
 
     return true;
 }
 
-bool SeaTracUSBL::f_cb_srv_multi_waypoint_gps(alpha_acomms::CommsMultiWaypointGPS::Request &request, alpha_acomms::CommsMultiWaypointGPS::Response &response)
+bool USBL::f_cb_srv_multi_waypoint_gps(alpha_acomms::CommsMultiWaypointGPS::Request &request, alpha_acomms::CommsMultiWaypointGPS::Response &response)
 {
 
     return true;
 }
-bool SeaTracUSBL::f_cb_srv_multi_waypoint_xyz(alpha_acomms::CommsMultiWaypointXYZ::Request &request, alpha_acomms::CommsMultiWaypointXYZ::Response &response)
+bool USBL::f_cb_srv_multi_waypoint_xyz(alpha_acomms::CommsMultiWaypointXYZ::Request &request, alpha_acomms::CommsMultiWaypointXYZ::Response &response)
 {
 
     return true;
 }
-bool SeaTracUSBL::f_cb_srv_execute_waypoints(alpha_acomms::CommsExecuteWaypoint::Request &request, alpha_acomms::CommsExecuteWaypoint::Response &response)
+bool USBL::f_cb_srv_execute_waypoints(alpha_acomms::CommsExecuteWaypoint::Request &request, alpha_acomms::CommsExecuteWaypoint::Response &response)
 {
 
     return true;
@@ -560,7 +560,7 @@ int main(int argc, char* argv[])
 
     ros::init(argc, argv, "seatrac_usbl");
 
-    SeaTracUSBL d;
+    USBL d;
 
     ros::spin();
 

@@ -21,19 +21,19 @@
     Copyright (C) 2023 Smart Ocean Systems Laboratory
 */
 
-#include "seatrac_modem.hpp"
+#include "modem.hpp"
 
 /**
- * @brief Construct a new Sea Trac Modem:: Sea Trac Modem object
+ * @brief Construct a new Modem object
  *
  */
-SeaTracModem::SeaTracModem()
+Modem::Modem()
 {
     m_pnh.reset(new ros::NodeHandle("~"));
 
-    local_odom_sub = m_nh.subscribe("/alpha_rise/odometry/filtered/local", 1, &SeaTracModem::f_local_odom_callback, this);
+    local_odom_sub = m_nh.subscribe("/alpha_rise/odometry/filtered/local", 1, &Modem::f_local_odom_callback, this);
 
-    power_sub = m_nh.subscribe("/alpha_rise/power_monitor/power", 1, &SeaTracModem::f_power_callback, this);
+    power_sub = m_nh.subscribe("/alpha_rise/power_monitor/power", 1, &Modem::f_power_callback, this);
 
     controller_enable_client = m_nh.serviceClient<std_srvs::Empty>("controller/enable");
     controller_disable_client = m_nh.serviceClient<std_srvs::Empty>("controller/disable");
@@ -46,7 +46,7 @@ SeaTracModem::SeaTracModem()
     setup_goby();
 
     // setup the receive thread
-    std::thread t(std::bind(&SeaTracModem::loop, this));
+    std::thread t(std::bind(&Modem::loop, this));
     t.detach();
 }
 
@@ -54,11 +54,11 @@ SeaTracModem::SeaTracModem()
  * @brief Destroy the Sea Trac Modem:: Sea Trac Modem object
  *
  */
-SeaTracModem::~SeaTracModem()
+Modem::~Modem()
 {
 }
 
-void SeaTracModem::loop()
+void Modem::loop()
 {
     int i = 0;
 
@@ -97,7 +97,7 @@ void SeaTracModem::loop()
  * @brief the goby dccl, mac, queue, and driver are configured and initialized
  *
  */
-void SeaTracModem::setup_goby()
+void Modem::setup_goby()
 {
     goby::acomms::bind(st_driver, q_manager, mac);
 
@@ -134,8 +134,8 @@ void SeaTracModem::setup_goby()
 
     q_manager_cfg.set_modem_id(our_id);
 
-    goby::acomms::connect(&q_manager.signal_receive, this, &SeaTracModem::received_data);
-    goby::acomms::connect(&q_manager.signal_ack, this, &SeaTracModem::received_ack);
+    goby::acomms::connect(&q_manager.signal_receive, this, &Modem::received_data);
+    goby::acomms::connect(&q_manager.signal_ack, this, &Modem::received_ack);
 
     // Initiate modem driver
     goby::acomms::protobuf::DriverConfig driver_cfg;
@@ -186,7 +186,7 @@ void SeaTracModem::setup_goby()
  * @brief messages from mvp_messages documentation are loaded and configured into the queue manager.
  *
  */
-void SeaTracModem::setup_queue()
+void Modem::setup_queue()
 {
     // setup pose msg
     goby::acomms::protobuf::QueuedMessageEntry *q_entry_pose_cmd = q_manager_cfg.add_message_entry();
@@ -293,7 +293,7 @@ void SeaTracModem::setup_queue()
  *
  * @param data_msg the incoming protobuf message
  */
-void SeaTracModem::received_data(const google::protobuf::Message &data_msg)
+void Modem::received_data(const google::protobuf::Message &data_msg)
 {
     printf("Received Data: %s\n", data_msg.ShortDebugString().c_str());
 
@@ -571,7 +571,7 @@ void SeaTracModem::received_data(const google::protobuf::Message &data_msg)
  *
  * @param msg the odometry msg
  */
-void SeaTracModem::f_local_odom_callback(const nav_msgs::OdometryPtr &msg)
+void Modem::f_local_odom_callback(const nav_msgs::OdometryPtr &msg)
 {
     double local_x = msg->pose.pose.position.x;
     double local_y = msg->pose.pose.position.y;
@@ -613,7 +613,7 @@ void SeaTracModem::f_local_odom_callback(const nav_msgs::OdometryPtr &msg)
  * @param voltage the voltage msg
  * @param current the current msg
  */
-void SeaTracModem::f_power_callback(const mvp_msgs::PowerPtr &power)
+void Modem::f_power_callback(const mvp_msgs::PowerPtr &power)
 {
     power_out.set_source(our_id);
     power_out.set_destination(dest_id);
@@ -629,7 +629,7 @@ void SeaTracModem::f_power_callback(const mvp_msgs::PowerPtr &power)
  * @param ack_message
  * @param original_message
  */
-void SeaTracModem::received_ack(const goby::acomms::protobuf::ModemTransmission &ack_message,
+void Modem::received_ack(const goby::acomms::protobuf::ModemTransmission &ack_message,
                                 const google::protobuf::Message &original_message)
 {
 
@@ -641,7 +641,7 @@ int main(int argc, char *argv[])
 
     ros::init(argc, argv, "seatrac_modem");
 
-    SeaTracModem d;
+    Modem d;
 
     ros::spin();
 

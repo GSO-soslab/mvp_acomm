@@ -83,12 +83,12 @@ include_directories(
 )
 
 add_executable(${PROJECT_NAME}_node
-  src/seatrac_modem.cpp
+  src/modem.cpp
   include/seatrac_driver/seatrac_driver.cpp
 )
 
 add_executable(alpha_topside_node
-  src/seatrac_usbl.cpp
+  src/usbl.cpp
   include/seatrac_driver/seatrac_driver.cpp
 )
 
