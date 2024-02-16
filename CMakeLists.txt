@@ -20,6 +20,7 @@ find_package(catkin REQUIRED COMPONENTS
   geographic_msgs
   robot_localization
   serial
+  stonefish_mvp
 )
 
 find_package(Protobuf REQUIRED)

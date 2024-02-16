@@ -26,6 +26,7 @@
   <depend>dccl</depend>
   <depend>seatrac_driver</depend>
   <depend>dynamic_reconfigure</depend>
+  <depend>stonefish_mvp</depend>
 
   <export>
 
