@@ -262,7 +262,13 @@ void goby::acomms::EvologicsDriver::handle_initiate_transmission(const protobuf:
 
         switch(transmit_msg_.type())
         {
-            case protobuf::ModemTransmission::DATA: data_transmission(&transmit_msg_); break;
+            case protobuf::ModemTransmission::DATA:
+            {
+                signal_data_request(&transmit_msg_);
+                data_transmission(&transmit_msg_); 
+                
+            } 
+            break;
 
             default:
                 glog.is(DEBUG1) && glog << group(glog_out_group()) << warn
@@ -288,11 +294,7 @@ void goby::acomms::EvologicsDriver::data_transmission(protobuf::ModemTransmissio
     msg->set_max_num_frames(1);
     msg->set_max_frame_bytes(64);
 
-    const bool is_local_cycle = msg->src() == driver_cfg_.modem_id();
-
-    std::cout << "Local Cycle: " << is_local_cycle  << "\tMsg Frame Size: " << msg->frame_size() << std::endl;
-
-    if(!(is_local_cycle && (msg->frame_size() == 0 || msg->frame(0) == "")))
+    if (!(msg->frame_size() == 0 || msg->frame(0).empty()))
     {
         std::string outgoing = hex_encode(msg->frame(0)+"\r");
 
@@ -316,7 +318,7 @@ void goby::acomms::EvologicsDriver::evologics_write(const std::string s)
                             
     signal_raw_outgoing(raw_msg);
 
-    modem_write(raw_msg.raw() + "\r");
+    modem_write(raw_msg.raw() + "\r\n");
 }
 
 void goby::acomms::EvologicsDriver::signal_receive_and_clear(protobuf::ModemTransmission* message)
