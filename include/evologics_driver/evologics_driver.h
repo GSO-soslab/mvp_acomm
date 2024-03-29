@@ -66,8 +66,6 @@ class EvologicsDriver : public ModemDriverBase
     /// \param cfg Configuration for the Micro-Modem driver. DriverConfig is defined in acomms_driver_base.proto, and various extensions specific to the WHOI Micro-Modem are defined in acomms_mm_driver.proto.
     void startup(const protobuf::DriverConfig& cfg) override;
 
-    void update_cfg(const protobuf::DriverConfig& cfg) override;
-
     /// \brief Stops the driver.
     void shutdown() override;
 
@@ -91,7 +89,6 @@ class EvologicsDriver : public ModemDriverBase
         SENDSTART,
         SENDEND,
         RECVSTART,
-        RECVEND,
         RECVEND,
         FAILEDIM,
         CANCELLEDIM,
@@ -138,7 +135,7 @@ class EvologicsDriver : public ModemDriverBase
   private:
     // for the serial connection
 
-    std::string DEFAULT_TCP_SERVER = "192.1.0.209";
+    std::string DEFAULT_TCP_SERVER = "192.168.0.209";
     int DEFAULT_TCP_PORT = 9200;
     int DEFAULT_BAUD = 19200;
 
