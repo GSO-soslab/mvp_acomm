@@ -66,30 +66,30 @@ void Modem::loop()
 
     ros::Rate rate(10);
 
-    PoseCommand pose_test;
+    // PoseCommand pose_test;
 
-    pose_test.set_time(ros::Time::now().toNSec());
-    pose_test.set_destination(1);
-    pose_test.set_source(2);
+    // pose_test.set_time(ros::Time::now().toSec());
+    // pose_test.set_destination(1);
+    // pose_test.set_source(2);
 
-    q_manager.push_message(pose_test);
+    // q_manager.push_message(pose_test);
 
     // loop at 10Hz
     while (ros::ok())
     {
 
         // every 15 seconds add pose and health to the queue
-        if (i >= 150)
-        {
-            printf("Pose Out Message: %s\n", pose_test.ShortDebugString().c_str());
-            // printf("Power Out Message: %s\n", power_test.ShortDebugString().c_str());
+        // if (i >= 150)
+        // {
+        //     printf("Pose Out Message: %s\n", pose_test.ShortDebugString().c_str());
+        //     printf("Power Out Message: %s\n", power_test.ShortDebugString().c_str());
 
-            i = 0;
-            q_manager.push_message(pose_test);
-            // q_manager.push_message(power_test);
+        //     i = 0;
+        //     q_manager.push_message(pose_test);
+        //     q_manager.push_message(power_test);
 
-            printf("Added Messages to Queue\n");
-        }
+        //     printf("Added Messages to Queue\n");
+        // }
 
         evo_driver.do_work();
         q_manager.do_work();
@@ -98,7 +98,7 @@ void Modem::loop()
         ros::spinOnce();
 
 
-        i++;
+        // i++;
 
 
         rate.sleep();
@@ -574,6 +574,10 @@ void Modem::received_data(const google::protobuf::Message &data_msg)
         }
 
         waypoint_array.polygon.points.erase(waypoint_array.polygon.points.begin(), waypoint_array.polygon.points.end());
+    }
+    else
+    {
+        printf("Msg is not a protobuf msg\n");
     }
 }
 

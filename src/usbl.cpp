@@ -169,8 +169,10 @@ USBL::USBL()
     setup_goby();
 
         // setup the receive thread
-    std::thread t(std::bind(&USBL::loop, this));
-    t.detach();
+    // std::thread t(std::bind(&USBL::loop, this));
+    // t.detach();
+
+    loop();
 
 
     
@@ -187,14 +189,28 @@ USBL::~USBL()
 
 void USBL::loop()
 {
+
+    ros::Rate rate(10);
+
+    PoseCommand pose_test;
+    pose_test.set_source(1);
+    pose_test.set_destination(2);
+    pose_test.set_time(ros::Time::now().toSec());
+
+    printf("Pose Out Message: %s\n", pose_test.ShortDebugString().c_str());
+
+    q_manager.push_message(pose_test);
+
         //loop at 10Hz 
     while(ros::ok())
     {
-        st_driver.do_work();
+        evo_driver.do_work();
         q_manager.do_work();
         mac.do_work();
 
-        usleep(100000);
+        ros::spinOnce();
+
+        rate.sleep();
     }
 
 }
@@ -205,11 +221,11 @@ void USBL::loop()
  */
 void USBL::setup_goby()
 {
-    goby::acomms::bind(st_driver, q_manager, mac);
+    goby::acomms::bind(evo_driver, q_manager, mac);
 
     // set the source id of this modem
-    our_id = 15;
-    dest_id = 1;
+    our_id = 1;
+    dest_id = 2;
     slot_time = 5;
 
     //Initiate DCCL
@@ -246,7 +262,7 @@ void USBL::setup_goby()
     //Initiate modem driver
     goby::acomms::protobuf::DriverConfig driver_cfg;
 
-    // driver_cfg.set_modem_id(our_id);
+    driver_cfg.set_modem_id(our_id);
     // driver_cfg.set_serial_port("/dev/ttyUSB0");
     driver_cfg.set_connection_type(goby::acomms::protobuf::DriverConfig_ConnectionType_CONNECTION_TCP_AS_CLIENT);
     driver_cfg.set_tcp_server("192.168.0.209");
@@ -261,7 +277,7 @@ void USBL::setup_goby()
     my_slot.set_src(our_id);
     my_slot.set_dest(dest_id);
     my_slot.set_rate(0);
-    my_slot.set_type(goby::acomms::protobuf::ModemTransmission::DRIVER_SPECIFIC);
+    my_slot.set_type(goby::acomms::protobuf::ModemTransmission::DATA);
 
     goby::acomms::protobuf::ModemTransmission buddy_slot;
     buddy_slot.set_src(dest_id);
@@ -288,7 +304,7 @@ void USBL::setup_goby()
     dccl_->set_cfg(dccl_cfg);
     q_manager.set_cfg(q_manager_cfg);   
     mac.startup(mac_cfg);
-    st_driver.startup(driver_cfg);
+    evo_driver.startup(driver_cfg);
 }
 
 /**

@@ -45,6 +45,7 @@
 //goby includes
 #include <goby/acomms/connect.h>
 #include <goby/acomms/amac.h>
+#include <goby/acomms/buffer/dynamic_buffer.h>
 #include <goby/acomms/queue.h>
 #include <goby/acomms/bind.h>
 #include <goby/acomms/modem_driver.h>
@@ -56,6 +57,7 @@
 
 //driver includes
 #include "seatrac_driver.h"
+#include "evologics_driver.h"
 
 class USBL{
 
@@ -86,6 +88,7 @@ private:
     goby::acomms::DCCLCodec* dccl_ = goby::acomms::DCCLCodec::get();
     goby::acomms::QueueManager q_manager;
     goby::acomms::SeatracDriver st_driver;
+    goby::acomms::EvologicsDriver evo_driver;
     goby::acomms::MACManager mac;
 
     goby::acomms::protobuf::QueueManagerConfig q_manager_cfg;
