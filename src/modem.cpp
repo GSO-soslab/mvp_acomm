@@ -45,9 +45,11 @@ Modem::Modem()
 
     setup_goby();
 
+    loop();
+
     // setup the receive thread
-    std::thread t(std::bind(&Modem::loop, this));
-    t.detach();
+    // std::thread t(std::bind(&Modem::loop, this));
+    // t.detach();
 }
 
 /**
@@ -64,26 +66,36 @@ void Modem::loop()
 
     ros::Rate rate(10);
 
-        // loop at 10Hz
+    PoseCommand pose_test;
+
+    pose_test.set_time(ros::Time::now().toNSec());
+    pose_test.set_destination(1);
+    pose_test.set_source(2);
+
+    q_manager.push_message(pose_test);
+
+    // loop at 10Hz
     while (ros::ok())
     {
 
-        // every 30 seconds add pose and health to the queue
+        // every 15 seconds add pose and health to the queue
         if (i >= 150)
         {
-            // printf("Pose Out Message: %s\n", pose_out.ShortDebugString().c_str());
-            // printf("Power Out Message: %s\n", power_out.ShortDebugString().c_str());
+            printf("Pose Out Message: %s\n", pose_test.ShortDebugString().c_str());
+            // printf("Power Out Message: %s\n", power_test.ShortDebugString().c_str());
 
             i = 0;
-            q_manager.push_message(pose_out);
-            q_manager.push_message(power_out);
+            q_manager.push_message(pose_test);
+            // q_manager.push_message(power_test);
 
             printf("Added Messages to Queue\n");
         }
 
-        st_driver.do_work();
+        evo_driver.do_work();
         q_manager.do_work();
         mac.do_work();
+
+        ros::spinOnce();
 
 
         i++;
@@ -99,11 +111,11 @@ void Modem::loop()
  */
 void Modem::setup_goby()
 {
-    goby::acomms::bind(st_driver, q_manager, mac);
+    goby::acomms::bind(evo_driver, q_manager, mac);
 
     // set the source id of this modem
-    our_id = 1;
-    dest_id = 15;
+    our_id = 2;
+    dest_id = 1;
     slot_time = 5;
 
     // Initiate DCCL
@@ -140,7 +152,7 @@ void Modem::setup_goby()
     // Initiate modem driver
     goby::acomms::protobuf::DriverConfig driver_cfg;
     driver_cfg.set_modem_id(our_id);
-    driver_cfg.set_serial_port("/dev/ttySC2");
+    driver_cfg.set_serial_port("/dev/ttyUSB0");
     driver_cfg.set_connection_type(goby::acomms::protobuf::DriverConfig_ConnectionType_CONNECTION_SERIAL);
 
     // Initiate medium access control
@@ -174,12 +186,12 @@ void Modem::setup_goby()
     }
 
     goby::glog.set_name("modem");
-    goby::glog.add_stream(goby::util::logger::QUIET, &std::clog);
+    goby::glog.add_stream(goby::util::logger::DEBUG1, &std::clog);
 
     dccl_->set_cfg(dccl_cfg);
     q_manager.set_cfg(q_manager_cfg);
     mac.startup(mac_cfg);
-    st_driver.startup(driver_cfg);
+    evo_driver.startup(driver_cfg);
 }
 
 /**
@@ -288,7 +300,7 @@ void Modem::setup_queue()
 }
 
 /**
- * @brief the slot that is called back from seatrac_driver when a new message is received. the incoming
+ * @brief the slot that is called back from evo_driver when a new message is received. the incoming
  * message is parsed acording to the mvp_messages documentation.
  *
  * @param data_msg the incoming protobuf message
@@ -587,7 +599,7 @@ void Modem::f_local_odom_callback(const nav_msgs::OdometryPtr &msg)
     ser.request.map_point.y = local_y;
     ser.request.map_point.z = local_z;
 
-    ros::service::call("toll", ser);
+    ros::service::call("/alpha_rise/toLL", ser);
 
     double global_lat = ser.response.ll_point.latitude;
     double global_long = ser.response.ll_point.longitude;

@@ -245,9 +245,12 @@ void USBL::setup_goby()
     goby::acomms::connect(&q_manager.signal_ack, this, &USBL::received_ack);
     //Initiate modem driver
     goby::acomms::protobuf::DriverConfig driver_cfg;
-    driver_cfg.set_modem_id(our_id);
-    driver_cfg.set_serial_port("/dev/ttyUSB0");
-    driver_cfg.set_connection_type(goby::acomms::protobuf::DriverConfig_ConnectionType_CONNECTION_SERIAL);
+
+    // driver_cfg.set_modem_id(our_id);
+    // driver_cfg.set_serial_port("/dev/ttyUSB0");
+    driver_cfg.set_connection_type(goby::acomms::protobuf::DriverConfig_ConnectionType_CONNECTION_TCP_AS_CLIENT);
+    driver_cfg.set_tcp_server("192.168.0.209");
+    driver_cfg.set_tcp_port(9200);
 
     //Initiate medium access control
     goby::acomms::protobuf::MACConfig mac_cfg;
@@ -280,7 +283,7 @@ void USBL::setup_goby()
 
 
     goby::glog.set_name("usbl");
-    goby::glog.add_stream(goby::util::logger::QUIET, &std::clog);
+    goby::glog.add_stream(goby::util::logger::DEBUG1, &std::clog);
 
     dccl_->set_cfg(dccl_cfg);
     q_manager.set_cfg(q_manager_cfg);   

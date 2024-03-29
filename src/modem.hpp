@@ -62,6 +62,7 @@
 
 //driver includes
 #include "seatrac_driver.h"
+#include "evologics_driver.h"
 
 
 
@@ -110,6 +111,7 @@ private:
 public:
     goby::acomms::QueueManager q_manager;
     goby::acomms::SeatracDriver st_driver;
+    goby::acomms::EvologicsDriver evo_driver;
     goby::acomms::MACManager mac;
 
     PoseResponse pose_out;
