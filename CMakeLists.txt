@@ -79,17 +79,20 @@ catkin_package(
 
 include_directories(
   include/seatrac_driver
+  include/evologics_driver
   ${catkin_INCLUDE_DIRS}
 )
 
 add_executable(${PROJECT_NAME}_node
   src/modem.cpp
   include/seatrac_driver/seatrac_driver.cpp
+  include/evologics_driver/evologics_driver.cpp
 )
 
 add_executable(alpha_topside_node
   src/usbl.cpp
   include/seatrac_driver/seatrac_driver.cpp
+  include/evologics_driver/evologics_driver.cpp
 )
 
 add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
