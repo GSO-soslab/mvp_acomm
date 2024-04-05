@@ -51,6 +51,7 @@
 
 //goby includes
 #include <goby/acomms/connect.h>
+#include <goby/acomms/buffer/dynamic_buffer.h>
 #include <goby/acomms/queue.h>
 #include <goby/acomms/bind.h>
 #include <goby/acomms/modem_driver.h>
@@ -95,7 +96,7 @@ private:
 
     goby::acomms::DCCLCodec* dccl_ = goby::acomms::DCCLCodec::get();
 
-    goby::acomms::protobuf::QueueManagerConfig q_manager_cfg;
+    
 
     void loop();
     void setup_goby();
@@ -109,6 +110,8 @@ private:
 
 
 public:
+    
+    goby::acomms::DynamicBuffer<std::string> dynamic_buffer;
     goby::acomms::QueueManager q_manager;
     goby::acomms::SeatracDriver st_driver;
     goby::acomms::EvologicsDriver evo_driver;
