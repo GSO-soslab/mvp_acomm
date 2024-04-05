@@ -153,8 +153,6 @@ void Modem::setup_goby()
     // setup the goby queue manager
     setup_queue();
 
-    q_manager_cfg.set_modem_id(our_id);
-
     goby::acomms::connect(&q_manager.signal_receive, this, &Modem::received_data);
     goby::acomms::connect(&q_manager.signal_ack, this, &Modem::received_ack);
 
