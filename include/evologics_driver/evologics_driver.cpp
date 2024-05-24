@@ -109,7 +109,17 @@ void goby::acomms::EvologicsDriver::startup(const protobuf::DriverConfig& cfg)
 
     modem_start(driver_cfg_);
 
+    clear_buffer();
+
     startup_done_ = true;
+}
+
+void goby::acomms::EvologicsDriver::clear_buffer()
+{
+    AtType msg;
+    msg.command = "Z4";
+
+    append_to_write_queue(msg);
 }
 
 void goby::acomms::EvologicsDriver::shutdown()
@@ -255,7 +265,8 @@ void goby::acomms::EvologicsDriver::do_work()
         // try to handle the received message, posting appropriate signals
         try
         {
-            if(in[0] == '+')
+
+            if(in.substr(0,3) == "+++")
             {
                 // process return from an AT message
                 
@@ -302,7 +313,7 @@ void goby::acomms::EvologicsDriver::process_receive(const std::string& s)
 
     signal_raw_incoming(raw_msg);
 
-    receive_msg_.add_frame(s);
+    receive_msg_.add_frame(hex_decode(s));
 
     signal_receive_and_clear(&receive_msg_);
     

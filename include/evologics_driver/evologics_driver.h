@@ -41,6 +41,8 @@ class EvologicsDriver : public ModemDriverBase
     /// \param cfg Configuration for the Micro-Modem driver. DriverConfig is defined in acomms_driver_base.proto.
     void startup(const protobuf::DriverConfig& cfg) override;
 
+    void clear_buffer();
+
     /// \brief Stops the driver.
     void shutdown() override;
 

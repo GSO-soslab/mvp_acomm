@@ -43,8 +43,7 @@ USBL::USBL()
 
     configure_usbl();
 
-
-    // loop();
+    loop();
 
 }
 
@@ -63,9 +62,14 @@ void USBL::loop()
 
     int i = 0;
 
-    std::string example_value = "hi modem";
 
-    buffer_.push({config_.remote_address, "example" , goby::time::SteadyClock::now(), example_value});
+    PoseCommand pose_cmd;
+
+    pose_cmd.set_source(config_.local_address);
+    pose_cmd.set_destination(config_.remote_address);
+    pose_cmd.set_time(ros::Time::now().toSec());
+
+    buffer_.push({config_.remote_address, "pose_command" , goby::time::SteadyClock::now(), goby::util::hex_encode(pose_cmd.SerializeAsString())});
   
 
 
@@ -74,7 +78,7 @@ void USBL::loop()
     {
         if(i>200)
         {
-            buffer_.push({config_.remote_address, "example", goby::time::SteadyClock::now(), example_value});
+            buffer_.push({config_.remote_address, "pose_command", goby::time::SteadyClock::now(), goby::util::hex_encode(pose_cmd.SerializeAsString())});
             i=0;
         }
 
@@ -87,15 +91,16 @@ void USBL::loop()
 
         i++;
     }
+
 }
 
 void USBL::parse_goby_params()
 {
     m_pnh->param<std::string>("goby/driver", config_.driver, "evologics");
     m_pnh->param<int>("goby/max_frame_bytes", config_.max_frame_bytes, 100);
-    m_pnh->param<int>("goby/max_slot_time", config_.mac_slot_time, 10);
+    m_pnh->param<int>("goby/mac_slot_time", config_.mac_slot_time, 10);
 
-    m_pnh->param<std::vector<std::string>>("goby/dynamic_buffer/load_messages", config_.dynamic_buffer.messages, {""});
+    m_pnh->param<std::vector<std::string>>("goby/dynamic_buffer/messages", config_.dynamic_buffer.messages, {""});
 
     for( std::string message : config_.dynamic_buffer.messages)
     {
@@ -309,14 +314,14 @@ void USBL::data_request(goby::acomms::protobuf::ModemTransmission* msg)
 void USBL::received_data(const google::protobuf::Message& data_msg)
 {
     std::string msg_type =  data_msg.GetTypeName();
-    printf("Received %s: %s\n", msg_type.c_str(), data_msg.ShortDebugString().c_str());
+    // printf("Received %s: %s\n", msg_type.c_str(), data_msg.ShortDebugString().c_str());
 
 }
 
 int main(int argc, char* argv[])
 {
 
-    ros::init(argc, argv, "seatrac_usbl");
+    ros::init(argc, argv, "usbl");
 
     USBL d;
 
