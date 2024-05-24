@@ -46,13 +46,11 @@
 #include "goby/acomms/modemdriver/driver_exception.h" // for ModemD...
 
 #include "evologics_driver.h"
-// #include "at_sentence.h"
 
 using goby::glog;
 using goby::util::as;
 using goby::util::hex_decode;
 using goby::util::hex_encode;
-// using goby::util::ATSentence;
 using namespace goby::util::tcolor;
 using namespace goby::util::logger;
 using namespace goby::util::logger_lock;
@@ -63,6 +61,8 @@ const std::string goby::acomms::EvologicsDriver::ETHERNET_DELIMITER = "\n";
 goby::acomms::EvologicsDriver::EvologicsDriver()
 {
     initialize_talkers();
+
+
 }
 
 void goby::acomms::EvologicsDriver::initialize_talkers()
@@ -137,21 +137,36 @@ void goby::acomms::EvologicsDriver::shutdown()
 void goby::acomms::EvologicsDriver::write_cfg()
 {
 
-    //set source level to minimum for testing purposes
-    write_single_cfg("L3");
+    AtType msg;
 
-    //set gain level to minimum for testing purposes
-    write_single_cfg("G1");
+    msg.command = "!L3";
+
+    append_to_write_queue(msg);
+
+    msg.command.clear();
+
+    msg.command = "!G1";
+
+    append_to_write_queue(msg);
 
 }
 
-void goby::acomms::EvologicsDriver::write_single_cfg(const std::string& s)
+void goby::acomms::EvologicsDriver::set_source_level(int source_level)
 {
-    std::string cfg_msg = "+++AT!";
-    cfg_msg.append(s);
+    AtType msg;
+    msg.command = "!L" + std::to_string(source_level);
 
-    append_to_write_queue(cfg_msg);
+    append_to_write_queue(msg);
 }
+
+void goby::acomms::EvologicsDriver::set_gain(int gain)
+{
+    AtType msg;
+    msg.command = "!G" + std::to_string(gain);
+
+    append_to_write_queue(msg);
+}
+
 
 void goby::acomms::EvologicsDriver::do_work()
 {
@@ -171,8 +186,8 @@ void goby::acomms::EvologicsDriver::do_work()
             if(in[0] == '+')
             {
                 // process return from an AT message
-                // ATSentence recv(in);
-                // process_ATreceive(recv);
+                
+                process_at_receive(in);
             }
             else
             {
@@ -189,48 +204,42 @@ void goby::acomms::EvologicsDriver::do_work()
 
 }
 
-// void goby::acomms::EvologicsDriver::process_ATreceive(const ATSentence& s)
-// {
-//     protobuf::ModemRaw raw_msg;
-//     raw_msg.set_raw(s.message());
-    
-//     signal_raw_incoming(raw_msg);
+void goby::acomms::EvologicsDriver::process_at_receive(const std::string& in)
+{
+    protobuf::ModemRaw raw_msg;
+        raw_msg.set_raw(in);
 
-//     glog.is(DEBUG1) && glog << group(glog_in_group()) << raw_msg.raw() << std::endl;
-                
+    signal_raw_incoming(raw_msg);
 
-//     switch(sentence_id_map_[s.sentence_id()])
-//     {
-//         case USBLLLONG: break;
+    AtType parse = at_sentence.decode(in);
 
+    receive_msg_.add_frame(parse.command);
 
-//         default: break;
+    for(int i =0; i<parse.fields.size(); i++)
+    {
+        receive_msg_.add_frame(parse.fields[i]);
+    }
 
+    signal_receive_and_clear(&receive_msg_);
+}
 
-
-
-//     }
-
-
-// }
-
-void goby::acomms::EvologicsDriver::process_receive(const std::string s)
+void goby::acomms::EvologicsDriver::process_receive(const std::string& s)
 {
     protobuf::ModemRaw raw_msg;
     raw_msg.set_raw(s);
 
     signal_raw_incoming(raw_msg);
 
-    receive_msg_.add_frame(hex_decode(s));
+    receive_msg_.add_frame(s);
 
     signal_receive_and_clear(&receive_msg_);
     
 
 } 
 
-void goby::acomms::EvologicsDriver::append_to_write_queue(const std::string s)
+void goby::acomms::EvologicsDriver::append_to_write_queue(const AtType at)
 {
-    out_.push_back(s);
+    out_.push_back(at);
     try_send(); // try to push it now without waiting for the next call to do_work();
 }
 
@@ -239,12 +248,13 @@ void goby::acomms::EvologicsDriver::try_send()
     if (out_.empty())
         return;
 
-    const std::string msg = out_.front();
+    const AtType msg = out_.front();
 
+    const std::string send = at_sentence.encode(msg);
 
-    std::cout << "Writing to driver: " << msg.c_str() << std::endl;
+    std::cout << "Writing to driver: " << send.c_str() << std::endl;
 
-    evologics_write(msg);
+    evologics_write(send);
 
     out_.pop_front();
 }
@@ -264,6 +274,7 @@ void goby::acomms::EvologicsDriver::handle_initiate_transmission(const protobuf:
         {
             case protobuf::ModemTransmission::DATA:
             {
+                transmit_msg_.set_max_frame_bytes(500);
                 signal_data_request(&transmit_msg_);
                 data_transmission(&transmit_msg_); 
                 
@@ -296,9 +307,9 @@ void goby::acomms::EvologicsDriver::data_transmission(protobuf::ModemTransmissio
 
     if (!(msg->frame_size() == 0 || msg->frame(0).empty()))
     {
-        std::string outgoing = hex_encode(msg->frame(0)+"\r");
+        std::string outgoing = msg->frame(0)+"\r";
 
-        append_to_write_queue(outgoing);
+        evologics_write(outgoing);
 
     }
     else
@@ -309,7 +320,7 @@ void goby::acomms::EvologicsDriver::data_transmission(protobuf::ModemTransmissio
     }
 }
 
-void goby::acomms::EvologicsDriver::evologics_write(const std::string s)
+void goby::acomms::EvologicsDriver::evologics_write(const std::string &s)
 {
     protobuf::ModemRaw raw_msg;
     raw_msg.set_raw(s);
@@ -318,7 +329,7 @@ void goby::acomms::EvologicsDriver::evologics_write(const std::string s)
                             
     signal_raw_outgoing(raw_msg);
 
-    modem_write(raw_msg.raw() + "\r\n");
+    modem_write(raw_msg.raw() + "\n");
 }
 
 void goby::acomms::EvologicsDriver::signal_receive_and_clear(protobuf::ModemTransmission* message)

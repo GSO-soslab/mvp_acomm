@@ -14,6 +14,8 @@
 #include "goby/acomms/protobuf/modem_message.pb.h"  // for ModemTransmission
 #include "goby/time/system_clock.h"                 // for SystemClock, Sys...
 
+#include "../AT/ATsentence.h"
+
 namespace dccl
 {
 class Codec;
@@ -52,6 +54,13 @@ class EvologicsDriver : public ModemDriverBase
 
     void write_single_cfg(const std::string& s); // write a single config value
 
+
+    void set_source_level(int source_level);
+
+    void set_gain(int gain);
+
+    ATsentence at_sentence;
+
   private:
     enum SentenceIDs
     {
@@ -86,24 +95,22 @@ class EvologicsDriver : public ModemDriverBase
     };
 
     // startup
-    void initialize_talkers(); // insert strings into sentence_id_map_, etc for later use
     void write_cfg();          // write the configuration values to the modem
 
     // output
 
     void try_send(); // try to send another NMEA message to the modem
-    void append_to_write_queue(const std::string s); // add a message
-    void evologics_write(const std::string s); // actually write a message
+    void append_to_write_queue(const AtType s); // add a message
+    void evologics_write(const std::string &s); // actually write a message
     void data_transmission(protobuf::ModemTransmission* msg);
 
     // input
-    void process_receive(const std::string s); // parse a receive message and call proper method
-
-    // data cycle
-    void handle_ack(std::uint32_t src, std::uint32_t dest, std::uint32_t frame,
-                    protobuf::ModemTransmission* m);
+    void process_receive(const std::string& in); // parse a receive message and call proper method
+    void process_at_receive(const std::string& in);
 
     void signal_receive_and_clear(protobuf::ModemTransmission* message);
+
+    
 
   private:
     // for the serial connection
@@ -120,7 +127,7 @@ class EvologicsDriver : public ModemDriverBase
 
     // deque for outgoing messages to the modem, we queue them up and send
     // as the modem acknowledges them
-    std::deque<std::string> out_;
+    std::deque<AtType> out_;
 
     // set after the startup routines finish once. we can't startup on instantiation because
     // the base class sets some of our references (from the MOOS file)
@@ -134,6 +141,8 @@ class EvologicsDriver : public ModemDriverBase
     std::unique_ptr<dccl::Codec> dccl_;
     // DCCL requires full memory barrier...
     static std::mutex dccl_mutex_;
+
+    
 };
 } // namespace acomms
 } // namespace goby

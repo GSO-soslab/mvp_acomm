@@ -72,53 +72,26 @@ class Modem{
 private:
     ros::NodeHandle m_nh;
     ros::NodeHandlePtr m_pnh;
-
-    ros::Publisher health_pub;
-    ros::Publisher pose_pub;
-    ros::Publisher direct_control_pub;
-    ros::Publisher update_waypoint_pub;
-    ros::Publisher append_waypoint_pub;
-
-    ros::Subscriber local_odom_sub;
-    ros::Subscriber power_sub;
-
-    ros::ServiceClient controller_enable_client;
-    ros::ServiceClient controller_disable_client;
-    ros::ServiceClient set_state_client;
-    ros::ServiceClient get_state_client;
-
-    bool console_debug;
-    int beacon_id;
-    uint32_t our_id;
-    uint32_t dest_id;
-    uint32_t slot_time;
-    geometry_msgs::PolygonStamped waypoint_array;
-
-    goby::acomms::DCCLCodec* dccl_ = goby::acomms::DCCLCodec::get();
-
     
+    int our_id_;
+    int dest_id_;
+    int slot_time_;
 
     void loop();
     void setup_goby();
-    void setup_queue();
-    void received_data(const google::protobuf::Message& data_msg);
-    void received_ack(const goby::acomms::protobuf::ModemTransmission& ack_message, const google::protobuf::Message& original_message);
-    void f_local_odom_callback(const nav_msgs::OdometryPtr &msg);
-    void f_power_callback(const mvp_msgs::PowerPtr &power);
+    void data_request(goby::acomms::protobuf::ModemTransmission* msg);
+    void received_data(const google::protobuf::Message& message_in);
+
     ros::Timer timer;
     
 
 
 public:
     
-    goby::acomms::DynamicBuffer<std::string> dynamic_buffer;
-    goby::acomms::QueueManager q_manager;
-    goby::acomms::SeatracDriver st_driver;
+    goby::acomms::DynamicBuffer<std::string> buffer_;
+
     goby::acomms::EvologicsDriver evo_driver;
     goby::acomms::MACManager mac;
-
-    PoseResponse pose_out;
-    PowerResponse power_out;
 
 
     Modem();

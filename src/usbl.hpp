@@ -52,6 +52,19 @@
 #include <goby/util/binary.h>
 #include <goby/util/debug_logger.h>
 
+#include <goby/middleware/group.h>
+#include <goby/middleware/application/thread.h>
+#include <goby/middleware/transport/interprocess.h>
+#include <goby/middleware/transport/interthread.h>
+#include <goby/middleware/protobuf/intervehicle.pb.h>
+#include <goby/middleware/protobuf/serializer_transporter.pb.h>
+#include <goby/middleware/protobuf/serializer_transporter.pb.h>
+#include <goby/middleware/marshalling/dccl.h>
+#include "goby/middleware/protobuf/intervehicle.pb.h"
+
+#include "goby/util/debug_logger/flex_ostream.h"         // for FlexOs...
+#include "goby/util/debug_logger/flex_ostreambuf.h"      // for DEBUG1
+
 //protobuf msg includes
 #include "proto/goby_msgs.pb.h"
 
@@ -61,67 +74,33 @@
 
 class USBL{
 
-private:
-    ros::NodeHandlePtr m_nh;
-    ros::NodeHandlePtr m_pnh;
-    
-    ros::Publisher odom_pub;
-    ros::Publisher power_pub;
-    
-    ros::ServiceServer pose_server;
-    ros::ServiceServer power_server;
-    ros::ServiceServer relative_pose_server;
-    ros::ServiceServer controller_info_server;
-    ros::ServiceServer direct_control_server;
-    ros::ServiceServer state_info_server;
-    ros::ServiceServer single_waypoint_server;
-    ros::ServiceServer multi_waypoint_gps_server;
-    ros::ServiceServer multi_waypoint_xyz_server;
-    ros::ServiceServer execute_waypoints_server;
-
-    bool console_debug;
-    int beacon_id;
-    uint32_t our_id;
-    uint32_t dest_id;
-    uint32_t slot_time;
-
-    goby::acomms::DCCLCodec* dccl_ = goby::acomms::DCCLCodec::get();
-    goby::acomms::QueueManager q_manager;
-    goby::acomms::SeatracDriver st_driver;
-    goby::acomms::EvologicsDriver evo_driver;
-    goby::acomms::MACManager mac;
-
-    goby::acomms::protobuf::QueueManagerConfig q_manager_cfg;
-
-    void loop();
-    void setup_goby();
-    void setup_queue();
-    void received_data(const google::protobuf::Message& message_in);
-    void received_ack(const goby::acomms::protobuf::ModemTransmission& ack_message, const google::protobuf::Message& original_message);
-    bool f_cb_srv_request_pose(alpha_acomms::CommsPose::Request &request, alpha_acomms::CommsPose::Response &response);
-    bool f_cb_srv_request_power(alpha_acomms::CommsPower::Request &request, alpha_acomms::CommsPower::Response &response);
-    bool f_cb_srv_request_relative_pose(alpha_acomms::CommsRelativePose::Request &request, alpha_acomms::CommsRelativePose::Response &response);
-    bool f_cb_srv_controller_info(alpha_acomms::CommsControllerInfo::Request &request, alpha_acomms::CommsControllerInfo::Response &response);
-    bool f_cb_srv_direct_control(alpha_acomms::CommsDirectControl::Request &request, alpha_acomms::CommsDirectControl::Response &response);
-    bool f_cb_srv_state_info(alpha_acomms::CommsStateInfo::Request &request, alpha_acomms::CommsStateInfo::Response &response);
-    bool f_cb_srv_single_waypoint(alpha_acomms::CommsSingleWaypoint::Request &request, alpha_acomms::CommsSingleWaypoint::Response &response);
-    bool f_cb_srv_multi_waypoint_gps(alpha_acomms::CommsMultiWaypointGPS::Request &request, alpha_acomms::CommsMultiWaypointGPS::Response &response);
-    bool f_cb_srv_multi_waypoint_xyz(alpha_acomms::CommsMultiWaypointXYZ::Request &request, alpha_acomms::CommsMultiWaypointXYZ::Response &response);
-    bool f_cb_srv_execute_waypoints(alpha_acomms::CommsExecuteWaypoint::Request &request, alpha_acomms::CommsExecuteWaypoint::Response &response);
-
-
-
-
-
-
-
-    ros::Timer timer;
-    
-
 public:
 
     USBL();
     ~USBL();
+
+private:
+    ros::NodeHandlePtr m_nh;
+    ros::NodeHandlePtr m_pnh;
+    
+    int our_id_;
+    int dest_id_;
+    int slot_time_;
+
+    goby::acomms::EvologicsDriver evo_driver;
+    goby::acomms::MACManager mac;
+
+    void loop();
+    void setup_goby();
+    void parse_params();
+    void data_request(goby::acomms::protobuf::ModemTransmission* msg);
+    void received_data(const google::protobuf::Message& message_in);
+
+    goby::acomms::DynamicBuffer<std::string> buffer_;
+
+    ros::Timer timer;
+    
+
 
 };
 
