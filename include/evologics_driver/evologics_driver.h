@@ -52,9 +52,6 @@ class EvologicsDriver : public ModemDriverBase
 
     bool is_started() const { return startup_done_; }
 
-    void write_single_cfg(const std::string& s); // write a single config value
-
-
     void set_source_level(int source_level);
 
     void set_source_control(int source_control);
@@ -120,11 +117,7 @@ class EvologicsDriver : public ModemDriverBase
         RECVIMS  
     };
 
-    // startup
-    void write_cfg();          // write the configuration values to the modem
-
     // output
-
     void try_send(); // try to send another NMEA message to the modem
     void append_to_write_queue(const AtType s); // add a message
     void evologics_write(const std::string &s); // actually write a message

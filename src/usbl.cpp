@@ -65,7 +65,7 @@ void USBL::loop()
 
     std::string example_value = "hi modem";
 
-    buffer_.push({config_.remote_address, "example_subbuffer", goby::time::SteadyClock::now(), example_value});
+    buffer_.push({config_.remote_address, "example" , goby::time::SteadyClock::now(), example_value});
   
 
 
@@ -74,7 +74,7 @@ void USBL::loop()
     {
         if(i>200)
         {
-            buffer_.push({config_.remote_address, "example_subbuffer", goby::time::SteadyClock::now(), example_value});
+            buffer_.push({config_.remote_address, "example", goby::time::SteadyClock::now(), example_value});
             i=0;
         }
 

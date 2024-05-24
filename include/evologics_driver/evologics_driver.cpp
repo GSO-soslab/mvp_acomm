@@ -109,9 +109,6 @@ void goby::acomms::EvologicsDriver::startup(const protobuf::DriverConfig& cfg)
 
     modem_start(driver_cfg_);
 
-    //Do we need to have specific cfg commands to setup the Evologics?
-    write_cfg();
-
     startup_done_ = true;
 }
 
@@ -120,22 +117,6 @@ void goby::acomms::EvologicsDriver::shutdown()
     ModemDriverBase::modem_close();
 }
 
-void goby::acomms::EvologicsDriver::write_cfg()
-{
-
-    AtType msg;
-
-    msg.command = "!L3";
-
-    append_to_write_queue(msg);
-
-    msg.command.clear();
-
-    msg.command = "!G1";
-
-    append_to_write_queue(msg);
-
-}
 
 void goby::acomms::EvologicsDriver::set_source_level(int source_level)
 {
