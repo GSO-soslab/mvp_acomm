@@ -57,7 +57,33 @@ class EvologicsDriver : public ModemDriverBase
 
     void set_source_level(int source_level);
 
+    void set_source_control(int source_control);
+
     void set_gain(int gain);
+
+    void set_carrier_waveform_id(int id);
+
+    void set_local_address(int address);
+
+    void set_remote_address(int address);
+
+    void set_highest_address(int address);
+
+    void set_cluster_size(int size);
+
+    void set_packet_time(int time);
+
+    void set_retry_count(int count);
+
+    void set_retry_timeout(int time);
+
+    void set_keep_online_count(int count);
+
+    void set_idle_timeout(int time);
+
+    void set_channel_protocol_id(int id);
+
+    void set_sound_speed(int speed);
 
     ATsentence at_sentence;
 

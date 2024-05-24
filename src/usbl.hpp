@@ -79,26 +79,81 @@ public:
     USBL();
     ~USBL();
 
+    
+
 private:
     ros::NodeHandlePtr m_nh;
     ros::NodeHandlePtr m_pnh;
-    
-    int our_id_;
-    int dest_id_;
-    int slot_time_;
+
+    struct Interface
+    {
+        std::string if_type;
+        std::string tcp_address;
+        int tcp_port;
+        std::string device;
+        int baudrate;
+    };
+
+    struct DynamicBuffer
+    {
+        std::vector<std::string> messages;
+    };
+
+    struct MessageConfig
+    {
+        bool ack;
+        int blackout_time;
+        int max_queue;
+        bool newest_first;
+        int ttl;
+        int value_base;
+    };
+
+    std::map<std::string, MessageConfig> dynamic_buffer_config_;
+
+    struct Config
+    {
+        std::string driver;
+        int max_frame_bytes;
+        int mac_slot_time;
+
+        DynamicBuffer dynamic_buffer;
+
+        Interface interface;
+        int source_level;
+        int source_control;
+        int gain_level;
+        int carrier_waveform_id;
+        int local_address;
+        int remote_address;
+        int highest_address;
+        int cluster_size;
+        int packet_time;
+        int retry_count;
+        int retry_timeout;
+        int keep_online_count;
+        int idle_timeout;
+        int channel_protocol_id;
+        int sound_speed;
+    };
 
     goby::acomms::EvologicsDriver evo_driver;
     goby::acomms::MACManager mac;
 
     void loop();
-    void setup_goby();
-    void parse_params();
+    void load_goby();
+    void load_buffer();
+    void configure_usbl();
+    void parse_goby_params();
+    void parse_evologics_params();
     void data_request(goby::acomms::protobuf::ModemTransmission* msg);
     void received_data(const google::protobuf::Message& message_in);
 
     goby::acomms::DynamicBuffer<std::string> buffer_;
 
     ros::Timer timer;
+
+    Config config_;
     
 
 

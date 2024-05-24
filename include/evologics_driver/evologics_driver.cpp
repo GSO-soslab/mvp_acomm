@@ -60,21 +60,7 @@ const std::string goby::acomms::EvologicsDriver::ETHERNET_DELIMITER = "\n";
 
 goby::acomms::EvologicsDriver::EvologicsDriver()
 {
-    initialize_talkers();
 
-
-}
-
-void goby::acomms::EvologicsDriver::initialize_talkers()
-{
-    sentence_id_map_ = {
-        {"OK", OK}, {"DELIVEREDIM", DELIVEREDIM}, {"RECVIM", RECVIM}, {"SENDSTART", SENDSTART},
-        {"SENDEND", SENDEND}, {"RECVSTART", RECVSTART}, {"RECVEND", RECVEND}, {"FAILEDIM", FAILEDIM}, 
-        {"CANCELLEDIM", CANCELLEDIM}, {"CANCELLEDIMS", CANCELLEDIMS}, {"CANCELLEDPBM", CANCELLEDPBM},
-        {"EXPIREDIMS", EXPIREDIMS}, {"BITRATE", BITRATE}, {"SRCLEVEL", SRCLEVEL}, {"STATUS", STATUS}, 
-        {"PHYON", PHYON}, {"PHYOFF", PHYOFF}, {"RECVFAILED", RECVFAILED}, {"RECVSRV", RECVSRV}, {"RADDR", RADDR},
-        {"USBLPHYP", USBLPHYP}, {"USBLPHYD", USBLPHYD}, {"USBLLONG", USBLLONG}, {"USBLANGLES", USBLANGLES},
-        {"ERROR", ERROR}, {"RECVPBM", RECVPBM}, {"RECVIMS", RECVIMS}};
 }
 
 goby::acomms::EvologicsDriver::~EvologicsDriver() = default;
@@ -159,10 +145,115 @@ void goby::acomms::EvologicsDriver::set_source_level(int source_level)
     append_to_write_queue(msg);
 }
 
+void goby::acomms::EvologicsDriver::set_source_control(int source_control)
+{
+    AtType msg;
+    msg.command = "!LC" + std::to_string(source_control);
+
+    append_to_write_queue(msg);
+
+}
+
 void goby::acomms::EvologicsDriver::set_gain(int gain)
 {
     AtType msg;
     msg.command = "!G" + std::to_string(gain);
+
+    append_to_write_queue(msg);
+}
+
+void goby::acomms::EvologicsDriver::set_carrier_waveform_id(int id)
+{
+    AtType msg;
+    msg.command = "!C" + std::to_string(id);
+
+    append_to_write_queue(msg);
+}
+
+void goby::acomms::EvologicsDriver::set_local_address(int address)
+{
+    AtType msg;
+    msg.command = "!AL" + std::to_string(address);
+
+    append_to_write_queue(msg);
+}
+
+void goby::acomms::EvologicsDriver::set_remote_address(int address)
+{
+    AtType msg;
+    msg.command = "!AR" + std::to_string(address);
+
+    append_to_write_queue(msg);
+}
+
+void goby::acomms::EvologicsDriver::set_highest_address(int address)
+{
+    AtType msg;
+    msg.command = "!AM" + std::to_string(address);
+
+    append_to_write_queue(msg);
+}
+
+void goby::acomms::EvologicsDriver::set_cluster_size(int size)
+{
+    AtType msg;
+    msg.command = "!ZC" + std::to_string(size);
+
+    append_to_write_queue(msg);
+}
+
+void goby::acomms::EvologicsDriver::set_packet_time(int time)
+{
+    AtType msg;
+    msg.command = "!ZP" + std::to_string(time);
+
+    append_to_write_queue(msg);
+}
+
+void goby::acomms::EvologicsDriver::set_retry_count(int count)
+{
+    AtType msg;
+    msg.command = "!RC" + std::to_string(count);
+
+    append_to_write_queue(msg);
+}
+
+void goby::acomms::EvologicsDriver::set_retry_timeout(int time)
+{
+    AtType msg;
+    msg.command = "!RT" + std::to_string(time);
+
+    append_to_write_queue(msg);
+}
+
+void goby::acomms::EvologicsDriver::set_keep_online_count(int count)
+{
+    AtType msg;
+    msg.command = "!KO" + std::to_string(count);
+
+    append_to_write_queue(msg);
+}
+
+void goby::acomms::EvologicsDriver::set_idle_timeout(int time)
+{
+    AtType msg;
+    msg.command = "!ZI" + std::to_string(time);
+
+    append_to_write_queue(msg);
+}
+
+void goby::acomms::EvologicsDriver::set_channel_protocol_id(int id)
+{
+    AtType msg;
+    msg.command = "!ZS" + std::to_string(id);
+
+    append_to_write_queue(msg);
+}
+
+void goby::acomms::EvologicsDriver::set_sound_speed(int speed)
+{
+    AtType msg;
+    msg.command = "!CA" + std::to_string(speed);
 
     append_to_write_queue(msg);
 }

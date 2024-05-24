@@ -1,7 +1,11 @@
 <?xml version="1.0"?>
 
 <launch>
+  <arg name="goby_config" default="$(find alpha_acomms)/config/goby.yaml"/>
+  <arg name="driver_config" default="$(find alpha_acomms)/config/evologics.yaml"/>
 
-  <node pkg="alpha_acomms" type="alpha_topside_node" name="alpha_topside_node" output="screen"> </node>
-
+  <node pkg="alpha_acomms" type="alpha_topside_node" name="alpha_topside_node" output="screen">
+    <rosparam command="load" file="$(arg goby_config)"/>
+    <rosparam command="load" file="$(arg driver_config)"/>
+  </node>
 </launch>

@@ -1,0 +1,21 @@
+
+goby:
+  driver: "evologics"
+  max_frame_bytes: 500
+  mac_slot_time: 5
+
+  
+  dynamic_buffer:
+    #select the messages to load to the dynamic buffer
+    messages: ["example"]
+
+    #buffer configuration (https://goby.software/3.0/md_doc101_acomms-queue.html)
+    example:
+      ack: false
+      blackout_time: 0
+      max_queue: 0
+      newest_first: true 
+      ttl: 1800
+      value_base: 1
+
+

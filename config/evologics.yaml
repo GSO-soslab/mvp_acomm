@@ -1,21 +1,19 @@
-##################################################################
-######################## Interface ###############################
-##################################################################
-Interface:
-
-  connection_type: "tcp"
-
-  tcp_address: "192.168.2.108"
-  tcp_port: 9200
-
-  device: /dev/ttyUSB0
-  baudrate: 115200
 
 ###################################################################
 ###################### Configuration ##############################
 ###################################################################
 
-USBL_Configuration:
+usbl_configuration:
+
+  interface:
+
+    connection_type: "tcp"
+
+    tcp_address: "192.168.2.109"
+    tcp_port: 9200
+
+    device: /dev/ttyUSB0
+    baudrate: 115200
 
   # Note: Transducer Source Level (0 = Maximum, 1 = -6dB, 2 = -12dB, 3 = -20dB)
   source_level: 3
@@ -64,7 +62,17 @@ USBL_Configuration:
   #Note: Sound Speed (1300-1700m/s) The sound speed used to evaluate the range to the remote device
   sound_speed: 1500
 
-Modem_Configuration:
+modem_configuration:
+
+  interface:
+
+    connection_type: "tcp"
+
+    tcp_address: "192.168.2.108"
+    tcp_port: 9200
+
+    device: /dev/ttyUSB0
+    baudrate: 115200
 
   # Note: Transducer Source Level (0 = Maximum, 1 = -6dB, 2 = -12dB, 3 = -20dB)
   source_level: 3
