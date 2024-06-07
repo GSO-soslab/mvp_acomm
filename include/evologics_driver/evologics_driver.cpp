@@ -303,7 +303,7 @@ void goby::acomms::EvologicsDriver::process_at_receive(const std::string& in)
         receive_msg_.add_frame(parse.fields[i]);
     }
 
-    signal_receive_and_clear(&receive_msg_);
+    // signal_receive_and_clear(&receive_msg_);
 }
 
 void goby::acomms::EvologicsDriver::process_receive(const std::string& s)
@@ -313,7 +313,7 @@ void goby::acomms::EvologicsDriver::process_receive(const std::string& s)
 
     signal_raw_incoming(raw_msg);
 
-    receive_msg_.add_frame(hex_decode(s));
+    receive_msg_.add_frame(s);
 
     signal_receive_and_clear(&receive_msg_);
     

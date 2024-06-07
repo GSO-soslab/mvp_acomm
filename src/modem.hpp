@@ -154,6 +154,8 @@ private:
     ros::Timer timer;
 
     Config config_;
+
+    goby::acomms::DCCLCodec* dccl_ = goby::acomms::DCCLCodec::get();
     
 
 

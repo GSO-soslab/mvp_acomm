@@ -69,7 +69,15 @@ void USBL::loop()
     pose_cmd.set_destination(config_.remote_address);
     pose_cmd.set_time(ros::Time::now().toSec());
 
-    buffer_.push({config_.remote_address, "pose_command" , goby::time::SteadyClock::now(), goby::util::hex_encode(pose_cmd.SerializeAsString())});
+    goby::acomms::DCCLCodec* dccl = goby::acomms::DCCLCodec::get();
+
+    dccl->validate<PoseCommand>();
+
+    std::string bytes;
+
+    dccl->encode(&bytes, pose_cmd);
+
+    buffer_.push({config_.remote_address, "pose_command" , goby::time::SteadyClock::now(), bytes});
   
 
 
@@ -78,7 +86,7 @@ void USBL::loop()
     {
         if(i>200)
         {
-            buffer_.push({config_.remote_address, "pose_command", goby::time::SteadyClock::now(), goby::util::hex_encode(pose_cmd.SerializeAsString())});
+            buffer_.push({config_.remote_address, "pose_command", goby::time::SteadyClock::now(), bytes});
             i=0;
         }
 

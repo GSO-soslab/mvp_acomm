@@ -68,7 +68,7 @@ void Modem::loop()
     pose_cmd.set_destination(config_.remote_address);
     pose_cmd.set_time(ros::Time::now().toSec());
 
-    buffer_.push({config_.remote_address, "pose_command" , goby::time::SteadyClock::now(), goby::util::hex_encode(pose_cmd.SerializeAsString())});
+    buffer_.push({config_.remote_address, "pose_command" , goby::time::SteadyClock::now(), pose_cmd.SerializeAsString()});
   
 
 
@@ -77,7 +77,7 @@ void Modem::loop()
     {
         if(i>200)
         {
-            buffer_.push({config_.remote_address, "pose_command", goby::time::SteadyClock::now(), goby::util::hex_encode(pose_cmd.SerializeAsString())});
+            buffer_.push({config_.remote_address, "pose_command", goby::time::SteadyClock::now(), pose_cmd.SerializeAsString()});
             i=0;
         }
 
@@ -150,6 +150,8 @@ void Modem::load_goby()
 
     // connect the outgoing data request signal from the driver to the modem slot
     goby::acomms::connect(&evo_driver.signal_data_request, this, &Modem::data_request);
+
+    dccl_->validate<PoseCommand>();
 
     //Initiate modem driver
     goby::acomms::protobuf::DriverConfig driver_cfg;
@@ -312,8 +314,27 @@ void Modem::data_request(goby::acomms::protobuf::ModemTransmission* msg)
  */
 void Modem::received_data(const goby::acomms::protobuf::ModemTransmission& data_msg)
 {
-    std::string msg_type =  data_msg.GetTypeName();
-    printf("Received %s: %s\n", msg_type.c_str(), data_msg.ShortDebugString().c_str());
+    PoseCommand pose_cmd;
+    PowerCommand power_cmd;
+
+    pose_cmd.
+
+
+    switch(dccl_->id_from_encoded(data_msg.frame()[0]))
+    {
+        case:
+            
+
+            break;
+
+        default:
+            printf("hey there\n");
+
+
+    }
+    dccl_->decode(data_msg.frame()[0], &pose_cmd);
+
+    printf("test: %s\n", pose_cmd.ShortDebugString().c_str());
 
 }
 
