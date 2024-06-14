@@ -296,12 +296,12 @@ void goby::acomms::EvologicsDriver::process_at_receive(const std::string& in)
 
     AtType parse = at_sentence.decode(in);
 
-    receive_msg_.add_frame(parse.command);
+    // receive_msg_.add_frame(parse.command);
 
-    for(int i =0; i<parse.fields.size(); i++)
-    {
-        receive_msg_.add_frame(parse.fields[i]);
-    }
+    // for(int i =0; i<parse.fields.size(); i++)
+    // {
+    //     receive_msg_.add_frame(parse.fields[i]);
+    // }
 
     // signal_receive_and_clear(&receive_msg_);
 }
@@ -313,7 +313,7 @@ void goby::acomms::EvologicsDriver::process_receive(const std::string& s)
 
     signal_raw_incoming(raw_msg);
 
-    receive_msg_.add_frame(s);
+    receive_msg_.add_frame(hex_decode(s));
 
     signal_receive_and_clear(&receive_msg_);
     
@@ -390,7 +390,7 @@ void goby::acomms::EvologicsDriver::data_transmission(protobuf::ModemTransmissio
 
     if (!(msg->frame_size() == 0 || msg->frame(0).empty()))
     {
-        std::string outgoing = msg->frame(0)+"\r";
+        std::string outgoing = hex_encode(msg->frame(0))+"\r";
 
         evologics_write(outgoing);
 

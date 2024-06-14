@@ -594,152 +594,10 @@ message HelmStateResponse {
     };
 }
 
-message SingleWaypointCommand {
+message WaypointCommand {
     option (dccl.msg) = {   
         codec_version: 4
         id: 7
-        max_bytes: 31 };
-
-    required int32 source = 1 [(dccl.field) = {
-        min: 0
-        max: 15
-        precision: 0
-    }];
-
-    required int32 destination = 2 [(dccl.field) = {
-        min: 0
-        max: 15
-        precision: 0
-    }];
-
-    //time since epoch (including miliseconds)
-    //max time is Jan 1 2030, please update future soslab member
-    optional double time = 3 [(dccl.field) = {
-        min:  1672531200
-        max:  1893456000
-        precision: 3
-    }];
-
-    required WaypointMode waypoint_mode = 4;
-
-    //global waypoint
-    optional double latitude = 5 [(dccl.field) = {
-        min: 40.491621
-        max: 42.491621
-        precision:6
-        dynamic_conditions {
-            only_if: "this.mode == 'COMMAND_LATLONG'"
-        }
-    }];
-
-    optional double longitude = 6 [(dccl.field) = {
-        min: -72.422134
-        max: -70.422134
-        precision: 6
-        dynamic_conditions {
-            only_if: "this.mode == 'COMMAND_LATLONG'"
-        }
-    }];
-    
-    //local waypoint
-    optional float x = 7 [(dccl.field) = {
-        min: -10000
-        max: 10000
-        precision: 1
-        dynamic_conditions {
-            only_if: "this.mode == 'COMMAND_XYZ'"
-        }
-    }];
-
-    optional float y = 8 [(dccl.field) = {
-        min: -10000
-        max: 10000
-        precision: 1
-        dynamic_conditions {
-            only_if: "this.mode == 'COMMAND_XYZ'"
-        }
-    }];
-
-    optional float z = 9 [(dccl.field) = {
-        min: 0
-        max: 100
-        precision: 3
-        dynamic_conditions {
-            only_if: "this.mode == 'COMMAND_XYZ'"
-        }
-    }];
-
-    enum WaypointMode 
-    {
-        QUERY=0;
-        COMMAND_LATLONG=1;
-        COMMAND_XYZ=2;
-    }
-}
-
-message SingleWaypointResponse {
-    option (dccl.msg) = {   
-        codec_version: 4
-        id: 107
-        max_bytes: 31 };
-
-    required int32 source = 1 [(dccl.field) = {
-        min: 0
-        max: 15
-        precision: 0
-    }];
-
-    required int32 destination = 2 [(dccl.field) = {
-        min: 0
-        max: 15
-        precision: 0
-    }];
-
-    //time since epoch (including miliseconds)
-    //max time is Jan 1 2030, please update future soslab member
-    optional double time = 3 [(dccl.field) = {
-        min:  1672531200
-        max:  1893456000
-        precision: 3
-    }];
-
-    //global waypoint
-    required double latitude = 4 [(dccl.field) = {
-        min: 40.491621
-        max: 42.491621
-        precision:6
-    }];
-
-    required double longitude = 5 [(dccl.field) = {
-        min: -72.422134
-        max: -70.422134
-        precision: 6
-    }];
-    
-    //local waypoint
-    required float x = 6 [(dccl.field) = {
-        min: -10000
-        max: 10000
-        precision: 1
-    }];
-
-    required float y = 7 [(dccl.field) = {
-        min: -10000
-        max: 10000
-        precision: 1
-    }];
-
-    required float z = 8 [(dccl.field) = {
-        min: 0
-        max: 100
-        precision: 1
-    }];
-}
-
-message MultiWaypointGPSCommand {
-    option (dccl.msg) = {   
-        codec_version: 4
-        id: 8
         max_bytes: 31 };
 
     required int32 source = 1 [(dccl.field) = {
@@ -810,10 +668,10 @@ message MultiWaypointGPSCommand {
     }
 }
 
-message MultiWaypointGPSResponse {
+message MultiWaypointResponse {
     option (dccl.msg) = {   
         codec_version: 4
-        id: 108
+        id: 107
         max_bytes: 31 };
 
     required int32 source = 1 [(dccl.field) = {
@@ -864,7 +722,7 @@ message MultiWaypointGPSResponse {
     optional bool end = 8;
 }
 
-message MultiWaypointXYZCommand {
+message MultiWaypointCommand {
     option (dccl.msg) = {   
         codec_version: 4
         id: 9
@@ -942,65 +800,6 @@ message MultiWaypointXYZCommand {
         QUERY=0;
         COMMAND=1;
     }
-}
-
-
-message MultiWaypointXYZResponse {
-    option (dccl.msg) = {   
-        codec_version: 4
-        id: 109
-        max_bytes: 31 };
-
-    required int32 source = 1 [(dccl.field) = {
-        min: 0
-        max: 15
-        precision: 0
-    }];
-
-    required int32 destination = 2 [(dccl.field) = {
-        min: 0
-        max: 15
-        precision: 0
-    }];
-
-    //time since epoch (including miliseconds)
-    //max time is Jan 1 2030, please update future soslab member
-    optional double time = 3 [(dccl.field) = {
-        min:  1672531200
-        max:  1893456000
-        precision: 3
-    }];
-
-    repeated int32 wpt_num = 4 [(dccl.field) = {
-        min: 0,
-        max:  32,
-        precision: 0
-        max_repeat: 3
-    }];
-
-    //xyz waypoint
-    repeated float x = 5 [(dccl.field) = {
-        min: -10000
-        max: 10000
-        precision: 1
-        max_repeat: 3
-    }];
-
-    required float y = 6 [(dccl.field) = {
-        min: -10000
-        max: 10000
-        precision: 1
-        max_repeat: 3
-    }];
-
-    required float z = 7 [(dccl.field) = {
-        min: 0
-        max: 100
-        precision: 1
-        max_repeat: 3
-    }];
-
-    required bool end = 9;
 }
 
 message ExecuteWaypoints {

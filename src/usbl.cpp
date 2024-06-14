@@ -63,7 +63,7 @@ void USBL::loop()
     int i = 0;
 
 
-    PoseCommand pose_cmd;
+    PowerCommand pose_cmd;
 
     pose_cmd.set_source(config_.local_address);
     pose_cmd.set_destination(config_.remote_address);
@@ -71,22 +71,24 @@ void USBL::loop()
 
     goby::acomms::DCCLCodec* dccl = goby::acomms::DCCLCodec::get();
 
-    dccl->validate<PoseCommand>();
+    dccl->validate<PowerCommand>();
 
     std::string bytes;
 
     dccl->encode(&bytes, pose_cmd);
 
-    buffer_.push({config_.remote_address, "pose_command" , goby::time::SteadyClock::now(), bytes});
+
+
+    buffer_.push({config_.remote_address, "power_command" , goby::time::SteadyClock::now(), bytes});
   
 
 
     //loop at 10Hz 
     while(ros::ok())
     {
-        if(i>200)
+        if(i>50)
         {
-            buffer_.push({config_.remote_address, "pose_command", goby::time::SteadyClock::now(), bytes});
+            buffer_.push({config_.remote_address, "power_command", goby::time::SteadyClock::now(), bytes});
             i=0;
         }
 
@@ -311,6 +313,7 @@ void USBL::data_request(goby::acomms::protobuf::ModemTransmission* msg)
                 break;
             }
         }
+    
     }
 }
 

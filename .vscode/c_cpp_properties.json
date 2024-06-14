@@ -1,0 +1,29 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/jason_miller/alpha_devel/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/jason_miller/alpha_devel/src/alpha_acomms/include/**",
+        "/home/jason_miller/alpha_devel/src/alpha_core/alpha_driver/src/alpha_driver_uart/include/**",
+        "/home/jason_miller/alpha_devel/src/mvp_mission/behavior_interface/include/**",
+        "/home/jason_miller/alpha_devel/src/mvp_control/include/**",
+        "/home/jason_miller/alpha_devel/src/alpha_core/external/bluerobotics_ping360/ping360_sonar/include/**",
+        "/home/jason_miller/alpha_devel/src/alpha_core/external/power_monitor/include/**",
+        "/home/jason_miller/alpha_devel/src/stonefish_mvp/include/**",
+        "/home/jason_miller/alpha_devel/src/alpha_core/external/uno_lqe/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

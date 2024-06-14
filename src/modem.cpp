@@ -64,6 +64,8 @@ void Modem::loop()
 
     PoseCommand pose_cmd;
 
+    dccl_->validate<PoseCommand>();
+
     pose_cmd.set_source(config_.local_address);
     pose_cmd.set_destination(config_.remote_address);
     pose_cmd.set_time(ros::Time::now().toSec());
@@ -152,6 +154,7 @@ void Modem::load_goby()
     goby::acomms::connect(&evo_driver.signal_data_request, this, &Modem::data_request);
 
     dccl_->validate<PoseCommand>();
+    dccl_->validate<PowerCommand>();
 
     //Initiate modem driver
     goby::acomms::protobuf::DriverConfig driver_cfg;
@@ -314,27 +317,117 @@ void Modem::data_request(goby::acomms::protobuf::ModemTransmission* msg)
  */
 void Modem::received_data(const goby::acomms::protobuf::ModemTransmission& data_msg)
 {
-    PoseCommand pose_cmd;
-    PowerCommand power_cmd;
 
-    pose_cmd.
+    printf("Protobuf Test: %s, %s\n" , data_msg.DebugString().c_str(), data_msg.GetTypeName().c_str());
 
+    int dccl_id = dccl_->id_from_encoded(data_msg.frame()[0]);
+    std::string bytes;
 
-    switch(dccl_->id_from_encoded(data_msg.frame()[0]))
+    switch(dccl_id)
     {
-        case:
-            
+        case DcclIdMap::POSE_COMMAND_ID:
+        {
+            PoseCommand pose_cmd;
+            dccl_->decode(data_msg.frame()[0], &pose_cmd);
+
+            if(pose_cmd.destination() == config_.local_address)
+            {
+                
+                dccl_->encode(&bytes, pose_response_);
+                buffer_.push({config_.remote_address, "pose_response" , goby::time::SteadyClock::now(), bytes});    
+            }
 
             break;
+        }
+        case DcclIdMap::POWER_COMMAND_ID:
+        {
+            PowerCommand power_command;
+            dccl_->decode(data_msg.frame()[0], &power_command);
 
+            if(power_command.destination() == config_.local_address)
+            {
+                dccl_->encode(&bytes, power_response_);
+                buffer_.push({config_.remote_address, "power_response" , goby::time::SteadyClock::now(), bytes});  
+            }
+
+            break;
+        }
+        case DcclIdMap::RELATIVE_POSE_COMMAND_ID:
+        {
+            RelativePoseCommand rel_pose_cmd;
+            dccl_->decode(data_msg.frame()[0], &rel_pose_cmd);
+
+            if(rel_pose_cmd.destination() == config_.local_address)
+            {
+                //do something
+            }
+
+
+        }
+        case DcclIdMap::CONTROLLER_STATE_COMMAND_ID:
+        {
+            ControllerStateCommand controller_state_cmd;
+            dccl_->decode(data_msg.frame()[0], &controller_state_cmd);
+
+            if(controller_state_cmd.destination() == config_.local_address)
+            {
+                //do something
+            }
+
+
+        }
+        case DcclIdMap::DIRECT_CONTROL_COMMAND_ID:
+        {
+            DirectControlCommand direct_control_cmd;
+            dccl_->decode(data_msg.frame()[0], &direct_control_cmd);
+
+            if(direct_control_cmd.destination() == config_.local_address)
+            {
+                //do something
+            }
+
+
+        }
+        case DcclIdMap::HELM_STATE_COMMAND_ID:
+        {
+            HelmStateCommand helm_state_cmd;
+            dccl_->decode(data_msg.frame()[0], &helm_state_cmd);
+
+            if(helm_state_cmd.destination() == config_.local_address)
+            {
+                //do something
+            }
+
+
+        }
+        case DcclIdMap::WAYPOINT_COMMAND_ID:
+        {
+            WaypointCommand waypoint_cmd;
+            dccl_->decode(data_msg.frame()[0], &waypoint_cmd);
+
+            if(waypoint_cmd.destination() == config_.local_address)
+            {
+                //do something
+            }
+
+
+        }
+        case DcclIdMap::EXECUTE_WAYPOINTS_ID:
+        {
+            ControllerStateCommand execute_wpt;
+            dccl_->decode(data_msg.frame()[0], &execute_wpt);
+
+            if(execute_wpt.destination() == config_.local_address)
+            {
+                //do something
+            }
+
+
+        }
         default:
-            printf("hey there\n");
-
+            break;
 
     }
-    dccl_->decode(data_msg.frame()[0], &pose_cmd);
-
-    printf("test: %s\n", pose_cmd.ShortDebugString().c_str());
 
 }
 

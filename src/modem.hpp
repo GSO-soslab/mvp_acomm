@@ -31,16 +31,6 @@
 
 #include <nav_msgs/Odometry.h>
 #include <mvp_msgs/Power.h>
-#include <alpha_acomms/CommsPose.h>
-#include <alpha_acomms/CommsPower.h>
-#include <alpha_acomms/CommsRelativePose.h>
-#include <alpha_acomms/CommsControllerInfo.h>
-#include <alpha_acomms/CommsDirectControl.h>
-#include <alpha_acomms/CommsStateInfo.h>
-#include <alpha_acomms/CommsSingleWaypoint.h>
-#include <alpha_acomms/CommsMultiWaypointGPS.h>
-#include <alpha_acomms/CommsMultiWaypointXYZ.h>
-#include <alpha_acomms/CommsExecuteWaypoint.h>
 
 //goby includes
 #include <goby/acomms/connect.h>
@@ -71,6 +61,8 @@
 //driver includes
 #include "seatrac_driver.h"
 #include "evologics_driver.h"
+
+#include "common.h"
 
 class Modem{
 
@@ -147,7 +139,7 @@ private:
     void parse_goby_params();
     void parse_evologics_params();
     void data_request(goby::acomms::protobuf::ModemTransmission* msg);
-    void received_data(const goby::acomms::protobuf::ModemTransmission & message_in);
+    void received_data(const goby::acomms::protobuf::ModemTransmission& data_msg);
 
     goby::acomms::DynamicBuffer<std::string> buffer_;
 
@@ -157,6 +149,8 @@ private:
 
     goby::acomms::DCCLCodec* dccl_ = goby::acomms::DCCLCodec::get();
     
+    PoseResponse pose_response_;
+    PowerResponse power_response_;
 
 
 };
