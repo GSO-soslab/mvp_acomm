@@ -43,6 +43,8 @@ Modem::Modem()
 
     configure_modem();
 
+    init_ros();
+
     loop();
 
 }
@@ -53,6 +55,13 @@ Modem::Modem()
  */
 Modem::~Modem()
 {
+
+}
+
+void Modem::init_ros()
+{
+    m_odom_sub = m_nh->subscribe("odometry/geopose", 10, &Modem::geopose_callback, this);
+    m_power_sub = m_nh->subscribe("power_monitor/power", 10, &Modem::power_callback, this);
 
 }
 
@@ -318,8 +327,6 @@ void Modem::data_request(goby::acomms::protobuf::ModemTransmission* msg)
 void Modem::received_data(const goby::acomms::protobuf::ModemTransmission& data_msg)
 {
 
-    printf("Protobuf Test: %s, %s\n" , data_msg.DebugString().c_str(), data_msg.GetTypeName().c_str());
-
     int dccl_id = dccl_->id_from_encoded(data_msg.frame()[0]);
     std::string bytes;
 
@@ -430,6 +437,30 @@ void Modem::received_data(const goby::acomms::protobuf::ModemTransmission& data_
     }
 
 }
+
+void Modem::geopose_callback(const geographic_msgs::GeoPoseStampedConstPtr geopose_msg)
+{
+    pose_response_.set_source(config_.local_address);
+    pose_response_.set_destination(config_.remote_address);
+    pose_response_.set_time(geopose_msg->header.stamp.toSec());
+    pose_response_.set_latitude(geopose_msg->pose.position.latitude);
+    pose_response_.set_longitude(geopose_msg->pose.position.longitude);
+    pose_response_.set_altitude(geopose_msg->pose.position.altitude);
+    pose_response_.set_quat_x(geopose_msg->pose.orientation.x);
+    pose_response_.set_quat_y(geopose_msg->pose.orientation.y);
+    pose_response_.set_quat_z(geopose_msg->pose.orientation.z);
+    pose_response_.set_quat_z(geopose_msg->pose.orientation.z);
+}
+
+void Modem::power_callback(const mvp_msgs::PowerConstPtr power_msg)
+{
+    power_response_.set_source(config_.local_address);
+    power_response_.set_destination(config_.remote_address);
+    power_response_.set_time(power_msg->header.stamp.toSec());
+    power_response_.set_battery_voltage(power_msg->voltage);
+    power_response_.set_current(power_msg->current);
+}
+
 
 int main(int argc, char* argv[])
 {

@@ -69,45 +69,32 @@ message PoseResponse
         precision: 6
     }];
 
-    //nav solution from local robot localization
-    required float x = 6 [(dccl.field) = {
-        min: -10000
-        max: 10000
-        precision: 1
-    }];
-
-    required float y = 7 [(dccl.field) = {
-        min: -10000
-        max: 10000
-        precision: 1
-    }];
-
-    required float z = 8 [(dccl.field) = {
+    required float altitude = 6 [(dccl.field) = {
         min: -100
         max: 0
         precision: 1
     }];
     
     //quaternion rotation
-    required float quat_x = 9 [(dccl.field) = {
+    required float quat_x = 7 [(dccl.field) = {
         min: -1
         max: 1
         precision: 4
     }];
 
-    required float quat_y = 10 [(dccl.field) = {
+    required float quat_y = 8 [(dccl.field) = {
         max: 1
         min: -1
         precision: 4
     }];
 
-    required float quat_z = 11 [(dccl.field) = {
+    required float quat_z = 9 [(dccl.field) = {
         min: -1
         max: 1
         precision: 4
     }];
 
-    required float quat_w = 12 [(dccl.field) = {
+    required float quat_w = 10 [(dccl.field) = {
         min: -1
         max: 1
         precision: 4

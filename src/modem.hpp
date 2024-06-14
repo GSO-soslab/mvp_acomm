@@ -31,6 +31,7 @@
 
 #include <nav_msgs/Odometry.h>
 #include <mvp_msgs/Power.h>
+#include <geographic_msgs/GeoPoseStamped.h>
 
 //goby includes
 #include <goby/acomms/connect.h>
@@ -76,6 +77,9 @@ public:
 private:
     ros::NodeHandlePtr m_nh;
     ros::NodeHandlePtr m_pnh;
+
+    ros::Subscriber m_odom_sub;
+    ros::Subscriber m_power_sub;
 
     struct Interface
     {
@@ -132,6 +136,7 @@ private:
     goby::acomms::EvologicsDriver evo_driver;
     goby::acomms::MACManager mac;
 
+    void init_ros();
     void loop();
     void load_goby();
     void load_buffer();
@@ -140,6 +145,9 @@ private:
     void parse_evologics_params();
     void data_request(goby::acomms::protobuf::ModemTransmission* msg);
     void received_data(const goby::acomms::protobuf::ModemTransmission& data_msg);
+
+    void geopose_callback(const geographic_msgs::GeoPoseStampedConstPtr geopose_msg);
+    void power_callback(const mvp_msgs::PowerConstPtr power_msg);
 
     goby::acomms::DynamicBuffer<std::string> buffer_;
 
