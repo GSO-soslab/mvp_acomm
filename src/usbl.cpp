@@ -71,8 +71,6 @@ void USBL::loop()
         ros::spinOnce();
 
         rate.sleep();
-
-        i++;
     }
 
 }

@@ -73,37 +73,16 @@ void Modem::loop()
 {
     ros::Rate rate(10);
 
-    int i = 0;
-
-    PoseCommand pose_cmd;
-
-    dccl_->validate<PoseCommand>();
-
-    pose_cmd.set_source(config_.local_address);
-    pose_cmd.set_destination(config_.remote_address);
-    pose_cmd.set_time(ros::Time::now().toSec());
-
-    buffer_.push({config_.remote_address, "pose_command" , goby::time::SteadyClock::now(), pose_cmd.SerializeAsString()});
-  
-
 
     //loop at 10Hz 
     while(ros::ok())
     {
-        if(i>200)
-        {
-            buffer_.push({config_.remote_address, "pose_command", goby::time::SteadyClock::now(), pose_cmd.SerializeAsString()});
-            i=0;
-        }
-
         evo_driver.do_work();
         mac.do_work();
 
         ros::spinOnce();
 
         rate.sleep();
-
-        i++;
     }
 }
 
