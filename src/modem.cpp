@@ -43,7 +43,8 @@ Modem::Modem()
 
     configure_modem();
 
-    init_ros();
+    m_modem_tx = m_nh->subscribe("modem/tx", 10, &Modem::transmit_buffer, this);
+    m_modem_rx = m_nh->advertise<alpha_acomms::AcommsRx>("modem/rx", 10);
 
     loop();
 
@@ -56,17 +57,6 @@ Modem::Modem()
 Modem::~Modem()
 {
 
-}
-
-void Modem::init_ros()
-{
-    m_odom_sub = m_nh->subscribe("odometry/geopose", 10, &Modem::geopose_callback, this);
-    m_power_sub = m_nh->subscribe("power_monitor/power", 10, &Modem::power_callback, this);
-
-    m_controller_state_srv = m_nh->serviceClient<mvp_msgs::GetControlModes>("controller/get_state");
-    m_helm_get_state_srv = m_nh->serviceClient<mvp_msgs::GetState>("helm/get_state");
-    m_helm_get_states_srv = m_nh->serviceClient<mvp_msgs::GetStates>("helm/get_states");
-    m_helm_change_state_srv = m_nh->serviceClient<mvp_msgs::ChangeState>("helm/change_state");
 }
 
 void Modem::loop()
@@ -302,6 +292,20 @@ void Modem::data_request(goby::acomms::protobuf::ModemTransmission* msg)
     }
 }
 
+void Modem::transmit_buffer(const alpha_acomms::AcommsTx msg)
+{
+
+    if(dynamic_buffer_config_.find(msg.subbuffer_id) != dynamic_buffer_config_.end())
+    {
+        buffer_.push({config_.remote_address, msg.subbuffer_id , goby::time::SteadyClock::now(), msg.data});    
+    }
+    else
+    {
+        ROS_INFO("Subbuffer ID: %s has not been added to the configuratiron file goby.yaml\n", msg.subbuffer_id.data());
+    }
+
+}
+
 /**
  * @brief the slot that is called back from the driver when a new message is received.
  * 
@@ -309,200 +313,12 @@ void Modem::data_request(goby::acomms::protobuf::ModemTransmission* msg)
  */
 void Modem::received_data(const goby::acomms::protobuf::ModemTransmission& data_msg)
 {
+    alpha_acomms::AcommsRx msg;
 
-    int dccl_id = dccl_->id_from_encoded(data_msg.frame()[0]);
-    std::string bytes;
+    msg.data = data_msg.frame()[0];
 
-    switch(dccl_id)
-    {
-        case DcclIdMap::POSE_COMMAND_ID:
-        {
-            PoseCommand pose_cmd;
-            dccl_->decode(data_msg.frame()[0], &pose_cmd);
-
-            if(pose_cmd.destination() == config_.local_address)
-            {
-
-                dccl_->encode(&bytes, pose_response_);
-                buffer_.push({config_.remote_address, "pose_response" , goby::time::SteadyClock::now(), bytes});    
-            }
-
-            break;
-        }
-        case DcclIdMap::POWER_COMMAND_ID:
-        {
-            PowerCommand power_command;
-            dccl_->decode(data_msg.frame()[0], &power_command);
-
-            if(power_command.destination() == config_.local_address)
-            {
-                dccl_->encode(&bytes, power_response_);
-                buffer_.push({config_.remote_address, "power_response" , goby::time::SteadyClock::now(), bytes});  
-            }
-
-            break;
-        }
-        case DcclIdMap::RELATIVE_POSE_COMMAND_ID:
-        {
-            RelativePoseCommand rel_pose_cmd;
-            dccl_->decode(data_msg.frame()[0], &rel_pose_cmd);
-
-            if(rel_pose_cmd.destination() == config_.local_address)
-            {
-                //do something
-            }
-
-
-        }
-        case DcclIdMap::CONTROLLER_STATE_COMMAND_ID:
-        {
-            ControllerStateCommand controller_state_cmd;
-            dccl_->decode(data_msg.frame()[0], &controller_state_cmd);
-
-            if(controller_state_cmd.destination() == config_.local_address)
-            {
-                if(controller_state_cmd.mode() == ControllerStateCommand_Mode_COMMAND)
-                {
-
-                }
-                else if(controller_state_cmd.mode() == ControllerStateCommand_Mode_QUERY)
-                {
-                    mvp_msgs::GetControlModes srv;
-                    m_controller_state_srv.call(srv);
-
-                    ControllerStateResponse controller_state_resp;
-
-                    if(!srv.response.modes.empty())
-
-                    
-                        controller_state_resp.set_destination(config_.remote_address);
-                        controller_state_resp.set_source(config_.local_address);
-                        controller_state_resp.set_time(ros::Time::now().toSec());
-
-                }
-
-                
-                
-            }
-
-
-        }
-        case DcclIdMap::DIRECT_CONTROL_COMMAND_ID:
-        {
-            DirectControlCommand direct_control_cmd;
-            dccl_->decode(data_msg.frame()[0], &direct_control_cmd);
-
-            if(direct_control_cmd.destination() == config_.local_address)
-            {
-                //do something
-            }
-
-
-        }
-        case DcclIdMap::HELM_STATE_COMMAND_ID:
-        {
-            HelmStateCommand helm_state_cmd;
-            dccl_->decode(data_msg.frame()[0], &helm_state_cmd);
-
-            if(helm_state_cmd.destination() == config_.local_address)
-            {
-                if(helm_state_cmd.mode() == HelmStateCommand_Mode_QUERY)
-                {
-                    mvp_msgs::GetState srv;
-                    m_helm_get_state_srv.call(srv);
-
-                    HelmStateResponse helm_state_resp;
-                    helm_state_resp.set_source(config_.local_address);
-                    helm_state_resp.set_destination(config_.remote_address);
-                    helm_state_resp.set_time(ros::Time::now().toSec());
-
-                    HelmStateResponse_HelmState state;
-
-                    if(srv.response.state.mode == "kill"){state = HelmStateResponse_HelmState_KILL;}
-                    else if(srv.response.state.mode == "start"){state = HelmStateResponse_HelmState_START;}
-                    else if(srv.response.state.mode == "survey_local"){state = HelmStateResponse_HelmState_SURVEY_LOCAL;}
-                    else if(srv.response.state.mode == "survey_global"){state = HelmStateResponse_HelmState_SURVEY_GLOBAL;}
-                    else if(srv.response.state.mode == "survey_3d"){state = HelmStateResponse_HelmState_SURVEY_3D;}
-                    else if(srv.response.state.mode == "direct_control"){state = HelmStateResponse_HelmState_DIRECT_CONTROL;}
-
-                    helm_state_resp.set_helm_state(state);
-
-                    dccl_->encode(&bytes, helm_state_resp);
-                    buffer_.push({config_.remote_address, "helm_state_response" , goby::time::SteadyClock::now(), bytes});  
-
-                }
-                else if(helm_state_cmd.mode() == HelmStateCommand_Mode_COMMAND)
-                {
-                    mvp_msgs::ChangeState srv;
-                    
-                    if(helm_state_cmd.state() == HelmStateCommand_HelmState_KILL){srv.request.state = "kill";}
-                    else if(helm_state_cmd.state() == HelmStateCommand_HelmState_START){srv.request.state = "start";}
-                    else if(helm_state_cmd.state() == HelmStateCommand_HelmState_SURVEY_LOCAL){srv.request.state = "survey_local";}
-                    else if(helm_state_cmd.state() == HelmStateCommand_HelmState_SURVEY_GLOBAL){srv.request.state = "survey_global";}
-                    else if(helm_state_cmd.state() == HelmStateCommand_HelmState_SURVEY_3D){srv.request.state = "survey_3d";}
-                    else if(helm_state_cmd.state() == HelmStateCommand_HelmState_DIRECT_CONTROL){srv.request.state = "direct_control";}
-
-                    m_helm_change_state_srv.call(srv);
-                }
-            }
-
-
-        }
-        case DcclIdMap::WAYPOINT_COMMAND_ID:
-        {
-            WaypointCommand waypoint_cmd;
-            dccl_->decode(data_msg.frame()[0], &waypoint_cmd);
-
-            if(waypoint_cmd.destination() == config_.local_address)
-            {
-                //do something
-            }
-
-
-        }
-        case DcclIdMap::EXECUTE_WAYPOINTS_ID:
-        {
-            ControllerStateCommand execute_wpt;
-            dccl_->decode(data_msg.frame()[0], &execute_wpt);
-
-            if(execute_wpt.destination() == config_.local_address)
-            {
-                //do something
-            }
-
-
-        }
-        default:
-            break;
-
-    }
-
+    m_modem_rx.publish(msg);
 }
-
-void Modem::geopose_callback(const geographic_msgs::GeoPoseStampedConstPtr geopose_msg)
-{
-    pose_response_.set_source(config_.local_address);
-    pose_response_.set_destination(config_.remote_address);
-    pose_response_.set_time(geopose_msg->header.stamp.toSec());
-    pose_response_.set_latitude(geopose_msg->pose.position.latitude);
-    pose_response_.set_longitude(geopose_msg->pose.position.longitude);
-    pose_response_.set_altitude(geopose_msg->pose.position.altitude);
-    pose_response_.set_quat_x(geopose_msg->pose.orientation.x);
-    pose_response_.set_quat_y(geopose_msg->pose.orientation.y);
-    pose_response_.set_quat_z(geopose_msg->pose.orientation.z);
-    pose_response_.set_quat_z(geopose_msg->pose.orientation.z);
-}
-
-void Modem::power_callback(const mvp_msgs::PowerConstPtr power_msg)
-{
-    power_response_.set_source(config_.local_address);
-    power_response_.set_destination(config_.remote_address);
-    power_response_.set_time(power_msg->header.stamp.toSec());
-    power_response_.set_battery_voltage(power_msg->voltage);
-    //Current Monitor not implemented right now but required in the dccl msg.
-    power_response_.set_current(0);
-}
-
 
 int main(int argc, char* argv[])
 {

@@ -2,7 +2,7 @@
 <package format="2">
   <name>alpha_acomms</name>
   <version>0.0.0</version>
-  <description>The seatrac acoustic modem package</description>
+  <description>The acoustic communication package</description>
 
   <maintainer email="jason_miller@uri.edu">jason_miller</maintainer>
   <author email="jason_miller@uri.edu">jason_miller</author>
@@ -24,7 +24,6 @@
   <depend>proto</depend>
   <depend>goby</depend>
   <depend>dccl</depend>
-  <depend>seatrac_driver</depend>
   <depend>dynamic_reconfigure</depend>
 
   <export>

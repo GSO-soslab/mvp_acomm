@@ -31,16 +31,7 @@
 
 #include <nav_msgs/Odometry.h>
 #include <mvp_msgs/Power.h>
-#include <alpha_acomms/CommsPose.h>
-#include <alpha_acomms/CommsPower.h>
-#include <alpha_acomms/CommsRelativePose.h>
-#include <alpha_acomms/CommsControllerInfo.h>
-#include <alpha_acomms/CommsDirectControl.h>
-#include <alpha_acomms/CommsStateInfo.h>
-#include <alpha_acomms/CommsSingleWaypoint.h>
-#include <alpha_acomms/CommsMultiWaypointGPS.h>
-#include <alpha_acomms/CommsMultiWaypointXYZ.h>
-#include <alpha_acomms/CommsExecuteWaypoint.h>
+
 
 //goby includes
 #include <goby/acomms/connect.h>

@@ -37,6 +37,8 @@
 #include <mvp_msgs/GetStates.h>
 #include <mvp_msgs/ChangeState.h>
 
+#include <alpha_acomms/AcommsRx.h>
+#include <alpha_acomms/AcommsTx.h>
 
 #include <geographic_msgs/GeoPoseStamped.h>
 
@@ -84,6 +86,9 @@ public:
 private:
     ros::NodeHandlePtr m_nh;
     ros::NodeHandlePtr m_pnh;
+
+    ros::Subscriber m_modem_tx;
+    ros::Publisher m_modem_rx;
 
     ros::Subscriber m_odom_sub;
     ros::Subscriber m_power_sub;
@@ -155,7 +160,8 @@ private:
     void parse_goby_params();
     void parse_evologics_params();
     void data_request(goby::acomms::protobuf::ModemTransmission* msg);
-    void received_data(const goby::acomms::protobuf::ModemTransmission& data_msg);
+    void transmit_buffer(const alpha_acomms::AcommsTx msg);
+    void received_data(const goby::acomms::protobuf::ModemTransmission &data_msg);
 
     void geopose_callback(const geographic_msgs::GeoPoseStampedConstPtr geopose_msg);
     void power_callback(const mvp_msgs::PowerConstPtr power_msg);

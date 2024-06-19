@@ -22,6 +22,17 @@ find_package(catkin REQUIRED COMPONENTS
   serial
 )
 
+add_message_files(
+  FILES
+  AcommsTx.msg
+  AcommsRx.msg
+)
+
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
+
 find_package(Protobuf REQUIRED)
 
 find_package(goby 3.1 REQUIRED)
@@ -47,29 +58,10 @@ include_directories( ${CMAKE_BINARY_DIR} )
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 
-
-
-file(GLOB SRV_FILES ${PROJECT_SOURCE_DIR}/**/*.srv)
-
-foreach(I IN ITEMS ${SRV_FILES})
-  get_filename_component(ITEM_NAME ${I} NAME)
-  add_service_files(FILES ${ITEM_NAME})
-endforeach()
-
-generate_messages(
-  DEPENDENCIES
-    dynamic_reconfigure
-    mvp_msgs
-)
-
-generate_dynamic_reconfigure_options(
-  ${CFG_FILES}
-)
-
 catkin_package(
   # INCLUDE_DIRS 
   # LIBRARIES
-  CATKIN_DEPENDS roscpp std_msgs std_srvs nav_msgs geometry_msgs geographic_msgs mvp_msgs dynamic_reconfigure
+  CATKIN_DEPENDS roscpp std_msgs std_srvs nav_msgs geometry_msgs geographic_msgs mvp_msgs 
   # DEPENDS
 )
 
