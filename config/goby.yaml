@@ -7,7 +7,7 @@ goby:
   
   dynamic_buffer:
     #select the messages to load to the dynamic buffer
-    messages: ["example", "pose_command", "power_command"]
+    messages: ["pose_command", "pose_response", "power_command", "power_response"]
 
     #buffer configuration (https://goby.software/3.0/md_doc101_acomms-queue.html)
     example:
@@ -26,7 +26,23 @@ goby:
       ttl: 1800
       value_base: 1
 
+    pose_response:
+      ack: false
+      blackout_time: 0
+      max_queue: 1
+      newest_first: true 
+      ttl: 1800
+      value_base: 1
+
     power_command:
+      ack: false
+      blackout_time: 0
+      max_queue: 1
+      newest_first: true 
+      ttl: 1800
+      value_base: 1
+
+    power_response:
       ack: false
       blackout_time: 0
       max_queue: 1

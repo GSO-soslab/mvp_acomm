@@ -60,37 +60,10 @@ void USBL::loop()
 {
     ros::Rate rate(10);
 
-    int i = 0;
-
-
-    PowerCommand pose_cmd;
-
-    pose_cmd.set_source(config_.local_address);
-    pose_cmd.set_destination(config_.remote_address);
-    pose_cmd.set_time(ros::Time::now().toSec());
-
-    goby::acomms::DCCLCodec* dccl = goby::acomms::DCCLCodec::get();
-
-    dccl->validate<PowerCommand>();
-
-    std::string bytes;
-
-    dccl->encode(&bytes, pose_cmd);
-
-
-
-    buffer_.push({config_.remote_address, "power_command" , goby::time::SteadyClock::now(), bytes});
-  
-
 
     //loop at 10Hz 
     while(ros::ok())
     {
-        if(i>50)
-        {
-            buffer_.push({config_.remote_address, "power_command", goby::time::SteadyClock::now(), bytes});
-            i=0;
-        }
 
         evo_driver.do_work();
         mac.do_work();
@@ -322,13 +295,116 @@ void USBL::data_request(goby::acomms::protobuf::ModemTransmission* msg)
  * 
  * @param data_msg the incoming message
  */
-void USBL::received_data(const google::protobuf::Message& data_msg)
+void USBL::received_data(const goby::acomms::protobuf::ModemTransmission& data_msg)
 {
-    std::string msg_type =  data_msg.GetTypeName();
-    // printf("Received %s: %s\n", msg_type.c_str(), data_msg.ShortDebugString().c_str());
+
+    int dccl_id = dccl_->id_from_encoded(data_msg.frame()[0]);
+    std::string bytes;
+
+    switch(dccl_id)
+    {
+        case DcclIdMap::POSE_COMMAND_ID:
+        {
+            PoseCommand pose_cmd;
+            dccl_->decode(data_msg.frame()[0], &pose_cmd);
+
+            if(pose_cmd.destination() == config_.local_address)
+            {
+
+            }
+
+            break;
+        }
+        case DcclIdMap::POWER_COMMAND_ID:
+        {
+            PowerCommand power_command;
+            dccl_->decode(data_msg.frame()[0], &power_command);
+
+            if(power_command.destination() == config_.local_address)
+            {
+ 
+            }
+
+            break;
+        }
+        case DcclIdMap::RELATIVE_POSE_COMMAND_ID:
+        {
+            RelativePoseCommand rel_pose_cmd;
+            dccl_->decode(data_msg.frame()[0], &rel_pose_cmd);
+
+            if(rel_pose_cmd.destination() == config_.local_address)
+            {
+                //do something
+            }
+
+
+        }
+        case DcclIdMap::CONTROLLER_STATE_COMMAND_ID:
+        {
+            ControllerStateCommand controller_state_cmd;
+            dccl_->decode(data_msg.frame()[0], &controller_state_cmd);
+
+            if(controller_state_cmd.destination() == config_.local_address)
+            {   
+                
+            }
+
+
+        }
+        case DcclIdMap::DIRECT_CONTROL_COMMAND_ID:
+        {
+            DirectControlCommand direct_control_cmd;
+            dccl_->decode(data_msg.frame()[0], &direct_control_cmd);
+
+            if(direct_control_cmd.destination() == config_.local_address)
+            {
+
+            }
+
+
+        }
+        case DcclIdMap::HELM_STATE_COMMAND_ID:
+        {
+            HelmStateCommand helm_state_cmd;
+            dccl_->decode(data_msg.frame()[0], &helm_state_cmd);
+
+            if(helm_state_cmd.destination() == config_.local_address)
+            {
+
+            }
+
+
+        }
+        case DcclIdMap::WAYPOINT_COMMAND_ID:
+        {
+            WaypointCommand waypoint_cmd;
+            dccl_->decode(data_msg.frame()[0], &waypoint_cmd);
+
+            if(waypoint_cmd.destination() == config_.local_address)
+            {
+                //do something
+            }
+
+
+        }
+        case DcclIdMap::EXECUTE_WAYPOINTS_ID:
+        {
+            ControllerStateCommand execute_wpt;
+            dccl_->decode(data_msg.frame()[0], &execute_wpt);
+
+            if(execute_wpt.destination() == config_.local_address)
+            {
+                //do something 
+            }
+
+
+        }
+        default:
+            break;
+
+    }
 
 }
-
 int main(int argc, char* argv[])
 {
 

@@ -72,6 +72,8 @@
 #include "seatrac_driver.h"
 #include "evologics_driver.h"
 
+#include "common.h"
+
 class USBL{
 
 public:
@@ -147,9 +149,11 @@ private:
     void parse_goby_params();
     void parse_evologics_params();
     void data_request(goby::acomms::protobuf::ModemTransmission* msg);
-    void received_data(const google::protobuf::Message& message_in);
+    void received_data(const goby::acomms::protobuf::ModemTransmission &data_msg);
 
     goby::acomms::DynamicBuffer<std::string> buffer_;
+
+    goby::acomms::DCCLCodec* dccl_ = goby::acomms::DCCLCodec::get();
 
     ros::Timer timer;
 
