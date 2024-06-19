@@ -32,7 +32,10 @@
 #include <nav_msgs/Odometry.h>
 #include <mvp_msgs/Power.h>
 
-#include <mvp_msgs/GetControlMode.h>
+#include <mvp_msgs/GetControlModes.h>
+#include <mvp_msgs/GetState.h>
+#include <mvp_msgs/GetStates.h>
+#include <mvp_msgs/ChangeState.h>
 
 
 #include <geographic_msgs/GeoPoseStamped.h>
@@ -85,6 +88,9 @@ private:
     ros::Subscriber m_odom_sub;
     ros::Subscriber m_power_sub;
     ros::ServiceClient m_controller_state_srv;
+    ros::ServiceClient m_helm_get_state_srv;
+    ros::ServiceClient m_helm_get_states_srv;
+    ros::ServiceClient m_helm_change_state_srv;
 
     struct Interface
     {

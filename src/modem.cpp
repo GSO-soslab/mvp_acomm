@@ -63,8 +63,10 @@ void Modem::init_ros()
     m_odom_sub = m_nh->subscribe("odometry/geopose", 10, &Modem::geopose_callback, this);
     m_power_sub = m_nh->subscribe("power_monitor/power", 10, &Modem::power_callback, this);
 
-    m_controller_state_srv = m_nh->serviceClient<mvp_msgs::GetControlMode>("controller/get_state");
-
+    m_controller_state_srv = m_nh->serviceClient<mvp_msgs::GetControlModes>("controller/get_state");
+    m_helm_get_state_srv = m_nh->serviceClient<mvp_msgs::GetState>("helm/get_state");
+    m_helm_get_states_srv = m_nh->serviceClient<mvp_msgs::GetStates>("helm/get_states");
+    m_helm_change_state_srv = m_nh->serviceClient<mvp_msgs::ChangeState>("helm/change_state");
 }
 
 void Modem::loop()
@@ -386,14 +388,18 @@ void Modem::received_data(const goby::acomms::protobuf::ModemTransmission& data_
                 }
                 else if(controller_state_cmd.mode() == ControllerStateCommand_Mode_QUERY)
                 {
-                    mvp_msgs::GetControlMode srv;
+                    mvp_msgs::GetControlModes srv;
                     m_controller_state_srv.call(srv);
 
                     ControllerStateResponse controller_state_resp;
-                    controller_state_resp.set_destination(config_.remote_address);
-                    controller_state_resp.set_source(config_.local_address);
-                    controller_state_resp.set_time(ros::Time::now().toSec());
-                    controller_state_resp.set_state(srv.response.mode);
+
+                    if(!srv.response.modes.empty())
+
+                    
+                        controller_state_resp.set_destination(config_.remote_address);
+                        controller_state_resp.set_source(config_.local_address);
+                        controller_state_resp.set_time(ros::Time::now().toSec());
+
                 }
 
                 
@@ -421,7 +427,44 @@ void Modem::received_data(const goby::acomms::protobuf::ModemTransmission& data_
 
             if(helm_state_cmd.destination() == config_.local_address)
             {
-                //do something
+                if(helm_state_cmd.mode() == HelmStateCommand_Mode_QUERY)
+                {
+                    mvp_msgs::GetState srv;
+                    m_helm_get_state_srv.call(srv);
+
+                    HelmStateResponse helm_state_resp;
+                    helm_state_resp.set_source(config_.local_address);
+                    helm_state_resp.set_destination(config_.remote_address);
+                    helm_state_resp.set_time(ros::Time::now().toSec());
+
+                    HelmStateResponse_HelmState state;
+
+                    if(srv.response.state.mode == "kill"){state = HelmStateResponse_HelmState_KILL;}
+                    else if(srv.response.state.mode == "start"){state = HelmStateResponse_HelmState_START;}
+                    else if(srv.response.state.mode == "survey_local"){state = HelmStateResponse_HelmState_SURVEY_LOCAL;}
+                    else if(srv.response.state.mode == "survey_global"){state = HelmStateResponse_HelmState_SURVEY_GLOBAL;}
+                    else if(srv.response.state.mode == "survey_3d"){state = HelmStateResponse_HelmState_SURVEY_3D;}
+                    else if(srv.response.state.mode == "direct_control"){state = HelmStateResponse_HelmState_DIRECT_CONTROL;}
+
+                    helm_state_resp.set_helm_state(state);
+
+                    dccl_->encode(&bytes, helm_state_resp);
+                    buffer_.push({config_.remote_address, "helm_state_response" , goby::time::SteadyClock::now(), bytes});  
+
+                }
+                else if(helm_state_cmd.mode() == HelmStateCommand_Mode_COMMAND)
+                {
+                    mvp_msgs::ChangeState srv;
+                    
+                    if(helm_state_cmd.state() == HelmStateCommand_HelmState_KILL){srv.request.state = "kill";}
+                    else if(helm_state_cmd.state() == HelmStateCommand_HelmState_START){srv.request.state = "start";}
+                    else if(helm_state_cmd.state() == HelmStateCommand_HelmState_SURVEY_LOCAL){srv.request.state = "survey_local";}
+                    else if(helm_state_cmd.state() == HelmStateCommand_HelmState_SURVEY_GLOBAL){srv.request.state = "survey_global";}
+                    else if(helm_state_cmd.state() == HelmStateCommand_HelmState_SURVEY_3D){srv.request.state = "survey_3d";}
+                    else if(helm_state_cmd.state() == HelmStateCommand_HelmState_DIRECT_CONTROL){srv.request.state = "direct_control";}
+
+                    m_helm_change_state_srv.call(srv);
+                }
             }
 
 
