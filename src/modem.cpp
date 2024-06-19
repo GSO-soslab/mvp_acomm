@@ -63,6 +63,8 @@ void Modem::init_ros()
     m_odom_sub = m_nh->subscribe("odometry/geopose", 10, &Modem::geopose_callback, this);
     m_power_sub = m_nh->subscribe("power_monitor/power", 10, &Modem::power_callback, this);
 
+    m_controller_state_srv = m_nh->serviceClient<mvp_msgs::GetControlMode>("controller/get_state");
+
 }
 
 void Modem::loop()
@@ -339,7 +341,7 @@ void Modem::received_data(const goby::acomms::protobuf::ModemTransmission& data_
 
             if(pose_cmd.destination() == config_.local_address)
             {
-                
+
                 dccl_->encode(&bytes, pose_response_);
                 buffer_.push({config_.remote_address, "pose_response" , goby::time::SteadyClock::now(), bytes});    
             }
@@ -378,7 +380,24 @@ void Modem::received_data(const goby::acomms::protobuf::ModemTransmission& data_
 
             if(controller_state_cmd.destination() == config_.local_address)
             {
-                //do something
+                if(controller_state_cmd.mode() == ControllerStateCommand_Mode_COMMAND)
+                {
+
+                }
+                else if(controller_state_cmd.mode() == ControllerStateCommand_Mode_QUERY)
+                {
+                    mvp_msgs::GetControlMode srv;
+                    m_controller_state_srv.call(srv);
+
+                    ControllerStateResponse controller_state_resp;
+                    controller_state_resp.set_destination(config_.remote_address);
+                    controller_state_resp.set_source(config_.local_address);
+                    controller_state_resp.set_time(ros::Time::now().toSec());
+                    controller_state_resp.set_state(srv.response.mode);
+                }
+
+                
+                
             }
 
 
@@ -458,7 +477,8 @@ void Modem::power_callback(const mvp_msgs::PowerConstPtr power_msg)
     power_response_.set_destination(config_.remote_address);
     power_response_.set_time(power_msg->header.stamp.toSec());
     power_response_.set_battery_voltage(power_msg->voltage);
-    power_response_.set_current(power_msg->current);
+    //Current Monitor not implemented right now but required in the dccl msg.
+    power_response_.set_current(0);
 }
 
 

@@ -31,6 +31,10 @@
 
 #include <nav_msgs/Odometry.h>
 #include <mvp_msgs/Power.h>
+
+#include <mvp_msgs/GetControlMode.h>
+
+
 #include <geographic_msgs/GeoPoseStamped.h>
 
 //goby includes
@@ -80,6 +84,7 @@ private:
 
     ros::Subscriber m_odom_sub;
     ros::Subscriber m_power_sub;
+    ros::ServiceClient m_controller_state_srv;
 
     struct Interface
     {
