@@ -296,15 +296,32 @@ void goby::acomms::EvologicsDriver::process_at_receive(const std::string& in)
 
     AtType parse = at_sentence.decode(in);
 
-    // receive_msg_.add_frame(parse.command);
+    if(parse.command == "USBLLONG")
+    {
+        UsbllongMsg usbl;
 
-    // for(int i =0; i<parse.fields.size(); i++)
-    // {
-    //     receive_msg_.add_frame(parse.fields[i]);
-    // }
+        usbl.current_time = std::stof(parse.fields[0]);
+        usbl.meas_time = std::stof(parse.fields[1]);
+        usbl.remote_address = std::stoi(parse.fields[2]);
+        usbl.pose.xyz.x = std::stof(parse.fields[3]);
+        usbl.pose.xyz.y = std::stof(parse.fields[4]);
+        usbl.pose.xyz.z = std::stof(parse.fields[5]);
+        usbl.pose.enu.e = std::stof(parse.fields[6]);
+        usbl.pose.enu.n = std::stof(parse.fields[7]);
+        usbl.pose.enu.u = std::stof(parse.fields[8]);
+        usbl.orientation.roll = std::stof(parse.fields[9]);
+        usbl.orientation.pitch = std::stof(parse.fields[10]);
+        usbl.orientation.yaw = std::stof(parse.fields[11]);
+        usbl.propogation_time = std::stof(parse.fields[12]);
+        usbl.rssi = std::stoi(parse.fields[13]);
+        usbl.integrity = std::stoi(parse.fields[14]);
+        usbl.accuracy = std::stof(parse.fields[15]);
 
-    // signal_receive_and_clear(&receive_msg_);
+        usbl_callback_(usbl);
+    }
+
 }
+    
 
 void goby::acomms::EvologicsDriver::process_receive(const std::string& s)
 {

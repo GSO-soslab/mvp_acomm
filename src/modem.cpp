@@ -37,7 +37,11 @@ Modem::Modem()
 
     parse_goby_params();
 
-    if(config_.driver == "evologics"){ parse_evologics_params(); };
+    if(config_.driver == "evologics")
+    { 
+        parse_evologics_params(); 
+        evo_driver.set_usbl_callback(std::bind(&Modem::EvologicsPositioningData, this, std::placeholders::_1));
+    };
 
     load_goby();
 
@@ -316,6 +320,16 @@ void Modem::received_data(const goby::acomms::protobuf::ModemTransmission& data_
 
     m_modem_rx.publish(msg);
 }
+
+void Modem::EvologicsPositioningData(UsbllongMsg msg)
+{
+
+    //Publish USBL Tracking
+
+
+
+}
+
 
 int main(int argc, char* argv[])
 {

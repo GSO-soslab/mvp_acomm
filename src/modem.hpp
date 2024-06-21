@@ -131,7 +131,6 @@ private:
         int sound_speed;
     };
 
-    goby::acomms::EvologicsDriver evo_driver;
     goby::acomms::MACManager mac;
 
     void loop();
@@ -143,6 +142,10 @@ private:
     void data_request(goby::acomms::protobuf::ModemTransmission* msg);
     void transmit_buffer(const alpha_acomms::AcommsTxConstPtr msg);
     void received_data(const goby::acomms::protobuf::ModemTransmission &data_msg);
+
+    void EvologicsPositioningData(UsbllongMsg msg);
+
+    goby::acomms::EvologicsDriver evo_driver;
 
     goby::acomms::DynamicBuffer<std::string> buffer_;
 

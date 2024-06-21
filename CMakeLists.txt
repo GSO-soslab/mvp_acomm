@@ -83,15 +83,8 @@ add_executable(${PROJECT_NAME}_node
   include/AT/ATsentence.cpp
 )
 
-add_executable(alpha_topside_node
-  src/usbl.cpp
-  include/seatrac_driver/seatrac_driver.cpp
-  include/evologics_driver/evologics_driver.cpp
-  include/AT/ATsentence.cpp
-)
 
 add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(alpha_topside_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 target_link_libraries(${PROJECT_NAME}_node
   ${catkin_LIBRARIES}
@@ -99,11 +92,3 @@ target_link_libraries(${PROJECT_NAME}_node
   goby
   dccl
 )
-
-target_link_libraries(alpha_topside_node
-  ${catkin_LIBRARIES}
-  proto
-  goby
-  dccl
-)
-

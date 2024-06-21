@@ -31,8 +31,13 @@ namespace acomms
 class EvologicsDriver : public ModemDriverBase
 {
   public:
+
+    typedef std::function<void(UsbllongMsg)> UsblCallback;
+    UsblCallback usbl_callback_;
+
     /// \brief Default constructor.
     EvologicsDriver();
+
     /// Destructor.
     ~EvologicsDriver() override;
 
@@ -84,40 +89,9 @@ class EvologicsDriver : public ModemDriverBase
 
     void set_sound_speed(int speed);
 
-    ATsentence at_sentence;
+    void set_usbl_callback(UsblCallback c) { usbl_callback_  = c;}
 
-  private:
-    enum SentenceIDs
-    {
-        SENTENCE_NOT_DEFINED = 0,
-        OK,
-        DELIVEREDIM,
-        RECVIM,
-        SENDSTART,
-        SENDEND,
-        RECVSTART,
-        RECVEND,
-        FAILEDIM,
-        CANCELLEDIM,
-        CANCELLEDIMS,
-        CANCELLEDPBM,
-        EXPIREDIMS,
-        BITRATE,
-        SRCLEVEL,
-        STATUS,
-        PHYON,
-        PHYOFF,
-        RECVFAILED,
-        RECVSRV,
-        RADDR,
-        USBLPHYP,
-        USBLPHYD,
-        USBLLONG,
-        USBLANGLES,
-        ERROR,
-        RECVPBM,
-        RECVIMS  
-    };
+    ATsentence at_sentence;
 
     // output
     void try_send(); // try to send another NMEA message to the modem
@@ -154,8 +128,6 @@ class EvologicsDriver : public ModemDriverBase
     // the base class sets some of our references (from the MOOS file)
     bool startup_done_{false};
 
-    std::map<std::string, SentenceIDs> sentence_id_map_;
-
     protobuf::ModemTransmission transmit_msg_;
     protobuf::ModemTransmission receive_msg_;
 
@@ -163,7 +135,6 @@ class EvologicsDriver : public ModemDriverBase
     // DCCL requires full memory barrier...
     static std::mutex dccl_mutex_;
 
-    
 };
 } // namespace acomms
 } // namespace goby
