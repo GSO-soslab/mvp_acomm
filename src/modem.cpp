@@ -135,9 +135,6 @@ void Modem::load_goby()
     // connect the outgoing data request signal from the driver to the modem slot
     goby::acomms::connect(&evo_driver.signal_data_request, this, &Modem::data_request);
 
-    dccl_->validate<PoseCommand>();
-    dccl_->validate<PowerCommand>();
-
     //Initiate modem driver
     goby::acomms::protobuf::DriverConfig driver_cfg;
 
@@ -292,16 +289,16 @@ void Modem::data_request(goby::acomms::protobuf::ModemTransmission* msg)
     }
 }
 
-void Modem::transmit_buffer(const alpha_acomms::AcommsTx msg)
+void Modem::transmit_buffer(const alpha_acomms::AcommsTxConstPtr msg)
 {
 
-    if(dynamic_buffer_config_.find(msg.subbuffer_id) != dynamic_buffer_config_.end())
+    if(dynamic_buffer_config_.find(msg->subbuffer_id) != dynamic_buffer_config_.end())
     {
-        buffer_.push({config_.remote_address, msg.subbuffer_id , goby::time::SteadyClock::now(), msg.data});    
+        buffer_.push({config_.remote_address, msg->subbuffer_id , goby::time::SteadyClock::now(), msg->data});    
     }
     else
     {
-        ROS_INFO("Subbuffer ID: %s has not been added to the configuratiron file goby.yaml\n", msg.subbuffer_id.data());
+        ROS_INFO("Subbuffer ID: %s has not been added to the configuratiron file goby.yaml\n", msg->subbuffer_id.data());
     }
 
 }

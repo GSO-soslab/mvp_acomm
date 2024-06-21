@@ -32,10 +32,6 @@
 #include <nav_msgs/Odometry.h>
 #include <mvp_msgs/Power.h>
 
-#include <mvp_msgs/GetControlModes.h>
-#include <mvp_msgs/GetState.h>
-#include <mvp_msgs/GetStates.h>
-#include <mvp_msgs/ChangeState.h>
 
 #include <alpha_acomms/AcommsRx.h>
 #include <alpha_acomms/AcommsTx.h>
@@ -52,15 +48,6 @@
 #include <goby/util/binary.h>
 #include <goby/util/debug_logger.h>
 
-#include <goby/middleware/group.h>
-#include <goby/middleware/application/thread.h>
-#include <goby/middleware/transport/interprocess.h>
-#include <goby/middleware/transport/interthread.h>
-#include <goby/middleware/protobuf/intervehicle.pb.h>
-#include <goby/middleware/protobuf/serializer_transporter.pb.h>
-#include <goby/middleware/protobuf/serializer_transporter.pb.h>
-#include <goby/middleware/marshalling/dccl.h>
-#include "goby/middleware/protobuf/intervehicle.pb.h"
 
 #include "goby/util/debug_logger/flex_ostream.h"         // for FlexOs...
 #include "goby/util/debug_logger/flex_ostreambuf.h"      // for DEBUG1
@@ -90,12 +77,7 @@ private:
     ros::Subscriber m_modem_tx;
     ros::Publisher m_modem_rx;
 
-    ros::Subscriber m_odom_sub;
-    ros::Subscriber m_power_sub;
-    ros::ServiceClient m_controller_state_srv;
-    ros::ServiceClient m_helm_get_state_srv;
-    ros::ServiceClient m_helm_get_states_srv;
-    ros::ServiceClient m_helm_change_state_srv;
+
 
     struct Interface
     {
@@ -152,7 +134,6 @@ private:
     goby::acomms::EvologicsDriver evo_driver;
     goby::acomms::MACManager mac;
 
-    void init_ros();
     void loop();
     void load_goby();
     void load_buffer();
@@ -160,11 +141,8 @@ private:
     void parse_goby_params();
     void parse_evologics_params();
     void data_request(goby::acomms::protobuf::ModemTransmission* msg);
-    void transmit_buffer(const alpha_acomms::AcommsTx msg);
+    void transmit_buffer(const alpha_acomms::AcommsTxConstPtr msg);
     void received_data(const goby::acomms::protobuf::ModemTransmission &data_msg);
-
-    void geopose_callback(const geographic_msgs::GeoPoseStampedConstPtr geopose_msg);
-    void power_callback(const mvp_msgs::PowerConstPtr power_msg);
 
     goby::acomms::DynamicBuffer<std::string> buffer_;
 
@@ -174,8 +152,7 @@ private:
 
     goby::acomms::DCCLCodec* dccl_ = goby::acomms::DCCLCodec::get();
     
-    PoseResponse pose_response_;
-    PowerResponse power_response_;
+
 
 
 };
