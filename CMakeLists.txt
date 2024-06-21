@@ -76,17 +76,29 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(${PROJECT_NAME}_node
+add_executable(modem_node
   src/modem.cpp
   include/seatrac_driver/seatrac_driver.cpp
   include/evologics_driver/evologics_driver.cpp
   include/AT/ATsentence.cpp
 )
 
+add_executable(alpha_acomms_node
+  src/alpha_acomms.cpp
+)
 
-add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
-target_link_libraries(${PROJECT_NAME}_node
+add_dependencies(modem_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(alpha_acomms_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+target_link_libraries(modem_node
+  ${catkin_LIBRARIES}
+  proto
+  goby
+  dccl
+)
+
+target_link_libraries(alpha_acomms_node
   ${catkin_LIBRARIES}
   proto
   goby

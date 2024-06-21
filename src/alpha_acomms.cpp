@@ -12,8 +12,6 @@ AlphaAcomms::AlphaAcomms()
     m_modem_tx = m_nh->advertise<alpha_acomms::AcommsTx>("modem/tx", 10);
     m_modem_rx = m_nh->subscribe("modem/rx", 10, &AlphaAcomms::received_data, this);
 
-
-
 }
 
 
@@ -229,4 +227,16 @@ void AlphaAcomms::power_callback(const mvp_msgs::PowerConstPtr power_msg)
     power_response_.set_battery_voltage(power_msg->voltage);
     //Current Monitor not implemented right now but required in the dccl msg.
     power_response_.set_current(0);
+}
+
+int main(int argc, char* argv[])
+{
+
+    ros::init(argc, argv, "alpha_acomms");
+
+    AlphaAcomms d;
+
+    ros::spin();
+
+    return 0;
 }
