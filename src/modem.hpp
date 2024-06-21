@@ -31,8 +31,7 @@
 
 #include <nav_msgs/Odometry.h>
 #include <mvp_msgs/Power.h>
-
-
+#include <sensor_msgs/NavSatFix.h>
 #include <alpha_acomms/AcommsRx.h>
 #include <alpha_acomms/AcommsTx.h>
 
@@ -71,11 +70,13 @@ public:
     
 
 private:
-    ros::NodeHandlePtr m_nh;
-    ros::NodeHandlePtr m_pnh;
+    ros::NodeHandlePtr nh_;
+    ros::NodeHandlePtr pnh_;
 
-    ros::Subscriber m_modem_tx;
-    ros::Publisher m_modem_rx;
+    ros::Subscriber modem_tx_;
+    ros::Publisher modem_rx_;
+
+    ros::Subscriber gps_sub_;
 
 
 
@@ -107,6 +108,7 @@ private:
 
     struct Config
     {
+        std::string type;
         std::string driver;
         int max_frame_bytes;
         int mac_slot_time;
@@ -134,24 +136,26 @@ private:
     goby::acomms::MACManager mac;
 
     void loop();
-    void load_goby();
-    void load_buffer();
-    void configure_modem();
-    void parse_goby_params();
-    void parse_evologics_params();
-    void data_request(goby::acomms::protobuf::ModemTransmission* msg);
-    void transmit_buffer(const alpha_acomms::AcommsTxConstPtr msg);
-    void received_data(const goby::acomms::protobuf::ModemTransmission &data_msg);
+    void loadGoby();
+    void loadBuffer();
+    void configModem();
+    void parseGobyParams();
+    void parseEvologicsParams();
+    void dataRequest(goby::acomms::protobuf::ModemTransmission* msg);
+    void addToBuffer(const alpha_acomms::AcommsTxConstPtr msg);
+    void receivedData(const goby::acomms::protobuf::ModemTransmission &data_msg);
+    void evologicsPositioningData(UsbllongMsg msg);
+    void onGps(const sensor_msgs::NavSatFixConstPtr fix);
 
-    void EvologicsPositioningData(UsbllongMsg msg);
-
-    goby::acomms::EvologicsDriver evo_driver;
+    goby::acomms::EvologicsDriver evo_driver_;
 
     goby::acomms::DynamicBuffer<std::string> buffer_;
 
-    ros::Timer timer;
+    ros::Timer timer_;
 
     Config config_;
+
+    sensor_msgs::NavSatFix fix_;
 
     goby::acomms::DCCLCodec* dccl_ = goby::acomms::DCCLCodec::get();
     

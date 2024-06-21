@@ -32,23 +32,29 @@ using goby::glog;
  */
 Modem::Modem()
 {
-    m_nh.reset(new ros::NodeHandle(""));
-    m_pnh.reset(new ros::NodeHandle("~"));
+    nh_.reset(new ros::NodeHandle(""));
+    pnh_.reset(new ros::NodeHandle("~"));
 
-    parse_goby_params();
+    parseGobyParams();
 
     if(config_.driver == "evologics")
     { 
-        parse_evologics_params(); 
-        evo_driver.set_usbl_callback(std::bind(&Modem::EvologicsPositioningData, this, std::placeholders::_1));
+        parseEvologicsParams();
+
+        if(config_.type == "usbl")
+        {   
+            evo_driver_.set_usbl_callback(std::bind(&Modem::evologicsPositioningData, this, std::placeholders::_1));
+        }
+        
     };
 
-    load_goby();
+    loadGoby();
 
-    configure_modem();
+    configModem();
 
-    m_modem_tx = m_nh->subscribe("modem/tx", 10, &Modem::transmit_buffer, this);
-    m_modem_rx = m_nh->advertise<alpha_acomms::AcommsRx>("modem/rx", 10);
+    modem_tx_ = nh_->subscribe(config_.type+"/tx", 10, &Modem::addToBuffer, this);
+    modem_rx_ = nh_->advertise<alpha_acomms::AcommsRx>(config_.type+"/rx", 10);
+    gps_sub_ = nh_->subscribe("gps/fix", 10, &Modem::onGps, this);
 
     loop();
 
@@ -71,7 +77,7 @@ void Modem::loop()
     //loop at 10Hz 
     while(ros::ok())
     {
-        evo_driver.do_work();
+        evo_driver_.do_work();
         mac.do_work();
 
         ros::spinOnce();
@@ -80,47 +86,48 @@ void Modem::loop()
     }
 }
 
-void Modem::parse_goby_params()
+void Modem::parseGobyParams()
 {
-    m_pnh->param<std::string>("goby/driver", config_.driver, "evologics");
-    m_pnh->param<int>("goby/max_frame_bytes", config_.max_frame_bytes, 100);
-    m_pnh->param<int>("goby/mac_slot_time", config_.mac_slot_time, 10);
+    pnh_->param<std::string>("goby/driver", config_.driver, "evologics");
+    pnh_->param<int>("goby/max_frame_bytes", config_.max_frame_bytes, 100);
+    pnh_->param<int>("goby/mac_slot_time", config_.mac_slot_time, 10);
 
-    m_pnh->param<std::vector<std::string>>("goby/dynamic_buffer/messages", config_.dynamic_buffer.messages, {""});
+    pnh_->param<std::vector<std::string>>("goby/dynamic_buffer/messages", config_.dynamic_buffer.messages, {""});
 
     for( std::string message : config_.dynamic_buffer.messages)
     {
-        m_pnh->param<bool>("goby/dynamic_buffer/" + message + "/ack", dynamic_buffer_config_[message].ack, false);
-        m_pnh->param<int>("goby/dynamic_buffer/" + message + "/blackout_time", dynamic_buffer_config_[message].blackout_time, 0);
-        m_pnh->param<int>("goby/dynamic_buffer/" + message + "/max_queue", dynamic_buffer_config_[message].max_queue, 0);
-        m_pnh->param<bool>("goby/dynamic_buffer/" + message + "/newest_first", dynamic_buffer_config_[message].newest_first, true);
-        m_pnh->param<int>("goby/dynamic_buffer/" + message + "/ttl", dynamic_buffer_config_[message].ttl, 1800);
-        m_pnh->param<int>("goby/dynamic_buffer/" + message + "/value_base", dynamic_buffer_config_[message].value_base, 1);
+        pnh_->param<bool>("goby/dynamic_buffer/" + message + "/ack", dynamic_buffer_config_[message].ack, false);
+        pnh_->param<int>("goby/dynamic_buffer/" + message + "/blackout_time", dynamic_buffer_config_[message].blackout_time, 0);
+        pnh_->param<int>("goby/dynamic_buffer/" + message + "/max_queue", dynamic_buffer_config_[message].max_queue, 0);
+        pnh_->param<bool>("goby/dynamic_buffer/" + message + "/newest_first", dynamic_buffer_config_[message].newest_first, true);
+        pnh_->param<int>("goby/dynamic_buffer/" + message + "/ttl", dynamic_buffer_config_[message].ttl, 1800);
+        pnh_->param<int>("goby/dynamic_buffer/" + message + "/value_base", dynamic_buffer_config_[message].value_base, 1);
     }
 }
 
-void Modem::parse_evologics_params()
+void Modem::parseEvologicsParams()
 {
-    m_pnh->param<std::string>("modem_configuration/interface/connection_type", config_.interface.if_type, "tcp");
-    m_pnh->param<std::string>("modem_configuration/interface/tcp_address", config_.interface.tcp_address, "192.168.2.109");
-    m_pnh->param<int>("modem_configuration/interface/tcp_port", config_.interface.tcp_port, 9200);
-    m_pnh->param<std::string>("modem_configuration/interface/device", config_.interface.device, "/dev/ttyUSB0");
-    m_pnh->param<int>("modem_configuration/interface/baudrate", config_.interface.baudrate, 115200);
-    m_pnh->param<int>("modem_configuration/source_level", config_.source_level, 0);
-    m_pnh->param<int>("modem_configuration/source_control", config_.source_control,1);
-    m_pnh->param<int>("modem_configuration/gain_level", config_.gain_level, 0);
-    m_pnh->param<int>("modem_configuration/carrier_waveform_id", config_.carrier_waveform_id, 0);
-    m_pnh->param<int>("modem_configuration/local_address", config_.local_address, 1);
-    m_pnh->param<int>("modem_configuration/remote_address", config_.remote_address, 2);
-    m_pnh->param<int>("modem_configuration/highest_address", config_.highest_address, 2);
-    m_pnh->param<int>("modem_configuration/cluster_size", config_.cluster_size, 10);
-    m_pnh->param<int>("modem_configuration/packet_time", config_.packet_time, 750);
-    m_pnh->param<int>("modem_configuration/retry_count", config_.retry_count, 3);
-    m_pnh->param<int>("modem_configuration/retry_timeout", config_.retry_timeout, 4000);
-    m_pnh->param<int>("modem_configuration/keep_online_count", config_.keep_online_count, 0);
-    m_pnh->param<int>("modem_configuration/idle_timeout", config_.idle_timeout, 120);
-    m_pnh->param<int>("modem_configuration/channel_protocol_id", config_.channel_protocol_id, 0);
-    m_pnh->param<int>("modem_configuration/sound_speed", config_.sound_speed, 1500);
+    pnh_->param<std::string>("type", config_.type, "modem");
+    pnh_->param<std::string>(config_.type + "_configuration/interface/connection_type", config_.interface.if_type, "tcp");
+    pnh_->param<std::string>(config_.type + "_configuration/interface/tcp_address", config_.interface.tcp_address, "192.168.2.109");
+    pnh_->param<int>(config_.type + "_configuration/interface/tcp_port", config_.interface.tcp_port, 9200);
+    pnh_->param<std::string>(config_.type + "_configuration/interface/device", config_.interface.device, "/dev/ttyUSB0");
+    pnh_->param<int>(config_.type + "_configuration/interface/baudrate", config_.interface.baudrate, 115200);
+    pnh_->param<int>(config_.type + "_configuration/source_level", config_.source_level, 0);
+    pnh_->param<int>(config_.type + "_configuration/source_control", config_.source_control,1);
+    pnh_->param<int>(config_.type + "_configuration/gain_level", config_.gain_level, 0);
+    pnh_->param<int>(config_.type + "_configuration/carrier_waveform_id", config_.carrier_waveform_id, 0);
+    pnh_->param<int>(config_.type + "_configuration/local_address", config_.local_address, 1);
+    pnh_->param<int>(config_.type + "_configuration/remote_address", config_.remote_address, 2);
+    pnh_->param<int>(config_.type + "_configuration/highest_address", config_.highest_address, 2);
+    pnh_->param<int>(config_.type + "_configuration/cluster_size", config_.cluster_size, 10);
+    pnh_->param<int>(config_.type + "_configuration/packet_time", config_.packet_time, 750);
+    pnh_->param<int>(config_.type + "_configuration/retry_count", config_.retry_count, 3);
+    pnh_->param<int>(config_.type + "_configuration/retry_timeout", config_.retry_timeout, 4000);
+    pnh_->param<int>(config_.type + "_configuration/keep_online_count", config_.keep_online_count, 0);
+    pnh_->param<int>(config_.type + "_configuration/idle_timeout", config_.idle_timeout, 120);
+    pnh_->param<int>(config_.type + "_configuration/channel_protocol_id", config_.channel_protocol_id, 0);
+    pnh_->param<int>(config_.type + "_configuration/sound_speed", config_.sound_speed, 1500);
 }
 
 
@@ -129,15 +136,15 @@ void Modem::parse_evologics_params()
  * @brief the goby dccl, mac, queue, and driver are configured and initialized
  * 
  */
-void Modem::load_goby()
+void Modem::loadGoby()
 {
-    goby::acomms::bind(mac, evo_driver);
+    goby::acomms::bind(mac, evo_driver_);
 
     // connect the receive signal from the driver to the modem slot
-    goby::acomms::connect(&evo_driver.signal_receive, this, &Modem::received_data);
+    goby::acomms::connect(&evo_driver_.signal_receive, this, &Modem::receivedData);
 
     // connect the outgoing data request signal from the driver to the modem slot
-    goby::acomms::connect(&evo_driver.signal_data_request, this, &Modem::data_request);
+    goby::acomms::connect(&evo_driver_.signal_data_request, this, &Modem::dataRequest);
 
     //Initiate modem driver
     goby::acomms::protobuf::DriverConfig driver_cfg;
@@ -190,14 +197,14 @@ void Modem::load_goby()
     goby::glog.set_name("modem");
     goby::glog.add_stream(goby::util::logger::DEBUG1, &std::clog);
 
-    // startup the mac and evo_driver
+    // startup the mac and evo_driver_
     mac.startup(mac_cfg);
-    evo_driver.startup(driver_cfg);
+    evo_driver_.startup(driver_cfg);
 
-    load_buffer();
+    loadBuffer();
 }
 
-void Modem::load_buffer()
+void Modem::loadBuffer()
 {
     // create a buffer cfg
     goby::acomms::protobuf::DynamicBufferConfig cfg;
@@ -223,40 +230,40 @@ void Modem::load_buffer()
     // set the 
 }
 
-void Modem::configure_modem()
+void Modem::configModem()
 {
     if(config_.driver == "evologics")
     {
 
-        evo_driver.set_source_level(config_.source_level);
+        evo_driver_.set_source_level(config_.source_level);
 
-        evo_driver.set_source_control(config_.source_control);
+        evo_driver_.set_source_control(config_.source_control);
 
-        evo_driver.set_gain(config_.gain_level);
+        evo_driver_.set_gain(config_.gain_level);
 
-        evo_driver.set_carrier_waveform_id(config_.carrier_waveform_id);
+        evo_driver_.set_carrier_waveform_id(config_.carrier_waveform_id);
 
-        evo_driver.set_local_address(config_.local_address);
+        evo_driver_.set_local_address(config_.local_address);
 
-        evo_driver.set_remote_address(config_.remote_address);
+        evo_driver_.set_remote_address(config_.remote_address);
 
-        evo_driver.set_highest_address(config_.highest_address);
+        evo_driver_.set_highest_address(config_.highest_address);
 
-        evo_driver.set_cluster_size(config_.cluster_size);
+        evo_driver_.set_cluster_size(config_.cluster_size);
 
-        evo_driver.set_packet_time(config_.packet_time);
+        evo_driver_.set_packet_time(config_.packet_time);
 
-        evo_driver.set_retry_count(config_.retry_count);
+        evo_driver_.set_retry_count(config_.retry_count);
 
-        evo_driver.set_retry_timeout(config_.retry_timeout);
+        evo_driver_.set_retry_timeout(config_.retry_timeout);
 
-        evo_driver.set_keep_online_count(config_.keep_online_count);
+        evo_driver_.set_keep_online_count(config_.keep_online_count);
 
-        evo_driver.set_idle_timeout(config_.idle_timeout);
+        evo_driver_.set_idle_timeout(config_.idle_timeout);
 
-        evo_driver.set_channel_protocol_id(config_.channel_protocol_id);
+        evo_driver_.set_channel_protocol_id(config_.channel_protocol_id);
 
-        evo_driver.set_sound_speed(config_.sound_speed);
+        evo_driver_.set_sound_speed(config_.sound_speed);
     }
 }
 
@@ -265,7 +272,7 @@ void Modem::configure_modem()
  * 
  * @param msg pointer to the outgoing message the driver is requesting
  */
-void Modem::data_request(goby::acomms::protobuf::ModemTransmission* msg)
+void Modem::dataRequest(goby::acomms::protobuf::ModemTransmission* msg)
 {
     int dest = msg->dest();
     for (auto frame_number = msg->frame_start(),
@@ -293,7 +300,7 @@ void Modem::data_request(goby::acomms::protobuf::ModemTransmission* msg)
     }
 }
 
-void Modem::transmit_buffer(const alpha_acomms::AcommsTxConstPtr msg)
+void Modem::addToBuffer(const alpha_acomms::AcommsTxConstPtr msg)
 {
 
     if(dynamic_buffer_config_.find(msg->subbuffer_id) != dynamic_buffer_config_.end())
@@ -312,22 +319,30 @@ void Modem::transmit_buffer(const alpha_acomms::AcommsTxConstPtr msg)
  * 
  * @param data_msg the incoming message
  */
-void Modem::received_data(const goby::acomms::protobuf::ModemTransmission& data_msg)
+void Modem::receivedData(const goby::acomms::protobuf::ModemTransmission& data_msg)
 {
     alpha_acomms::AcommsRx msg;
 
     msg.data = data_msg.frame()[0];
 
-    m_modem_rx.publish(msg);
+    modem_rx_.publish(msg);
 }
 
-void Modem::EvologicsPositioningData(UsbllongMsg msg)
+void Modem::evologicsPositioningData(UsbllongMsg msg)
 {
+    //ToLL or TF?
 
+
+    
     //Publish USBL Tracking
 
 
 
+}
+
+void Modem::onGps(sensor_msgs::NavSatFixConstPtr fix)
+{
+    fix_ = *fix;
 }
 
 
