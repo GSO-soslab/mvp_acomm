@@ -1,9 +1,5 @@
 #include "alpha_acomms.h"
 
-
-
-
-
 AlphaAcomms::AlphaAcomms()
 {
     m_nh.reset(new ros::NodeHandle(""));
@@ -11,6 +7,9 @@ AlphaAcomms::AlphaAcomms()
 
     m_modem_tx = m_nh->advertise<alpha_acomms::AcommsTx>("modem/tx", 10);
     m_modem_rx = m_nh->subscribe("modem/rx", 10, &AlphaAcomms::received_data, this);
+
+    m_target_pose = m_nh->advertise<geographic_msgs::GeoPoint>("target/pose",10);
+    m_target_power = m_nh->advertise<mvp_msgs::Power>("target/power", 10);
 
 }
 
@@ -40,13 +39,32 @@ void AlphaAcomms::received_data(const alpha_acomms::AcommsRxConstPtr data_msg)
                 dccl_->encode(&bytes, pose_response_);
 
                 out.data = bytes;
-                //out.subbuffer_id = ;
+                out.subbuffer_id = "pose_command";
                 m_modem_tx.publish(out);
 
             }
 
             break;
         }
+        case DcclIdMap::POSE_RESPONSE_ID:
+        {
+            PoseResponse pose_resp;
+            dccl_->decode(data_msg->data, &pose_resp);
+
+            if(pose_resp.destination() == config_.local_address)
+            {
+                geographic_msgs::GeoPoint geo_msg;
+
+                geo_msg.latitude = pose_resp.latitude();
+                geo_msg.longitude = pose_resp.longitude();
+                geo_msg.altitude = pose_resp.altitude();
+
+                m_target_pose.publish(geo_msg);
+            }
+
+            break;
+        }
+
         case DcclIdMap::POWER_COMMAND_ID:
         {
             PowerCommand power_command;
@@ -57,12 +75,27 @@ void AlphaAcomms::received_data(const alpha_acomms::AcommsRxConstPtr data_msg)
                 dccl_->encode(&bytes, power_response_); 
             
                 out.data = bytes;
-                //out.subbuffer_id = ;
+                out.subbuffer_id = "power_command";
                 m_modem_tx.publish(out);
             
             }
 
             break;
+        }
+        case DcclIdMap::POWER_RESPONSE_ID:
+        {
+            PowerResponse power_resp;
+            dccl_->decode(data_msg->data, &power_resp);
+
+            if(power_resp.destination() == config_.local_address)
+            {
+                mvp_msgs::Power power;
+                power.voltage = power_resp.battery_voltage();
+                power.current = power_resp.current();
+
+                m_target_power.publish(power);
+            }
+
         }
         case DcclIdMap::RELATIVE_POSE_COMMAND_ID:
         {
@@ -100,6 +133,12 @@ void AlphaAcomms::received_data(const alpha_acomms::AcommsRxConstPtr data_msg)
                         controller_state_resp.set_destination(config_.remote_address);
                         controller_state_resp.set_source(config_.local_address);
                         controller_state_resp.set_time(ros::Time::now().toSec());
+
+                        dccl_->encode(&bytes, controller_state_resp); 
+            
+                        out.data = bytes;
+                        out.subbuffer_id = "controller_state_response";
+                        m_modem_tx.publish(out);
 
                 }
 
@@ -152,7 +191,7 @@ void AlphaAcomms::received_data(const alpha_acomms::AcommsRxConstPtr data_msg)
                     dccl_->encode(&bytes, helm_state_resp);
 
                     out.data = bytes;
-                    //out.subbuffer_id = ;
+                    out.subbuffer_id = "helm_state_command";
                     m_modem_tx.publish(out);
                         
 

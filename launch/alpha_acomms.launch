@@ -12,7 +12,11 @@
 
   </node>
 
-  <node pkg="alpha_acomms" type="alpha_acomms_node" name="alpha_acomms_node" output="screen"></node>
+  <node pkg="alpha_acomms" type="alpha_acomms_node" name="alpha_acomms_node" output="screen">
+    <rosparam command="load" file="$(arg goby_config)"/> 
+    <param name="type" value="modem"/>
+
+  </node>
   
 
 </launch>

@@ -39,6 +39,9 @@ private:
     ros::Publisher m_modem_tx;
     ros::Subscriber m_modem_rx;
 
+    ros::Publisher m_target_pose;
+    ros::Publisher m_target_power;
+
     ros::Subscriber m_odom_sub;
     ros::Subscriber m_power_sub;
     ros::ServiceClient m_controller_state_srv;

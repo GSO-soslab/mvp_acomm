@@ -73,10 +73,18 @@ void Modem::loop()
 {
     ros::Rate rate(10);
 
+    int i = 0;
 
     //loop at 10Hz 
     while(ros::ok())
     {
+        if(config_.type == "modem")
+        {
+            if(i >= 100)
+            {
+                buffer_.push({config_.remote_address, "pose_response" , goby::time::SteadyClock::now(), bytes});   
+            }
+        }
         evo_driver_.do_work();
         mac.do_work();
 
@@ -227,7 +235,6 @@ void Modem::loadBuffer()
 
         ++it;
     }
-    // set the 
 }
 
 void Modem::configModem()
