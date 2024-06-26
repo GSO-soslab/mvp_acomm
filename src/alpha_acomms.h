@@ -25,11 +25,15 @@ class AlphaAcomms
 public:
     AlphaAcomms();
 
+    void parseEvologicsParams();
+
     void received_data(const alpha_acomms::AcommsRxConstPtr data_msg);
 
     void geopose_callback(const geographic_msgs::GeoPoseStampedConstPtr geopose_msg);
 
     void power_callback(const mvp_msgs::PowerConstPtr power_msg);
+
+    void timer_callback(const ros::TimerEvent &event);
 
 private:
 
@@ -57,9 +61,12 @@ private:
 
     struct Config
     {
+        std::string type;
         int local_address;
         int remote_address;
     };
 
     Config config_;
+
+    ros::Timer timer;
 };

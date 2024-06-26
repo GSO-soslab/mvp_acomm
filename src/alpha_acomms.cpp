@@ -8,8 +8,18 @@ AlphaAcomms::AlphaAcomms()
     m_modem_tx = m_nh->advertise<alpha_acomms::AcommsTx>("modem/tx", 10);
     m_modem_rx = m_nh->subscribe("modem/rx", 10, &AlphaAcomms::received_data, this);
 
-    m_target_pose = m_nh->advertise<geographic_msgs::GeoPoint>("target/pose",10);
-    m_target_power = m_nh->advertise<mvp_msgs::Power>("target/power", 10);
+    m_target_pose = m_nh->advertise<geographic_msgs::GeoPoint>(config_.type + "/pose",10);
+    m_target_power = m_nh->advertise<mvp_msgs::Power>(config_.type + "/power", 10);
+
+    timer = m_nh->createTimer(ros::Duration(10), &AlphaAcomms::timer_callback, this);
+
+}
+
+void AlphaAcomms::parseEvologicsParams()
+{
+    m_pnh->param<std::string>("type", config_.type, "modem");
+    m_pnh->param<int>(config_.type + "_configuration/local_address", config_.local_address, 1);
+    m_pnh->param<int>(config_.type + "_configuration/remote_address", config_.remote_address, 2);
 
 }
 
@@ -39,7 +49,7 @@ void AlphaAcomms::received_data(const alpha_acomms::AcommsRxConstPtr data_msg)
                 dccl_->encode(&bytes, pose_response_);
 
                 out.data = bytes;
-                out.subbuffer_id = "pose_command";
+                out.subbuffer_id = "pose_response";
                 m_modem_tx.publish(out);
 
             }
@@ -75,7 +85,7 @@ void AlphaAcomms::received_data(const alpha_acomms::AcommsRxConstPtr data_msg)
                 dccl_->encode(&bytes, power_response_); 
             
                 out.data = bytes;
-                out.subbuffer_id = "power_command";
+                out.subbuffer_id = "power_response";
                 m_modem_tx.publish(out);
             
             }
@@ -266,6 +276,19 @@ void AlphaAcomms::power_callback(const mvp_msgs::PowerConstPtr power_msg)
     power_response_.set_battery_voltage(power_msg->voltage);
     //Current Monitor not implemented right now but required in the dccl msg.
     power_response_.set_current(0);
+}
+
+void AlphaAcomms::timer_callback(const ros::TimerEvent& event)
+{
+    std::string bytes;
+    dccl_->encode(&bytes, power_response_); 
+
+    alpha_acomms::AcommsTx out;
+    out.data = bytes;
+    out.subbuffer_id = "power_response";
+    m_modem_tx.publish(out);
+    
+
 }
 
 int main(int argc, char* argv[])
