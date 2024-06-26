@@ -55,7 +55,7 @@
 #include "proto/goby_msgs.pb.h"
 
 //driver includes
-#include "seatrac_driver.h"
+// #include "seatrac_driver.h"
 #include "evologics_driver.h"
 
 #include "common.h"

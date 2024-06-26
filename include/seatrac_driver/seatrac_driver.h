@@ -8,9 +8,10 @@
 #include "goby/acomms/modemdriver/driver_base.h" // for ModemDriverBase
 #include "goby/acomms/protobuf/driver_base.pb.h" // for DriverConfig
 #include "goby/acomms/protobuf/modem_message.pb.h"
-#include "goby/acomms/protobuf/seatrac_driver.pb.h"
-
+// #include "goby/acomms/protobuf/seatrac_driver.pb.h"
 #include "seatrac_codec.h"
+#include "proto/seatrac_driver.pd.h"
+
 
 namespace dccl
 {

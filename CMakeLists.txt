@@ -78,7 +78,7 @@ include_directories(
 
 add_executable(modem_node
   src/modem.cpp
-  include/seatrac_driver/seatrac_driver.cpp
+  # include/seatrac_driver/seatrac_driver.cpp
   include/evologics_driver/evologics_driver.cpp
   include/AT/ATsentence.cpp
 )
