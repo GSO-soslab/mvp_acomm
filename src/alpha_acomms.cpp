@@ -5,13 +5,22 @@ AlphaAcomms::AlphaAcomms()
     m_nh.reset(new ros::NodeHandle(""));
     m_pnh.reset(new ros::NodeHandle("~"));
 
+    parseEvologicsParams();
+
+    loadGoby();
+
     m_modem_tx = m_nh->advertise<alpha_acomms::AcommsTx>("modem/tx", 10);
     m_modem_rx = m_nh->subscribe("modem/rx", 10, &AlphaAcomms::received_data, this);
 
     m_target_pose = m_nh->advertise<geographic_msgs::GeoPoint>(config_.type + "/pose",10);
     m_target_power = m_nh->advertise<mvp_msgs::Power>(config_.type + "/power", 10);
 
-    timer = m_nh->createTimer(ros::Duration(10), &AlphaAcomms::timer_callback, this);
+    if(config_.type == "modem")
+    {
+        timer = m_nh->createTimer(ros::Duration(10), &AlphaAcomms::timer_callback, this);
+
+    }
+
 
 }
 
@@ -23,8 +32,17 @@ void AlphaAcomms::parseEvologicsParams()
 
 }
 
+void AlphaAcomms::loadGoby()
+{
+    dccl_->validate<PoseCommand>();
+    dccl_->validate<PoseResponse>();
+    dccl_->validate<PowerCommand>();
+    dccl_->validate<PowerResponse>();
 
-/**
+}
+
+
+/**                                                 
  * @brief the slot that is called back from the driver when a new message is received.
  * 
  * @param data_msg the incoming message
@@ -82,11 +100,14 @@ void AlphaAcomms::received_data(const alpha_acomms::AcommsRxConstPtr data_msg)
 
             if(power_command.destination() == config_.local_address)
             {
+                if(good_power_ == true)
+                {
                 dccl_->encode(&bytes, power_response_); 
             
                 out.data = bytes;
                 out.subbuffer_id = "power_response";
                 m_modem_tx.publish(out);
+                }
             
             }
 
@@ -100,8 +121,10 @@ void AlphaAcomms::received_data(const alpha_acomms::AcommsRxConstPtr data_msg)
             if(power_resp.destination() == config_.local_address)
             {
                 mvp_msgs::Power power;
+
                 power.voltage = power_resp.battery_voltage();
                 power.current = power_resp.current();
+
 
                 m_target_power.publish(power);
             }
@@ -270,12 +293,14 @@ void AlphaAcomms::geopose_callback(const geographic_msgs::GeoPoseStampedConstPtr
 
 void AlphaAcomms::power_callback(const mvp_msgs::PowerConstPtr power_msg)
 {
+    good_power_ = true;
+
     power_response_.set_source(config_.local_address);
     power_response_.set_destination(config_.remote_address);
     power_response_.set_time(power_msg->header.stamp.toSec());
     power_response_.set_battery_voltage(power_msg->voltage);
     //Current Monitor not implemented right now but required in the dccl msg.
-    power_response_.set_current(0);
+    power_response_.set_current(0.0);
 }
 
 void AlphaAcomms::timer_callback(const ros::TimerEvent& event)

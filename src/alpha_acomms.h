@@ -27,6 +27,8 @@ public:
 
     void parseEvologicsParams();
 
+    void loadGoby();
+
     void received_data(const alpha_acomms::AcommsRxConstPtr data_msg);
 
     void geopose_callback(const geographic_msgs::GeoPoseStampedConstPtr geopose_msg);
@@ -58,6 +60,8 @@ private:
 
     PoseResponse pose_response_;
     PowerResponse power_response_;
+
+    bool good_power_ = false;
 
     struct Config
     {
