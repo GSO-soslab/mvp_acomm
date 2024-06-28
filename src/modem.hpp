@@ -35,6 +35,8 @@
 #include <alpha_acomms/AcommsRx.h>
 #include <alpha_acomms/AcommsTx.h>
 
+#include "robot_localization/ToLL.h"
+
 #include <geographic_msgs/GeoPoseStamped.h>
 
 //goby includes
@@ -76,7 +78,10 @@ private:
     ros::Subscriber modem_tx_;
     ros::Publisher modem_rx_;
 
+    ros::Publisher track_pub_;
     ros::Subscriber gps_sub_;
+
+    ros::ServiceClient toll_;
 
 
 

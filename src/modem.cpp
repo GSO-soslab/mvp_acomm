@@ -54,7 +54,10 @@ Modem::Modem()
 
     modem_tx_ = nh_->subscribe(config_.type+"/tx", 10, &Modem::addToBuffer, this);
     modem_rx_ = nh_->advertise<alpha_acomms::AcommsRx>(config_.type+"/rx", 10);
+    track_pub_ = nh_->advertise<geographic_msgs::GeoPoint>(config_.type+"/track", 10);
     gps_sub_ = nh_->subscribe("gps/fix", 10, &Modem::onGps, this);
+
+    toll_ = nh_->serviceClient<robot_localization::ToLL>("toLL");
 
     loop();
 
@@ -328,11 +331,26 @@ void Modem::receivedData(const goby::acomms::protobuf::ModemTransmission& data_m
 
 void Modem::evologicsPositioningData(UsbllongMsg msg)
 {
-    //ToLL or TF?
+    robot_localization::ToLL toll;
 
+    toll.request.map_point.x = msg.pose.enu.e;
+    toll.request.map_point.y = msg.pose.enu.n;
+    toll.request.map_point.z = msg.pose.enu.u;
+
+    toll_.call(toll);
 
     
     //Publish USBL Tracking
+    geographic_msgs::GeoPoint track;
+    track.latitude = toll.response.ll_point.latitude;
+    track.longitude = toll.response.ll_point.longitude;
+    track.altitude = toll.response.ll_point.altitude;
+
+    track_pub_.publish(track);
+
+    printf("USBL Measurement\n");
+    printf("E: %f\tN: %f\tU: %f\n", msg.pose.enu.e, msg.pose.enu.n, msg.pose.enu.u);
+    printf("Lat: %f\t Lon: %f\n", toll.response.ll_point.latitude, toll.response.ll_point.longitude);
 
 
 
