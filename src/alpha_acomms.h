@@ -8,11 +8,14 @@
 #include <alpha_acomms/AcommsRx.h>
 #include <alpha_acomms/AcommsTx.h>
 #include <geographic_msgs/GeoPoseStamped.h>
+#include <nav_msgs/Odometry.h>
 #include <mvp_msgs/Power.h>
 #include <mvp_msgs/GetControlModes.h>
 #include <mvp_msgs/GetState.h>
 #include <mvp_msgs/GetStates.h>
 #include <mvp_msgs/ChangeState.h>
+
+#include "robot_localization/ToLL.h"
 
 
 
@@ -32,6 +35,8 @@ public:
     void received_data(const alpha_acomms::AcommsRxConstPtr data_msg);
 
     void geopose_callback(const geographic_msgs::GeoPoseStampedConstPtr geopose_msg);
+
+    void odometry_callback(const nav_msgs::OdometryConstPtr);
 
     void power_callback(const mvp_msgs::PowerConstPtr power_msg);
 
@@ -54,6 +59,8 @@ private:
     ros::ServiceClient m_helm_get_state_srv;
     ros::ServiceClient m_helm_get_states_srv;
     ros::ServiceClient m_helm_change_state_srv;
+
+    ros::ServiceClient toll_;
 
     goby::acomms::DCCLCodec* dccl_ = goby::acomms::DCCLCodec::get();
 

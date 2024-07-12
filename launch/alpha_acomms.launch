@@ -3,8 +3,9 @@
 <launch>
   <arg name="goby_config" default="$(find alpha_acomms)/config/goby.yaml"/>
   <arg name="driver_config" default="$(find alpha_acomms)/config/evologics.yaml"/>
+  <arg name="robot_name" value="race"/>
 
-  <node pkg="alpha_acomms" type="modem_node" name="modem_node" output="screen">
+  <node ns="$(arg robot_name)" pkg="alpha_acomms" type="modem_node" name="modem_node" output="screen">
     <rosparam command="load" file="$(arg goby_config)"/>
     <rosparam command="load" file="$(arg driver_config)"/>
     
@@ -12,7 +13,7 @@
 
   </node>
 
-  <node pkg="alpha_acomms" type="alpha_acomms_node" name="alpha_acomms_node" output="screen">
+  <node ns="$(arg robot_name)" pkg="alpha_acomms" type="alpha_acomms_node" name="alpha_acomms_vehicle_node" output="screen">
     <rosparam command="load" file="$(arg goby_config)"/> 
     <param name="type" value="modem"/>
 

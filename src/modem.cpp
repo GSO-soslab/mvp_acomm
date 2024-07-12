@@ -23,12 +23,12 @@
 
 #include "modem.hpp"
 
-using goby::util::as;
 using goby::glog;
+using goby::util::as;
 
 /**
  * @brief Construct a Modem object
- * 
+ *
  */
 Modem::Modem()
 {
@@ -37,47 +37,46 @@ Modem::Modem()
 
     parseGobyParams();
 
-    if(config_.driver == "evologics")
-    { 
+    if (config_.driver == "evologics")
+    {
         parseEvologicsParams();
 
-        if(config_.type == "usbl")
-        {   
+        if (config_.type == "usbl")
+        {
             evo_driver_.set_usbl_callback(std::bind(&Modem::evologicsPositioningData, this, std::placeholders::_1));
         }
-        
     };
 
     loadGoby();
 
     configModem();
 
-    modem_tx_ = nh_->subscribe(config_.type+"/tx", 10, &Modem::addToBuffer, this);
-    modem_rx_ = nh_->advertise<alpha_acomms::AcommsRx>(config_.type+"/rx", 10);
-    track_pub_ = nh_->advertise<geographic_msgs::GeoPoint>(config_.type+"/track", 10);
+    modem_tx_ = nh_->subscribe(config_.type + "/tx", 10, &Modem::addToBuffer, this);
+    modem_rx_ = nh_->advertise<alpha_acomms::AcommsRx>(config_.type + "/rx", 10);
+    track_pub_ = nh_->advertise<geographic_msgs::GeoPoint>(config_.type + "/track", 10);
     gps_sub_ = nh_->subscribe("gps/fix", 10, &Modem::onGps, this);
 
     toll_ = nh_->serviceClient<robot_localization::ToLL>("toLL");
 
     loop();
-
 }
 
 /**
  * @brief Destroy the Modem:: Modem object
- * 
+ *
  */
 Modem::~Modem()
 {
-
 }
 
 void Modem::loop()
 {
     ros::Rate rate(10);
 
-    //loop at 10Hz 
-    while(ros::ok())
+    dccl_->validate<PoseResponse>();
+
+    // loop at 10Hz
+    while (ros::ok())
     {
         evo_driver_.do_work();
         mac.do_work();
@@ -86,6 +85,7 @@ void Modem::loop()
 
         rate.sleep();
     }
+    
 }
 
 void Modem::parseGobyParams()
@@ -96,7 +96,7 @@ void Modem::parseGobyParams()
 
     pnh_->param<std::vector<std::string>>("goby/dynamic_buffer/messages", config_.dynamic_buffer.messages, {""});
 
-    for( std::string message : config_.dynamic_buffer.messages)
+    for (std::string message : config_.dynamic_buffer.messages)
     {
         pnh_->param<bool>("goby/dynamic_buffer/" + message + "/ack", dynamic_buffer_config_[message].ack, false);
         pnh_->param<int>("goby/dynamic_buffer/" + message + "/blackout_time", dynamic_buffer_config_[message].blackout_time, 0);
@@ -116,7 +116,7 @@ void Modem::parseEvologicsParams()
     pnh_->param<std::string>(config_.type + "_configuration/interface/device", config_.interface.device, "/dev/ttyUSB0");
     pnh_->param<int>(config_.type + "_configuration/interface/baudrate", config_.interface.baudrate, 115200);
     pnh_->param<int>(config_.type + "_configuration/source_level", config_.source_level, 0);
-    pnh_->param<int>(config_.type + "_configuration/source_control", config_.source_control,1);
+    pnh_->param<int>(config_.type + "_configuration/source_control", config_.source_control, 1);
     pnh_->param<int>(config_.type + "_configuration/gain_level", config_.gain_level, 0);
     pnh_->param<int>(config_.type + "_configuration/carrier_waveform_id", config_.carrier_waveform_id, 0);
     pnh_->param<int>(config_.type + "_configuration/local_address", config_.local_address, 1);
@@ -132,11 +132,9 @@ void Modem::parseEvologicsParams()
     pnh_->param<int>(config_.type + "_configuration/sound_speed", config_.sound_speed, 1500);
 }
 
-
-
 /**
  * @brief the goby dccl, mac, queue, and driver are configured and initialized
- * 
+ *
  */
 void Modem::loadGoby()
 {
@@ -148,12 +146,12 @@ void Modem::loadGoby()
     // connect the outgoing data request signal from the driver to the modem slot
     goby::acomms::connect(&evo_driver_.signal_data_request, this, &Modem::dataRequest);
 
-    //Initiate modem driver
+    // Initiate modem driver
     goby::acomms::protobuf::DriverConfig driver_cfg;
 
     driver_cfg.set_modem_id(config_.local_address);
 
-    if(config_.interface.if_type == "tcp")
+    if (config_.interface.if_type == "tcp")
     {
         driver_cfg.set_connection_type(goby::acomms::protobuf::DriverConfig_ConnectionType_CONNECTION_TCP_AS_CLIENT);
         driver_cfg.set_tcp_server(config_.interface.tcp_address);
@@ -166,7 +164,7 @@ void Modem::loadGoby()
         driver_cfg.set_serial_baud(config_.interface.baudrate);
     }
 
-    //Initiate medium access control
+    // Initiate medium access control
     goby::acomms::protobuf::MACConfig mac_cfg;
     mac_cfg.set_type(goby::acomms::protobuf::MAC_FIXED_DECENTRALIZED);
     mac_cfg.set_modem_id(config_.local_address);
@@ -213,7 +211,7 @@ void Modem::loadBuffer()
 
     std::map<std::string, MessageConfig>::iterator it = dynamic_buffer_config_.begin();
 
-    while(it != dynamic_buffer_config_.end())
+    while (it != dynamic_buffer_config_.end())
     {
 
         cfg.set_ack_required(it->second.ack);
@@ -233,7 +231,7 @@ void Modem::loadBuffer()
 
 void Modem::configModem()
 {
-    if(config_.driver == "evologics")
+    if (config_.driver == "evologics")
     {
 
         evo_driver_.set_source_level(config_.source_level);
@@ -270,17 +268,17 @@ void Modem::configModem()
 
 /**
  * @brief slot that the driver calls when it wants to send data
- * 
+ *
  * @param msg pointer to the outgoing message the driver is requesting
  */
-void Modem::dataRequest(goby::acomms::protobuf::ModemTransmission* msg)
+void Modem::dataRequest(goby::acomms::protobuf::ModemTransmission *msg)
 {
     int dest = msg->dest();
     for (auto frame_number = msg->frame_start(),
               total_frames = msg->max_num_frames() + msg->frame_start();
          frame_number < total_frames; ++frame_number)
     {
-        std::string* frame = msg->add_frame();
+        std::string *frame = msg->add_frame();
 
         while (frame->size() < msg->max_frame_bytes())
         {
@@ -293,7 +291,7 @@ void Modem::dataRequest(goby::acomms::protobuf::ModemTransmission* msg)
 
                 buffer_.erase(buffer_value);
             }
-            catch (goby::acomms::DynamicBufferNoDataException&)
+            catch (goby::acomms::DynamicBufferNoDataException &)
             {
                 break;
             }
@@ -304,23 +302,22 @@ void Modem::dataRequest(goby::acomms::protobuf::ModemTransmission* msg)
 void Modem::addToBuffer(const alpha_acomms::AcommsTxConstPtr msg)
 {
 
-    if(dynamic_buffer_config_.find(msg->subbuffer_id) != dynamic_buffer_config_.end())
+    if (dynamic_buffer_config_.find(msg->subbuffer_id) != dynamic_buffer_config_.end())
     {
-        buffer_.push({config_.remote_address, msg->subbuffer_id , goby::time::SteadyClock::now(), msg->data});    
+        buffer_.push({config_.remote_address, msg->subbuffer_id, goby::time::SteadyClock::now(), msg->data});
     }
     else
     {
         ROS_INFO("Subbuffer ID: %s has not been added to the configuratiron file goby.yaml\n", msg->subbuffer_id.data());
     }
-
 }
 
 /**
  * @brief the slot that is called back from the driver when a new message is received.
- * 
+ *
  * @param data_msg the incoming message
  */
-void Modem::receivedData(const goby::acomms::protobuf::ModemTransmission& data_msg)
+void Modem::receivedData(const goby::acomms::protobuf::ModemTransmission &data_msg)
 {
     alpha_acomms::AcommsRx msg;
 
@@ -339,8 +336,7 @@ void Modem::evologicsPositioningData(UsbllongMsg msg)
 
     toll_.call(toll);
 
-    
-    //Publish USBL Tracking
+    // Publish USBL Tracking
     geographic_msgs::GeoPoint track;
     track.latitude = toll.response.ll_point.latitude;
     track.longitude = toll.response.ll_point.longitude;
@@ -348,12 +344,9 @@ void Modem::evologicsPositioningData(UsbllongMsg msg)
 
     track_pub_.publish(track);
 
-    printf("USBL Measurement\n");
-    printf("E: %f\tN: %f\tU: %f\n", msg.pose.enu.e, msg.pose.enu.n, msg.pose.enu.u);
-    printf("Lat: %f\t Lon: %f\n", toll.response.ll_point.latitude, toll.response.ll_point.longitude);
-
-
-
+    // printf("USBL Measurement\n");
+    // printf("E: %f\tN: %f\tU: %f\n", msg.pose.enu.e, msg.pose.enu.n, msg.pose.enu.u);
+    // printf("Lat: %f\t Lon: %f\n", toll.response.ll_point.latitude, toll.response.ll_point.longitude);
 }
 
 void Modem::onGps(sensor_msgs::NavSatFixConstPtr fix)
@@ -361,8 +354,7 @@ void Modem::onGps(sensor_msgs::NavSatFixConstPtr fix)
     fix_ = *fix;
 }
 
-
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
 
     ros::init(argc, argv, "modem");

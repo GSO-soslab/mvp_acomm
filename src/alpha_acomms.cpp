@@ -9,11 +9,17 @@ AlphaAcomms::AlphaAcomms()
 
     loadGoby();
 
-    m_modem_tx = m_nh->advertise<alpha_acomms::AcommsTx>("modem/tx", 10);
-    m_modem_rx = m_nh->subscribe("modem/rx", 10, &AlphaAcomms::received_data, this);
+    m_modem_tx = m_nh->advertise<alpha_acomms::AcommsTx>(config_.type+"/tx", 10);
+    m_modem_rx = m_nh->subscribe(config_.type+"/rx", 10, &AlphaAcomms::received_data, this);
 
     m_target_pose = m_nh->advertise<geographic_msgs::GeoPoint>(config_.type + "/pose",10);
     m_target_power = m_nh->advertise<mvp_msgs::Power>(config_.type + "/power", 10);
+
+    m_power_sub = m_nh->subscribe("power_monitor/power", 10, &AlphaAcomms::power_callback, this);
+
+    toll_ = m_nh->serviceClient<robot_localization::ToLL>("toLL");
+
+    m_odom_sub = m_nh->subscribe("odometry/filtered/local", 10, &AlphaAcomms::odometry_callback, this);
 
     if(config_.type == "modem")
     {
@@ -49,7 +55,7 @@ void AlphaAcomms::loadGoby()
  */
 void AlphaAcomms::received_data(const alpha_acomms::AcommsRxConstPtr data_msg)
 {
-
+    printf("I RECEIVED DATA\n");
     int dccl_id = dccl_->id_from_encoded(data_msg->data);
     std::string bytes;
     alpha_acomms::AcommsTx out;
@@ -76,6 +82,7 @@ void AlphaAcomms::received_data(const alpha_acomms::AcommsRxConstPtr data_msg)
         }
         case DcclIdMap::POSE_RESPONSE_ID:
         {
+            printf("I MADE IT TO POSE RESPONSE\n");
             PoseResponse pose_resp;
             dccl_->decode(data_msg->data, &pose_resp);
 
@@ -291,6 +298,29 @@ void AlphaAcomms::geopose_callback(const geographic_msgs::GeoPoseStampedConstPtr
     pose_response_.set_quat_z(geopose_msg->pose.orientation.z);
 }
 
+void AlphaAcomms::odometry_callback(const nav_msgs::OdometryConstPtr odom)
+{
+    pose_response_.set_source(config_.local_address);
+    pose_response_.set_destination(config_.remote_address);
+    pose_response_.set_time(odom->header.stamp.toSec());
+
+    // robot_localization::ToLL toll;
+    // toll.request.map_point.x = odom->pose.pose.position.x;
+    // toll.request.map_point.y = odom->pose.pose.position.y;
+    // toll.request.map_point.z = odom->pose.pose.position.z;
+
+    // toll_.call(toll);
+
+    pose_response_.set_latitude(-71.134);
+    pose_response_.set_longitude(41.32);
+    pose_response_.set_altitude(-1.0);
+    pose_response_.set_quat_x(odom->pose.pose.orientation.x);
+    pose_response_.set_quat_y(odom->pose.pose.orientation.y);
+    pose_response_.set_quat_z(odom->pose.pose.orientation.z);
+    pose_response_.set_quat_w(odom->pose.pose.orientation.w);
+    
+}
+
 void AlphaAcomms::power_callback(const mvp_msgs::PowerConstPtr power_msg)
 {
     good_power_ = true;
@@ -306,11 +336,13 @@ void AlphaAcomms::power_callback(const mvp_msgs::PowerConstPtr power_msg)
 void AlphaAcomms::timer_callback(const ros::TimerEvent& event)
 {
     std::string bytes;
-    dccl_->encode(&bytes, power_response_); 
+    dccl_->encode(&bytes, pose_response_); 
+
+    printf("Debug String: %s\n", pose_response_.ShortDebugString().c_str() );
 
     alpha_acomms::AcommsTx out;
     out.data = bytes;
-    out.subbuffer_id = "power_response";
+    out.subbuffer_id = "pose_response";
     m_modem_tx.publish(out);
     
 
