@@ -93,6 +93,69 @@ enum AMSGTYPE
     MSG_UNKNOWN = 0xFF
 };
 
+enum STATUS_BITS_T
+{
+    ENVIRONMENT = 1,
+    ATTITUDE,
+    MAG_CAL,
+    ACC_CAL,
+    AHRS_RAW_DATA,
+    AHRS_COMP_DATA
+};
+
+
+enum STATUSMODE_E
+{
+    STATUS_MODE_MANUAL = 1,
+    STATUS_MODE_1HZ,
+    STATUS_MODE_2HZ5,
+    STATUS_MODE_5HZ,
+    STATUS_MODE_10HZ,
+    STATUS_MODE_25HZ
+};
+
+enum BAUDRATE_E
+{
+    BAUD_4800 = 0x07,
+    BAUD_9600,
+    BAUD_14400,
+    BAUD_19200,
+    BAUD_38400,
+    BAUD_57600,
+    BAUD_115200
+};
+
+enum ENV_FLAGS
+{
+    AUTO_VOS = 1,
+    AUTO_PRESSURE_OFS
+};
+
+enum AHRS_FLAGS
+{
+    AUTO_CAL_MAG = 1
+};
+
+enum BID_E
+{
+    BEACON_ALL = 0,
+    BEACON_ID_1,
+    BEACON_ID_2,
+    BEACON_ID_3,
+    BEACON_ID_4,
+    BEACON_ID_5,
+    BEACON_ID_6,
+    BEACON_ID_7,
+    BEACON_ID_8,
+    BEACON_ID_9,
+    BEACON_ID_10,
+    BEACON_ID_11,
+    BEACON_ID_12,
+    BEACON_ID_13,
+    BEACON_ID_14,
+    BEACON_ID_15,
+};
+
 #pragma pack(push, 1)
 
 struct HARDWARE_T
@@ -123,6 +186,28 @@ struct PRESSURE_CAL_T
     uint8_t cal_day;
     uint8_t cal_month;
     uint16_t cal_year;
+};
+
+struct AHRSCAL_T
+{
+    int16_t acc_min_x;
+    int16_t acc_min_y;
+    int16_t acc_min_z;
+    int16_t acc_max_x;
+    int16_t acc_max_y;
+    int16_t acc_max_z;
+    bool mag_valid;
+    float mag_hard_x;
+    float mag_hard_y;
+    float mag_hard_z;
+    float mag_soft_x;
+    float mag_soft_y;
+    float mag_soft_z;
+    float mag_field;
+    float mag_error;
+    int16_t gyro_offset_x;
+    int16_t gyro_offset_y;
+    int16_t gyro_offset_z;
 };
 
 struct RANGE_T
@@ -239,6 +324,39 @@ struct CID_STATUS
 
 };
 
+struct CID_SETTINGS_GET
+{
+    uint8_t status_flag;
+    STATUSMODE_E status_output;
+    BAUDRATE_E uart_main_baud;
+    BAUDRATE_E uart_aux_baud;
+    uint8_t net_max_addr[6];
+    uint8_t net_ip_addr[4];
+    uint8_t net_ip_subnet[4];
+    uint8_t net_ip_gateway[4];
+    uint8_t net_ip_dns;
+    uint16_t net_tcp_port;
+    uint8_t env_flags;
+    int32_t env_pressure_ofs;
+    uint16_t env_salinity;
+    uint16_t env_vos;
+    uint8_t ahrs_flags;
+    AHRSCAL_T ahrs_cal;
+    uint16_t ahrs_yaw_ofs;
+    uint16_t ahrs_pitch_ofs;
+    uint16_t ahrs_roll_ofs;
+    uint8_t xcvr_flags;
+    BID_E xcvr_beacon_id;
+    uint16_t xcvr_range_tmo;
+    uint16_t xcvr_resp_time;
+    uint16_t xcvr_yaw;
+    uint16_t xcvr_pitch;
+    uint16_t xcvr_roll;
+    uint8_t xcvr_posflt_vel;
+    uint8_t xcvr_posflt_ang;
+    uint8_t xcvr_posflt_tmo;
+};
+
 struct CID_XCVR_RX
 {
     ACOFIX_T aco_fix;
@@ -266,6 +384,19 @@ struct CID_DAT_SEND
     uint8_t dest_id;
     uint8_t amsgtype;
     uint8_t packet_len;
+};
+
+struct CID_PING_SEND
+{
+    uint8_t cid_e = ST_CID_PING_SEND;
+    uint8_t dest_id;
+    AMSGTYPE msg_type; 
+};
+
+struct CID_PING_RESP
+{
+    uint8_t cid_e;
+    ACOFIX_T aco_fix;
 };
 
 #pragma(pop)

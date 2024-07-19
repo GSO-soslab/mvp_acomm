@@ -48,6 +48,8 @@ void goby::acomms::SeatracDriver::startup(const protobuf::DriverConfig& cfg)
                             << "SeatracDriver configuration good. Starting modem..." << std::endl;
     modem_start(driver_cfg_);
 
+    cid_settings_get();
+
 } // startup
 
 void goby::acomms::SeatracDriver::shutdown()
@@ -133,15 +135,26 @@ void goby::acomms::SeatracDriver::ciddat(protobuf::ModemTransmission* msg)
     }
 }
 
-void goby::acomms::SeatracDriver::cidping(protobuf::ModemTransmission* msg)
+void goby::acomms::SeatracDriver::cid_settings_get()
+{
+    glog.is(DEBUG1) && glog << group(glog_out_group()) << "\tthis is a SETTINGS_GET transmission"
+                            << std::endl;
+
+    std::string out;
+    out.append("15");
+
+    append_to_write_queue(out);
+}
+
+void goby::acomms::SeatracDriver::cid_ping(CID_PING_SEND ping)
 {
     glog.is(DEBUG1) && glog << group(glog_out_group()) << "\tthis is a PING transmission"
                                 << std::endl;
 
     std::string out;
     out.append("64"); //command id of cid_ping_send
-    out.append(goby::util::as<std::string>(msg->dest())); // destination id
-    out.append(std::to_string(MSG_REQX)); // msg_type
+    out.append(goby::util::as<std::string>(ping.dest_id)); // destination id
+    out.append(std::to_string(ping.msg_type)); // msg_type
 
     std::string bytes = hex_encode(out);
 
@@ -198,41 +211,72 @@ void goby::acomms::SeatracDriver::do_work()
                 //look at what the command id is
                 uint8_t cid = byte_vec[0];
 
-                if(cid == ST_CID_SYS_INFO)
+                switch(cid)
                 {
-                    CID_SYS_INFO sys_rx;
-                    read_sys_info(byte_vec.data(), &sys_rx);
-                }
-                else if(cid == ST_CID_STATUS)
-                {
-                    //TODO: Parse status msg
-                }
-                else if(cid == ST_CID_DAT_RECEIVE)
-                {
-                    CID_DAT_RX dat_rx;
-                    read_dat_msg(byte_vec.data(), &dat_rx);
+                    case ST_CID_SYS_INFO:
+                    {
+                        CID_SYS_INFO sys_rx;
+                        read_sys_info(byte_vec.data(), &sys_rx);
 
-                    msg.set_src(dat_rx.aco_fix.local.src_id);
-                    msg.set_dest(dat_rx.aco_fix.local.dest_id);
-                    msg.set_time_with_units(time::SystemClock::now<time::MicroTime>());
-                    msg.set_type(protobuf::ModemTransmission::DATA);
-                    std::ostringstream rx;
-                    convert_to_hex_string(rx, reinterpret_cast<const unsigned char*>(dat_rx.packet_data), dat_rx.packet_len);
-                    std::string rx_string = rx.str();
-                    msg.add_frame(hex_decode(rx_string));
-                    ModemDriverBase::signal_receive(msg);
-                }
-                else if(cid == ST_CID_DAT_SEND)
-                {
+                        break;
+                    }
+                    case ST_CID_STATUS:
+                    {
 
-                    // printf("sent message\n");
+                        break;
+                    }
+                    case ST_CID_DAT_RECEIVE:
+                    {
+                        CID_DAT_RX dat_rx;
+                        read_dat_msg(byte_vec.data(), &dat_rx);
 
-                }
-                else if(cid == ST_CID_DAT_ERROR)
-                {
+                        msg.set_src(dat_rx.aco_fix.local.src_id);
+                        msg.set_dest(dat_rx.aco_fix.local.dest_id);
+                        msg.set_time_with_units(time::SystemClock::now<time::MicroTime>());
+                        msg.set_type(protobuf::ModemTransmission::DATA);
+                        std::ostringstream rx;
+                        convert_to_hex_string(rx, reinterpret_cast<const unsigned char*>(dat_rx.packet_data), dat_rx.packet_len);
+                        std::string rx_string = rx.str();
+                        msg.add_frame(hex_decode(rx_string));
+                        ModemDriverBase::signal_receive(msg);
 
-                    glog.is(QUIET) && glog << group(glog_out_group())
-                        << "DAT RECEIVE ERROR" << std::endl;
+                        break;
+                    }
+                    case ST_CID_DAT_SEND:
+                    {
+
+                        break;
+                    }
+                    case ST_CID_PING_SEND:
+                    {
+
+                        break;
+                    }
+                    case ST_CID_PING_RESP:
+                    {
+                        CID_PING_RESP ping_resp;
+                        memcpy(&ping_resp, byte_vec.data(), byte_vec.size());
+
+                        acofix_callback_(ping_resp.aco_fix);
+
+                        break;
+                    }
+                    case ST_CID_SETTINGS_GET:
+                    {
+                        CID_SETTINGS_GET settings;
+                        memcpy(&settings, byte_vec.data(), byte_vec.size());
+
+                        printf("XCVR Beacon ID: %i\n", settings.xcvr_beacon_id);
+
+                        break;
+                    }
+                    case ST_CID_DAT_ERROR:
+                    {
+                        glog.is(QUIET) && glog << group(glog_out_group())
+                            << "DAT RECEIVE ERROR" << std::endl;
+
+                        break;
+                    }
 
                 }
             }
@@ -269,7 +313,9 @@ void goby::acomms::SeatracDriver::seatrac_write(const std::string &bytes)
 
     signal_raw_outgoing(raw_msg);
 
-    uint16_t cksum = CRC16(reinterpret_cast<const uint8_t*>(raw_msg.raw().c_str()), sizeof(raw_msg.raw().c_str()));  
+    uint16_t cksum = CRC16(reinterpret_cast<const uint8_t*>(raw_msg.raw().c_str()), sizeof(raw_msg.raw().c_str()));
+
+    printf("%s\n", raw_msg.ShortDebugString().c_str());  
 
     modem_write("#" + raw_msg.raw() + "*" + number2hex_string(cksum));
 }

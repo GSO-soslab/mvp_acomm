@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>alpha_acomms</name>
+  <name>alpha_comms</name>
   <version>0.0.0</version>
-  <description>The acoustic communication package</description>
+  <description>The communication package</description>
 
   <maintainer email="jason_miller@uri.edu">jason_miller</maintainer>
   <author email="jason_miller@uri.edu">jason_miller</author>

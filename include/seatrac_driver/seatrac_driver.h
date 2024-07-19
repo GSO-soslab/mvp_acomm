@@ -25,11 +25,20 @@ namespace acomms
 class SeatracDriver : public ModemDriverBase
 {
   public:
+
+    typedef std::function<void(ACOFIX_T)> AcofixCallback;
+    AcofixCallback acofix_callback_;
+
+        
+
     SeatracDriver();
     void startup(const protobuf::DriverConfig& cfg) override;
     void shutdown() override;
     void do_work() override;
     void handle_initiate_transmission(const protobuf::ModemTransmission& m) override;
+
+    void set_usbl_callback(AcofixCallback c) { acofix_callback_  = c;}
+    void cid_ping(CID_PING_SEND ping);
 
   private:
 
@@ -40,13 +49,15 @@ class SeatracDriver : public ModemDriverBase
     bool validate_and_remove_cksum(std::vector<uint8_t> buffer);
 
     void ciddat(protobuf::ModemTransmission* msg);
-    void cidping(protobuf::ModemTransmission* msg);
-    void cidnav(protobuf::ModemTransmission* msg);
+    void cid_settings_get();
+    void cidnav(protobuf::ModemTransmission *msg);
     void cidecho(protobuf::ModemTransmission* msg);
 
     void append_to_write_queue(const std::string &bytes);
     void try_send();
     void seatrac_write(const std::string &bytes);
+
+
 
     protobuf::ModemTransmission transmit_msg_;
 

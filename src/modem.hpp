@@ -32,8 +32,8 @@
 #include <nav_msgs/Odometry.h>
 #include <mvp_msgs/Power.h>
 #include <sensor_msgs/NavSatFix.h>
-#include <alpha_acomms/AcommsRx.h>
-#include <alpha_acomms/AcommsTx.h>
+#include <alpha_comms/AcommsRx.h>
+#include <alpha_comms/AcommsTx.h>
 
 #include "robot_localization/ToLL.h"
 
@@ -146,13 +146,16 @@ private:
     void configModem();
     void parseGobyParams();
     void parseEvologicsParams();
-    void dataRequest(goby::acomms::protobuf::ModemTransmission* msg);
-    void addToBuffer(const alpha_acomms::AcommsTxConstPtr msg);
+    void parseSeatracParams();
+    void dataRequest(goby::acomms::protobuf::ModemTransmission *msg);
+    void addToBuffer(const alpha_comms::AcommsTxConstPtr msg);
     void receivedData(const goby::acomms::protobuf::ModemTransmission &data_msg);
     void evologicsPositioningData(UsbllongMsg msg);
+    void seatracPositioningData(ACOFIX_T msg);
     void onGps(const sensor_msgs::NavSatFixConstPtr fix);
 
     goby::acomms::EvologicsDriver evo_driver_;
+    goby::acomms::SeatracDriver seatrac_driver_;
 
     goby::acomms::DynamicBuffer<std::string> buffer_;
 

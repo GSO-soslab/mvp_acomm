@@ -5,8 +5,8 @@
 
 #include <goby/acomms/dccl.h>
 
-#include <alpha_acomms/AcommsRx.h>
-#include <alpha_acomms/AcommsTx.h>
+#include <alpha_comms/AcommsRx.h>
+#include <alpha_comms/AcommsTx.h>
 #include <geographic_msgs/GeoPoseStamped.h>
 #include <nav_msgs/Odometry.h>
 #include <mvp_msgs/Power.h>
@@ -32,7 +32,7 @@ public:
 
     void loadGoby();
 
-    void received_data(const alpha_acomms::AcommsRxConstPtr data_msg);
+    void received_data(const alpha_comms::AcommsRxConstPtr data_msg);
 
     void geopose_callback(const geographic_msgs::GeoPoseStampedConstPtr geopose_msg);
 

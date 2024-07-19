@@ -35,6 +35,8 @@ Modem::Modem()
     nh_.reset(new ros::NodeHandle(""));
     pnh_.reset(new ros::NodeHandle("~"));
 
+    printf("Hey there\n");
+
     parseGobyParams();
 
     if (config_.driver == "evologics")
@@ -45,14 +47,23 @@ Modem::Modem()
         {
             evo_driver_.set_usbl_callback(std::bind(&Modem::evologicsPositioningData, this, std::placeholders::_1));
         }
-    };
+    }
+    else if (config_.driver == "seatrac")
+    {
+        parseSeatracParams();
+
+        if (config_.type == "usbl")
+        {
+            seatrac_driver_.set_usbl_callback(std::bind(&Modem::seatracPositioningData, this, std::placeholders::_1));
+        }
+    }
 
     loadGoby();
 
     configModem();
 
     modem_tx_ = nh_->subscribe(config_.type + "/tx", 10, &Modem::addToBuffer, this);
-    modem_rx_ = nh_->advertise<alpha_acomms::AcommsRx>(config_.type + "/rx", 10);
+    modem_rx_ = nh_->advertise<alpha_comms::AcommsRx>(config_.type + "/rx", 10);
     track_pub_ = nh_->advertise<geographic_msgs::GeoPoint>(config_.type + "/track", 10);
     gps_sub_ = nh_->subscribe("gps/fix", 10, &Modem::onGps, this);
 
@@ -78,7 +89,7 @@ void Modem::loop()
     // loop at 10Hz
     while (ros::ok())
     {
-        evo_driver_.do_work();
+        seatrac_driver_.do_work();
         mac.do_work();
 
         ros::spinOnce();
@@ -132,19 +143,30 @@ void Modem::parseEvologicsParams()
     pnh_->param<int>(config_.type + "_configuration/sound_speed", config_.sound_speed, 1500);
 }
 
+void Modem::parseSeatracParams()
+{
+    pnh_->param<std::string>("type", config_.type, "modem");
+    config_.interface.if_type = "serial";
+    pnh_->param<std::string>(config_.type + "_configuration/interface/device", config_.interface.device, "/dev/ttyUSB0");
+    pnh_->param<int>(config_.type + "_configuration/interface/baudrate", config_.interface.baudrate, 115200);
+    pnh_->param<int>(config_.type + "_configuration/local_address", config_.local_address, 1);
+    pnh_->param<int>(config_.type + "_configuration/remote_address", config_.remote_address, 2);
+    pnh_->param<int>(config_.type + "_configuration/sound_speed", config_.sound_speed, 1500);
+}
+
 /**
  * @brief the goby dccl, mac, queue, and driver are configured and initialized
  *
  */
 void Modem::loadGoby()
 {
-    goby::acomms::bind(mac, evo_driver_);
+    goby::acomms::bind(mac, seatrac_driver_);
 
     // connect the receive signal from the driver to the modem slot
-    goby::acomms::connect(&evo_driver_.signal_receive, this, &Modem::receivedData);
+    goby::acomms::connect(&seatrac_driver_.signal_receive, this, &Modem::receivedData);
 
     // connect the outgoing data request signal from the driver to the modem slot
-    goby::acomms::connect(&evo_driver_.signal_data_request, this, &Modem::dataRequest);
+    goby::acomms::connect(&seatrac_driver_.signal_data_request, this, &Modem::dataRequest);
 
     // Initiate modem driver
     goby::acomms::protobuf::DriverConfig driver_cfg;
@@ -197,9 +219,9 @@ void Modem::loadGoby()
     goby::glog.set_name("modem");
     goby::glog.add_stream(goby::util::logger::DEBUG1, &std::clog);
 
-    // startup the mac and evo_driver_
+    // startup the mac and seatrac_driver_
     mac.startup(mac_cfg);
-    evo_driver_.startup(driver_cfg);
+    seatrac_driver_.startup(driver_cfg);
 
     loadBuffer();
 }
@@ -299,7 +321,7 @@ void Modem::dataRequest(goby::acomms::protobuf::ModemTransmission *msg)
     }
 }
 
-void Modem::addToBuffer(const alpha_acomms::AcommsTxConstPtr msg)
+void Modem::addToBuffer(const alpha_comms::AcommsTxConstPtr msg)
 {
 
     if (dynamic_buffer_config_.find(msg->subbuffer_id) != dynamic_buffer_config_.end())
@@ -319,7 +341,7 @@ void Modem::addToBuffer(const alpha_acomms::AcommsTxConstPtr msg)
  */
 void Modem::receivedData(const goby::acomms::protobuf::ModemTransmission &data_msg)
 {
-    alpha_acomms::AcommsRx msg;
+    alpha_comms::AcommsRx msg;
 
     msg.data = data_msg.frame()[0];
 
@@ -347,6 +369,11 @@ void Modem::evologicsPositioningData(UsbllongMsg msg)
     // printf("USBL Measurement\n");
     // printf("E: %f\tN: %f\tU: %f\n", msg.pose.enu.e, msg.pose.enu.n, msg.pose.enu.u);
     // printf("Lat: %f\t Lon: %f\n", toll.response.ll_point.latitude, toll.response.ll_point.longitude);
+}
+
+void Modem::seatracPositioningData(ACOFIX_T msg)
+{
+
 }
 
 void Modem::onGps(sensor_msgs::NavSatFixConstPtr fix)

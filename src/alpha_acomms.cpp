@@ -9,7 +9,7 @@ AlphaAcomms::AlphaAcomms()
 
     loadGoby();
 
-    m_modem_tx = m_nh->advertise<alpha_acomms::AcommsTx>(config_.type+"/tx", 10);
+    m_modem_tx = m_nh->advertise<alpha_comms::AcommsTx>(config_.type+"/tx", 10);
     m_modem_rx = m_nh->subscribe(config_.type+"/rx", 10, &AlphaAcomms::received_data, this);
 
     m_target_pose = m_nh->advertise<geographic_msgs::GeoPoint>(config_.type + "/pose",10);
@@ -53,12 +53,12 @@ void AlphaAcomms::loadGoby()
  * 
  * @param data_msg the incoming message
  */
-void AlphaAcomms::received_data(const alpha_acomms::AcommsRxConstPtr data_msg)
+void AlphaAcomms::received_data(const alpha_comms::AcommsRxConstPtr data_msg)
 {
     printf("I RECEIVED DATA\n");
     int dccl_id = dccl_->id_from_encoded(data_msg->data);
     std::string bytes;
-    alpha_acomms::AcommsTx out;
+    alpha_comms::AcommsTx out;
 
     switch(dccl_id)
     {
@@ -340,7 +340,7 @@ void AlphaAcomms::timer_callback(const ros::TimerEvent& event)
 
     printf("Debug String: %s\n", pose_response_.ShortDebugString().c_str() );
 
-    alpha_acomms::AcommsTx out;
+    alpha_comms::AcommsTx out;
     out.data = bytes;
     out.subbuffer_id = "pose_response";
     m_modem_tx.publish(out);
