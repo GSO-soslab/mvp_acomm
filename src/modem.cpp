@@ -35,8 +35,6 @@ Modem::Modem()
     nh_.reset(new ros::NodeHandle(""));
     pnh_.reset(new ros::NodeHandle("~"));
 
-    printf("Hey there\n");
-
     parseGobyParams();
 
     if (config_.driver == "evologics")
@@ -84,13 +82,12 @@ void Modem::loop()
 {
     ros::Rate rate(10);
 
-    dccl_->validate<PoseResponse>();
-
     // loop at 10Hz
     while (ros::ok())
     {
-        seatrac_driver_.do_work();
+        evo_driver_.do_work();
         mac.do_work();
+        buffer_.expire();
 
         ros::spinOnce();
 
@@ -146,7 +143,7 @@ void Modem::parseEvologicsParams()
 void Modem::parseSeatracParams()
 {
     pnh_->param<std::string>("type", config_.type, "modem");
-    config_.interface.if_type = "serial";
+    config_.interface.if_type = "tcp";
     pnh_->param<std::string>(config_.type + "_configuration/interface/device", config_.interface.device, "/dev/ttyUSB0");
     pnh_->param<int>(config_.type + "_configuration/interface/baudrate", config_.interface.baudrate, 115200);
     pnh_->param<int>(config_.type + "_configuration/local_address", config_.local_address, 1);
@@ -160,13 +157,13 @@ void Modem::parseSeatracParams()
  */
 void Modem::loadGoby()
 {
-    goby::acomms::bind(mac, seatrac_driver_);
+    goby::acomms::bind(mac, evo_driver_);
 
     // connect the receive signal from the driver to the modem slot
-    goby::acomms::connect(&seatrac_driver_.signal_receive, this, &Modem::receivedData);
+    goby::acomms::connect(&evo_driver_.signal_receive, this, &Modem::receivedData);
 
     // connect the outgoing data request signal from the driver to the modem slot
-    goby::acomms::connect(&seatrac_driver_.signal_data_request, this, &Modem::dataRequest);
+    goby::acomms::connect(&evo_driver_.signal_data_request, this, &Modem::dataRequest);
 
     // Initiate modem driver
     goby::acomms::protobuf::DriverConfig driver_cfg;
@@ -196,12 +193,16 @@ void Modem::loadGoby()
     my_slot.set_src(config_.local_address);
     my_slot.set_dest(config_.remote_address);
     my_slot.set_max_frame_bytes(config_.max_frame_bytes);
+    my_slot.set_max_num_frames(1);
     my_slot.set_type(goby::acomms::protobuf::ModemTransmission::DATA);
+    my_slot.set_slot_seconds(config_.mac_slot_time);
 
     // setup the modem slot
     goby::acomms::protobuf::ModemTransmission buddy_slot;
     buddy_slot.set_src(config_.remote_address);
     buddy_slot.set_dest(config_.local_address);
+    buddy_slot.set_max_frame_bytes(config_.max_frame_bytes);
+    buddy_slot.set_max_num_frames(1);
     buddy_slot.set_type(goby::acomms::protobuf::ModemTransmission::DATA);
     buddy_slot.set_slot_seconds(config_.mac_slot_time);
 
@@ -219,9 +220,9 @@ void Modem::loadGoby()
     goby::glog.set_name("modem");
     goby::glog.add_stream(goby::util::logger::DEBUG1, &std::clog);
 
-    // startup the mac and seatrac_driver_
+    // startup the mac and evo_driver_
     mac.startup(mac_cfg);
-    seatrac_driver_.startup(driver_cfg);
+    evo_driver_.startup(driver_cfg);
 
     loadBuffer();
 }
@@ -296,37 +297,36 @@ void Modem::configModem()
 void Modem::dataRequest(goby::acomms::protobuf::ModemTransmission *msg)
 {
     int dest = msg->dest();
-    for (auto frame_number = msg->frame_start(),
-              total_frames = msg->max_num_frames() + msg->frame_start();
-         frame_number < total_frames; ++frame_number)
+
+    std::string *frame = msg->add_frame();
+
+    while (frame->size() < msg->max_frame_bytes())
     {
-        std::string *frame = msg->add_frame();
-
-        while (frame->size() < msg->max_frame_bytes())
+        try
         {
-            try
-            {
-                auto buffer_value =
-                    buffer_.top(dest, msg->max_frame_bytes() - frame->size());
-                dest = buffer_value.modem_id;
-                *frame += buffer_value.data.data();
+            auto buffer_value =
+                buffer_.top(dest, msg->max_frame_bytes() - frame->size());
 
-                buffer_.erase(buffer_value);
-            }
-            catch (goby::acomms::DynamicBufferNoDataException &)
-            {
-                break;
-            }
+            // *frame += buffer_value.data.data();
+            frame->append(buffer_value.data + '\n');
+
+            buffer_.erase(buffer_value);
+        }
+        catch (goby::acomms::DynamicBufferNoDataException &)
+        {
+            break;
         }
     }
+    
 }
 
-void Modem::addToBuffer(const alpha_comms::AcommsTxConstPtr msg)
+void Modem::addToBuffer(const alpha_comms::AcommsTxConstPtr& msg)
 {
-
     if (dynamic_buffer_config_.find(msg->subbuffer_id) != dynamic_buffer_config_.end())
     {
         buffer_.push({config_.remote_address, msg->subbuffer_id, goby::time::SteadyClock::now(), msg->data});
+
+        printf("Data Added to Buffer: %s\n", goby::util::hex_encode(msg->data).c_str());
     }
     else
     {
@@ -367,8 +367,8 @@ void Modem::evologicsPositioningData(UsbllongMsg msg)
     track_pub_.publish(track);
 
     // printf("USBL Measurement\n");
-    // printf("E: %f\tN: %f\tU: %f\n", msg.pose.enu.e, msg.pose.enu.n, msg.pose.enu.u);
-    // printf("Lat: %f\t Lon: %f\n", toll.response.ll_point.latitude, toll.response.ll_point.longitude);
+    printf("E: %f\tN: %f\tU: %f\n", msg.pose.enu.e, msg.pose.enu.n, msg.pose.enu.u);
+    printf("Lat: %f\t Lon: %f\n", toll.response.ll_point.latitude, toll.response.ll_point.longitude);
 }
 
 void Modem::seatracPositioningData(ACOFIX_T msg)

@@ -87,9 +87,14 @@ add_executable(alpha_acomms_node
   src/alpha_acomms.cpp
 )
 
+add_executable(test_node
+  src/loopback_test.cpp
+)
+
 
 add_dependencies(modem_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(alpha_acomms_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(test_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 target_link_libraries(modem_node
   ${catkin_LIBRARIES}
@@ -99,6 +104,13 @@ target_link_libraries(modem_node
 )
 
 target_link_libraries(alpha_acomms_node
+  ${catkin_LIBRARIES}
+  proto
+  goby
+  dccl
+)
+
+target_link_libraries(test_node
   ${catkin_LIBRARIES}
   proto
   goby

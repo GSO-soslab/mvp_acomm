@@ -148,7 +148,7 @@ private:
     void parseEvologicsParams();
     void parseSeatracParams();
     void dataRequest(goby::acomms::protobuf::ModemTransmission *msg);
-    void addToBuffer(const alpha_comms::AcommsTxConstPtr msg);
+    void addToBuffer(const alpha_comms::AcommsTxConstPtr& msg);
     void receivedData(const goby::acomms::protobuf::ModemTransmission &data_msg);
     void evologicsPositioningData(UsbllongMsg msg);
     void seatracPositioningData(ACOFIX_T msg);

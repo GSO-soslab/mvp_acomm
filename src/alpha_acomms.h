@@ -32,7 +32,7 @@ public:
 
     void loadGoby();
 
-    void received_data(const alpha_comms::AcommsRxConstPtr data_msg);
+    void received_data(const alpha_comms::AcommsRxConstPtr& data_msg);
 
     void geopose_callback(const geographic_msgs::GeoPoseStampedConstPtr geopose_msg);
 
@@ -41,6 +41,8 @@ public:
     void power_callback(const mvp_msgs::PowerConstPtr power_msg);
 
     void timer_callback(const ros::TimerEvent &event);
+
+    void test_timer_callback(const ros::TimerEvent &event);
 
 private:
 

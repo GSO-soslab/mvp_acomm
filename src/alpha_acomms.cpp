@@ -23,8 +23,12 @@ AlphaAcomms::AlphaAcomms()
 
     if(config_.type == "modem")
     {
-        timer = m_nh->createTimer(ros::Duration(10), &AlphaAcomms::timer_callback, this);
+        timer = m_nh->createTimer(ros::Duration(10), &AlphaAcomms::test_timer_callback, this);
 
+    }
+    else if(config_.type == "test")
+    {
+        timer = m_nh->createTimer(ros::Duration(5), &AlphaAcomms::test_timer_callback, this);
     }
 
 
@@ -53,235 +57,244 @@ void AlphaAcomms::loadGoby()
  * 
  * @param data_msg the incoming message
  */
-void AlphaAcomms::received_data(const alpha_comms::AcommsRxConstPtr data_msg)
+void AlphaAcomms::received_data(const alpha_comms::AcommsRxConstPtr& data_msg)
 {
     printf("I RECEIVED DATA\n");
-    int dccl_id = dccl_->id_from_encoded(data_msg->data);
-    std::string bytes;
-    alpha_comms::AcommsTx out;
 
-    switch(dccl_id)
+    try
     {
-        case DcclIdMap::POSE_COMMAND_ID:
+        int dccl_id = dccl_->id_from_encoded(data_msg->data);
+        std::string bytes;
+        alpha_comms::AcommsTx out;
+
+        switch(dccl_id)
         {
-            PoseCommand pose_cmd;
-            dccl_->decode(data_msg->data, &pose_cmd);
-
-            if(pose_cmd.destination() == config_.local_address)
+            case DcclIdMap::POSE_COMMAND_ID:
             {
+                PoseCommand pose_cmd;
+                dccl_->decode(data_msg->data, &pose_cmd);
 
-                dccl_->encode(&bytes, pose_response_);
-
-                out.data = bytes;
-                out.subbuffer_id = "pose_response";
-                m_modem_tx.publish(out);
-
-            }
-
-            break;
-        }
-        case DcclIdMap::POSE_RESPONSE_ID:
-        {
-            printf("I MADE IT TO POSE RESPONSE\n");
-            PoseResponse pose_resp;
-            dccl_->decode(data_msg->data, &pose_resp);
-
-            if(pose_resp.destination() == config_.local_address)
-            {
-                geographic_msgs::GeoPoint geo_msg;
-
-                geo_msg.latitude = pose_resp.latitude();
-                geo_msg.longitude = pose_resp.longitude();
-                geo_msg.altitude = pose_resp.altitude();
-
-                m_target_pose.publish(geo_msg);
-            }
-
-            break;
-        }
-
-        case DcclIdMap::POWER_COMMAND_ID:
-        {
-            PowerCommand power_command;
-            dccl_->decode(data_msg->data, &power_command);
-
-            if(power_command.destination() == config_.local_address)
-            {
-                if(good_power_ == true)
-                {
-                dccl_->encode(&bytes, power_response_); 
-            
-                out.data = bytes;
-                out.subbuffer_id = "power_response";
-                m_modem_tx.publish(out);
-                }
-            
-            }
-
-            break;
-        }
-        case DcclIdMap::POWER_RESPONSE_ID:
-        {
-            PowerResponse power_resp;
-            dccl_->decode(data_msg->data, &power_resp);
-
-            if(power_resp.destination() == config_.local_address)
-            {
-                mvp_msgs::Power power;
-
-                power.voltage = power_resp.battery_voltage();
-                power.current = power_resp.current();
-
-
-                m_target_power.publish(power);
-            }
-
-        }
-        case DcclIdMap::RELATIVE_POSE_COMMAND_ID:
-        {
-            RelativePoseCommand rel_pose_cmd;
-            dccl_->decode(data_msg->data, &rel_pose_cmd);
-
-            if(rel_pose_cmd.destination() == config_.local_address)
-            {
-                //do something
-            }
-
-
-        }
-        case DcclIdMap::CONTROLLER_STATE_COMMAND_ID:
-        {
-            ControllerStateCommand controller_state_cmd;
-            dccl_->decode(data_msg->data, &controller_state_cmd);
-
-            if(controller_state_cmd.destination() == config_.local_address)
-            {
-                if(controller_state_cmd.mode() == ControllerStateCommand_Mode_COMMAND)
+                if(pose_cmd.destination() == config_.local_address)
                 {
 
-                }
-                else if(controller_state_cmd.mode() == ControllerStateCommand_Mode_QUERY)
-                {
-                    mvp_msgs::GetControlModes srv;
-                    m_controller_state_srv.call(srv);
-
-                    ControllerStateResponse controller_state_resp;
-
-                    if(!srv.response.modes.empty())
-
-                    
-                        controller_state_resp.set_destination(config_.remote_address);
-                        controller_state_resp.set_source(config_.local_address);
-                        controller_state_resp.set_time(ros::Time::now().toSec());
-
-                        dccl_->encode(&bytes, controller_state_resp); 
-            
-                        out.data = bytes;
-                        out.subbuffer_id = "controller_state_response";
-                        m_modem_tx.publish(out);
-
-                }
-
-                
-                
-            }
-
-
-        }
-        case DcclIdMap::DIRECT_CONTROL_COMMAND_ID:
-        {
-            DirectControlCommand direct_control_cmd;
-            dccl_->decode(data_msg->data, &direct_control_cmd);
-
-            if(direct_control_cmd.destination() == config_.local_address)
-            {
-                //do something
-            }
-
-
-        }
-        case DcclIdMap::HELM_STATE_COMMAND_ID:
-        {
-            HelmStateCommand helm_state_cmd;
-            dccl_->decode(data_msg->data, &helm_state_cmd);
-
-            if(helm_state_cmd.destination() == config_.local_address)
-            {
-                if(helm_state_cmd.mode() == HelmStateCommand_Mode_QUERY)
-                {
-                    mvp_msgs::GetState srv;
-                    m_helm_get_state_srv.call(srv);
-
-                    HelmStateResponse helm_state_resp;
-                    helm_state_resp.set_source(config_.local_address);
-                    helm_state_resp.set_destination(config_.remote_address);
-                    helm_state_resp.set_time(ros::Time::now().toSec());
-
-                    HelmStateResponse_HelmState state;
-
-                    if(srv.response.state.mode == "kill"){state = HelmStateResponse_HelmState_KILL;}
-                    else if(srv.response.state.mode == "start"){state = HelmStateResponse_HelmState_START;}
-                    else if(srv.response.state.mode == "survey_local"){state = HelmStateResponse_HelmState_SURVEY_LOCAL;}
-                    else if(srv.response.state.mode == "survey_global"){state = HelmStateResponse_HelmState_SURVEY_GLOBAL;}
-                    else if(srv.response.state.mode == "survey_3d"){state = HelmStateResponse_HelmState_SURVEY_3D;}
-                    else if(srv.response.state.mode == "direct_control"){state = HelmStateResponse_HelmState_DIRECT_CONTROL;}
-
-                    helm_state_resp.set_helm_state(state);
-
-                    dccl_->encode(&bytes, helm_state_resp);
+                    dccl_->encode(&bytes, pose_response_);
 
                     out.data = bytes;
-                    out.subbuffer_id = "helm_state_command";
+                    out.subbuffer_id = "pose_response";
                     m_modem_tx.publish(out);
-                        
 
                 }
-                else if(helm_state_cmd.mode() == HelmStateCommand_Mode_COMMAND)
+
+                break;
+            }
+            case DcclIdMap::POSE_RESPONSE_ID:
+            {
+                printf("I MADE IT TO POSE RESPONSE\n");
+                PoseResponse pose_resp;
+                dccl_->decode(data_msg->data, &pose_resp);
+
+                printf("%s\n", pose_resp.ShortDebugString().c_str());
+
+                if(pose_resp.destination() == config_.local_address)
                 {
-                    mvp_msgs::ChangeState srv;
-                    
-                    if(helm_state_cmd.state() == HelmStateCommand_HelmState_KILL){srv.request.state = "kill";}
-                    else if(helm_state_cmd.state() == HelmStateCommand_HelmState_START){srv.request.state = "start";}
-                    else if(helm_state_cmd.state() == HelmStateCommand_HelmState_SURVEY_LOCAL){srv.request.state = "survey_local";}
-                    else if(helm_state_cmd.state() == HelmStateCommand_HelmState_SURVEY_GLOBAL){srv.request.state = "survey_global";}
-                    else if(helm_state_cmd.state() == HelmStateCommand_HelmState_SURVEY_3D){srv.request.state = "survey_3d";}
-                    else if(helm_state_cmd.state() == HelmStateCommand_HelmState_DIRECT_CONTROL){srv.request.state = "direct_control";}
+                    geographic_msgs::GeoPoint geo_msg;
 
-                    m_helm_change_state_srv.call(srv);
+                    geo_msg.latitude = pose_resp.latitude();
+                    geo_msg.longitude = pose_resp.longitude();
+                    geo_msg.altitude = pose_resp.altitude();
+
+                    m_target_pose.publish(geo_msg);
                 }
+
+                break;
             }
 
-
-        }
-        case DcclIdMap::WAYPOINT_COMMAND_ID:
-        {
-            WaypointCommand waypoint_cmd;
-            dccl_->decode(data_msg->data, &waypoint_cmd);
-
-            if(waypoint_cmd.destination() == config_.local_address)
+            case DcclIdMap::POWER_COMMAND_ID:
             {
-                //do something
+                PowerCommand power_command;
+                dccl_->decode(data_msg->data, &power_command);
+
+                if(power_command.destination() == config_.local_address)
+                {
+                    if(good_power_ == true)
+                    {
+                    dccl_->encode(&bytes, power_response_); 
+                
+                    out.data = bytes;
+                    out.subbuffer_id = "power_response";
+                    m_modem_tx.publish(out);
+                    }
+                
+                }
+
+                break;
             }
-
-
-        }
-        case DcclIdMap::EXECUTE_WAYPOINTS_ID:
-        {
-            ControllerStateCommand execute_wpt;
-            dccl_->decode(data_msg->data, &execute_wpt);
-
-            if(execute_wpt.destination() == config_.local_address)
+            case DcclIdMap::POWER_RESPONSE_ID:
             {
-                //do something
-            }
+                PowerResponse power_resp;
+                dccl_->decode(data_msg->data, &power_resp);
 
+                if(power_resp.destination() == config_.local_address)
+                {
+                    mvp_msgs::Power power;
+
+                    power.voltage = power_resp.battery_voltage();
+                    power.current = power_resp.current();
+
+
+                    m_target_power.publish(power);
+                }
+
+            }
+            case DcclIdMap::RELATIVE_POSE_COMMAND_ID:
+            {
+                RelativePoseCommand rel_pose_cmd;
+                dccl_->decode(data_msg->data, &rel_pose_cmd);
+
+                if(rel_pose_cmd.destination() == config_.local_address)
+                {
+                    //do something
+                }
+
+
+            }
+            case DcclIdMap::CONTROLLER_STATE_COMMAND_ID:
+            {
+                ControllerStateCommand controller_state_cmd;
+                dccl_->decode(data_msg->data, &controller_state_cmd);
+
+                if(controller_state_cmd.destination() == config_.local_address)
+                {
+                    if(controller_state_cmd.mode() == ControllerStateCommand_Mode_COMMAND)
+                    {
+
+                    }
+                    else if(controller_state_cmd.mode() == ControllerStateCommand_Mode_QUERY)
+                    {
+                        mvp_msgs::GetControlModes srv;
+                        m_controller_state_srv.call(srv);
+
+                        ControllerStateResponse controller_state_resp;
+
+                        if(!srv.response.modes.empty())
+
+                        
+                            controller_state_resp.set_destination(config_.remote_address);
+                            controller_state_resp.set_source(config_.local_address);
+                            controller_state_resp.set_time(ros::Time::now().toSec());
+
+                            dccl_->encode(&bytes, controller_state_resp); 
+                
+                            out.data = bytes;
+                            out.subbuffer_id = "controller_state_response";
+                            m_modem_tx.publish(out);
+
+                    }
+
+                    
+                    
+                }
+
+
+            }
+            case DcclIdMap::DIRECT_CONTROL_COMMAND_ID:
+            {
+                DirectControlCommand direct_control_cmd;
+                dccl_->decode(data_msg->data, &direct_control_cmd);
+
+                if(direct_control_cmd.destination() == config_.local_address)
+                {
+                    //do something
+                }
+
+
+            }
+            case DcclIdMap::HELM_STATE_COMMAND_ID:
+            {
+                HelmStateCommand helm_state_cmd;
+                dccl_->decode(data_msg->data, &helm_state_cmd);
+
+                if(helm_state_cmd.destination() == config_.local_address)
+                {
+                    if(helm_state_cmd.mode() == HelmStateCommand_Mode_QUERY)
+                    {
+                        mvp_msgs::GetState srv;
+                        m_helm_get_state_srv.call(srv);
+
+                        HelmStateResponse helm_state_resp;
+                        helm_state_resp.set_source(config_.local_address);
+                        helm_state_resp.set_destination(config_.remote_address);
+                        helm_state_resp.set_time(ros::Time::now().toSec());
+
+                        HelmStateResponse_HelmState state;
+
+                        if(srv.response.state.mode == "kill"){state = HelmStateResponse_HelmState_KILL;}
+                        else if(srv.response.state.mode == "start"){state = HelmStateResponse_HelmState_START;}
+                        else if(srv.response.state.mode == "survey_local"){state = HelmStateResponse_HelmState_SURVEY_LOCAL;}
+                        else if(srv.response.state.mode == "survey_global"){state = HelmStateResponse_HelmState_SURVEY_GLOBAL;}
+                        else if(srv.response.state.mode == "survey_3d"){state = HelmStateResponse_HelmState_SURVEY_3D;}
+                        else if(srv.response.state.mode == "direct_control"){state = HelmStateResponse_HelmState_DIRECT_CONTROL;}
+
+                        helm_state_resp.set_helm_state(state);
+
+                        dccl_->encode(&bytes, helm_state_resp);
+
+                        out.data = bytes;
+                        out.subbuffer_id = "helm_state_command";
+                        m_modem_tx.publish(out);
+                            
+
+                    }
+                    else if(helm_state_cmd.mode() == HelmStateCommand_Mode_COMMAND)
+                    {
+                        mvp_msgs::ChangeState srv;
+                        
+                        if(helm_state_cmd.state() == HelmStateCommand_HelmState_KILL){srv.request.state = "kill";}
+                        else if(helm_state_cmd.state() == HelmStateCommand_HelmState_START){srv.request.state = "start";}
+                        else if(helm_state_cmd.state() == HelmStateCommand_HelmState_SURVEY_LOCAL){srv.request.state = "survey_local";}
+                        else if(helm_state_cmd.state() == HelmStateCommand_HelmState_SURVEY_GLOBAL){srv.request.state = "survey_global";}
+                        else if(helm_state_cmd.state() == HelmStateCommand_HelmState_SURVEY_3D){srv.request.state = "survey_3d";}
+                        else if(helm_state_cmd.state() == HelmStateCommand_HelmState_DIRECT_CONTROL){srv.request.state = "direct_control";}
+
+                        m_helm_change_state_srv.call(srv);
+                    }
+                }
+
+
+            }
+            case DcclIdMap::WAYPOINT_COMMAND_ID:
+            {
+                WaypointCommand waypoint_cmd;
+                dccl_->decode(data_msg->data, &waypoint_cmd);
+
+                if(waypoint_cmd.destination() == config_.local_address)
+                {
+                    //do something
+                }
+
+
+            }
+            case DcclIdMap::EXECUTE_WAYPOINTS_ID:
+            {
+                ControllerStateCommand execute_wpt;
+                dccl_->decode(data_msg->data, &execute_wpt);
+
+                if(execute_wpt.destination() == config_.local_address)
+                {
+                    //do something
+                }
+
+
+            }
+            default:
+                break;
 
         }
-        default:
-            break;
-
     }
-
+    catch(...)
+    {
+        printf("Oops something messed up decoding\n");
+    }
 }
 
 void AlphaAcomms::geopose_callback(const geographic_msgs::GeoPoseStampedConstPtr geopose_msg)
@@ -339,6 +352,42 @@ void AlphaAcomms::timer_callback(const ros::TimerEvent& event)
     dccl_->encode(&bytes, pose_response_); 
 
     printf("Debug String: %s\n", pose_response_.ShortDebugString().c_str() );
+
+    alpha_comms::AcommsTx out;
+    out.data = bytes;
+    out.subbuffer_id = "pose_response";
+    m_modem_tx.publish(out);
+    
+
+}
+
+void AlphaAcomms::test_timer_callback(const ros::TimerEvent& event)
+{
+
+    pose_response_.set_source(config_.local_address);
+    pose_response_.set_destination(config_.remote_address);
+    pose_response_.set_time(ros::Time::now().toSec());
+
+    // robot_localization::ToLL toll;
+    // toll.request.map_point.x = odom->pose.pose.position.x;
+    // toll.request.map_point.y = odom->pose.pose.position.y;
+    // toll.request.map_point.z = odom->pose.pose.position.z;
+
+    // toll_.call(toll);
+
+    pose_response_.set_latitude(-71.134);
+    pose_response_.set_longitude(41.32);
+    pose_response_.set_altitude(-1.0);
+    pose_response_.set_quat_x(0.1);
+    pose_response_.set_quat_y(0.2);
+    pose_response_.set_quat_z(0.3);
+    pose_response_.set_quat_w(0.4);
+
+    std::string bytes;
+    dccl_->encode(&bytes, pose_response_); 
+
+    printf("Debug String: %s\n", pose_response_.ShortDebugString().c_str() );
+    printf("Encoded Data: %s\n", goby::util::hex_encode(bytes).c_str());
 
     alpha_comms::AcommsTx out;
     out.data = bytes;

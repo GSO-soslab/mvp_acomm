@@ -1,6 +1,6 @@
 
 goby:
-  driver: "seatrac"
+  driver: "evologics"
   max_frame_bytes: 500
   mac_slot_time: 5
 
