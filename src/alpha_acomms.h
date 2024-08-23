@@ -55,7 +55,7 @@ private:
     ros::Publisher m_target_pose;
     ros::Publisher m_target_power;
 
-    ros::Subscriber m_odom_sub;
+    ros::Subscriber m_geopose_sub;
     ros::Subscriber m_power_sub;
     ros::ServiceClient m_controller_state_srv;
     ros::ServiceClient m_helm_get_state_srv;
@@ -82,4 +82,6 @@ private:
     Config config_;
 
     ros::Timer timer;
+
+    float depth_;
 };

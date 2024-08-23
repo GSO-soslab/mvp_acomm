@@ -19,19 +19,22 @@ AlphaAcomms::AlphaAcomms()
 
     toll_ = m_nh->serviceClient<robot_localization::ToLL>("toLL");
 
-    m_odom_sub = m_nh->subscribe("odometry/filtered/local", 10, &AlphaAcomms::odometry_callback, this);
+    m_geopose_sub = m_nh->subscribe("odometry/geopose", 10, &AlphaAcomms::geopose_callback, this);
 
     if(config_.type == "modem")
     {
-        timer = m_nh->createTimer(ros::Duration(10), &AlphaAcomms::timer_callback, this);
+        timer = m_nh->createTimer(ros::Duration(6), &AlphaAcomms::timer_callback, this);
     }
 }
 
 void AlphaAcomms::parseEvologicsParams()
 {
     m_pnh->param<std::string>("type", config_.type, "modem");
-    m_pnh->param<int>(config_.type + "_configuration/local_address", config_.local_address, 1);
-    m_pnh->param<int>(config_.type + "_configuration/remote_address", config_.remote_address, 2);
+    m_pnh->param<int>(config_.type + "_configuration/local_address", config_.local_address, 2);
+    m_pnh->param<int>(config_.type + "_configuration/remote_address", config_.remote_address, 1);
+
+    ROS_INFO("Local Address: %i\n", config_.local_address);
+    ROS_INFO("Remote Address: %i\n", config_.remote_address);
 
 }
 
@@ -298,7 +301,9 @@ void AlphaAcomms::geopose_callback(const geographic_msgs::GeoPoseStampedConstPtr
     pose_response_.set_quat_x(geopose_msg->pose.orientation.x);
     pose_response_.set_quat_y(geopose_msg->pose.orientation.y);
     pose_response_.set_quat_z(geopose_msg->pose.orientation.z);
-    pose_response_.set_quat_z(geopose_msg->pose.orientation.z);
+    pose_response_.set_quat_w(geopose_msg->pose.orientation.w);
+
+    depth_ =  geopose_msg->pose.position.altitude;
 }
 
 void AlphaAcomms::odometry_callback(const nav_msgs::OdometryConstPtr odom)
@@ -321,6 +326,8 @@ void AlphaAcomms::odometry_callback(const nav_msgs::OdometryConstPtr odom)
     pose_response_.set_quat_y(odom->pose.pose.orientation.y);
     pose_response_.set_quat_z(odom->pose.pose.orientation.z);
     pose_response_.set_quat_w(odom->pose.pose.orientation.w);
+
+    depth_ =  odom->pose.pose.position.z;
     
 }
 
@@ -338,23 +345,26 @@ void AlphaAcomms::power_callback(const mvp_msgs::PowerConstPtr power_msg)
 
 void AlphaAcomms::timer_callback(const ros::TimerEvent& event)
 {
-    std::string bytes;
-    dccl_->encode(&bytes, pose_response_); 
+    if(depth_ < -1.)
+    {
+        std::string bytes;
+        dccl_->encode(&bytes, pose_response_); 
 
-    printf("Debug String: %s\n", pose_response_.ShortDebugString().c_str() );
+        printf("Debug String: %s\n", pose_response_.ShortDebugString().c_str() );
 
-    alpha_comms::AcommsTx out;
-    out.data = bytes;
-    out.subbuffer_id = "pose_response";
-    m_modem_tx.publish(out);
+        alpha_comms::AcommsTx out;
+        out.data = bytes;
+        out.subbuffer_id = "pose_response";
+        m_modem_tx.publish(out);
 
-    dccl_->encode(&bytes, power_response_); 
+        dccl_->encode(&bytes, power_response_); 
 
-    printf("Debug String: %s\n", power_response_.ShortDebugString().c_str() );
+        printf("Debug String: %s\n", power_response_.ShortDebugString().c_str() );
 
-    out.data = bytes;
-    out.subbuffer_id = "power_response";
-    m_modem_tx.publish(out);
+        out.data = bytes;
+        out.subbuffer_id = "power_response";
+        m_modem_tx.publish(out);
+    }
     
 
 }

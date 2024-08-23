@@ -124,8 +124,8 @@ void Modem::parseEvologicsParams()
     pnh_->param<int>(config_.type + "_configuration/source_control", config_.source_control, 1);
     pnh_->param<int>(config_.type + "_configuration/gain_level", config_.gain_level, 0);
     pnh_->param<int>(config_.type + "_configuration/carrier_waveform_id", config_.carrier_waveform_id, 0);
-    pnh_->param<int>(config_.type + "_configuration/local_address", config_.local_address, 1);
-    pnh_->param<int>(config_.type + "_configuration/remote_address", config_.remote_address, 2);
+    pnh_->param<int>(config_.type + "_configuration/local_address", config_.local_address, 2);
+    pnh_->param<int>(config_.type + "_configuration/remote_address", config_.remote_address, 1);
     pnh_->param<int>(config_.type + "_configuration/highest_address", config_.highest_address, 2);
     pnh_->param<int>(config_.type + "_configuration/cluster_size", config_.cluster_size, 10);
     pnh_->param<int>(config_.type + "_configuration/packet_time", config_.packet_time, 750);

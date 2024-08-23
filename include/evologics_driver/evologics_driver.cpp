@@ -407,7 +407,7 @@ void goby::acomms::EvologicsDriver::data_transmission(protobuf::ModemTransmissio
 
     if (!(msg->frame_size() == 0 || msg->frame(0).empty()))
     {
-        std::string outgoing = hex_encode(msg->frame(0))+"\r";
+        std::string outgoing = hex_encode(msg->frame(0));
 
         evologics_write(outgoing);
 
@@ -429,7 +429,7 @@ void goby::acomms::EvologicsDriver::evologics_write(const std::string &s)
                             
     signal_raw_outgoing(raw_msg);
 
-    modem_write(raw_msg.raw() + "\n");
+    modem_write(raw_msg.raw() + "\r\n");
 }
 
 void goby::acomms::EvologicsDriver::signal_receive_and_clear(protobuf::ModemTransmission* message)
