@@ -9,13 +9,15 @@ config/goby.yaml:           The configuration file for the modem node. The user 
 config/evologics.yaml:      Specific configuration settings for the evologics modem/usbl.
 config/seatrac.yaml:        Specific configuration settings for the seatrac modem/usbl.
 
-src/alpha_acomms.cpp: A specific node that encodes Alpha's messages for acomms status, state, command and control.
+src/alpha_acomms.cpp:       A specific node that encodes Alpha's messages for acomms status, state, command and control.
 
 Publishers:
-~/modem/rx      All data received from the modem driver
+modem/rx                    All data received from the modem driver
+usbl_track                  USBL tracking information
 
 Subscribers:
-~/modem/tx      All data the user wants to send
+modem/tx                    All data the user wants to send
+gps/fix                     Current gps fix to convert local enu coordinate frame to geographic coordinates.
 
 
 

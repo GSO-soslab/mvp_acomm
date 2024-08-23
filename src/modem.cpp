@@ -37,20 +37,21 @@ Modem::Modem()
 
     parseGobyParams();
 
-    if (config_.driver == "evologics")
-    {
-        parseEvologicsParams();
+    if (config_.driver == "evologics"){ parseEvologicsParams();}
+    else if (config_.driver == "seatrac"){ parseSeatracParams();}
+    
 
-        if (config_.type == "usbl")
+    if (config_.type == "usbl")
+    {
+        track_pub_ = nh_->advertise<geographic_msgs::GeoPoint>("usbl_track", 10);
+        gps_sub_ = nh_->subscribe("gps/fix", 10, &Modem::onGps, this);
+        toll_ = nh_->serviceClient<robot_localization::ToLL>("toLL");
+
+        if (config_.driver == "evologics")
         {
             evo_driver_.set_usbl_callback(std::bind(&Modem::evologicsPositioningData, this, std::placeholders::_1));
         }
-    }
-    else if (config_.driver == "seatrac")
-    {
-        parseSeatracParams();
-
-        if (config_.type == "usbl")
+        else if (config_.driver == "seatrac")
         {
             seatrac_driver_.set_usbl_callback(std::bind(&Modem::seatracPositioningData, this, std::placeholders::_1));
         }
@@ -62,10 +63,6 @@ Modem::Modem()
 
     modem_tx_ = nh_->subscribe(config_.type + "/tx", 10, &Modem::addToBuffer, this);
     modem_rx_ = nh_->advertise<alpha_comms::AcommsRx>(config_.type + "/rx", 10);
-    track_pub_ = nh_->advertise<geographic_msgs::GeoPoint>(config_.type + "/track", 10);
-    gps_sub_ = nh_->subscribe("gps/fix", 10, &Modem::onGps, this);
-
-    toll_ = nh_->serviceClient<robot_localization::ToLL>("toLL");
 
     loop();
 }

@@ -23,15 +23,8 @@ AlphaAcomms::AlphaAcomms()
 
     if(config_.type == "modem")
     {
-        timer = m_nh->createTimer(ros::Duration(10), &AlphaAcomms::test_timer_callback, this);
-
+        timer = m_nh->createTimer(ros::Duration(10), &AlphaAcomms::timer_callback, this);
     }
-    else if(config_.type == "test")
-    {
-        timer = m_nh->createTimer(ros::Duration(5), &AlphaAcomms::test_timer_callback, this);
-    }
-
-
 }
 
 void AlphaAcomms::parseEvologicsParams()
@@ -59,8 +52,6 @@ void AlphaAcomms::loadGoby()
  */
 void AlphaAcomms::received_data(const alpha_comms::AcommsRxConstPtr& data_msg)
 {
-    printf("I RECEIVED DATA\n");
-
     try
     {
         int dccl_id = dccl_->id_from_encoded(data_msg->data);
@@ -89,7 +80,6 @@ void AlphaAcomms::received_data(const alpha_comms::AcommsRxConstPtr& data_msg)
             }
             case DcclIdMap::POSE_RESPONSE_ID:
             {
-                printf("I MADE IT TO POSE RESPONSE\n");
                 PoseResponse pose_resp;
                 dccl_->decode(data_msg->data, &pose_resp);
 
@@ -317,16 +307,16 @@ void AlphaAcomms::odometry_callback(const nav_msgs::OdometryConstPtr odom)
     pose_response_.set_destination(config_.remote_address);
     pose_response_.set_time(odom->header.stamp.toSec());
 
-    // robot_localization::ToLL toll;
-    // toll.request.map_point.x = odom->pose.pose.position.x;
-    // toll.request.map_point.y = odom->pose.pose.position.y;
-    // toll.request.map_point.z = odom->pose.pose.position.z;
+    robot_localization::ToLL toll;
+    toll.request.map_point.x = odom->pose.pose.position.x;
+    toll.request.map_point.y = odom->pose.pose.position.y;
+    toll.request.map_point.z = odom->pose.pose.position.z;
 
-    // toll_.call(toll);
+    toll_.call(toll);
 
-    pose_response_.set_latitude(-71.134);
-    pose_response_.set_longitude(41.32);
-    pose_response_.set_altitude(-1.0);
+    pose_response_.set_latitude(toll.response.ll_point.latitude);
+    pose_response_.set_longitude(toll.response.ll_point.longitude);
+    pose_response_.set_altitude(toll.response.ll_point.altitude);
     pose_response_.set_quat_x(odom->pose.pose.orientation.x);
     pose_response_.set_quat_y(odom->pose.pose.orientation.y);
     pose_response_.set_quat_z(odom->pose.pose.orientation.z);
@@ -357,41 +347,13 @@ void AlphaAcomms::timer_callback(const ros::TimerEvent& event)
     out.data = bytes;
     out.subbuffer_id = "pose_response";
     m_modem_tx.publish(out);
-    
 
-}
+    dccl_->encode(&bytes, power_response_); 
 
-void AlphaAcomms::test_timer_callback(const ros::TimerEvent& event)
-{
+    printf("Debug String: %s\n", power_response_.ShortDebugString().c_str() );
 
-    pose_response_.set_source(config_.local_address);
-    pose_response_.set_destination(config_.remote_address);
-    pose_response_.set_time(ros::Time::now().toSec());
-
-    // robot_localization::ToLL toll;
-    // toll.request.map_point.x = odom->pose.pose.position.x;
-    // toll.request.map_point.y = odom->pose.pose.position.y;
-    // toll.request.map_point.z = odom->pose.pose.position.z;
-
-    // toll_.call(toll);
-
-    pose_response_.set_latitude(-71.134);
-    pose_response_.set_longitude(41.32);
-    pose_response_.set_altitude(-1.0);
-    pose_response_.set_quat_x(0.1);
-    pose_response_.set_quat_y(0.2);
-    pose_response_.set_quat_z(0.3);
-    pose_response_.set_quat_w(0.4);
-
-    std::string bytes;
-    dccl_->encode(&bytes, pose_response_); 
-
-    printf("Debug String: %s\n", pose_response_.ShortDebugString().c_str() );
-    printf("Encoded Data: %s\n", goby::util::hex_encode(bytes).c_str());
-
-    alpha_comms::AcommsTx out;
     out.data = bytes;
-    out.subbuffer_id = "pose_response";
+    out.subbuffer_id = "power_response";
     m_modem_tx.publish(out);
     
 
