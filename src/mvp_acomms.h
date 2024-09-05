@@ -77,6 +77,7 @@ private:
         std::string type;
         int local_address;
         int remote_address;
+        int mac_slot_time;
     };
 
     Config config_;

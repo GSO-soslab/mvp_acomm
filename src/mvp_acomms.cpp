@@ -23,7 +23,7 @@ MvpAcomms::MvpAcomms()
 
     if(config_.type == "modem")
     {
-        timer = m_nh->createTimer(ros::Duration(6), &MvpAcomms::timer_callback, this);
+        timer = m_nh->createTimer(ros::Duration(config_.mac_slot_time * 2)), &MvpAcomms::timer_callback, this);
     }
 }
 
@@ -32,6 +32,7 @@ void MvpAcomms::parseEvologicsParams()
     m_pnh->param<std::string>("type", config_.type, "modem");
     m_pnh->param<int>(config_.type + "_configuration/local_address", config_.local_address, 2);
     m_pnh->param<int>(config_.type + "_configuration/remote_address", config_.remote_address, 1);
+    m_pnh_->param<int>("goby/mac_slot_time", config_.mac_slot_time, 10);
 
     ROS_INFO("Local Address: %i\n", config_.local_address);
     ROS_INFO("Remote Address: %i\n", config_.remote_address);
