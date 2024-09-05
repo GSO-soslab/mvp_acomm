@@ -3,6 +3,7 @@ goby:
   driver: "evologics"
   max_frame_bytes: 500
   mac_slot_time: 3
+  valid_depth: -1
 
   
   dynamic_buffer:

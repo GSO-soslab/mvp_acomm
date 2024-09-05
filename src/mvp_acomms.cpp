@@ -33,6 +33,7 @@ void MvpAcomms::parseEvologicsParams()
     m_pnh->param<int>(config_.type + "_configuration/local_address", config_.local_address, 2);
     m_pnh->param<int>(config_.type + "_configuration/remote_address", config_.remote_address, 1);
     m_pnh_->param<int>("goby/mac_slot_time", config_.mac_slot_time, 10);
+    m_pnh_->param<float>("goby/valid_depth", config_.valid_depth, -1);
 
     ROS_INFO("Local Address: %i\n", config_.local_address);
     ROS_INFO("Remote Address: %i\n", config_.remote_address);
@@ -346,7 +347,7 @@ void MvpAcomms::power_callback(const mvp_msgs::PowerConstPtr power_msg)
 
 void MvpAcomms::timer_callback(const ros::TimerEvent& event)
 {
-    if(depth_ < -1.)
+    if(depth_ < config_.valid_depth)
     {
         std::string bytes;
         dccl_->encode(&bytes, pose_response_); 

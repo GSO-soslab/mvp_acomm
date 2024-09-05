@@ -78,6 +78,7 @@ private:
         int local_address;
         int remote_address;
         int mac_slot_time;
+        float valid_depth;
     };
 
     Config config_;
