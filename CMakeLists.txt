@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5.1)
-project(alpha_comms)
+project(mvp_acomms)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++17)
@@ -24,8 +24,8 @@ find_package(catkin REQUIRED COMPONENTS
 
 add_message_files(
   FILES
-  AcommsTx.msg
-  AcommsRx.msg
+  MvpAcommsTx.msg
+  MvpAcommsRx.msg
 )
 
 generate_messages(
@@ -38,7 +38,6 @@ find_package(Protobuf REQUIRED)
 find_package(goby 3.1 REQUIRED)
 
 find_package(dccl REQUIRED)
-
 
 # build the protobuf messages
 file(GLOB ProtoFiles "${CMAKE_CURRENT_SOURCE_DIR}/src/proto/*.proto")
@@ -83,12 +82,12 @@ add_executable(modem_node
   include/AT/ATsentence.cpp
 )
 
-add_executable(alpha_acomms_node
-  src/alpha_acomms.cpp
+add_executable(mvp_acomms_node
+  src/mvp_acomms.cpp
 )
 
 add_dependencies(modem_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(alpha_acomms_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(mvp_acomms_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 target_link_libraries(modem_node
   ${catkin_LIBRARIES}
@@ -97,7 +96,7 @@ target_link_libraries(modem_node
   dccl
 )
 
-target_link_libraries(alpha_acomms_node
+target_link_libraries(mvp_acomms_node
   ${catkin_LIBRARIES}
   proto
   goby

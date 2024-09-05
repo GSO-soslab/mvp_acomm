@@ -23,21 +23,18 @@
 
 #pragma once
 
-#include <thread>
-#include <stdlib.h>
 #include "ros/ros.h"
-#include "unistd.h"
-#include <iostream>
 
+//ros messages
 #include <nav_msgs/Odometry.h>
 #include <mvp_msgs/Power.h>
 #include <sensor_msgs/NavSatFix.h>
-#include <alpha_comms/AcommsRx.h>
-#include <alpha_comms/AcommsTx.h>
-
-#include "robot_localization/ToLL.h"
-
+#include <mvp_acomms/MvpAcommsRx.h>
+#include <mvp_acomms/MvpAcommsTx.h>
 #include <geographic_msgs/GeoPoseStamped.h>
+
+//ros services
+#include "robot_localization/ToLL.h"
 
 //goby includes
 #include <goby/acomms/connect.h>
@@ -48,19 +45,12 @@
 #include <goby/acomms/modem_driver.h>
 #include <goby/util/binary.h>
 #include <goby/util/debug_logger.h>
-
-
 #include "goby/util/debug_logger/flex_ostream.h"         // for FlexOs...
 #include "goby/util/debug_logger/flex_ostreambuf.h"      // for DEBUG1
-
-//protobuf msg includes
-#include "proto/goby_msgs.pb.h"
 
 //driver includes
 #include "seatrac_driver.h"
 #include "evologics_driver.h"
-
-#include "common.h"
 
 class Modem{
 
@@ -148,11 +138,10 @@ private:
     void parseEvologicsParams();
     void parseSeatracParams();
     void dataRequest(goby::acomms::protobuf::ModemTransmission *msg);
-    void addToBuffer(const alpha_comms::AcommsTxConstPtr& msg);
+    void addToBuffer(const mvp_acomms::MvpAcommsTxConstPtr& msg);
     void receivedData(const goby::acomms::protobuf::ModemTransmission &data_msg);
     void evologicsPositioningData(UsbllongMsg msg);
     void seatracPositioningData(ACOFIX_T msg);
-    void onGps(const sensor_msgs::NavSatFixConstPtr fix);
 
     goby::acomms::EvologicsDriver evo_driver_;
     goby::acomms::SeatracDriver seatrac_driver_;

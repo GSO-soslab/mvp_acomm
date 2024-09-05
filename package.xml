@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>alpha_comms</name>
+  <name>mvp_acomms</name>
   <version>0.0.0</version>
   <description>The communication package</description>
 

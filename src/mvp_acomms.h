@@ -1,15 +1,17 @@
 
 #include "ros/ros.h"
 
-#include "common.h"
-
 #include <goby/acomms/dccl.h>
 
-#include <alpha_comms/AcommsRx.h>
-#include <alpha_comms/AcommsTx.h>
+//ros messages
+#include <mvp_acomms/MvpAcommsRx.h>
+#include <mvp_acomms/MvpAcommsTx.h>
+#include "common.h"
 #include <geographic_msgs/GeoPoseStamped.h>
 #include <nav_msgs/Odometry.h>
 #include <mvp_msgs/Power.h>
+
+//ros 
 #include <mvp_msgs/GetControlModes.h>
 #include <mvp_msgs/GetState.h>
 #include <mvp_msgs/GetStates.h>
@@ -17,22 +19,20 @@
 
 #include "robot_localization/ToLL.h"
 
+#include "mvp_msgs.pb.h"
 
 
-#include "proto/goby_msgs.pb.h"
-
-
-class AlphaAcomms
+class MvpAcomms
 {
 
 public:
-    AlphaAcomms();
+    MvpAcomms();
 
     void parseEvologicsParams();
 
     void loadGoby();
 
-    void received_data(const alpha_comms::AcommsRxConstPtr& data_msg);
+    void received_data(const mvp_acomms::MvpAcommsRxConstPtr& data_msg);
 
     void geopose_callback(const geographic_msgs::GeoPoseStampedConstPtr geopose_msg);
 

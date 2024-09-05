@@ -1,6 +1,6 @@
-#include "alpha_acomms.h"
+#include "mvp_acomms.h"
 
-AlphaAcomms::AlphaAcomms()
+MvpAcomms::MvpAcomms()
 {
     m_nh.reset(new ros::NodeHandle(""));
     m_pnh.reset(new ros::NodeHandle("~"));
@@ -9,25 +9,25 @@ AlphaAcomms::AlphaAcomms()
 
     loadGoby();
 
-    m_modem_tx = m_nh->advertise<alpha_comms::AcommsTx>(config_.type+"/tx", 10);
-    m_modem_rx = m_nh->subscribe(config_.type+"/rx", 10, &AlphaAcomms::received_data, this);
+    m_modem_tx = m_nh->advertise<mvp_acomms::MvpAcommsTx>(config_.type+"/tx", 10);
+    m_modem_rx = m_nh->subscribe(config_.type+"/rx", 10, &MvpAcomms::received_data, this);
 
     m_target_pose = m_nh->advertise<geographic_msgs::GeoPoint>(config_.type + "/pose",10);
     m_target_power = m_nh->advertise<mvp_msgs::Power>(config_.type + "/power", 10);
 
-    m_power_sub = m_nh->subscribe("power_monitor/power", 10, &AlphaAcomms::power_callback, this);
+    m_power_sub = m_nh->subscribe("power_monitor/power", 10, &MvpAcomms::power_callback, this);
 
     toll_ = m_nh->serviceClient<robot_localization::ToLL>("toLL");
 
-    m_geopose_sub = m_nh->subscribe("odometry/geopose", 10, &AlphaAcomms::geopose_callback, this);
+    m_geopose_sub = m_nh->subscribe("odometry/geopose", 10, &MvpAcomms::geopose_callback, this);
 
     if(config_.type == "modem")
     {
-        timer = m_nh->createTimer(ros::Duration(6), &AlphaAcomms::timer_callback, this);
+        timer = m_nh->createTimer(ros::Duration(6), &MvpAcomms::timer_callback, this);
     }
 }
 
-void AlphaAcomms::parseEvologicsParams()
+void MvpAcomms::parseEvologicsParams()
 {
     m_pnh->param<std::string>("type", config_.type, "modem");
     m_pnh->param<int>(config_.type + "_configuration/local_address", config_.local_address, 2);
@@ -38,7 +38,7 @@ void AlphaAcomms::parseEvologicsParams()
 
 }
 
-void AlphaAcomms::loadGoby()
+void MvpAcomms::loadGoby()
 {
     dccl_->validate<PoseCommand>();
     dccl_->validate<PoseResponse>();
@@ -53,13 +53,13 @@ void AlphaAcomms::loadGoby()
  * 
  * @param data_msg the incoming message
  */
-void AlphaAcomms::received_data(const alpha_comms::AcommsRxConstPtr& data_msg)
+void MvpAcomms::received_data(const mvp_acomms::MvpAcommsRxConstPtr& data_msg)
 {
     try
     {
         int dccl_id = dccl_->id_from_encoded(data_msg->data);
         std::string bytes;
-        alpha_comms::AcommsTx out;
+        mvp_acomms::MvpAcommsTx out;
 
         switch(dccl_id)
         {
@@ -290,7 +290,7 @@ void AlphaAcomms::received_data(const alpha_comms::AcommsRxConstPtr& data_msg)
     }
 }
 
-void AlphaAcomms::geopose_callback(const geographic_msgs::GeoPoseStampedConstPtr geopose_msg)
+void MvpAcomms::geopose_callback(const geographic_msgs::GeoPoseStampedConstPtr geopose_msg)
 {
     pose_response_.set_source(config_.local_address);
     pose_response_.set_destination(config_.remote_address);
@@ -306,7 +306,7 @@ void AlphaAcomms::geopose_callback(const geographic_msgs::GeoPoseStampedConstPtr
     depth_ =  geopose_msg->pose.position.altitude;
 }
 
-void AlphaAcomms::odometry_callback(const nav_msgs::OdometryConstPtr odom)
+void MvpAcomms::odometry_callback(const nav_msgs::OdometryConstPtr odom)
 {
     pose_response_.set_source(config_.local_address);
     pose_response_.set_destination(config_.remote_address);
@@ -331,7 +331,7 @@ void AlphaAcomms::odometry_callback(const nav_msgs::OdometryConstPtr odom)
     
 }
 
-void AlphaAcomms::power_callback(const mvp_msgs::PowerConstPtr power_msg)
+void MvpAcomms::power_callback(const mvp_msgs::PowerConstPtr power_msg)
 {
     good_power_ = true;
 
@@ -343,7 +343,7 @@ void AlphaAcomms::power_callback(const mvp_msgs::PowerConstPtr power_msg)
     power_response_.set_current(0.0);
 }
 
-void AlphaAcomms::timer_callback(const ros::TimerEvent& event)
+void MvpAcomms::timer_callback(const ros::TimerEvent& event)
 {
     if(depth_ < -1.)
     {
@@ -352,7 +352,7 @@ void AlphaAcomms::timer_callback(const ros::TimerEvent& event)
 
         printf("Debug String: %s\n", pose_response_.ShortDebugString().c_str() );
 
-        alpha_comms::AcommsTx out;
+        mvp_acomms::MvpAcommsTx out;
         out.data = bytes;
         out.subbuffer_id = "pose_response";
         m_modem_tx.publish(out);
@@ -374,7 +374,7 @@ int main(int argc, char* argv[])
 
     ros::init(argc, argv, "alpha_acomms");
 
-    AlphaAcomms d;
+    MvpAcomms d;
 
     ros::spin();
 

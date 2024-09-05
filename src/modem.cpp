@@ -44,7 +44,6 @@ Modem::Modem()
     if (config_.type == "usbl")
     {
         track_pub_ = nh_->advertise<geographic_msgs::GeoPoint>("usbl_track", 10);
-        gps_sub_ = nh_->subscribe("gps/fix", 10, &Modem::onGps, this);
         toll_ = nh_->serviceClient<robot_localization::ToLL>("toLL");
 
         if (config_.driver == "evologics")
@@ -62,7 +61,7 @@ Modem::Modem()
     configModem();
 
     modem_tx_ = nh_->subscribe(config_.type + "/tx", 10, &Modem::addToBuffer, this);
-    modem_rx_ = nh_->advertise<alpha_comms::AcommsRx>(config_.type + "/rx", 10);
+    modem_rx_ = nh_->advertise<mvp_acomms::MvpAcommsRx>(config_.type + "/rx", 10);
 
     loop();
 }
@@ -214,7 +213,7 @@ void Modem::loadGoby()
         mac_cfg.add_slot()->CopyFrom(my_slot);
     }
 
-    goby::glog.set_name("modem");
+    goby::glog.set_name(config_.type);
     goby::glog.add_stream(goby::util::logger::DEBUG1, &std::clog);
 
     // startup the mac and evo_driver_
@@ -317,7 +316,7 @@ void Modem::dataRequest(goby::acomms::protobuf::ModemTransmission *msg)
     
 }
 
-void Modem::addToBuffer(const alpha_comms::AcommsTxConstPtr& msg)
+void Modem::addToBuffer(const mvp_acomms::MvpAcommsTxConstPtr& msg)
 {
     if (dynamic_buffer_config_.find(msg->subbuffer_id) != dynamic_buffer_config_.end())
     {
@@ -338,7 +337,7 @@ void Modem::addToBuffer(const alpha_comms::AcommsTxConstPtr& msg)
  */
 void Modem::receivedData(const goby::acomms::protobuf::ModemTransmission &data_msg)
 {
-    alpha_comms::AcommsRx msg;
+    mvp_acomms::MvpAcommsRx msg;
 
     msg.data = data_msg.frame()[0];
 
@@ -357,6 +356,9 @@ void Modem::evologicsPositioningData(UsbllongMsg msg)
 
     // Publish USBL Tracking
     geographic_msgs::GeoPoint track;
+    geographic_msgs::GeoPoseStamped geo_pose;
+
+    
     track.latitude = toll.response.ll_point.latitude;
     track.longitude = toll.response.ll_point.longitude;
     track.altitude = toll.response.ll_point.altitude;
@@ -371,11 +373,6 @@ void Modem::evologicsPositioningData(UsbllongMsg msg)
 void Modem::seatracPositioningData(ACOFIX_T msg)
 {
 
-}
-
-void Modem::onGps(sensor_msgs::NavSatFixConstPtr fix)
-{
-    fix_ = *fix;
 }
 
 int main(int argc, char *argv[])
