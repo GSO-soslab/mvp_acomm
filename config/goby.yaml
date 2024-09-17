@@ -7,7 +7,7 @@ goby:
 
   
   dynamic_buffer:
-    #select the messages to load to the dynamic buffer
+    #select the subbuffer_id(s) to load to the dynamic buffer
     messages: ["pose_command", "pose_response", "power_command", "power_response"]
 
     #buffer configuration (https://goby.software/3.0/md_doc101_acomms-queue.html)

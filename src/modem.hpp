@@ -31,7 +31,12 @@
 #include <sensor_msgs/NavSatFix.h>
 #include <mvp_acomms/MvpAcommsRx.h>
 #include <mvp_acomms/MvpAcommsTx.h>
+#include <mvp_acomms/MvpAcommsRxByteArray.h>
+#include <mvp_acomms/MvpAcommsTxByteArray.h>
 #include <geographic_msgs/GeoPoseStamped.h>
+
+#include <std_msgs/UInt8MultiArray.h>
+#include <std_msgs/ByteMultiArray.h>
 
 //ros services
 #include "robot_localization/ToLL.h"
@@ -67,6 +72,9 @@ private:
 
     ros::Subscriber modem_tx_;
     ros::Publisher modem_rx_;
+
+    ros::Subscriber modem_tx_bytearray_;
+    ros::Publisher modem_rx_bytearray_;
 
     ros::Publisher track_pub_;
     ros::Subscriber gps_sub_;
@@ -139,6 +147,7 @@ private:
     void parseSeatracParams();
     void dataRequest(goby::acomms::protobuf::ModemTransmission *msg);
     void addToBuffer(const mvp_acomms::MvpAcommsTxConstPtr& msg);
+    void addBytesToBuffer(const mvp_acomms::MvpAcommsTxByteArrayConstPtr &msg);
     void receivedData(const goby::acomms::protobuf::ModemTransmission &data_msg);
     void evologicsPositioningData(UsbllongMsg msg);
     void seatracPositioningData(ACOFIX_T msg);

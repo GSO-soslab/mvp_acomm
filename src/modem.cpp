@@ -63,6 +63,9 @@ Modem::Modem()
     modem_tx_ = nh_->subscribe(config_.type + "/tx", 10, &Modem::addToBuffer, this);
     modem_rx_ = nh_->advertise<mvp_acomms::MvpAcommsRx>(config_.type + "/rx", 10);
 
+    modem_tx_bytearray_ = nh_->subscribe(config_.type + "/tx_bytearray", 10, &Modem::addBytesToBuffer, this);
+    modem_rx_bytearray_ = nh_->advertise<std_msgs::ByteMultiArray>(config_.type + "/rx_bytearray", 10);
+    
     loop();
 }
 
@@ -330,6 +333,24 @@ void Modem::addToBuffer(const mvp_acomms::MvpAcommsTxConstPtr& msg)
     }
 }
 
+void Modem::addBytesToBuffer(const mvp_acomms::MvpAcommsTxByteArrayConstPtr& msg)
+{
+    if (dynamic_buffer_config_.find(msg->subbuffer_id) != dynamic_buffer_config_.end())
+    {
+        auto out = msg->msg.data;
+
+        std::string str(msg->msg.data.begin(), msg->msg.data.end());
+
+        buffer_.push({config_.remote_address, msg->subbuffer_id, goby::time::SteadyClock::now(),str });
+
+        printf("Data Added to Buffer: %s\n", goby::util::hex_encode(str).c_str());
+    }
+    else
+    {
+        ROS_INFO("Subbuffer ID: %s has not been added to the configuratiron file goby.yaml\n", msg->subbuffer_id.data());
+    }
+}
+
 /**
  * @brief the slot that is called back from the driver when a new message is received.
  *
@@ -342,6 +363,12 @@ void Modem::receivedData(const goby::acomms::protobuf::ModemTransmission &data_m
     msg.data = data_msg.frame()[0];
 
     modem_rx_.publish(msg);
+
+    mvp_acomms::MvpAcommsRxByteArray byte_msg;
+    std::vector<uint8_t> data(data_msg.frame()[0].begin(), data_msg.frame()[0].end());
+    byte_msg.msg.data = data;
+
+    modem_rx_bytearray_.publish(byte_msg);
 }
 
 void Modem::evologicsPositioningData(UsbllongMsg msg)

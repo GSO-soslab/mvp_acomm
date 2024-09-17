@@ -26,6 +26,8 @@ add_message_files(
   FILES
   MvpAcommsTx.msg
   MvpAcommsRx.msg
+  MvpAcommsTxByteArray.msg
+  MvpAcommsRxByteArray.msg
 )
 
 generate_messages(
