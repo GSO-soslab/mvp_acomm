@@ -301,17 +301,17 @@ void goby::acomms::EvologicsDriver::process_at_receive(const std::string& in)
         UsbllongMsg usbl;
 
         usbl.current_time = std::stof(parse.fields[0]);
-        usbl.meas_time = std::stof(parse.fields[1]);
+        usbl.measurement_time = std::stof(parse.fields[1]);
         usbl.remote_address = std::stoi(parse.fields[2]);
-        usbl.pose.xyz.x = std::stof(parse.fields[3]);
-        usbl.pose.xyz.y = std::stof(parse.fields[4]);
-        usbl.pose.xyz.z = std::stof(parse.fields[5]);
-        usbl.pose.enu.e = std::stof(parse.fields[6]);
-        usbl.pose.enu.n = std::stof(parse.fields[7]);
-        usbl.pose.enu.u = std::stof(parse.fields[8]);
-        usbl.orientation.roll = std::stof(parse.fields[9]);
-        usbl.orientation.pitch = std::stof(parse.fields[10]);
-        usbl.orientation.yaw = std::stof(parse.fields[11]);
+        usbl.xyz.x = std::stof(parse.fields[3]);
+        usbl.xyz.y = std::stof(parse.fields[4]);
+        usbl.xyz.z = std::stof(parse.fields[5]);
+        usbl.enu.e = std::stof(parse.fields[6]);
+        usbl.enu.n = std::stof(parse.fields[7]);
+        usbl.enu.u = std::stof(parse.fields[8]);
+        usbl.rpy.roll = std::stof(parse.fields[9]);
+        usbl.rpy.pitch = std::stof(parse.fields[10]);
+        usbl.rpy.yaw = std::stof(parse.fields[11]);
         usbl.propogation_time = std::stof(parse.fields[12]);
         usbl.rssi = std::stoi(parse.fields[13]);
         usbl.integrity = std::stoi(parse.fields[14]);

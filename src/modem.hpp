@@ -34,6 +34,7 @@
 #include <mvp_acomms/MvpAcommsRxByteArray.h>
 #include <mvp_acomms/MvpAcommsTxByteArray.h>
 #include <geographic_msgs/GeoPoseStamped.h>
+#include <mvp_acomms/EvologicsUsbllong.h>
 
 #include <std_msgs/UInt8MultiArray.h>
 #include <std_msgs/ByteMultiArray.h>
@@ -76,8 +77,7 @@ private:
     ros::Subscriber modem_tx_bytearray_;
     ros::Publisher modem_rx_bytearray_;
 
-    ros::Publisher track_pub_;
-    ros::Subscriber gps_sub_;
+    ros::Publisher evologics_usbllong_pub_;
 
     ros::ServiceClient toll_;
 

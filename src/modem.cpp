@@ -43,8 +43,7 @@ Modem::Modem()
 
     if (config_.type == "usbl")
     {
-        track_pub_ = nh_->advertise<geographic_msgs::GeoPoint>("usbl_track", 10);
-        toll_ = nh_->serviceClient<robot_localization::ToLL>("toLL");
+        evologics_usbllong_pub_ = nh_->advertise<mvp_acomms::EvologicsUsbllong>("evologics/usbllong", 10);
 
         if (config_.driver == "evologics")
         {
@@ -373,28 +372,26 @@ void Modem::receivedData(const goby::acomms::protobuf::ModemTransmission &data_m
 
 void Modem::evologicsPositioningData(UsbllongMsg msg)
 {
-    robot_localization::ToLL toll;
+    mvp_acomms::EvologicsUsbllong usbl_msg;
 
-    toll.request.map_point.x = msg.pose.enu.e;
-    toll.request.map_point.y = msg.pose.enu.n;
-    toll.request.map_point.z = msg.pose.enu.u;
+    usbl_msg.current_time = msg.current_time;
+    usbl_msg.measurement_time = msg.measurement_time;
+    usbl_msg.remote_address = msg.remote_address;
+    usbl_msg.xyz.x = msg.xyz.x;
+    usbl_msg.xyz.y = msg.xyz.y;
+    usbl_msg.xyz.z = msg.xyz.z;
+    usbl_msg.enu.x = msg.enu.e;
+    usbl_msg.enu.y = msg.enu.n;
+    usbl_msg.enu.z = msg.enu.u;
+    usbl_msg.rpy.x = msg.rpy.roll;
+    usbl_msg.rpy.y = msg.rpy.pitch;
+    usbl_msg.rpy.z = msg.rpy.yaw;
+    usbl_msg.propagation_time = msg.propogation_time;
+    usbl_msg.rssi = msg.rssi;
+    usbl_msg.integrity = msg.integrity;
+    usbl_msg.accuracy = msg.accuracy;
 
-    toll_.call(toll);
-
-    // Publish USBL Tracking
-    geographic_msgs::GeoPoint track;
-    geographic_msgs::GeoPoseStamped geo_pose;
-
-    
-    track.latitude = toll.response.ll_point.latitude;
-    track.longitude = toll.response.ll_point.longitude;
-    track.altitude = toll.response.ll_point.altitude;
-
-    track_pub_.publish(track);
-
-    // printf("USBL Measurement\n");
-    printf("E: %f\tN: %f\tU: %f\n", msg.pose.enu.e, msg.pose.enu.n, msg.pose.enu.u);
-    printf("Lat: %f\t Lon: %f\n", toll.response.ll_point.latitude, toll.response.ll_point.longitude);
+    evologics_usbllong_pub_.publish(usbl_msg);
 }
 
 void Modem::seatracPositioningData(ACOFIX_T msg)

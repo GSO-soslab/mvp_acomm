@@ -24,6 +24,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 add_message_files(
   FILES
+  EvologicsUsbllong.msg
   MvpAcommsTx.msg
   MvpAcommsRx.msg
   MvpAcommsTxByteArray.msg
@@ -33,6 +34,7 @@ add_message_files(
 generate_messages(
   DEPENDENCIES
   std_msgs
+  geometry_msgs
 )
 
 find_package(Protobuf REQUIRED)
