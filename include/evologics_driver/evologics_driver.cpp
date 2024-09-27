@@ -254,28 +254,34 @@ void goby::acomms::EvologicsDriver::do_work()
 {
 
     // read any incoming messages from the modem
-    std::string in;
-    while (modem_read(&in))
+    std::string raw_str;
+    while (modem_read(&raw_str))
     {
-        boost::trim(in);
+        boost::trim(raw_str);
 
-        glog.is(DEBUG1) && glog << group(glog_out_group()) << "Received: " << in.c_str() << std::endl;
-
+        glog.is(DEBUG1) && glog << group(glog_out_group()) << "Received: " << raw_str.c_str() << std::endl;
 
         // try to handle the received message, posting appropriate signals
         try
         {
+            std::string split_str = "+++";
+            size_t split_index = raw_str.find(split_str);
 
-            if(in.substr(0,3) == "+++")
+            //if there are no AT messages in the return then there are only messages
+            if(split_index == std::string::npos)
             {
-                // process return from an AT message
-                
-                process_at_receive(in);
+                process_receive(raw_str);
             }
+            //starts with an AT message (could be binary mixed in after???)
+            if(split_index == 0)
+            {
+                process_at_receive(raw_str);
+            }
+            //raw contains an AT message but there is some binary before it
             else
             {
-                // process return from burst data
-                process_receive(in);
+                process_receive(raw_str.substr(0,split_index));
+                process_at_receive(raw_str.substr(split_index));
             }
         }
         catch (std::exception& e)
