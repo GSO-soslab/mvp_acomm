@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot name="ship" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <link name="base_link">
+        <visual>
+            <origin xyz="0.0 0.0 20.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://mvp_acomms/config/mesh/crew_boat.obj" scale="0.1 0.1 0.1"/>
+            </geometry>
+        </visual>
+    </link>
+
+
+    <link name="gps"/>
+    <joint name="gps_joint" type="fixed">
+        <origin xyz="10.00 0.0 25.00" rpy="3.1415926 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="gps"/>
+    </joint>
+
+    <link name="usbl"/>
+    <joint name="usbl_joint" type="fixed">
+        <origin xyz="-40.00 15.0 30.00" rpy="0.0 3.1415926 -1.571"/>
+        <parent link="gps"/>
+        <child link="usbl"/>
+    </joint>
+</robot>

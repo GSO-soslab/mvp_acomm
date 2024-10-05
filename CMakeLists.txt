@@ -90,8 +90,13 @@ add_executable(mvp_acomms_node
   src/mvp_acomms.cpp
 )
 
+add_executable(acomms_localization_node
+  src/acomms_localization.cpp
+)
+
 add_dependencies(modem_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(mvp_acomms_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(acomms_localization_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 target_link_libraries(modem_node
   ${catkin_LIBRARIES}
@@ -105,4 +110,8 @@ target_link_libraries(mvp_acomms_node
   proto
   goby
   dccl
+)
+
+target_link_libraries(acomms_localization_node
+  ${catkin_LIBRARIES}
 )

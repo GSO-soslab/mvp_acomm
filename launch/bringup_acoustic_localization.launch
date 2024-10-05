@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<launch>
+    <arg name="localization_config" default="$(find mvp_acomms)/config/acomms_localization.yaml"/>
+    <arg name="robot_name" default="ship"/>
+    <param name="my_robot_description" textfile="$(find mvp_acomms)/config/urdf/ship.urdf.xacro"/>
+
+    <node ns="$(arg robot_name)" pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+        <param name="prefix" value="$(arg robot_name)"/>
+        <param name="tf_prefix" type="string" value="$(arg robot_name)"/>
+        <remap from="robot_description" to="my_robot_description" />
+    </node>
+
+</launch>
