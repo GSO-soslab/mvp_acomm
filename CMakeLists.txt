@@ -18,8 +18,7 @@ find_package(catkin REQUIRED COMPONENTS
   message_filters
   geometry_msgs
   geographic_msgs
-  robot_localization
-  serial
+  tf2_ros
 )
 
 add_message_files(
@@ -42,6 +41,9 @@ find_package(Protobuf REQUIRED)
 find_package(goby 3.1 REQUIRED)
 
 find_package(dccl REQUIRED)
+
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "/usr/share/cmake/geographiclib/")
+find_package(GeographicLib REQUIRED)
 
 # build the protobuf messages
 file(GLOB ProtoFiles "${CMAKE_CURRENT_SOURCE_DIR}/src/proto/*.proto")
@@ -114,4 +116,5 @@ target_link_libraries(mvp_acomms_node
 
 target_link_libraries(acomms_localization_node
   ${catkin_LIBRARIES}
+  Geographic
 )

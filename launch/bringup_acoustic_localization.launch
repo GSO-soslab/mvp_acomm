@@ -11,4 +11,8 @@
         <remap from="robot_description" to="my_robot_description" />
     </node>
 
+    <node ns="$(arg robot_name)" pkg="mvp_acomms" type="acomms_localization_node" name="acomms_localization" output="screen">   
+        <param name="external_heading_enabled" value="false"/>
+    </node>
+
 </launch>

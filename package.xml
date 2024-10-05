@@ -19,8 +19,7 @@
   <depend>message_filters</depend>
   <depend>geometry_msgs</depend>
   <depend>geographic_msgs</depend>
-  <depend>robot_localization</depend>
-  <depend>serial</depend>
+  <depend>tf2_ros</depend>
   <depend>proto</depend>
   <depend>goby</depend>
   <depend>dccl</depend>

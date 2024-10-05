@@ -24,6 +24,7 @@
 #include "acomms_localization.h"
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
+#include <GeographicLib/Geodesic.hpp>
 
 
 /**
@@ -41,6 +42,7 @@ AcommsLocalization::AcommsLocalization()
     evologics_usbl_sub_ = nh_->subscribe("evologics/usbllong", 10, &AcommsLocalization::usblCallback, this);
 
     usbl_orientation_pub_ = nh_->advertise<geometry_msgs::QuaternionStamped>("evologics/orientation", 10);
+    track_latlong_pub_ = nh_->advertise<geographic_msgs::GeoPointStamped>("evologics/track/latlong", 10);
 
 }
 
@@ -73,27 +75,25 @@ void AcommsLocalization::usblCallback(const mvp_acomms::EvologicsUsbllongConstPt
 {
     std::unique_lock<std::mutex> lock(ship_geopose_mutex_);
 
-
-    // First we will publish the usbl's orientation
+    // First we will publish the usbl's orientation 
     geometry_msgs::QuaternionStamped usbl_orientation;
     tf2::Quaternion quat_tf;
     
-
-    //if external_heading_enabled then use xyz and convert to enu with external aiding.
+    //if external_heading_enabled then fuse heading from ship external heading source with pitch and roll from usbl
     if(external_heading_enabled_)
     {
         //exclude heading from evologics msg
-        quat_tf.setRPY(msg->xyz.x, msg->xyz.y, 0.0);
+        quat_tf.setRPY(msg->rpy.x, msg->rpy.y, 0.0);
 
         tf2::Quaternion ship_quat;
         tf2::fromMsg(ship_geopose_.orientation, ship_quat);
 
-        //fuse heading from ship external heading source with roll and pitch from usbl
         quat_tf = ship_quat * quat_tf;
     }
+    // else we just use roll pitch and yaw from the usbl
     else
     {
-        quat_tf.setRPY(msg->xyz.x, msg->xyz.y, msg->xyz.z);
+        quat_tf.setRPY(msg->rpy.x, msg->rpy.y, msg->rpy.z);
 
     }
 
@@ -108,6 +108,10 @@ void AcommsLocalization::usblCallback(const mvp_acomms::EvologicsUsbllongConstPt
     static tf2_ros::TransformBroadcaster broadcaster;
 
     geometry_msgs::TransformStamped transform_stamped;
+    transform_stamped.header.stamp = ros::Time::now();
+    transform_stamped.header.frame_id = "usbl";
+    transform_stamped.child_frame_id = "modem";
+
     transform_stamped.transform.translation.x = msg->xyz.x;
     transform_stamped.transform.translation.y = msg->xyz.y;
     transform_stamped.transform.translation.z = msg->xyz.z;
@@ -121,6 +125,36 @@ void AcommsLocalization::usblCallback(const mvp_acomms::EvologicsUsbllongConstPt
     transform_stamped.transform.rotation.w = q.w();;
 
     broadcaster.sendTransform(transform_stamped);
+
+    // Finally, transform from modem frame to gps frame and convert to latlong
+    tf2_ros::Buffer tf_buffer;
+    tf2_ros::TransformListener tf_listener(tf_buffer);
+    geometry_msgs::TransformStamped transformStamped;
+
+    try
+    {
+        transformStamped = tf_buffer.lookupTransform("gps", "modem",ros::Time(0)); 
+    
+        const GeographicLib::Geodesic& geod = GeographicLib::Geodesic::WGS84();
+        double lat, lon;
+        // Calculate latitude and longitude of target point
+        geod.Direct(ship_geopose_.position.latitude, ship_geopose_.position.longitude, 0.0, transform_stamped.transform.translation.y, lat, lon); // Move north
+        geod.Direct(lat, lon, 90.0, transform_stamped.transform.translation.x, lat, lon); // Move east
+        
+        geographic_msgs::GeoPointStamped geopoint;
+        geopoint.header.frame_id = "modem";
+        geopoint.header.stamp = ros::Time::now();
+        geopoint.position.latitude = lat;
+        geopoint.position.longitude = lon;
+        geopoint.position.altitude = transform_stamped.transform.translation.z;
+
+        track_latlong_pub_.publish(geopoint);
+    
+    }
+    catch (tf2::TransformException &ex)
+    {
+        ROS_WARN("%s",ex.what());
+    }
 }
 
 int main(int argc, char *argv[])

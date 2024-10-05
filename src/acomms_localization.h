@@ -25,9 +25,11 @@
 
 #include "ros/ros.h"
 #include <tf2_ros/transform_broadcaster.h>
+#include <tf2_ros/transform_listener.h>
 
 
-#include <geographic_msgs/GeoPose.h>
+#include <geographic_msgs/GeoPointStamped.h>
+#include <geographic_msgs/GeoPoseStamped.h>
 #include <mvp_acomms/EvologicsUsbllong.h>
 
 
@@ -53,6 +55,7 @@ private:
     ros::Subscriber evologics_usbl_sub_;
 
     ros::Publisher usbl_orientation_pub_;
+    ros::Publisher track_latlong_pub_;
 
     geographic_msgs::GeoPose ship_geopose_;
 
