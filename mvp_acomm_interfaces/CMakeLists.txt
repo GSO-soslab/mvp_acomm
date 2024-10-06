@@ -13,7 +13,7 @@ find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 
 set (INTERFACES_LIST
-  "msg/EvologicsUsblData.msg"
+  "msg/UsblData.msg"
 )
 
 set (DEPENDENCIES_LIST

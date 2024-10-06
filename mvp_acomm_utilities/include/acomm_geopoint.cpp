@@ -60,7 +60,7 @@ AcommGeoPoint::AcommGeoPoint() : Node("acomm_geopoint_node")
                                                                 std::bind(&AcommGeoPoint::f_geopose_callback, 
                                                                 this, _1));
 
-    evologics_usbl_sub = this->create_subscription<mvp_acomm_interfaces::msg::EvologicsUsblData>("usbl_data", 10,
+    evologics_usbl_sub = this->create_subscription<mvp_acomm_interfaces::msg::UsblData>("usbl_data", 10,
                                                                 std::bind(&AcommGeoPoint::f_usbl_callback,
                                                                 this, _1));
 
@@ -100,7 +100,7 @@ AcommGeoPoint::AcommGeoPoint() : Node("acomm_geopoint_node")
  }
 
 
-void AcommGeoPoint::f_usbl_callback(const mvp_acomm_interfaces::msg::EvologicsUsblData::SharedPtr msg)
+void AcommGeoPoint::f_usbl_callback(const mvp_acomm_interfaces::msg::UsblData::SharedPtr msg)
 {
     m_usbl_frame = msg->header.frame_id;
     m_usbl_geopose.header = msg->header;

@@ -1,26 +1,18 @@
 # MVP Acomms
+This repo contains utilites for acoustic modem data processing for mvp framework.
+- Specific acoustic modem hardware drivers are stored in the `external` folder as submodles.
+- `mvp_acomm_intefaces` is created just for compiling test.
+- all modem customized msgs should go to the hardware driver repo.
 
-<pre>
-MVP Acomms is an abstracted acoustic communication interface that can be configured to output messages to different devices/modems.
+# Nodes in mvp_acomm_utilities
+### Acomm_geopoint_node
+- Subscribed topics
+    - A GeoPoseStamped Topic where the localization or GPS is referenced to
+    - A UsblData Topic where raw USBL data is included
 
+- Publish topics
+    - GeoposeStamped of the USBL
+    - GeoPointStamped of the modem
+    - Publish a ENU frame (and a TF) attached to the reference GeoPoseStamped
+    - Publish a TF between USBL and Modem.
 
-src/modem.cpp:              A node the wraps around Goby dynamic buffer for queuing messages and MAC manager for Time Division Multiple Access (TDMA).
-config/goby.yaml:           The configuration file for the modem node. The user should select the device driver (evologics/seatrac) they would like to use and define their dynamic buffer.
-config/evologics.yaml:      Specific configuration settings for the evologics modem/usbl.
-config/seatrac.yaml:        Specific configuration settings for the seatrac modem/usbl.
-
-src/mvp_acomms.cpp:       A specific node that encodes MVP's messages for acomms status, state, command and control.
-
-Publishers:
-modem/rx                    All data received from the modem driver
-usbl_track                  USBL tracking information
-
-Subscribers:
-modem/tx                    All data the user wants to send
-
-
-
-
-Goby Instalation Instruction: 
-https://github.com/GobySoft/goby/wiki/InstallingGoby
-</pre>
