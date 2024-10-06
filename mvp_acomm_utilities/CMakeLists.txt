@@ -1,120 +1,85 @@
-cmake_minimum_required(VERSION 3.5.1)
-project(mvp_acomms)
+cmake_minimum_required(VERSION 3.8)
+project(mvp_acomm_utilities)
 
-## Compile as C++11, supported in ROS Kinetic and newer
-add_compile_options(-std=c++17)
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
 
-set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules/")
+# find dependencies
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(geographic_msgs REQUIRED)
+find_package(tf2_ros REQUIRED)
+find_package(mvp_acomm_interfaces REQUIRED)
 
-## Find catkin macros and libraries
-## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
-## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  std_msgs
-  std_srvs
-  mvp_msgs
-  nav_msgs
-  message_filters
-  geometry_msgs
-  geographic_msgs
-  tf2_ros
-)
 
-add_message_files(
-  FILES
-  EvologicsUsbllong.msg
-  MvpAcommsTx.msg
-  MvpAcommsRx.msg
-  MvpAcommsTxByteArray.msg
-  MvpAcommsRxByteArray.msg
-)
+find_package(tf2 REQUIRED)
+find_package(tf2_ros REQUIRED)
+find_package(tf2_eigen REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
 
-generate_messages(
-  DEPENDENCIES
-  std_msgs
-  geometry_msgs
-)
-
-find_package(Protobuf REQUIRED)
-
-find_package(goby 3.1 REQUIRED)
-
-find_package(dccl REQUIRED)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "/usr/share/cmake/geographiclib/")
 find_package(GeographicLib REQUIRED)
 
-# build the protobuf messages
-file(GLOB ProtoFiles "${CMAKE_CURRENT_SOURCE_DIR}/src/proto/*.proto")
-PROTOBUF_GENERATE_CPP(ProtoSources ProtoHeaders ${ProtoFiles})
-add_library(proto STATIC ${ProtoSources} ${ProtoHeaders})
-target_link_libraries(proto ${PROTOBUF_LIBRARY})
 
-include_directories( ${CMAKE_BINARY_DIR} )
+set(dependencies
+  rclcpp
+  std_msgs
+  geometry_msgs
+  geographic_msgs
+  tf2_ros
+  tf2
+  tf2_geometry_msgs
+  mvp_acomm_interfaces
+)
+include_directories(include)
+set(library_name ${PROJECT_NAME})
 
-###################################
-## catkin specific configuration ##
-###################################
-## The catkin_package macro generates cmake config files for your package
-## Declare things to be passed to dependent projects
-## INCLUDE_DIRS: uncomment this if your package contains header files
-## LIBRARIES: libraries you create in this project that dependent projects also need
-## CATKIN_DEPENDS: catkin_packages dependent projects also need
-## DEPENDS: system dependencies of this project that dependent projects also need
-
-catkin_package(
-  # INCLUDE_DIRS 
-  # LIBRARIES
-  CATKIN_DEPENDS roscpp std_msgs std_srvs nav_msgs geometry_msgs geographic_msgs mvp_msgs 
-  # DEPENDS
+#Add library
+add_library(${library_name} SHARED 
+  include/acomm_geopoint.cpp
 )
 
-###########
-## Build ##
-###########
+ament_target_dependencies(
+  ${library_name} 
+  ${dependencies}
+  )
 
-include_directories(
-  include/seatrac_driver
-  include/evologics_driver
-  include/AT
-  ${catkin_INCLUDE_DIRS}
+
+#Add exe
+add_executable(acomm_geopoint_node src/acomm_geopoint_node.cpp)
+target_link_libraries(acomm_geopoint_node ${library_name} ${GeographicLib_LIBRARIES})
+ament_target_dependencies(acomm_geopoint_node ${dependencies})
+
+
+# ##install target
+install(TARGETS acomm_geopoint_node ${library_name}
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
 
-add_executable(modem_node
-  src/modem.cpp
-  include/seatrac_driver/seatrac_driver.cpp
-  include/evologics_driver/evologics_driver.cpp
-  include/AT/ATsentence.cpp
+
+install(DIRECTORY include/
+  DESTINATION include/
 )
 
-add_executable(mvp_acomms_node
-  src/mvp_acomms.cpp
+ament_export_include_directories(include)
+ament_export_libraries(${library_name})
+ament_export_dependencies(${dependencies})
+
+##launch files
+install(DIRECTORY
+  launch
+  DESTINATION share/${PROJECT_NAME}/
 )
 
-add_executable(acomms_localization_node
-  src/acomms_localization.cpp
+install(DIRECTORY 
+  config 
+  DESTINATION share/${PROJECT_NAME}
 )
 
-add_dependencies(modem_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(mvp_acomms_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(acomms_localization_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-target_link_libraries(modem_node
-  ${catkin_LIBRARIES}
-  proto
-  goby
-  dccl
-)
-
-target_link_libraries(mvp_acomms_node
-  ${catkin_LIBRARIES}
-  proto
-  goby
-  dccl
-)
-
-target_link_libraries(acomms_localization_node
-  ${catkin_LIBRARIES}
-  Geographic
-)
+ament_package()
