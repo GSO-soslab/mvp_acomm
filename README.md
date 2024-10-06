@@ -13,6 +13,8 @@ This repo contains utilites for acoustic modem data processing for mvp framework
 - Publish topics
     - GeoposeStamped of the USBL
     - GeoPointStamped of the modem
+    
+- Broadcasted TF
     - Publish a ENU frame (and a TF) attached to the reference GeoPoseStamped
     - Publish a TF between USBL and Modem.
 
