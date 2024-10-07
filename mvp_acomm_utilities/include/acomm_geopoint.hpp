@@ -39,7 +39,7 @@
 
 #include "geographic_msgs/msg/geo_point_stamped.hpp"
 #include "geographic_msgs/msg/geo_pose_stamped.hpp"
-#include "mvp_acomm_interfaces/msg/usbl_data.hpp"
+#include "acomms_msgs/msg/usbl_data.hpp"
 
 #include <GeographicLib/Geodesic.hpp>
 #include <GeographicLib/MagneticModel.hpp>
@@ -57,11 +57,11 @@ public:
 private:
 
     void f_geopose_callback(const geographic_msgs::msg::GeoPoseStamped::SharedPtr msg);
-    void f_usbl_callback(const mvp_acomm_interfaces::msg::UsblData::SharedPtr msg);
+    void f_usbl_callback(const acomms_msgs::msg::UsblData::SharedPtr msg);
 
     //  //subscriber
     rclcpp::Subscription<geographic_msgs::msg::GeoPoseStamped>::SharedPtr m_ref_geopose_sub;
-    rclcpp::Subscription<mvp_acomm_interfaces::msg::UsblData>::SharedPtr evologics_usbl_sub;
+    rclcpp::Subscription<acomms_msgs::msg::UsblData>::SharedPtr evologics_usbl_sub;
     
     // //publisher
     rclcpp::Publisher<geographic_msgs::msg::GeoPointStamped>::SharedPtr m_acomm_geopoint_pub;
