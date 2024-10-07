@@ -126,8 +126,8 @@ void AcommGeoPoint::f_usbl_callback(const mvp_acomm_interfaces::msg::UsblData::S
     try 
     {        
         geometry_msgs::msg::TransformStamped tf_refenu2usbl = m_transform_buffer->lookupTransform(
-            m_usbl_frame,
             m_refenu_frame,
+            m_usbl_frame,
             tf2::TimePointZero,
             10ms
             );
@@ -137,6 +137,7 @@ void AcommGeoPoint::f_usbl_callback(const mvp_acomm_interfaces::msg::UsblData::S
         usbl_point.y = tf_refenu2usbl.transform.translation.y;
         usbl_point.z = tf_refenu2usbl.transform.translation.z;
 
+        // printf("usbl_point, x=%lf, and y%lf\r\n", usbl_point.x, usbl_point.y);
         //get orientation for the usbl based on tf
         if(m_use_ref_geopose_orientation){
             tf2::Quaternion q_refenu_to_usbl(tf_refenu2usbl.transform.rotation.x, 
@@ -154,10 +155,6 @@ void AcommGeoPoint::f_usbl_callback(const mvp_acomm_interfaces::msg::UsblData::S
         else{
             //update usbl orientation
             m_usbl_geopose.pose.orientation = msg->orientation;
-            // m_usbl_geopose.pose.orientation.x = msg->orientation.x;
-            // m_usbl_geopose.pose.orientation.y = msg->orientation.y;
-            // m_usbl_geopose.pose.orientation.z = msg->orientation.z;
-            // m_usbl_geopose.pose.orientation.w = msg->orientation.w;
         }
 
         const GeographicLib::Geodesic& geod = GeographicLib::Geodesic::WGS84();
@@ -178,61 +175,63 @@ void AcommGeoPoint::f_usbl_callback(const mvp_acomm_interfaces::msg::UsblData::S
     {
         RCLCPP_WARN(get_logger(), "Can't get the tf from refenu to usbl callback");
     }
-    // ////////////////////////////////
+    ////////////////////////////////
 
-    // // //////////////////////////get acomm geopose////////////////////
-    // //broadcast a tf between USBL and the acomm
-    // //publish a tf between usbl and the acomm //assuming acomm has the same orientation as usbl
-    // geometry_msgs::msg::TransformStamped transform;
-    // transform.header.stamp = this->now(); // Set the current time
-    // transform.header.frame_id = m_acomm_frame; // The original frame ID
-    // transform.child_frame_id = m_usbl_frame; // The new frame ID
+    // //////////////////////////get acomm geopose////////////////////
+    //broadcast a tf between USBL and the acomm
+    //publish a tf between usbl and the acomm //assuming acomm has the same orientation as usbl
+    geometry_msgs::msg::TransformStamped transform;
+    transform.header.stamp = this->now(); // Set the current time
+    transform.header.frame_id = m_usbl_frame; // usbl
+    transform.child_frame_id = m_acomm_frame; // acomm
 
-    // transform.transform.translation.x = msg->xyz.x;
-    // transform.transform.translation.y = msg->xyz.y;
-    // transform.transform.translation.z = msg->xyz.z;
-    // transform.transform.rotation.x = 0.0;
-    // transform.transform.rotation.y = 0.0;
-    // transform.transform.rotation.z = 0.0;
-    // transform.transform.rotation.w = 1.0;
-    // static_broadcaster_->sendTransform(transform);
+    transform.transform.translation.x = msg->xyz.x;
+    transform.transform.translation.y = msg->xyz.y;
+    transform.transform.translation.z = msg->xyz.z;
+    transform.transform.rotation.x = 0.0;
+    transform.transform.rotation.y = 0.0;
+    transform.transform.rotation.z = 0.0;
+    transform.transform.rotation.w = 1.0;
+    static_broadcaster_->sendTransform(transform);
 
-    // ///Compute the geo pose of the acomm.
-    // try
-    // {
-    //     geometry_msgs::msg::TransformStamped tf_refenu2acomm = m_transform_buffer->lookupTransform(
-    //         m_acomm_frame,
-    //         m_refenu_frame,
-    //         tf2::TimePointZero,
-    //         10ms
-    //         );
+    ///Compute the geo pose of the acomm.
+    try
+    {
+        geometry_msgs::msg::TransformStamped tf_refenu2acomm = m_transform_buffer->lookupTransform(
+            m_refenu_frame,
+            m_acomm_frame,
+            tf2::TimePointZero,
+            10ms
+            );
 
-    //     geometry_msgs::msg::Point acomm_point;
-    //     acomm_point.x = tf_refenu2acomm.transform.translation.x;
-    //     acomm_point.y = tf_refenu2acomm.transform.translation.y;
-    //     acomm_point.z = tf_refenu2acomm.transform.translation.z;
+        geometry_msgs::msg::Point acomm_point;
+        acomm_point.x = tf_refenu2acomm.transform.translation.x;
+        acomm_point.y = tf_refenu2acomm.transform.translation.y;
+        acomm_point.z = tf_refenu2acomm.transform.translation.z;
+        
+        // printf("acomm, x=%lf, and y%lf\r\n", acomm_point.x, acomm_point.y);
 
-    //     //calculate lat lon
-    //     const GeographicLib::Geodesic& geod = GeographicLib::Geodesic::WGS84();
+        //calculate lat lon
+        const GeographicLib::Geodesic& geod = GeographicLib::Geodesic::WGS84();
 
-    //     double lat, lon;
-    //     // Calculate latitude and longitude of the usbl based on latitude and longitude of the reference enu
-    //     geod.Direct(m_refenu_pose.pose.position.latitude, m_refenu_pose.pose.position.longitude, 
-    //                 0.0, acomm_point.y, 
-    //                 lat, lon); // Move north
-    //     geod.Direct(lat, lon, 90.0, acomm_point.x, 
-    //                 m_acomm_geopoint.position.latitude, m_acomm_geopoint.position.longitude); // Move east
+        double lat, lon;
+        // Calculate latitude and longitude of the usbl based on latitude and longitude of the reference enu
+        geod.Direct(m_refenu_pose.pose.position.latitude, m_refenu_pose.pose.position.longitude, 
+                    0.0, acomm_point.y, 
+                    lat, lon); // Move north
+        geod.Direct(lat, lon, 90.0, acomm_point.x, 
+                    m_acomm_geopoint.position.latitude, m_acomm_geopoint.position.longitude); // Move east
 
-    //     m_acomm_geopoint.header = msg->header;
-    //     m_acomm_geopoint.header.frame_id = m_acomm_frame;
-    //     m_acomm_geopoint.position.altitude = acomm_point.z;
-    //     //publish m_usbl_geopose
-    //     m_acomm_geopoint_pub->publish(m_acomm_geopoint);
-    // }
-    // catch(tf2::TransformException &e)
-    // {
-    //     RCLCPP_WARN(get_logger(), "Can't get the tf from in acomm to ref_enu callback");
-    // }
+        m_acomm_geopoint.header = msg->header;
+        m_acomm_geopoint.header.frame_id = m_acomm_frame;
+        m_acomm_geopoint.position.altitude = acomm_point.z;
+        //publish m_usbl_geopose
+        m_acomm_geopoint_pub->publish(m_acomm_geopoint);
+    }
+    catch(tf2::TransformException &e)
+    {
+        RCLCPP_WARN(get_logger(), "Can't get the tf from in acomm to ref_enu callback");
+    }
 
 
 }
