@@ -172,8 +172,8 @@ void goby::acomms::EvologicsDriver::set_local_address(int address)
 void goby::acomms::EvologicsDriver::set_remote_address(int address)
 {
     AtType msg;
+    
     msg.command = "!AR" + std::to_string(address);
-
     append_to_write_queue(msg);
 }
 
@@ -237,7 +237,6 @@ void goby::acomms::EvologicsDriver::set_channel_protocol_id(int id)
 {
     AtType msg;
     msg.command = "!ZS" + std::to_string(id);
-
     append_to_write_queue(msg);
 }
 
@@ -435,7 +434,15 @@ void goby::acomms::EvologicsDriver::evologics_write(const std::string &s)
                             
     signal_raw_outgoing(raw_msg);
 
-    modem_write(raw_msg.raw() + "\r\n");
+    if(driver_cfg_.connection_type() == protobuf::DriverConfig::CONNECTION_SERIAL)
+    {
+        modem_write(raw_msg.raw()+"\r");
+    }
+    else if(driver_cfg_.connection_type() == protobuf::DriverConfig::CONNECTION_TCP_AS_CLIENT)
+    {
+        modem_write(raw_msg.raw()+"\n");
+    }
+
 }
 
 void goby::acomms::EvologicsDriver::signal_receive_and_clear(protobuf::ModemTransmission* message)
