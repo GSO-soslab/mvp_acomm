@@ -26,6 +26,7 @@
 #include "geometry_msgs/msg/transform_stamped.hpp"
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
 #include <GeographicLib/Geodesic.hpp>
+#include <Eigen/Dense>
 
 using std::placeholders::_1;
 using std::placeholders::_2;
@@ -54,9 +55,9 @@ AcommGeoPoint::AcommGeoPoint() : Node("acomm_geopoint_node")
     this->declare_parameter("acomm_frame_id", "acomm");
     this->get_parameter("acomm_frame_id", m_acomm_frame);
 
-    m_ref_frame = m_tf_prefix + "/" + m_ref_frame;
-    m_refenu_frame = m_tf_prefix + "/" + m_refenu_frame;
-    m_acomm_frame = m_tf_prefix + "/" + m_acomm_frame;
+    // m_ref_frame = m_tf_prefix + "/" + m_ref_frame;
+    // m_refenu_frame = m_tf_prefix + "/" + m_refenu_frame;
+    // m_acomm_frame = m_tf_prefix + "/" + m_acomm_frame;
 
     // //subscriber
     m_ref_geopose_sub = this->create_subscription<geographic_msgs::msg::GeoPoseStamped>("reference_geopose", 10, 
@@ -80,9 +81,11 @@ AcommGeoPoint::AcommGeoPoint() : Node("acomm_geopoint_node")
 
  void AcommGeoPoint::f_geopose_callback(const geographic_msgs::msg::GeoPoseStamped::SharedPtr msg)
  {
+    // std::unique_lock<std::mutex> lock(data_lock_);
     // printf("got geopose\r\n");
     // //get reference geopose
     m_refenu_pose = *msg;
+
     m_refenu_pose.header.frame_id = m_refenu_frame;
     m_refenu_pose.pose.orientation.x = 0.0;
     m_refenu_pose.pose.orientation.y = 0.0;
@@ -103,11 +106,57 @@ AcommGeoPoint::AcommGeoPoint() : Node("acomm_geopoint_node")
     transform.transform.translation.y = 0;
     transform.transform.translation.z = 0;
 
+    // tf2::Quaternion q(
+    //     msg->pose.orientation.x,
+    //     msg->pose.orientation.y,
+    //     msg->pose.orientation.z,
+    //     msg->pose.orientation.w);
+    
+    // tf2::Matrix3x3 m(q);
+    // double roll, pitch, yaw;
+    // m.getRPY(roll, pitch, yaw);
+
+    // printf("Roll %.3f\tPitch %.3f\tYaw %.3f\n", roll*180/M_PI, pitch*180/M_PI, yaw*180/M_PI);
+
+    float qx = msg->pose.orientation.x;
+    float qy = msg->pose.orientation.y;
+    float qz = msg->pose.orientation.z;
+    float qw = msg->pose.orientation.w;
+
+    Eigen::Vector4d a;
+    a << 0.707, 0.707, 0, 0;
+
+    Eigen::Matrix4d b;
+    b << qw, -qz,  qy, -qx,
+         qz,  qw, -qx, -qy,
+        -qy,  qx,  qw, -qz,
+         qx,  qy,  qz,  qw;
+
+    Eigen::Matrix4d c;
+    c << 0, 0, -0.707, 0.707,
+         0, 0, 0.707, 0.707,
+         0.707, -0.707, 0, 0,
+         -0.707, -0.707, 0, 0;
+
+    Eigen::Vector4d d;
+    d = c * a;
+
+    Eigen::Matrix4d e;
+    e = c * b;
+
+    Eigen::Vector4d f;
+    f = e*d;
+
     geometry_msgs::msg::Quaternion inverse_orientation;
-    inverse_orientation.x = -msg->pose.orientation.x;
-    inverse_orientation.y = -msg->pose.orientation.y;
-    inverse_orientation.z = -msg->pose.orientation.z;
-    inverse_orientation.w = msg->pose.orientation.w;
+    // inverse_orientation.x = -msg->pose.orientation.x;
+    // inverse_orientation.y = -msg->pose.orientation.y;
+    // inverse_orientation.z = -msg->pose.orientation.z;
+    // inverse_orientation.w = msg->pose.orientation.w;
+
+    inverse_orientation.x = -f(0);
+    inverse_orientation.y = -f(1);
+    inverse_orientation.z = -f(2);
+    inverse_orientation.w = f(3);
 
     // Assign the inverse orientation to the transform
     transform.transform.rotation = inverse_orientation;
@@ -119,6 +168,17 @@ AcommGeoPoint::AcommGeoPoint() : Node("acomm_geopoint_node")
 
 void AcommGeoPoint::f_usbl_callback(const acomms_msgs::msg::UsblData::SharedPtr msg)
 {
+    // std::unique_lock<std::mutex> lock(data_lock_);
+    // tf2::Quaternion q(
+    // msg->orientation.x,
+    // msg->orientation.y,
+    // msg->orientation.z,
+    // msg->orientation.w);
+
+    // tf2::Matrix3x3 m(q);
+    // double yaw;
+    // m.getRPY(usbl_roll_, usbl_pitch_, yaw);
+    
     m_usbl_frame = msg->header.frame_id;
     m_usbl_geopose.header = msg->header;
     ////////////////////////////////get usbl geopose////////////////////

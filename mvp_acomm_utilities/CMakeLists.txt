@@ -24,6 +24,11 @@ find_package(tf2_geometry_msgs REQUIRED)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "/usr/share/cmake/geographiclib/")
 find_package(GeographicLib REQUIRED)
 
+SET( EIGEN3_INCLUDE_DIR "$ENV{EIGEN3_INCLUDE_DIR}" )
+SET( CMAKE_MODULE_PATH "$ENV{EIGEN3_DIR}" )
+
+find_package( Eigen3 3.3 REQUIRED )
+
 
 set(dependencies
   rclcpp
@@ -78,7 +83,7 @@ install(DIRECTORY
 )
 
 install(DIRECTORY 
-  config 
+  config
   DESTINATION share/${PROJECT_NAME}
 )
 

@@ -70,6 +70,7 @@ private:
     geographic_msgs::msg::GeoPoseStamped m_refenu_pose;
     geographic_msgs::msg::GeoPoseStamped m_usbl_geopose;
     geographic_msgs::msg::GeoPointStamped m_acomm_geopoint;
+
     // std::mutex ship_geopose_mutex_;
 
     std::string m_tf_prefix;
@@ -77,6 +78,11 @@ private:
     std::string m_ref_frame;
     std::string m_refenu_frame;
     std::string m_acomm_frame;
+
+    double usbl_roll_ = 0.0;
+    double usbl_pitch_ = 0.0;
+
+    std::mutex data_lock_;
     
 
 
