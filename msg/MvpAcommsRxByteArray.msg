@@ -1,2 +1,0 @@
-Header header
-std_msgs/UInt8MultiArray msg
