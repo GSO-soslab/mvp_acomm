@@ -29,7 +29,6 @@
 #include <ros/ros.h>
 #include <string>
 
-
 #include <tf2_ros/buffer.h>
 #include <tf2_ros/transform_listener.h>
 #include <tf2_ros/static_transform_broadcaster.h>
@@ -38,6 +37,7 @@
 
 #include <geometry_msgs/TransformStamped.h>
 #include <geographic_msgs/GeoPoseStamped.h>
+#include <geometry_msgs/PointStamped.h>
 
 #include <acomms_msgs/UsblData.h>
 
@@ -45,9 +45,6 @@
 #include <GeographicLib/MagneticModel.hpp>
 
 #include <robot_localization/ToLL.h>
-
-// #include <mutex>
-
 
 class AcommGeoPoint
 {
@@ -69,6 +66,7 @@ private:
     
     // //publisher
     ros::Publisher m_modem_geopose_pub;
+    ros::Publisher m_modem_point_pub;
 
     geometry_msgs::TransformStamped transformStamped;
     tf2_ros::StaticTransformBroadcaster br;
@@ -77,15 +75,12 @@ private:
 
     std::shared_ptr<tf2_ros::TransformListener> m_transform_listener;
 
-    bool m_use_ref_geopose_orientation;
     std::string m_tf_prefix;
     std::string m_usbl_frame;
     std::string m_modem_frame;
     std::string m_world_frame;
 
     geographic_msgs::GeoPoseStamped m_odom_geopose;
-
-    ros::ServiceClient toll_;
 };
 
 #endif

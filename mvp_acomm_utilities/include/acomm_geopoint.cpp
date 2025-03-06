@@ -39,7 +39,6 @@ AcommGeoPoint::AcommGeoPoint()
     nh_.reset(new ros::NodeHandle(""));
     pnh_.reset(new ros::NodeHandle("~"));
 
-    pnh_->param<bool>("use_external_orientation", m_use_ref_geopose_orientation, false);
     pnh_->param<std::string>("tf_prefix", m_tf_prefix, "wamv_rise");
     pnh_->param<std::string>("usbl_frame_id", m_usbl_frame, "usbl");
     pnh_->param<std::string>("modem_frame_id", m_modem_frame, "modem");
@@ -55,6 +54,7 @@ AcommGeoPoint::AcommGeoPoint()
 
     // //publisher
     m_modem_geopose_pub = nh_->advertise<geographic_msgs::GeoPoseStamped>("usbl/modem_geopose", 10);
+    m_modem_point_pub = nh_->advertise<geometry_msgs::PointStamped>("usbl/modem_point", 10);
 
     //tf stuff
     m_transform_listener.reset(new
@@ -95,6 +95,17 @@ void AcommGeoPoint::f_usbl_callback(const acomms_msgs::UsblDataConstPtr msg)
             m_modem_frame,
             ros::Time(0)
             );
+
+        //publish the point
+        geometry_msgs::PointStamped point_msg;
+        point_msg.header.frame_id = m_world_frame;
+        point_msg.header.stamp = ros::Time::now();
+        point_msg.point.x = tf_refenu2acomm.transform.translation.x;
+        point_msg.point.y = tf_refenu2acomm.transform.translation.y;
+        point_msg.point.z = tf_refenu2acomm.transform.translation.z;
+
+        m_modem_point_pub.publish(point_msg);
+
 
         //convert relative ENU from world frame to lat long using toLL service (via datum)
         robot_localization::ToLL toll;
