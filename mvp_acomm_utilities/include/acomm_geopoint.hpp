@@ -37,6 +37,8 @@
 
 #include <geometry_msgs/TransformStamped.h>
 #include <geographic_msgs/GeoPoseStamped.h>
+#include <sensor_msgs/NavSatFix.h>
+#include <std_msgs/Float64.h>
 #include <geometry_msgs/PointStamped.h>
 
 #include <acomms_msgs/UsblData.h>
@@ -67,6 +69,7 @@ private:
     // //publisher
     ros::Publisher m_modem_geopose_pub;
     ros::Publisher m_modem_point_pub;
+    ros::Publisher m_modem_navsatfix_pub;
 
     geometry_msgs::TransformStamped transformStamped;
     tf2_ros::StaticTransformBroadcaster br;

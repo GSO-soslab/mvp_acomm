@@ -55,6 +55,7 @@ AcommGeoPoint::AcommGeoPoint()
     // //publisher
     m_modem_geopose_pub = nh_->advertise<geographic_msgs::GeoPoseStamped>("usbl/modem_geopose", 10);
     m_modem_point_pub = nh_->advertise<geometry_msgs::PointStamped>("usbl/modem_point", 10);
+    m_modem_navsatfix_pub = nh_->advertise<sensor_msgs::NavSatFix>("usbl/modem_navsatfix", 10);
 
     //tf stuff
     m_transform_listener.reset(new
@@ -93,7 +94,8 @@ void AcommGeoPoint::f_usbl_callback(const acomms_msgs::UsblDataConstPtr msg)
         geometry_msgs::TransformStamped tf_refenu2acomm = m_transform_buffer.lookupTransform(
             m_world_frame,
             m_modem_frame,
-            ros::Time(0)
+            ros::Time(0),
+            ros::Duration(0.1)
             );
 
         //publish the point
@@ -123,6 +125,20 @@ void AcommGeoPoint::f_usbl_callback(const acomms_msgs::UsblDataConstPtr msg)
         geopose_msg.pose.position.altitude = toll.response.ll_point.altitude;
 
         m_modem_geopose_pub.publish(geopose_msg);
+
+        sensor_msgs::NavSatFix navsatfix_msg;
+        navsatfix_msg.header.frame_id = m_world_frame;
+        navsatfix_msg.header.stamp = ros::Time::now();
+        navsatfix_msg.latitude = toll.response.ll_point.latitude;
+        navsatfix_msg.longitude = toll.response.ll_point.longitude;
+        navsatfix_msg.altitude = toll.response.ll_point.altitude;
+        navsatfix_msg.position_covariance_type = sensor_msgs::NavSatFix::COVARIANCE_TYPE_KNOWN;
+        navsatfix_msg.position_covariance[0] = msg->accuracy;
+        navsatfix_msg.position_covariance[4] = msg->accuracy;
+        navsatfix_msg.position_covariance[8] = msg->accuracy;
+            
+        m_modem_navsatfix_pub.publish(navsatfix_msg);
+
     }
     catch(tf2::TransformException &e)
     {
