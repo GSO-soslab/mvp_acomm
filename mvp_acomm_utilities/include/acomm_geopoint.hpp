@@ -36,7 +36,6 @@
 #include "geometry_msgs/msg/transform_stamped.hpp"
 #include "tf2_ros/static_transform_broadcaster.h"
 
-
 #include "geographic_msgs/msg/geo_point_stamped.hpp"
 #include "geographic_msgs/msg/geo_pose_stamped.hpp"
 #include "acomms_msgs/msg/usbl_data.hpp"
