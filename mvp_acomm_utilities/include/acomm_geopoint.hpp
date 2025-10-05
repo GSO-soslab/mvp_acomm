@@ -40,6 +40,9 @@
 #include "geographic_msgs/msg/geo_pose_stamped.hpp"
 #include "acomms_msgs/msg/usbl_data.hpp"
 
+#include "robot_localization/srv/to_ll.hpp"
+#include "geometry_msgs/msg/point_stamped.hpp"
+
 #include <GeographicLib/Geodesic.hpp>
 #include <GeographicLib/MagneticModel.hpp>
 
@@ -57,6 +60,10 @@ private:
 
     void f_geopose_callback(const geographic_msgs::msg::GeoPoseStamped::SharedPtr msg);
     void f_usbl_callback(const acomms_msgs::msg::UsblData::SharedPtr msg);
+    void f_usbl_callback2(const acomms_msgs::msg::UsblData::SharedPtr msg);
+
+    void f_call_toLL(const geometry_msgs::msg::PointStamped &point_stamped);
+
 
     //  //subscriber
     rclcpp::Subscription<geographic_msgs::msg::GeoPoseStamped>::SharedPtr m_ref_geopose_sub;
@@ -65,6 +72,8 @@ private:
     // //publisher
     rclcpp::Publisher<geographic_msgs::msg::GeoPointStamped>::SharedPtr m_acomm_geopoint_pub;
     rclcpp::Publisher<geographic_msgs::msg::GeoPoseStamped>::SharedPtr m_usbl_geopose_pub;
+
+    rclcpp::Client<robot_localization::srv::ToLL>::SharedPtr toLL_client_;
 
     geographic_msgs::msg::GeoPoseStamped m_refenu_pose;
     geographic_msgs::msg::GeoPoseStamped m_usbl_geopose;
