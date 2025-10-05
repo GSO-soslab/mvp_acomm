@@ -62,9 +62,6 @@ private:
     void f_usbl_callback(const acomms_msgs::msg::UsblData::SharedPtr msg);
     void f_usbl_callback2(const acomms_msgs::msg::UsblData::SharedPtr msg);
 
-    void f_call_toLL(const geometry_msgs::msg::PointStamped &point_stamped);
-
-
     //  //subscriber
     rclcpp::Subscription<geographic_msgs::msg::GeoPoseStamped>::SharedPtr m_ref_geopose_sub;
     rclcpp::Subscription<acomms_msgs::msg::UsblData>::SharedPtr evologics_usbl_sub;
