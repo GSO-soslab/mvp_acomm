@@ -23,70 +23,51 @@
 #ifndef ACOMM_GEOPOINT_HPP_
 #define ACOMM_GEOPOINT_HPP_
 
-#include <chrono>
-#include <functional>
-
-#include <rclcpp/rclcpp.hpp>
+#include <memory>
 #include <string>
 
-
-#include "tf2_ros/buffer.h"
-#include "tf2_ros/transform_listener.h"
+#include "rclcpp/rclcpp.hpp"
 
 #include "geometry_msgs/msg/transform_stamped.hpp"
-#include "tf2_ros/static_transform_broadcaster.h"
-
+#include "geometry_msgs/msg/point_stamped.hpp"
 #include "geographic_msgs/msg/geo_point_stamped.hpp"
-#include "geographic_msgs/msg/geo_pose_stamped.hpp"
+
+#include "tf2_ros/transform_listener.h"
+#include "tf2_ros/buffer.h"
+#include "tf2_ros/transform_broadcaster.h"
+
 #include "acomms_msgs/msg/usbl_data.hpp"
-
-#include <GeographicLib/Geodesic.hpp>
-#include <GeographicLib/MagneticModel.hpp>
-
-// #include <mutex>
-
+#include "robot_localization/srv/to_ll.hpp"
 
 class AcommGeoPoint : public rclcpp::Node
 {
-
 public:
-    AcommGeoPoint();
+  AcommGeoPoint();
 
-    
 private:
+  // Callbacks
+  void f_usbl_callback(const acomms_msgs::msg::UsblData::SharedPtr msg);
 
-    void f_geopose_callback(const geographic_msgs::msg::GeoPoseStamped::SharedPtr msg);
-    void f_usbl_callback(const acomms_msgs::msg::UsblData::SharedPtr msg);
+  // Params / frames
+  std::string m_tf_prefix;
+  std::string m_usbl_frame;
+  std::string m_modem_frame;
+  std::string m_world_frame;
 
-    //  //subscriber
-    rclcpp::Subscription<geographic_msgs::msg::GeoPoseStamped>::SharedPtr m_ref_geopose_sub;
-    rclcpp::Subscription<acomms_msgs::msg::UsblData>::SharedPtr evologics_usbl_sub;
-    
-    // //publisher
-    rclcpp::Publisher<geographic_msgs::msg::GeoPointStamped>::SharedPtr m_acomm_geopoint_pub;
-    rclcpp::Publisher<geographic_msgs::msg::GeoPoseStamped>::SharedPtr m_usbl_geopose_pub;
+  // Pub/Sub
+  rclcpp::Subscription<acomms_msgs::msg::UsblData>::SharedPtr m_usbl_fix_sub;
 
-    geographic_msgs::msg::GeoPoseStamped m_refenu_pose;
-    geographic_msgs::msg::GeoPoseStamped m_usbl_geopose;
-    geographic_msgs::msg::GeoPointStamped m_acomm_geopoint;
-    // std::mutex ship_geopose_mutex_;
+  rclcpp::Publisher<geographic_msgs::msg::GeoPointStamped>::SharedPtr m_modem_geopoint_pub;
+  rclcpp::Publisher<geometry_msgs::msg::PointStamped>::SharedPtr m_modem_point_pub;
 
-    std::string m_tf_prefix;
-    std::string m_usbl_frame;
-    std::string m_ref_frame;
-    std::string m_refenu_frame;
-    std::string m_acomm_frame;
-    
+  // TF
+  tf2_ros::Buffer m_transform_buffer;
+  std::unique_ptr<tf2_ros::TransformBroadcaster> m_tf_broadcaster;
 
+  // Services
+  rclcpp::Client<robot_localization::srv::ToLL>::SharedPtr m_to_ll_client;
 
-    bool m_use_ref_geopose_orientation;
-
-    //tf stuff
-    std::unique_ptr<tf2_ros::StaticTransformBroadcaster> static_broadcaster_;
-    // geometry_msgs::msg::TransformStamped transformStamped;
-
-    std::unique_ptr<tf2_ros::Buffer> m_transform_buffer;
-    std::unique_ptr<tf2_ros::TransformListener> m_transform_listener;
 };
 
-#endif
+
+#endif  // ACOMM_GEOPOINT_HPP_
