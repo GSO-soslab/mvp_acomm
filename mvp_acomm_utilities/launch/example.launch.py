@@ -10,7 +10,7 @@ import launch.actions
 from launch.actions import DeclareLaunchArgument
 
 def generate_launch_description():
-    robot_name = 'test_robot'
+    robot_name = 'wamv'
 
     return LaunchDescription([
         Node(
@@ -23,19 +23,20 @@ def generate_launch_description():
             parameters=[
                 {'tf_prefix': robot_name},
                 {'use_reference_geopose_orientation': True},
-                {'geopose_frame_id': 'ship_link'},
+                {'usbl_frame_id': 'usbl'},
+                {'enu_frame_id': 'base_link'}
                 ],
             remappings=[
-                    ('reference_geopose', 'ship/geopose'),
+                    ('reference_geopose', robot_name + '/geopose'),
                 ],
            ),
 
-           #USBL to ship TF setup
-           Node(
-            package='tf2_ros',
-            executable='static_transform_publisher',
-            name='ship2usbl',
-            arguments = ["2.0", "0.0", "0.0", "0.0", "0.0", "3.1415926", robot_name+'/ship_link', robot_name+'/usbl']    
-            #              x, y,z,yaw,pitch,roll
-        ),
+        #    #USBL to ship TF setup
+        #    Node(
+        #     package='tf2_ros',
+        #     executable='static_transform_publisher',
+        #     name='ship2usbl',
+        #     arguments = ["2.0", "0.0", "0.0", "0.0", "0.0", "3.1415926", robot_name+'/ship_link', robot_name+'/usbl']    
+        #     #              x, y,z,yaw,pitch,roll
+        # ),
 ])

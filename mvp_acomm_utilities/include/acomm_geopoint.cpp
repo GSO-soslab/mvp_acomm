@@ -45,13 +45,13 @@ AcommGeoPoint::AcommGeoPoint() : Node("acomm_geopoint_node")
     this->declare_parameter("tf_prefix", "");
     this->get_parameter("tf_prefix", m_tf_prefix);
 
-    this->declare_parameter("geopose_frame_id","");
-    this->get_parameter("geopose_frame_id", m_ref_frame);
+    this->declare_parameter("usbl_frame_id","");
+    this->get_parameter("usbl_frame_id", m_ref_frame);
 
-    this->declare_parameter("reference_enu_frame_id", "reference");
-    this->get_parameter("reference_enu_frame_id", m_refenu_frame);
+    this->declare_parameter("enu_frame_id", "reference");
+    this->get_parameter("enu_frame_id", m_refenu_frame);
 
-    this->declare_parameter("acomm_frame_id", "acomm");
+    this->declare_parameter("acomm_frame_id", "target/modem");
     this->get_parameter("acomm_frame_id", m_acomm_frame);
 
     m_ref_frame = m_tf_prefix + "/" + m_ref_frame;
@@ -209,7 +209,7 @@ void AcommGeoPoint::f_usbl_callback(const acomms_msgs::msg::UsblData::SharedPtr 
         acomm_point.y = tf_refenu2acomm.transform.translation.y;
         acomm_point.z = tf_refenu2acomm.transform.translation.z;
         
-        // printf("acomm, x=%lf, and y%lf\r\n", acomm_point.x, acomm_point.y);
+        printf("acomm, x=%lf, and y%lf\r\n", acomm_point.x, acomm_point.y);
 
         //calculate lat lon
         const GeographicLib::Geodesic& geod = GeographicLib::Geodesic::WGS84();
