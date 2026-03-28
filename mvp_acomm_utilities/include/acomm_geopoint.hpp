@@ -32,6 +32,8 @@
 #include "geometry_msgs/msg/point_stamped.hpp"
 #include "geographic_msgs/msg/geo_point_stamped.hpp"
 
+#include "sensor_msgs/msg/nav_sat_fix.hpp"
+
 #include "tf2_ros/transform_listener.h"
 #include "tf2_ros/buffer.h"
 #include "tf2_ros/transform_broadcaster.h"
@@ -59,6 +61,8 @@ private:
 
   rclcpp::Publisher<geographic_msgs::msg::GeoPointStamped>::SharedPtr m_modem_geopoint_pub;
   rclcpp::Publisher<geometry_msgs::msg::PointStamped>::SharedPtr m_modem_point_pub;
+  rclcpp::Publisher<sensor_msgs::msg::NavSatFix>::SharedPtr m_modem_navsatfix_pub;
+
 
   // TF
   tf2_ros::Buffer m_transform_buffer;

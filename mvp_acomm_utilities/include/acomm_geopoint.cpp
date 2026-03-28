@@ -50,6 +50,8 @@ AcommGeoPoint::AcommGeoPoint()
   // ROS Publishers
   m_modem_point_pub = this->create_publisher<geometry_msgs::msg::PointStamped>("usbl/modem_point", 10);
   m_modem_geopoint_pub = this->create_publisher<geographic_msgs::msg::GeoPointStamped>("usbl/modem_geopoint", 10);
+  m_modem_navsatfix_pub = this->create_publisher<sensor_msgs::msg::NavSatFix>("usbl/modem_navsatfix", 10);
+
 
   // TF
   m_tf_broadcaster = std::make_unique<tf2_ros::TransformBroadcaster>(this);
@@ -124,6 +126,16 @@ void AcommGeoPoint::f_usbl_callback(const acomms_msgs::msg::UsblData::SharedPtr 
     geopoint_msg.position.longitude = resp->ll_point.longitude;
     geopoint_msg.position.altitude  = resp->ll_point.altitude;
     m_modem_geopoint_pub->publish(geopoint_msg);
+
+    //publish NavSatFIx
+    sensor_msgs::msg::NavSatFix navsat_msg;
+    navsat_msg.header = geopoint_msg.header;
+    navsat_msg.latitude  = resp->ll_point.latitude;
+    navsat_msg.longitude = resp->ll_point.longitude;
+    navsat_msg.altitude  = resp->ll_point.altitude;
+    m_modem_navsatfix_pub->publish(navsat_msg);
+
+
   }
   catch (const tf2::TransformException & e)
   {
